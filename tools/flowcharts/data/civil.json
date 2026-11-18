@@ -1,0 +1,5389 @@
+[
+  {
+    "id": "CP-01",
+    "title": "How does a civil action reach a binding judgment?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Filing and requested relief",
+        "detail": "File the complaint to commence a federal action. Identify who claims what relief from whom, then distinguish each claim and party when checking the court’s authority.",
+        "sources": [
+          "cp-framework",
+          "cp-frcp-4"
+        ],
+        "edges": [
+          {
+            "label": "Check the forum",
+            "to": "2"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Power to hear the case",
+        "detail": "Article III and a jurisdictional statute must authorize the federal claim. Capron shows the plaintiff could obtain reversal for an inadequate jurisdictional record even after choosing the federal forum.",
+        "sources": [
+          "cp-article-iii",
+          "cp-capron"
+        ],
+        "edges": [
+          {
+            "label": "Authority established",
+            "to": "3"
+          },
+          {
+            "label": "Subject-matter power missing",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Authority over defendant and notice",
+        "detail": "Identify a basis for personal jurisdiction, valid service and constitutionally sufficient notice. Venue is an additional statutory inquiry. Resolve timely threshold objections before relying on a merits judgment.",
+        "sources": [
+          "cp-personal-jurisdiction",
+          "cp-service",
+          "cp-venue"
+        ],
+        "edges": [
+          {
+            "label": "Can proceed in this forum",
+            "to": "4"
+          },
+          {
+            "label": "Threshold defect",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Defendant’s response",
+        "detail": "Use an answer or authorized motion. An answer frames factual disputes and defenses. If a defendant fails to defend, entry of default and default judgment are separate steps, and a judgment still requires jurisdiction.",
+        "sources": [
+          "cp-frcp-12",
+          "cp-frcp-8",
+          "cp-collateral"
+        ],
+        "edges": [
+          {
+            "label": "Pleadings frame the dispute",
+            "to": "5"
+          },
+          {
+            "label": "Default judgment entered with jurisdiction",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Claims, parties and proof",
+        "detail": "Use the joinder rules for additional claims or parties. If allegations suffice, develop the record. Rule 56 may resolve some or all issues if no genuine dispute of material fact requires trial.",
+        "sources": [
+          "cp-joinder",
+          "cp-summary-judgment"
+        ],
+        "edges": [
+          {
+            "label": "Dispositive ruling resolves action",
+            "to": "7"
+          },
+          {
+            "label": "Material issues remain",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Trial and decision",
+        "detail": "The trier of fact resolves disputed facts on the evidence under the governing standard of proof. The court enters judgment on the outcome.",
+        "sources": [
+          "cp-judge-jury",
+          "cp-burden-persuasion",
+          "cp-framework"
+        ],
+        "edges": [
+          {
+            "label": "Judgment entered",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Final judgment and review",
+        "detail": "A final judgment is ordinarily the point for appeal. Once final, the judgment may bind the parties and determine later claim or issue preclusion within the relevant limits.",
+        "sources": [
+          "cp-finality",
+          "cp-procedure-merits"
+        ],
+        "edges": []
+      },
+      {
+        "id": "8",
+        "label": "Threshold disposition",
+        "detail": "A jurisdictional dismissal resolves the court’s authority and ordinarily leaves the substantive claim open in a competent forum. Lacks distinguishes an error within a court’s power from an actual absence of subject-matter jurisdiction.",
+        "sources": [
+          "cp-procedure-merits",
+          "cp-lacks"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-02",
+    "title": "May this court exercise personal jurisdiction over this defendant?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "What supplies jurisdiction over this defendant?",
+        "detail": "Address valid consent or forfeiture if asserted. Otherwise identify the applicable state long-arm provision or federal rule. Test each defendant and claim.",
+        "sources": [
+          "cp-consent-jurisdiction",
+          "cp-waiver",
+          "cp-long-arm",
+          "cp-frcp-4"
+        ],
+        "edges": [
+          {
+            "label": "Consent or forfeiture asserted",
+            "to": "2"
+          },
+          {
+            "label": "Ordinary statutory route",
+            "to": "11"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Consent or forfeiture?",
+        "detail": "Look for a valid, applicable consent provision, litigation forfeiture, or legally effective registration consent. Mallory’s due-process result rested on Pennsylvania’s express scheme and Pennsylvania Fire. The Court left the Commerce Clause objection open.",
+        "sources": [
+          "cp-consent-jurisdiction",
+          "cp-waiver",
+          "cp-mallory"
+        ],
+        "edges": [
+          {
+            "label": "Consent or forfeiture established",
+            "to": "9"
+          },
+          {
+            "label": "No effective consent or forfeiture",
+            "to": "11"
+          }
+        ]
+      },
+      {
+        "id": "11",
+        "label": "Does the applicable statute or rule authorize jurisdiction?",
+        "detail": "For a federal court, Rule 4(k)(1)(A) ordinarily borrows forum-state reach. Check any special federal authorization. Rule 4(k)(2) can reach a federal claim if no state’s courts of general jurisdiction can exercise jurisdiction over the defendant and nationwide jurisdiction is consistent with federal law and the Constitution.",
+        "sources": [
+          "cp-long-arm",
+          "cp-frcp-4"
+        ],
+        "edges": [
+          {
+            "label": "Reach authorized",
+            "to": "3"
+          },
+          {
+            "label": "Reach absent",
+            "to": "10"
+          }
+        ],
+        "links": [
+          {
+            "label": "Federal Rules of Civil Procedure",
+            "url": "https://www.uscourts.gov/forms-rules/current-rules-practice-procedure/federal-rules-civil-procedure"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Traditional basis?",
+        "detail": "An individual’s forum domicile ordinarily supports all-purpose jurisdiction. Burnham sustained personal service on an individual voluntarily present even for an unrelated claim. If relying on property, Shaffer directs the court to minimum contacts.",
+        "sources": [
+          "cp-territorial",
+          "cp-tag-jurisdiction",
+          "cp-burnham",
+          "cp-shaffer"
+        ],
+        "edges": [
+          {
+            "label": "Domicile or valid tag",
+            "to": "9"
+          },
+          {
+            "label": "Other basis needed",
+            "to": "4"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Corporate home?",
+        "detail": "A corporation is ordinarily at home where incorporated or where it has its principal place of business. Consider an exceptional equivalent home as in Perkins. BNSF’s track and employees and Daimler’s sales did not suffice.",
+        "sources": [
+          "general-jurisdiction",
+          "cp-perkins",
+          "cp-bnsf",
+          "cp-daimler"
+        ],
+        "edges": [
+          {
+            "label": "At home",
+            "to": "9"
+          },
+          {
+            "label": "Specific jurisdiction needed",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Defendant’s purposeful forum conduct?",
+        "detail": "Identify the defendant’s own conduct directed to the relevant forum. An insured’s move, a customer driving into the forum or a plaintiff’s residence does not supply purposeful contacts by itself. Under Rule 4(k)(2), consider the United States as the forum.",
+        "sources": [
+          "purposeful-availment",
+          "cp-hanson",
+          "wwvw",
+          "cp-walden"
+        ],
+        "edges": [
+          {
+            "label": "Purposeful conduct",
+            "to": "6"
+          },
+          {
+            "label": "Absent",
+            "to": "10"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Does the claim arise out of or relate to those contacts?",
+        "detail": "Ford allowed relatedness without strict causation where the forum market, same models and local injuries aligned. Bristol-Myers rejected nonresident claims unconnected to the forum conduct.",
+        "sources": [
+          "relatedness",
+          "ford",
+          "cp-bristol-myers"
+        ],
+        "edges": [
+          {
+            "label": "Connection sufficient",
+            "to": "7"
+          },
+          {
+            "label": "Connection missing",
+            "to": "10"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Would jurisdiction be reasonable?",
+        "detail": "Consider defendant’s burden, forum and plaintiff interests, efficient resolution and shared substantive policies. Burger King asks the defendant to make a compelling case of unreasonableness after purposeful contacts are shown.",
+        "sources": [
+          "fairness",
+          "burger",
+          "cp-asahi"
+        ],
+        "edges": [
+          {
+            "label": "Fair",
+            "to": "9"
+          },
+          {
+            "label": "Unreasonable",
+            "to": "10"
+          },
+          {
+            "label": "Facts undeveloped",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "8",
+        "label": "Develop jurisdictional facts",
+        "detail": "Judicially allowed discovery can clarify disputed contacts, control or consent. Build a record and return to the unresolved element.",
+        "sources": [
+          "cp-jurisdiction-discovery",
+          "cp-insurance-ireland"
+        ],
+        "edges": [
+          {
+            "label": "Reevaluate purpose",
+            "to": "5"
+          },
+          {
+            "label": "Reevaluate relatedness",
+            "to": "6"
+          },
+          {
+            "label": "Reevaluate consent",
+            "to": "2"
+          }
+        ]
+      },
+      {
+        "id": "9",
+        "label": "Personal jurisdiction available",
+        "detail": "The asserted basis permits jurisdiction within its scope. Check any remaining requirements for service, statutory venue and subject-matter jurisdiction separately.",
+        "sources": [
+          "cp-personal-jurisdiction",
+          "cp-service",
+          "cp-venue"
+        ],
+        "edges": []
+      },
+      {
+        "id": "10",
+        "label": "This jurisdictional theory fails",
+        "detail": "Without an alternative basis, sustain a preserved personal-jurisdiction objection. A dismissal on this ground leaves the merits unresolved.",
+        "sources": [
+          "cp-personal-jurisdiction",
+          "cp-frcp-12",
+          "cp-procedure-merits"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-03",
+    "title": "Which contacts support specific jurisdiction?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Identify the forum conduct",
+        "detail": "Start with the defendant’s activity directed at the forum itself and the claim it allegedly produced or relates to.",
+        "sources": [
+          "specific-jurisdiction",
+          "purposeful-availment"
+        ],
+        "edges": [
+          {
+            "label": "Products",
+            "to": "2"
+          },
+          {
+            "label": "Intentional conduct",
+            "to": "3"
+          },
+          {
+            "label": "Contract",
+            "to": "4"
+          },
+          {
+            "label": "Internet",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Distribution and market",
+        "detail": "World-Wide Volkswagen separates predictable product travel from the defendant’s efforts to serve a forum market. Asahi split over regular distribution plus awareness versus additional targeting conduct.",
+        "sources": [
+          "wwvw",
+          "cp-stream-commerce",
+          "cp-asahi"
+        ],
+        "edges": [
+          {
+            "label": "Evaluate the purposeful-contact record",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Targeted conduct or effects",
+        "detail": "Calder tied the libel to California-directed activity. Walden required contacts with Nevada itself beyond the plaintiffs’ connections. Keeton relied on the publisher’s regular forum circulation.",
+        "sources": [
+          "cp-calder",
+          "cp-walden",
+          "cp-keeton"
+        ],
+        "edges": [
+          {
+            "label": "Evaluate the purposeful-contact record",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Continuing contract",
+        "detail": "Burger King looks to negotiations, contemplated future consequences, contract terms and actual dealings. Long-term supervision and obligations directed to Florida supported jurisdiction. The contract alone is only the starting point.",
+        "sources": [
+          "burger",
+          "cp-contractual-contacts"
+        ],
+        "edges": [
+          {
+            "label": "Evaluate the purposeful-contact record",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Commercial web activity",
+        "detail": "Zippo examined knowing subscriptions and repeated delivery to Pennsylvania. Use the passive-to-active spectrum as a district-court framework and examine actual forum dealings beyond accessibility.",
+        "sources": [
+          "cp-internet-jurisdiction",
+          "cp-zippo"
+        ],
+        "edges": [
+          {
+            "label": "Evaluate the purposeful-contact record",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Purposeful conduct established?",
+        "detail": "McGee’s California-directed insurance relationship supported jurisdiction. Hanson’s trust settlor moved there unilaterally, leaving the trustee without a sufficient purposeful contact.",
+        "sources": [
+          "purposeful-availment",
+          "cp-mcgee",
+          "cp-hanson"
+        ],
+        "edges": [
+          {
+            "label": "Yes",
+            "to": "7"
+          },
+          {
+            "label": "No",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Relatedness and reasonableness",
+        "detail": "Ask whether these contacts connect to this claim. Ford’s served market and local injury supplied a link, while Bristol-Myers’ nonresidents lacked one. If related, weigh burdens, forum interests and other fairness factors.",
+        "sources": [
+          "ford",
+          "cp-bristol-myers",
+          "fairness"
+        ],
+        "edges": [
+          {
+            "label": "Related and fair",
+            "to": "8"
+          },
+          {
+            "label": "Connection absent or unfair",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "8",
+        "label": "Specific jurisdiction supported",
+        "detail": "The defendant may be sued in this forum on the connected claim, subject to service and all other requirements.",
+        "sources": [
+          "specific-jurisdiction"
+        ],
+        "edges": []
+      },
+      {
+        "id": "9",
+        "label": "Specific jurisdiction unavailable",
+        "detail": "The claim needs a separate source of jurisdiction or a different forum.",
+        "sources": [
+          "specific-jurisdiction",
+          "cp-personal-jurisdiction"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-04",
+    "title": "Whose conduct put the product in the forum?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Identify the party and path",
+        "detail": "Trace who made the component or product, how it reached the territory, and what each alleged seller or manufacturer did to serve the forum.",
+        "sources": [
+          "cp-stream-commerce",
+          "wwvw"
+        ],
+        "edges": [
+          {
+            "label": "Component sold to assembler",
+            "to": "2"
+          },
+          {
+            "label": "Independent national distributor",
+            "to": "3"
+          },
+          {
+            "label": "Forum market or customer travel",
+            "to": "4"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Component becomes a finished product",
+        "detail": "Gray treated manufacture for distribution and injury from the product in Illinois as sufficient on its facts. Asahi fractured over whether downstream distribution supports minimum contacts.",
+        "sources": [
+          "cp-gray",
+          "cp-asahi"
+        ],
+        "edges": [
+          {
+            "label": "Compare the Asahi opinions",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "National distributor makes an isolated forum sale",
+        "detail": "Nicastro found one proven New Jersey machine sale and no New Jersey-focused effort insufficient. Four Justices sought forum-sovereign targeting. Breyer and Alito relied on the limited record and existing precedent. Three dissented.",
+        "sources": [
+          "cp-nicastro"
+        ],
+        "edges": [
+          {
+            "label": "Assess any additional forum evidence",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Forum-specific sales or unilateral travel?",
+        "detail": "Regular sales, service, advertising or distribution directed at the forum can materially change the record. In World-Wide Volkswagen a customer transported the car beyond the local dealer and regional distributor’s market.",
+        "sources": [
+          "wwvw",
+          "ford"
+        ],
+        "edges": [
+          {
+            "label": "Assess any additional forum evidence",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Asahi’s votes",
+        "detail": "O’Connor’s four required additional forum-directed conduct. Brennan’s four found awareness of a regular, anticipated flow sufficient. Stevens declined to decide contacts and pointed to volume, value and product hazard. Eight found jurisdiction unreasonable.",
+        "sources": [
+          "cp-asahi"
+        ],
+        "edges": [
+          {
+            "label": "Apply to the facts",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Does the record show purposeful contacts?",
+        "detail": "Distinguish an isolated sale, regular known flow and stronger evidence of targeting. Explain the result under each plausible approach in a contested case.",
+        "sources": [
+          "cp-stream-commerce",
+          "cp-asahi",
+          "cp-nicastro"
+        ],
+        "edges": [
+          {
+            "label": "Contacts supported",
+            "to": "7"
+          },
+          {
+            "label": "Insufficient under governing approach",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Claim connection and fairness",
+        "detail": "Even with contacts, ask whether the claim relates to the forum market and whether adjudication is fair. Asahi’s foreign indemnity dispute remained after the injured resident settled.",
+        "sources": [
+          "cp-asahi",
+          "ford",
+          "fairness"
+        ],
+        "edges": [
+          {
+            "label": "Connection and fairness supported",
+            "to": "8"
+          },
+          {
+            "label": "Link or fairness fails",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "8",
+        "label": "Forum can hear the claim",
+        "detail": "The product record supports claim-linked jurisdiction. Identify the conduct attributable to this particular defendant.",
+        "sources": [
+          "cp-stream-commerce",
+          "specific-jurisdiction"
+        ],
+        "edges": []
+      },
+      {
+        "id": "9",
+        "label": "Current record is insufficient",
+        "detail": "Select a forum supported by the relevant defendant’s own activities or another independent jurisdictional basis.",
+        "sources": [
+          "cp-stream-commerce",
+          "cp-personal-jurisdiction"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-05",
+    "title": "What changes when jurisdiction rests on presence, property or corporate ties?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "What is the asserted forum connection?",
+        "detail": "Distinguish an individual’s domicile or in-state service, attachment of property, and corporate home. Each has a different jurisdictional role.",
+        "sources": [
+          "cp-territorial",
+          "cp-property-jurisdiction",
+          "general-jurisdiction"
+        ],
+        "edges": [
+          {
+            "label": "Domicile or service",
+            "to": "2"
+          },
+          {
+            "label": "Property",
+            "to": "4"
+          },
+          {
+            "label": "Corporate ties",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Domicile or valid tag service?",
+        "detail": "Domicile supports all-purpose jurisdiction. Burnham unanimously sustained service on a voluntarily present individual. Scalia emphasized historical pedigree, Brennan contemporary fairness, and Stevens concurred without choosing a single rationale.",
+        "sources": [
+          "cp-territorial",
+          "cp-burnham"
+        ],
+        "edges": [
+          {
+            "label": "Domicile",
+            "to": "7"
+          },
+          {
+            "label": "In-state service asserted",
+            "to": "3"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Was presence wrongfully procured or privileged?",
+        "detail": "Tickle involved inducing the defendant to attend a banquet under false pretenses for service. Wyman refused effect to a judgment obtained through fraudulent inducement. Check immunity for attendance in litigation and forum-specific exceptions.",
+        "sources": [
+          "cp-fraud-service",
+          "cp-tickle",
+          "cp-wyman"
+        ],
+        "edges": [
+          {
+            "label": "Valid voluntary presence and service",
+            "to": "7"
+          },
+          {
+            "label": "Fraud or immunity defeats service",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Is the dispute connected to the attached property?",
+        "detail": "Shaffer required minimum contacts for assertions based on property. Ownership of land at issue usually supplies a close forum link. Delaware’s statutory location of stock did not connect the shareholders to the underlying conduct.",
+        "sources": [
+          "cp-property-jurisdiction",
+          "cp-shaffer"
+        ],
+        "edges": [
+          {
+            "label": "Property and claim establish adequate contacts",
+            "to": "7"
+          },
+          {
+            "label": "Unrelated property alone",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Is the corporation at home here?",
+        "detail": "Start with incorporation and principal place of business. Perkins shows how exceptional wartime operations may qualify. BNSF and Daimler reject substantial ordinary operations alone as all-purpose jurisdiction.",
+        "sources": [
+          "general-jurisdiction",
+          "cp-perkins",
+          "cp-bnsf",
+          "cp-daimler"
+        ],
+        "edges": [
+          {
+            "label": "At home",
+            "to": "7"
+          },
+          {
+            "label": "Registration consent separately asserted",
+            "to": "6"
+          },
+          {
+            "label": "Neither",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "What does the registration law provide?",
+        "detail": "Mallory concerned express Pennsylvania consent to all-purpose jurisdiction. Check the statute and the resulting consent before treating registration as submission. The narrow due-process result left other constitutional objections open.",
+        "sources": [
+          "cp-mallory",
+          "cp-consent-jurisdiction"
+        ],
+        "edges": [
+          {
+            "label": "Effective consent",
+            "to": "7"
+          },
+          {
+            "label": "No applicable consent",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Jurisdiction rests on the identified basis",
+        "detail": "Define its reach. Domicile, valid tag and corporate home can reach unrelated claims. Property-based minimum contacts commonly support jurisdiction tied to that property.",
+        "sources": [
+          "cp-burnham",
+          "general-jurisdiction",
+          "cp-shaffer"
+        ],
+        "edges": []
+      },
+      {
+        "id": "8",
+        "label": "Look for a separate basis",
+        "detail": "Where this traditional or status-based theory fails, test consent or specific jurisdiction under the applicable law.",
+        "sources": [
+          "cp-personal-jurisdiction",
+          "specific-jurisdiction",
+          "cp-consent-jurisdiction"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-06",
+    "title": "What does a forum-selection clause accomplish?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Was the clause part of the agreement?",
+        "detail": "Check formation and notice. Carnival Cruise enforced a passenger-ticket clause on its record after examining fairness. Consider notice and assent separately if disputed.",
+        "sources": [
+          "forum-selection",
+          "carnival"
+        ],
+        "edges": [
+          {
+            "label": "Incorporated",
+            "to": "2"
+          },
+          {
+            "label": "Assent or notice missing",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "What did the parties select?",
+        "detail": "Read the mandatory or permissive language, parties, claims, court system, and any express consent. The Bremen considers a strong showing of unreasonableness, overreaching or conflicting public policy in its admiralty context.",
+        "sources": [
+          "forum-selection",
+          "cp-bremen"
+        ],
+        "edges": [
+          {
+            "label": "Valid and applicable",
+            "to": "3"
+          },
+          {
+            "label": "Invalid or outside scope",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Does the clause convey jurisdictional consent?",
+        "detail": "Effective submission can establish personal jurisdiction in a selected court. Verify the clause’s scope and subject-matter authority separately. If the suit is filed elsewhere, ask how to enforce any exclusive choice.",
+        "sources": [
+          "cp-consent-jurisdiction",
+          "forum-selection"
+        ],
+        "edges": [
+          {
+            "label": "Selected court and consent applies",
+            "to": "4"
+          },
+          {
+            "label": "Suit filed elsewhere under exclusive clause",
+            "to": "5"
+          },
+          {
+            "label": "Permissive or no consent on this issue",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Proceed under proper jurisdiction and venue",
+        "detail": "Use the clause for personal-jurisdiction consent within its reach. Confirm independent subject-matter jurisdiction and the particular court’s statutory requirements.",
+        "sources": [
+          "cp-consent-jurisdiction",
+          "cp-subject-matter",
+          "cp-venue"
+        ],
+        "edges": []
+      },
+      {
+        "id": "5",
+        "label": "Which system contains the agreed forum?",
+        "detail": "Atlantic Marine held contractual choice does not determine whether federal venue is statutorily proper. Choose the remedy based on the actual venue and the selected forum.",
+        "sources": [
+          "cp-atlantic-marine",
+          "cp-usc-1391"
+        ],
+        "edges": [
+          {
+            "label": "Proper venue and another federal district chosen",
+            "to": "6"
+          },
+          {
+            "label": "Proper venue and state or foreign forum chosen",
+            "to": "7"
+          },
+          {
+            "label": "Venue independently improper",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Seek § 1404(a) transfer",
+        "detail": "A valid controlling clause ordinarily prevails. The resisting party bears the burden on public interests, private inconvenience ordinarily drops out, and the selected court uses its own choice-of-law rules.",
+        "sources": [
+          "cp-usc-1404",
+          "cp-atlantic-marine"
+        ],
+        "edges": []
+      },
+      {
+        "id": "7",
+        "label": "Seek forum non conveniens dismissal",
+        "detail": "This is the enforcement route for a clause selecting a state or foreign forum. Apply the modified Atlantic Marine analysis to an applicable, valid clause.",
+        "sources": [
+          "cp-atlantic-marine",
+          "cp-forum-non-conveniens"
+        ],
+        "edges": []
+      },
+      {
+        "id": "8",
+        "label": "Use ordinary jurisdiction and forum rules",
+        "detail": "Apply personal jurisdiction, venue, and ordinary transfer or dismissal standards to the unresolved questions.",
+        "sources": [
+          "cp-personal-jurisdiction",
+          "cp-venue",
+          "cp-transfer"
+        ],
+        "edges": []
+      },
+      {
+        "id": "9",
+        "label": "Use improper-venue procedure",
+        "detail": "If statutory venue independently fails, ask whether § 1406 calls for dismissal or a transfer in the interest of justice. The clause itself does not establish the defect.",
+        "sources": [
+          "cp-usc-1406",
+          "cp-atlantic-marine"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-07",
+    "title": "How can a defendant preserve or lose a jurisdictional objection?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Which objection?",
+        "detail": "Classify the asserted defect. Rule 12(b)(2) covers personal jurisdiction, (4) process, and (5) service. Subject-matter jurisdiction carries different preservation rules under 12(h)(3).",
+        "sources": [
+          "cp-frcp-12",
+          "cp-waiver"
+        ],
+        "edges": [
+          {
+            "label": "Personal jurisdiction, process or service",
+            "to": "2"
+          },
+          {
+            "label": "Subject-matter jurisdiction",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "What is the defendant’s first response?",
+        "detail": "Check whether an available Rule 12(b)(2)–(5) defense was included in the initial Rule 12 motion or, if there was no such motion, in the answer or amendment as of course allowed by Rule 15(a)(1).",
+        "sources": [
+          "cp-frcp-12",
+          "cp-frcp-15"
+        ],
+        "edges": [
+          {
+            "label": "Timely raised",
+            "to": "3"
+          },
+          {
+            "label": "Omitted when available",
+            "to": "6"
+          },
+          {
+            "label": "Declines to appear",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Are jurisdictional facts disputed?",
+        "detail": "An objection can be presented in the same motion with merits defenses. The court may authorize focused discovery and determine whether the plaintiff has shown an adequate basis.",
+        "sources": [
+          "cp-jurisdiction-discovery",
+          "cp-frcp-12"
+        ],
+        "edges": [
+          {
+            "label": "Record sufficient to decide",
+            "to": "4"
+          },
+          {
+            "label": "Order discovery",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Rule on the preserved defense",
+        "detail": "If authority is lacking, the forum cannot decide the claim’s merits on this route. If jurisdiction exists, continue and preserve review in the ordinary course.",
+        "sources": [
+          "cp-procedure-merits",
+          "cp-personal-jurisdiction",
+          "cp-frcp-12"
+        ],
+        "edges": []
+      },
+      {
+        "id": "5",
+        "label": "Assess default and collateral review",
+        "detail": "A defendant who stays away risks a valid, enforceable default judgment if the forum had authority. If jurisdiction actually failed, an unlitigated objection may be raised when enforcement is sought. A jurisdictional issue already litigated ordinarily cannot be retried collaterally.",
+        "sources": [
+          "cp-collateral",
+          "cp-finality",
+          "cp-wyman"
+        ],
+        "edges": []
+      },
+      {
+        "id": "6",
+        "label": "Objection forfeited",
+        "detail": "Rules 12(g) and (h)(1) prevent holding back available waivable defenses. The court can ordinarily proceed past the omitted personal-jurisdiction, process or service objection.",
+        "sources": [
+          "cp-frcp-12",
+          "cp-waiver"
+        ],
+        "edges": []
+      },
+      {
+        "id": "7",
+        "label": "Comply with jurisdictional discovery",
+        "detail": "Insurance Corp. of Ireland sustained a Rule 37 sanction deeming contacts established where defendants failed to comply after notice. The sanction addressed a personal defense.",
+        "sources": [
+          "cp-insurance-ireland",
+          "cp-jurisdiction-discovery"
+        ],
+        "edges": [
+          {
+            "label": "Decide on developed record or sanction",
+            "to": "4"
+          }
+        ]
+      },
+      {
+        "id": "8",
+        "label": "Subject-matter authority remains reviewable",
+        "detail": "Under Rule 12(h)(3), dismiss if subject-matter authority is missing. Capron illustrates the difference from a defense forfeited through litigation conduct.",
+        "sources": [
+          "cp-frcp-12",
+          "cp-capron",
+          "cp-subject-matter"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-08",
+    "title": "Were the papers served and was the notice adequate?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "What initiating papers and recipient?",
+        "detail": "Start with summons and complaint, a qualified server, Rule 4 timing and the recipient’s status. Check territorial reach separately. Domestic service ordinarily has a 90-day period, subject to Rule 4(m) and extensions.",
+        "sources": [
+          "cp-frcp-4",
+          "cp-service"
+        ],
+        "edges": [
+          {
+            "label": "U.S. individual",
+            "to": "2"
+          },
+          {
+            "label": "Entity or appointed agent",
+            "to": "3"
+          },
+          {
+            "label": "Waiver, foreign or government service",
+            "to": "4"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Domestic individual",
+        "detail": "Rule 4(e) permits applicable state-law methods, personal delivery, delivery at usual abode to a suitable resident, or delivery to an authorized agent.",
+        "sources": [
+          "cp-frcp-4",
+          "cp-service"
+        ],
+        "edges": [
+          {
+            "label": "Authorized method used",
+            "to": "5"
+          },
+          {
+            "label": "Service defect",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Organization or agent",
+        "detail": "Rule 4(h) includes prescribed state methods and delivery to a qualifying officer, managing or general agent, or authorized agent. Szukhent upheld a designated agent who promptly transmitted the papers.",
+        "sources": [
+          "cp-frcp-4",
+          "cp-szukhent"
+        ],
+        "edges": [
+          {
+            "label": "Authorized method used",
+            "to": "5"
+          },
+          {
+            "label": "Service defect",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Special service or waiver",
+        "detail": "Check Rule 4(d) for waiver requests, 4(f) or 4(h)(2) for foreign service and treaties, and 4(i) or 4(j) for government defendants. A waiver of service preserves jurisdiction and venue objections.",
+        "sources": [
+          "cp-frcp-4",
+          "cp-service"
+        ],
+        "edges": [
+          {
+            "label": "Authorized route completed",
+            "to": "5"
+          },
+          {
+            "label": "Service defect",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Reasonably calculated to inform?",
+        "detail": "Mullane asks what someone genuinely trying to reach the recipient would do under the circumstances. Publication was inadequate for known beneficiaries with usable addresses, while it could suffice for people not reasonably locatable.",
+        "sources": [
+          "cp-mullane",
+          "cp-notice"
+        ],
+        "edges": [
+          {
+            "label": "Method reasonable and no new evidence of failure",
+            "to": "7"
+          },
+          {
+            "label": "Reasonably practicable follow-up apparent",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Take reasonable additional steps",
+        "detail": "When circumstances indicate the attempt failed, assess feasible alternatives, such as a different mail method, address or delivery. The inquiry is practical and considers information available before the deprivation.",
+        "sources": [
+          "cp-notice",
+          "cp-mullane",
+          "cp-hearing"
+        ],
+        "edges": [
+          {
+            "label": "Reasonable efforts completed",
+            "to": "7"
+          },
+          {
+            "label": "Notice remains inadequate",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Service and notice permit proceeding",
+        "detail": "Formal service or waiver and constitutional notice are separate inquiries. Due process generally asks whether the method was reasonable under the circumstances, even if delivery did not produce actual notice.",
+        "sources": [
+          "cp-service",
+          "cp-notice"
+        ],
+        "edges": []
+      },
+      {
+        "id": "8",
+        "label": "Cure or address the defect",
+        "detail": "Use a permitted service method or seek more time where available. An adequate method of formal service still requires constitutionally sufficient notice, and actual knowledge does not necessarily cure deficient formal service.",
+        "sources": [
+          "cp-frcp-4",
+          "cp-notice"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-09",
+    "title": "Can property be seized before a hearing?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Identify the state-assisted deprivation",
+        "detail": "Determine what the creditor seeks to restrain before final judgment and whether a judicial or statutory process supplies state action. Identify the seizure’s immediate practical effect.",
+        "sources": [
+          "cp-prejudgment",
+          "cp-due-process"
+        ],
+        "edges": [
+          {
+            "label": "Wages",
+            "to": "2"
+          },
+          {
+            "label": "Possessory goods",
+            "to": "3"
+          },
+          {
+            "label": "Real property",
+            "to": "4"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Wage garnishment",
+        "detail": "Sniadach stressed wages’ immediate importance to subsistence and invalidated prejudgment freezing without an opportunity to be heard on the record presented.",
+        "sources": [
+          "cp-sniadach",
+          "cp-prejudgment"
+        ],
+        "edges": [
+          {
+            "label": "Weigh procedural safeguards",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Repossessing goods",
+        "detail": "Fuentes rejected ex parte replevin based on creditors’ applications and bonds without prior opportunity to contest liability. Temporary loss of possession implicated due process.",
+        "sources": [
+          "cp-fuentes",
+          "cp-hearing"
+        ],
+        "edges": [
+          {
+            "label": "Weigh procedural safeguards",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Attaching real property",
+        "detail": "Doehr recognized a meaningful encumbrance even though the owner retained possession. The tort plaintiff’s affidavit, unrelated to any preexisting lien or ownership and showing no urgency, presented substantial error risk.",
+        "sources": [
+          "cp-doehr",
+          "cp-prejudgment"
+        ],
+        "edges": [
+          {
+            "label": "Weigh procedural safeguards",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Balance affected interests and error",
+        "detail": "Use Doehr’s modified Mathews inquiry. Weigh defendant’s property stake, error risk and value of additional process, and especially the plaintiff’s need for immediate relief with any government interest.",
+        "sources": [
+          "cp-doehr",
+          "cp-mathews"
+        ],
+        "edges": [
+          {
+            "label": "Immediate relief justified with robust safeguards",
+            "to": "6"
+          },
+          {
+            "label": "Current process inadequate",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Tailor relief and follow-up",
+        "detail": "Check specific facts showing exigency or a preexisting interest, meaningful judicial review, evidentiary support and prompt opportunity to contest. Doehr’s bond discussion had four votes.",
+        "sources": [
+          "cp-prejudgment",
+          "cp-doehr",
+          "cp-fuentes"
+        ],
+        "edges": [
+          {
+            "label": "Procedural protection adequate",
+            "to": "8"
+          },
+          {
+            "label": "Safeguards insufficient",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Provide a timely opportunity to contest",
+        "detail": "Require appropriate process before the seizure, or deny the requested procedure. Evaluate any new application against the interests and record in this case.",
+        "sources": [
+          "cp-hearing",
+          "cp-fuentes",
+          "cp-doehr"
+        ],
+        "edges": []
+      },
+      {
+        "id": "8",
+        "label": "Prejudgment relief may proceed",
+        "detail": "Use the authorized remedy with the protections supporting the due-process determination, including any required early review.",
+        "sources": [
+          "cp-prejudgment",
+          "cp-due-process"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-10",
+    "title": "Can the federal court hear every claim?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "List every claim and basis for original jurisdiction",
+        "detail": "Federal courts need Article III permission and statutory authority. Identify which plaintiff asserts each claim against which defendant, and test each claim.",
+        "sources": [
+          "cp-article-iii",
+          "cp-subject-matter"
+        ],
+        "edges": [
+          {
+            "label": "Test federal question",
+            "to": "2"
+          },
+          {
+            "label": "Test diversity",
+            "to": "3"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Does the well-pleaded claim arise under federal law?",
+        "detail": "Section 1331 usually reaches federally created claims. A state claim may qualify through a necessary, actually disputed and substantial federal issue consistent with the federal-state division of labor.",
+        "sources": [
+          "cp-usc-1331",
+          "cp-mottley",
+          "cp-grable",
+          "cp-gunn"
+        ],
+        "edges": [
+          {
+            "label": "Federal question established",
+            "to": "4"
+          },
+          {
+            "label": "No federal question, test diversity",
+            "to": "3"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Does § 1332 give original jurisdiction?",
+        "detail": "For ordinary diversity, compare all opposing citizenships at the governing time and test whether the amount exceeds $75,000, exclusive of interest and costs. Check CAFA separately for a qualifying class action.",
+        "sources": [
+          "cp-usc-1332",
+          "cp-diversity",
+          "cp-amount-in-controversy"
+        ],
+        "edges": [
+          {
+            "label": "Original diversity established",
+            "to": "4"
+          },
+          {
+            "label": "No original basis for this claim",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Anchor claim supplies original jurisdiction",
+        "detail": "The claim can proceed as far as subject-matter authority goes. Repeat the inquiry across the pleadings and identify any claims needing § 1367.",
+        "sources": [
+          "cp-subject-matter",
+          "cp-supplemental"
+        ],
+        "edges": [
+          {
+            "label": "Other claims remain",
+            "to": "5"
+          },
+          {
+            "label": "All claims independently qualify",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Is another claim within original jurisdiction?",
+        "detail": "Supplemental jurisdiction needs an anchor claim and the same Article III case or controversy. If there is no anchor, the case falls outside federal trial-court jurisdiction on these asserted grounds.",
+        "sources": [
+          "cp-usc-1367",
+          "cp-gibbs"
+        ],
+        "edges": [
+          {
+            "label": "Anchor exists and claims share the case",
+            "to": "6"
+          },
+          {
+            "label": "No anchor or insufficient relationship",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Check additional claims under § 1367(b)",
+        "detail": "In cases founded solely on § 1332, examine the listed plaintiff-side claims involving Rule 14, 19, 20 or 24 and any evasion of diversity requirements.",
+        "sources": [
+          "cp-usc-1367",
+          "cp-kroger",
+          "cp-exxon"
+        ],
+        "edges": [
+          {
+            "label": "Subsection (b) permits",
+            "to": "7"
+          },
+          {
+            "label": "Statutory restriction applies",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Should the court exercise supplemental authority?",
+        "detail": "Apply § 1367(c), including novelty, predominance, dismissal of all original claims and exceptional circumstances. Consider economy, convenience, fairness and comity.",
+        "sources": [
+          "cp-supplemental-discretion",
+          "cp-gibbs"
+        ],
+        "edges": [
+          {
+            "label": "Exercise jurisdiction",
+            "to": "8"
+          },
+          {
+            "label": "Decline",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "8",
+        "label": "Federal forum can hear covered claims",
+        "detail": "Confirm personal jurisdiction, service and any applicable venue requirements separately.",
+        "sources": [
+          "cp-subject-matter",
+          "cp-personal-jurisdiction",
+          "cp-venue"
+        ],
+        "edges": []
+      },
+      {
+        "id": "9",
+        "label": "This claim leaves the federal action",
+        "detail": "An original case lacking a jurisdictional anchor ordinarily must be dismissed or, if removed, remanded. Evaluate severance, dismissal or remand of an unsupported added claim under the applicable statute and posture.",
+        "sources": [
+          "cp-subject-matter",
+          "cp-usc-1367",
+          "cp-removal"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-11",
+    "title": "Whose citizenship counts for diversity?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Fix the governing time and statutory category",
+        "detail": "Measure ordinary diversity at commencement. For removal, identify any additional timing inquiry. Use the specific statutory rules for alienage, representatives and class actions if implicated.",
+        "sources": [
+          "cp-diversity",
+          "cp-citizenship",
+          "cp-usc-1332"
+        ],
+        "edges": [
+          {
+            "label": "Individual",
+            "to": "2"
+          },
+          {
+            "label": "Corporation",
+            "to": "3"
+          },
+          {
+            "label": "LLC, partnership or other entity",
+            "to": "4"
+          },
+          {
+            "label": "Representative",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Individual domicile",
+        "detail": "For a U.S. citizen, determine physical presence plus intent to remain indefinitely. A former domicile continues until a new one is acquired. In Mas, temporary graduate study in Louisiana did not itself change domicile.",
+        "sources": [
+          "cp-domicile",
+          "cp-mas-perry"
+        ],
+        "edges": [
+          {
+            "label": "Compare opposing parties",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Corporate citizenship",
+        "detail": "Section 1332(c)(1) counts every state or foreign state of incorporation and principal place of business. Identify the actual nerve center where officers direct and coordinate the company.",
+        "sources": [
+          "cp-usc-1332",
+          "cp-citizenship"
+        ],
+        "edges": [
+          {
+            "label": "Compare opposing parties",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Unincorporated entity",
+        "detail": "For ordinary diversity, look through every partner or member and repeat for nested unincorporated entities. Section 1332(d)(10) supplies a distinct CAFA rule for unincorporated associations.",
+        "sources": [
+          "cp-citizenship",
+          "cp-usc-1332",
+          "cp-cafa"
+        ],
+        "edges": [
+          {
+            "label": "Compare opposing parties",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Representatives and unusual citizenship",
+        "detail": "Under § 1332(c)(2), a covered legal representative uses the decedent’s, infant’s or incompetent person’s citizenship. Check the exact alienage provision for foreign or permanent-resident parties.",
+        "sources": [
+          "cp-usc-1332",
+          "cp-citizenship"
+        ],
+        "edges": [
+          {
+            "label": "Compare opposing parties",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Does any opposing pair share citizenship?",
+        "detail": "Strawbridge supplies the complete-diversity rule for ordinary diversity suits. Compare every plaintiff with every defendant after collecting all relevant citizenships.",
+        "sources": [
+          "cp-strawbridge",
+          "cp-diversity"
+        ],
+        "edges": [
+          {
+            "label": "No overlap and statutory category satisfied",
+            "to": "7"
+          },
+          {
+            "label": "Overlap or category fails",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Citizenship requirement satisfied",
+        "detail": "Check § 1332(a)’s amount requirement next. Record the citizenship of each party at the relevant time.",
+        "sources": [
+          "cp-usc-1332",
+          "cp-amount-in-controversy"
+        ],
+        "edges": []
+      },
+      {
+        "id": "8",
+        "label": "Ordinary diversity unavailable",
+        "detail": "Assess a separate grant, such as federal question or eligible CAFA jurisdiction, if the pleadings support it.",
+        "sources": [
+          "cp-usc-1331",
+          "cp-cafa",
+          "cp-diversity"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-12",
+    "title": "Can these claims meet the jurisdictional amount?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Identify the applicable amount rule",
+        "detail": "Ordinary diversity requires more than $75,000 exclusive of interest and costs. Start with legally available relief and the good-faith amount claimed. CAFA uses a different aggregate measure.",
+        "sources": [
+          "cp-usc-1332",
+          "cp-amount-in-controversy",
+          "cp-cafa"
+        ],
+        "edges": [
+          {
+            "label": "Money or equitable valuation",
+            "to": "2"
+          },
+          {
+            "label": "Multiple claims or parties",
+            "to": "3"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Valuing the relief",
+        "detail": "Identify legally recoverable economic relief and the value of the object of litigation. Check the forum’s approach to valuing injunctive relief. A.F.A. Tours required a fair opportunity to prove claimed threatened losses and injunctive value.",
+        "sources": [
+          "cp-afa",
+          "cp-amount-in-controversy"
+        ],
+        "edges": [
+          {
+            "label": "Apply legal-certainty test",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Whose claims or interests?",
+        "detail": "Separate one plaintiff’s claims against one defendant from distinct claims of multiple parties, and from joint or common undivided interests.",
+        "sources": [
+          "cp-aggregation",
+          "cp-usc-1332"
+        ],
+        "edges": [
+          {
+            "label": "One plaintiff against one defendant",
+            "to": "4"
+          },
+          {
+            "label": "Shared undivided interest",
+            "to": "5"
+          },
+          {
+            "label": "Separate claims or interests",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Aggregate one plaintiff’s claims",
+        "detail": "One plaintiff ordinarily may add separate claims against a single defendant. For claims against multiple defendants, assess whether liability is joint before summing them.",
+        "sources": [
+          "cp-aggregation",
+          "cp-usc-1332"
+        ],
+        "edges": [
+          {
+            "label": "Apply legal-certainty test",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Aggregate common and undivided interest",
+        "detail": "Multiple parties may combine value when enforcing a single title or right in which they have a common, undivided interest.",
+        "sources": [
+          "cp-aggregation",
+          "cp-usc-1332"
+        ],
+        "edges": [
+          {
+            "label": "Apply legal-certainty test",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Value distinct claims independently",
+        "detail": "Separate plaintiffs ordinarily cannot combine separate interests to reach § 1332(a). Exxon permits certain related claims below the minimum when at least one claim qualifies and § 1367 is otherwise satisfied.",
+        "sources": [
+          "cp-aggregation",
+          "cp-exxon",
+          "cp-usc-1367"
+        ],
+        "edges": [
+          {
+            "label": "Test independent amount",
+            "to": "7"
+          },
+          {
+            "label": "Qualifying anchor and related claims",
+            "to": "10"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Does the demand meet the threshold?",
+        "detail": "A good-faith demand controls unless it appears to a legal certainty the claimant cannot recover the required amount. Resolve genuine jurisdictional fact disputes using the applicable burdens and record.",
+        "sources": [
+          "cp-amount-in-controversy",
+          "cp-afa"
+        ],
+        "edges": [
+          {
+            "label": "Amount established",
+            "to": "8"
+          },
+          {
+            "label": "Insufficient as a matter of law",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "8",
+        "label": "Amount requirement satisfied",
+        "detail": "Confirm complete diversity and other statutory predicates. Jurisdiction attaches independently of a later ordinary reduction in the recoverable amount.",
+        "sources": [
+          "cp-usc-1332",
+          "cp-diversity",
+          "cp-amount-in-controversy"
+        ],
+        "edges": []
+      },
+      {
+        "id": "9",
+        "label": "Claim lacks independent diversity jurisdiction",
+        "detail": "Consider another original grant or an appropriate supplemental anchor before concluding the claim must leave federal court.",
+        "sources": [
+          "cp-subject-matter",
+          "cp-usc-1367"
+        ],
+        "edges": []
+      },
+      {
+        "id": "10",
+        "label": "Evaluate supplemental jurisdiction",
+        "detail": "Confirm same constitutional case and check party-joinder restrictions. A shortfall in amount can be treated differently from a defect in complete diversity.",
+        "sources": [
+          "cp-exxon",
+          "cp-usc-1367"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-13",
+    "title": "Does this claim arise under federal law?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Read the properly pleaded claim",
+        "detail": "Under Mottley, an anticipated federal defense or answer to that defense cannot supply § 1331 jurisdiction. Examine the elements of the plaintiff’s affirmative claim.",
+        "sources": [
+          "cp-well-pleaded",
+          "cp-mottley",
+          "cp-usc-1331"
+        ],
+        "edges": [
+          {
+            "label": "Federal law creates claim",
+            "to": "2"
+          },
+          {
+            "label": "Claim arises under state law",
+            "to": "3"
+          },
+          {
+            "label": "Federal issue appears only in defense",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Does the federal claim itself arise under federal law?",
+        "detail": "American Well Works states the ordinary creation approach. Shoshone illustrates the rare superficially federal grant whose dispute depends on local rules. One must still identify the actual source and content of the claim.",
+        "sources": [
+          "cp-american-well",
+          "cp-shoshone",
+          "cp-federal-question"
+        ],
+        "edges": [
+          {
+            "label": "Federal claim within § 1331",
+            "to": "7"
+          },
+          {
+            "label": "Exception or no federal claim",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Must the court decide a federal issue?",
+        "detail": "A state claim requires an embedded federal issue if every theory supporting the claim necessarily presents it. Smith’s challenge depended on the validity of federal bonds.",
+        "sources": [
+          "cp-embedded-question",
+          "cp-smith",
+          "cp-grable"
+        ],
+        "edges": [
+          {
+            "label": "Necessary",
+            "to": "4"
+          },
+          {
+            "label": "Alternative state-only path or merely background",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Is federal meaning actually disputed?",
+        "detail": "Identify the contested federal proposition. In Grable, title turned on whether the IRS gave notice required by federal tax law.",
+        "sources": [
+          "cp-embedded-question",
+          "cp-grable"
+        ],
+        "edges": [
+          {
+            "label": "Genuinely disputed",
+            "to": "5"
+          },
+          {
+            "label": "Undisputed",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Important to the federal system?",
+        "detail": "Gunn’s hypothetical patent issue in a state malpractice claim mattered to the lawyers and client, while resolution would leave the underlying patent and authoritative federal doctrine intact.",
+        "sources": [
+          "cp-gunn",
+          "cp-embedded-question"
+        ],
+        "edges": [
+          {
+            "label": "Systemically substantial",
+            "to": "6"
+          },
+          {
+            "label": "Only fact-bound or private significance",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Consistent with Congress’s allocation?",
+        "detail": "Grable identified an unusual federal tax issue with a limited effect on the balance. Ask how many traditionally state cases this theory would draw into federal court.",
+        "sources": [
+          "cp-grable",
+          "cp-gunn",
+          "cp-embedded-question"
+        ],
+        "edges": [
+          {
+            "label": "Consistent",
+            "to": "7"
+          },
+          {
+            "label": "Disrupts federal-state balance",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Section 1331 original jurisdiction",
+        "detail": "Identify the federally created claim or explain each of the four embedded-issue elements, then apply supplemental jurisdiction to any remaining claims.",
+        "sources": [
+          "cp-usc-1331",
+          "cp-grable",
+          "cp-usc-1367"
+        ],
+        "edges": []
+      },
+      {
+        "id": "8",
+        "label": "No § 1331 basis on this claim",
+        "detail": "Consider diversity or supplemental jurisdiction if available. A federal defense may still be decided by a competent forum.",
+        "sources": [
+          "cp-mottley",
+          "cp-subject-matter",
+          "cp-supplemental"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-14",
+    "title": "Does § 1367 reach this claim or additional party?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Identify a claim of original federal jurisdiction",
+        "detail": "Section 1367(a) requires a civil action within original federal jurisdiction. List which claims supply the anchor and which claims or parties need supplementation.",
+        "sources": [
+          "cp-usc-1367",
+          "cp-gibbs"
+        ],
+        "edges": [
+          {
+            "label": "Anchor established",
+            "to": "2"
+          },
+          {
+            "label": "No original anchor",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Same Article III case or controversy?",
+        "detail": "Gibbs asks whether claims derive from a common nucleus of operative fact and ordinarily would be expected to be tried together. Section 1367(a) includes claims involving additional parties.",
+        "sources": [
+          "cp-gibbs",
+          "cp-usc-1367",
+          "cp-pendent-parties"
+        ],
+        "edges": [
+          {
+            "label": "Sufficiently related",
+            "to": "3"
+          },
+          {
+            "label": "Distinct case or controversy",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Is original jurisdiction founded solely on § 1332?",
+        "detail": "The plaintiff-side exclusions of § 1367(b) apply only when original jurisdiction is founded solely on § 1332. Check any other statute expressly limiting § 1367(a).",
+        "sources": [
+          "cp-usc-1367",
+          "cp-supplemental-diversity"
+        ],
+        "edges": [
+          {
+            "label": "Diversity-only",
+            "to": "4"
+          },
+          {
+            "label": "Other original grant and no express exclusion",
+            "to": "6"
+          },
+          {
+            "label": "Express exclusion",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Is the added claim in a listed class?",
+        "detail": "Check claims by plaintiffs against persons made parties under Rules 14, 19, 20 or 24, plus claims by proposed plaintiffs under Rule 19 or intervening plaintiffs under Rule 24.",
+        "sources": [
+          "cp-usc-1367",
+          "cp-kroger"
+        ],
+        "edges": [
+          {
+            "label": "Listed plaintiff-side claim",
+            "to": "5"
+          },
+          {
+            "label": "Outside the list",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Would extending jurisdiction violate § 1332?",
+        "detail": "Kroger refused the original plaintiff’s claim against an impleaded nondiverse defendant. Exxon allows some amount-deficient related claims, assuming all other requirements and a qualifying anchor.",
+        "sources": [
+          "cp-kroger",
+          "cp-exxon",
+          "cp-usc-1367"
+        ],
+        "edges": [
+          {
+            "label": "Inconsistent with § 1332",
+            "to": "8"
+          },
+          {
+            "label": "Consistent with § 1332",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Should the court decline under § 1367(c)?",
+        "detail": "Assess novel or complex state law, substantial predominance, dismissal of every original claim, or exceptional circumstances with compelling reasons. Weigh economy, convenience, fairness and comity.",
+        "sources": [
+          "cp-usc-1367",
+          "cp-supplemental-discretion",
+          "cp-gibbs"
+        ],
+        "edges": [
+          {
+            "label": "Exercise authority",
+            "to": "7"
+          },
+          {
+            "label": "Decline",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Proceed on the related claim",
+        "detail": "The statute supplies subject-matter authority. Confirm the procedural joinder rule, personal jurisdiction, service, and any other necessary predicates.",
+        "sources": [
+          "cp-supplemental",
+          "cp-joinder",
+          "cp-personal-jurisdiction"
+        ],
+        "edges": []
+      },
+      {
+        "id": "8",
+        "label": "Supplemental authority unavailable",
+        "detail": "An independent grant is required for this claim in federal court. Apply the appropriate dismissal or remand procedure for the posture.",
+        "sources": [
+          "cp-usc-1367",
+          "cp-removal",
+          "cp-subject-matter"
+        ],
+        "edges": []
+      },
+      {
+        "id": "9",
+        "label": "Court may decline otherwise available jurisdiction",
+        "detail": "Select the appropriate dismissal without prejudice or remand for the posture and consider statutory tolling under § 1367(d).",
+        "sources": [
+          "cp-usc-1367",
+          "cp-supplemental-discretion"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-15",
+    "title": "Can the case be removed, and must it be remanded?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Could the original complaint be filed in federal court?",
+        "detail": "Unless a special statute changes the rule, § 1441 asks for original federal jurisdiction and sends the case to the federal district embracing the state court. Identify any statutory bars.",
+        "sources": [
+          "cp-usc-1441",
+          "cp-removal",
+          "cp-well-pleaded"
+        ],
+        "edges": [
+          {
+            "label": "Ordinary jurisdiction",
+            "to": "2"
+          },
+          {
+            "label": "Qualifying class-action removal",
+            "to": "5"
+          },
+          {
+            "label": "No federal authority",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Who is removing?",
+        "detail": "Shamrock Oil excludes the original plaintiff even when sued on a counterclaim. Home Depot treats a third-party counterclaim defendant as outside § 1441(a) and § 1453(b).",
+        "sources": [
+          "cp-shamrock",
+          "cp-home-depot",
+          "cp-usc-1441"
+        ],
+        "edges": [
+          {
+            "label": "Original defendant",
+            "to": "3"
+          },
+          {
+            "label": "Ineligible remover",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Any forum defendant or consent problem?",
+        "detail": "In diversity-only ordinary removal, apply the properly joined and served forum-defendant limitation. For removal solely under § 1441(a), obtain consent from all properly joined and served defendants.",
+        "sources": [
+          "cp-forum-defendant",
+          "cp-usc-1441",
+          "cp-removal"
+        ],
+        "edges": [
+          {
+            "label": "Ordinary requirements satisfied",
+            "to": "4"
+          },
+          {
+            "label": "Procedural defect alleged",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Was notice timely and properly filed?",
+        "detail": "Apply § 1446’s initial and later-paper 30-day routes. Each defendant generally gets its own service-based period. Later-paper diversity removal ordinarily has a one-year limit, subject to bad faith. Give required notice in state court.",
+        "sources": [
+          "cp-removal",
+          "cp-usc-1441",
+          "cp-dart"
+        ],
+        "edges": [
+          {
+            "label": "Timely and proper",
+            "to": "6"
+          },
+          {
+            "label": "Defective procedure",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "CAFA route",
+        "detail": "Test § 1332(d)’s minimal diversity, proposed class size, aggregate amount, and exceptions. Under § 1453, a qualifying defendant may remove without co-defendant consent or the forum-defendant and one-year bars. Dart addresses plausible amount allegations and proof if challenged.",
+        "sources": [
+          "cp-cafa",
+          "cp-usc-1453",
+          "cp-dart",
+          "cp-home-depot"
+        ],
+        "edges": [
+          {
+            "label": "Proper defendant and CAFA requirements met",
+            "to": "6"
+          },
+          {
+            "label": "Grounds for remand raised",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Federal court retains the action",
+        "detail": "Check any remand motion’s ground and deadline. Removal has moved the action and the federal court decides any remaining objections.",
+        "sources": [
+          "cp-removal",
+          "cp-wild-oats"
+        ],
+        "edges": []
+      },
+      {
+        "id": "7",
+        "label": "Classify the remand ground",
+        "detail": "Under § 1447(c), remand for lack of subject-matter jurisdiction whenever detected before final judgment. A motion on a procedural defect ordinarily must come within 30 days of the removal notice. Lively treats the forum-defendant rule as procedural.",
+        "sources": [
+          "cp-removal",
+          "cp-wild-oats",
+          "cp-forum-defendant"
+        ],
+        "edges": [
+          {
+            "label": "Subject-matter power missing or timely valid procedural objection",
+            "to": "8"
+          },
+          {
+            "label": "Procedural objection forfeited and authority exists",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "8",
+        "label": "Remand to state court",
+        "detail": "Return the removed litigation as required. For CAFA, consider the special discretionary appellate review route in § 1453(c).",
+        "sources": [
+          "cp-removal",
+          "cp-usc-1453"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-16",
+    "title": "Is venue proper, and where can the case go?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Check the controlling venue statute",
+        "detail": "Use § 1391 for ordinary cases and any applicable special statute first. A removed action goes to the federal district embracing the state court under § 1441(a).",
+        "sources": [
+          "cp-venue",
+          "cp-usc-1391",
+          "cp-usc-1441"
+        ],
+        "edges": [
+          {
+            "label": "Ordinary original filing",
+            "to": "2"
+          },
+          {
+            "label": "Special venue statute or removed case",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Does § 1391(b)(1) or (2) apply?",
+        "detail": "Try a district where any defendant resides if all reside in the same state. Alternatively, look for a substantial part of the events, omissions or property at issue. Bates illustrates why several districts may qualify.",
+        "sources": [
+          "cp-venue",
+          "cp-usc-1391",
+          "cp-bates"
+        ],
+        "edges": [
+          {
+            "label": "A ground supports this district",
+            "to": "5"
+          },
+          {
+            "label": "Neither ground supports this district",
+            "to": "3"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Is the fallback available?",
+        "detail": "Section 1391(b)(3) applies if no district qualifies under the earlier grounds. Then ask whether any defendant is subject to personal jurisdiction in this district with respect to the action.",
+        "sources": [
+          "cp-usc-1391",
+          "cp-venue"
+        ],
+        "edges": [
+          {
+            "label": "Fallback applies here",
+            "to": "5"
+          },
+          {
+            "label": "Statutorily improper",
+            "to": "4"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Use § 1406",
+        "detail": "Dismiss an improperly venued case or transfer in the interest of justice to a district where it could have been brought. Goldlawr allows § 1406 transfer even if the transferor lacks personal jurisdiction.",
+        "sources": [
+          "cp-usc-1406",
+          "cp-transfer"
+        ],
+        "edges": [
+          {
+            "label": "Transfer in interest of justice",
+            "to": "9"
+          },
+          {
+            "label": "Dismiss",
+            "to": "10"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Proper venue: where should the case proceed?",
+        "detail": "A valid clause changes enforcement analysis without making a proper district improper. Identify the preferred alternative within or outside the federal system.",
+        "sources": [
+          "cp-atlantic-marine",
+          "cp-transfer",
+          "cp-forum-non-conveniens"
+        ],
+        "edges": [
+          {
+            "label": "Another federal district",
+            "to": "6"
+          },
+          {
+            "label": "State or foreign forum",
+            "to": "7"
+          },
+          {
+            "label": "No sufficient basis to move",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Section 1404(a) transfer",
+        "detail": "Ordinarily weigh convenience, justice, and whether the transferee was a proper original forum or all parties consent. A valid controlling clause shifts the balancing to public factors and changes the usual choice-of-law consequence.",
+        "sources": [
+          "cp-usc-1404",
+          "cp-hoffman",
+          "cp-atlantic-marine"
+        ],
+        "edges": [
+          {
+            "label": "Transfer warranted",
+            "to": "9"
+          },
+          {
+            "label": "Transfer unwarranted",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Forum non conveniens",
+        "detail": "Test availability and adequacy, private and public factors, and proper deference to the plaintiff’s choice. Piper gave a foreign plaintiff less deference. A valid controlling clause generally removes private factors from the balance.",
+        "sources": [
+          "cp-forum-non-conveniens",
+          "cp-piper",
+          "cp-atlantic-marine"
+        ],
+        "edges": [
+          {
+            "label": "Dismissal warranted",
+            "to": "10"
+          },
+          {
+            "label": "Dismissal unwarranted",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "8",
+        "label": "Proceed in the current district",
+        "detail": "The venue statute and forum-management standards permit the action to remain here.",
+        "sources": [
+          "cp-venue",
+          "cp-transfer"
+        ],
+        "edges": []
+      },
+      {
+        "id": "9",
+        "label": "Transfer to the authorized federal district",
+        "detail": "Record the transfer statute and any clause. Those details affect the applicable choice-of-law analysis.",
+        "sources": [
+          "cp-transfer",
+          "cp-atlantic-marine"
+        ],
+        "edges": []
+      },
+      {
+        "id": "10",
+        "label": "Dismiss on the applicable venue or forum ground",
+        "detail": "Identify the basis and any conditions needed to ensure the alternative forum is available, such as agreement to accept service.",
+        "sources": [
+          "cp-usc-1406",
+          "cp-forum-non-conveniens",
+          "cp-piper"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-17",
+    "title": "Which law applies under Erie and Hanna?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Frame the precise disputed issue",
+        "detail": "Identify the state rule and asserted federal Constitution, statute, rule or practice. Under Erie and § 1652, state law generally supplies substantive rules of decision for state claims.",
+        "sources": [
+          "cp-erie",
+          "cp-erie-decision",
+          "cp-usc-1652"
+        ],
+        "edges": [
+          {
+            "label": "Federal enactment asserted",
+            "to": "2"
+          },
+          {
+            "label": "Federal practice only",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Does a federal enactment answer the question?",
+        "detail": "Read the actual scope. Walker held Rule 3 did not address tolling the state limitation period. Berk concluded Rule 8 did answer whether a malpractice complaint could be rejected for lacking expert evidence at filing.",
+        "sources": [
+          "cp-rule-scope",
+          "cp-walker",
+          "cp-hanna-decision",
+          "cp-berk"
+        ],
+        "edges": [
+          {
+            "label": "Genuine conflict",
+            "to": "3"
+          },
+          {
+            "label": "Both can operate or federal authority silent",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Can the federal provision validly govern?",
+        "detail": "For a statute check constitutional authority. For a Federal Rule apply § 2072 and the constitutional inquiry. Sibbach asks whether the rule really regulates procedure. Shady Grove split over Enabling Act reasoning. Berk’s majority held Rule 8 valid and displaced the affidavit requirement.",
+        "sources": [
+          "cp-usc-2072",
+          "cp-sibbach",
+          "cp-shady-grove",
+          "cp-berk"
+        ],
+        "edges": [
+          {
+            "label": "Federal provision valid",
+            "to": "4"
+          },
+          {
+            "label": "No valid controlling provision",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Apply the controlling federal enactment",
+        "detail": "Hanna applied the Federal Rule governing service. Stewart applied § 1404 to the forum-selection transfer decision. Berk applied Rule 8 to the commencement-stage expert affidavit question.",
+        "sources": [
+          "cp-hanna-decision",
+          "cp-stewart",
+          "cp-berk"
+        ],
+        "edges": []
+      },
+      {
+        "id": "5",
+        "label": "Test the unguided Erie problem",
+        "detail": "Identify whether the state rule is bound up with rights and obligations. Consider outcome effect in light of Hanna’s twin aims, discouraging forum shopping and avoiding inequitable administration of the laws.",
+        "sources": [
+          "cp-erie-outcome",
+          "cp-york",
+          "cp-hanna-decision",
+          "cp-woods"
+        ],
+        "edges": [
+          {
+            "label": "Significant federal institutional interest or possible accommodation",
+            "to": "6"
+          },
+          {
+            "label": "State rule protects substance or twin aims favor it",
+            "to": "8"
+          },
+          {
+            "label": "Federal practice compatible with Erie",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Can the requirements be accommodated?",
+        "detail": "Byrd weighed state practice against federal judge–jury allocation. Gasperini preserved New York’s damages standard through district court review while limiting federal appellate review in light of the Seventh Amendment.",
+        "sources": [
+          "cp-byrd",
+          "cp-gasperini",
+          "cp-erie-accommodation"
+        ],
+        "edges": [
+          {
+            "label": "Accommodation feasible",
+            "to": "7"
+          },
+          {
+            "label": "State interest controls remaining conflict",
+            "to": "8"
+          },
+          {
+            "label": "Federal institutional interest controls",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Apply the accommodated arrangement",
+        "detail": "Specify which court applies the state standard and what federal institutional constraint governs its application, as in Gasperini.",
+        "sources": [
+          "cp-gasperini",
+          "cp-erie-accommodation"
+        ],
+        "edges": []
+      },
+      {
+        "id": "8",
+        "label": "Apply the state rule",
+        "detail": "York applied the state statute of limitations to avoid materially different treatment of the state-created claim in federal court. Walker followed the state service-linked tolling rule after construing Rule 3’s scope.",
+        "sources": [
+          "cp-york",
+          "cp-walker",
+          "cp-erie-outcome"
+        ],
+        "edges": []
+      },
+      {
+        "id": "9",
+        "label": "Apply compatible federal practice",
+        "detail": "Explain the federal interest or why the practice can coexist with state law without frustrating Erie’s purposes.",
+        "sources": [
+          "cp-byrd",
+          "cp-erie-balancing",
+          "cp-erie"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-18",
+    "title": "Who supplies the rule when the ordinary Erie route ends?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Identify the issue and the case’s source of law",
+        "detail": "The ordinary Erie route usually points to state substantive law for a state claim. Check whether the problem is choice among states, a specialized federal interest, or enforcement of a federal right in state court.",
+        "sources": [
+          "cp-erie",
+          "cp-choice-law",
+          "cp-federal-common-law",
+          "cp-reverse-erie"
+        ],
+        "edges": [
+          {
+            "label": "Choice among states",
+            "to": "2"
+          },
+          {
+            "label": "Distinct federal interest",
+            "to": "3"
+          },
+          {
+            "label": "Federal right in state court",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Which state’s substantive law?",
+        "detail": "Under Klaxon, a diversity court generally applies the forum state’s conflicts rules. Check whether transfer affects which forum’s rules travel. Atlantic Marine identifies the exception for transfer to enforce a valid forum clause.",
+        "sources": [
+          "cp-choice-law",
+          "cp-transfer",
+          "cp-atlantic-marine"
+        ],
+        "edges": [
+          {
+            "label": "Apply the selected state’s law",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "What federal interest would state law impair?",
+        "detail": "Federal common law is exceptional. Clearfield applied federal law to rights and duties arising from a federal disbursement check. Consider whether federal interests require a uniform rule or permit borrowing state law.",
+        "sources": [
+          "cp-federal-common-law",
+          "cp-clearfield"
+        ],
+        "edges": [
+          {
+            "label": "Federal procurement conflict",
+            "to": "4"
+          },
+          {
+            "label": "Other substantial and unique federal interest",
+            "to": "6"
+          },
+          {
+            "label": "Ordinary state-law dispute",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Does the Boyle contractor defense apply?",
+        "detail": "Look for a significant conflict with federal procurement choices. Ask whether the United States approved reasonably precise specifications, the equipment conformed, and the contractor disclosed dangers known to it but unknown to the United States.",
+        "sources": [
+          "cp-government-contractor",
+          "cp-boyle"
+        ],
+        "edges": [
+          {
+            "label": "Elements supported",
+            "to": "6"
+          },
+          {
+            "label": "Elements lacking",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Would the state rule frustrate the federal right?",
+        "detail": "A state court may use many of its own procedures. Dice applies federal law to the validity of a release of a federal railway claim and protects jury determination of the fraud issue in that setting.",
+        "sources": [
+          "cp-reverse-erie",
+          "cp-release",
+          "cp-dice"
+        ],
+        "edges": [
+          {
+            "label": "Federal right requires the federal rule",
+            "to": "7"
+          },
+          {
+            "label": "Compatible state procedure",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Apply a tailored federal rule",
+        "detail": "Define the specific federal interest and use only the rule needed to protect it. Boyle’s defense addresses identified government procurement choices. Clearfield found that delay required a showing of prejudice.",
+        "sources": [
+          "cp-boyle",
+          "cp-clearfield",
+          "cp-federal-common-law"
+        ],
+        "edges": []
+      },
+      {
+        "id": "7",
+        "label": "Honor the federally protected incident",
+        "detail": "Give effect to the federal substantive rule or essential procedure when adjudicating the federal claim in state court.",
+        "sources": [
+          "cp-dice",
+          "cp-reverse-erie"
+        ],
+        "edges": []
+      },
+      {
+        "id": "8",
+        "label": "Apply the identified state law or procedure",
+        "detail": "State conflicts rules may select the relevant substantive law. A compatible state procedure may govern proceedings on a federal claim in state court.",
+        "sources": [
+          "cp-choice-law",
+          "cp-reverse-erie",
+          "cp-erie"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-19",
+    "title": "Will the complaint survive a Rule 12(b)(6) motion?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Identify the claim and its elements",
+        "detail": "Rule 8(a)(2) requires a short and plain statement showing entitlement to relief. Under Rule 12(b)(6), identify the elements and ask what the pleading actually alleges.",
+        "sources": [
+          "cp-frcp-8",
+          "cp-frcp-12",
+          "cp-pleading"
+        ],
+        "edges": [
+          {
+            "label": "Classify the allegations",
+            "to": "2"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Separate factual matter from conclusions",
+        "detail": "Iqbal withholds the presumption of truth from conclusory allegations and formulaic recitals. Treat well-pleaded facts as true for this motion and read them together.",
+        "sources": [
+          "cp-iqbal",
+          "cp-plausibility"
+        ],
+        "edges": [
+          {
+            "label": "Factual matter supports proposed inference",
+            "to": "3"
+          },
+          {
+            "label": "Only conclusions on a required point",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Plausible entitlement to relief?",
+        "detail": "Use context, experience and common sense. Twombly found parallel conduct and a bare conspiracy assertion insufficient to plausibly suggest agreement. Plausibility requires more than a possibility and less than a probability showing.",
+        "sources": [
+          "cp-twombly",
+          "cp-iqbal",
+          "cp-plausibility"
+        ],
+        "edges": [
+          {
+            "label": "Plausible across necessary elements",
+            "to": "4"
+          },
+          {
+            "label": "Facts do not support an element",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Is the court demanding heightened factual detail?",
+        "detail": "Swierkiewicz did not require pleading a prima facie evidentiary case. Swanson illustrates a focused discrimination narrative on the pleadings. Check whether Rule 9 or a statute actually supplies a heightened standard.",
+        "sources": [
+          "cp-swierkiewicz",
+          "cp-swanson",
+          "cp-frcp-9"
+        ],
+        "edges": [
+          {
+            "label": "Ordinary Rule 8 allegations sufficient",
+            "to": "6"
+          },
+          {
+            "label": "Specificity rule applies",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Apply the special pleading rule",
+        "detail": "Check particularity or other statutory specificity only where triggered. For fact pleading across the course, Dioguardi and Conley show the historical notice approach, and Twombly retired Conley’s no-set-of-facts formula.",
+        "sources": [
+          "cp-frcp-9",
+          "cp-dioguardi",
+          "cp-conley",
+          "cp-twombly"
+        ],
+        "edges": [
+          {
+            "label": "Specificity satisfied",
+            "to": "6"
+          },
+          {
+            "label": "Deficient",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Deny the motion on this ground",
+        "detail": "A sufficient complaint allows the claim to proceed to responsive pleadings and later proof. It does not establish the truth of the alleged events for judgment.",
+        "sources": [
+          "cp-frcp-12",
+          "cp-pleading-proof"
+        ],
+        "edges": []
+      },
+      {
+        "id": "7",
+        "label": "Dismiss for pleading deficiency",
+        "detail": "Identify the missing factual inference or element. Consider amendment under Rule 15 where available.",
+        "sources": [
+          "cp-frcp-12",
+          "cp-frcp-15",
+          "cp-plausibility"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-20",
+    "title": "Does this allegation require greater specificity?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "What kind of allegation or demand?",
+        "detail": "Identify the operative allegation and any special rule. Apply Rule 8 to the remainder of the claim and consider whether more than one special standard is triggered.",
+        "sources": [
+          "cp-frcp-8",
+          "cp-frcp-9",
+          "cp-securities-pleading"
+        ],
+        "edges": [
+          {
+            "label": "Fraud or mistake",
+            "to": "2"
+          },
+          {
+            "label": "Special damages",
+            "to": "3"
+          },
+          {
+            "label": "Private securities fraud dispute involving scienter",
+            "to": "4"
+          },
+          {
+            "label": "Ordinary issue",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Plead circumstances with particularity",
+        "detail": "Rule 9(b) asks for the who, what, when, where and how as appropriate. Kearns applied it to a course of conduct sounding in fraud. Intent, knowledge and other states of mind may be alleged generally under Rule 9(b), subject to plausibility.",
+        "sources": [
+          "cp-fraud-pleading",
+          "cp-kearns",
+          "cp-frcp-9",
+          "cp-iqbal"
+        ],
+        "edges": [
+          {
+            "label": "Circumstances sufficiently specified",
+            "to": "7"
+          },
+          {
+            "label": "Deficient",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Identify each special-damages item",
+        "detail": "Rule 9(g) requires specifically stating an item of special damage. Ziervogel illustrates surprise when the claimed consequence falls outside what the pleaded injury would ordinarily indicate.",
+        "sources": [
+          "cp-special-damages",
+          "cp-ziervogel",
+          "cp-frcp-9"
+        ],
+        "edges": [
+          {
+            "label": "Item specifically stated",
+            "to": "7"
+          },
+          {
+            "label": "Item omitted",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Apply the PSLRA where it governs",
+        "detail": "Identify the misleading statement and why it is misleading. For each alleged act or omission, plead particularized facts supporting a strong inference of the required state of mind.",
+        "sources": [
+          "cp-securities-pleading",
+          "cp-tellabs"
+        ],
+        "edges": [
+          {
+            "label": "Assess inference holistically",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Compare competing inferences",
+        "detail": "Tellabs asks whether scienter is cogent and at least as compelling as any opposing innocent inference. Consider all allegations together.",
+        "sources": [
+          "cp-tellabs",
+          "cp-securities-pleading"
+        ],
+        "edges": [
+          {
+            "label": "Strong inference satisfied",
+            "to": "6"
+          },
+          {
+            "label": "Weak inference",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Apply any remaining securities pleading requirements",
+        "detail": "A sufficiently strong scienter inference clears that part of the PSLRA inquiry. Check statement specificity and other elements independently.",
+        "sources": [
+          "cp-securities-pleading",
+          "cp-tellabs"
+        ],
+        "edges": [
+          {
+            "label": "All applicable requirements satisfied",
+            "to": "7"
+          },
+          {
+            "label": "Remaining defect",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Proceed under the applicable standard",
+        "detail": "Assess any remaining Rule 8 or case-specific pleading requirements before concluding the complaint survives.",
+        "sources": [
+          "cp-frcp-8",
+          "cp-frcp-9"
+        ],
+        "edges": []
+      },
+      {
+        "id": "8",
+        "label": "Address the identified deficiency",
+        "detail": "Identify the missing particulars, unpleaded damage item or inadequate scienter inference and consider the appropriate ruling or amendment.",
+        "sources": [
+          "cp-frcp-12",
+          "cp-frcp-15",
+          "cp-frcp-9",
+          "cp-securities-pleading"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-21",
+    "title": "What response is due and what defenses can be lost?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "When is a response due?",
+        "detail": "Ordinarily a defendant serves an answer within 21 days after service. For domestic waiver, use 60 days from sending the request. A Rule 12 motion generally changes the answer deadline to 14 days from notice of denial or postponement, or service of a more definite statement when ordered.",
+        "sources": [
+          "cp-frcp-12",
+          "cp-frcp-4"
+        ],
+        "edges": [
+          {
+            "label": "File an initial Rule 12 motion",
+            "to": "2"
+          },
+          {
+            "label": "Answer directly",
+            "to": "4"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Which motion fits?",
+        "detail": "Rule 12(b) lists defenses. Rule 12(e) applies to pleadings too vague to reasonably answer, and 12(f) addresses specified material in pleadings. Under 12(g), consolidate available motions as required.",
+        "sources": [
+          "cp-frcp-12",
+          "cp-pleading-motions",
+          "cp-garcia"
+        ],
+        "edges": [
+          {
+            "label": "Check preservation",
+            "to": "3"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Classify omitted Rule 12 objections",
+        "detail": "Available Rule 12(b)(2)–(5) defenses are forfeited if omitted from the first Rule 12 motion. Failure to state a claim, join a required party, or state a legal defense can still be raised through Rule 12(h)(2) routes. Subject-matter jurisdiction stays open under 12(h)(3).",
+        "sources": [
+          "cp-frcp-12",
+          "cp-waiver"
+        ],
+        "edges": [
+          {
+            "label": "Ruling leaves answer due",
+            "to": "4"
+          },
+          {
+            "label": "Decision resolves claim or action",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Answer each allegation fairly",
+        "detail": "Rule 8(b) permits admission, specific or good-faith general denial, and a statement that knowledge or information is insufficient to form a belief, which acts as a denial. Kegerise rejects evasive partial responses. If answering without an earlier Rule 12 motion, preserve available Rule 12(b)(2)–(5) defenses in the answer or qualifying Rule 15(a)(1) amendment.",
+        "sources": [
+          "cp-frcp-8",
+          "cp-denials",
+          "cp-kegerise",
+          "cp-frcp-12"
+        ],
+        "edges": [
+          {
+            "label": "State affirmative defenses",
+            "to": "5"
+          },
+          {
+            "label": "An allegation was left unanswered",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Raise affirmative defenses",
+        "detail": "Rule 8(c) requires affirmatively stating avoidance. Ingraham illustrates the risk of withholding a damages cap until after trial, given notice and prejudice. Assess amendment where a defense was omitted.",
+        "sources": [
+          "cp-affirmative-defense",
+          "cp-ingraham",
+          "cp-frcp-8",
+          "cp-frcp-15"
+        ],
+        "edges": [
+          {
+            "label": "Defenses properly framed or amendment allowed",
+            "to": "7"
+          },
+          {
+            "label": "Procedural forfeiture or prejudice",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Check the effect of silence",
+        "detail": "An allegation requiring a responsive pleading is generally admitted if not denied, other than an allegation about amount of damages. When no responsive pleading is required, the allegation is treated as denied or avoided.",
+        "sources": [
+          "cp-frcp-8",
+          "cp-denials"
+        ],
+        "edges": [
+          {
+            "label": "Frame the disputed allegations",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Proceed on the disputed issues",
+        "detail": "The pleadings now identify admitted facts, disputed facts and preserved defenses. Use subsequent proceedings to test them on the proper record.",
+        "sources": [
+          "cp-frcp-8",
+          "cp-frcp-12",
+          "cp-pleading-proof"
+        ],
+        "edges": []
+      },
+      {
+        "id": "8",
+        "label": "Give effect to disposition or forfeiture",
+        "detail": "Follow the motion ruling. When litigation continues, identify any omitted defense the defendant can still raise through a rule-authorized route.",
+        "sources": [
+          "cp-frcp-12",
+          "cp-affirmative-defense"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-22",
+    "title": "Can the pleading be amended, and will it relate back?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Which method of amendment applies?",
+        "detail": "For a pleading amendment in federal court, first examine timing, consent, prior amendments and whether an issue was introduced at trial.",
+        "sources": [
+          "cp-frcp-15",
+          "cp-amendment"
+        ],
+        "edges": [
+          {
+            "label": "Amend as of course",
+            "to": "2"
+          },
+          {
+            "label": "Consent or leave needed",
+            "to": "3"
+          },
+          {
+            "label": "Issue introduced at trial",
+            "to": "4"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Is the one-time amendment window open?",
+        "detail": "Rule 15(a)(1) permits one amendment within 21 days after serving the pleading or, if a response is required, within 21 days after a responsive pleading or a Rule 12(b), (e), or (f) motion, whichever of those responses occurs earlier.",
+        "sources": [
+          "cp-frcp-15",
+          "cp-amendment"
+        ],
+        "edges": [
+          {
+            "label": "Window open",
+            "to": "5"
+          },
+          {
+            "label": "Window closed or amendment already used",
+            "to": "3"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Written consent or leave?",
+        "detail": "Rule 15(a)(2) permits the opponent’s written consent or leave freely given when justice requires. Consider delay, bad faith, repeated failure to cure, prejudice and futility. Beeck allowed the manufacturer to change its answer on the record presented.",
+        "sources": [
+          "cp-frcp-15",
+          "cp-beeck",
+          "cp-amendment"
+        ],
+        "edges": [
+          {
+            "label": "Allowed",
+            "to": "5"
+          },
+          {
+            "label": "Denied",
+            "to": "10"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Did the issue become part of the trial?",
+        "detail": "Under Rule 15(b), identify express or implied consent or a trial objection and any prejudice. In Moore, evidence that also served pleaded issues did not by itself establish consent to try spousal support.",
+        "sources": [
+          "cp-frcp-15",
+          "cp-trial-consent",
+          "cp-moore"
+        ],
+        "edges": [
+          {
+            "label": "Tried by consent or court permits amendment",
+            "to": "5"
+          },
+          {
+            "label": "Outside the trial scope",
+            "to": "10"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Does limitations make the filing date matter?",
+        "detail": "Amendment and relation back are separate. Rule 15(c)(1)(A) recognizes a more forgiving rule under the law supplying the limitations period. Otherwise choose the federal branch matching the amendment.",
+        "sources": [
+          "cp-frcp-15",
+          "cp-relation-back"
+        ],
+        "edges": [
+          {
+            "label": "Timely now or governing limitations law allows relation back",
+            "to": "9"
+          },
+          {
+            "label": "New allegation, claim or defense",
+            "to": "6"
+          },
+          {
+            "label": "Changed defendant or defendant’s name",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Same conduct, transaction or occurrence?",
+        "detail": "Rule 15(c)(1)(B) requires the same conduct, transaction or occurrence set out or attempted in the original pleading. Examine what facts the original pleading put in dispute.",
+        "sources": [
+          "cp-frcp-15",
+          "cp-relation-back"
+        ],
+        "edges": [
+          {
+            "label": "Same underlying events",
+            "to": "9"
+          },
+          {
+            "label": "Distinct events and time has run",
+            "to": "10"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Does the changed defendant have notice within Rule 4(m) time?",
+        "detail": "The new claim must also satisfy Rule 15(c)(1)(B). Within the Rule 4(m) service period, the new defendant must have received notice sufficient to avoid prejudice defending on the merits.",
+        "sources": [
+          "cp-frcp-15",
+          "cp-frcp-4",
+          "cp-relation-back"
+        ],
+        "edges": [
+          {
+            "label": "Same events and timely adequate notice",
+            "to": "8"
+          },
+          {
+            "label": "Missing statutory predicate",
+            "to": "10"
+          }
+        ]
+      },
+      {
+        "id": "8",
+        "label": "What did the prospective defendant know?",
+        "detail": "Krupski asks whether the new defendant knew or should have known it would have been sued but for a mistake concerning proper identity, judged within the Rule 4(m) period. Awareness of both entities can coexist with a mistake about their roles.",
+        "sources": [
+          "cp-krupski",
+          "cp-frcp-15",
+          "cp-relation-back"
+        ],
+        "edges": [
+          {
+            "label": "Mistaken identity predicate satisfied",
+            "to": "9"
+          },
+          {
+            "label": "Deliberate informed choice or no qualifying mistake",
+            "to": "10"
+          }
+        ]
+      },
+      {
+        "id": "9",
+        "label": "Amendment may proceed",
+        "detail": "Apply the original filing date to a qualifying relation-back amendment. Identify any remaining defenses and procedural requirements.",
+        "sources": [
+          "cp-frcp-15",
+          "cp-relation-back"
+        ],
+        "edges": []
+      },
+      {
+        "id": "10",
+        "label": "Proposed route fails",
+        "detail": "Identify whether leave was denied, trial consent was absent, or a limitations defense survives because relation back failed.",
+        "sources": [
+          "cp-frcp-15",
+          "cp-amendment",
+          "cp-relation-back"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-23",
+    "title": "Can this filing be sanctioned under Rule 11?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Identify the paper, presenter and certification",
+        "detail": "Rule 11 covers signing, filing, submitting or later advocating covered papers. Review the signer or advocate’s reasonable inquiry at the time. Discovery matters under Rules 26–37 fall outside Rule 11.",
+        "sources": [
+          "cp-frcp-11",
+          "cp-certification"
+        ],
+        "edges": [
+          {
+            "label": "Check the substantive certifications",
+            "to": "2"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Were factual, legal and purpose requirements met?",
+        "detail": "Check improper purpose, legal support or a nonfrivolous change argument, evidentiary support for factual assertions or identified likelihood after investigation, and warranted denials or reasonable information-based denials.",
+        "sources": [
+          "cp-frcp-11",
+          "cp-certification"
+        ],
+        "edges": [
+          {
+            "label": "Certificate justified",
+            "to": "8"
+          },
+          {
+            "label": "Potential violation",
+            "to": "3"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "How was sanctions review initiated?",
+        "detail": "Rule 11 distinguishes a separate party motion from a court order to show cause. Identify specifically accused conduct and allow notice and a reasonable opportunity to respond.",
+        "sources": [
+          "cp-frcp-11",
+          "cp-safe-harbor",
+          "cp-hadges"
+        ],
+        "edges": [
+          {
+            "label": "Party motion",
+            "to": "4"
+          },
+          {
+            "label": "Court initiative",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Was the motion served with a chance to correct?",
+        "detail": "The movant must serve the separate motion and ordinarily wait 21 days before filing. Timely withdrawal or correction during the safe harbor blocks filing. Hadges reversed a sanction that lacked required procedural protections.",
+        "sources": [
+          "cp-safe-harbor",
+          "cp-hadges",
+          "cp-frcp-11"
+        ],
+        "edges": [
+          {
+            "label": "Timely withdrawal or procedure defective",
+            "to": "8"
+          },
+          {
+            "label": "Procedure followed and violation remains",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Use the show-cause order and applicable limits",
+        "detail": "The court’s order specifies the conduct and allows a response. Apply the court-initiated restrictions on monetary sanctions, including the timing limit tied to voluntary dismissal or settlement.",
+        "sources": [
+          "cp-frcp-11",
+          "cp-safe-harbor"
+        ],
+        "edges": [
+          {
+            "label": "Violation established after response",
+            "to": "6"
+          },
+          {
+            "label": "Violation unproved or procedure unmet",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Who is responsible and what deters repetition?",
+        "detail": "Assess the lawyer, party, and law firm under Rule 11(c). Monetary sanctions against a represented party for legally unwarranted contentions under 11(b)(2) are unavailable. Tailor any sanction to sufficient deterrence.",
+        "sources": [
+          "cp-frcp-11",
+          "cp-certification"
+        ],
+        "edges": [
+          {
+            "label": "Sanction warranted",
+            "to": "7"
+          },
+          {
+            "label": "Sanction unwarranted",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Enter an order supported by the record",
+        "detail": "Describe the sanctioned conduct and the basis for the sanction. Any payment of the movant’s attorney fees must satisfy the rule’s motion-based limits.",
+        "sources": [
+          "cp-frcp-11",
+          "cp-hadges"
+        ],
+        "edges": []
+      },
+      {
+        "id": "8",
+        "label": "No Rule 11 sanction on this route",
+        "detail": "Distinguish an adequately investigated contention from actual failure of inquiry. Surowitz illustrates the separate verification context, where a shareholder’s inability to explain an investigated claim did not make it a sham.",
+        "sources": [
+          "cp-frcp-11",
+          "cp-hadges",
+          "cp-surowitz"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-24",
+    "title": "Which joinder device fits the proposed litigation?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Who seeks the joinder and what do they want added?",
+        "detail": "Identify the existing parties, the holder of the claimed right, and the relationship between proposed claims. Rule 17 asks who can enforce the right or appear in a recognized capacity.",
+        "sources": [
+          "cp-joinder",
+          "cp-frcp-17",
+          "cp-real-party"
+        ],
+        "edges": [
+          {
+            "label": "Existing parties add claims",
+            "to": "2"
+          },
+          {
+            "label": "Add claimants or defendants",
+            "to": "3"
+          },
+          {
+            "label": "Bring a potentially liable nonparty in",
+            "to": "4"
+          },
+          {
+            "label": "Nonparty wants in or stakeholder faces competing claims",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Additional claim between existing parties",
+        "detail": "Rule 18 covers additional claims against an opposing party. Rule 13(a) or (b) governs counterclaims, and Rule 13(g) permits a qualifying coparty crossclaim. For counterclaim or crossclaim parties, Rule 13(h) invokes Rules 19 and 20.",
+        "sources": [
+          "cp-frcp-18",
+          "cp-frcp-13",
+          "cp-counterclaim",
+          "cp-crossclaim"
+        ],
+        "edges": [
+          {
+            "label": "Check jurisdiction",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Named additional plaintiff or defendant",
+        "detail": "Use Rule 20 for claims sharing a transaction or series and a common question. Use Rule 19 for an absent person whose participation may be required. If joinder is infeasible, Rule 19(b) governs whether to proceed.",
+        "sources": [
+          "cp-frcp-19",
+          "cp-frcp-20",
+          "cp-permissive-joinder",
+          "cp-required-joinder"
+        ],
+        "edges": [
+          {
+            "label": "Check feasibility and jurisdiction",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Potential liability over",
+        "detail": "Rule 14 allows a defending party to assert a derivative claim against a new third-party defendant. For direct liability alone, consider a different device and underlying substantive law.",
+        "sources": [
+          "cp-frcp-14",
+          "cp-impleader",
+          "cp-jeub"
+        ],
+        "edges": [
+          {
+            "label": "Check jurisdiction",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Who seeks entry and why?",
+        "detail": "A nonparty may seek intervention under Rule 24. A stakeholder facing competing demands for one obligation may use Rule 22 or statutory interpleader, depending on jurisdiction and procedures.",
+        "sources": [
+          "cp-frcp-24",
+          "cp-intervention",
+          "cp-frcp-22",
+          "cp-usc-1335"
+        ],
+        "edges": [
+          {
+            "label": "Intervention",
+            "to": "6"
+          },
+          {
+            "label": "Interpleader",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Intervention of right or permission",
+        "detail": "Consider timeliness and a statutory right or interest, impairment and inadequate representation. For permissive intervention consider a conditional statutory right or common question and effects on the original dispute.",
+        "sources": [
+          "cp-frcp-24",
+          "cp-smuck",
+          "cp-intervention"
+        ],
+        "edges": [
+          {
+            "label": "Check jurisdiction",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Check subject-matter and personal jurisdiction",
+        "detail": "Identify independent subject-matter jurisdiction or § 1367 coverage and limits. Confirm personal jurisdiction and service on any added party. Rules 14 and 19 may use Rule 4(k)(1)(B)’s 100-mile bulge when its conditions apply.",
+        "sources": [
+          "cp-usc-1367",
+          "cp-personal-jurisdiction",
+          "cp-frcp-4",
+          "cp-joinder"
+        ],
+        "edges": [
+          {
+            "label": "Device and jurisdiction both supported",
+            "to": "8"
+          },
+          {
+            "label": "Requirement missing",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "8",
+        "label": "Permit joinder and manage the action",
+        "detail": "Use Rule 21 where parties are misjoined or claims need severance, and Rule 42 where separate trials or consolidation manage practical issues.",
+        "sources": [
+          "cp-frcp-21",
+          "cp-frcp-42",
+          "cp-separate-trials"
+        ],
+        "edges": []
+      },
+      {
+        "id": "9",
+        "label": "Leave unsupported claim or party out",
+        "detail": "Identify whether the proper consequence is to deny joinder, proceed without a nonparty, sever, or dismiss under the pertinent rule.",
+        "sources": [
+          "cp-frcp-19",
+          "cp-frcp-21",
+          "cp-usc-1367"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-25",
+    "title": "Who owns the claim and against whom can it be pleaded?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Who may enforce the right?",
+        "detail": "Under Rule 17(a), start with the substantive law and identify any assignment, subrogation or rule-authorized representative. Ellis Canning treated the fully subrogated insurer as real party in interest.",
+        "sources": [
+          "cp-frcp-17",
+          "cp-real-party",
+          "cp-ellis-canning"
+        ],
+        "edges": [
+          {
+            "label": "Proper party before court",
+            "to": "3"
+          },
+          {
+            "label": "Mismatch detected",
+            "to": "2"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Can the defect be cured?",
+        "detail": "After a Rule 17(a)(3) objection, allow a reasonable time for ratification, joinder or substitution. If cured, the action proceeds as if commenced by the real party in interest.",
+        "sources": [
+          "cp-frcp-17",
+          "cp-real-party"
+        ],
+        "edges": [
+          {
+            "label": "Timely cure",
+            "to": "3"
+          },
+          {
+            "label": "No cure",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "What is the target’s role?",
+        "detail": "Identify the procedural relationship between the parties before choosing the mechanism for the proposed claim.",
+        "sources": [
+          "cp-joinder",
+          "cp-frcp-13",
+          "cp-frcp-18"
+        ],
+        "edges": [
+          {
+            "label": "Original or added claim against opposing party",
+            "to": "4"
+          },
+          {
+            "label": "Responsive claim against opposing party",
+            "to": "5"
+          },
+          {
+            "label": "Claim against coparty",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Original and additional claims",
+        "detail": "Rule 18(a) allows multiple claims against an opposing party, even unrelated ones. Subject-matter jurisdiction must independently support each claim directly or through § 1367.",
+        "sources": [
+          "cp-frcp-18",
+          "cp-claim-joinder",
+          "cp-usc-1367"
+        ],
+        "edges": [
+          {
+            "label": "Check all prerequisites",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Compulsory or permissive counterclaim?",
+        "detail": "Rule 13(a) generally requires a mature counterclaim arising from the same transaction or occurrence, subject to the rule’s exceptions. Heyward-Robinson used a logical relationship. Rule 13(b) permits other counterclaims, with a separate jurisdictional inquiry.",
+        "sources": [
+          "cp-frcp-13",
+          "cp-counterclaim",
+          "cp-heyward"
+        ],
+        "edges": [
+          {
+            "label": "Check all prerequisites",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Does the coparty claim qualify?",
+        "detail": "Rule 13(g) permits a crossclaim arising from the same transaction or occurrence as the action or a counterclaim, or relating to property at issue. It can include derivative liability. LASA favored a broad transaction analysis in the construction dispute.",
+        "sources": [
+          "cp-frcp-13",
+          "cp-crossclaim",
+          "cp-lasa"
+        ],
+        "edges": [
+          {
+            "label": "Related crossclaim",
+            "to": "7"
+          },
+          {
+            "label": "Outside Rule 13(g)",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Plead under the fitting rule",
+        "detail": "Confirm jurisdiction and service for any added parties. A compulsory counterclaim generally belongs in the current suit, while qualifying permissive counterclaims and crossclaims may be brought here.",
+        "sources": [
+          "cp-frcp-13",
+          "cp-frcp-18",
+          "cp-usc-1367"
+        ],
+        "edges": []
+      },
+      {
+        "id": "8",
+        "label": "Current party or pleading route fails",
+        "detail": "Use an authorized procedural route or a separate action if available. Identify any compulsory-counterclaim consequences before splitting litigation.",
+        "sources": [
+          "cp-real-party",
+          "cp-frcp-17",
+          "cp-frcp-13"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-26",
+    "title": "Should the court join, sever, consolidate or coordinate?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "What is being combined or separated?",
+        "detail": "Start with the proposed unit. Additional named parties, separate proceedings in one district, and related actions across districts use distinct mechanisms.",
+        "sources": [
+          "cp-permissive-joinder",
+          "cp-separate-trials",
+          "cp-mdl"
+        ],
+        "edges": [
+          {
+            "label": "Add named parties to this action",
+            "to": "2"
+          },
+          {
+            "label": "Manage one or more actions before this court",
+            "to": "3"
+          },
+          {
+            "label": "Related actions across federal districts",
+            "to": "4"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Rule 20 party joinder",
+        "detail": "Claim relief jointly, severally or in the alternative arising from the same transaction, occurrence or series, with a common legal or factual question. Mosley treated claims of system-wide discriminatory practices as logically related on the record presented.",
+        "sources": [
+          "cp-frcp-20",
+          "cp-mosley"
+        ],
+        "edges": [
+          {
+            "label": "Both criteria met",
+            "to": "5"
+          },
+          {
+            "label": "Misjoinder",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Rule 42 management",
+        "detail": "A common legal or factual question permits consolidation or joint proceedings. Use separate trials for convenience, avoiding prejudice, expedition or economy while preserving jury-trial rights.",
+        "sources": [
+          "cp-frcp-42",
+          "cp-separate-trials",
+          "cp-hall"
+        ],
+        "edges": [
+          {
+            "label": "Joint proceedings useful",
+            "to": "7"
+          },
+          {
+            "label": "Separate handling preferable",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Section 1407 multidistrict proceedings",
+        "detail": "The JPML considers common factual questions, convenience, and just and efficient conduct for actions pending in different districts. Transfer is for coordinated or consolidated pretrial proceedings.",
+        "sources": [
+          "cp-usc-1407",
+          "cp-mdl"
+        ],
+        "edges": [
+          {
+            "label": "Transfer authorized and ordered",
+            "to": "8"
+          },
+          {
+            "label": "Transfer unwarranted",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Joined parties and potential prejudice",
+        "detail": "Confirm jurisdiction and service, then consider orders to prevent embarrassment, delay, expense or prejudice under Rule 20(b), including separate trials.",
+        "sources": [
+          "cp-frcp-20",
+          "cp-frcp-42",
+          "cp-personal-jurisdiction"
+        ],
+        "edges": [
+          {
+            "label": "Proceed jointly",
+            "to": "7"
+          },
+          {
+            "label": "Separation useful",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Choose severance or separate trials",
+        "detail": "Rule 21 permits dropping or adding a party or severing a claim. Misjoinder itself is no ground to dismiss the action. Rule 42(b) separate trials manage issues within an action.",
+        "sources": [
+          "cp-frcp-21",
+          "cp-frcp-42",
+          "cp-separate-trials"
+        ],
+        "edges": []
+      },
+      {
+        "id": "7",
+        "label": "Proceed jointly with attention to case identity",
+        "detail": "Under Hall, actions consolidated under Rule 42(a) ordinarily retain separate identities for appeal after one action becomes final.",
+        "sources": [
+          "cp-hall",
+          "cp-frcp-42"
+        ],
+        "edges": []
+      },
+      {
+        "id": "8",
+        "label": "Coordinate pretrial and remand for trial",
+        "detail": "A transferred action that survives pretrial ordinarily returns to the originating district. Lexecon bars unilateral self-transfer to retain it for trial under § 1404.",
+        "sources": [
+          "cp-lexecon",
+          "cp-usc-1407",
+          "cp-mdl"
+        ],
+        "edges": []
+      },
+      {
+        "id": "9",
+        "label": "Actions remain in their respective districts",
+        "detail": "Use available case-management tools in each court, including consensual coordination where appropriate.",
+        "sources": [
+          "cp-mdl",
+          "cp-separate-trials"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-27",
+    "title": "Can the case proceed without the absent party?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Is the absent person required under Rule 19(a)?",
+        "detail": "Ask whether the court can accord complete relief among existing parties. An absent claimant’s interest can also require joinder if disposition may impair it or put an existing party at substantial risk of double, multiple or otherwise inconsistent obligations.",
+        "sources": [
+          "cp-frcp-19",
+          "cp-required-joinder",
+          "cp-bank-california"
+        ],
+        "edges": [
+          {
+            "label": "Required",
+            "to": "2"
+          },
+          {
+            "label": "Not required",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Can the required person be joined?",
+        "detail": "Check service, personal jurisdiction and subject-matter jurisdiction, including effect on complete diversity. A joined party’s proper venue objection requires dismissal of that party if joinder made venue improper.",
+        "sources": [
+          "cp-frcp-19",
+          "cp-personal-jurisdiction",
+          "cp-usc-1367"
+        ],
+        "edges": [
+          {
+            "label": "Feasible",
+            "to": "6"
+          },
+          {
+            "label": "Infeasible",
+            "to": "3"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Does the absent person have immunity and a substantial claim?",
+        "detail": "Pimentel gives special weight to respected sovereign immunity and asserted claims to the very assets at issue. Assess prejudice without finally adjudicating the merits of the immune party’s interest.",
+        "sources": [
+          "cp-pimentel",
+          "cp-sovereign-immunity",
+          "cp-frcp-19"
+        ],
+        "edges": [
+          {
+            "label": "Sovereign interest implicated",
+            "to": "4"
+          },
+          {
+            "label": "Other feasibility barrier",
+            "to": "4"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Apply Rule 19(b) in context",
+        "detail": "Weigh prejudice, potential to shape relief or add protections, adequacy of a judgment without the person, and whether the plaintiff would have an adequate remedy after dismissal. Provident emphasizes practical interests and procedural posture, including after trial.",
+        "sources": [
+          "cp-frcp-19",
+          "cp-provident",
+          "cp-pimentel"
+        ],
+        "edges": [
+          {
+            "label": "Can reduce prejudice and reach adequate judgment",
+            "to": "5"
+          },
+          {
+            "label": "Prejudice and equity require dismissal",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Proceed without the required person",
+        "detail": "Specify protective limitations or tailored relief and what issues the judgment can validly resolve.",
+        "sources": [
+          "cp-frcp-19",
+          "cp-provident"
+        ],
+        "edges": []
+      },
+      {
+        "id": "6",
+        "label": "Order joinder",
+        "detail": "Join the required person where feasible. A person who refuses to join as plaintiff may be made defendant or, in a proper case, involuntary plaintiff.",
+        "sources": [
+          "cp-frcp-19",
+          "cp-required-joinder"
+        ],
+        "edges": []
+      },
+      {
+        "id": "7",
+        "label": "Proceed with current parties",
+        "detail": "The Rule 19(a) finding permits the current action to continue. Evaluate permissive joinder separately if requested.",
+        "sources": [
+          "cp-frcp-19",
+          "cp-frcp-20"
+        ],
+        "edges": []
+      },
+      {
+        "id": "8",
+        "label": "Dismiss because the required party cannot be joined",
+        "detail": "Pimentel illustrates dismissal where adjudication would seriously prejudice immune sovereign claimants. An immediately available alternative remedy is one factor in the balance.",
+        "sources": [
+          "cp-frcp-19",
+          "cp-pimentel"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-28",
+    "title": "Can the defending party implead this nonparty?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "What claim does the defending party assert against the nonparty?",
+        "detail": "Rule 14(a) asks whether the nonparty may be liable to the defending party for all or part of the claim against it. Identify the substantive source of liability over.",
+        "sources": [
+          "cp-frcp-14",
+          "cp-impleader"
+        ],
+        "edges": [
+          {
+            "label": "Possible indemnity or contribution",
+            "to": "2"
+          },
+          {
+            "label": "Direct liability to plaintiff alone",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Is the liability derivative and legally available?",
+        "detail": "Jeub allowed the restaurant to implead its supplier for potential indemnity on the allegedly defective food. Check governing substantive law and whether the claim is contingent on the original defendant’s liability.",
+        "sources": [
+          "cp-jeub",
+          "cp-impleader",
+          "cp-frcp-14"
+        ],
+        "edges": [
+          {
+            "label": "Potential derivative liability",
+            "to": "3"
+          },
+          {
+            "label": "No derivative claim",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "When will the third-party complaint be filed?",
+        "detail": "A defending party can serve a summons and third-party complaint without leave if filed within 14 days after serving its original answer. Later filing requires leave. The court can strike, sever or order separate trial.",
+        "sources": [
+          "cp-frcp-14",
+          "cp-impleader"
+        ],
+        "edges": [
+          {
+            "label": "Timely without leave or leave granted",
+            "to": "4"
+          },
+          {
+            "label": "Leave required and denied",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Check authority over the third-party claim and defendant",
+        "detail": "Identify an independent subject-matter grant or § 1367(a) coverage and any exception. Establish personal jurisdiction and valid service, including the Rule 4(k)(1)(B) bulge where it applies.",
+        "sources": [
+          "cp-usc-1367",
+          "cp-frcp-4",
+          "cp-frcp-14"
+        ],
+        "edges": [
+          {
+            "label": "Jurisdiction and service supported",
+            "to": "5"
+          },
+          {
+            "label": "Jurisdiction unavailable",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Are follow-on claims proposed?",
+        "detail": "Rule 14 specifies which defenses, counterclaims or claims for the same transaction or occurrence may be asserted by the third-party defendant and the original plaintiff.",
+        "sources": [
+          "cp-frcp-14",
+          "cp-impleader"
+        ],
+        "edges": [
+          {
+            "label": "Original plaintiff sues third-party defendant",
+            "to": "6"
+          },
+          {
+            "label": "No such claim or another permitted claim",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Test plaintiff’s claim separately",
+        "detail": "In a diversity-only action, § 1367(b) restricts plaintiff claims against Rule 14 parties when inconsistent with § 1332. Kroger illustrates the original plaintiff’s attempt to proceed against a nondiverse impleaded party.",
+        "sources": [
+          "cp-kroger",
+          "cp-usc-1367",
+          "cp-frcp-14"
+        ],
+        "edges": [
+          {
+            "label": "Original jurisdiction or allowable supplemental authority",
+            "to": "7"
+          },
+          {
+            "label": "No authority over plaintiff’s added claim",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Proceed on authorized claims",
+        "detail": "Allow the derivative claim and any separately permissible claims. The substantive indemnity or contribution obligation still requires proof.",
+        "sources": [
+          "cp-frcp-14",
+          "cp-jeub"
+        ],
+        "edges": []
+      },
+      {
+        "id": "8",
+        "label": "Rule 14 route unavailable",
+        "detail": "Address the missing derivative claim, leave, or jurisdictional prerequisite. A direct claim needs another authorized procedural route.",
+        "sources": [
+          "cp-frcp-14",
+          "cp-joinder",
+          "cp-impleader"
+        ],
+        "edges": []
+      },
+      {
+        "id": "9",
+        "label": "Exclude only the unsupported follow-on claim",
+        "detail": "An original plaintiff’s barred added claim does not itself defeat an otherwise proper third-party claim.",
+        "sources": [
+          "cp-kroger",
+          "cp-usc-1367",
+          "cp-frcp-14"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-29",
+    "title": "Which kind of interpleader can protect the stakeholder?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Are there competing demands exposing the stakeholder to multiple liability?",
+        "detail": "Identify the stake, the rival claimants and possible inconsistent demands. A stakeholder can initiate interpleader or raise it as a defending party where authorized.",
+        "sources": [
+          "cp-interpleader",
+          "cp-frcp-22",
+          "cp-usc-1335"
+        ],
+        "edges": [
+          {
+            "label": "Rule 22 route",
+            "to": "2"
+          },
+          {
+            "label": "Statutory route",
+            "to": "3"
+          },
+          {
+            "label": "No qualifying competing demands",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Rule 22: ordinary federal jurisdiction required",
+        "detail": "Rule 22 provides the pleading device. Check federal question or ordinary diversity, ordinarily between the stakeholder and each claimant, with more than $75,000 in controversy for diversity. Ordinary venue and service apply, and Rule 22 itself imposes no jurisdictional deposit requirement.",
+        "sources": [
+          "cp-frcp-22",
+          "cp-interpleader",
+          "cp-usc-1332"
+        ],
+        "edges": [
+          {
+            "label": "Independent grant and ordinary procedures available",
+            "to": "5"
+          },
+          {
+            "label": "Ordinary requirements unmet",
+            "to": "4"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Section 1335: statutory jurisdiction",
+        "detail": "Require a stake of at least $500, minimally diverse adverse claimants as the statute specifies, and a deposit of the stake or an appropriate bond. Tashire allows claims that may be made against the stake before they are reduced to judgment.",
+        "sources": [
+          "cp-usc-1335",
+          "cp-statutory-interpleader",
+          "cp-tashire"
+        ],
+        "edges": [
+          {
+            "label": "Statutory requirements met",
+            "to": "6"
+          },
+          {
+            "label": "Statutory requirements unmet",
+            "to": "4"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Does the other route fit?",
+        "detail": "The devices coexist. Compare the opposing parties’ citizenships, amount, procedural posture and practical availability of service before selecting the alternative.",
+        "sources": [
+          "cp-frcp-22",
+          "cp-usc-1335",
+          "cp-statutory-interpleader"
+        ],
+        "edges": [
+          {
+            "label": "Other route satisfied",
+            "to": "7"
+          },
+          {
+            "label": "Neither works",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Use ordinary venue and service",
+        "detail": "A Rule 22 case must satisfy the ordinary venue and service rules and independent grounds for relief. Resolve possible concerns about entitlement to the stakeholder’s discharge.",
+        "sources": [
+          "cp-frcp-22",
+          "cp-usc-1391",
+          "cp-frcp-4"
+        ],
+        "edges": [
+          {
+            "label": "Proceed",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Use special statutory venue and process",
+        "detail": "Under §§ 1397 and 2361, venue may lie where a claimant resides and nationwide process is available. Any injunction must protect the stake within proper limits. Tashire rejects using a limited policy fund to centralize all related tort litigation.",
+        "sources": [
+          "cp-statutory-interpleader",
+          "cp-panamerican",
+          "cp-tashire"
+        ],
+        "edges": [
+          {
+            "label": "Proceed",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Resolve competing demands to the stake",
+        "detail": "Determine the stakeholder’s entitlement to discharge, then adjudicate the claimants’ rights. Define carefully who is protected and what obligation is resolved.",
+        "sources": [
+          "cp-interpleader",
+          "cp-hancock",
+          "cp-tashire"
+        ],
+        "edges": []
+      },
+      {
+        "id": "8",
+        "label": "Federal interpleader unavailable on this record",
+        "detail": "A stakeholder without Rule 22’s independent grant or § 1335’s predicates needs another authorized forum or procedural route.",
+        "sources": [
+          "cp-frcp-22",
+          "cp-usc-1335",
+          "cp-interpleader"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-30",
+    "title": "Can the outsider intervene?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Is the intervention motion timely?",
+        "detail": "Consider the stage of litigation, the applicant’s notice of its interest, prejudice caused by delay and the circumstances. Identify the proposed claim or defense and tender the required pleading.",
+        "sources": [
+          "cp-frcp-24",
+          "cp-intervention",
+          "cp-smuck"
+        ],
+        "edges": [
+          {
+            "label": "Timely",
+            "to": "2"
+          },
+          {
+            "label": "Untimely",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Is there an unconditional statutory right or a qualifying interest?",
+        "detail": "Rule 24(a) recognizes an unconditional federal statutory right or an interest relating to property or transaction at issue. Identify whose interest is actually affected, as Smuck distinguished parents and officials.",
+        "sources": [
+          "cp-frcp-24",
+          "cp-smuck",
+          "cp-intervention"
+        ],
+        "edges": [
+          {
+            "label": "Unconditional statutory right",
+            "to": "6"
+          },
+          {
+            "label": "Qualifying interest",
+            "to": "3"
+          },
+          {
+            "label": "Neither",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Could disposition impair the interest?",
+        "detail": "Assess practical impairment from the judgment, including the way a school decree can affect parents’ interests, as in Smuck.",
+        "sources": [
+          "cp-frcp-24",
+          "cp-smuck"
+        ],
+        "edges": [
+          {
+            "label": "Impairment plausible",
+            "to": "4"
+          },
+          {
+            "label": "No impairment",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Is the interest adequately represented?",
+        "detail": "Compare the applicant’s interest and requested outcome with the existing representatives. Smuck permitted limited intervention where existing representation no longer protected relevant parents’ interests on appeal.",
+        "sources": [
+          "cp-smuck",
+          "cp-frcp-24"
+        ],
+        "edges": [
+          {
+            "label": "Representation may be inadequate",
+            "to": "6"
+          },
+          {
+            "label": "Representation adequate",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Permissive intervention?",
+        "detail": "A timely applicant can rely on a conditional statutory right or common legal or factual question. Consider undue delay or prejudice to the original parties’ adjudication.",
+        "sources": [
+          "cp-frcp-24",
+          "cp-intervention"
+        ],
+        "edges": [
+          {
+            "label": "Court permits",
+            "to": "6"
+          },
+          {
+            "label": "No basis or court denies",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Check jurisdiction and requested relief",
+        "detail": "Identify an independent jurisdictional grant or § 1367, including limits on intervening plaintiffs in diversity-only cases. Consider Article III standing for an intervenor seeking relief beyond that sought by an existing party with standing.",
+        "sources": [
+          "cp-usc-1367",
+          "cp-frcp-24",
+          "cp-standing"
+        ],
+        "edges": [
+          {
+            "label": "Jurisdiction supported",
+            "to": "7"
+          },
+          {
+            "label": "Jurisdiction lacking",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Intervene within the authorized scope",
+        "detail": "Define the issues and any appropriate limits. Smuck permitted parents to challenge particular decree provisions.",
+        "sources": [
+          "cp-smuck",
+          "cp-intervention"
+        ],
+        "edges": []
+      },
+      {
+        "id": "8",
+        "label": "Intervention unavailable on this motion",
+        "detail": "Identify whether timeliness, representation, discretionary prejudice or jurisdiction forecloses the proposed participation.",
+        "sources": [
+          "cp-frcp-24",
+          "cp-intervention",
+          "cp-usc-1367"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-31",
+    "title": "Can a class be certified, and under which Rule 23 category?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Define the proposed class and its representatives",
+        "detail": "Identify precise membership, claims, relief and the proposed representatives. Briseno rejected a separate administrative-feasibility threshold in the Ninth Circuit. Other courts have differed on ascertainability’s demands.",
+        "sources": [
+          "cp-class-certification",
+          "cp-ascertainability",
+          "cp-briseno",
+          "cp-frcp-23"
+        ],
+        "edges": [
+          {
+            "label": "Test Rule 23(a)",
+            "to": "2"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Do all four Rule 23(a) requirements hold?",
+        "detail": "Prove numerosity, commonality, typicality and adequate representation. Dukes asks whether a common contention can generate a classwide answer. Examine conflicts and the representatives’ alignment with the proposed class.",
+        "sources": [
+          "cp-frcp-23",
+          "cp-walmart",
+          "cp-commonality",
+          "cp-adequate-representation"
+        ],
+        "edges": [
+          {
+            "label": "All four established",
+            "to": "3"
+          },
+          {
+            "label": "Any requirement missing",
+            "to": "10"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Which Rule 23(b) category fits the claims and relief?",
+        "detail": "Identify the incompatible-obligations or impairment risk, indivisible classwide relief, or damages and other claims that require a predominance and superiority inquiry.",
+        "sources": [
+          "cp-frcp-23",
+          "cp-class-certification"
+        ],
+        "edges": [
+          {
+            "label": "Rule 23(b)(1) risk",
+            "to": "4"
+          },
+          {
+            "label": "Rule 23(b)(2) cohesive equitable relief",
+            "to": "5"
+          },
+          {
+            "label": "Rule 23(b)(3) predominance and superiority",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Rule 23(b)(1): protect against identified risk",
+        "detail": "Show risk of incompatible standards for defendants or practical impairment of absent interests. Ortiz addresses the special proof needed to claim a mandatory limited fund under (b)(1)(B).",
+        "sources": [
+          "cp-frcp-23",
+          "cp-ortiz",
+          "cp-limited-fund"
+        ],
+        "edges": [
+          {
+            "label": "Qualifies",
+            "to": "7"
+          },
+          {
+            "label": "Proof insufficient",
+            "to": "10"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Rule 23(b)(2): injunction or declaration for the class",
+        "detail": "Show defendant acted or refused to act on grounds generally applicable to the class and a single remedy appropriately addresses the group as a whole. Dukes rejected individualized backpay in that proposed (b)(2) class.",
+        "sources": [
+          "cp-rule23b2",
+          "cp-walmart",
+          "cp-frcp-23"
+        ],
+        "edges": [
+          {
+            "label": "Qualifies",
+            "to": "7"
+          },
+          {
+            "label": "Relief not classwide",
+            "to": "10"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Rule 23(b)(3): predominance and superiority",
+        "detail": "Common questions must predominate, and class treatment must be superior for fair and efficient adjudication. Consider control interests, other litigation, forum concentration and manageability.",
+        "sources": [
+          "cp-predominance",
+          "cp-frcp-23",
+          "cp-amchem"
+        ],
+        "edges": [
+          {
+            "label": "Both established",
+            "to": "8"
+          },
+          {
+            "label": "Requirement fails",
+            "to": "10"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Class certified under (b)(1) or (b)(2)",
+        "detail": "The court may direct appropriate notice. No ordinary Rule 23(b)(3) opt-out right follows from these categories. Independently check settlement notice where relevant.",
+        "sources": [
+          "cp-frcp-23",
+          "cp-class-notice"
+        ],
+        "edges": [
+          {
+            "label": "Enter and manage certification order",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "8",
+        "label": "Class certified under (b)(3)",
+        "detail": "Direct the best notice practicable, including individual notice to members identifiable through reasonable effort, and explain the exclusion right. Eisen addresses individual notice and notice cost.",
+        "sources": [
+          "cp-frcp-23",
+          "cp-class-notice",
+          "cp-eisen"
+        ],
+        "edges": [
+          {
+            "label": "Enter and manage certification order",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "9",
+        "label": "Define the class, claims, issues and counsel",
+        "detail": "Enter the certification order under Rule 23(c) and appoint class counsel under Rule 23(g). The court can revisit certification before final judgment.",
+        "sources": [
+          "cp-frcp-23",
+          "cp-class-certification"
+        ],
+        "edges": []
+      },
+      {
+        "id": "10",
+        "label": "Deny certification on this showing",
+        "detail": "Identify the missing requirement. Evaluate an appropriately narrowed class, subclass or issue class when supported.",
+        "sources": [
+          "cp-frcp-23",
+          "cp-class-certification",
+          "cp-amchem"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-32",
+    "title": "Whom can the class judgment or settlement bind?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Who is included in the proposed judgment?",
+        "detail": "Identify the certification order, class definition and category, claims resolved, and exclusions. Evaluate both representation and notice before applying preclusion.",
+        "sources": [
+          "cp-frcp-23",
+          "cp-class-preclusion",
+          "cp-adequate-representation"
+        ],
+        "edges": [
+          {
+            "label": "Check representation",
+            "to": "2"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Were the absent members adequately represented?",
+        "detail": "Hansberry denies binding effect where asserted representatives had materially incompatible interests. Amchem exposed current-versus-future asbestos claimant conflicts. Consider aligned representatives, counsel and subclasses.",
+        "sources": [
+          "cp-hansberry",
+          "cp-amchem",
+          "cp-adequate-representation"
+        ],
+        "edges": [
+          {
+            "label": "Adequate",
+            "to": "3"
+          },
+          {
+            "label": "Material conflict unaddressed",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Which notice and exclusion protections apply?",
+        "detail": "For (b)(3) use best practicable notice and an exclusion opportunity. For (b)(1) or (b)(2), Rule 23 permits appropriate notice, without a routine (b)(3) exclusion right. For settlements check Rule 23(e) notice separately.",
+        "sources": [
+          "cp-frcp-23",
+          "cp-class-notice",
+          "cp-eisen"
+        ],
+        "edges": [
+          {
+            "label": "Protections adequate",
+            "to": "4"
+          },
+          {
+            "label": "Excluded or required safeguards defective",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "What kind of resolution is proposed?",
+        "detail": "A settlement requires distinct review of certification and adequacy under Rule 23(e). A mandatory limited-fund proposal faces Ortiz’s particular requirements.",
+        "sources": [
+          "cp-frcp-23",
+          "cp-settlement-class",
+          "cp-limited-fund"
+        ],
+        "edges": [
+          {
+            "label": "Ordinary settlement",
+            "to": "5"
+          },
+          {
+            "label": "Mandatory limited fund",
+            "to": "6"
+          },
+          {
+            "label": "Litigated judgment",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Can the court approve the settlement?",
+        "detail": "Verify certification, negotiation and representation, adequacy of relief, fair treatment and any tailored subclass structure. Amchem allows settlement to remove trial manageability concerns while requiring the other certification safeguards.",
+        "sources": [
+          "cp-frcp-23",
+          "cp-amchem",
+          "cp-settlement-class"
+        ],
+        "edges": [
+          {
+            "label": "Approved with required process",
+            "to": "7"
+          },
+          {
+            "label": "Deficient",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Does the fund justify a mandatory class?",
+        "detail": "Ortiz looks for a demonstrated limitation independent of agreement, devotion of the fund to claims, equitable allocation and representation of conflicts. The parties’ agreed contribution alone did not establish a limited fund.",
+        "sources": [
+          "cp-ortiz",
+          "cp-limited-fund",
+          "cp-frcp-23"
+        ],
+        "edges": [
+          {
+            "label": "Mandatory class and settlement supported",
+            "to": "5"
+          },
+          {
+            "label": "Proof or representation deficient",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "What did the judgment actually resolve?",
+        "detail": "Examine the judgment and class-defined issues. Cooper distinguished failure to prove a classwide discrimination pattern from individual members’ distinct discrimination claims.",
+        "sources": [
+          "cp-cooper",
+          "cp-class-preclusion",
+          "cp-issue-preclusion"
+        ],
+        "edges": [
+          {
+            "label": "Within a properly bound class and decided scope",
+            "to": "8"
+          },
+          {
+            "label": "Outside the class or decided scope",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "8",
+        "label": "Judgment may bind the identified member",
+        "detail": "Apply claim or issue preclusion within its governing predicates, including an actually litigated and necessary determination for issue preclusion where applicable.",
+        "sources": [
+          "cp-class-preclusion",
+          "cp-issue-preclusion",
+          "cp-cooper"
+        ],
+        "edges": []
+      },
+      {
+        "id": "9",
+        "label": "Preclusion does not extend here",
+        "detail": "An excluded person, an inadequately represented absentee or a party asserting a matter outside the judgment’s scope has a different preclusion posture. Identify the exact defect or limit.",
+        "sources": [
+          "cp-hansberry",
+          "cp-cooper",
+          "cp-class-preclusion"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-33",
+    "title": "Which jurisdictional rules apply to named and absent members?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Identify the asserted jurisdictional basis and who counts",
+        "detail": "Evaluate subject-matter jurisdiction, personal jurisdiction, and Article III standing separately. The answer to who counts varies across those inquiries and between named-party joinder and representative litigation.",
+        "sources": [
+          "cp-class-jurisdiction",
+          "cp-party-status",
+          "cp-joinder-class-distinction"
+        ],
+        "edges": [
+          {
+            "label": "Ordinary diversity",
+            "to": "2"
+          },
+          {
+            "label": "CAFA",
+            "to": "3"
+          },
+          {
+            "label": "Federal question",
+            "to": "4"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Ordinary diversity",
+        "detail": "Generally count named representatives for complete diversity and test the statutory amount. Separate claims ordinarily cannot be aggregated under § 1332(a). Exxon permits supplemental jurisdiction over some related amount-deficient claims when a qualifying anchor exists.",
+        "sources": [
+          "cp-class-jurisdiction",
+          "cp-usc-1332",
+          "cp-exxon",
+          "cp-aggregation"
+        ],
+        "edges": [
+          {
+            "label": "Basis established",
+            "to": "4"
+          },
+          {
+            "label": "Basis fails",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "CAFA original or removal jurisdiction",
+        "detail": "Check a proposed class of at least 100, minimal diversity, aggregate amount above $5 million, and local-controversy, home-state and other statutory exceptions. Standard Fire held a named plaintiff’s precertification stipulation could not bind absent members to cap the aggregate amount.",
+        "sources": [
+          "cp-cafa",
+          "cp-usc-1332",
+          "cp-usc-1453",
+          "cp-standard-fire"
+        ],
+        "edges": [
+          {
+            "label": "Basis established",
+            "to": "4"
+          },
+          {
+            "label": "CAFA basis unavailable",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Authority over defendant and claims?",
+        "detail": "Establish jurisdiction over the defendant for the named representatives’ claims. Mussat held that Bristol-Myers did not require separate forum contacts for unnamed members’ claims in its federal Rule 23 action. Treat the circuit holding and other procedural settings separately.",
+        "sources": [
+          "cp-mussat",
+          "cp-bristol-myers",
+          "cp-absent-plaintiffs"
+        ],
+        "edges": [
+          {
+            "label": "Authority established",
+            "to": "5"
+          },
+          {
+            "label": "Opposing-party objection succeeds",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "What protections apply to absent plaintiffs?",
+        "detail": "Shutts upheld jurisdiction over absent damages-class plaintiffs with adequate representation, notice, opportunity to participate and exclusion. Separately require adequate contacts for choosing a single state’s substantive law.",
+        "sources": [
+          "cp-shutts",
+          "cp-absent-plaintiffs",
+          "cp-choice-law"
+        ],
+        "edges": [
+          {
+            "label": "Applicable safeguards provided",
+            "to": "6"
+          },
+          {
+            "label": "Required safeguards missing",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Who seeks what relief, and at what stage?",
+        "detail": "The named representative needs injury, traceability and redressability for each form of relief sought. Distinguish certification from judgment. TransUnion required concrete injury for each member recovering individual damages and reserved the precise certification-stage question.",
+        "sources": [
+          "cp-standing",
+          "cp-transunion",
+          "cp-party-status"
+        ],
+        "edges": [
+          {
+            "label": "Named standing and required member proof",
+            "to": "7"
+          },
+          {
+            "label": "Proof problem",
+            "to": "8"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Proceed within established jurisdiction",
+        "detail": "Keep the court’s authority over the class and the claims separate from the state-law choice and Rule 23 certification analysis.",
+        "sources": [
+          "cp-class-jurisdiction",
+          "cp-choice-law",
+          "cp-frcp-23"
+        ],
+        "edges": []
+      },
+      {
+        "id": "8",
+        "label": "Limit relief to those with standing",
+        "detail": "TransUnion distinguished misleading reports disclosed to third parties from undisclosed adverse files for the damages theory presented. If the representative lacks standing, reassess the action itself.",
+        "sources": [
+          "cp-transunion",
+          "cp-standing"
+        ],
+        "edges": []
+      },
+      {
+        "id": "9",
+        "label": "The asserted basis or procedure fails",
+        "detail": "Evaluate any other supported jurisdictional basis or narrow the proposed class or relief as permitted.",
+        "sources": [
+          "cp-class-jurisdiction",
+          "cp-cafa",
+          "cp-mussat"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-34",
+    "title": "Can a party insist on individual arbitration?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Did the parties agree to arbitrate?",
+        "detail": "Apply governing formation and assent rules to the actual transaction. Check incorporation and notice of online or standard terms, the parties bound and the disputes covered.",
+        "sources": [
+          "cp-class-waiver",
+          "cp-concepcion"
+        ],
+        "edges": [
+          {
+            "label": "Agreement and scope established",
+            "to": "2"
+          },
+          {
+            "label": "Agreement or scope not established",
+            "to": "8"
+          }
+        ],
+        "related": [
+          {
+            "id": "K-10",
+            "label": "Contracts · Customer assent"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Does the agreement require individual proceedings?",
+        "detail": "Read the class waiver and scope of the arbitration clause. Concepcion addressed a consumer agreement requiring individual arbitration and an asserted state-law bar to enforcing the waiver.",
+        "sources": [
+          "cp-class-waiver",
+          "cp-concepcion"
+        ],
+        "edges": [
+          {
+            "label": "Individual arbitration required",
+            "to": "3"
+          },
+          {
+            "label": "Clause does not require individual proceedings",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "What defense is asserted?",
+        "detail": "The FAA’s saving clause generally preserves grounds applicable to contracts, such as fraud, duress or unconscionability. Identify the actual ground, what term it affects, and any issue of delegation to the arbitrator.",
+        "sources": [
+          "cp-concepcion",
+          "cp-federal-preemption",
+          "cp-class-waiver"
+        ],
+        "edges": [
+          {
+            "label": "Applicable defense alleged",
+            "to": "4"
+          },
+          {
+            "label": "No sufficient defense",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "Does the state rule interfere with FAA purposes?",
+        "detail": "Concepcion held the Discover Bank rule preempted when it conditioned enforcement on classwide arbitration contrary to the agreement. Distinguish defenses that apply consistently with the FAA from those that interfere with fundamental attributes of arbitration.",
+        "sources": [
+          "cp-concepcion",
+          "cp-federal-preemption"
+        ],
+        "edges": [
+          {
+            "label": "Rule requiring class procedures preempted",
+            "to": "6"
+          },
+          {
+            "label": "Defense can operate consistently with FAA",
+            "to": "5"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Does the preserved defense defeat or limit enforcement?",
+        "detail": "Apply the contract defense and assess severability as provided by the governing law and agreement. An individualized defense can change the enforceable terms.",
+        "sources": [
+          "cp-concepcion",
+          "cp-class-waiver"
+        ],
+        "edges": [
+          {
+            "label": "Defense established and bars requested order",
+            "to": "8"
+          },
+          {
+            "label": "Agreement enforceable as to individual proceedings",
+            "to": "6"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Enforce individual arbitration where authorized",
+        "detail": "Give effect to the enforceable agreement within its scope and apply the FAA’s procedural route to the case’s posture.",
+        "sources": [
+          "cp-concepcion",
+          "cp-class-waiver"
+        ],
+        "edges": []
+      },
+      {
+        "id": "7",
+        "label": "Resolve the applicable arbitration scope separately",
+        "detail": "An agreement to arbitrate does not by itself show consent to class arbitration or satisfy the movant’s asserted basis for an order requiring individual arbitration.",
+        "sources": [
+          "cp-concepcion",
+          "cp-class-waiver"
+        ],
+        "edges": []
+      },
+      {
+        "id": "8",
+        "label": "Requested individual-arbitration order unavailable",
+        "detail": "Identify the formation, scope or contract-defense ruling that controls the present motion.",
+        "sources": [
+          "cp-class-waiver",
+          "cp-concepcion"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "CP-35",
+    "title": "Who must produce what at summary judgment?",
+    "entry": "1",
+    "nodes": [
+      {
+        "id": "1",
+        "label": "Identify the elements, trial burdens and requested ruling",
+        "detail": "Rule 56 asks whether a material factual dispute is genuine and whether the movant is entitled to judgment as a matter of law. Identify each targeted claim, defense or issue and who would bear persuasion at trial.",
+        "sources": [
+          "cp-frcp-56",
+          "cp-summary-judgment",
+          "cp-burden-persuasion"
+        ],
+        "edges": [
+          {
+            "label": "Movant bears trial burden on the issue",
+            "to": "2"
+          },
+          {
+            "label": "Nonmovant bears trial burden",
+            "to": "3"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "Movant’s evidence on an issue it must prove",
+        "detail": "Support each necessary element with record material sufficient to require a verdict when viewed favorably to the opponent. A reasonable contrary finding prevents judgment for the burden-bearing movant.",
+        "sources": [
+          "cp-frcp-56",
+          "cp-burden-production",
+          "cp-anderson-liberty"
+        ],
+        "edges": [
+          {
+            "label": "Initial showing met",
+            "to": "4"
+          },
+          {
+            "label": "Showing insufficient",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Celotex route when opponent bears trial burden",
+        "detail": "After adequate opportunity for discovery, the movant may identify a material element lacking trial-sufficient evidence, or show that record evidence negates it. Celotex does not require affirmative evidence negating every opponent’s claim.",
+        "sources": [
+          "cp-celotex",
+          "cp-adickes",
+          "cp-burden-production",
+          "cp-frcp-56"
+        ],
+        "edges": [
+          {
+            "label": "Initial showing met",
+            "to": "4"
+          },
+          {
+            "label": "Showing insufficient",
+            "to": "9"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "How does the nonmovant respond?",
+        "detail": "Cite specific competent material or show why the movant’s materials fail. Bare pleadings ordinarily cannot create a dispute. Rule 56(d) may allow more time for specified essential facts unavailable to the nonmovant.",
+        "sources": [
+          "cp-frcp-56",
+          "cp-celotex",
+          "cp-pleading-proof"
+        ],
+        "edges": [
+          {
+            "label": "Supported record or showing of a genuine dispute",
+            "to": "5"
+          },
+          {
+            "label": "Essential discovery remains",
+            "to": "8"
+          },
+          {
+            "label": "No trial-sufficient response",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Could a reasonable factfinder rule for the nonmovant?",
+        "detail": "Apply the trial burden to the genuine-dispute inquiry, as Anderson did for clear and convincing proof. Matsushita required an evidentiary basis for a reasonable inference of the specific antitrust conspiracy in context.",
+        "sources": [
+          "cp-anderson-liberty",
+          "cp-matsushita",
+          "cp-burden-persuasion"
+        ],
+        "edges": [
+          {
+            "label": "Check competing inferences and credibility",
+            "to": "6"
+          },
+          {
+            "label": "No reasonable finding possible",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "label": "Whose inference or credibility is being resolved?",
+        "detail": "Draw reasonable inferences for the nonmovant without weighing credibility. Cross and Tolan illustrate that limit. Scott permits disregarding an account blatantly contradicted by the record, with disagreement in that case about the video.",
+        "sources": [
+          "cp-cross",
+          "cp-tolan",
+          "cp-scott",
+          "cp-inferences"
+        ],
+        "edges": [
+          {
+            "label": "Genuine dispute remains",
+            "to": "9"
+          },
+          {
+            "label": "Record eliminates genuine dispute",
+            "to": "7"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "Grant judgment only if law and record require it",
+        "detail": "Confirm the movant’s entitlement as a matter of law. Grant full or partial summary judgment on supported issues, including when the response is deficient and the Rule 56 record warrants judgment.",
+        "sources": [
+          "cp-frcp-56",
+          "cp-summary-judgment"
+        ],
+        "edges": []
+      },
+      {
+        "id": "8",
+        "label": "Defer, deny or permit discovery under Rule 56(d)",
+        "detail": "Specify what evidence is needed and return to the motion on an appropriate record.",
+        "sources": [
+          "cp-frcp-56",
+          "cp-celotex"
+        ],
+        "edges": [
+          {
+            "label": "Reevaluate motion after discovery",
+            "to": "1"
+          }
+        ]
+      },
+      {
+        "id": "9",
+        "label": "Deny summary judgment on the disputed issue",
+        "detail": "Leave the material issue for trial or other authorized resolution. The casebook assignment ends with the summary-judgment material on page 1036, and Cross is supplied separately.",
+        "sources": [
+          "cp-week-14",
+          "cp-frcp-56",
+          "cp-cross"
+        ],
+        "edges": []
+      }
+    ]
+  }
+]

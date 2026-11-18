@@ -32,6 +32,7 @@ CONTENT = [
     'tools/v28/*.json',          # original-source registry and complete course chronologies
     'assets/pdfjs',              # pinned PDF renderer, worker, fonts and decoders
     'tools/sessions/*.json',     # the October 1, 2026 Civil Procedure syllabus revision
+    'tools/flowcharts/data/*.json',
 ]
 # Build configuration that happens to sit beside the datasets.
 NOT_CONTENT = {'src/features/manifest.json', 'tools/v25/home-baseline-fonts.json'}

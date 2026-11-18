@@ -1,0 +1,5285 @@
+[
+  {
+    "id": "K-01",
+    "title": "What counts as a contractual undertaking?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "What was communicated?",
+        "detail": "Read the words as used in the transaction. Did the speaker commit to produce a result, affirm an existing fact as part of the deal, or express a judgment about what might happen?",
+        "sources": [
+          "promise-or-prediction",
+          "contractual-assent"
+        ],
+        "edges": [
+          {
+            "label": "Result promised",
+            "to": "b"
+          },
+          {
+            "label": "Fact affirmed",
+            "to": "c"
+          },
+          {
+            "label": "Opinion or forecast",
+            "to": "d"
+          },
+          {
+            "label": "Contract denied in another claim",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Guarantee or reassurance?",
+        "detail": "Hawkins treated the doctor’s guarantee of a good hand as capable of binding when read with the solicitation of surgery. A general estimate of recovery time does not by itself communicate the same undertaking.",
+        "sources": [
+          "hawkins",
+          "notes-hawkins"
+        ],
+        "edges": [
+          {
+            "label": "Definite guarantee",
+            "to": "e"
+          },
+          {
+            "label": "Reassurance only",
+            "to": "d"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Did the fact describe this deal?",
+        "detail": "A jeweler’s specific description of a diamond can be a warranty. Data for a different boat configuration did not say what Crow’s own Bayliner would do. Ask whether a definite affirmation applied to the thing sold and formed part of the bargain.",
+        "sources": [
+          "bayliner",
+          "note-daughtrey",
+          "warranty-overview"
+        ],
+        "edges": [
+          {
+            "label": "Specific and part of the bargain",
+            "to": "f"
+          },
+          {
+            "label": "Data do not apply",
+            "to": "d"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "No undertaking on this statement",
+        "detail": "A forecast, vague sales praise, or an assurance that never became a term cannot by itself establish the particular obligation alleged. Bayliner’s promotional language did not guarantee the claimed speed.",
+        "sources": [
+          "hawkins",
+          "bayliner"
+        ],
+        "edges": []
+      },
+      {
+        "id": "e",
+        "label": "Prove promised result and shortfall",
+        "detail": "For a breached result guarantee, compare the promised hand with the actual hand. The pain ordinarily entailed by the agreed operation would have accompanied successful performance as well.",
+        "sources": [
+          "hawkins",
+          "expectation-interest"
+        ],
+        "edges": []
+      },
+      {
+        "id": "f",
+        "label": "Prove nonconformity",
+        "detail": "A specific factual undertaking can support a warranty claim if the goods or performance fail to correspond. The buyer must establish the actual warranty asserted and the relevant shortfall.",
+        "sources": [
+          "warranty-overview",
+          "bayliner"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "Formation may affect a statutory claim",
+        "detail": "Perry’s salon-appointment inquiry concerned the former § 1981 formation boundary. The 1991 amendment extended coverage to contractual performance and benefits. Barfield’s request for change raises an exchange question the assigned passage leaves open.",
+        "sources": [
+          "formation-civil-rights",
+          "note-perry",
+          "problem-barfield"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-02",
+    "title": "Which law governs the transaction?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "Qualifying international sale?",
+        "detail": "Start with the parties’ places of business, the nature of the goods and the treaty’s applicability requirements. A qualifying international sale takes the CISG route unless the parties effectively exclude it.",
+        "sources": [
+          "cisg-framework",
+          "article2-scope"
+        ],
+        "edges": [
+          {
+            "label": "CISG governs",
+            "to": "b"
+          },
+          {
+            "label": "Domestic regime governs",
+            "to": "c"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Apply the Convention",
+        "detail": "TeeVee Toons applies the CISG’s intent inquiry to a German machinery deal. Negotiations and conduct can illuminate assent to printed terms. Article 11 generally permits proof without writing, subject to the Convention’s own qualifications.",
+        "sources": [
+          "cisg-framework",
+          "cISG11",
+          "teevee-toons"
+        ],
+        "edges": []
+      },
+      {
+        "id": "c",
+        "label": "What is being exchanged?",
+        "detail": "A straight sale of movable goods goes to the relevant state’s Article 2. A services transaction ordinarily goes to common law. A hybrid requires the state’s method for deciding scope.",
+        "sources": [
+          "article2-scope"
+        ],
+        "edges": [
+          {
+            "label": "Goods sale",
+            "to": "h"
+          },
+          {
+            "label": "Service transaction",
+            "to": "i"
+          },
+          {
+            "label": "Hybrid transaction",
+            "to": "d"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Which hybrid test applies?",
+        "detail": "Check the jurisdiction’s enactment and cases. The casebook reproduces the 2022 hybrid amendments but its early adoption report is historical.",
+        "sources": [
+          "article2-scope",
+          "hybrid-amendments"
+        ],
+        "edges": [
+          {
+            "label": "Predominant purpose",
+            "to": "e"
+          },
+          {
+            "label": "Split or gravamen",
+            "to": "f"
+          },
+          {
+            "label": "Enacted hybrid text",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Classify the transaction as a whole",
+        "detail": "Bonebrake asks whether the deal chiefly supplies goods with incidental labor or chiefly supplies services with incidental goods. Contract wording, supplier’s business and relative allocation of price help establish the predominant purpose.",
+        "sources": [
+          "note-bonebrake",
+          "article2-scope"
+        ],
+        "edges": [
+          {
+            "label": "Goods predominate",
+            "to": "h"
+          },
+          {
+            "label": "Services predominate",
+            "to": "i"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Apply the test to the relevant part",
+        "detail": "Foster illustrates applying sales and services law to separable parts. Anthony Pools focuses on the source of the alleged wrong and applies the warranty rule to the defective diving board in the pool installation.",
+        "sources": [
+          "note-foster",
+          "note-anthony-pools"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "Apply enacted scope provision",
+        "detail": "Under the reproduced amendments, when goods do not predominate, goods-focused provisions can apply to those aspects without governing the entire deal. When goods predominate, Article 2 applies without necessarily displacing other law as to nongoods aspects.",
+        "sources": [
+          "hybrid-amendments"
+        ],
+        "edges": []
+      },
+      {
+        "id": "h",
+        "label": "Check merchant status per rule",
+        "detail": "Article 2 can govern a consumer sale. Section 2-205 requires the offeror to be a merchant for a firm offer. Section 2-207(2) requires both parties to be merchants for automatic incorporation of qualifying additional terms.",
+        "sources": [
+          "merchant",
+          "ucc205",
+          "ucc207"
+        ],
+        "edges": []
+      },
+      {
+        "id": "i",
+        "label": "Apply common-law formation rules",
+        "detail": "The sales rules for firm offers and nonmatching forms do not govern a pure service bargain. Test the particular jurisdiction’s contract and statutory rules instead.",
+        "sources": [
+          "legal-framework",
+          "article2-scope",
+          "mirror-image"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-03",
+    "title": "Is there consideration?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "Was a return sought and given in exchange?",
+        "detail": "The promisor must seek the return performance or return promise in exchange and the promisee must give it as that exchange. Separate bargain from a condition that merely identifies when a gift will be delivered.",
+        "sources": [
+          "consideration",
+          "rest71",
+          "motive-bargain"
+        ],
+        "edges": [
+          {
+            "label": "Real exchange",
+            "to": "b"
+          },
+          {
+            "label": "Completed act",
+            "to": "d"
+          },
+          {
+            "label": "Gift or apparent exchange",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Identify the return",
+        "detail": "A promise, an act, or bargained-for forbearance can qualify. In Hamer the nephew gave up lawful freedoms at his uncle’s request even if abstention benefited the nephew and produced no financial benefit for the uncle.",
+        "sources": [
+          "legal-detriment",
+          "hamer",
+          "rest81"
+        ],
+        "edges": [
+          {
+            "label": "Value challenged",
+            "to": "c"
+          },
+          {
+            "label": "Real return established",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Is the price inadequate or a token sham?",
+        "detail": "A hard or unequal bargain can still be an exchange. Check whether a purported nominal price was actually bargained for rather than inserted solely to make a gift look purchased.",
+        "sources": [
+          "adequacy-consideration",
+          "rest79",
+          "notes-consideration-tests"
+        ],
+        "edges": [
+          {
+            "label": "Actual bargain",
+            "to": "g"
+          },
+          {
+            "label": "Token recital alone",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Did the act precede the inducement?",
+        "detail": "An act completed before the promise cannot ordinarily have been sought by that promise. Identify when the assurance was made and whether it induced further performance.",
+        "sources": [
+          "past-consideration",
+          "note-dahl",
+          "mills-boundary"
+        ],
+        "edges": [
+          {
+            "label": "Requested further act",
+            "to": "b"
+          },
+          {
+            "label": "Past act alone",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Does a legal form substitute?",
+        "detail": "A signed writing serves evidentiary and cautionary functions. Ask whether the assigned statute or recognized form actually changes the consideration rule, including the New York provision on a signed written promise expressing provable past consideration.",
+        "sources": [
+          "formalities",
+          "notes-substitutes",
+          "gap-ny51105"
+        ],
+        "edges": [
+          {
+            "label": "Applicable substitute proven",
+            "to": "f"
+          },
+          {
+            "label": "No substitute",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Apply the exception on its terms",
+        "detail": "Check the form, the required signer and the scope of the undertaking. The option-recital doctrine and special statutes have distinct requirements.",
+        "sources": [
+          "formalities",
+          "gap-ny51105",
+          "rest87"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "Consideration established",
+        "detail": "Ordinary consideration is satisfied by the real exchanged return. Resolve any remaining issues of assent, defenses and required form independently.",
+        "sources": [
+          "rest71",
+          "rest79"
+        ],
+        "edges": []
+      },
+      {
+        "id": "h",
+        "label": "No ordinary bargain",
+        "detail": "A gratuitous promise or past act may still raise induced reliance or restitution, each with independent predicates and a different measure of recovery.",
+        "sources": [
+          "consideration",
+          "promissory-estoppel",
+          "unjust-enrichment"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-04",
+    "title": "Does giving up a claim support a settlement?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "What did the claimant give up?",
+        "detail": "Identify a claim, assertion, or defense the claimant actually agreed to surrender or postpone as the requested price for the settlement promise.",
+        "sources": [
+          "forbearance-claim",
+          "notes-settlement"
+        ],
+        "edges": [
+          {
+            "label": "Bargained-for surrender",
+            "to": "b"
+          },
+          {
+            "label": "No surrender",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Was the claim valid?",
+        "detail": "Giving up an enforceable claim can supply consideration. If the claim later fails or is assumed invalid, evaluate uncertainty and belief when the parties settled.",
+        "sources": [
+          "forbearance-claim",
+          "dyer"
+        ],
+        "edges": [
+          {
+            "label": "Valid",
+            "to": "g"
+          },
+          {
+            "label": "Invalid or disputed",
+            "to": "c"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Was the claim fairly doubtful or honestly believed?",
+        "detail": "Under the § 74 formulation used in Dyer, factual or legal uncertainty can qualify, as can honest belief that a claim may fairly be determined valid. The later disproof of the paternity claim in Fiege did not itself resolve that inquiry.",
+        "sources": [
+          "forbearance-claim",
+          "dyer",
+          "note-fiege"
+        ],
+        "edges": [
+          {
+            "label": "Sufficient doubt or honest belief",
+            "to": "d"
+          },
+          {
+            "label": "Knowingly baseless",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Does this jurisdiction demand more?",
+        "detail": "Compare the local test. Some formulations require a reasonable basis as well as sincerity. Evaluate what the claimant knew and the actual basis for belief at settlement.",
+        "sources": [
+          "forbearance-claim",
+          "notes-settlement",
+          "note-fiege"
+        ],
+        "edges": [
+          {
+            "label": "Applicable test satisfied",
+            "to": "g"
+          },
+          {
+            "label": "Applicable test fails",
+            "to": "f"
+          },
+          {
+            "label": "Belief disputed",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Find the facts",
+        "detail": "Dyer reversed summary judgment on a claimed lifetime-employment promise because the assumed invalidity of the worker’s claim did not resolve his good faith. The remand did not establish the promise or his belief.",
+        "sources": [
+          "dyer",
+          "notes-settlement"
+        ],
+        "edges": []
+      },
+      {
+        "id": "f",
+        "label": "Forbearance fails as consideration",
+        "detail": "An unexchanged concession or knowingly baseless threat cannot establish a supporting settlement bargain on this theory.",
+        "sources": [
+          "forbearance-claim",
+          "notes-settlement"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "Forbearance can support the settlement",
+        "detail": "Once the surrendered claim meets the chosen standard, its compromise can supply consideration even if it eventually would have failed. Verify proof of the settlement’s actual terms.",
+        "sources": [
+          "forbearance-claim",
+          "dyer",
+          "note-fiege"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-05",
+    "title": "Is either party actually bound?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "How much choice does the promise preserve?",
+        "detail": "A promise leaving total freedom to do nothing can fail as consideration. Identify the particular reserved choice and any express, implied, or statutory constraint.",
+        "sources": [
+          "illusory-promise",
+          "notes-contract-conditions"
+        ],
+        "edges": [
+          {
+            "label": "Termination or unrestricted choice",
+            "to": "b"
+          },
+          {
+            "label": "Satisfaction",
+            "to": "c"
+          },
+          {
+            "label": "Quantity measured by business",
+            "to": "d"
+          },
+          {
+            "label": "Exclusivity",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "What limits termination?",
+        "detail": "A required notice period, condition for termination, or meaningful interim obligation can supply constraint. If a party can opt out of all promised performance at will and owes nothing meanwhile, the purported return may be illusory.",
+        "sources": [
+          "illusory-promise",
+          "notes-contract-conditions"
+        ],
+        "edges": [
+          {
+            "label": "Meaningful constraint",
+            "to": "f"
+          },
+          {
+            "label": "Completely unrestricted",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "What kind of satisfaction?",
+        "detail": "Assess measurable quality by reasonable-person standards when appropriate. For judgment or taste, require honest good faith. Mattei’s satisfactory-leases clause constrained the buyer’s commercial judgment in good faith.",
+        "sources": [
+          "satisfaction",
+          "mattei"
+        ],
+        "edges": [
+          {
+            "label": "Applicable standard supplies obligation",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Are these actual good-faith needs or output?",
+        "detail": "Section 2-306 measures quantities by genuine requirements or output, with a disproportionality limit tied to estimates or comparable prior levels. Structural Polymer upheld the obligation despite initial zero requirements and a bounded quality and matching-price mechanism.",
+        "sources": [
+          "requirements-output",
+          "ucc306",
+          "structural-polymer"
+        ],
+        "edges": [
+          {
+            "label": "Good-faith measure",
+            "to": "f"
+          },
+          {
+            "label": "No commitment or constraint",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Does the bargain imply efforts?",
+        "detail": "Wood’s exclusive agency and shared revenues implied reasonable efforts. Article 2’s exclusive-dealing rule supplies best efforts to supply and promote unless otherwise agreed.",
+        "sources": [
+          "implied-efforts",
+          "wood-lucy",
+          "ucc306"
+        ],
+        "edges": [
+          {
+            "label": "Efforts implied or stated",
+            "to": "f"
+          },
+          {
+            "label": "No supported constraint",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "A constrained choice may bind",
+        "detail": "Test actual exercise against the applicable standard. The duty may require honest satisfaction, actual business demand, specified notice, promotion, or cooperation.",
+        "sources": [
+          "good-faith-early",
+          "good-faith",
+          "discretion"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "No obligation shown on this exchange",
+        "detail": "If the apparent return is entirely optional and no other return is bargained for, it does not furnish consideration. Check the actual language, structure and applicable statute before reaching that conclusion.",
+        "sources": [
+          "illusory-promise",
+          "consideration"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-06",
+    "title": "Which theory can enforce the promise or recover the benefit?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "What fact would make liability plausible?",
+        "detail": "An exchanged undertaking, an induced change of position, and a retained benefit support different routes. More than one may be pleaded, but the predicates and measures stay distinct.",
+        "sources": [
+          "consideration",
+          "promissory-estoppel",
+          "unjust-enrichment"
+        ],
+        "edges": [
+          {
+            "label": "Bargained-for exchange",
+            "to": "b"
+          },
+          {
+            "label": "Induced reliance",
+            "to": "c"
+          },
+          {
+            "label": "Benefit received",
+            "to": "d"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Was the promise bargained for and binding?",
+        "detail": "A requested return given in exchange can make the promise binding, subject to assent, form and defenses. Without that exchange, separate evidence can still support reliance or restitution.",
+        "sources": [
+          "consideration",
+          "rest71",
+          "enforceable-promise"
+        ],
+        "edges": [
+          {
+            "label": "Binding bargain and breach",
+            "to": "e"
+          },
+          {
+            "label": "No bargain, but promise induced action",
+            "to": "c"
+          },
+          {
+            "label": "No bargain, but benefit retained",
+            "to": "d"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Did a promise reasonably induce change?",
+        "detail": "Identify a promise and the action or forbearance it foreseeably and actually caused. Ask whether justice requires enforcement. Feinberg retired in response to the pension resolution.",
+        "sources": [
+          "rest90",
+          "feinberg",
+          "ricketts"
+        ],
+        "edges": [
+          {
+            "label": "Predicates met",
+            "to": "f"
+          },
+          {
+            "label": "No reliance theory proven",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Is retention unjust on these facts?",
+        "detail": "Identify benefit to the defendant at the claimant’s expense and why keeping it without payment would be unjust. Mistaken receipt or needed emergency aid differs from deliberately forcing a benefit on an unwilling recipient.",
+        "sources": [
+          "unjust-enrichment",
+          "quantum-meruit",
+          "notes-unrequested-benefit"
+        ],
+        "edges": [
+          {
+            "label": "Unjust retention shown",
+            "to": "g"
+          },
+          {
+            "label": "No restitution theory proven",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Compensate for promised performance",
+        "detail": "Expectation ordinarily protects the promised position, net of costs saved and subject to proof and damages limits. Reliance or restitution may be available on their own conditions.",
+        "sources": [
+          "expectation-interest",
+          "notes-compensation"
+        ],
+        "edges": []
+      },
+      {
+        "id": "f",
+        "label": "Grant the relief justice requires",
+        "detail": "Compensation may protect the lost opportunity or other induced loss. D&G Stout protected a foregone sale price despite the distributorship’s at-will character.",
+        "sources": [
+          "rest90",
+          "at-will-reliance",
+          "dg-stout"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "Restore the benefit or its value",
+        "detail": "Return of the benefit, or its legally measured value, addresses the defendant’s enrichment. Reasonable service value is one possible measure.",
+        "sources": [
+          "unjust-enrichment",
+          "quantum-meruit",
+          "restitution-interest"
+        ],
+        "edges": []
+      },
+      {
+        "id": "h",
+        "label": "This theory supplies no recovery",
+        "detail": "A promise with no proven induced action or a benefit with no reason to treat retention as unjust leaves that theory unsatisfied. Any independently supported route still requires its own proof.",
+        "sources": [
+          "promissory-estoppel",
+          "unjust-enrichment"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-07",
+    "title": "When does reliance change the outcome?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "What specific act did the promise induce?",
+        "detail": "Identify the assurance, the decision it was reasonably expected to induce, and evidence the promisee actually changed position. Compare what the promisee would have done without it.",
+        "sources": [
+          "rest90",
+          "reliance"
+        ],
+        "edges": [
+          {
+            "label": "Retirement",
+            "to": "b"
+          },
+          {
+            "label": "At-will business opportunity",
+            "to": "c"
+          },
+          {
+            "label": "Charitable commitment",
+            "to": "d"
+          },
+          {
+            "label": "Confidential disclosure",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Did the promise cause retirement?",
+        "detail": "Feinberg gave up ongoing paid work after the pension resolution. The later illness was beside the inducement inquiry. Hayes tests a retirement already planned before the assurance.",
+        "sources": [
+          "feinberg",
+          "problem-hayes"
+        ],
+        "edges": [
+          {
+            "label": "Retirement induced",
+            "to": "f"
+          },
+          {
+            "label": "Same retirement already planned",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "What was the lost alternative?",
+        "detail": "D&G Stout declined a priced sale opportunity on the strength of Bacardi’s assurance. On remand the proved injury measured that lost opportunity. The contract’s terminability defeated a claim to future distributorship profits.",
+        "sources": [
+          "at-will-reliance",
+          "dg-stout",
+          "notes-stout-remand"
+        ],
+        "edges": [
+          {
+            "label": "Identifiable alternative lost",
+            "to": "f"
+          },
+          {
+            "label": "Future profits alone",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Which charitable-pledge route applies?",
+        "detail": "Allegheny treated the named memorial obligation as part of a bargain. Where there is no bargain, compare actual induced commitment or expense with jurisdictions accepting § 90(2)’s special subscription rule.",
+        "sources": [
+          "charitable-pledges",
+          "note-allegheny",
+          "note-charity-comparisons",
+          "rest90"
+        ],
+        "edges": [
+          {
+            "label": "Bargain or supported reliance route",
+            "to": "f"
+          },
+          {
+            "label": "Neither route shown",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Did the source disclose because of the assurance?",
+        "detail": "The source provided political information in return for confidentiality. The First Amendment did not bar generally applicable state estoppel law, and Minnesota reinstated the verdict after applying its elements.",
+        "sources": [
+          "cohen-cowles",
+          "notes-cohen"
+        ],
+        "edges": [
+          {
+            "label": "Promise, reliance and injustice shown",
+            "to": "f"
+          },
+          {
+            "label": "Predicates fail",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Measure the injury supported by the theory",
+        "detail": "Ask what relief justice requires for the induced change, such as the provable value of a foregone opportunity. A bargained-for memorial pledge can proceed on its separate contract footing.",
+        "sources": [
+          "rest90",
+          "reliance-interest",
+          "dg-stout"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "No recovery for this asserted reliance",
+        "detail": "Where the act would have occurred anyway, or the claimed loss assumes guaranteed continuation of an at-will arrangement, this measure lacks its necessary causal basis.",
+        "sources": [
+          "reliance",
+          "rest90",
+          "problem-hayes"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-08",
+    "title": "Who must pay for an unrequested benefit?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "Why did the recipient get the benefit?",
+        "detail": "Identify what the defendant received and whether assent, practical inability to bargain, mistake, unsolicited intervention, or a failed contract explains its receipt.",
+        "sources": [
+          "unjust-enrichment",
+          "notes-unrequested-benefit",
+          "quantum-meruit"
+        ],
+        "edges": [
+          {
+            "label": "Emergency",
+            "to": "b"
+          },
+          {
+            "label": "Mistake",
+            "to": "c"
+          },
+          {
+            "label": "Unsolicited performance",
+            "to": "d"
+          },
+          {
+            "label": "Failed or breached agreement",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Did an emergency justify intervening?",
+        "detail": "Unconscious patients cannot bargain. Necessary, nonofficious professional aid can support a reasonable-value claim under the relevant rule. Cotnam’s assigned opening reports a reversal and remand and leaves the full reasoning outside the excerpt.",
+        "sources": [
+          "cotnam-boundary",
+          "notes-unrequested-benefit"
+        ],
+        "edges": [
+          {
+            "label": "Justified non-gratuitous aid",
+            "to": "f"
+          },
+          {
+            "label": "No justification or gift",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Did a mistake explain the transfer?",
+        "detail": "Identify the payment or service supplied by mistake, show what the defendant retained, and test whether retention is unjust under the applicable defenses.",
+        "sources": [
+          "notes-unrequested-benefit",
+          "unjust-enrichment"
+        ],
+        "edges": [
+          {
+            "label": "Unjust retention",
+            "to": "f"
+          },
+          {
+            "label": "Retention justified",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Was bargaining possible?",
+        "detail": "An unsolicited performance forced on a recipient despite a feasible opportunity to bargain ordinarily supplies no entitlement. The casebook’s unsolicited musicians illustrate why benefit alone is insufficient.",
+        "sources": [
+          "notes-unrequested-benefit",
+          "quantum-meruit"
+        ],
+        "edges": [
+          {
+            "label": "Bargain bypassed without justification",
+            "to": "g"
+          },
+          {
+            "label": "Necessity or other basis shown",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Did the other party receive part performance?",
+        "detail": "A nonbreaching party may seek the value conferred when the other side materially breaches before completion. Algernon Blair permits reasonable value for accepted performance despite a losing bargain. Test any valid contract that still governs payment.",
+        "sources": [
+          "nelson-hazel",
+          "algernon-blair",
+          "restitution-interest"
+        ],
+        "edges": [
+          {
+            "label": "Applicable restitution route",
+            "to": "f"
+          },
+          {
+            "label": "Contract controls payment",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Restore what the defendant received",
+        "detail": "An award returns the benefit or measures it by reasonable value where appropriate. A claimant’s expenditure alone does not establish the amount of the defendant’s enrichment.",
+        "sources": [
+          "quantum-meruit",
+          "restitution-interest",
+          "algernon-blair"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "No restitution on the asserted facts",
+        "detail": "A gift, officious intervention, or benefit whose retention is justified leaves this claim without its enrichment predicate.",
+        "sources": [
+          "unjust-enrichment",
+          "notes-unrequested-benefit"
+        ],
+        "edges": []
+      },
+      {
+        "id": "h",
+        "label": "Use the contractual payment remedy",
+        "detail": "If contractual recovery governs, calculate what performance or breach entitles the party to recover under the agreement.",
+        "sources": [
+          "nelson-hazel",
+          "completion-damages"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-09",
+    "title": "Did the parties objectively assent and intend legal consequences?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "What would the parties’ words and conduct convey?",
+        "detail": "Read communicated words and conduct in context, including what both parties knew. Ask separately whether the undertaking was meant to have legal effect.",
+        "sources": [
+          "objective-assent",
+          "assent-consent-intent"
+        ],
+        "edges": [
+          {
+            "label": "Commercial undertaking",
+            "to": "b"
+          },
+          {
+            "label": "Possible shared joke",
+            "to": "c"
+          },
+          {
+            "label": "Domestic or social undertaking",
+            "to": "d"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Was the alleged joke apparent?",
+        "detail": "The signed farm-sale writing and surrounding negotiation reasonably conveyed a serious deal in Lucy. A private intent to joke could not displace that outward impression.",
+        "sources": [
+          "lucy",
+          "notes-objective-debate"
+        ],
+        "edges": [
+          {
+            "label": "Serious appearance reasonably understood",
+            "to": "f"
+          },
+          {
+            "label": "Both parties understood jest",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Did both participants treat it as a joke?",
+        "detail": "Keller’s purported exchange was understood as jest on both sides, so appearance in isolation does not decide the agreement. Compare Lucy’s concealed position.",
+        "sources": [
+          "note-keller",
+          "lucy"
+        ],
+        "edges": [
+          {
+            "label": "Shared jest",
+            "to": "e"
+          },
+          {
+            "label": "Serious appearance despite private intent",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Did the arrangement invite legal enforcement?",
+        "detail": "Balfour treated the temporary allowance between amicable spouses as domestic. An agreement with evidence of an exchange and an intention to bind, including in a personal relationship, requires its own analysis.",
+        "sources": [
+          "social-intent",
+          "balfour",
+          "note-boland",
+          "notes-context"
+        ],
+        "edges": [
+          {
+            "label": "Only a social or domestic understanding",
+            "to": "e"
+          },
+          {
+            "label": "Evidence of legal undertaking",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "No binding undertaking shown",
+        "detail": "A shared joke or a purely domestic understanding does not supply the contract alleged. Identify which premise failed because the two cases address distinct problems.",
+        "sources": [
+          "note-keller",
+          "balfour"
+        ],
+        "edges": []
+      },
+      {
+        "id": "f",
+        "label": "Proceed to enforceability and terms",
+        "detail": "An uncommunicated motive cannot undo objective agreement. Determine the terms reasonably manifested and address consideration, form, and any defenses separately.",
+        "sources": [
+          "objective-assent",
+          "enforceable-promise",
+          "lucy"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-10",
+    "title": "Did the customer assent to the terms?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "When did the customer see the term?",
+        "detail": "Reconstruct the transaction from offer and payment to delivery, screen display, use, and retention. Locate the exact term and act claimed as assent.",
+        "sources": [
+          "notice",
+          "rolling-formation",
+          "specht"
+        ],
+        "edges": [
+          {
+            "label": "Term shown during enrollment",
+            "to": "b"
+          },
+          {
+            "label": "Term arrived after order or delivery",
+            "to": "c"
+          },
+          {
+            "label": "Later website revision",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Did the interface give fair notice and link the act to assent?",
+        "detail": "Specht’s license terms sat below the download button and the user had no clear reason to scroll. A conspicuous notice tied to a clearly labeled click can have a different effect.",
+        "sources": [
+          "specht",
+          "notice",
+          "note-hancock"
+        ],
+        "edges": [
+          {
+            "label": "Reasonable notice and assent",
+            "to": "g"
+          },
+          {
+            "label": "Hidden display or ambiguous act",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Who offered, and when was the deal complete?",
+        "detail": "Compare the competing approaches to a boxed computer. Under Hill, the vendor proposed the conditions and instructed the buyer how to accept. Under Klocek, the consumer offered and shipment completed the deal.",
+        "sources": [
+          "rolling-formation",
+          "hill-gateway",
+          "klocek",
+          "note-procd"
+        ],
+        "edges": [
+          {
+            "label": "Seller’s offer invited retention",
+            "to": "d"
+          },
+          {
+            "label": "Buyer’s offer accepted by shipment",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Could the buyer reject the proposed deal?",
+        "detail": "Hill treated retention beyond the disclosed 30-day return period as assent. Check when the buyer obtained the terms and whether the invited return option was available.",
+        "sources": [
+          "hill-gateway",
+          "note-brower"
+        ],
+        "edges": [
+          {
+            "label": "Valid retention acceptance",
+            "to": "g"
+          },
+          {
+            "label": "Return or inadequate notice",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Did the consumer assent to the extra term?",
+        "detail": "Klocek treated in-box terms as proposals under § 2-207, including in a one-form sale. A consumer’s five days of retention did not expressly accept the arbitration addition.",
+        "sources": [
+          "klocek",
+          "additional-terms"
+        ],
+        "edges": [
+          {
+            "label": "Additional term accepted",
+            "to": "g"
+          },
+          {
+            "label": "Retention alone under Klocek",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Did the customer accept a valid revision?",
+        "detail": "Anderson rejected constructive notice of later website terms in the setting presented and addressed the limits on using later terms retroactively. Identify the notice, assent and timing of the dispute.",
+        "sources": [
+          "anderson-binance",
+          "notice"
+        ],
+        "edges": [
+          {
+            "label": "Applicable revision and assent",
+            "to": "g"
+          },
+          {
+            "label": "Inadequate notice or revision cannot reach dispute",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "g",
+        "label": "Term may govern",
+        "detail": "Once assent is shown, test the term’s scope and any defenses. Apply the ordinary formation standard to an arbitration clause.",
+        "sources": [
+          "notice",
+          "arbitration-formation"
+        ],
+        "edges": []
+      },
+      {
+        "id": "h",
+        "label": "Disputed term did not enter on this route",
+        "detail": "An act tied only to downloading, taking delivery, or continuing use does not necessarily assent to the disputed term. The transaction and the specific term may have different formation outcomes.",
+        "sources": [
+          "specht",
+          "klocek",
+          "anderson-binance"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-11",
+    "title": "Did the communication create a power of acceptance?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "Who retains the power to decide?",
+        "detail": "An offer gives the recipient power to make the deal by the specified assent. An invitation asks the recipient to make the next proposal while the speaker retains the choice to accept.",
+        "sources": [
+          "offer",
+          "owen-boundary"
+        ],
+        "edges": [
+          {
+            "label": "Private quote or inquiry",
+            "to": "b"
+          },
+          {
+            "label": "Advertisement",
+            "to": "c"
+          },
+          {
+            "label": "Reward",
+            "to": "d"
+          },
+          {
+            "label": "Auction",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Did the quotation leave order approval open?",
+        "detail": "Price information or a suggested figure without a definite commitment ordinarily invites an offer. Look for fixed quantity, identified recipient, and language committing to the recipient’s requested response.",
+        "sources": [
+          "note-moulton",
+          "advertisements",
+          "owen-boundary"
+        ],
+        "edges": [
+          {
+            "label": "Recipient can close the deal",
+            "to": "f"
+          },
+          {
+            "label": "Speaker retains approval",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Does the advertisement define the taker and performance?",
+        "detail": "Lefkowitz specified item, price, time and first customer, so the shop could not add an unstated rule after tender. A fanciful display or ordinary broad promotion may communicate no corresponding commitment.",
+        "sources": [
+          "lefkowitz",
+          "note-leonard",
+          "advertisements"
+        ],
+        "edges": [
+          {
+            "label": "Clear definite call for performance",
+            "to": "f"
+          },
+          {
+            "label": "Promotion invites further orders",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Did the claimant know of the reward and perform?",
+        "detail": "A reward seeks the specified performance, ordinarily in response to a known offer. The claimant’s awareness is a different inquiry from why the claimant acted.",
+        "sources": [
+          "reward-knowledge",
+          "note-broadnax"
+        ],
+        "edges": [
+          {
+            "label": "Known and performed",
+            "to": "f"
+          },
+          {
+            "label": "Unknown when performed",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Does the auction reserve withdrawal?",
+        "detail": "Identify the governing auction rule, announced reserve and closing event. In an ordinary reserve auction, each bid is an offer and the sale closes on the stated closing act. A without-reserve auction limits the seller’s ability to withdraw once bids are called for, subject to the applicable rule.",
+        "sources": [
+          "auctions",
+          "note-chevalier"
+        ],
+        "edges": [
+          {
+            "label": "Closing act supplies assent",
+            "to": "f"
+          },
+          {
+            "label": "Bid retains unaccepted status",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Identify the act that formed the agreement",
+        "detail": "Tie the invited act to the live offer. A first qualified customer’s tender, a completed reward performance, or an auctioneer’s closing can do the work in the corresponding branch.",
+        "sources": [
+          "offer-acceptance",
+          "acceptance",
+          "lefkowitz"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "No agreement from this response alone",
+        "detail": "If approval remains open or the offer’s conditions have not been met, the purported response has yet to establish an enforceable deal.",
+        "sources": [
+          "offer",
+          "acceptance",
+          "reward-knowledge"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-12",
+    "title": "Which communication took effect first?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "Build two dated timelines",
+        "detail": "Record when the offer was made, any deadline, and when each withdrawal, rejection, counteroffer and acceptance was sent and received. The legal event need not occur when the communication was sent.",
+        "sources": [
+          "termination-offer",
+          "mailbox"
+        ],
+        "edges": [
+          {
+            "label": "Check deadline and ordinary termination",
+            "to": "b"
+          },
+          {
+            "label": "Check dispatch and receipt",
+            "to": "c"
+          },
+          {
+            "label": "Protected option",
+            "to": "d"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "What ended the ordinary power to accept?",
+        "detail": "Check stated or reasonable lapse, death or incapacity, rejection, counteroffer, and receipt of direct or reliable indirect revocation. A conversation may expire on ending and an old reward may lapse even without a stated date.",
+        "sources": [
+          "lapse",
+          "revocation",
+          "death-offer",
+          "note-akers",
+          "note-loring"
+        ],
+        "edges": [
+          {
+            "label": "Compare to effective acceptance",
+            "to": "c"
+          },
+          {
+            "label": "Ended before possible assent",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Was acceptance dispatched in an invited medium?",
+        "detail": "Ordinary acceptance by an authorized medium can take effect on proper dispatch unless the offer provides otherwise. Revocation and rejection ordinarily take effect upon receipt. Check the required method before ordering events.",
+        "sources": [
+          "mailbox",
+          "note-adams"
+        ],
+        "edges": [
+          {
+            "label": "Only ordinary dispatch/receipt events",
+            "to": "g"
+          },
+          {
+            "label": "Rejection sent before acceptance",
+            "to": "e"
+          },
+          {
+            "label": "Acceptance sent first but rejection arrives first",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Apply the option’s clock",
+        "detail": "Revocation normally cannot terminate a protected option within its period. Under the Restatement option rule acceptance is effective on receipt, absent a controlling contrary provision. Test any special rule before using the ordinary mailbox rule.",
+        "sources": [
+          "option-contract",
+          "mailbox",
+          "death-offer"
+        ],
+        "edges": [
+          {
+            "label": "Receipt within protected period",
+            "to": "g"
+          },
+          {
+            "label": "Receipt too late",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Use the rejection-first qualification",
+        "detail": "An acceptance dispatched after a rejection or counteroffer is generally effective only if received before that rejection or counteroffer. A genuine inquiry need not be a rejection.",
+        "sources": [
+          "mailbox",
+          "mirror-image"
+        ],
+        "edges": [
+          {
+            "label": "Acceptance received first",
+            "to": "g"
+          },
+          {
+            "label": "Rejection received first",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Did the offeror reasonably rely on the rejection?",
+        "detail": "If ordinary acceptance took effect at dispatch, an overtaking rejection does not automatically undo it. The assigned problem asks whether reliance on the earlier-arriving rejection could estop the offeree.",
+        "sources": [
+          "problem-overtaking",
+          "mailbox"
+        ],
+        "edges": [
+          {
+            "label": "No reliance bar shown",
+            "to": "g"
+          },
+          {
+            "label": "Estoppel facts supported",
+            "to": "i"
+          }
+        ]
+      },
+      {
+        "id": "g",
+        "label": "Agreement if acceptance took effect while open",
+        "detail": "Compare the effective acceptance event against the applicable terminating event. The dispatch rule can make a contract before the offeror learns that the offeree mailed an acceptance.",
+        "sources": [
+          "mailbox",
+          "termination-offer"
+        ],
+        "edges": []
+      },
+      {
+        "id": "h",
+        "label": "Power ended before effective acceptance",
+        "detail": "The purported acceptance then does not form the original contract. It may invite a new assent.",
+        "sources": [
+          "termination-offer",
+          "lapse",
+          "revocation"
+        ],
+        "edges": []
+      },
+      {
+        "id": "i",
+        "label": "Evaluate estoppel on the overtaking facts",
+        "detail": "Check what the rejection disclosed about the outstanding acceptance and whether the offeror changed position. The assigned problem raises a qualification rather than a settled universal ordering rule.",
+        "sources": [
+          "problem-overtaking",
+          "mailbox"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-13",
+    "title": "Can the offer still be revoked?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "What protects the acceptance period?",
+        "detail": "An ordinary offer is revocable until effective acceptance. Look for an option bargain, statutory formal protection, beginning performance, or foreseeable reliance.",
+        "sources": [
+          "irrevocability",
+          "option-contract"
+        ],
+        "edges": [
+          {
+            "label": "Purchased option or recital",
+            "to": "b"
+          },
+          {
+            "label": "Signed offer under statute",
+            "to": "c"
+          },
+          {
+            "label": "Beginning invited performance",
+            "to": "d"
+          },
+          {
+            "label": "Preparations or subcontractor bid",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Was a separate option formed?",
+        "detail": "A purchased option binds the offeror during the protected period. Section 87(1) separately discusses signed recitals and a fair proposed exchange within a reasonable time. The assigned notes preserve disagreement about unpaid nominal consideration.",
+        "sources": [
+          "option-contract",
+          "rest87"
+        ],
+        "edges": [
+          {
+            "label": "Valid option",
+            "to": "g"
+          },
+          {
+            "label": "No valid protection",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Does a signed-offer statute apply?",
+        "detail": "Section 2-205 requires a merchant’s signed assurance in a sale of goods, with a three-month cap on statutory irrevocability and separate signing for an assurance on a form supplied by the offeree. Compare New York § 5-1109’s requirements for signed written offers.",
+        "sources": [
+          "ucc205",
+          "ny51109",
+          "merchant"
+        ],
+        "edges": [
+          {
+            "label": "Statutory requirements met",
+            "to": "g"
+          },
+          {
+            "label": "No statutory protection",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Did the offeree start the very act requested?",
+        "detail": "If the offer invites performance alone, beginning it creates a § 45 option. Starting to cross the bridge qualifies on the hypothetical facts. Buying materials that could be used on other work may be preparation.",
+        "sources": [
+          "rest45",
+          "problem-bridge",
+          "white-corlies"
+        ],
+        "edges": [
+          {
+            "label": "Invited performance began",
+            "to": "f"
+          },
+          {
+            "label": "Only preparation",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Was there foreseeable and reasonable reliance?",
+        "detail": "Drennan protected the general contractor that reasonably used a definite bid in its own bid. Baird rejected reliance protection on its approach. Preparations alone can raise the § 87(2) reliance question without starting the requested performance.",
+        "sources": [
+          "rest87",
+          "drennan",
+          "note-baird",
+          "problem-preparing-bridge"
+        ],
+        "edges": [
+          {
+            "label": "Reliance protection under governing rule",
+            "to": "g"
+          },
+          {
+            "label": "No justified reliance or Baird route",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Finish the requested performance",
+        "detail": "Starting protects the opportunity to complete. The offeror’s duty under the proposed bargain remains conditional on completion or tender of the invited performance.",
+        "sources": [
+          "rest45",
+          "problem-bridge"
+        ],
+        "edges": [
+          {
+            "label": "Completed within terms",
+            "to": "g"
+          },
+          {
+            "label": "Incomplete",
+            "to": "i"
+          }
+        ]
+      },
+      {
+        "id": "g",
+        "label": "Withdrawal cannot defeat timely acceptance",
+        "detail": "Measure the actual protected period. Drennan gave the general a reasonable opportunity to accept after award. Statutory firm offers and purchased options have their own timing rules.",
+        "sources": [
+          "option-contract",
+          "drennan",
+          "irrevocability"
+        ],
+        "edges": []
+      },
+      {
+        "id": "h",
+        "label": "Ordinary revocability controls",
+        "detail": "A timely effective withdrawal can prevent later assent where no protection applies. Compare its receipt to any already effective acceptance.",
+        "sources": [
+          "revocation",
+          "option-contract",
+          "note-baird"
+        ],
+        "edges": []
+      },
+      {
+        "id": "i",
+        "label": "Option only, with performance outstanding",
+        "detail": "The protected interval permits completion, while the offeree has yet to earn the promised return.",
+        "sources": [
+          "rest45",
+          "problem-bridge"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-14",
+    "title": "How was this offer accepted?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "What response did the offer invite?",
+        "detail": "Read the words, context and any prescribed method. A promise, beginning or completion of performance, shipment, approval, or established practice can have different effects.",
+        "sources": [
+          "acceptance",
+          "ucc204",
+          "ucc206"
+        ],
+        "edges": [
+          {
+            "label": "Return promise",
+            "to": "b"
+          },
+          {
+            "label": "Performance",
+            "to": "c"
+          },
+          {
+            "label": "Goods order",
+            "to": "d"
+          },
+          {
+            "label": "Silence or settled pattern",
+            "to": "e"
+          },
+          {
+            "label": "Specified approval or notice",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Was a clear commitment communicated?",
+        "detail": "Read the response as a whole. In Wucherpfennig stated readiness and financing accompanied unsettled price and valuation requests, so the exchange remained negotiation.",
+        "sources": [
+          "wucherpfennig",
+          "acceptance"
+        ],
+        "edges": [
+          {
+            "label": "Definite assent by invited method",
+            "to": "g"
+          },
+          {
+            "label": "Qualified or undecided response",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Did the offeree actually begin or complete the invited work?",
+        "detail": "In White, buying and working fungible lumber did not outwardly accept. Ever-Tite’s form expressly invited commencement, which was satisfied by loading and transporting materials on its facts. Where completion alone is invited, starting may protect an option without completing acceptance.",
+        "sources": [
+          "performance-preparation",
+          "white-corlies",
+          "ever-tite-boundary"
+        ],
+        "edges": [
+          {
+            "label": "Invited acceptance act occurred",
+            "to": "f"
+          },
+          {
+            "label": "Only preparation or incomplete required act",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Was there prompt promise or shipment?",
+        "detail": "An order for prompt shipment generally invites prompt promise to ship or shipment. Nonconforming shipment ordinarily both accepts and breaches, unless the seller seasonably identifies it as an accommodation.",
+        "sources": [
+          "ucc206",
+          "problem-kessler"
+        ],
+        "edges": [
+          {
+            "label": "Acceptance under sales rule",
+            "to": "g"
+          },
+          {
+            "label": "Accommodation or no invited act",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Does context give silence meaning?",
+        "detail": "Eel-skin shipments repeatedly accepted in Hobbs and the settled order-and-production practice in American Bronze made conduct and silence probative. Unsolicited goods ordinarily do not impose acceptance by inaction.",
+        "sources": [
+          "silence",
+          "note-hobbs",
+          "note-american-bronze"
+        ],
+        "edges": [
+          {
+            "label": "Established assent basis",
+            "to": "g"
+          },
+          {
+            "label": "Silence alone",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Did the offer dispense with separate notice?",
+        "detail": "The Chicago officer’s O.K. was the prescribed act in International Filter. Carlill invited completed performance without advance notice. Where the offeror may not promptly learn of performance, test whether reasonable notice is required.",
+        "sources": [
+          "acceptance-notice",
+          "international-filter",
+          "note-carlill",
+          "note-bishop"
+        ],
+        "edges": [
+          {
+            "label": "Notice sufficient, excused or unnecessary",
+            "to": "g"
+          },
+          {
+            "label": "Required notice lacking",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "g",
+        "label": "Agreement formed by the invited act",
+        "detail": "Identify the act’s effective time and terms adopted. Article 2 can recognize agreement through conduct despite an uncertain exact formation time.",
+        "sources": [
+          "acceptance",
+          "ucc204",
+          "international-filter"
+        ],
+        "edges": []
+      },
+      {
+        "id": "h",
+        "label": "Acceptance not established by this act",
+        "detail": "An ambiguous response, mere preparation or ordinary silence cannot supply the alleged assent by itself. Keep any protected option or counteroffer distinct.",
+        "sources": [
+          "acceptance",
+          "performance-preparation",
+          "silence"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-15",
+    "title": "Does a writing requirement bar enforcement?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "Which enactment controls form?",
+        "detail": "Identify the governing state statute, Article 2 writing rule or Convention. Each enactment defines its own coverage and exceptions.",
+        "sources": [
+          "statute-frauds",
+          "notes-sof-operation",
+          "cISG11"
+        ],
+        "edges": [
+          {
+            "label": "Treaty governs",
+            "to": "b"
+          },
+          {
+            "label": "Domestic writing law applies",
+            "to": "c"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Article 11 generally permits oral proof",
+        "detail": "Within the Convention’s scope and qualifications, a sale need not be made or evidenced in writing and may be proved by witnesses. The claimant still must establish an agreement.",
+        "sources": [
+          "cISG11",
+          "cisg-framework"
+        ],
+        "edges": []
+      },
+      {
+        "id": "c",
+        "label": "Does this agreement fall within the statute?",
+        "detail": "Check the exact category and transaction. Tolosa treated an oral foreclosure delay as a financial accommodation under a Texas loan statute. For the introductory one-year topic, measure from making to possible completion under the agreement. The assigned pages exclude the later detailed cases and exceptions.",
+        "sources": [
+          "statute-frauds",
+          "one-year-intro",
+          "tolosa"
+        ],
+        "edges": [
+          {
+            "label": "Covered",
+            "to": "d"
+          },
+          {
+            "label": "Outside scope",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Does the record satisfy this law?",
+        "detail": "Identify required content, the necessary signature or authentication, and the party to be charged. Apply the actual enactment to the records offered in support.",
+        "sources": [
+          "statute-frauds",
+          "notes-sof-operation"
+        ],
+        "edges": [
+          {
+            "label": "Sufficient record",
+            "to": "g"
+          },
+          {
+            "label": "No sufficient record",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Is a supported exception available?",
+        "detail": "Identify a statutory or recognized exception under the chosen law. Tolosa rejected the pleaded Texas estoppel theory because there was no alleged promise to sign an otherwise compliant writing, a requirement of the particular exception applied.",
+        "sources": [
+          "tolosa",
+          "notes-sof-operation",
+          "statute-frauds"
+        ],
+        "edges": [
+          {
+            "label": "Exception adequately proved",
+            "to": "g"
+          },
+          {
+            "label": "Exception unavailable or unproved",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Enforcement barred on this route",
+        "detail": "A writing bar prevents enforcement as the enactment directs. Formation, use of evidence for another legal purpose, waiver and other remedies can present separate questions.",
+        "sources": [
+          "statute-frauds",
+          "notes-sof-operation"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "Proceed to the merits of enforcement",
+        "detail": "The asserted writing rule supplies no bar if the bargain is outside scope, supported by a sufficient record, or within a proved exception. Prove mutual assent and disputed terms independently.",
+        "sources": [
+          "statute-frauds",
+          "notes-sof-operation",
+          "cISG11"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-16",
+    "title": "Whose terms govern under UCC § 2-207?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "Is the transaction governed by Article 2?",
+        "detail": "Use § 2-207 for qualifying sales. Under common law, a response that makes assent contingent on new conditions may instead be a counteroffer. A mere inquiry can leave acceptance intact.",
+        "sources": [
+          "article2-scope",
+          "mirror-image",
+          "ucc207"
+        ],
+        "edges": [
+          {
+            "label": "Article 2",
+            "to": "b"
+          },
+          {
+            "label": "Common law",
+            "to": "j"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Do the writings establish an agreement?",
+        "detail": "A definite and seasonable expression of acceptance can form a contract despite variant terms unless expressly conditional on assent to them. Dorton requires a clear demand for assent, beyond a reference to printed terms.",
+        "sources": [
+          "ucc207",
+          "formation-vs-terms",
+          "conditional-acceptance",
+          "dorton"
+        ],
+        "edges": [
+          {
+            "label": "Effective acceptance or confirmation",
+            "to": "d"
+          },
+          {
+            "label": "Expressly conditional or writings fail",
+            "to": "c"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Did the offeror assent or did both sides perform?",
+        "detail": "An assent to a conditional response can form a deal on accepted terms. If the writings fail and the parties nevertheless recognize a contract by conduct, apply § 2-207(3).",
+        "sources": [
+          "citoh",
+          "ucc207-conduct"
+        ],
+        "edges": [
+          {
+            "label": "Express assent",
+            "to": "i"
+          },
+          {
+            "label": "Mutual recognition by conduct",
+            "to": "h"
+          },
+          {
+            "label": "Neither",
+            "to": "k"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Compare offer and response term by term",
+        "detail": "An additional clause concerns a point the offer did not cover. A different clause contradicts an existing provision. Start with all genuinely agreed terms.",
+        "sources": [
+          "formation-vs-terms",
+          "boilerplate",
+          "additional-terms",
+          "different-terms"
+        ],
+        "edges": [
+          {
+            "label": "Additional",
+            "to": "e"
+          },
+          {
+            "label": "Different",
+            "to": "g"
+          },
+          {
+            "label": "Terms match",
+            "to": "i"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Are both parties merchants?",
+        "detail": "Outside a transaction between merchants, additional terms are proposals that require assent. If both are merchants, apply the exceptions in subsection (2).",
+        "sources": [
+          "additional-terms",
+          "merchant",
+          "klocek"
+        ],
+        "edges": [
+          {
+            "label": "Both merchants",
+            "to": "f"
+          },
+          {
+            "label": "Nonmerchant, actual assent",
+            "to": "i"
+          },
+          {
+            "label": "Nonmerchant, no assent",
+            "to": "l"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Does a subsection (2) exception apply?",
+        "detail": "Check whether the offer expressly limits acceptance, whether the term materially alters the bargain, and whether the offeror objected already or within a reasonable time after notice.",
+        "sources": [
+          "ucc207",
+          "additional-terms",
+          "material-alteration",
+          "bayway"
+        ],
+        "edges": [
+          {
+            "label": "An exception applies",
+            "to": "l"
+          },
+          {
+            "label": "No exception",
+            "to": "i"
+          }
+        ]
+      },
+      {
+        "id": "g",
+        "label": "Which rule governs conflicting terms?",
+        "detail": "Jurisdictions may knock out both terms and use a gap filler, preserve the offer’s term, or process conflicting terms under subsection (2) like additions. Northrop predicted Illinois would use knockout.",
+        "sources": [
+          "different-terms",
+          "knockout",
+          "northrop"
+        ],
+        "edges": [
+          {
+            "label": "Knockout",
+            "to": "m"
+          },
+          {
+            "label": "Offer controls",
+            "to": "l"
+          },
+          {
+            "label": "Treat like an addition",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "h",
+        "label": "Apply subsection (3)",
+        "detail": "Retain the terms the writings agree on and add statutory supplements. In C. Itoh, delivery and payment established a contract, while the unilateral arbitration clause dropped out.",
+        "sources": [
+          "ucc207-conduct",
+          "citoh"
+        ],
+        "edges": []
+      },
+      {
+        "id": "i",
+        "label": "Use agreed or incorporated terms",
+        "detail": "Apply the written terms that were agreed and any validly incorporated additional terms. Resolve any remaining gap under the governing Code rule.",
+        "sources": [
+          "ucc207",
+          "formation-vs-terms",
+          "additional-terms"
+        ],
+        "edges": []
+      },
+      {
+        "id": "j",
+        "label": "Apply the relevant mirror-image rule",
+        "detail": "Ardente illustrates a response conditional on personal property. Rios distinguishes an inquiry. Where performance follows a counteroffer, consider what conduct manifested acceptance under the applicable common-law rule.",
+        "sources": [
+          "mirror-image",
+          "last-shot",
+          "note-ardente",
+          "note-rios"
+        ],
+        "edges": []
+      },
+      {
+        "id": "k",
+        "label": "No contract shown through this sequence",
+        "detail": "The failed writings require assent or conduct recognizing the bargain. Unilateral insistence on boilerplate supplies neither.",
+        "sources": [
+          "ucc207",
+          "ucc207-conduct"
+        ],
+        "edges": []
+      },
+      {
+        "id": "l",
+        "label": "Exclude the proposed variance",
+        "detail": "The existing term, if any, remains operative when the applicable treatment excludes only the proffered clause. Use the governing defaults for actual gaps.",
+        "sources": [
+          "additional-terms",
+          "different-terms"
+        ],
+        "edges": []
+      },
+      {
+        "id": "m",
+        "label": "Remove the conflicting pair and fill the gap",
+        "detail": "Northrop replaced competing warranty durations with the Code’s reasonable-time rule, applied to the six months needed for testing on the facts.",
+        "sources": [
+          "knockout",
+          "northrop"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-17",
+    "title": "How do competing terms change the outcome?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "Where did the disputed term appear?",
+        "detail": "Identify the original offer term and the response or confirmation. This comparison assumes the writings already form a contract under § 2-207(1).",
+        "sources": [
+          "additional-terms",
+          "different-terms",
+          "northrop"
+        ],
+        "edges": [
+          {
+            "label": "New arbitration, tax, or payment clause",
+            "to": "b"
+          },
+          {
+            "label": "Competing warranty durations",
+            "to": "c"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Can a new term enter between merchants?",
+        "detail": "Check whether both parties are merchants and whether the offer limits acceptance or receives timely objection. For eligible merchant terms, ask about objective and actual surprise or hardship under the governing test.",
+        "sources": [
+          "additional-terms",
+          "material-alteration",
+          "note-materiality-sites"
+        ],
+        "edges": [
+          {
+            "label": "No statutory obstacle",
+            "to": "d"
+          },
+          {
+            "label": "Limit, timely objection, or no nonmerchant assent",
+            "to": "g"
+          },
+          {
+            "label": "Possible material alteration",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Choose the rule for conflicts",
+        "detail": "For a 90-day warranty against an unlimited warranty, knockout drops both. The offer-controls rule preserves the offer’s warranty. A jurisdiction treating conflicts as additions asks the subsection (2) questions.",
+        "sources": [
+          "different-terms",
+          "knockout",
+          "northrop"
+        ],
+        "edges": [
+          {
+            "label": "Knockout",
+            "to": "f"
+          },
+          {
+            "label": "Offer’s term remains",
+            "to": "g"
+          },
+          {
+            "label": "Treat as addition",
+            "to": "b"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Did trade usage remove the surprise?",
+        "detail": "Bayway’s excise-tax clause was customary in the trade. On that record the resisting merchant failed to establish surprise or unavoidable hardship, so it entered the deal. Proof can differ for a payment clause or an unfamiliar forum.",
+        "sources": [
+          "bayway",
+          "trade-practice-terms",
+          "material-alteration"
+        ],
+        "edges": [
+          {
+            "label": "No material alteration proven",
+            "to": "h"
+          },
+          {
+            "label": "Surprise or hardship proven",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Test the specific arbitration or warranty change",
+        "detail": "Dorton required findings on materiality for the arbitration clause. Some courts presume particular clauses materially alter a deal. Others test surprise and hardship against the actual industry practice and negotiated allocation.",
+        "sources": [
+          "dorton",
+          "note-materiality-sites",
+          "notes-materiality"
+        ],
+        "edges": [
+          {
+            "label": "Material alteration",
+            "to": "g"
+          },
+          {
+            "label": "No material alteration and other conditions met",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Apply the default for a knocked-out term",
+        "detail": "Northrop used reasonable time in place of the conflicting durations and held six months of testing reasonable in the circumstances.",
+        "sources": [
+          "northrop",
+          "knockout"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "Apply the surviving terms or default",
+        "detail": "An excluded addition cannot control the dispute. Where the original term survives under the local different-terms rule, use that term. For an open issue, use the applicable gap filler.",
+        "sources": [
+          "additional-terms",
+          "different-terms",
+          "northrop"
+        ],
+        "edges": []
+      },
+      {
+        "id": "h",
+        "label": "Apply the incorporated term",
+        "detail": "The new clause enters under subsection (2) when merchants are involved and no exclusion applies. Its effect still depends on scope and any independent defense.",
+        "sources": [
+          "bayway",
+          "additional-terms"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-18",
+    "title": "Did negotiations create an obligation before signature?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "What commitment was already made?",
+        "detail": "Separate an agreement on the final deal from an agreement to negotiate and from assurances made during otherwise open negotiations.",
+        "sources": [
+          "preliminary-agreements",
+          "precontractual-liability"
+        ],
+        "edges": [
+          {
+            "label": "Final deal asserted",
+            "to": "b"
+          },
+          {
+            "label": "Negotiation commitment asserted",
+            "to": "c"
+          },
+          {
+            "label": "Assurance induced action",
+            "to": "d"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Did they intend to be bound before signature?",
+        "detail": "Check an express reservation of execution, settled terms, performance and whether deals of this type are usually formalized. Anticipated memorialization can coexist with present commitment, while a genuine signed-writing condition can prevent it.",
+        "sources": [
+          "note-consarc-winston",
+          "note-tribune-types",
+          "note-texaco",
+          "definiteness"
+        ],
+        "edges": [
+          {
+            "label": "Present commitment with definite terms",
+            "to": "e"
+          },
+          {
+            "label": "Signature reserved or substantial terms open",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Was a negotiation duty sufficiently definite?",
+        "detail": "Channel Home’s signed promise to withdraw the property and negotiate exclusively was sufficiently definite for possible enforcement, supported by the tenant’s letter useful for financing. That promise did not itself conclude the lease.",
+        "sources": [
+          "channel-home",
+          "note-keystone",
+          "note-tribune-types"
+        ],
+        "edges": [
+          {
+            "label": "Binding process commitment",
+            "to": "f"
+          },
+          {
+            "label": "Loose pledge or unresolved process",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Was there a specific, reasonably relied-on assurance?",
+        "detail": "Cyberchron continued production after assurances of payment. Dixon stopped paying after a promise of modification consideration. Ask if the assurance foreseeably caused the change and whether justice requires relief.",
+        "sources": [
+          "cyberchron",
+          "dixon",
+          "precontractual-liability"
+        ],
+        "edges": [
+          {
+            "label": "Promise and induced loss proven",
+            "to": "g"
+          },
+          {
+            "label": "Predicates fail",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Enforce the concluded bargain",
+        "detail": "Where parties objectively settled the bargain before signature, enforce the supported terms subject to any independent form requirement.",
+        "sources": [
+          "preliminary-agreements",
+          "note-texaco",
+          "definiteness"
+        ],
+        "edges": []
+      },
+      {
+        "id": "f",
+        "label": "Enforce the negotiation commitment",
+        "detail": "Test the promised exclusivity or good-faith process for breach. A negotiation duty does not confer the final transaction’s benefits as if it were concluded.",
+        "sources": [
+          "channel-home",
+          "note-keystone"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "Compensate supported reliance",
+        "detail": "Measure losses incurred because of the assurance, such as reasonable post-promise production or shutdown costs. Separate pre-promise costs and profits expected from an unsigned final deal.",
+        "sources": [
+          "cyberchron",
+          "dixon",
+          "reliance-interest"
+        ],
+        "edges": []
+      },
+      {
+        "id": "h",
+        "label": "No asserted obligation established on this route",
+        "detail": "Unsettled essential terms or an unfulfilled signature condition can bar enforcement of the final deal. Check any separately undertaken negotiation or reliance obligation and the governing regime’s approach.",
+        "sources": [
+          "sun-printing",
+          "preliminary-agreements",
+          "french-negotiations"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-19",
+    "title": "Can a court supply the missing term?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "Did the parties intend a present bargain?",
+        "detail": "Separate a missing term in a concluded deal from an essential point deliberately left for future agreement. An objective basis for identifying breach and remedy helps show what the parties undertook.",
+        "sources": [
+          "definiteness",
+          "preliminary-agreements"
+        ],
+        "edges": [
+          {
+            "label": "Present commitment supported",
+            "to": "b"
+          },
+          {
+            "label": "Future agreement reserved",
+            "to": "e"
+          },
+          {
+            "label": "Qualifying sale with open terms",
+            "to": "d"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Is there a workable external measure?",
+        "detail": "Identify an agreed benchmark, prior practice, or other objective evidence. A failed pricing mechanism does not necessarily defeat a deal. A maximum price alone may leave another essential dimension open.",
+        "sources": [
+          "gap-filling",
+          "oglebay",
+          "sun-printing"
+        ],
+        "edges": [
+          {
+            "label": "Benchmark works",
+            "to": "f"
+          },
+          {
+            "label": "Benchmark failed but intent clear",
+            "to": "c"
+          },
+          {
+            "label": "No standard for essential obligation",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Can a reasonable term preserve the bargain?",
+        "detail": "Decades of dealing showed continuing commitment in Oglebay after two rate mechanisms failed. The court set a reasonable rate on the evidence and upheld negotiation or mediation for future rates where damages were speculative.",
+        "sources": [
+          "oglebay",
+          "gap-filling"
+        ],
+        "edges": [
+          {
+            "label": "Supported reasonable term",
+            "to": "f"
+          },
+          {
+            "label": "No objective basis",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Apply sales defaults if the parties intended a deal",
+        "detail": "Article 2 can supply a reasonable price when parties intend a contract without fixing price. Under the CISG, identify the applicable treaty provision and evidence of agreement before importing a domestic default.",
+        "sources": [
+          "ucc204",
+          "gap-filling",
+          "oglebay",
+          "cisg-framework"
+        ],
+        "edges": [
+          {
+            "label": "Relevant default applies",
+            "to": "f"
+          },
+          {
+            "label": "Open point reserved or no applicable default",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "The court cannot choose the bargain",
+        "detail": "Sun Printing left both future price and its duration to later agreement. The Canadian price ceiling did not fix duration, and the court declined to impose the claimed delivery duty.",
+        "sources": [
+          "sun-printing",
+          "definiteness"
+        ],
+        "edges": []
+      },
+      {
+        "id": "f",
+        "label": "Apply the term and identify what breach means",
+        "detail": "Use the agreed measure, applicable statutory default, or term justified by evidence of this particular deal. The supplied term must preserve the undertaking that the parties objectively made.",
+        "sources": [
+          "gap-filling",
+          "oglebay",
+          "interpretation"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-20",
+    "title": "Is the modification enforceable?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "What law governs the change?",
+        "detail": "Identify the existing duty, the proposed new duty, and the governing regime. A change in obligations still requires mutual assent.",
+        "sources": [
+          "modification",
+          "alaska-packers",
+          "ucc204",
+          "ny51103"
+        ],
+        "edges": [
+          {
+            "label": "Common law",
+            "to": "b"
+          },
+          {
+            "label": "Article 2",
+            "to": "c"
+          },
+          {
+            "label": "New York signed-writing route",
+            "to": "d"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Was there new consideration or a recognized alternative?",
+        "detail": "The fishermen in Alaska Packers already owed the same work. Watkins enforced the voluntary substitution of a higher excavation price. Consider any supported exception for fair adjustment to unanticipated circumstances under local law.",
+        "sources": [
+          "modification",
+          "alaska-packers",
+          "watkins"
+        ],
+        "edges": [
+          {
+            "label": "Adequate basis",
+            "to": "e"
+          },
+          {
+            "label": "Same duty only",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Was the sales modification made in good faith?",
+        "detail": "Article 2 does not require new consideration for a sales modification. Test commercial good faith and whether the contract as modified must satisfy the statute of frauds. Check any agreed writing requirement and waiver under the governing rule.",
+        "sources": [
+          "modification",
+          "reading-notes-11"
+        ],
+        "edges": [
+          {
+            "label": "Assent, good faith and form satisfied",
+            "to": "e"
+          },
+          {
+            "label": "Bad faith or unmet form requirements",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Is the prescribed writing signed?",
+        "detail": "New York § 5-1103 can protect a written modification or discharge signed by the party against whom enforcement is sought or by that party’s agent. It removes an objection based solely on lack of consideration.",
+        "sources": [
+          "ny51103",
+          "ny-other-consideration"
+        ],
+        "edges": [
+          {
+            "label": "Compliant writing",
+            "to": "e"
+          },
+          {
+            "label": "No special statutory protection",
+            "to": "b"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Did an improper threat leave no reasonable choice?",
+        "detail": "In Austin a gear supplier withheld indispensable supply while Loral could not timely replace it and faced Navy obligations. Test market alternatives, timing, inducement and whether apparent acquiescence continued under the pressure.",
+        "sources": [
+          "duress",
+          "austin",
+          "alaska-packers"
+        ],
+        "edges": [
+          {
+            "label": "Duress established",
+            "to": "h"
+          },
+          {
+            "label": "Voluntary change",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Enforce the modified duties",
+        "detail": "Apply the agreed change within its scope after any independent form, good-faith and defense questions are resolved.",
+        "sources": [
+          "modification",
+          "watkins",
+          "ny51103"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "Apply the original obligation if the change fails",
+        "detail": "A failed modification leaves the original bargain available, subject to any separately valid waiver or discharge.",
+        "sources": [
+          "alaska-packers",
+          "modification"
+        ],
+        "edges": []
+      },
+      {
+        "id": "h",
+        "label": "Modification voidable for duress",
+        "detail": "The coerced party may avoid the modification and seek appropriate recovery. Continued performance or a delay in protesting can be consistent with ongoing pressure, as in Austin.",
+        "sources": [
+          "duress",
+          "austin"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-21",
+    "title": "Can the bargain be avoided for a misleading statement or omission?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "What induced assent?",
+        "detail": "Identify the specific assurance or omitted fact, the speaker’s knowledge and the way the statement affected the decision to agree.",
+        "sources": [
+          "misrepresentation",
+          "disclosure"
+        ],
+        "edges": [
+          {
+            "label": "Fact affirmed",
+            "to": "b"
+          },
+          {
+            "label": "Opinion or prediction",
+            "to": "c"
+          },
+          {
+            "label": "Silence or partial account",
+            "to": "d"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Was the affirmation false and material or fraudulent?",
+        "detail": "Determine whether the statement misrepresented a fact and was material or fraudulent under the governing avoidance rule. Seriousness and purpose matter when testing induced assent.",
+        "sources": [
+          "misrepresentation",
+          "rescission"
+        ],
+        "edges": [
+          {
+            "label": "Qualifying misstatement",
+            "to": "e"
+          },
+          {
+            "label": "Accurate or insufficient",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Did expertise make the assurance misleading?",
+        "detail": "Vokes allowed a claim to proceed where expert instructors allegedly used superior knowledge to mislead about dancing progress. Sports agents’ optimistic prediction of endorsement results in Speakers of Sport did not establish the fraud asserted there.",
+        "sources": [
+          "vokes",
+          "speakers-sport"
+        ],
+        "edges": [
+          {
+            "label": "Actionable assertion in context",
+            "to": "e"
+          },
+          {
+            "label": "Sales optimism or unsupported inference",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Was there a duty to correct or disclose?",
+        "detail": "Kannavos’s apartment-income promotion was misleading without the zoning facts. Swinton’s bare termite nondisclosure did not state the damages claim under the rule applied there. Test half-truth, active concealment, correction, or any independent disclosure duty.",
+        "sources": [
+          "disclosure",
+          "kannavos",
+          "swinton"
+        ],
+        "edges": [
+          {
+            "label": "Duty breached",
+            "to": "e"
+          },
+          {
+            "label": "No disclosure duty on these facts",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Did the party actually and justifiably rely?",
+        "detail": "Ask what caused assent and compare the alleged representation with any specific disclaimer or release. Psenicska enforced targeted disclaimers of reliance on statements about the film and participants.",
+        "sources": [
+          "misrepresentation",
+          "psenicska",
+          "borat-release"
+        ],
+        "edges": [
+          {
+            "label": "Qualifying inducement and reliance",
+            "to": "f"
+          },
+          {
+            "label": "Reliance defeated or unproved",
+            "to": "h"
+          },
+          {
+            "label": "Release effect contested",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Evaluate avoidance and restoration",
+        "detail": "A qualifying inducement can make the agreement voidable. Examine rescission and the return of benefits or other relief supported by the applicable claim.",
+        "sources": [
+          "rescission",
+          "kannavos",
+          "vokes"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "Read the actual release and the law applying to it",
+        "detail": "The Borat analysis turned on specific disclaimer language and the asserted statements. A release’s scope, the particular allegation and the governing rule decide whether it defeats reliance.",
+        "sources": [
+          "psenicska",
+          "borat-release",
+          "misrepresentation"
+        ],
+        "edges": [
+          {
+            "label": "Disclaims the asserted reliance and governs",
+            "to": "h"
+          },
+          {
+            "label": "Does not defeat supported reliance",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "h",
+        "label": "No avoidance established on this theory",
+        "detail": "A mismatch between the assurance and actual decision, justified nondisclosure, or an unproved actionable statement defeats the particular inducement theory.",
+        "sources": [
+          "misrepresentation",
+          "disclosure",
+          "speakers-sport"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-22",
+    "title": "Can evidence of an earlier agreement come in?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "For what purpose is the evidence offered?",
+        "detail": "Identify the final writing and the earlier or contemporaneous statement. Its purpose determines whether the integration screen applies.",
+        "sources": [
+          "parol-evidence",
+          "integration"
+        ],
+        "edges": [
+          {
+            "label": "Enforce earlier term",
+            "to": "b"
+          },
+          {
+            "label": "Explain written language",
+            "to": "g"
+          },
+          {
+            "label": "Prove fraud or reform writing",
+            "to": "h"
+          },
+          {
+            "label": "Prove later change",
+            "to": "i"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Did the parties intend a final writing?",
+        "detail": "A writing can be final as to some terms or complete within its scope. Consider form, detail, merger language and the governing court’s approach to context.",
+        "sources": [
+          "integration",
+          "parol-evidence",
+          "masterson"
+        ],
+        "edges": [
+          {
+            "label": "No integration",
+            "to": "f"
+          },
+          {
+            "label": "Partial integration",
+            "to": "c"
+          },
+          {
+            "label": "Complete integration",
+            "to": "d"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Does the earlier term contradict the writing?",
+        "detail": "A partial integration can be supplemented by a consistent additional term. An assertion contradicting a final term ordinarily cannot displace it.",
+        "sources": [
+          "parol-evidence",
+          "integration",
+          "masterson"
+        ],
+        "edges": [
+          {
+            "label": "Consistent and within permitted proof",
+            "to": "f"
+          },
+          {
+            "label": "Contradiction",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Would this agreement naturally be written here?",
+        "detail": "Within a complete integration, even a consistent addition is ordinarily excluded. Gianni excluded an oral exclusivity promise because the lease already covered what the tenant could sell. Masterson allowed a family-side understanding that could naturally have been made separately from the deed.",
+        "sources": [
+          "gianni",
+          "masterson",
+          "integration"
+        ],
+        "edges": [
+          {
+            "label": "Within integrated scope",
+            "to": "e"
+          },
+          {
+            "label": "Outside scope and consistent",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Earlier term excluded for this purpose",
+        "detail": "Enforce the final writing as to the covered point. The same evidence, if offered for a distinct recognized purpose, requires that purpose’s separate test.",
+        "sources": [
+          "gianni",
+          "parol-evidence"
+        ],
+        "edges": []
+      },
+      {
+        "id": "f",
+        "label": "Earlier term may be proved",
+        "detail": "Admissibility permits proof of the alleged term. The factfinder still must decide whether the parties actually agreed to it and what it requires.",
+        "sources": [
+          "masterson",
+          "parol-evidence"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "Apply the jurisdiction’s interpretation rule",
+        "detail": "Evidence that explains written language raises text-first or contextual interpretation questions. Test whether the proffer actually interprets a term or adds a different agreement.",
+        "sources": [
+          "interpretation",
+          "pacific-gas",
+          "www-associates"
+        ],
+        "edges": []
+      },
+      {
+        "id": "h",
+        "label": "Test the claimed invalidity or drafting mistake",
+        "detail": "Bollinger permitted proof of a shared drafting omission and required substantial proof for reformation. Evidence of fraud or mistake can serve a different purpose from supplementing a completed agreement.",
+        "sources": [
+          "bollinger",
+          "parol-evidence",
+          "misrepresentation"
+        ],
+        "edges": []
+      },
+      {
+        "id": "i",
+        "label": "Test the later modification",
+        "detail": "The parol evidence rule concerns prior or contemporaneous undertakings. Apply modification, assent and applicable form rules to a later change.",
+        "sources": [
+          "parol-evidence",
+          "modification"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-23",
+    "title": "What does the disputed contract term mean?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "Which interpretation method governs?",
+        "detail": "Identify the instrument, governing law and competing readings. Greenfield applied New York’s method to a recording agreement and California’s method to a different release in the same case.",
+        "sources": [
+          "interpretation",
+          "greenfield"
+        ],
+        "edges": [
+          {
+            "label": "Text-first",
+            "to": "b"
+          },
+          {
+            "label": "Contextual",
+            "to": "c"
+          },
+          {
+            "label": "Article 2 commercial context",
+            "to": "d"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Is the integrated text ambiguous on its face?",
+        "detail": "New York enforced a mutual cancellation right from the clear language. It refused evidence offered to create ambiguity and reduce the right to the buyer alone.",
+        "sources": [
+          "www-associates",
+          "greenfield"
+        ],
+        "edges": [
+          {
+            "label": "Clear",
+            "to": "g"
+          },
+          {
+            "label": "Ambiguous under local rule",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Is the language reasonably susceptible to the proffered meaning?",
+        "detail": "California provisionally considers credible context before deciding susceptibility. Trident gave the borrower a chance to offer evidence despite the judge’s view of the text. It did not find that prepayment was actually permitted.",
+        "sources": [
+          "pacific-gas",
+          "trident"
+        ],
+        "edges": [
+          {
+            "label": "Plausible reading supported by evidence",
+            "to": "f"
+          },
+          {
+            "label": "No reasonable susceptibility",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "What commercial practice is proved?",
+        "detail": "Identify this contract’s repeated performance, prior dealings, and sufficiently established trade usage. The buyer in Frigaliment failed to prove the narrow meaning of chicken. The rounding practice in Hurst could explain an apparently exact number.",
+        "sources": [
+          "trade-usage",
+          "course-dealing",
+          "frigaliment",
+          "hurst"
+        ],
+        "edges": [
+          {
+            "label": "Proved usage or practice",
+            "to": "e"
+          },
+          {
+            "label": "Insufficient proof",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Can express and contextual terms be read together?",
+        "detail": "First construe the sources consistently if reasonable. Nanakuli let usage qualify a posted-price term and Columbia Nitrogen required consideration of explanatory usage. If an inconsistency remains, rank express terms, then course of performance, prior dealing, and usage.",
+        "sources": [
+          "columbia-nitrogen",
+          "nanakuli",
+          "figgie"
+        ],
+        "edges": [
+          {
+            "label": "Reasonably consistent or hierarchy resolves",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Apply the meaning the evidence supports",
+        "detail": "Compare actual contract and commercial evidence, including burden of proof. Figgie applied a proved exclusive remedy that included refund, which the seller provided.",
+        "sources": [
+          "interpretation",
+          "figgie",
+          "nanakuli"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "Apply the supported text without the proffer",
+        "detail": "Where the governing rule excludes a proffer, the text cannot bear it, or claimed usage is unproved, use the reading otherwise established.",
+        "sources": [
+          "www-associates",
+          "pacific-gas",
+          "frigaliment"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-24",
+    "title": "Did the exercise of discretion violate good faith?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "What contractual power is at issue?",
+        "detail": "Identify the decision actually reserved, the agreed process and the purpose served by the discretion. Good faith operates within the contract and cannot create an inconsistent right.",
+        "sources": [
+          "discretion",
+          "good-faith"
+        ],
+        "edges": [
+          {
+            "label": "Efforts or promotion",
+            "to": "b"
+          },
+          {
+            "label": "Evaluation or satisfaction",
+            "to": "c"
+          },
+          {
+            "label": "Use of a contractual advantage",
+            "to": "d"
+          },
+          {
+            "label": "Different governing regime",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Were reasonable steps taken toward the agreed goal?",
+        "detail": "Falstaff emphasized its overall profit while royalty-producing Ballantine sales fell. Best efforts required meaningful exploration of reasonable ways to maintain volume and fair consideration of the promised business, with no duty to bankrupt itself.",
+        "sources": [
+          "bloor",
+          "bloor-contract",
+          "implied-efforts"
+        ],
+        "edges": [
+          {
+            "label": "Required efforts missing",
+            "to": "f"
+          },
+          {
+            "label": "Efforts adequate",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Was the agreed evaluative process followed?",
+        "detail": "ETS promised to consider relevant information and failed to do so. Its discretion over the final score remained. The remedy was a good-faith reconsideration.",
+        "sources": [
+          "dalton",
+          "satisfaction",
+          "good-faith"
+        ],
+        "edges": [
+          {
+            "label": "Process or good-faith standard breached",
+            "to": "f"
+          },
+          {
+            "label": "Discretion properly exercised",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Did the party deliberately exploit the other side’s oversight?",
+        "detail": "Determine what the party knew and whether it exploited an oversight inconsistent with the bargain. Market Street required a trial because the evidence did not conclusively establish the relevant state of mind.",
+        "sources": [
+          "market-street",
+          "good-faith"
+        ],
+        "edges": [
+          {
+            "label": "Opportunism proved",
+            "to": "f"
+          },
+          {
+            "label": "Evidence disputed",
+            "to": "h"
+          },
+          {
+            "label": "No abuse shown",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Does this governing law imply the asserted duty?",
+        "detail": "Ng Giap declined to imply a general duty under Singapore law while allowing the possibility of narrower terms implied from the bargain. Compare the supplement’s purpose-based limits and identify any preemption issue.",
+        "sources": [
+          "ng-giap",
+          "comparative-good-faith",
+          "northwest-ginsberg"
+        ],
+        "edges": [
+          {
+            "label": "Duty recognized and breached",
+            "to": "f"
+          },
+          {
+            "label": "Duty absent or no breach",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Remedy the obligation actually breached",
+        "detail": "Award the promised process or proved contract loss, as appropriate. A missed review does not itself entitle the claimant to the preferred discretionary outcome.",
+        "sources": [
+          "dalton",
+          "bloor",
+          "good-faith"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "Discretion stands under this test",
+        "detail": "A choice that stays within the contractual purpose and applicable standard remains the decisionmaker’s to make.",
+        "sources": [
+          "good-faith",
+          "discretion"
+        ],
+        "edges": []
+      },
+      {
+        "id": "h",
+        "label": "Resolve the disputed fact",
+        "detail": "Try the knowledge, motive or effort issue if material and genuinely disputed. A remand is not a breach finding.",
+        "sources": [
+          "market-street",
+          "proof-and-posture"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-25",
+    "title": "Can a court decline to enforce a standard term?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "Did the disputed standard term enter the deal?",
+        "detail": "Start with reasonable notice and a manifestation of assent to the term. A special liability cap on an apparent claim ticket, or later website terms without constructive notice, can fail at this stage.",
+        "sources": [
+          "adhesion",
+          "klar",
+          "anderson-binance"
+        ],
+        "edges": [
+          {
+            "label": "Incorporated",
+            "to": "b"
+          },
+          {
+            "label": "No adequate notice or assent",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "What objection applies to the incorporated term?",
+        "detail": "A standard take-it-or-leave-it form can support different objections. Test reasonable expectations, statutory requirements and unconscionability under their own rules.",
+        "sources": [
+          "adhesion",
+          "consumer-protection",
+          "unconscionability"
+        ],
+        "edges": [
+          {
+            "label": "Unexpected term",
+            "to": "c"
+          },
+          {
+            "label": "Consumer statute",
+            "to": "d"
+          },
+          {
+            "label": "Unfair formation and substance",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Does governing law protect reasonable expectations here?",
+        "detail": "Graham could be an adherent despite commercial sophistication. Arbitration was expected in the concert industry, but the other party’s union as decisionmaker was subject to a separate fairness challenge.",
+        "sources": [
+          "graham",
+          "adhesion"
+        ],
+        "edges": [
+          {
+            "label": "Term outside protected expectations",
+            "to": "h"
+          },
+          {
+            "label": "Term expected or no exclusion",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Does a consumer enactment supply a consequence?",
+        "detail": "Apply the precise transaction definition, disclosure and cancellation provisions. Doe applied the dating-service statute and awarded full payments back on its findings.",
+        "sources": [
+          "consumer-protection",
+          "doe-great-expectations"
+        ],
+        "edges": [
+          {
+            "label": "Statutory violation and remedy established",
+            "to": "g"
+          },
+          {
+            "label": "No statutory violation",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "How was assent obtained and what burden does the term impose?",
+        "detail": "Procedural evidence includes lack of meaningful choice, hidden language and inability to understand. Substantive evidence includes a grossly one-sided term, such as Stoll’s 30-year poultry-litter right. Apply the jurisdiction’s relationship between the two dimensions.",
+        "sources": [
+          "unconscionability",
+          "williams-walker-thomas",
+          "stoll"
+        ],
+        "edges": [
+          {
+            "label": "Required unfairness shown",
+            "to": "g"
+          },
+          {
+            "label": "Record incomplete",
+            "to": "f"
+          },
+          {
+            "label": "Unfairness not established",
+            "to": "i"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Develop findings about formation and terms",
+        "detail": "The Williams court recognized the defense and remanded. Examine cross-collateralization, presentation, knowledge and alternatives at formation before finding unconscionability.",
+        "sources": [
+          "williams-walker-thomas",
+          "unconscionability"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "Apply the supported remedy",
+        "detail": "Depending on the regime, refuse the bargain, sever or limit the clause, or award a statutory remedy. Identify the particular provision and the disposition authorized by controlling law.",
+        "sources": [
+          "unconscionability",
+          "graham",
+          "doe-great-expectations"
+        ],
+        "edges": []
+      },
+      {
+        "id": "h",
+        "label": "Term cannot govern on this route",
+        "detail": "If assent or incorporation fails, apply the surviving bargain without the clause. If a reasonable-expectations doctrine excludes it, use the remedy that doctrine authorizes.",
+        "sources": [
+          "klar",
+          "adhesion",
+          "anderson-binance"
+        ],
+        "edges": []
+      },
+      {
+        "id": "i",
+        "label": "Standard term survives the challenged defense",
+        "detail": "Adhesion or disparity alone does not establish the required unfairness. Apply the incorporated term within its scope.",
+        "sources": [
+          "adhesion",
+          "graham",
+          "unconscionability"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-26",
+    "title": "Will public policy defeat all or part of the agreement?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "What external policy is implicated?",
+        "detail": "Identify the statute, regulation or recognized policy and the promised act or term it affects. Weigh the policy against interests in enforcement through the governing doctrine.",
+        "sources": [
+          "public-policy",
+          "severability"
+        ],
+        "edges": [
+          {
+            "label": "Illegal performance or facilitation",
+            "to": "b"
+          },
+          {
+            "label": "Restrictive covenant",
+            "to": "c"
+          },
+          {
+            "label": "Potentially separable invalid term",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Would enforcement give effect to prohibited conduct?",
+        "detail": "Blossom Farm denied recovery where the seller knowingly facilitated food mislabeling. X.L.O. required a record on whether collection would enforce the precise antitrust wrong, beyond mere connection to a conspiracy.",
+        "sources": [
+          "blossom-farm",
+          "xlo",
+          "public-policy"
+        ],
+        "edges": [
+          {
+            "label": "Enforcement would implement wrongdoing",
+            "to": "f"
+          },
+          {
+            "label": "Link too remote or record incomplete",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Which jurisdiction and date govern the restriction?",
+        "detail": "Identify the governing state, contract date and setting, such as employment or the sale of a business. The FTC removed its federal Non-Compete Rule from the Code of Federal Regulations in February 2026. Apply state law on its own terms.",
+        "sources": [
+          "noncompetes",
+          "hassler",
+          "ftc-noncompete-removal"
+        ],
+        "edges": [
+          {
+            "label": "Wyoming contract entered on or after July 1, 2025",
+            "to": "j"
+          },
+          {
+            "label": "Earlier Wyoming contract or another state",
+            "to": "d"
+          }
+        ],
+        "links": [
+          {
+            "label": "FTC notice removing federal rule",
+            "url": "https://www.ftc.gov/legal-library/browse/federal-register-notices/revision-negative-option-rule-withdrawal-cars-rule-removal-non-compete-rule-conform-these-rules"
+          }
+        ]
+      },
+      {
+        "id": "j",
+        "label": "Does Wyoming’s statute void the restraint?",
+        "detail": "Wyo. Stat. § 1-23-108 generally voids covered noncompetes restricting compensated labor. Test its exceptions for business sales, trade-secret protection, specified expense recovery, and executive or management roles and their professional staff. The statute separately addresses physician restrictions. It applies to contracts entered on or after July 1, 2025.",
+        "sources": [
+          "noncompetes",
+          "hassler",
+          "severability"
+        ],
+        "edges": [
+          {
+            "label": "The statute voids the restraint",
+            "to": "f"
+          },
+          {
+            "label": "An exception applies or the restraint is outside the statute",
+            "to": "d"
+          }
+        ],
+        "links": [
+          {
+            "label": "Wyoming enrolled act",
+            "url": "https://wyoleg.gov/2025/Enroll/SF0107.pdf"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Is the restraint justified and reasonably tailored?",
+        "detail": "Apply the governing law on legitimate interests, activity covered, duration, territory and public effects. Hassler rejected the breadth of its Wyoming restraint in 2022, before the 2025 enactment.",
+        "sources": [
+          "noncompetes",
+          "hassler"
+        ],
+        "edges": [
+          {
+            "label": "Permitted scope",
+            "to": "h"
+          },
+          {
+            "label": "Unreasonable or prohibited",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Does local law permit narrowing?",
+        "detail": "In 2022, Hassler abandoned judicial rewriting of unreasonable noncompetes under Wyoming common law. Apply the rule for the relevant jurisdiction and date. Distinguish severing independent language from drafting a new restraint.",
+        "sources": [
+          "hassler",
+          "severability",
+          "noncompetes"
+        ],
+        "edges": [
+          {
+            "label": "Evaluate available remedy",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Can the lawful remainder stand independently?",
+        "detail": "Consider whether the lawful promises form a coherent exchange, whether enforcement would still implement the forbidden policy and which remedy the jurisdiction permits.",
+        "sources": [
+          "severability",
+          "public-policy",
+          "hassler"
+        ],
+        "edges": [
+          {
+            "label": "Separable and permitted",
+            "to": "h"
+          },
+          {
+            "label": "Inseparable or forbidden",
+            "to": "i"
+          }
+        ]
+      },
+      {
+        "id": "g",
+        "label": "Determine what enforcement would actually do",
+        "detail": "Examine the factual link to the prohibited conduct and the public and private stakes. X.L.O. did not uphold the contract outright at that stage.",
+        "sources": [
+          "xlo",
+          "public-policy"
+        ],
+        "edges": [
+          {
+            "label": "Forbidden arrangement established",
+            "to": "f"
+          },
+          {
+            "label": "No sufficient policy bar",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "h",
+        "label": "Enforce the lawful undertaking within scope",
+        "detail": "Apply only the obligation that survives the policy and severability inquiry, with the jurisdiction and date specified for any restrictive covenant.",
+        "sources": [
+          "public-policy",
+          "severability",
+          "noncompetes"
+        ],
+        "edges": []
+      },
+      {
+        "id": "i",
+        "label": "Deny the affected enforcement",
+        "detail": "Refuse enforcement of the term or entire bargain as the policy and connection to the remaining exchange require.",
+        "sources": [
+          "blossom-farm",
+          "hassler",
+          "public-policy"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-27",
+    "title": "Is the other party’s performance due?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "Is this language a promise, a condition, or both?",
+        "detail": "A promise creates a duty and can be breached. A condition controls when another duty becomes due. A party may separately promise to bring the condition about.",
+        "sources": [
+          "express-conditions",
+          "constructive-conditions"
+        ],
+        "edges": [
+          {
+            "label": "Clear express condition",
+            "to": "b"
+          },
+          {
+            "label": "Payment clause unclear",
+            "to": "c"
+          },
+          {
+            "label": "Dependency implied by law",
+            "to": "d"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Did the specified event occur?",
+        "detail": "Test the actual condition. In Luttinger no qualifying loan was available despite diligent efforts, and a proposed subsidy did not satisfy the specified financing term.",
+        "sources": [
+          "express-conditions",
+          "luttinger"
+        ],
+        "edges": [
+          {
+            "label": "Occurred",
+            "to": "h"
+          },
+          {
+            "label": "Failed",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Does the clause allocate risk or merely timing?",
+        "detail": "Peacock read ambiguous language tying subcontract payment to owner payment as fixing payment time. Transferring insolvency risk to subcontractors required sufficiently clear intent.",
+        "sources": [
+          "peacock",
+          "express-conditions"
+        ],
+        "edges": [
+          {
+            "label": "Timing only",
+            "to": "h"
+          },
+          {
+            "label": "Express risk-shifting condition",
+            "to": "b"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Which performance comes first?",
+        "detail": "Consider concurrent exchange versus performance that takes time or must precede the other duty. Kingston required agreed security before conveying the business.",
+        "sources": [
+          "constructive-conditions",
+          "kingston"
+        ],
+        "edges": [
+          {
+            "label": "Prior performance or tender made",
+            "to": "e"
+          },
+          {
+            "label": "Required first step missing",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Was the performance substantial?",
+        "detail": "Jacob & Youngs treated the use of equivalent pipe as a minor departure in the circumstances. Substantial performance can satisfy a constructive condition while leaving damages for the defect.",
+        "sources": [
+          "substantial-performance",
+          "jacob-youngs"
+        ],
+        "edges": [
+          {
+            "label": "Substantial",
+            "to": "h"
+          },
+          {
+            "label": "Material shortfall",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Can the completed units be paid separately?",
+        "detail": "Ask whether the contract apportions performances into corresponding agreed units. Gill awarded rates for completed deliveries, with no fractional contract price for logs lost en route.",
+        "sources": [
+          "divisibility",
+          "gill"
+        ],
+        "edges": [
+          {
+            "label": "Divisible completed units",
+            "to": "i"
+          },
+          {
+            "label": "No divisible completed units",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "g",
+        "label": "Is failed performance or nonoccurrence excused?",
+        "detail": "Apply waiver, prevention and disproportionate forfeiture where supported. Also ask whether there was an independent promise to produce the event, whose breach may support damages.",
+        "sources": [
+          "waiver",
+          "prevention",
+          "forfeiture"
+        ],
+        "edges": [
+          {
+            "label": "Excused",
+            "to": "h"
+          },
+          {
+            "label": "Unexcused",
+            "to": "j"
+          }
+        ]
+      },
+      {
+        "id": "h",
+        "label": "The reciprocal duty is due",
+        "detail": "Enforce the duty when due. Where substantial performance suffices, allow any proved deduction for the defect. A timing-only clause may allow a reasonable time before payment is required.",
+        "sources": [
+          "constructive-conditions",
+          "substantial-performance",
+          "peacock"
+        ],
+        "edges": []
+      },
+      {
+        "id": "i",
+        "label": "Pay the specified completed units",
+        "detail": "Assess units independently as the parties apportioned them. The unfinished units require their own theory, such as any legally available restitution.",
+        "sources": [
+          "gill",
+          "divisibility"
+        ],
+        "edges": []
+      },
+      {
+        "id": "j",
+        "label": "Condition keeps the other duty from becoming due",
+        "detail": "A failed unexcused condition defeats the conditional claim. The agreement may call for return of a deposit. Address breaches of distinct promises separately.",
+        "sources": [
+          "express-conditions",
+          "constructive-conditions",
+          "luttinger"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-28",
+    "title": "Can a failed condition be excused?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "What condition failed and whose protection was it?",
+        "detail": "Identify the event and the duty it conditions. Determine whether the event actually failed before asking whether the other party may insist on it.",
+        "sources": [
+          "express-conditions",
+          "waiver",
+          "prevention",
+          "forfeiture"
+        ],
+        "edges": [
+          {
+            "label": "Satisfaction disputed",
+            "to": "b"
+          },
+          {
+            "label": "Compliance waived",
+            "to": "c"
+          },
+          {
+            "label": "Other side caused failure",
+            "to": "d"
+          },
+          {
+            "label": "Serious forfeiture asserted",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "What satisfaction standard governs?",
+        "detail": "Gibson’s portrait depended on the buyer’s personal satisfaction. Apply honest judgment where intended and reasonable-person standards for appropriate measurable performance. Actual satisfaction under the relevant test satisfies rather than excuses the condition.",
+        "sources": [
+          "gibson",
+          "mattei",
+          "satisfaction"
+        ],
+        "edges": [
+          {
+            "label": "Proper satisfaction standard met",
+            "to": "f"
+          },
+          {
+            "label": "Failure under applicable standard",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Did the protected party relinquish the requirement?",
+        "detail": "McKenna inferred waiver from repeated payment without an architect’s certificate in the circumstances, including honest substantial performance. Check the words, conduct, reliance and any ability to retract under applicable law.",
+        "sources": [
+          "waiver",
+          "mckenna"
+        ],
+        "edges": [
+          {
+            "label": "Waiver effective",
+            "to": "f"
+          },
+          {
+            "label": "No effective waiver",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Did the party wrongfully hinder occurrence?",
+        "detail": "Identify a cooperation duty or interference inconsistent with the agreement and a causal connection to the failed event. Inability to obtain the required financing despite diligent effort differs from hindering the application.",
+        "sources": [
+          "prevention",
+          "luttinger",
+          "good-faith"
+        ],
+        "edges": [
+          {
+            "label": "Hindrance excuses nonoccurrence",
+            "to": "f"
+          },
+          {
+            "label": "No causal hindrance",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Would enforcing the condition cause disproportionate forfeiture?",
+        "detail": "Compare what the claimant has already delivered or invested with the protected interest in strict compliance. Under the applicable rule, examine whether occurrence was material to the agreed exchange.",
+        "sources": [
+          "forfeiture",
+          "express-conditions",
+          "reading-notes-20"
+        ],
+        "edges": [
+          {
+            "label": "Excuse available",
+            "to": "f"
+          },
+          {
+            "label": "Condition material or loss proportionate",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Conditional duty can become due",
+        "detail": "If the condition occurred or its failure is excused, insistence on strict occurrence cannot alone defeat the conditional duty. Resolve any item of damages on its own basis.",
+        "sources": [
+          "waiver",
+          "prevention",
+          "forfeiture",
+          "mckenna"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "Condition keeps the duty from becoming due",
+        "detail": "An unsatisfied and unexcused condition leaves the conditioned performance unavailable. Determine the contractual consequence, including entitlement to a deposit refund where applicable.",
+        "sources": [
+          "express-conditions",
+          "luttinger"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-29",
+    "title": "Does an assumption or later event excuse performance?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "Did the problem exist at formation or arise later?",
+        "detail": "Distinguish an erroneous belief about existing facts from a supervening event affecting performance or the value of the promised exchange.",
+        "sources": [
+          "mistake",
+          "impracticability",
+          "frustration"
+        ],
+        "edges": [
+          {
+            "label": "Existing fact",
+            "to": "b"
+          },
+          {
+            "label": "Later event",
+            "to": "c"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Did a shared basic assumption materially fail?",
+        "detail": "Renner concerned water already unavailable in the necessary quantity for jojoba cultivation. Test basic assumption, material effect and whether the party seeking relief assumed the risk.",
+        "sources": [
+          "mistake",
+          "renner",
+          "risk-allocation"
+        ],
+        "edges": [
+          {
+            "label": "Material mutual mistake",
+            "to": "d"
+          },
+          {
+            "label": "No material shared mistake",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "What did the later event destroy?",
+        "detail": "Identify whether the event removed a necessary means of performance, severely increased the burden, or instead destroyed the shared principal purpose while performance remained possible.",
+        "sources": [
+          "impracticability",
+          "frustration",
+          "force-majeure"
+        ],
+        "edges": [
+          {
+            "label": "Performance impaired",
+            "to": "e"
+          },
+          {
+            "label": "Principal purpose impaired",
+            "to": "f"
+          },
+          {
+            "label": "Express clause specifically addresses it",
+            "to": "d"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Who carries this risk?",
+        "detail": "Read actual assumption of risk, contractual clauses, and the allocation implied by the deal and law. Stees construed the building promise strictly despite quicksand. For force majeure, apply trigger, causation, notice, mitigation and relief specified by the language.",
+        "sources": [
+          "risk-allocation",
+          "force-majeure",
+          "stees",
+          "renner"
+        ],
+        "edges": [
+          {
+            "label": "Risk assumed or clause untriggered",
+            "to": "h"
+          },
+          {
+            "label": "Qualifying mistake or clause provides relief",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Is the promised performance truly impracticable?",
+        "detail": "Taylor’s particular music hall burned without fault. Transatlantic’s Cape route still allowed performance at greater cost. Check fault, available alternatives, foreseeability as evidence of allocation, basic assumption and contractual risk.",
+        "sources": [
+          "impracticability",
+          "taylor-caldwell",
+          "transatlantic"
+        ],
+        "edges": [
+          {
+            "label": "Excuse established",
+            "to": "g"
+          },
+          {
+            "label": "Reasonable alternative or assumed risk",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Was the principal purpose substantially frustrated?",
+        "detail": "The canceled coronation procession was the shared foundation for the particular rooms in Krell. Check severity, shared understanding, fault and who bore the risk. Ordinary disappointment or reduced profits will seldom suffice.",
+        "sources": [
+          "frustration",
+          "krell",
+          "risk-allocation"
+        ],
+        "edges": [
+          {
+            "label": "Frustration established",
+            "to": "g"
+          },
+          {
+            "label": "Purpose remains or risk allocated",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "g",
+        "label": "Match relief to the doctrine",
+        "detail": "Mistake can justify avoidance and restoration. A later event may discharge or suspend remaining duties, depending on doctrine or clause. Renner restored payment and net value conferred, rather than every development expense.",
+        "sources": [
+          "renner",
+          "taylor-caldwell",
+          "krell",
+          "force-majeure"
+        ],
+        "edges": []
+      },
+      {
+        "id": "h",
+        "label": "Performance obligation remains under this theory",
+        "detail": "Apply the agreed exchange and its proved remedies when the invoking party bore the risk or the doctrine’s threshold is unmet.",
+        "sources": [
+          "stees",
+          "transatlantic",
+          "risk-allocation"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-30",
+    "title": "Which monetary remedy fits the injury?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "What interest is the claimant trying to recover?",
+        "detail": "Identify the expected performance, reliance change, benefit transferred or proved breach. Extraordinary gain and punishment claims require additional grounds.",
+        "sources": [
+          "remedial-overview",
+          "notes-compensation"
+        ],
+        "edges": [
+          {
+            "label": "Promised position",
+            "to": "b"
+          },
+          {
+            "label": "Reliance position",
+            "to": "c"
+          },
+          {
+            "label": "Benefit conferred",
+            "to": "d"
+          },
+          {
+            "label": "Breach but no proven damage",
+            "to": "e"
+          },
+          {
+            "label": "Defendant’s gains or punishment",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Compute expectation",
+        "detail": "Compare performance promised with actual performance. Add proved related loss and subtract costs and losses avoided. Naval Institute compensated lost hardcover profits rather than assuming the licensee’s profits measured injury.",
+        "sources": [
+          "expectation-interest",
+          "completion-damages",
+          "naval-institute"
+        ],
+        "edges": [
+          {
+            "label": "Compensatory amount supported",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Compute induced loss",
+        "detail": "Identify costs and opportunities caused by reliance. Sullivan’s recovery included expenses, worsened appearance and the additional operation on a limited appellate record. Account for a proven losing bargain when applicable.",
+        "sources": [
+          "reliance-interest",
+          "sullivan",
+          "notes-compensation"
+        ],
+        "edges": [
+          {
+            "label": "Compensatory amount supported",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Value the enrichment restored",
+        "detail": "Identify the transferable benefit or reasonable value received, including paid sums or accepted services. Algernon Blair allowed a nonbreaching contractor to use that measure after material breach despite an anticipated contractual loss.",
+        "sources": [
+          "restitution-interest",
+          "note-mobil",
+          "algernon-blair"
+        ],
+        "edges": [
+          {
+            "label": "Restoration supported",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Recognize breach with nominal relief",
+        "detail": "Nominal damages can mark a proved breach without proved actual loss. White treated inconvenience from disrupted water service as actual harm supporting a modest compensatory award.",
+        "sources": [
+          "nominal-damages",
+          "white-benkowski"
+        ],
+        "edges": []
+      },
+      {
+        "id": "f",
+        "label": "Is there an independent basis for extraordinary relief?",
+        "detail": "Profits can be evidence of loss, but gain-based relief requires separate authorization. White held deliberate or malicious breach insufficient for punitive damages on the contract theory. Identify any separately actionable tort that authorizes punishment.",
+        "sources": [
+          "disgorgement",
+          "punitive-contract",
+          "naval-institute",
+          "white-benkowski"
+        ],
+        "edges": [
+          {
+            "label": "Separate authority, elements and proof established",
+            "to": "h"
+          },
+          {
+            "label": "Breach alone, no special remedy",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "g",
+        "label": "Award supported compensation or restitution",
+        "detail": "Apply the limits appropriate to the chosen measure and avoid double counting the same injury or transfer.",
+        "sources": [
+          "remedial-overview",
+          "notes-compensation",
+          "restitution-interest"
+        ],
+        "edges": []
+      },
+      {
+        "id": "h",
+        "label": "Apply the separate rule for gains or punishment",
+        "detail": "Identify which gains are attributable or which tort damages are authorized under controlling law. Ordinary breach rules do not themselves establish the amount.",
+        "sources": [
+          "disgorgement",
+          "punitive-contract",
+          "notes-tort-boundary"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-31",
+    "title": "How much can a contractor recover after breach?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "Who breached and what was supplied?",
+        "detail": "Separate a builder’s defective work from an owner’s material breach that stops the builder early. Identify work completed, payments made, costs avoided and any benefit accepted.",
+        "sources": [
+          "completion-damages",
+          "substantial-performance",
+          "algernon-blair",
+          "nelson-hazel"
+        ],
+        "edges": [
+          {
+            "label": "Defective or incomplete work",
+            "to": "b"
+          },
+          {
+            "label": "Other side stopped performance",
+            "to": "d"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Did the builder substantially perform?",
+        "detail": "A substantially performing builder can claim the unpaid balance subject to offsets. Failure of substantial performance requires an independently supported theory, such as net benefit under Nelson.",
+        "sources": [
+          "plante",
+          "substantial-performance",
+          "nelson-hazel"
+        ],
+        "edges": [
+          {
+            "label": "Substantial performance",
+            "to": "c"
+          },
+          {
+            "label": "Material shortfall",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "What amount should be deducted for the defect?",
+        "detail": "Use reasonable correction cost where supported. Weigh waste, proportionality and whether the breached undertaking was central. Groves favored restoration cost. Peevyhouse used $300 diminution for restoration it treated as incidental. Plante selected repair costs by defect.",
+        "sources": [
+          "completion-damages",
+          "groves",
+          "peevyhouse",
+          "plante"
+        ],
+        "edges": [
+          {
+            "label": "Appropriate deduction quantified",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Can ordinary expectation compensate the stopped contractor?",
+        "detail": "Illustration with no prior payment. Price $100, expected total cost $120, $60 spent and $60 saved by stopping. Expectation equals the $100 unpaid price minus $60 expenses saved, or $40. The contractor still bears the expected $20 loss.",
+        "sources": [
+          "expectation-interest",
+          "algernon-blair",
+          "reading-notes-23"
+        ],
+        "edges": [
+          {
+            "label": "Use contract measure",
+            "to": "f"
+          },
+          {
+            "label": "Test alternative benefit recovery",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Is reasonable value of accepted work available instead?",
+        "detail": "Under Algernon Blair’s rule a nonbreaching contractor may recover reasonable value despite a losing deal. If the work in the illustration was worth $55 to supply at reasonable rates, that measure may be $55, with no duplicate recovery and subject to proof.",
+        "sources": [
+          "algernon-blair",
+          "restitution-interest"
+        ],
+        "edges": [
+          {
+            "label": "Reasonable value proved",
+            "to": "g"
+          },
+          {
+            "label": "Restitution unavailable",
+            "to": "d2"
+          }
+        ]
+      },
+      {
+        "id": "d2",
+        "label": "Use supported contract damages",
+        "detail": "For an owner’s breach, the price less costs saved protects the contract position. The expected loss is not erased by relabeling costs already incurred.",
+        "sources": [
+          "expectation-interest",
+          "algernon-blair"
+        ],
+        "edges": []
+      },
+      {
+        "id": "f",
+        "label": "Award net contractual recovery",
+        "detail": "Subtract supported defect offsets or avoided costs as applicable. Where starting from the total price, also credit money already paid. Use the measure supported by the governing rule and facts.",
+        "sources": [
+          "plante",
+          "completion-damages",
+          "expectation-interest"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "Award reasonable value on this route",
+        "detail": "Find the value received or reasonable service value under the governing standard and account for payments already made. The contract price can be evidence without necessarily capping recovery.",
+        "sources": [
+          "algernon-blair",
+          "restitution-interest",
+          "quantum-meruit"
+        ],
+        "edges": []
+      },
+      {
+        "id": "h",
+        "label": "Did the defective contractor confer a net retained benefit?",
+        "detail": "Nelson credited payments and costs of correction against the homeowners’ retained benefit when the builder had not substantially performed. Test whether this jurisdiction allows recovery by the breaching contractor and whether a positive net benefit remains.",
+        "sources": [
+          "nelson-hazel",
+          "restitution-interest"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-32",
+    "title": "Which losses survive the damages limits?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "What is the provisional damages calculation?",
+        "detail": "Start with the promised position less actual performance and identify every claimed item. These limits can reduce an otherwise supported figure or exclude an item that never met the proof requirement.",
+        "sources": [
+          "expectation-interest",
+          "remedial-overview",
+          "reading-notes-24"
+        ],
+        "edges": [
+          {
+            "label": "Test avoidability",
+            "to": "b"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Could the claimant reasonably avoid some loss after breach?",
+        "detail": "Look for reasonable steps and comparable substitutes without undue risk or burden. Rockingham excludes avoidable construction after repudiation. Parker permitted rejection of a different and inferior acting role.",
+        "sources": [
+          "mitigation",
+          "repudiation",
+          "rockingham",
+          "parker"
+        ],
+        "edges": [
+          {
+            "label": "Avoidable amount identified",
+            "to": "c"
+          },
+          {
+            "label": "No shown reasonable substitute",
+            "to": "d"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Deduct loss reasonably avoidable",
+        "detail": "Remove the part that post-breach reasonable conduct would have prevented. Distinguish work costs never incurred from additional losses actually incurred but avoidable.",
+        "sources": [
+          "mitigation",
+          "rockingham"
+        ],
+        "edges": [
+          {
+            "label": "Test remaining items for foreseeability",
+            "to": "d"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Were the consequences foreseeable at formation?",
+        "detail": "Ordinary losses can arise naturally. Special consequences depend on knowledge at contracting and the applicable assumption-of-liability test. Hadley lacked adequate notice of the mill’s unusual shutdown consequences. Kenford found knowledge of likely appreciation insufficient under its rule.",
+        "sources": [
+          "foreseeability-damages",
+          "hadley",
+          "kenford"
+        ],
+        "edges": [
+          {
+            "label": "Foreseeable under governing rule",
+            "to": "e"
+          },
+          {
+            "label": "Item too remote",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Are existence and amount supported with reasonable certainty?",
+        "detail": "Check specific evidence, projections and comparables. Fera sustained jury-supported lost profits for a new business despite conflicting evidence. No automatic new-business bar applied.",
+        "sources": [
+          "certainty-damages",
+          "fera"
+        ],
+        "edges": [
+          {
+            "label": "Sufficient evidence",
+            "to": "g"
+          },
+          {
+            "label": "Speculation or insufficient proof",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Exclude the remote item",
+        "detail": "An item outside the risk chargeable under the formation-time rule cannot be awarded even if it was a factual consequence and can be quantified.",
+        "sources": [
+          "hadley",
+          "kenford",
+          "foreseeability-damages"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "Award the proved net amount",
+        "detail": "Apply the deductions to the properly supported loss and retain only items satisfying the relevant foreseeability and certainty screens.",
+        "sources": [
+          "remedial-overview",
+          "mitigation",
+          "certainty-damages"
+        ],
+        "edges": []
+      },
+      {
+        "id": "h",
+        "label": "Unsupported item fails proof",
+        "detail": "A factfinder may estimate on a sound record, but speculative loss cannot be awarded. A proved breach may still support nominal damages where applicable.",
+        "sources": [
+          "certainty-damages",
+          "fera",
+          "nominal-damages"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-33",
+    "title": "Is the agreed sum liquidated damages or a penalty?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "What consequence does the clause impose for breach?",
+        "detail": "Identify the trigger, formula, and governing law. Compare the resulting sum with the losses the chosen regime regards as relevant. The parties’ description is not conclusive.",
+        "sources": [
+          "stipulated-remedies",
+          "reading-notes-25"
+        ],
+        "edges": [
+          {
+            "label": "Assigned U.S. approach",
+            "to": "b"
+          },
+          {
+            "label": "Swiss comparison",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Was loss hard to measure and reasonably estimated?",
+        "detail": "Dave Gustafson upheld graduated highway-delay charges as a reasonable estimate of hard-to-measure loss. Apply the relevant regime’s treatment of anticipated or actual loss and the difficulty of proving it.",
+        "sources": [
+          "dave-gustafson",
+          "stipulated-remedies",
+          "wassermans"
+        ],
+        "edges": [
+          {
+            "label": "Reasonable estimate established",
+            "to": "f"
+          },
+          {
+            "label": "Formula appears excessive or unusual",
+            "to": "c"
+          },
+          {
+            "label": "Record insufficient",
+            "to": "d"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Does the formula approximate net rather than gross loss?",
+        "detail": "Lake River’s minimum charge paid the full amount without crediting saved service expenses. Wasserman’s gross-receipts provision needed evidence of reasonableness under New Jersey’s rule for a commercial clause.",
+        "sources": [
+          "lake-river",
+          "wassermans"
+        ],
+        "edges": [
+          {
+            "label": "Penalty established",
+            "to": "g"
+          },
+          {
+            "label": "Evidence inconclusive",
+            "to": "d"
+          },
+          {
+            "label": "Reasonable relationship shown",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Develop the reasonableness record",
+        "detail": "Examine probable or actual harm, costs avoided and difficulty of estimation under the chosen test. Wasserman’s remanded the gross-receipts issue while preserving reimbursement for improvements.",
+        "sources": [
+          "wassermans",
+          "reading-notes-25"
+        ],
+        "edges": []
+      },
+      {
+        "id": "e",
+        "label": "Would Swiss law reduce an excessive penalty?",
+        "detail": "The assigned authorities address statutory reduction rather than automatic rejection of all punitive character. In the 2024 excerpt a minor breach and no demonstrated damage or risk supported CHF 10,000, even though sophistication and lack of loss did not require full enforcement or zero.",
+        "sources": [
+          "swiss-2024",
+          "swiss-1988-penalty"
+        ],
+        "edges": []
+      },
+      {
+        "id": "f",
+        "label": "Enforce the agreed damages amount",
+        "detail": "Apply the proper formula to the actual trigger under the governing compensatory standard.",
+        "sources": [
+          "stipulated-remedies",
+          "dave-gustafson"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "Disallow the penalty and calculate ordinary damages",
+        "detail": "Where the clause is an unenforceable penalty under the assigned U.S. approach, the underlying bargain may remain enforceable. Calculate the net compensable shortfall, including saved costs.",
+        "sources": [
+          "lake-river",
+          "stipulated-remedies"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-34",
+    "title": "Will a court order performance or enjoin a breach?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "Would damages adequately protect the promised interest?",
+        "detail": "Identify the promised subject and available substitutes. Check whether loss can reasonably be measured and whether the proposed order is equitable and workable.",
+        "sources": [
+          "specific-performance",
+          "reading-notes-22"
+        ],
+        "edges": [
+          {
+            "label": "Goods or property",
+            "to": "b"
+          },
+          {
+            "label": "Business restriction",
+            "to": "c"
+          },
+          {
+            "label": "Personal services",
+            "to": "d"
+          },
+          {
+            "label": "French comparison",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Can the claimant obtain a genuine substitute?",
+        "detail": "Klein denied specific performance where replacement aircraft and money were adequate. Morris ordered delivery of a horse trained by the claimant. Compare individual attachment, market availability, and assured supply.",
+        "sources": [
+          "klein-pepsico",
+          "morris-sparrow",
+          "note-houseman",
+          "note-curtice"
+        ],
+        "edges": [
+          {
+            "label": "Substitutes and damages adequate",
+            "to": "g"
+          },
+          {
+            "label": "Special value or unavailable substitutes",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Is prospective loss unusually hard to quantify?",
+        "detail": "The pharmacy exclusivity dispute implicated future competitive losses. Compare measuring the injury with supervising an injunction and with bargaining after an order issues.",
+        "sources": [
+          "walgreen",
+          "specific-performance"
+        ],
+        "edges": [
+          {
+            "label": "Equitable balance favors order",
+            "to": "f"
+          },
+          {
+            "label": "Money relief adequate",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Would the order compel personal service?",
+        "detail": "Courts ordinarily do not affirmatively compel personal performance. A negative restriction on performing elsewhere may be considered separately, with attention to coercion and equitable limits.",
+        "sources": [
+          "note-lumley",
+          "notes-personal-service",
+          "specific-performance"
+        ],
+        "edges": [
+          {
+            "label": "Affirmative or coercive relief",
+            "to": "g"
+          },
+          {
+            "label": "Workable negative covenant",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Would the negative order operate equitably?",
+        "detail": "Lumley illustrates enforcing an exclusivity promise by restraining performances elsewhere. Examine scope, livelihood, duration and practical compulsion under the governing rule.",
+        "sources": [
+          "note-lumley",
+          "notes-personal-service"
+        ],
+        "edges": [
+          {
+            "label": "Equitable order available",
+            "to": "f"
+          },
+          {
+            "label": "Impermissible restraint",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Fashion the specific relief the facts support",
+        "detail": "Define the performance or restraint, then test feasibility and equitable constraints. The order should address the injury that makes damages inadequate.",
+        "sources": [
+          "specific-performance",
+          "morris-sparrow",
+          "walgreen"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "Seek an available monetary remedy",
+        "detail": "Denial of specific relief can coexist with a binding contract and compensable breach. Evaluate the substitute transaction and any recoverable provable loss.",
+        "sources": [
+          "klein-pepsico",
+          "specific-performance",
+          "notes-personal-service"
+        ],
+        "edges": []
+      },
+      {
+        "id": "h",
+        "label": "Apply the distinct French framework",
+        "detail": "The assigned comparison addresses execution in kind and substitute performance subject to impossibility and manifest disproportion. Use its conditions rather than importing the common-law adequacy threshold.",
+        "sources": [
+          "french-specific-performance"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-35",
+    "title": "When would breach pay, and who bears the loss?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "What are the stipulated values and remedies?",
+        "detail": "The machine costs the seller $300 to make, sells to the original buyer for $600, and is worth $1,000 to that buyer. Another buyer offers $1,200. Compare who obtains the machine and what each keeps after the remedy.",
+        "sources": [
+          "efficient-breach",
+          "remedies-in-action"
+        ],
+        "edges": [
+          {
+            "label": "Performance or enforcement by order",
+            "to": "b"
+          },
+          {
+            "label": "Expectation damages",
+            "to": "c"
+          },
+          {
+            "label": "Over- or undercompensation",
+            "to": "d"
+          },
+          {
+            "label": "Real enforcement costs",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Performance preserves the original allocation",
+        "detail": "Original performance gives the seller $300 profit and the buyer $400 surplus. An order could preserve that outcome or give those parties a basis to bargain over a release allowing resale.",
+        "sources": [
+          "efficient-breach",
+          "specific-performance"
+        ],
+        "edges": [
+          {
+            "label": "Parties bargain over release",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "What does resale plus expectation pay?",
+        "detail": "On the stipulated figures, the seller resells for $1,200, pays $300 production cost and $400 damages, and retains $500. The original buyer receives the $400 surplus in money. Relative to performance, the seller gains $200 if compensation is actually paid.",
+        "sources": [
+          "efficient-breach",
+          "expectation-interest"
+        ],
+        "edges": [
+          {
+            "label": "Add practical enforcement costs",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "How does a different award change incentives?",
+        "detail": "With these values, gross resale advantage over the contract price is $600. Ignoring costs, damages above $600 remove the seller’s private resale gain, and an award below $400 leaves the original buyer undercompensated absent additional payment.",
+        "sources": [
+          "efficient-breach",
+          "remedies-in-action"
+        ],
+        "edges": [
+          {
+            "label": "Add practical enforcement costs",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Who pays to make the entitlement real?",
+        "detail": "Attorney fees, delay, collectability and unequal bargaining can reduce the buyer’s net recovery or change the seller’s choice. Repeat dealing, reputation, and private dispute mechanisms also affect behavior.",
+        "sources": [
+          "remedies-in-action",
+          "efficient-breach"
+        ],
+        "edges": [
+          {
+            "label": "Compare actual proceeds",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "f",
+        "label": "Track the release price and costs",
+        "detail": "The parties can bargain over the value unlocked by reallocating the machine. A release protecting the original buyer’s $400 while leaving the seller above $300 is possible on the assumed figures before bargaining costs.",
+        "sources": [
+          "efficient-breach",
+          "remedies-in-action"
+        ],
+        "edges": [
+          {
+            "label": "Add practical enforcement costs",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "g",
+        "label": "Check actual compensation and net gains",
+        "detail": "A higher resale bid shows potential surplus under the model. Whether the first buyer is actually made whole depends on payment, enforcement costs and the realized value of the remedy.",
+        "sources": [
+          "efficient-breach",
+          "remedies-in-action"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-36",
+    "title": "May a third-party beneficiary enforce the promise?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "What right did the outsiders’ contract give this claimant?",
+        "detail": "Identify promisor, promisee and the promise said to benefit the claimant. The outsider seeks a right created by this agreement and need not have given consideration directly to the promisor.",
+        "sources": [
+          "third-party-beneficiaries",
+          "public-beneficiaries"
+        ],
+        "edges": [
+          {
+            "label": "Private promise",
+            "to": "b"
+          },
+          {
+            "label": "Government agreement",
+            "to": "c"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Was the claimant an intended beneficiary?",
+        "detail": "In Lawrence, paying the creditor would satisfy the promisee’s debt. In Seaver, the husband’s promised provision by will was directed to the niece. Look for objective intent to confer enforceable benefit under the local rule.",
+        "sources": [
+          "lawrence-fox",
+          "seaver",
+          "third-party-beneficiaries"
+        ],
+        "edges": [
+          {
+            "label": "Intended",
+            "to": "d"
+          },
+          {
+            "label": "Incidental",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Does this public contract convey an individual right?",
+        "detail": "Sisney’s specific kosher-meal settlement supported a sufficiently pleaded individual enforcement right. A general public food-services contract did not demonstrate that intent. Apply any special public-contract presumption.",
+        "sources": [
+          "public-beneficiaries",
+          "sisney-reisch",
+          "sisney-state"
+        ],
+        "edges": [
+          {
+            "label": "Sufficiently clear grant",
+            "to": "d"
+          },
+          {
+            "label": "Only public or incidental benefit",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Did original parties attempt to revise or discharge the benefit?",
+        "detail": "First establish the right. Then identify a contractual reservation and the governing effect of assent, material reliance, or suit before the attempted change.",
+        "sources": [
+          "vesting-beneficiary",
+          "third-party-beneficiaries"
+        ],
+        "edges": [
+          {
+            "label": "No effective revision or right vested",
+            "to": "f"
+          },
+          {
+            "label": "Revision before protected status",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Determine what benefit survives the revision",
+        "detail": "Where the contracting parties retained authority to modify, evaluate the timing and changed promise. A sufficiently protected right generally limits later revision without beneficiary consent, subject to the governing contract and rule.",
+        "sources": [
+          "vesting-beneficiary",
+          "third-party-beneficiaries"
+        ],
+        "edges": []
+      },
+      {
+        "id": "f",
+        "label": "Enforce the promised benefit within its scope",
+        "detail": "The beneficiary can claim the actual performance owed, subject to governing defenses and terms. Check procedural posture in using a decision that merely allowed the claim to proceed.",
+        "sources": [
+          "lawrence-fox",
+          "seaver",
+          "third-party-beneficiaries"
+        ],
+        "edges": []
+      },
+      {
+        "id": "g",
+        "label": "No individually enforceable beneficiary right shown",
+        "detail": "An incidental or public benefit alone does not let the claimant sue to enforce this promise.",
+        "sources": [
+          "sisney-state",
+          "public-beneficiaries",
+          "third-party-beneficiaries"
+        ],
+        "edges": []
+      }
+    ]
+  },
+  {
+    "id": "K-37",
+    "title": "Did the outsider acquire a right, a duty, or both?",
+    "entry": "a",
+    "nodes": [
+      {
+        "id": "a",
+        "label": "What did the outsider receive?",
+        "detail": "Map the original contract and the later transfer. A transfer of the right to payment or performance is assignment. Arranging for someone else to perform an obligation is delegation. One transaction can do both.",
+        "sources": [
+          "assignment",
+          "delegation"
+        ],
+        "edges": [
+          {
+            "label": "Right",
+            "to": "b"
+          },
+          {
+            "label": "Duty",
+            "to": "c"
+          },
+          {
+            "label": "Both",
+            "to": "d"
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "label": "Can this right be transferred and enforced?",
+        "detail": "The assignor held the right, the assignee seeks it, and the obligor owes performance. Check transfer language, contractual restrictions, notice and defenses. Hamer’s claimant held an assigned right. Masterson concerned an alleged restriction on an option’s assignability.",
+        "sources": [
+          "assignment",
+          "hamer",
+          "masterson"
+        ],
+        "edges": [
+          {
+            "label": "Valid and enforceable transfer",
+            "to": "e"
+          },
+          {
+            "label": "Transfer ineffective or defense applies",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "c",
+        "label": "Can another person perform this duty?",
+        "detail": "The delegator originally owed performance to the obligee. Check personal skill or trust, the obligee’s substantial interest in that obligor’s performance, the agreement and governing law.",
+        "sources": [
+          "delegation"
+        ],
+        "edges": [
+          {
+            "label": "Delegation permitted",
+            "to": "f"
+          },
+          {
+            "label": "Delegation restricted",
+            "to": "h"
+          }
+        ]
+      },
+      {
+        "id": "d",
+        "label": "Test each transfer separately",
+        "detail": "A buyer can acquire a payment right and take on a performance obligation in the same transaction. Apply assignment rules to the right and delegation and assumption rules to the duty. One transfer’s failure need not decide the other.",
+        "sources": [
+          "assignment",
+          "delegation"
+        ],
+        "edges": [
+          {
+            "label": "Evaluate the right",
+            "to": "b"
+          },
+          {
+            "label": "Evaluate the duty",
+            "to": "c"
+          }
+        ]
+      },
+      {
+        "id": "e",
+        "label": "Assignee claims only the right transferred",
+        "detail": "An effective assignment lets the assignee claim the right within its original limits, subject to governing defenses. It does not itself establish assumption of any duty.",
+        "sources": [
+          "assignment",
+          "hamer"
+        ],
+        "edges": []
+      },
+      {
+        "id": "f",
+        "label": "Did the obligee agree to release the original obligor?",
+        "detail": "Determine whether the delegate assumed a legally enforceable obligation and whether the obligee agreed to substitute that person and discharge the delegator. Receiving someone’s performance may occur without a release.",
+        "sources": [
+          "delegation",
+          "assignment"
+        ],
+        "edges": [
+          {
+            "label": "Effective substitution",
+            "to": "g"
+          },
+          {
+            "label": "No discharge",
+            "to": "i"
+          }
+        ]
+      },
+      {
+        "id": "g",
+        "label": "Apply the substituted obligation",
+        "detail": "If an effective novation or other discharge is shown, apply the terms of that substitution and determine whom the obligee may hold liable.",
+        "sources": [
+          "delegation"
+        ],
+        "edges": []
+      },
+      {
+        "id": "h",
+        "label": "Apply original rights and obligations as affected by any defense",
+        "detail": "If the right could not be transferred, the assignee cannot claim it on that transfer. If the duty could not be delegated, the original obligor remains responsible for supplying the promised performance.",
+        "sources": [
+          "assignment",
+          "delegation",
+          "masterson"
+        ],
+        "edges": []
+      },
+      {
+        "id": "i",
+        "label": "Original obligor remains liable",
+        "detail": "A permissible delegation without a discharge leaves the original obligor answerable for performance. Any enforceable assumption by the delegate is separately determined.",
+        "sources": [
+          "delegation"
+        ],
+        "edges": []
+      }
+    ]
+  }
+]
