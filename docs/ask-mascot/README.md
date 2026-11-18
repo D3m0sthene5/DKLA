@@ -7,6 +7,11 @@ A docket is the list of cases a court carries. Dottie carries hers on her back.
 - **Sprite sheet:** `dottie-sprite-sheet.svg` / `.png` and one file per pose in
   `poses/`, all generated from the artwork above:
   `node tools/ask/dottie-sheet.mjs --png`. Regenerate after changing a pose.
+- **Trotting sheet:** `possum-trot.svg` / `.png`, the thinking spinner's 8-frame
+  running trot (90 ms a frame) laid out as a Muybridge plate, drawn by the same
+  script from the spinner's own frames (`TROT` in `dottie.js`). One grid square is
+  one pixel of the 56 px spinner. The ring in `ask.css` turns once in 7 strides
+  (5.04 s) so the planted feet do not slide.
 - **Where she appears** (`src/features/ask/ask.js`, `setDottie`): one place at a
   time, beside the line that describes the current state. Each state has a
   pool of poses and she picks one at random, never the same pose twice running.

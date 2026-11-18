@@ -8,8 +8,8 @@
  * one twice running (the pools are in ask.js):
  *   face        the Ask Dottie launcher in Atlas search
  *   empty dialog   curious, bookmark (0 to 3 joeys), hanging, carrying
- *   researching    the spinner: three tiny opossums chasing each other nose to tail
- *                  round her question-mark tail (spinner(), not a pose)
+ *   researching    the spinner: three tiny opossums trotting nose to tail round her
+ *                  question-mark tail, 8 frames each (spinner() and TROT, not a pose)
  *   answer         carrying or bookmark, one joey per cited source (1 to 3)
  *   no answer, offline, busy, unavailable, failed   possum: she plays dead
  */
@@ -25,6 +25,7 @@
     nose: '#f08f9e',
     eye: '#121a19',
     leg: '#727f7c',
+    legFar: '#5b6764',
     tail: '#ecc9c3',
     mint: '#a6e0c8',
     paper: '#f0e7d0',
@@ -245,32 +246,263 @@
     return `<svg class="dottie dottie-${pose}" viewBox="${p.box}" focusable="false" aria-hidden="true">${p.draw(option)}</svg>`;
   }
 
-  // The thinking spinner (48 x 48): three tiny opossums chase each other nose to tail round a
-  // ring, clockwise, with Dottie's question-mark tail curled at the centre. ask.css turns the
-  // ring; with reduced motion it stands still. Decorative, like svg().
-  function spinner() {
-    // A point on the ring (radius r about the centre), deg degrees clockwise from the top.
-    const at = (deg, r = 15.6) => {
-      const a = (deg * Math.PI) / 180;
-      return `${+(24 + r * Math.sin(a)).toFixed(1)} ${+(24 - r * Math.cos(a)).toFixed(1)}`;
+  /* The spinner opossum's running trot: 8 frames of one stride, drawn once in a straight side
+   * view and shared by spinner() and the Muybridge sheet (docs/ask-mascot/possum-trot.svg, made
+   * by tools/ask/dottie-sheet.mjs), so the two cannot drift.
+   *
+   * Gait, from the gait spec of 18 November 2026: Virginia opossums trot and do not bound
+   * (Butcher et al. 2011, J. Exp. Biol. 214: 2631; Parchman et al. 2003 on the related
+   * Monodelphis). The legs move in diagonal pairs, left hind with right fore, then right hind
+   * with left fore; each foot is down for 3 frames of 8, so all four feet are up in frames 4
+   * and 8. The body is 1 px low at mid-stance and 1 px high in flight (about 3 times the real
+   * bob, so it shows); the back keeps one gentle arch; the head is low and the tail low and
+   * trailing, both following the body one frame late. 90 ms a frame, 720 ms a stride.
+   *
+   * Units are pixels at the 56 px spinner: x forward (she faces right), y up, ground at y = 0.
+   * Leg angles are the spec's keyframe table, in degrees from vertical, + = foot forward. Each
+   * foot on the ground is planted 2 px further back every frame (TROT.step), so the body moves
+   * 2 px a frame and ask.css can turn the ring at exactly that speed: the feet do not skate.
+   * Feet in the air are kept at least 1 px off the ground. Far-side legs are a darker shade so
+   * the diagonal pairs read. */
+  const TROT = (() => {
+    const rad = Math.PI / 180;
+    const step = 2;
+    // Body offset per frame (px): 0 at touch-down, -1 at mid-stance and push-off, +1 in flight.
+    const bob = [0, -1, -1, 1, 0, -1, -1, 1];
+    // How far the tail tip hangs below its root (px): the spec's tail angles of -15, -20, -25
+    // and -20 degrees over the tail's 8 px reach.
+    const tailDrop = [2, 3, 4, 3, 2, 3, 4, 3];
+    // Hip or shoulder (x, height), segment lengths (thigh 1 : shin 1 : upper arm 0.85 :
+    // forearm 0.95), which way the middle joint points (knee forward, elbow back), where the
+    // foot is planted in its 3 frames on the ground (2.5 px ahead of the joint at touch-down,
+    // 20% more reach and push-off than the spec's table), and the spec's angles for its 5
+    // frames in the air.
+    const limbs = {
+      hind: {
+        x: -4.5,
+        y: 5.2,
+        a: 3.2,
+        b: 3.2,
+        bend: 1,
+        plant: [2.5, 0.5, -1.5],
+        swing: [
+          [15, -70],
+          [25, -80],
+          [50, -75],
+          [80, -45],
+          [80, -25],
+        ],
+      },
+      fore: {
+        x: 4.5,
+        y: 5.8,
+        a: 2.7,
+        b: 3.05,
+        bend: -1,
+        plant: [2.5, 0.5, -1.5],
+        swing: [
+          [-60, 0],
+          [-60, 15],
+          [-60, 40],
+          [-35, 60],
+          [-10, 55],
+        ],
+      },
     };
-    // Each opossum's body bends along the ring, her nose just behind the next one's tail; her
-    // feet are on the inside of the wheel.
-    const possum = (turn) => `<g transform="rotate(${turn} 24 24)">
-      <path d="M${at(-31)}c-3 .4-5 2.2-4.6 4.6" fill="none" stroke="${C.tail}" stroke-width="1.5" stroke-linecap="round"/>
-      <path d="M${at(-16, 13)}L${at(-17, 9.6)}M${at(6, 13)}L${at(7, 9.6)}" stroke="${C.leg}" stroke-width="1.6" stroke-linecap="round"/>
-      <path d="M${at(-30)}A15.6 15.6 0 0 1 ${at(12)}" fill="none" stroke="${C.fur}" stroke-width="6.4" stroke-linecap="round"/>
-      <g transform="translate(${at(17)}) rotate(17)">
+    // Where the toes point from the ankle or wrist, by frame of the foot's own cycle (0 =
+    // touch-down): hind soles flat on the ground, the hind toes trailing just after lift-off,
+    // then swinging forward. A forefoot is just the round end of the leg at this size, and the
+    // spec's 1 px heel lift at push-off is left out: it folded the leg flat at 56 px.
+    const toes = {
+      hind: [
+        [1, 0],
+        [1, 0],
+        [1, 0],
+        [-1, -1],
+        [0, -1],
+        [1, 0],
+        [1, 0],
+        [1, 0],
+      ],
+      fore: [
+        [0, 0],
+        [0, 0],
+        [0, 0],
+        [0, 0],
+        [0, 0],
+        [0, 0],
+        [0, 0],
+        [0, 0],
+      ],
+    };
+    const solve = (L, dx, dy) => {
+      // Two-segment leg from the joint to the foot (dx, dy): returns the knee or elbow.
+      const d = Math.min(Math.hypot(dx, dy), L.a + L.b - 1e-6);
+      const c = Math.max(-1, Math.min(1, (L.a * L.a + d * d - L.b * L.b) / (2 * L.a * d)));
+      const t = Math.atan2(dx, -dy) + L.bend * Math.acos(c);
+      return [L.a * Math.sin(t), -L.a * Math.cos(t)];
+    };
+    // One leg in frame k; lag 0 for the pair that lands in frame 1, 4 for the other pair.
+    const leg = (kind, k, lag) => {
+      const L = limbs[kind];
+      const j = (k - lag + 8) % 8;
+      const hy = L.y + bob[k];
+      let fx, fy;
+      if (j < 3) {
+        fx = L.x + L.plant[j];
+        fy = 0;
+      } else {
+        const [s, t] = L.swing[j - 3];
+        fx = L.x + L.a * Math.sin(s * rad) + L.b * Math.sin(t * rad);
+        fy = Math.max(1, hy - L.a * Math.cos(s * rad) - L.b * Math.cos(t * rad));
+      }
+      fx = Math.round(fx);
+      fy = Math.round(fy);
+      const [kx, ky] = solve(L, fx - L.x, fy - hy);
+      const [tx, ty] = toes[kind][j];
+      // Knees and elbows snap to half pixels: whole pixels bend the short legs out of shape.
+      const half = (n) => Math.round(n * 2) / 2;
+      const p = [
+        [L.x, hy],
+        [half(L.x + kx), half(hy + ky)],
+        [fx, fy],
+      ];
+      return tx || ty ? [...p, [fx + tx, fy + ty]] : p;
+    };
+    // Smooth path through points (Catmull-Rom as cubic Beziers).
+    const smooth = (p) =>
+      p.reduce((d, q, i) => {
+        if (!i) return `M${q}`;
+        const a = p[i - 2] || p[i - 1];
+        const b = p[i - 1];
+        const c = p[i + 1] || q;
+        const c1 = [b[0] + (q[0] - a[0]) / 6, b[1] + (q[1] - a[1]) / 6];
+        const c2 = [q[0] - (c[0] - b[0]) / 6, q[1] - (c[1] - b[1]) / 6];
+        return `${d}C${c1} ${c2} ${q}`;
+      }, '');
+    // Frame k (0 to 7) as SVG, through a map from side-view pixels to the drawing:
+    //   map.pt(x, y) -> [X, Y];  map.at(x, y, pitch) -> a transform for a rigid part
+    //   (drawn in pixels, y down, facing right);  map.w(px) -> a stroke width.
+    function frame(k, map) {
+      const b = bob[k];
+      const lagged = bob[(k + 7) % 8];
+      const pts = (list) => list.map(([x, y]) => map.pt(x, y).map((n) => +n.toFixed(2)));
+      const line = (list, color, width) =>
+        `<path d="${smooth(pts(list))}" fill="none" stroke="${color}" stroke-width="${map.w(width)}" stroke-linecap="round" stroke-linejoin="round"/>`;
+      const limb = (kind, lag, color) => {
+        const p = pts(leg(kind, k, lag));
+        return `<path d="M${p.join('L')}" fill="none" stroke="${color}" stroke-width="${map.w(1.9)}" stroke-linecap="round" stroke-linejoin="round"/>`;
+      };
+      // Tail: root in the rump, moving with the body; the tip hangs by the spec's angle.
+      const ty = 7 + b;
+      const drop = tailDrop[k];
+      const tail = line(
+        [
+          [-8, ty],
+          [-11, ty - drop * 0.45],
+          [-14, ty - drop * 0.85],
+          [-16, ty - drop],
+          [-17.4, ty - drop + 1.1],
+        ],
+        C.tail,
+        1.7,
+      );
+      // Trunk: a thick stroke along a gently arched back line.
+      const trunk = line(
+        [
+          [-6.5, 6.8 + b],
+          [-3, 7.7 + b],
+          [0.5, 7.8 + b],
+          [4, 7.3 + b],
+          [6.5, 6.6 + b],
+        ],
+        C.fur,
+        5,
+      );
+      // Head: snout forward and 15 degrees down, bobbing one frame after the body.
+      const head = `<g transform="${map.at(8.5, 7.2 + lagged, 15)}"><g transform="scale(.9)">
         <circle cx="-.8" cy="-3.2" r="2" fill="${C.ear}"/>
         <path d="M-3 .8C-3.3-2.4-.5-4 2.4-3.4c2 .4 3.8 2 5.7 3.4.6.5.4 1.3-.4 1.4-2.4.4-5 1-7.5.7C-1.6 2-2.9 1.7-3 .8Z" fill="${C.face}"/>
-        <circle cx="2.5" cy="-1.3" r=".8" fill="${C.eye}"/><circle cx="8.2" cy=".3" r="1.05" fill="${C.nose}"/>
-      </g></g>`;
+        <circle cx="2.5" cy="-1.3" r=".8" fill="${C.eye}"/><circle cx="8.2" cy=".3" r="1.05" fill="${C.nose}"/></g></g>`;
+      // Far-side (right) legs behind the body, darker; near-side (left) legs over it, so the
+      // thigh's swing shows against the fur.
+      return (
+        tail +
+        limb('hind', 4, C.legFar) +
+        limb('fore', 0, C.legFar) +
+        trunk +
+        limb('hind', 0, C.leg) +
+        limb('fore', 4, C.leg) +
+        head
+      );
+    }
+    // A straight side view: (x, y) pixels drawn at scale s with ground at (ox, oy).
+    const straight = (ox, oy, s) => ({
+      pt: (x, y) => [ox + x * s, oy - y * s],
+      at: (x, y, pitch) =>
+        `translate(${+(ox + x * s).toFixed(2)} ${+(oy - y * s).toFixed(2)}) scale(${s}) rotate(${pitch})`,
+      w: (px) => +(px * s).toFixed(2),
+    });
+    return { frames: 8, ms: 90, step, stride: 8 * step, frame, straight };
+  })();
+
+  // The thinking spinner (48 x 48): three tiny opossums trot nose to tail round a ring,
+  // clockwise, with Dottie's question-mark tail curled at the centre. Each is drawn in the 8
+  // frames of TROT; ask.css shows one frame at a time (90 ms each) and turns the ring. With
+  // reduced motion nothing moves and each shows frame 1 (touch-down, legs spread). Decorative,
+  // like svg().
+  function spinner() {
+    const u = 48 / 56; // drawing units per pixel at 56 px
+    // A revolution is exactly 7 strides (7 x 720 ms = 5.04 s, the dottie-spin period in
+    // ask.css): side-view x maps to an angle through radius R, so the ring turns 2 px of x a
+    // frame, the distance a planted foot moves back. The feet run on a circle of radius 12,
+    // clear of the curl; up is outwards, so the feet are on the inside of the wheel.
+    const R = (7 * TROT.stride * u) / (2 * Math.PI);
+    const ground = 11.4;
+    const still = 0;
+    const ring = (turn) => {
+      const a0 = (turn * Math.PI) / 180;
+      const angle = (x) => a0 + (x * u) / R;
+      return {
+        pt: (x, y) => {
+          const a = angle(x);
+          const r = ground + y * u;
+          return [24 + r * Math.sin(a), 24 - r * Math.cos(a)];
+        },
+        at: (x, y, pitch) => {
+          const a = angle(x);
+          const r = ground + y * u;
+          return `translate(${+(24 + r * Math.sin(a)).toFixed(2)} ${+(24 - r * Math.cos(a)).toFixed(2)}) rotate(${+((a * 180) / Math.PI + pitch).toFixed(2)}) scale(${+u.toFixed(4)})`;
+        },
+        w: (px) => +(px * u).toFixed(2),
+      };
+    };
+    const loop = TROT.frames * TROT.ms;
+    // Each opossum is a third of a stride ahead of the one behind her: 120 degrees is 7/3
+    // strides, so all three put their feet on the same spots of the ring.
+    const possum = (turn, i) => {
+      const map = ring(turn);
+      const lead = (i * loop) / 3;
+      let frames = '';
+      for (let k = 0; k < TROT.frames; k++) {
+        const delay = Math.round(((((k * TROT.ms - lead) % loop) + loop) % loop) - loop);
+        frames += `<g class="dottie-trot"${k === still ? '' : ' opacity="0"'} style="animation-delay:${delay}ms">${TROT.frame(k, map)}</g>`;
+      }
+      return `<g class="dottie-runner">${frames}</g>`;
+    };
     const curl = 'M24 29.6v-1.4c0-2 3.4-2.6 3.4-5.4 0-2.1-1.6-3.5-3.6-3.5-1.8 0-3.2 1-3.6 2.8';
-    return `<svg class="dottie dottie-spinner" viewBox="0 0 48 48" focusable="false" aria-hidden="true">
+    return (
+      `<svg class="dottie dottie-spinner" viewBox="0 0 48 48" focusable="false" aria-hidden="true">
       <g class="dottie-ring">${[0, 120, 240].map(possum).join('')}</g>
       <path d="${curl}" fill="none" stroke="${C.tail}" stroke-width="2.6" stroke-linecap="round"/>
-      <circle cx="24" cy="33.2" r="1.5" fill="${C.mint}"/></svg>`.replace(/>\s+</g, '><');
+      <circle cx="24" cy="33.2" r="1.5" fill="${C.mint}"/></svg>`
+        .replace(/>\s+</g, '><')
+        // Two decimals is a hundredth of a 48-unit box: invisible, and it halves the markup.
+        .replace(/(\d+\.\d\d)\d+/g, '$1')
+    );
   }
 
-  window.DKLADottie = { name: 'Dottie Docket', poses: Object.keys(poses), svg, spinner };
+  // trot: the spinner's 8 running frames, for the Muybridge sheet (TROT.frame with
+  // TROT.straight draws one frame in plain side view).
+  window.DKLADottie = { name: 'Dottie Docket', poses: Object.keys(poses), svg, spinner, trot: TROT };
 })();

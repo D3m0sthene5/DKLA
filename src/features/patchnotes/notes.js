@@ -16,6 +16,7 @@ window.DKLAPatchNotes = {
           'The flowchart walkthrough shows the path you took, the choice in front of you, and each source labelled case, rule or concept, with a way back to the case you came from.',
           'Canons of construction: an index of 100 interpretive canons for LRS, each with when to use it, its limits, and the cases, readings and lectures that illustrate it, opened from the menu or from any case that uses one.',
           'Lecture context: course lecture notes, with class and slide pinpoints, beside the entries they discuss.',
+          'Dottie’s three thinking opossums now really run: an eight-frame trot drawn from opossum gait studies, Muybridge-style, with feet that stay planted as they circle.',
         ],
         'Changed': [
           'Case pages are wider, with a strip of the map left in view, and read in one order with nothing repeated.',

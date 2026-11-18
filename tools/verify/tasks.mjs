@@ -144,6 +144,7 @@ export const tasks = [
   ),
   // v3.1: the case page's order, rail, timeline axis, flowchart steps and dictionary examples.
   step('browser', 'v3.1 case page', node('tools/v31/check-case.mjs', '{page}'), SERVER),
+  step('browser', 'Ask Dottie trotting opossums', node('tools/ask/trot-browser.mjs', '{page}'), SERVER),
   step('browser', 'public files and server', node('tools/verify/check_public.mjs', '{url}'), SERVER),
   step(
     'browser',

@@ -216,6 +216,16 @@ const breakages = [
       ),
   ],
   [
+    'Ask Dottie opossums: every trot frame shows at once',
+    'src/features/ask/ask.css',
+    () =>
+      edit(
+        'src/features/ask/ask.css',
+        'animation: dottie-trot 0.72s step-end infinite;',
+        'opacity: 1 !important;',
+      ),
+  ],
+  [
     'v3.1 case page: flowchart steps open the chart at its start instead of the step',
     'src/features/flowcharts/flowcharts.js',
     () =>

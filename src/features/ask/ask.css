@@ -319,14 +319,37 @@
   height: 56px;
   margin: 8px 0 0;
 }
+/* The opossums trot: each is drawn in 8 frames (dottie.js, TROT) and shows one at a time, 90 ms
+   each; dottie.js gives every frame its own animation-delay. The ring turns once in 7 strides
+   (7 x 720 ms), the speed at which a planted foot stays put on the ground. */
 #dklaAskDialog .dottie-spinner .dottie-ring {
   transform-box: view-box;
   transform-origin: 24px 24px;
-  animation: dottie-spin 1.8s linear infinite;
+  animation: dottie-spin 5.04s linear infinite;
 }
 @keyframes dottie-spin {
   to {
     transform: rotate(360deg);
+  }
+}
+#dklaAskDialog .dottie-spinner .dottie-trot {
+  animation: dottie-trot 0.72s step-end infinite;
+}
+@keyframes dottie-trot {
+  0% {
+    opacity: 1;
+  }
+  12.5%,
+  100% {
+    opacity: 0;
+  }
+}
+/* With reduced motion the ring stands still and each opossum holds one frame (the rule for all
+   of Dottie further down does the same; this keeps the spinner still if that rule changes). */
+@media (prefers-reduced-motion: reduce) {
+  #dklaAskDialog .dottie-spinner .dottie-ring,
+  #dklaAskDialog .dottie-spinner .dottie-trot {
+    animation: none;
   }
 }
 #dklaAskDialog .ask-dottie .dottie-glass {

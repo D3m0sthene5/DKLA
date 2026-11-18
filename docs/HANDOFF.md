@@ -30,7 +30,20 @@ Read this first; the sections below it are older.
     sources, and "Back to" the case.
   - **Dictionary**: `dklaR12Glossary.js` `defHTML()` splits a definition into a lead sentence,
     paragraphs of up to two sentences and a list of its " - " examples, keeping every word.
-  - **Check**: `tools/v31/check-case.mjs` ("v3.1 case page" in `pnpm verify`).
+  - **Sol's canon index and lecture notes** (commit f594f380, merged into v3.1): the case order puts
+    `.canons-related` under "Where this case sits" and `.lecture-related` under Sources; the rail
+    lists Canons; `canons.css` and `lectures.css` take the v3.1 tokens.
+  - **Trotting opossums**: the Ask Dottie spinner's three opossums run an 8-frame trot (90 ms a
+    frame), drawn from a gait study (Virginia opossums trot; they do not bound: spec and sources in
+    the session, summary in `docs/ask-mascot/README.md`). `dottie.js` `TROT` holds the frames; CSS
+    shows one at a time (`dottie-trot` in ask.css); the ring turns once per 7 strides (5.04 s) so
+    planted feet stay put. `node tools/ask/dottie-sheet.mjs --png` also writes the Muybridge-style
+    plate `docs/ask-mascot/possum-trot.svg/.png`.
+  - **Checks**: `tools/v31/check-case.mjs` ("v3.1 case page") and `tools/ask/trot-browser.mjs`
+    ("Ask Dottie trotting opossums") in `pnpm verify`, with breakages in `tools/verify/break.mjs`.
+  - **Behaviour change to know**: with the wide reader the map zooms out to fit the selected entry
+    into the strip, and keeps that zoom when the reader closes, so it may show a subject's summary
+    ("+5 more") instead of its case cards until you zoom in.
 - **Still to do on the owner's PC**: `pnpm views:update` (the case, timeline, flowchart and
   dictionary pictures all changed).
 
