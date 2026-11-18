@@ -41,6 +41,20 @@ Read this first; the sections below it are older.
     plate `docs/ask-mascot/possum-trot.svg/.png`.
   - **Checks**: `tools/v31/check-case.mjs` ("v3.1 case page") and `tools/ask/trot-browser.mjs`
     ("Ask Dottie trotting opossums") in `pnpm verify`, with breakages in `tools/verify/break.mjs`.
+  - **Design review fixes (owner request, 18 November 2026; branches v31-search, v31-dottie,
+    v31-lectures, merged):** phone search panel (≤850 px; the owner asked for this exception to
+    the no-phone-work rule) and one search index across flowcharts, lectures, canons and LRS
+    classes, with type labels and course + class number ranking (`dklaR13Search.js`,
+    `tools/search/check-browser.mjs`); Dottie routes named cases/canons/classes to the Atlas first,
+    ignores conversational framing, gives a `reason` for every empty answer, and the shared library
+    stores fewer questions (`lib/ask/*`, `api/ask.js`, privacy.html); lecture notes for Contracts
+    1–24 and LRS 1–22 from the PowerPoints in `added-sources/`, and a "no slides on file" record
+    for Contracts 25–26 and LRS 23–26 (category "No lecture slides on file", excluded from the
+    indexed classes in `retrieve.js`).
+  - **Deferred from the review:** a smaller first load (lazy data) and per-class offline
+    downloads (they need the offline worker and data loading rebuilt, a release of their own);
+    corrections beside the rule; a request/spending cap on /api/ask (the code has none; Vercel's
+    firewall settings could not be read from this session).
   - **Behaviour change to know**: with the wide reader the map zooms out to fit the selected entry
     into the strip, and keeps that zoom when the reader closes, so it may show a subject's summary
     ("+5 more") instead of its case cards until you zoom in.

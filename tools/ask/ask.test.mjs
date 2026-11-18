@@ -3662,9 +3662,10 @@ test('empty answers say why: the search failed or timed out, found nothing usabl
     });
     // (c) A class whose slide notes are not indexed: told so, with the classes that are, and no call.
     for (const [question, lecture] of [
-      ['What did LRS class 5 cover?', 'lrs-5'],
+      // v3.1: Contracts 1–24 and LRS 1–22 have notes; these classes have no slides on file.
+      ['What did LRS class 23 cover?', 'lrs-23'],
       ['Summarize the slides from Civ Pro class 3', 'civpro-3'],
-      ['What was discussed in Contracts lecture 2?', 'contracts-2'],
+      ['What was discussed in Contracts lecture 25?', 'contracts-25'],
     ]) {
       const { json, requests } = await askWithFetch(() => assert.fail('no model call for ' + question), {
         question,
@@ -3677,7 +3678,7 @@ test('empty answers say why: the search failed or timed out, found nothing usabl
     // A follow-up that points back to such a class is told the same.
     const pointBack = await askWithFetch(() => assert.fail('no model call'), {
       question: 'What else did that lecture cover?',
-      history: [{ question: 'What did LRS class 5 cover?', answer: 'Not indexed.' }],
+      history: [{ question: 'What did LRS class 23 cover?', answer: 'Not indexed.' }],
     });
     assert.equal(pointBack.json.reason, 'lecture-not-indexed');
     // An indexed class is answered from its notes.
