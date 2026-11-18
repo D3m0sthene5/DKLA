@@ -200,6 +200,16 @@ const breakages = [
     () => edit('src/features/ask/ask.js', 'openers[source.type]?.(source.id);', 'void source;'),
   ],
   [
+    'Ask Dottie "Explain from the beginning" demands a web citation because of its own wording',
+    'lib/ask/web.js',
+    () =>
+      edit(
+        'lib/ask/web.js',
+        'if (rest.followUp && earlierQuestion && explainRequest(question)) {',
+        'if (false) {',
+      ),
+  ],
+  [
     'Ask Dottie routing goes back to the Atlas first whenever it finds any excerpt',
     'lib/ask/web.js',
     () =>

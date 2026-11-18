@@ -4,7 +4,14 @@ import { body, noStore, sameOrigin, send } from '../lib/analytics/security.js';
 import { citeAnswer, generateAnswer, InvalidCitations } from '../lib/ask/answer.js';
 import { findAnswer, storeAnswer } from '../lib/ask/library.js';
 import { corpusDigest, indexCorpus, parseIndex } from '../lib/ask/retrieve.js';
-import { answerWithSearch, AtlasOnlyResearch, NoResearchAnswer, route, standsAlone } from '../lib/ask/web.js';
+import {
+  answerWithSearch,
+  AtlasOnlyResearch,
+  explainRequest,
+  NoResearchAnswer,
+  route,
+  standsAlone,
+} from '../lib/ask/web.js';
 
 const corpus = new URL('../work/build/ask-corpus.json.gz', import.meta.url);
 // The retrieval index the build computed from that corpus (tools/ask/build.mjs). Without it, or
@@ -181,15 +188,28 @@ export function makeAskHandler(
       // A follow-up that points back ("when was it decided?") is looked up together with the question
       // before it, after a full stop, so its first word is not read as a name in mid-sentence ("… efficient
       // breach How do you …" made "How" a name outside the Atlas). One that stands alone is looked up alone.
-      const lookup =
-        earlier?.length && !standsAlone(query)
+      // "Explain from the beginning" is looked up as the question it explains (the latest earlier
+      // question that is not itself an explain request): its own words ("one week of Contracts")
+      // would otherwise pull unrelated entries into the Atlas excerpts.
+      const explained = explainRequest(query)
+        ? earlier?.findLast((turn) => !explainRequest(turn.question))?.question
+        : undefined;
+      const lookup = explained
+        ? explained
+        : earlier?.length && !standsAlone(query)
           ? earlier.at(-1).question.replace(/[\s.?!;:]+$/, '') + '. ' + query
           : query;
       const { sources: atlas, signals } = await retrieve(lookup, node);
       if (gone.signal.aborted) return stop();
 
       // The templates read the question itself; the web flags read it with the question before.
-      const path = route(query, atlas, { node, signals, lookup, followUp: Boolean(earlier?.length) });
+      const path = route(query, atlas, {
+        node,
+        signals,
+        lookup,
+        followUp: Boolean(earlier?.length),
+        earlierQuestion: explained,
+      });
 
       // Only a first question can be answered from, or added to, the library:
       // a follow-up depends on the conversation before it. Nor can a question whose answer

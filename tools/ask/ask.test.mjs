@@ -1729,6 +1729,31 @@ test('routing: the Atlas answers alone only for the strict templates; everything
   );
 });
 
+// Owner, 18 November 2026: "Explain from the beginning" on a Loper Bright answer came back "web
+// search was unavailable". The button's own words ("Who and what is this about? What happened, in
+// chronological order?") were read as a question about people and later events, so an answer from
+// the Atlas was thrown away. The request is routed as the question it explains.
+test('routing: "Explain from the beginning" takes its web needs from the question it explains', async () => {
+  const ask = await readFile(new URL('../../src/features/ask/ask.js', import.meta.url), 'utf8');
+  const button = ask.match(/'(Explain that answer from the beginning[^']+)'/)[1];
+  const routeAfter = (earlierQuestion) => {
+    const { sources, signals } = retrieve.explain(earlierQuestion);
+    return route(button, sources, { signals, lookup: earlierQuestion, followUp: true, earlierQuestion });
+  };
+  const loper = routeAfter('What does "best reading" mean in Loper Bright');
+  assert.equal(loper.research, true);
+  assert.equal(loper.web, false, 'an answer from the Atlas counts');
+  assert.equal(loper.stable, true);
+  assert.equal(loper.parts, 6, 'still six parts, with the longer time budget');
+  // A question that needs the web still needs it when explained.
+  const current = routeAfter('Is Chevron still good law?');
+  assert.equal(current.web, true);
+  assert.equal(current.stable, false);
+  // Without the earlier question (or as a first question) it routes as written.
+  const { sources, signals } = retrieve.explain(button);
+  assert.notEqual(route(button, sources, { signals }).reason, 'explains an earlier answer');
+});
+
 test('the server rejects an Atlas answer that substitutes another question or kind of authority', () => {
   const sources = retrieve(pslra);
   const gustafson = sources.findIndex(({ id }) => id === 'lrs-k-gustafson') + 1;
