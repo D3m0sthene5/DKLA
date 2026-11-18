@@ -1,6 +1,7 @@
 /* Explicit public allowlist. Source inputs and local evidence stay outside dist.
 
-   dist/ ends up holding exactly the listed files and the generated briefs,
+   dist/ ends up holding exactly the listed files, the generated briefs
+   (assets/briefs/) and the generated lazy data blocks (assets/data/),
    every one read back and compared byte for byte with what it should be.
    A file already there with the right bytes is left alone rather than written
    again (creating 1,800 files costs seconds on Windows); anything else in
@@ -10,7 +11,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import { splitBriefs } from './performance/package.mjs';
+import { hostedRelease } from './performance/package.mjs';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const output = path.join(root, 'dist');
 const manifest = JSON.parse(await fs.readFile(path.join(root, 'tools/public-files.json'), 'utf8'));
@@ -81,8 +82,13 @@ try {
 await fs.mkdir(output, { recursive: true });
 // Only the current hosted release is split. Every other public file and the
 // canonical work/build portable HTML remain untouched.
+// The briefs and the data blocks listed in tools/performance/lazy-blocks.json become content-hashed files
+// the hosted page fetches on demand (tools/performance/package.mjs hostedRelease).
 const hostedPath = 'DKLA-v3.1.html';
-const split = splitBriefs(await fs.readFile(path.join(root, 'work/build', hostedPath), 'utf8'));
+const split = hostedRelease(await fs.readFile(path.join(root, 'work/build', hostedPath), 'utf8'), {
+  lazy: JSON.parse(await fs.readFile(path.join(root, 'tools/performance/lazy-blocks.json'), 'utf8')).blocks,
+  loader: await fs.readFile(path.join(root, 'src/features/performance/data-loader.js'), 'utf8'),
+});
 const hosted = new Map(
   [...split.files, { path: hostedPath, bytes: Buffer.from(split.html) }].map((item) => [
     item.path,
@@ -91,7 +97,7 @@ const hosted = new Map(
 );
 const publicFiles = [];
 for (const name of [...manifest.files, ...manifest.directories]) publicFiles.push(...(await listed(name)));
-// Listed files first, in their listed order, then the generated briefs. The
+// Listed files first, in their listed order, then the generated briefs and data blocks. The
 // hosted page keeps its listed position but carries the split page's bytes.
 const wanted = [...publicFiles, ...[...hosted.keys()].filter((file) => !publicFiles.includes(file))];
 const verified = await each(wanted, 16, async (relative) =>

@@ -5,13 +5,27 @@
    to one new row of a subtopic whose subject had room). Safe to run again on saved data. */
 (() => {
   'use strict';
-  let A;
-  try {
-    A = JSON.parse(document.getElementById('dklaR21Audit').textContent);
-  } catch {
-    return;
+  // v3.1: the hosted page may carry this block empty and fetch it (src/features/performance/data-loader.js).
+  // The fallback is for a page without the loader; it reads the embedded block.
+  const ID = 'dklaR21Audit';
+  const DKLAData = window.DKLAData || {
+    isLazy: () => false,
+    loaded: () => true,
+    json: async (id) => JSON.parse(document.getElementById(id)?.textContent || 'null'),
+    text: async (id) => document.getElementById(id)?.textContent || '',
+    whenLoaded: async () => {},
+  };
+  let A = null;
+  const lazy = DKLAData.isLazy(ID);
+  if (!lazy) {
+    // Embedded (the portable atlas, or the block already arrived): read it now, as before.
+    try {
+      A = JSON.parse(document.getElementById(ID).textContent);
+    } catch {
+      return;
+    }
+    if (!A) return;
   }
-  if (!A) return;
   function swap(obj, path, from, to) {
     const keys = path.split('.');
     let o = obj;
@@ -26,7 +40,7 @@
     return 1;
   }
   function apply() {
-    if (typeof data === 'undefined' || !data?.nodes) return 0;
+    if (!A || typeof data === 'undefined' || !data?.nodes) return 0;
     const M = mapData() || {};
     let changed = 0;
     const now = A.updatedAt;
@@ -134,13 +148,30 @@
     }
     return changed;
   }
+  let ready = false;
   (function whenReady() {
     if (!window.LegalAtlas?.ready || typeof nodesById === 'undefined') {
       setTimeout(whenReady, 120);
       return;
     }
+    ready = true;
     apply();
     (window.DKLALayers = window.DKLALayers || []).push(apply);
   })();
   window.DKLAAudit = { apply, data: A };
+  if (lazy) {
+    // The corrections are needed as soon as the atlas is up, so ask for them at once; boot does not wait.
+    // If they arrive after the atlas is ready, they are applied then (apply() saves and redraws).
+    // A failed fetch is retried by the loader's background prefetch; whenLoaded covers that too.
+    const use = (value) => {
+      if (A || !value) return;
+      A = value;
+      window.DKLAAudit.data = A;
+      if (ready) apply();
+    };
+    DKLAData.json(ID).then(use, () => {});
+    DKLAData.whenLoaded(ID)
+      .then(() => DKLAData.json(ID))
+      .then(use, () => {});
+  }
 })();

@@ -13,7 +13,11 @@ function validate(html) {
     const name = attribute(match[1], 'id') || `unnamed-script-${index}`;
     index++;
     try {
-      if (type === 'application/json') {
+      // A lazy data block (tools/performance/package.mjs splitBlocks) is empty in the hosted page; its
+      // bytes are checked against the portable block by tools/performance/check-lazy-files.mjs.
+      if (match[2] === '' && /\sdata-dkla-lazy(?=[\s>]|$)/.test(match[1]))
+        counts.lazy = (counts.lazy || 0) + 1;
+      else if (type === 'application/json') {
         JSON.parse(match[2]);
         counts.json++;
       } else if (type === 'module') {
