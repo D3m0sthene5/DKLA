@@ -2,14 +2,14 @@
 .lecture-related {
   margin: 12px 0;
   padding: 10px 12px;
-  border: 1px solid #3c5654;
+  border: 1px solid var(--v31-line);
   border-radius: 8px;
-  background: #172b30;
+  background: var(--v31-panel);
 }
 .lecture-session summary,
 .lecture-related summary {
-  color: #a4dbc5;
-  font-weight: 650;
+  color: var(--v31-text);
+  font: var(--v31-ui);
   cursor: pointer;
 }
 .lecture-deck h3 {
@@ -18,7 +18,7 @@
 .lecture-note {
   margin: 12px 0;
   padding: 10px 0 6px;
-  border-top: 1px solid #355352;
+  border-top: 1px solid var(--v31-line);
 }
 .lecture-note h4,
 .lecture-note p {
@@ -27,12 +27,13 @@
 .lecture-pinpoint {
   display: inline-block;
   margin: 0;
-  color: #a9bec1;
-  font-size: 13px;
+  color: var(--v31-muted);
+  font: var(--v31-label);
 }
 .lecture-conflict {
   padding: 10px;
-  border-left: 3px solid #e4b575;
+  border: 1px solid var(--v31-narrow);
+  border-radius: 8px;
 }
 .lecture-links {
   display: flex;
@@ -41,10 +42,10 @@
 }
 .lecture-links a,
 .lecture-related a {
-  color: #a4dbc5;
+  color: var(--v31-link);
   text-underline-offset: 3px;
 }
 .lecture-note:focus {
-  outline: 2px solid #a4dbc5;
+  outline: 2px solid var(--v31-link);
   outline-offset: 2px;
 }

@@ -48,7 +48,7 @@ def vform_log(entries: list[dict]) -> list[dict]:
 
 CHANGELOG_V31 = {
     "v": "v3.1", "date": "2026-11-18",
-    "text": "A redesigned case page: a wider reading area beside a strip of the map, an On this page rail, and the case in one order (the rule, where the case sits, the six-part brief, connections, sources, study) with nothing repeated. Doctrine timelines show every entry on one axis and say how each case moved the rule. Each case shows the flowchart steps it decides and opens the chart at that step; the flowchart walkthrough shows your path, the decision and typed sources. Dictionary definitions read as a lead sentence, short paragraphs and a list of examples. One set of type sizes and colours across the reading views: blue for anything you can click, course colours only to name the course.",
+    "text": "A redesigned case page: a wider reading area beside a strip of the map, an On this page rail, and the case in one order (the rule, where the case sits, the six-part brief, connections, sources, study) with nothing repeated. Doctrine timelines show every entry on one axis and say how each case moved the rule. Each case shows the flowchart steps it decides and opens the chart at that step; the flowchart walkthrough shows your path, the decision and typed sources. An index of 100 canons of construction for LRS, linked from the cases that use them, and lecture notes beside the entries they discuss. Dictionary definitions read as a lead sentence, short paragraphs and a list of examples. One set of type sizes and colours across the reading views: blue for anything you can click, course colours only to name the course.",
 }
 
 CHANGELOG_V30 = {

@@ -169,6 +169,30 @@ await page.locator('.fc-back-entry').click();
 await page.locator('dialog#dklaFlowcharts[open]').waitFor({ state: 'detached' });
 await page.locator('#inspector .reader-body.v31-case .v31-chart-steps').waitFor();
 
+// Sol's canon index and lecture notes take their places in the order (Loper Bright has both).
+await page.evaluate(() => {
+  location.hash = 'node=lrs-i-loper-bright';
+});
+await page.locator('#inspector .reader-body.v31-case .canons-related').waitFor();
+const loper = await page.evaluate(() => {
+  const kids = [...document.querySelector('#inspector .reader-body').children];
+  const at = (sel) => kids.findIndex((el) => el.matches(sel));
+  return {
+    canons: at('.canons-related'),
+    where: at('[data-v31-h="where"]'),
+    brief: at('[data-v31-h="brief"]'),
+    sources: at('[data-v31-h="sources"]'),
+    lectures: at('.lecture-related'),
+    rail: [...document.querySelectorAll('#inspector .v31-rail [data-v31-place]')].map((b) => b.textContent),
+  };
+});
+assert.ok(
+  loper.where < loper.canons && loper.canons < loper.brief,
+  'canons sit under "Where this case sits"',
+);
+assert.ok(loper.lectures < 0 || loper.lectures > loper.sources, 'lecture notes sit under Sources');
+assert.ok(loper.rail.includes('Canons'), 'the rail lists the canons');
+
 // The dictionary lists the examples.
 await page.evaluate(() => {
   location.hash = 'term=consideration';

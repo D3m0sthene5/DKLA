@@ -206,7 +206,11 @@
     const record = quiet.find((d) => d.querySelector('.metadata-grid'));
     const editing = quiet.find((d) => d.querySelector('.reading-actions'));
     const charts = one('.v31-chart-steps') || one('.fc-entry-links');
-    const where = group || charts ? heading(body, 'where', 'Where this case sits') : null;
+    // Sol's canon index (canons.js) and lecture notes (lectures.js) draw their own blocks; the canons
+    // a case illustrates belong with where it sits, the lecture notes with its sources.
+    const canons = one('.canons-related');
+    const lectures = one('.lecture-related');
+    const where = group || charts || canons ? heading(body, 'where', 'Where this case sits') : null;
     const head = [
       one('.v31-rail'),
       header,
@@ -214,6 +218,7 @@
       where,
       group,
       charts,
+      canons,
       heading(body, 'brief', 'The brief'),
       one('.brief-jump'),
       one('.case-box'),
@@ -222,6 +227,7 @@
     ].filter(Boolean);
     const tail = [
       heading(body, 'sources', 'Sources'),
+      lectures,
       record,
       notesDrawer(body),
       one('.r19-brief'),
@@ -256,6 +262,7 @@
     add('The rule', body.querySelector(':scope > .takeaway'));
     add('Timeline', body.querySelector(':scope > .v28-case-timelines'));
     add('Flowchart steps', body.querySelector(':scope > .v31-chart-steps'));
+    add('Canons', body.querySelector(':scope > .canons-related'));
     body.querySelectorAll(':scope > .case-box > section > h3').forEach((h, i) => {
       const text = h.textContent.trim();
       add(`${i + 1} ${BRIEF_SHORT[text] || text}`, h);

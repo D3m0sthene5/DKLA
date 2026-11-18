@@ -14,6 +14,8 @@ window.DKLAPatchNotes = {
           '“Where this case sits”: each case shows the flowchart steps it decides, the path to them, and opens the chart at that step.',
           'Doctrine timelines show every entry on one axis and say how each case moved the rule (widens, narrows, clarifies, replaces, overrules).',
           'The flowchart walkthrough shows the path you took, the choice in front of you, and each source labelled case, rule or concept, with a way back to the case you came from.',
+          'Canons of construction: an index of 100 interpretive canons for LRS, each with when to use it, its limits, and the cases, readings and lectures that illustrate it, opened from the menu or from any case that uses one.',
+          'Lecture context: course lecture notes, with class and slide pinpoints, beside the entries they discuss.',
         ],
         'Changed': [
           'Case pages are wider, with a strip of the map left in view, and read in one order with nothing repeated.',

@@ -1171,3 +1171,49 @@
     grid-column: 2;
   }
 }
+/* v3.1 + Sol's canon index and lecture notes in the case page. */
+#inspector .v31-case > .canons-related {
+  margin: 0 0 48px;
+  padding: 22px 24px;
+  border: 1px solid var(--v31-line);
+  border-radius: var(--v31-radius);
+  background: none;
+}
+#inspector .v31-case > .canons-related h3 {
+  margin: 0 0 12px;
+  font:
+    600 16px/22px var(--dkla-interface, Inter),
+    sans-serif !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: var(--v31-text) !important;
+}
+#inspector .v31-case > .canons-related ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#inspector .v31-case > .canons-related li a {
+  display: inline-flex;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--v31-line-strong);
+  font: var(--v31-label);
+  color: var(--v31-soft);
+  text-decoration: none;
+}
+#inspector .v31-case > .canons-related li a:hover {
+  border-color: var(--v31-link);
+  color: var(--v31-text);
+}
+#inspector .v31-case > details.lecture-related {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid var(--v31-line);
+  border-radius: 0;
+  background: none;
+}
