@@ -23,6 +23,10 @@
       "includeFiles": "lib/analytics/schema.sql",
       "maxDuration": 30
     },
+    "api/fuel.js": {
+      "includeFiles": "lib/analytics/schema.sql",
+      "maxDuration": 10
+    },
     "api/eo-gesner.js": {
       "maxDuration": 30
     },

@@ -111,6 +111,11 @@ export const tasks = [
   // The analytics catalogue step rewrites lib/analytics/catalog.json, so
   // anything that may load it waits for that step.
   step('analytics', 'analytics tests', test('tools/analytics/analytics.test.mjs'), ['analytics catalogue']),
+  // Ask Dottie's fuel gauge: cost ledger, calibration, the public endpoint and the admin route
+  // (imports api/admin.js, which may load the catalogue).
+  step('analytics', 'Ask Dottie fuel ledger and gauge endpoint', test('tools/ask/fuel.test.mjs'), [
+    'analytics catalogue',
+  ]),
   step('analytics', 'browser recognition', test('tools/analytics/browser-recognition.test.mjs'), [
     'analytics catalogue',
   ]),
@@ -147,6 +152,13 @@ export const tasks = [
   // v3.1: the case page's order, rail, timeline axis, flowchart steps and dictionary examples.
   step('browser', 'v3.1 case page', node('tools/v31/check-case.mjs', '{page}'), SERVER),
   step('browser', 'Ask Dottie trotting opossums', node('tools/ask/trot-browser.mjs', '{page}'), SERVER),
+  // The fuel gauge round the clock: lit share, direction, colours, label, refresh after an answer.
+  step(
+    'browser',
+    'Ask Dottie fuel gauge round the clock',
+    node('tools/fuel/check-browser.mjs', '{page}'),
+    SERVER,
+  ),
   step('browser', 'public files and server', node('tools/verify/check_public.mjs', '{url}'), SERVER),
   step(
     'browser',

@@ -130,6 +130,16 @@ shared answer library (below) answers a repeated first question without any Open
 Rankings and current-law claims depend on what the cited sources establish.
 The AI needs an internet connection. Atlas search and offline reading work as before.
 
+Fuel gauge: the glowing line round the top-bar clock shows the share of Dottie's OpenAI credit
+left (`src/features/fuel/`). An ordinary API key cannot read the balance, so every OpenAI
+response's cost (tokens and web searches times the prices in `lib/ask/fuel.js`) goes to a
+ledger (table `dkla_ask_spend`: counts and cost only). The share left is the latest calibration
+point minus the ledger since, over its starting credit. Set a point after deploy and after every
+refill: `node tools/ask/fuel-calibrate.mjs --balance <billing page balance> --start <full amount>`
+(with `DATABASE_URL`), or `POST /api/admin?action=fuel-calibrate`. `GET /api/fuel` gives only
+`{fraction, calibrated, updatedAt}`. Spending outside Dottie, or a call cut off before OpenAI
+reports its usage, is not in the ledger, so recalibrate now and then.
+
 Questions about potential litigation can receive sourced, conditional analysis of
 legal routes, prerequisites, remedies, and barriers. Dottie separates uncertain
 incident facts from the legal framework and can ask a focused clarification.

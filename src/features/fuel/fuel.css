@@ -1,0 +1,91 @@
+/* Ask Dottie's fuel gauge on the clock's frame (fuel.js). The line sits on the clock's own 1 px
+   border, so the frame itself is the gauge: a faint full-frame track, and over it the lit share
+   in the version label's HUD colours and glow (src/features/v26/hud-font.css: the cyan face, the
+   bright sweep, the two drop-shadows), scaled down from a 21 px label to a 1.5 px line. */
+.study-header .ny-clock.has-fuel {
+  position: relative;
+  /* the track replaces the plain border, so the frame does not show twice */
+  border-color: transparent;
+}
+.ny-clock .ny-fuel {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 4;
+  /* HUD colours: face, sweep highlight, deep end; and the two glows */
+  --fuel-a: #5fd8ff;
+  --fuel-b: #f2feff;
+  --fuel-c: #2fa6e0;
+  --fuel-glow: rgb(90 220 255 / 60%);
+  --fuel-halo: rgb(40 160 255 / 35%);
+  --fuel-track: rgb(95 216 255 / 16%);
+}
+.ny-clock .ny-fuel[data-level='low'] {
+  --fuel-a: #ffbe4d;
+  --fuel-b: #fff4dc;
+  --fuel-c: #e8952a;
+  --fuel-glow: rgb(255 190 80 / 62%);
+  --fuel-halo: rgb(255 150 40 / 35%);
+  --fuel-track: rgb(255 190 80 / 15%);
+}
+.ny-clock .ny-fuel[data-level='empty'] {
+  --fuel-a: #ff6b3d;
+  --fuel-b: #ffe3d8;
+  --fuel-c: #e2451f;
+  --fuel-glow: rgb(255 110 60 / 65%);
+  --fuel-halo: rgb(255 70 30 / 38%);
+  --fuel-track: rgb(255 110 60 / 16%);
+}
+.ny-clock .ny-fuel-a {
+  stop-color: var(--fuel-a);
+}
+.ny-clock .ny-fuel-b {
+  stop-color: var(--fuel-b);
+}
+.ny-clock .ny-fuel-c {
+  stop-color: var(--fuel-c);
+}
+.ny-clock .ny-fuel path {
+  fill: none;
+  stroke-width: 1.5px;
+  stroke-linejoin: round;
+}
+.ny-clock .ny-fuel-track {
+  stroke: var(--fuel-track);
+}
+.ny-clock .ny-fuel-lit {
+  stroke-linecap: butt;
+  filter: drop-shadow(0 0 2px var(--fuel-glow)) drop-shadow(0 0 6px var(--fuel-halo));
+  transition: stroke-dasharray 1.2s cubic-bezier(0.22, 0.8, 0.3, 1);
+}
+/* Not set up yet: a dim dashed frame and no lit line. */
+.ny-clock .ny-fuel[data-level='uncalibrated'] .ny-fuel-track {
+  stroke: rgb(158 190 210 / 34%);
+  stroke-width: 1px;
+  stroke-dasharray: 3 4;
+}
+.ny-clock .ny-fuel[data-level='uncalibrated'] .ny-fuel-lit {
+  visibility: hidden;
+}
+/* Screen readers only, beside the clock; hidden with it below 1360 px. */
+.study-header .ny-fuel-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  display: none;
+}
+@media (min-width: 1360px) {
+  .study-header .ny-fuel-label {
+    display: block;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ny-clock .ny-fuel-lit {
+    transition: none;
+  }
+}

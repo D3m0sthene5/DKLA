@@ -256,6 +256,16 @@ const breakages = [
       ),
   ],
   [
+    'Ask Dottie fuel gauge: the ring stays full whatever credit is left',
+    'src/features/fuel/fuel.js',
+    () => edit('src/features/fuel/fuel.js', '`${shown * length} ${length + 1}`', '`${length} ${length + 1}`'),
+  ],
+  [
+    'Ask Dottie fuel ledger: web searches cost nothing',
+    'lib/ask/fuel.js',
+    () => edit('lib/ask/fuel.js', 'calls * SEARCH_USD;', '0;'),
+  ],
+  [
     'Ask Dottie opossums: every trot frame shows at once',
     'src/features/ask/ask.css',
     () =>
