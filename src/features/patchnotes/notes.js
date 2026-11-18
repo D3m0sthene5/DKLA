@@ -21,6 +21,8 @@ window.DKLAPatchNotes = {
           'Type a course and class number (“LRS Class 22”, “Contracts class 16”, “civ pro 12”) to see that session’s lecture, assignment and readings first.',
           'Lecture notes now cover every class with slides on file: Contracts 1–24 and LRS 1–22, including LRS Class 4’s War Powers problem; classes with no slides say so plainly.',
           'Where a slide’s citation differs from the Atlas or the assigned reading, the class notes point it out.',
+          'Rules & authorities now holds the whole United States Code: all 54 titles, every chapter and every section heading, current through Public Law 119-118. Open United States Code › All 54 titles.',
+          'Type an exact citation such as “20 USC 1001” in search to jump straight to that section; ordinary searches are unchanged. Sections the Atlas doesn’t hold in full show where they sit in the Code and link to the official text, and a title you have opened once works offline.',
           'Ask Dottie answers study questions about a case, canon or class you name straight from the Atlas, including follow-ups; she searches the web only for current law, later history, people and events, or when the Atlas falls short.',
           'Phrases like “over dinner tonight” or “in plain English” change only how Dottie explains, never where she looks.',
           'When Dottie can’t answer, she says why (the search timed out or failed, found nothing usable, or that class has no slide notes) and what to try next.',

@@ -76,6 +76,8 @@ export const tasks = [
     weight: Math.min(4, CORES),
   },
   step('datasets', 'U.S. Code', py('tools/v25/uscode_build.py', '--check')),
+  // The whole Code's browse files: they match the page's manifest and every official heading DKLA holds.
+  step('datasets', 'whole U.S. Code index', py('tools/uscode/build_index.py', '--check')),
   step('datasets', 'timeline audit', py('tools/v25/check_timeline_audit.py', '--json'), SOURCE),
   step(
     'datasets',
@@ -159,6 +161,8 @@ export const tasks = [
     node('tools/fuel/check-browser.mjs', '{page}'),
     SERVER,
   ),
+  // v3.1: all 54 titles browsable, exact citations in search, word searches untouched, held text intact.
+  step('browser', 'whole U.S. Code', node('tools/uscode/check-browser.mjs', '{page}'), SERVER),
   step('browser', 'public files and server', node('tools/verify/check_public.mjs', '{url}'), SERVER),
   step(
     'browser',

@@ -259,6 +259,288 @@
     }
     return out;
   }
+  /* ---------- the whole United States Code (v3.1) ----------
+     Every title, its official structure and every section's number and heading, from
+     uscode/title-N.json (tools/uscode/build_index.py; release in uscode-titles.js). A title's file
+     is fetched only when the title is opened or an exact citation in it is searched, and kept in
+     the page's own cache (dkla-uscode-v1) once its SHA-256 matches, so a title opened once also
+     opens offline. Sections DKLA holds in full (tools/v25/uscode.json) open their full text as
+     before; any other section opens a short page with its place in the title and a link to the
+     official text. None of this is in any search index. */
+  const USC = window.DKLAUSCodeTitles,
+    WHOLE = PREFIX + 'uscode/all',
+    uscTitles = new Map(), // title number -> its node under WHOLE
+    uscFiles = new Map(), // title number -> Promise of the parsed file
+    uscReady = new Map(), // title number -> parsed file
+    uscFailed = new Map(), // title number -> message
+    virtual = new Map(), // pseudo-entry id -> pseudo-entry
+    vleaves = new Map(), // pseudo-entry id -> its leaf
+    wholeAt = new Map(), // entry id -> its leaf in the whole Code (held entries keep their own place)
+    held = new Map(); // "title|section" -> the full-text entries DKLA holds
+  for (const e of D.entries)
+    if (e.collection === 'uscode') {
+      const k = e.titleNumber + '|' + String(e.section).toLowerCase();
+      if (!held.has(k)) held.set(k, []);
+      held.get(k).push(e);
+    }
+  const KIND = {
+    subtitle: 'Subtitle',
+    chapter: 'Chapter',
+    subchapter: 'Subchapter',
+    part: 'Part',
+    subpart: 'Subpart',
+    division: 'Division',
+    subdivision: 'Subdivision',
+    title: 'Title',
+    article: 'Article',
+    compiledAct: 'Act',
+  };
+  const officialURL = (t, num) =>
+    'https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title' +
+    t +
+    '-section' +
+    encodeURIComponent((String(num).match(/\d+[A-Za-z]*(?:-\d+)?/) || [num])[0]) +
+    '&num=0&edition=prelim';
+  const citeOf = (t, num) => `${t} U.S.C. ${/,| to /.test(num) ? '§§' : '§'} ${num}`;
+  function wholeCode(parent) {
+    if (!Array.isArray(USC?.titles)) return;
+    const all = branch(
+      WHOLE,
+      'All 54 titles',
+      parent,
+      `Every title, chapter and section heading · current through Public Law ${USC.release}`,
+      'uscode',
+    );
+    all.whole = true;
+    for (const [t, name, count] of USC.titles) {
+      const n = branch(
+        WHOLE + '/t' + t,
+        `Title ${t} · ${name}`,
+        all,
+        count ? count.toLocaleString('en-US') + ' sections' : 'Reserved title',
+        'uscode',
+      );
+      Object.assign(n, { whole: true, uscTitle: t, badge: 'Title ' + t, name });
+      uscTitles.set(t, n);
+      waiting(n, count ? 'Opening Title ' + t + '…' : 'Title 53 is reserved. It holds no sections.');
+    }
+  }
+  // A title not yet loaded shows one card saying so; the card itself does nothing when clicked.
+  function waiting(n, message) {
+    for (const c of n.children) groups.delete(c.key);
+    n.children = [];
+    const w = branch(n.key + '/status', message, n, '', 'uscode');
+    Object.assign(w, { whole: true, placeholder: true, name: message });
+  }
+  async function verifiedTitle(t) {
+    const row = USC.titles.find((x) => x[0] === t);
+    if (!row) throw Error('Title ' + t + ' is not in the Code');
+    const url = new URL('uscode/title-' + t + '.json', document.baseURI).href;
+    const check = async (response) => {
+      if (!response?.ok) throw Error('unavailable');
+      const bytes = await response.arrayBuffer(),
+        digest = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))]
+          .map((b) => b.toString(16).padStart(2, '0'))
+          .join('');
+      if (digest !== row[3]) throw Error('changed');
+      return JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes));
+    };
+    let cache = null;
+    try {
+      cache = await caches.open('dkla-uscode-v1');
+      const hit = await cache.match(url);
+      if (hit)
+        try {
+          return await check(hit);
+        } catch {
+          await cache.delete(url);
+        }
+    } catch {
+      /* No storage: the title still opens while online. */
+    }
+    const response = await fetch(url, { credentials: 'same-origin', cache: 'no-cache' });
+    const data = await check(response.clone());
+    try {
+      await cache?.put(url, response);
+    } catch {
+      /* A full disk must not hide the title. */
+    }
+    return data;
+  }
+  function loadTitle(t) {
+    t = Number(t);
+    if (uscReady.has(t)) return Promise.resolve(uscReady.get(t));
+    if (!uscFiles.has(t))
+      uscFiles.set(
+        t,
+        verifiedTitle(t).then(
+          (data) => {
+            uscReady.set(t, data);
+            uscFailed.delete(t);
+            grow(uscTitles.get(t), data);
+            return data;
+          },
+          (error) => {
+            uscFiles.delete(t);
+            const n = uscTitles.get(t),
+              offline = typeof navigator !== 'undefined' && navigator.onLine === false;
+            const message =
+              location.protocol === 'file:'
+                ? 'This copy of DKLA cannot load Title ' + t + '. Open it at dannykind.wiki.'
+                : offline
+                  ? 'Title ' +
+                    t +
+                    ' has not been opened on this device yet. It needs a connection the first time.'
+                  : 'Title ' + t + ' could not be loaded. Open the title again to retry.';
+            uscFailed.set(t, message);
+            if (n) waiting(n, message);
+            throw error;
+          },
+        ),
+      );
+    return uscFiles.get(t);
+  }
+  // Build a loaded title's official hierarchy under its node.
+  function grow(tn, data) {
+    if (!tn) return;
+    for (const c of tn.children) groups.delete(c.key);
+    tn.children = [];
+    const order = [],
+      seen = new Map(); // a number Congress used twice: the held entries are taken in order
+    function sectionsInto(parent, rows) {
+      const entries = rows.map((r) => {
+        const [num, heading, status = '', note = ''] = r,
+          k = data.title + '|' + num.toLowerCase(),
+          mine = held.get(k);
+        if (mine?.length) {
+          const e = mine[Math.min(seen.get(k) || 0, mine.length - 1)];
+          seen.set(k, (seen.get(k) || 0) + 1);
+          order.push(e);
+          return e;
+        }
+        let id = 'uscx-' + data.title + '-' + num.replace(/[^A-Za-z0-9-]+/g, '-');
+        while (virtual.has(id)) id += '-2';
+        const e = {
+          id,
+          virtual: true,
+          collection: 'uscode',
+          titleNumber: data.title,
+          section: num,
+          cite: citeOf(data.title, num),
+          title: heading,
+          status: status || 'text',
+          editorial: note,
+          source: data.source,
+        };
+        virtual.set(id, e);
+        order.push(e);
+        return e;
+      });
+      const add = (e, p) => {
+        const n = {
+          key: PREFIX + e.id,
+          title: e.title,
+          label: e.cite,
+          parent: p,
+          collection: 'uscode',
+          entry: e,
+          count: 1,
+          whole: true,
+        };
+        p.children.push(n);
+        if (e.virtual) vleaves.set(e.id, n);
+        wholeAt.set(e.id, n);
+      };
+      if (entries.length <= 12) entries.forEach((e) => add(e, parent));
+      else
+        for (let i = 0; i < entries.length; i += 8) {
+          const part = entries.slice(i, i + 8),
+            r = branch(parent.key + '/s' + i, part[0].title, parent, 'Numbered reading range', 'uscode'),
+            first = part[0].section,
+            last = part[part.length - 1].section;
+          r.whole = true;
+          r.range = first === last ? 'Section ' + first : `Sections ${first}–${last}`;
+          part.forEach((e) => add(e, r));
+        }
+    }
+    function into(parent, nodes) {
+      let run = [];
+      const flush = () => {
+        if (run.length) sectionsInto(parent, run);
+        run = [];
+      };
+      const used = new Set();
+      for (const x of nodes) {
+        if (Array.isArray(x)) {
+          run.push(x);
+          continue;
+        }
+        flush();
+        const kind = KIND[x.k] || 'Division',
+          slug = (x.k + '-' + x.n).toLowerCase().replace(/[^a-z0-9-]+/g, '-');
+        let k = parent.key + '/' + slug;
+        while (used.has(k)) k += '-2';
+        used.add(k);
+        const label = x.n ? kind + ' ' + x.n : kind,
+          n = branch(
+            k,
+            x.h ? label + ' — ' + x.h : label,
+            parent,
+            'Official statutory ' + kind.toLowerCase(),
+            'uscode',
+          );
+        Object.assign(n, { whole: true, badge: label, name: x.h || label });
+        if (x.c.length) into(n, x.c);
+        else waiting(n, 'No sections in this ' + kind.toLowerCase() + ' in this release.');
+      }
+      flush();
+    }
+    into(tn, data.tree);
+    if (!tn.children.length) waiting(tn, 'Title ' + data.title + ' is reserved. It holds no sections.');
+    tn.order = order;
+    (function count(n) {
+      n.count = n.entry ? 1 : n.placeholder ? 0 : n.children.reduce((s, c) => s + count(c), 0);
+      return n.count;
+    })(tn);
+  }
+  // The section a citation names, once its title is loaded: exact number first, then the same
+  // letters in another case, then a combined or numeric range that holds it ("§§ 681 to 687").
+  function findSection(t, s) {
+    const tn = uscTitles.get(Number(t));
+    if (!tn?.order) return null;
+    const want = String(s).replace(/[–‑]/g, '-');
+    const exact = tn.order.filter((e) => e.section === want);
+    if (exact.length) return exact[0];
+    const lower = tn.order.find((e) => e.section.toLowerCase() === want.toLowerCase());
+    if (lower) return lower;
+    const n = /^\d+$/.test(want) ? Number(want) : null;
+    return (
+      tn.order.find((e) => e.section.split(/,\s*/).some((p) => p.toLowerCase() === want.toLowerCase())) ||
+      (n === null
+        ? null
+        : tn.order.find((e) => {
+            const m = e.section.match(/^(\d+) to (\d+)$/);
+            return m && n >= Number(m[1]) && n <= Number(m[2]);
+          })) ||
+      null
+    );
+  }
+  function wholeKey(key) {
+    const m = String(key || '').match(/^authority:uscode\/all\/t(\d+)/);
+    return m ? Number(m[1]) : null;
+  }
+  function stubHTML(e) {
+    if (e.loading)
+      return `<article class="authority-reading uscode-stub"><header><h2>${esc(e.cite)}</h2></header><p class="uscode-stub-lead">${esc(e.loading)}</p></article>`;
+    const tn = uscTitles.get(e.titleNumber),
+      order = tn?.order || [],
+      i = order.indexOf(e),
+      node = vleaves.get(e.id);
+    const trail = [];
+    for (let n = node?.parent; n && n !== tn.parent; n = n.parent) if (!n.range) trail.unshift(n);
+    const s = e.source || {};
+    return `<article class="authority-reading uscode-stub"><header><h2>${esc(e.cite)}<span>${esc(e.title)}</span></h2>${status[e.status] ? `<p class="authority-status">${esc(status[e.status])}</p>` : ''}</header><nav class="uscode-place" aria-label="Where this section sits"><h3>Where it sits</h3><ol>${trail.map((n, d) => `<li style="--depth:${d}"><button type="button" data-authority-group="${esc(n.key)}">${esc(n.title)}</button></li>`).join('')}</ol></nav><p class="uscode-stub-lead">DKLA lists this section's number, heading and place in the Code. Its text is not stored in DKLA: read it in the official Code.</p><p class="uscode-edition">Edition: ${esc(s.edition || '')}</p><p><a class="uscode-official" href="${esc(officialURL(e.titleNumber, e.section))}" target="_blank" rel="noopener">Read ${esc(e.cite)} at uscode.house.gov ↗</a></p>${e.editorial ? `<p class="authority-note">Editorial note in the official Code: ${esc(e.editorial)}</p>` : ''}<details class="authority-provenance"><summary>Source and edition</summary><p>${esc(s.edition || '')}. ${esc(s.official || '')}.</p><p>Section list: ${esc(s.sections || '')}. Structure: ${esc(s.hierarchy || '')}.</p><p>${esc(s.note || '')} The uscode.house.gov page shows the Code as it stands today, which may be later than this release.</p></details><nav class="authority-next" aria-label="Read in order"><button type="button" data-uscode-entry="${esc(order[i - 1]?.id || '')}"${i <= 0 ? ' disabled' : ''}>← Previous</button><button type="button" data-uscode-entry="${esc(order[i + 1]?.id || '')}"${i < 0 || i >= order.length - 1 ? ' disabled' : ''}>Next →</button></nav></article>`;
+  }
   const root = branch(ROOT, TITLE, null);
   const titleNames = {
     3: 'The President',
@@ -424,6 +706,7 @@
         more.children = other;
         other.forEach((n) => (n.parent = more));
       }
+      wholeCode(parent);
     } else if (c.id === 'ucc') {
       for (const [article, as] of keyed(es, (e) => e.id.split('-')[1])) {
         const an = branch(
@@ -526,7 +809,8 @@
   );
   // Index ranges are navigational subdivisions, not invented statutory chapters.
   for (const n of [...groups.values()]) {
-    if (n.children.length <= 24 || n.children.some((x) => x.entry)) continue;
+    // The whole Code keeps its official levels and pages through long lists instead.
+    if (n.whole || n.children.length <= 24 || n.children.some((x) => x.entry)) continue;
     const children = n.children.slice();
     n.children = [];
     for (let i = 0; i < children.length; i += 8) {
@@ -559,6 +843,12 @@
     current = () => {
       const group = groups.get(S.region);
       if (group?.children.length) return group;
+      // A whole-Code place restored before its title has loaded: show the title and load it.
+      const wt = wholeKey(S.region) ?? (selected?.type === 'authority' ? wholeEntryTitle(selected.id) : null);
+      if (wt && uscTitles.has(wt) && USC.titles.find((x) => x[0] === wt)?.[2]) {
+        afterLoad(wt);
+        return vleaves.get(selected?.id)?.parent || uscTitles.get(wt);
+      }
       // Earlier releases used numbered reading ranges. Preserve a restored
       // provision's location when those private range IDs become chapters.
       if (selected?.type === 'authority' && leaves.has(selected.id)) return leaves.get(selected.id).parent;
@@ -568,7 +858,40 @@
       }
       return root;
     };
-  const selectedEntry = () => (selected?.type === 'authority' ? byId.get(selected.id) : null);
+  const selectedEntry = () => {
+    if (selected?.type !== 'authority') return null;
+    const e = byId.get(selected.id) || virtual.get(selected.id);
+    if (e) return e;
+    const t = wholeEntryTitle(selected.id);
+    if (!t) return null;
+    afterLoad(t);
+    return {
+      id: selected.id,
+      virtual: true,
+      collection: 'uscode',
+      cite: 'Title ' + t,
+      title: '',
+      loading: uscFailed.get(t) || 'Opening Title ' + t + '…',
+    };
+  };
+  // "uscx-20-1001" names a section of Title 20 that DKLA lists but does not hold.
+  function wholeEntryTitle(id) {
+    const m = String(id || '').match(/^uscx-(\d+)-/);
+    return m ? Number(m[1]) : null;
+  }
+  // Load a title, then redraw whatever is showing if it still depends on that title.
+  function afterLoad(t) {
+    if (uscReady.has(t) || uscFiles.has(t)) return uscFiles.get(t) || Promise.resolve(uscReady.get(t));
+    return loadTitle(t)
+      .catch(() => {})
+      .finally(() => {
+        if (!active()) return;
+        geometryCache = null;
+        renderInspector();
+        renderHeading();
+        refitAuthority(false);
+      });
+  }
   function ancestors(n) {
     const out = [];
     while (n) {
@@ -639,7 +962,10 @@
           : short || width >= 860
             ? 3
             : 2
-        : Math.min(n.children.length, width >= 1100 ? 4 : width >= 700 ? 3 : width >= 480 ? 2 : 1);
+        : Math.min(
+            n.children.length,
+            width >= 1300 && n.whole ? 5 : width >= 1100 ? 4 : width >= 700 ? 3 : width >= 480 ? 2 : 1,
+          );
     const constitution = n === collectionGroups.get('constitution'),
       headingFs = cover ? (short ? 20 : narrow ? 26 : 32) : narrow ? 24 : 30,
       heading = rows(display(n), width - pad * 2, headingFs, 550, 3, 'authority-map-heading');
@@ -872,7 +1198,8 @@
   };
   const oldGoNode = goNode;
   goNode = function (id, ...args) {
-    if (id?.startsWith(PREFIX) && byId.has(id.slice(PREFIX.length))) return open(id.slice(PREFIX.length));
+    if (id?.startsWith(PREFIX) && (byId.has(id.slice(PREFIX.length)) || virtual.has(id.slice(PREFIX.length))))
+      return open(id.slice(PREFIX.length));
     return oldGoNode(id, ...args);
   };
   const oldHeading = renderHeading;
@@ -939,7 +1266,9 @@
       panel.innerHTML = '';
       return;
     }
-    panel.innerHTML = readerChrome(provisionHTML(e), 'Source rule');
+    panel.innerHTML = e.virtual
+      ? readerChrome(stubHTML(e), 'U.S. Code')
+      : readerChrome(provisionHTML(e), 'Source rule');
     panel.scrollTop = 0;
     wireReader();
     const close = document.getElementById('closeInspector');
@@ -962,7 +1291,9 @@
   }
   function openGroup(key, save = true) {
     const n = groups.get(key);
-    if (!n) return;
+    if (!n || n.placeholder) return;
+    const t = n.uscTitle || wholeKey(n.key);
+    if (t && !uscReady.has(t) && USC.titles.find((x) => x[0] === t)?.[2]) afterLoad(t);
     prepare();
     if (save) remember();
     selected = null;
@@ -980,10 +1311,11 @@
     fitBox(geometry(n).fit, true, 16, 1);
   }
   function open(id, collection) {
-    if (!id || !byId.has(id)) return openGroup(collectionGroups.get(collection)?.key || ROOT);
+    if (!id || !(byId.has(id) || virtual.has(id)))
+      return openGroup(collectionGroups.get(collection)?.key || ROOT);
     prepare();
     remember();
-    const node = leaves.get(id);
+    const node = leaves.get(id) || vleaves.get(id);
     if (!node) return;
     S.scope = TITLE;
     S.region = node.parent.key;
@@ -1057,9 +1389,11 @@
       .join('');
   }
   function tileModel(n, w, cover = false, compact = false, previewLimit = 3, showQuote = true) {
-    const flat = compact && usable().h < 400,
-      pad = flat ? 10 : compact ? 12 : 22,
-      fs = flat ? 20 : compact ? 18 : cover ? 26 : 22,
+    // The whole Code's long lists use smaller cards, so a page holds a useful share of a title.
+    const dense = n.whole && n.parent?.whole && !cover,
+      flat = compact && usable().h < 400,
+      pad = flat ? 10 : compact ? 12 : dense ? 16 : 22,
+      fs = flat ? 20 : compact ? 18 : cover ? 26 : dense ? 17 : 22,
       small = compact ? 12 : 14,
       e = n.entry,
       special = cover && n.collection === 'constitution';
@@ -1127,7 +1461,7 @@
       h:
         e?.id === 'const-preamble' && !showQuote
           ? 72
-          : Math.max(flat ? 74 : compact ? 118 : e ? 112 : 140, y + pad),
+          : Math.max(flat ? 74 : compact ? 118 : dense ? 72 : e ? 112 : 140, y + pad),
     };
   }
   function skin(n) {
@@ -1159,6 +1493,7 @@
     return `<defs><mask id="${id}" mask-type="alpha" style="mask-type:alpha" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="${x}" y="${y}" width="${w}" height="${h}"><image href="${esc(peopleAsset)}" x="${x}" y="${y}" width="${w}" height="${h}" preserveAspectRatio="xMidYMid meet"/></mask></defs><rect class="authority-people-mark" x="${x}" y="${y}" width="${w}" height="${h}" fill="#c2e3d5" mask="url(#${id})" role="img" aria-label="We the People" pointer-events="none"/>`;
   }
   function display(n) {
+    if (n.name) return n.name;
     return n.title
       .replace(/^(?:PART|Part|CHAPTER|Title)\s+[\w]+\s*[—–·-]\s*/, '')
       .replace(/^[IVX]+\s*·\s*/, '')
@@ -1176,6 +1511,8 @@
       return e.cite;
     }
     if (n.number) return String(n.number).padStart(2, '0');
+    if (n.badge) return n.badge;
+    if (n.placeholder) return '';
     return (
       n.range?.replace(/^Amendments /, '') ||
       n.title.match(/^(?:Title|CHAPTER|PART)\s+([\w]+)/)?.[0] ||
@@ -1473,9 +1810,15 @@
         return;
       }
       const b = ev.target.closest(
-        '[data-authority-open],[data-authority-menu],[data-authority-group],[data-authority-anchor]',
+        '[data-authority-open],[data-authority-menu],[data-authority-group],[data-authority-anchor],[data-uscode-entry]',
       );
       if (!b) return;
+      if (b.dataset.uscodeEntry !== undefined) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        if (b.dataset.uscodeEntry) open(b.dataset.uscodeEntry);
+        return;
+      }
       ev.preventDefault();
       ev.stopPropagation();
       closeSearch();
@@ -1581,6 +1924,49 @@
     group: openGroup,
     data: D,
     version: 5,
+    // The whole Code, for the citation search (src/features/v31/uscode.js) and the checks.
+    uscode: USC?.titles
+      ? {
+          release: USC.release,
+          has: (t) => uscTitles.has(Number(t)),
+          loaded: (t) => uscReady.has(Number(t)),
+          failed: (t) => uscFailed.get(Number(t)) || '',
+          load: loadTitle,
+          // {entry, held, trail} for a citation, or null when the title has no such section.
+          async find(t, s) {
+            await loadTitle(t);
+            const e = findSection(t, s);
+            if (!e) return null;
+            const trail = [];
+            for (
+              let n = wholeAt.get(e.id)?.parent;
+              n && n.uscTitle === undefined && n.key !== WHOLE;
+              n = n.parent
+            )
+              if (!n.range) trail.unshift(n.badge || n.title);
+            return {
+              entry: e,
+              held: !e.virtual,
+              trail: ['Title ' + t, ...trail],
+              group: wholeAt.get(e.id)?.parent.key || null,
+            };
+          },
+          async openCitation(t, s) {
+            t = Number(t);
+            if (!uscTitles.has(t)) return;
+            let e = null;
+            try {
+              await loadTitle(t);
+              e = findSection(t, s);
+            } catch {
+              /* the title page says why */
+            }
+            if (e) open(e.id);
+            else openGroup(uscTitles.get(t).key);
+          },
+          title: (t) => uscTitles.get(Number(t))?.key || null,
+        }
+      : null,
     // The overview's natural height, in its own pixels, with `cols` columns of
     // books 480 px wide each (for the Home prototypes in v25/home-variants.js).
     natural(cols, colW = 480) {

@@ -286,6 +286,11 @@ const breakages = [
       ),
   ],
   [
+    'Whole U.S. Code: an exact citation ("20 USC 1001") lands at the bottom of the search results',
+    'src/features/v31/uscode.js',
+    () => edit('src/features/v31/uscode.js', '    list.prepend(box);', '    list.append(box);'),
+  ],
+  [
     'Ask Dottie "Explain from the beginning" demands a web citation because of its own wording',
     'lib/ask/web.js',
     () =>
