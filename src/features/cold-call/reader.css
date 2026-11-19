@@ -2006,6 +2006,10 @@
   .cc-shell .cc-keys {
     display: none !important;
   }
+  /* No keyboard to hint at. */
+  .cc-shell .cc-act-key {
+    display: none;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .cc-shell * {
