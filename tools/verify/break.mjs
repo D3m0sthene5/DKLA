@@ -1373,8 +1373,8 @@ const breakages = [
     () =>
       edit(
         'src/features/cold-call/reader.css',
-        "#coldCallDialog[data-cc-mode='rehearse'] .cc-section:not([data-cc-revealed]) .cc-answer {\n  display: none;",
-        "#coldCallDialog[data-cc-mode='rehearse'] .cc-section:not([data-cc-revealed]) .cc-answer {\n  display: block;",
+        "#coldCallDialog[data-cc-mode='rehearse'] .cc-section:not([data-cc-revealed]) .cc-title,\n#coldCallDialog[data-cc-mode='rehearse'] .cc-section:not([data-cc-revealed]) .cc-answer {\n  display: none;",
+        "#coldCallDialog[data-cc-mode='rehearse'] .cc-section:not([data-cc-revealed]) .cc-title,\n#coldCallDialog[data-cc-mode='rehearse'] .cc-section:not([data-cc-revealed]) .cc-answer {\n  display: block;",
       ),
   ],
   [
@@ -1383,7 +1383,7 @@ const breakages = [
     () =>
       edit(
         'src/features/cold-call/reader.css',
-        "#coldCallDialog .cc-nav-cue,\n#coldCallDialog[data-cc-mode='rehearse'] .cc-nav-row:not([data-cc-revealed]) .cc-nav-title {\n  display: none;",
+        "#coldCallDialog .cc-nav-cue,\n#coldCallDialog[data-cc-mode='rehearse'] .cc-nav-title {\n  display: none;",
         '#coldCallDialog .cc-nav-cue {\n  display: none;',
       ),
   ],
@@ -1428,13 +1428,73 @@ const breakages = [
       ),
   ],
   [
-    'every row of the Cold Calls index is a frosted button',
-    'src/features/v32/coldcall-index.js',
+    'the library draws each case at glyph size again, too small to know it by',
+    'src/features/cold-call/reader.css',
     () =>
       edit(
-        'src/features/v32/coldcall-index.js',
-        '`<div role="button" tabindex="0" class="cc-ix-row"',
-        '`<button type="button" class="cc-ix-row"',
+        'src/features/cold-call/reader.css',
+        '#coldCallIndexDialog .cc-ix-own {\n  width: 40px;\n  height: 40px;',
+        '#coldCallIndexDialog .cc-ix-own {\n  width: 16px;\n  height: 16px;',
+      ),
+  ],
+  [
+    'in Read the episode title is a small line again and no longer the headline',
+    'src/features/cold-call/reader.css',
+    () =>
+      edit(
+        'src/features/cold-call/reader.css',
+        '  margin: 0 0 var(--v32-s4);\n  font:\n    600 30px/38px var(--dkla-interface, Inter),',
+        '  margin: 0 0 var(--v32-s4);\n  font:\n    600 17px/28px var(--dkla-interface, Inter),',
+      ),
+  ],
+  [
+    'Read shows one step at a time, so the story waits behind a press',
+    'src/features/cold-call/reader.css',
+    () =>
+      edit(
+        'src/features/cold-call/reader.css',
+        "#coldCallDialog[data-cc-mode='rehearse'] [data-cc-step]:not([data-cc-current]) {\n  display: none;",
+        '#coldCallDialog [data-cc-step]:not([data-cc-current]) {\n  display: none;',
+      ),
+  ],
+  [
+    'a case left mid-read opens at the top again after a reload',
+    'src/features/cold-call/reader.js',
+    () =>
+      edit(
+        'src/features/cold-call/reader.js',
+        'else if (stored) box.scrollTop = topOf(stepElement(stored[0])) + stored[1];',
+        '',
+      ),
+  ],
+  [
+    'when an answer opens, its question disappears from the list at the side',
+    'src/features/cold-call/reader.css',
+    () =>
+      edit(
+        'src/features/cold-call/reader.css',
+        "#coldCallDialog[data-cc-mode='rehearse'] .cc-nav-cue {\n  display: inline;",
+        "#coldCallDialog[data-cc-mode='rehearse'] .cc-nav-row:not([data-cc-revealed]) .cc-nav-cue {\n  display: inline;",
+      ),
+  ],
+  [
+    'a stored Cold Call answer is shown although it is not in its episode',
+    'src/features/cold-call/reader.js',
+    () =>
+      edit(
+        'src/features/cold-call/reader.js',
+        'return stored.every((sentence) => sentence && text.includes(squash(sentence))) ? stored : null;',
+        'return stored;',
+      ),
+  ],
+  [
+    'a stored Cold Call answer says something its episode does not',
+    'tools/cold-call/answers.json',
+    () =>
+      edit(
+        'tools/cold-call/answers.json',
+        'A reverse-side provision required arbitration.',
+        'A reverse-side provision required mediation.',
       ),
   ],
   [

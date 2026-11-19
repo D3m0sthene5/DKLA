@@ -477,10 +477,10 @@
       </div>
       <p class="cc-sr" id="ccLive" role="status"></p>`;
     $('ccClose').onclick = close;
-    aim = null;
+    aim = held = null;
     // A wheel, a touch, a press or a key takes the scroll over (DKLACalm.scrollTo stops for the same four).
     for (const type of ['wheel', 'touchstart', 'pointerdown', 'keydown'])
-      $('ccScroll').addEventListener(type, () => (aim = null), { passive: true });
+      $('ccScroll').addEventListener(type, () => (aim = held = null), { passive: true });
     $('ccScroll').addEventListener(
       'scroll',
       () => {
@@ -500,11 +500,14 @@
     box.scrollTop = 0;
     if (mode === 'read') {
       const kept = memory.get(id),
-        stored = kept ? null : resumeGet(c);
+        stored = kept?.at || (kept ? null : resumeGet(c));
       if (kept?.top) box.scrollTop = kept.top;
       else if (stored) box.scrollTop = topOf(stepElement(stored[0])) + stored[1];
       else if (READ_OPENS_AT === 'story') box.scrollTop = topOf(stepElement(1)) + 32;
-      if (box.scrollTop) track();
+      if (box.scrollTop) {
+        held = stored ? [stored[0], stored[1]] : READ_OPENS_AT === 'story' && !kept?.top ? [1, 32] : null;
+        track();
+      }
     }
     dock();
     // Reading: focus is in the story (the caption, or the title of the episode resumed at), so the keys
@@ -529,8 +532,22 @@
     if (window.scheduler?.postTask) scheduler.postTask(fn, { priority: 'user-visible' }).catch(() => {});
     else setTimeout(fn, 0);
   };
+  /* The place the reader was put at when the account opened (a resumed place), until the reader scrolls by
+     hand. Marking the later episodes changes where lines break, so what is above the place can grow or
+     shrink by a line or two after the reader is on screen: the place is held to its episode while that
+     happens (hold()), so the words being read do not move. */
+  let held = null;
+  function hold() {
+    const el = held && current && stepElement(held[0]);
+    if (!el) return;
+    const top = topOf(el) + held[1],
+      box = $('ccScroll');
+    if (Math.abs(box.scrollTop - top) >= 1) box.scrollTop = top;
+  }
   function markDone(ticket) {
     if (ticket !== marking) return;
+    hold();
+    held = null;
     dialog.dataset.ccMarked = 'done';
     for (const resolve of markWaiters.splice(0)) resolve();
   }
@@ -556,6 +573,7 @@
         }
         i++;
       } while (i < c.sections.length && performance.now() - startedAt < MARK_SLICE);
+      hold();
       if (i < c.sections.length) {
         soon(step);
         return;
@@ -615,14 +633,12 @@
   function keepPlace() {
     if (!current || !dialog.open || mode !== 'read') return;
     const box = $('ccScroll'),
-      midway = step <= count() && box.scrollTop > 40;
-    memory.set(current.id, { top: midway ? box.scrollTop : 0 });
-    resumeSet(
-      current.id,
-      midway
+      midway = step <= count() && box.scrollTop > 40,
+      at = midway
         ? [step, Math.max(0, Math.round(box.scrollTop - topOf(stepElement(step)))), current.revision || 0]
-        : null,
-    );
+        : null;
+    memory.set(current.id, { top: midway ? box.scrollTop : 0, at });
+    resumeSet(current.id, at);
   }
   window.addEventListener?.('pagehide', keepPlace);
   function close() {
@@ -721,11 +737,13 @@
     const head = dialog.querySelector('.cc-head'),
       box = $('ccScroll');
     if (!box) return;
+    // (Before the reader is on screen nothing has a place yet: the bar starts with the feature's name.)
+    const laidOut = dialog.open && box.getBoundingClientRect().height > 0;
     dialog.toggleAttribute(
       'data-cc-docked',
       mode === 'rehearse'
         ? step > 0
-        : !head || head.getBoundingClientRect().bottom < box.getBoundingClientRect().top + 8,
+        : laidOut && (!head || head.getBoundingClientRect().bottom < box.getBoundingClientRect().top + 8),
     );
   }
   const scroller = () => $('ccScroll');
