@@ -1,20 +1,25 @@
-/* Cold vapor settles under the rim: cached soft textures and one visible-only scheduler. */
+/* Cold vapor settles under the rim of every Cold Call button.
+ *
+ * Eighteen soft puffs per button drift down and fade. Each puff is a small element showing one of
+ * four textures painted once at start-up; its drift and fade are one CSS animation of transform and
+ * opacity (frost.css), which the browser's compositor runs by itself. So the vapour costs no script,
+ * no style work and no layout while it moves (before v3.2 a canvas was redrawn from
+ * requestAnimationFrame, 60 callbacks a second for as long as a case was open). It moves only while
+ * its button is on screen, and stands still while the tab is hidden, a dialog covers it or the map
+ * is moving (calm.css).
+ *
+ * Buttons are found in the reader (one observer on #inspector's children) and in open dialogs
+ * (looked at after anything a visitor does, DKLACalm.after); nothing watches the whole page. */
 (() => {
   'use strict';
   const selector = 'button[data-cold-call]',
     motion = matchMedia('(prefers-reduced-motion: reduce), (update: slow), (forced-colors: active)'),
-    states = new Map(),
-    intersecting = new Set(),
-    visible = new Set();
+    states = new Map();
   const PAD_X = 6,
     PAD_TOP = 0,
     PAD_BOTTOM = 18,
-    FPS = 1000 / 24,
     PARTICLES = 18;
-  let frame = 0,
-    lastFrame = 0,
-    installed = false,
-    sprites = null,
+  let installed = false,
     intersections,
     mutations;
   const rand = (a, b) => a + Math.random() * (b - a);
@@ -52,57 +57,52 @@
       return canvas;
     }).filter(Boolean);
   }
-  function particle(state, stagger = false) {
+  // The four textures become four background images, written into the page once.
+  function publish(sprites) {
+    const style = document.createElement('style');
+    style.dataset.coldVapor = '';
+    style.textContent = sprites
+      .map((canvas, i) => `.cc-cold-vapor i[data-mist="${i}"]{background-image:url(${canvas.toDataURL()})}`)
+      .join('');
+    document.head.appendChild(style);
+    return sprites.length;
+  }
+  let kinds = 0;
+  // One puff: where it starts under the rim, how far it drifts and sinks, how big, how long it
+  // lives. A negative delay starts each one part-way through its life, so they never arrive together.
+  function particle(state) {
     const life = rand(4.2, 6.2),
-      x = rand(6, Math.max(6, state.width - 6));
-    return {
-      age: stagger ? rand(0, life) : 0,
-      life,
-      x,
-      y: state.height + rand(0.5, 2),
-      drift: rand(-6, 6),
-      drop: rand(7, 12),
-      size: rand(30, 46),
-      sway: rand(0.7, 1.8),
-      phase: rand(0, Math.PI * 2),
-      sprite: Math.floor(rand(0, 4)),
-      opacity: rand(0.25, 0.38),
-    };
+      size = rand(30, 46),
+      x = PAD_X + rand(6, Math.max(6, state.width - 6)),
+      y = PAD_TOP + state.height + rand(-1, 1.5);
+    const puff = document.createElement('i');
+    puff.dataset.mist = Math.floor(rand(0, kinds));
+    puff.style.cssText =
+      `width:${size.toFixed(1)}px;height:${size.toFixed(1)}px;` +
+      `left:${(-size / 2).toFixed(1)}px;top:${(-size / 2).toFixed(1)}px;` +
+      `--x:${x.toFixed(1)}px;--y:${y.toFixed(1)}px;` +
+      // A shorter fall and a fainter puff than the old canvas drew, which dimmed its lower half
+      // with a feathered mask: together they give the same thin mist under the rim.
+      `--dx:${rand(-6, 6).toFixed(1)}px;--dy:${rand(3, 7).toFixed(1)}px;` +
+      `--o:${rand(0.17, 0.26).toFixed(3)};` +
+      `animation-duration:${life.toFixed(2)}s;animation-delay:${(-rand(0, life)).toFixed(2)}s`;
+    return puff;
   }
   function fit(state, width, height) {
     state.width = width;
     state.height = height;
-    const ratio = Math.min(devicePixelRatio || 1, 1.5),
-      w = width + PAD_X * 2,
-      h = height + PAD_TOP + PAD_BOTTOM;
-    state.canvas.width = Math.ceil(w * ratio);
-    state.canvas.height = Math.ceil(h * ratio);
-    state.canvas.style.width = w + 'px';
-    state.canvas.style.height = h + 'px';
-    state.ratio = ratio;
-    state.particles = Array.from({ length: PARTICLES }, () => particle(state, true));
-    const { ctx } = state;
-    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-    state.falloff = ctx.createLinearGradient(0, height, 0, h);
-    state.falloff.addColorStop(0, '#fff');
-    state.falloff.addColorStop(0.45, '#ffffff99');
-    state.falloff.addColorStop(1, '#ffffff00');
-    state.edges = ctx.createLinearGradient(0, 0, w, 0);
-    state.edges.addColorStop(0, '#ffffff00');
-    state.edges.addColorStop(0.12, '#fff');
-    state.edges.addColorStop(0.88, '#fff');
-    state.edges.addColorStop(1, '#ffffff00');
+    const { box } = state;
+    box.style.width = width + PAD_X * 2 + 'px';
+    box.style.height = height + PAD_TOP + PAD_BOTTOM + 'px';
+    box.replaceChildren(...Array.from({ length: PARTICLES }, () => particle(state)));
   }
   function initialize(state, rect) {
-    if (state.canvas) return;
-    const canvas = document.createElement('canvas');
-    canvas.className = 'cc-cold-vapor';
-    canvas.setAttribute('aria-hidden', 'true');
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    state.canvas = canvas;
-    state.ctx = ctx;
-    state.button.appendChild(canvas);
+    if (state.box) return;
+    const box = document.createElement('span');
+    box.className = 'cc-cold-vapor';
+    box.setAttribute('aria-hidden', 'true');
+    state.box = box;
+    state.button.appendChild(box);
     fit(state, rect.width, rect.height);
     if (typeof ResizeObserver === 'function') {
       state.resize = new ResizeObserver(() => {
@@ -116,132 +116,50 @@
       state.resize.observe(state.button);
     }
   }
-  function draw(state, delta) {
-    const { ctx, canvas, ratio, width, height } = state,
-      w = width + PAD_X * 2,
-      h = height + PAD_TOP + PAD_BOTTOM;
-    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-    ctx.clearRect(0, 0, w, h);
-    ctx.save();
-    // Vapor stays outside the button face: the entire text and its opaque backing remain clear.
-    ctx.beginPath();
-    ctx.rect(0, 0, w, h);
-    ctx.roundRect(PAD_X, PAD_TOP, width, height, 7);
-    ctx.clip('evenodd');
-    for (let i = 0; i < state.particles.length; i++) {
-      let p = state.particles[i];
-      p.age += delta;
-      if (p.age >= p.life) p = state.particles[i] = particle(state);
-      const t = p.age / p.life,
-        fade = Math.sin(Math.PI * t) ** 1.4,
-        scale = p.size * (0.8 + t * 0.5);
-      // Slow lateral eddies stay beneath the lower edge, within a six-pixel side spill.
-      const x = PAD_X + p.x + p.drift * t + Math.sin(p.phase + t * 4) * p.sway * t,
-        y = PAD_TOP + p.y + p.drop * t + Math.sin(p.phase + t * 3) * 0.35 * t;
-      ctx.save();
-      ctx.translate(x, y);
-      ctx.scale(1.15 + t * 0.15, 0.34 + t * 0.08);
-      ctx.globalAlpha = fade * p.opacity;
-      ctx.drawImage(sprites[p.sprite % sprites.length], -scale / 2, -scale / 2, scale, scale);
-      ctx.restore();
-    }
-    ctx.restore();
-    ctx.globalAlpha = 1;
-    // Feather the shallow spill before the next reading line, also avoiding clipped canvas edges.
-    ctx.globalCompositeOperation = 'destination-in';
-    ctx.fillStyle = state.falloff;
-    ctx.fillRect(0, 0, w, h);
-    ctx.fillStyle = state.edges;
-    ctx.fillRect(0, 0, w, h);
-    ctx.globalCompositeOperation = 'source-over';
-  }
-  function running() {
-    return !motion.matches && !document.hidden && visible.size > 0;
-  }
-  function animate(now) {
-    frame = 0;
-    if (!running()) return;
-    if (!lastFrame) lastFrame = now - FPS;
-    if (now - lastFrame >= FPS - 0.5) {
-      const delta = Math.min(0.1, (now - lastFrame) / 1000);
-      lastFrame = now;
-      for (const state of visible)
-        if (state.button.isConnected && !state.button.disabled && state.canvas) draw(state, delta);
-    }
-    frame = requestAnimationFrame(animate);
-  }
-  function schedule() {
-    if (running() && !frame) {
-      lastFrame = 0;
-      frame = requestAnimationFrame(animate);
-    } else if (!running() && frame) {
-      cancelAnimationFrame(frame);
-      frame = 0;
-      lastFrame = 0;
-    }
-  }
-  function refreshVisible() {
-    const foreground =
-      document.activeElement?.closest('dialog[open]') ||
-      [...document.querySelectorAll('dialog[open]')].at(-1);
-    visible.clear();
-    for (const state of intersecting)
-      if (!state.button.disabled && (!foreground || foreground.contains(state.button))) visible.add(state);
-    schedule();
-  }
   function register(button) {
     if (states.has(button)) return;
     const state = { button };
     states.set(button, state);
     intersections.observe(button);
   }
-  function scan(node) {
-    if (node.nodeType !== 1 || node.namespaceURI !== 'http://www.w3.org/1999/xhtml') return;
-    if (node.matches(selector)) register(node);
-    for (const button of node.querySelectorAll(selector)) register(button);
+  function forget() {
+    for (const [button, state] of states)
+      if (!button.isConnected) {
+        intersections.unobserve(button);
+        state.resize?.disconnect();
+        states.delete(button);
+      }
+  }
+  function scan() {
+    for (const button of document.querySelectorAll(`#inspector ${selector}, dialog[open] ${selector}`))
+      register(button);
+    forget();
   }
   function install() {
     if (installed || motion.matches || typeof IntersectionObserver !== 'function') return;
-    sprites = textures();
+    const sprites = textures();
     if (!sprites.length) return;
+    kinds = publish(sprites);
     installed = true;
     intersections = new IntersectionObserver((entries) => {
       for (const entry of entries) {
         const state = states.get(entry.target);
         if (!state) continue;
-        if (entry.isIntersecting && entry.boundingClientRect.width > 0) {
-          initialize(state, entry.boundingClientRect);
-          if (state.canvas) intersecting.add(state);
-        } else intersecting.delete(state);
+        const on = entry.isIntersecting && entry.boundingClientRect.width > 0;
+        if (on) initialize(state, entry.boundingClientRect);
+        // Puffs move only while their button is on screen.
+        state.box?.classList.toggle('cc-on', on);
       }
-      refreshVisible();
     });
-    scan(document.body);
-    mutations = new MutationObserver((records) => {
-      for (const record of records) for (const node of record.addedNodes) scan(node);
-      for (const [button, state] of states)
-        if (!button.isConnected) {
-          intersections.unobserve(button);
-          state.resize?.disconnect();
-          intersecting.delete(state);
-          visible.delete(state);
-          states.delete(button);
-        }
-      refreshVisible();
-    });
-    mutations.observe(document.body, {
-      childList: true,
-      subtree: true,
-      attributes: true,
-      attributeFilter: ['open', 'hidden', 'disabled'],
-    });
+    scan();
+    const reader = document.getElementById('inspector');
+    if (reader && typeof MutationObserver === 'function') {
+      mutations = new MutationObserver(scan);
+      mutations.observe(reader, { childList: true, subtree: true });
+    }
+    window.DKLACalm?.after(scan);
   }
-  document.addEventListener('visibilitychange', schedule, { passive: true });
-  document.addEventListener('focusin', refreshVisible, { passive: true });
-  motion.addEventListener('change', () => {
-    install();
-    schedule();
-  });
+  motion.addEventListener('change', install);
   if (document.readyState === 'loading')
     document.addEventListener('DOMContentLoaded', install, { once: true });
   else install();

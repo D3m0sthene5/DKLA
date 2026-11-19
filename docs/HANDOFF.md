@@ -3,6 +3,45 @@
 Written at the end of a session so the next one can pick up cleanly.
 Update or replace this file when the state changes.
 
+## Calm (branch `v32-calm`, 18 November 2026; not merged, not published)
+
+The page is at rest when nothing is happening, panels arrive and leave with a short motion that can
+be interrupted, and every control answers a press. No layout, size, colour or content change at rest
+(the exceptions are listed in the commit message). Read `src/features/calm/calm.js` and `calm.css`
+first; the motion tokens are in `src/features/v31/tokens.css`.
+
+- **Rest.** Home and an open case now cause 0 layouts a second (65 before). The fuel gauge's and the
+  version label's bright band are a window sliding over a second copy (two transforms, run by the
+  compositor: `fuel.js`/`fuel.css`, `r20.js`/`hud-font.css`); the Cold Call vapour is 18 CSS-animated
+  puffs per button, no canvas, no requestAnimationFrame (`frost.js`/`frost.css`); the clock shows
+  each character by sliding a strip, so a tick lays nothing out (`clock.js`); Dottie's blink is a
+  0.42 s fill-opacity fade every 5.2 s (`dottie.js`, `ask.css`). The 200 ms and 500 ms timers are gone
+  (`DKLACalm.after`), and the Cold Call observer watches `#inspector`, not the whole page.
+  Things learned the hard way: a transform or a group opacity on a shape inside an SVG costs a layout
+  per change, fill-opacity does not; `display` toggles and text changes cost a layout, `visibility`
+  and a transform on a strip do not.
+- **Quiet time.** `html.dkla-ambient-off` (tab hidden or a dialog open; set by `calm.js`) and
+  `html.dkla-moving` (for the map to set during a gesture; nothing sets it yet) pause every ambient
+  animation in `calm.css`. New ambient decoration must be added to that list.
+- **Dialogs** share one flat scrim (`--v31-scrim`, no blur) and fade and scale through
+  `@starting-style` and `allow-discrete` transitions; the menu, search panel and reader the same way
+  on their `hidden` attribute. A closing panel is already closed for the code (`open` false, `hidden`
+  true) and takes no clicks; only its picture lingers for 0.2 s. Checks that wait for a panel to be
+  gone should wait for `display: none` or for the state, not sleep.
+- **Press feedback**: shared rules at the end of `calm.css` (`:where()`, so component colours win).
+  Several components start from `all: unset`, which is why the pressed state is `!important`.
+- **Rail**: `reading.js` `placeNow()`; rail clicks use `DKLACalm.scrollTo` (250 ms, stops on wheel,
+  touch or key).
+- **Loading lines**: `calm.js` puts `calm-wait` on any `role="status"` line in a dialog that starts
+  with "Loading"; nothing shows for 150 ms, then a skeleton.
+- **Checks**: `tools/feel/check-calm.mjs` ("calm: rest, transitions and press feedback") with ten
+  breakages in `tools/verify/break.mjs`; `tools/v31/check-case.mjs` asserts the rail's mark;
+  `tools/fuel/check-browser.mjs` checks the new sweep. Benchmark: `tools/feel/measure.mjs`.
+- **Still to do**: the map engineer should set `dkla-moving` on `<html>` during pan and zoom; the
+  reader's way out starts only after the map has refitted (the refit blocks the page for a moment
+  when the reader closes; that is map work); `pnpm views:update` on the owner's PC (dialog scrims are
+  no longer blurred, so every picture with a dialog changes slightly).
+
 ## Latest (18 November 2026, v3.1)
 
 Read this first; the sections below it are older.

@@ -36,8 +36,7 @@
   flex-direction: column;
 }
 #coldCallDialog::backdrop {
-  background: #060c13cf;
-  backdrop-filter: blur(3px);
+  background: var(--v31-scrim);
 }
 #coldCallDialog[data-course='Civil Procedure'] {
   --cc-accent: #92caff;
@@ -404,7 +403,7 @@
   flex-direction: column;
 }
 #ccBriefDialog::backdrop {
-  background: #050b13d9;
+  background: var(--v31-scrim);
 }
 #ccBriefDialog header {
   display: flex;

@@ -89,6 +89,14 @@
   display: block;
   height: var(--h);
 }
+/* Every character of the card, one per line; clock.js slides the strip to the one that shows
+   (--at is its line), so a change of digit moves a strip and lays nothing out. */
+.ny-clock .ny-strip {
+  display: block;
+  font-style: normal;
+  white-space: pre;
+  transform: translateY(calc(var(--at, 0) * var(--h) * -1));
+}
 .ny-clock .half.top {
   top: 0;
   border-radius: 3px 3px 0 0;
@@ -126,7 +134,8 @@
 .ny-clock .leaf {
   position: absolute;
   inset: 0 0 50%;
-  display: none;
+  /* always in the page, so a flip changes no layout; invisible between flips */
+  visibility: hidden;
   transform-origin: 50% 100%;
   transform-style: preserve-3d;
   z-index: 2;
@@ -153,7 +162,7 @@
   pointer-events: none;
 }
 .ny-clock .flipping .leaf {
-  display: block;
+  visibility: visible;
   animation: ny-fall var(--flip) cubic-bezier(0.55, 0, 0.9, 0.45) forwards;
 }
 .ny-clock .flipping.landing .leaf {
@@ -317,7 +326,7 @@
 @media (prefers-reduced-motion: reduce) {
   .ny-clock .flipping .leaf,
   .ny-clock .flipping .half::before {
-    display: none;
+    visibility: hidden;
     animation: none;
   }
 }

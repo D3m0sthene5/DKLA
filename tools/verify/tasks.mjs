@@ -161,6 +161,14 @@ export const tasks = [
   // v3.1: the case page's order, rail, timeline axis, flowchart steps and dictionary examples.
   step('browser', 'v3.1 case page', node('tools/v31/check-case.mjs', '{page}'), SERVER),
   step('browser', 'Ask Dottie trotting opossums', node('tools/ask/trot-browser.mjs', '{page}'), SERVER),
+  // v3.2 calm: no layout at rest, ambient motion paused under a dialog, every dialog and panel with a way
+  // in and out that can be interrupted, pressed states, the rail's mark, loading skeletons, reduced motion.
+  step(
+    'browser',
+    'calm: rest, transitions and press feedback',
+    node('tools/feel/check-calm.mjs', '{page}'),
+    SERVER,
+  ),
   // The fuel gauge round the clock: lit share, direction, colours, label, refresh after an answer.
   step(
     'browser',

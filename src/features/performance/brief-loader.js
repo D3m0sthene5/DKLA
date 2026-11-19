@@ -85,7 +85,7 @@
   async function fill(target, id, render) {
     if (!target || target.dataset.briefLoading || target.dataset.done) return;
     target.dataset.briefLoading = '1';
-    target.innerHTML = '<p role="status">Loading full brief…</p>';
+    target.innerHTML = '<p role="status" class="calm-wait">Loading full brief…</p>';
     try {
       const value = await text(id);
       if (!target.isConnected) return;

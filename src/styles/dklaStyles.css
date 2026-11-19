@@ -9,7 +9,7 @@
   border-radius: 14px;
 }
 #lrsSourceDialog::backdrop {
-  background: #050a11d9;
+  background: var(--v31-scrim);
 }
 .lrs-source-header {
   position: sticky;

@@ -153,6 +153,61 @@ const before = await page.evaluate(() => document.getElementById('inspector').sc
 await body.locator('.v31-rail [data-v31-place]', { hasText: '5 Holding' }).click();
 await page.waitForFunction((y) => document.getElementById('inspector').scrollTop > y + 400, before);
 
+// The rail marks the part being read. A click marks its place at once and the page settles with that
+// heading at the top of the reading area; scrolling by hand, the mark moves to a part as soon as its
+// heading is in the top third of the reading area (it used to stay on the part before until the
+// heading was within 67 px of the top: reading "1 Parties", it said "Flowchart steps").
+const marked = () =>
+  page.evaluate(() => {
+    const reader = document.getElementById('inspector'),
+      nav = reader.querySelector('.v31-rail'),
+      now = [...nav.querySelectorAll('[aria-current="location"]')].map((b) => b.textContent),
+      top = reader.getBoundingClientRect().top + reader.querySelector('.reader-top').offsetHeight;
+    const at = (label) => {
+      const i = [...nav.querySelectorAll('[data-v31-place]')].findIndex((b) => b.textContent === label);
+      return Math.round(nav.v31Targets[i].getBoundingClientRect().top - top);
+    };
+    return { now, holding: at('5 Holding'), parties: at('1 Parties'), study: at('Study') };
+  });
+assert.deepEqual((await marked()).now, ['5 Holding'], 'the clicked place is marked at once');
+await page.waitForFunction(() => {
+  const reader = document.getElementById('inspector');
+  const y = reader.scrollTop;
+  return new Promise((done) => setTimeout(() => done(reader.scrollTop === y), 150));
+});
+let place = await marked();
+assert.deepEqual(place.now, ['5 Holding']);
+assert.ok(
+  place.holding >= 0 && place.holding <= 24,
+  `"5 Holding" is at the top of the reading area (${place.holding} px)`,
+);
+// By hand: "1 Parties" 100 px below the top of the reading area is the part being read.
+await page.evaluate(() => {
+  const reader = document.getElementById('inspector'),
+    nav = reader.querySelector('.v31-rail'),
+    i = [...nav.querySelectorAll('[data-v31-place]')].findIndex((b) => b.textContent === '1 Parties'),
+    top = reader.getBoundingClientRect().top + reader.querySelector('.reader-top').offsetHeight;
+  reader.scrollTop += nav.v31Targets[i].getBoundingClientRect().top - top - 100;
+});
+await page.waitForFunction(
+  () => document.querySelector('#inspector .v31-rail [aria-current="location"]')?.textContent === '1 Parties',
+  null,
+  { timeout: 5000 },
+);
+place = await marked();
+assert.ok(Math.abs(place.parties - 100) <= 2, `"1 Parties" is 100 px down (${place.parties})`);
+// At the very end of the page the last part is marked, though its heading cannot reach the top.
+await page.evaluate(() => {
+  const reader = document.getElementById('inspector');
+  reader.scrollTop = reader.scrollHeight;
+});
+await page.waitForFunction(
+  () => document.querySelector('#inspector .v31-rail [aria-current="location"]')?.textContent === 'Study',
+  null,
+  { timeout: 5000 },
+);
+assert.equal((await marked()).now.length, 1, 'one place is marked');
+
 // The full timeline marks this case.
 await page.evaluate(() => (document.getElementById('inspector').scrollTop = 0));
 await body.locator('.v31-tl [data-r21-open]').click();

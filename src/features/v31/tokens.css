@@ -38,6 +38,36 @@
   --v31-ui: 500 14px/20px var(--dkla-interface, Inter), sans-serif;
   --v31-label: 500 12px/16px var(--dkla-interface, Inter), sans-serif;
   --v31-radius: 12px;
+  /* Motion (v3.2 "calm"): three lengths and one curve. press = a control answering a finger or the
+     pointer; pop = a dialog, menu or search panel arriving; panel = the reader sliding in (it leaves in
+     three-quarters of that). Only transform and opacity move, so nothing is laid out again. The spring is
+     the same curve with a slight overshoot, for browsers that know linear(); the others use the curve. */
+  --v31-t-press: 120ms;
+  --v31-t-pop: 200ms;
+  --v31-t-panel: 320ms;
+  --v31-ease: cubic-bezier(0.22, 0.9, 0.3, 1);
+  --v31-spring: var(--v31-ease);
+  /* One scrim behind every dialog: flat, no blur (a blurred backdrop redraws the whole screen). */
+  --v31-scrim: #050b11b8;
+  /* One focus ring: a gap in the ground colour, then the link blue. */
+  --v31-focus: 0 0 0 2px var(--v31-ground), 0 0 0 4px var(--v31-link);
+}
+@supports (transition-timing-function: linear(0, 1)) {
+  :root {
+    --v31-spring: linear(
+      0,
+      0.19 5%,
+      0.55 13%,
+      0.82 21%,
+      0.98 29%,
+      1.035 37%,
+      1.04 44%,
+      1.022 55%,
+      1.006 68%,
+      1 82%,
+      1
+    );
+  }
 }
 /* The reader widens to leave a strip of map for context (the map already fits the selected entry
    into whatever space the reader leaves: studyCode.js readerWidth). Landscape desktop and iPad only. */

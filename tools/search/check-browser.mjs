@@ -67,6 +67,8 @@ async function type(page, text) {
     { timeout: 10_000 },
   );
   await page.locator('#searchResults [data-search-key]').first().waitFor({ timeout: 10_000 });
+  // The panel drops in over 0.2 s (src/features/calm/calm.css): measure it once it has arrived.
+  await page.waitForFunction(() => !document.getElementById('searchResults').getAnimations().length);
   await page.evaluate(() => new Promise((resolve) => requestAnimationFrame(() => resolve())));
 }
 async function desktopSearch(page, text) {
@@ -86,6 +88,12 @@ const rows = (page) =>
       where: b.querySelector('.search-where')?.textContent || '',
     })),
   );
+// Closed at once (the hidden attribute), then gone from the screen once its 0.2 s way out is over.
+const resultsGone = async (page) => {
+  if (!(await page.evaluate(() => document.getElementById('searchResults').hidden))) return false;
+  await page.locator('#searchResults').waitFor({ state: 'hidden', timeout: 2000 });
+  return true;
+};
 const panelOpen = (page) =>
   page.evaluate(() => document.documentElement.classList.contains('dkla-search-panel'));
 const COURSE_OF = {
@@ -159,7 +167,7 @@ try {
     await check(`${width} px: Escape and × close the panel`, async () => {
       await page.keyboard.press('Escape');
       assert.equal(await panelOpen(page), false, 'Escape closes the panel');
-      assert.ok(await page.locator('#searchResults').isHidden(), 'and the results');
+      assert.ok(await resultsGone(page), 'and the results');
       await opener.tap();
       await page.waitForFunction(() => document.activeElement?.id === 'search', null, { timeout: 5000 });
       assert.ok(await panelOpen(page), 'the panel opens again');
@@ -222,7 +230,7 @@ try {
       await page.locator('#searchResults [data-search-key="flowchart:K-16"]').click();
       await page.locator('dialog#dklaFlowcharts[open]').waitFor({ timeout: 5000 });
       assert.equal(new URL(page.url()).hash, '#flowchart=K-16');
-      assert.ok(await page.locator('#searchResults').isHidden(), 'the results close');
+      assert.ok(await resultsGone(page), 'the results close');
       await page.locator('dialog#dklaFlowcharts [data-flowcharts-close]').click();
       await page.locator('dialog#dklaFlowcharts').waitFor({ state: 'hidden', timeout: 5000 });
     },

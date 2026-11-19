@@ -18,16 +18,61 @@
   font-weight: 700;
   letter-spacing: 0.16em;
   line-height: 1.1;
-  /* a cool cyan face with a bright sweep running across it, like an Iron Man HUD readout */
+  /* a cool cyan face with a bright band running across it, like an Iron Man HUD readout. The face
+     stands still; the band is a second copy of the label in the highlight colour, seen through a
+     narrow window that slides across (below). */
   color: #9eefff;
-  background: linear-gradient(100deg, #5fd8ff 0%, #5fd8ff 38%, #f2feff 48%, #5fd8ff 58%, #2fa6e0 100%);
-  background-size: 260% 100%;
+  background: linear-gradient(100deg, #5fd8ff 0%, #5fd8ff 55%, #2fa6e0 130%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: none;
   filter: drop-shadow(0 0 5px rgb(90 220 255 / 60%)) drop-shadow(0 0 14px rgb(40 160 255 / 35%));
-  animation: dkla-hud-sweep 5s linear infinite;
+}
+/* The band (r20.js adds the two empty spans; the letters come from data-label, so the label's own
+   text stays exactly the version). The window slides right and the copy inside slides left by the
+   same amount, so the copy stays on the letters: two transforms, each on its own layer, which the
+   browser's compositor runs without restyling or laying out the page (before v3.2 the label's
+   background-position was animated, which redrew the top bar 60 times a second). It stands still
+   while the tab is hidden, a dialog is open or the map is moving (calm.css). */
+#atlasHome .dkla-release-shine {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+}
+#atlasHome .dkla-release-window {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 52%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 50%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 50%, transparent);
+  transform: translateX(-100%);
+  will-change: transform;
+  animation: dkla-hud-window 5s linear infinite;
+}
+#atlasHome .dkla-release-copy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* the label's own box, measured from the window (52% of it) */
+  width: 192.3%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 3px 9px 2px;
+  white-space: nowrap;
+  -webkit-text-fill-color: #f2feff;
+  color: #f2feff;
+  transform: translateX(52%);
+  will-change: transform;
+  animation: dkla-hud-copy 5s linear infinite;
+}
+#atlasHome .dkla-release-copy::before {
+  content: attr(data-label);
 }
 /* thin HUD corner brackets */
 #atlasHome .dkla-release::before,
@@ -51,17 +96,26 @@
   border-left: 0;
   border-top: 0;
 }
-@keyframes dkla-hud-sweep {
-  from {
-    background-position: 110% 0;
+@keyframes dkla-hud-window {
+  0% {
+    transform: translateX(-100%);
   }
-  to {
-    background-position: -160% 0;
+  47%,
+  100% {
+    transform: translateX(192.3%);
+  }
+}
+@keyframes dkla-hud-copy {
+  0% {
+    transform: translateX(52%);
+  }
+  47%,
+  100% {
+    transform: translateX(-100%);
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  #atlasHome .dkla-release {
-    animation: none;
-    background-position: 50% 0;
+  #atlasHome .dkla-release-shine {
+    display: none;
   }
 }

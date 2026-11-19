@@ -192,8 +192,8 @@ assert.equal(geometry.role, 'img');
 
 // Reduced motion: no sweep. An Ask Dottie answer fetches the gauge again.
 assert.equal(
-  await page.locator('.ny-clock .ny-fuel animateTransform').count(),
-  0,
+  await page.evaluate(() => getComputedStyle(document.querySelector('.ny-clock .ny-fuel-shine')).display),
+  'none',
   'no sweep with reduced motion',
 );
 const before = fuelRequests;
@@ -209,7 +209,46 @@ await context.close();
 reply = { calibrated: true, fraction: 0.5, updatedAt: '2026-11-18T12:00:00.000Z' };
 const moving = await open({ reducedMotion: 'no-preference' });
 await moving.page.waitForFunction(() => window.DKLAFuel.state().calibrated, null, { timeout: 10_000 });
-assert.equal(await moving.page.locator('.ny-clock .ny-fuel animateTransform').count(), 1, 'the sweep runs');
+// The sweep is a window sliding across a copy of the lit line that slides back by the same amount:
+// two transform animations (run by the compositor, so the page is not laid out for them), no SMIL,
+// and the copy stays on the frame while the window moves.
+const sweep = async () =>
+  moving.page.evaluate(() => {
+    const shine = document.querySelector('.ny-clock .ny-fuel-shine'),
+      view = shine.querySelector('.ny-fuel-window'),
+      copy = shine.querySelector('.ny-fuel-copy'),
+      lit = document.querySelector('.ny-clock .ny-fuel-lit');
+    const names = (el) => el.getAnimations().map((a) => a.animationName + ':' + a.playState);
+    return {
+      smil: document.querySelectorAll('.ny-clock animateTransform, .ny-clock animate').length,
+      window: names(view),
+      copy: names(copy),
+      windowAt: view.getBoundingClientRect().left,
+      drift: copy.querySelector('path').getBoundingClientRect().left - lit.getBoundingClientRect().left,
+      dash: copy.querySelector('path').style.strokeDasharray === lit.style.strokeDasharray,
+      level: shine.dataset.level,
+    };
+  });
+// The band crosses in the first 2.8 s of every 5 s and waits off the frame for the rest: sample
+// until two looks half a second apart catch it moving.
+let first = await sweep(),
+  second = first;
+for (let i = 0; i < 14; i++) {
+  await moving.page.waitForTimeout(500);
+  second = await sweep();
+  if (second.windowAt - first.windowAt > 20) break;
+  first = second;
+}
+assert.equal(first.smil, 0, 'no SMIL animation in the clock');
+assert.deepEqual(first.window, ['ny-fuel-window:running'], 'the sweep runs');
+assert.deepEqual(first.copy, ['ny-fuel-copy:running']);
+assert.ok(
+  second.windowAt - first.windowAt > 20,
+  `the band moves right (${first.windowAt} → ${second.windowAt})`,
+);
+for (const at of [first, second])
+  assert.ok(Math.abs(at.drift) < 1.5, `the bright copy stays on the lit line (off by ${at.drift})`);
+assert.ok(first.dash && first.level === 'ok', 'the bright copy is as long as the lit line');
 if (shots) {
   await moving.page.waitForTimeout(2000);
   const box = await moving.page.locator('.study-header .ny-clock').boundingBox();

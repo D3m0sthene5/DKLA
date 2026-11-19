@@ -16,7 +16,7 @@
   display: none;
 }
 #fileDialog::backdrop {
-  background: #05090dcc;
+  background: var(--v31-scrim);
 }
 #fileDialog .file-header {
   display: flex;

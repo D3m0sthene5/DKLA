@@ -21,8 +21,7 @@
   flex-direction: column;
 }
 #r21Timelines::backdrop {
-  background: #050b11b8;
-  backdrop-filter: blur(5px);
+  background: var(--v31-scrim);
 }
 #r21Timelines .r19-head {
   flex: 0 0 auto;

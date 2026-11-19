@@ -22,8 +22,6 @@
   // Thresholds: below these shares the line turns amber, then red-orange.
   const LOW = 0.25,
     EMPTYING = 0.1;
-  const calm = matchMedia('(prefers-reduced-motion: reduce)');
-
   const svg = document.createElementNS(NS, 'svg');
   svg.setAttribute('class', 'ny-fuel');
   // The clock is role="img", so anything inside it is hidden from screen readers; the label
@@ -39,6 +37,19 @@
     '<path class="ny-fuel-track"/><path class="ny-fuel-lit"/>';
   clock.append(svg);
   clock.classList.add('has-fuel');
+  // The bright band that crosses the line every 5 s. It is a second copy of the lit line in the
+  // highlight colour, seen through a narrow soft-edged window. The window slides across and the
+  // copy inside slides back by the same amount, so the copy stays on the frame; both moves are
+  // transforms on their own layers, so the browser's compositor runs them and the page itself is
+  // never restyled or laid out for it (fuel.css; before v3.2 an SVG gradient was animated, which
+  // laid the top bar out 60 times a second).
+  const shine = document.createElement('span');
+  shine.className = 'ny-fuel-shine';
+  shine.setAttribute('aria-hidden', 'true');
+  shine.innerHTML = `<span class="ny-fuel-window"><svg class="ny-fuel-copy" focusable="false"><path/></svg></span>`;
+  clock.append(shine);
+  const copy = shine.querySelector('svg'),
+    copyLine = shine.querySelector('path');
   const gradient = svg.querySelector('linearGradient');
   const track = svg.querySelector('.ny-fuel-track');
   const lit = svg.querySelector('.ny-fuel-lit');
@@ -67,26 +78,9 @@
     );
   }
 
-  // The bright sweep that runs across the line, as on the version label (5 s a pass).
-  let sweep;
+  // The line's own colours stand still: the face fading to the deep end across the frame.
   function motion() {
-    sweep?.remove();
-    sweep = null;
-    // Still (reduced motion): the face fading to the deep end across the frame, without the white
-    // band, which would wash out the amber and red-orange of a short line at the top.
     gradient.setAttribute('gradientTransform', `translate(${-1.81 * width} 0)`);
-    if (calm.matches || !width) return;
-    sweep = document.createElementNS(NS, 'animateTransform');
-    sweep.setAttribute('attributeName', 'gradientTransform');
-    sweep.setAttribute('type', 'translate');
-    sweep.setAttribute('from', `${-1.6 * width} 0`);
-    sweep.setAttribute('to', `${1.1 * width} 0`);
-    sweep.setAttribute('dur', '5s');
-    sweep.setAttribute('repeatCount', 'indefinite');
-    gradient.append(sweep);
-    try {
-      svg.setCurrentTime?.(0);
-    } catch {}
   }
 
   function layout() {
@@ -99,6 +93,12 @@
     svg.setAttribute('height', h);
     track.setAttribute('d', d);
     lit.setAttribute('d', d);
+    copyLine.setAttribute('d', d);
+    copy.setAttribute('viewBox', `0 0 ${w} ${h}`);
+    copy.setAttribute('width', w);
+    copy.setAttribute('height', h);
+    shine.style.width = w + 4 + 'px';
+    shine.style.height = h + 4 + 'px';
     length = lit.getTotalLength();
     // The sweep's gradient spans the frame twice over so the bright band crosses it.
     gradient.setAttribute('x1', String(w * 0.25));
@@ -121,9 +121,11 @@
           : 'ok';
     state.level = level;
     svg.dataset.level = level;
+    shine.dataset.level = level;
     const shown = calibrated ? Math.min(1, Math.max(0, fraction)) : 0;
     // A gap longer than the outline, so nothing wraps round to the start.
     lit.style.strokeDasharray = length ? `${shown * length} ${length + 1}` : '0 1';
+    copyLine.style.strokeDasharray = lit.style.strokeDasharray;
     const percent = Math.round(shown * 100);
     const words = calibrated
       ? `Ask Dottie credit about ${percent}% left`
@@ -156,7 +158,6 @@
   }
 
   new ResizeObserver(layout).observe(clock);
-  calm.addEventListener?.('change', motion);
   setInterval(() => {
     if (!document.hidden) refresh();
   }, EVERY);
