@@ -421,6 +421,11 @@ html.v32-chrome .study-header .study-search #search::-webkit-search-cancel-butto
   mask: var(--v32-g-close) center / 16px 16px no-repeat;
   cursor: pointer;
 }
+/* While the field is empty there is nothing to clear: the button takes no room, so "Search or jump
+   to…" is whole even in a field that has given a long path all it can (240 px). */
+html.v32-chrome .study-header .study-search #search:placeholder-shown::-webkit-search-cancel-button {
+  display: none;
+}
 /* The shortcut, as a readout at the field's right end (Ctrl K, or the Mac's sign: chrome.js). */
 html.v32-chrome .study-header .study-search #searchKey {
   flex: none;

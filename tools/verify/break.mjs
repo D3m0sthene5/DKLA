@@ -406,6 +406,16 @@ const breakages = [
       edit('src/features/v32/chrome.js', '    if (off && !late) again = setTimeout(lateLook, 1000);\n', ''),
   ],
   [
+    'The frame: an empty command field keeps room for a clear button, and its words are cut beside a long path',
+    'src/features/v32/chrome.css',
+    () =>
+      edit(
+        'src/features/v32/chrome.css',
+        '#search:placeholder-shown::-webkit-search-cancel-button {\n  display: none;',
+        '#search:placeholder-shown::-webkit-search-cancel-button {\n  display: block;',
+      ),
+  ],
+  [
     'The frame: the version readout stands outside the instrument, beside it',
     'src/features/v32/chrome.css',
     () =>

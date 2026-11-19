@@ -666,6 +666,27 @@ try {
         assert.deepEqual(o.clipped, [], width + 'px');
         assert.ok(o.field.w >= 240, `${width}px: the field is ${o.field.w}px wide`);
         assert.ok(o.right <= o.field.x - 8, width + 'px: the path ends before the field starts');
+        // And the field it borrowed from still says what it is for, whole.
+        const words = await page.evaluate(() => {
+          const input = document.getElementById('search'),
+            probe = document.createElement('span');
+          probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap';
+          probe.style.font = getComputedStyle(input).font;
+          probe.textContent = input.placeholder;
+          document.body.append(probe);
+          const needs = probe.getBoundingClientRect().width;
+          probe.remove();
+          return {
+            needs,
+            has: input.clientWidth,
+            clear: getComputedStyle(input, '::-webkit-search-cancel-button').display,
+          };
+        });
+        assert.equal(words.clear, 'none', width + 'px: an empty field keeps room for a clear button');
+        assert.ok(
+          words.needs <= words.has,
+          `${width}px: "Search or jump to…" needs ${words.needs}px and has ${words.has}px`,
+        );
       }
       await page.setViewportSize({ width: 1440, height: 900 });
       // Back on Home the field is where it was.
