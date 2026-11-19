@@ -72,6 +72,18 @@ def metadata_checks(document, location, errors):
             metadata_checks(value, f"{location}/{index}", errors)
 
 
+# Authored files whose fields a register may name by JSON pointer. Each is read as committed;
+# the reader shows these values without a further overlay.
+POINTER_FILES = {
+    "tools/v28/case-chronologies.json",
+    "tools/cold-call/plain-sentences.json",
+    "tools/flowcharts/data/contracts.json",
+    "tools/flowcharts/data/civil.json",
+    "tools/flowcharts/data/lrs.json",
+    "tools/canons/data/lectures.json",
+}
+
+
 def identity(edit):
     target = edit.get("target")
     if target == "effectiveBrief":
@@ -82,7 +94,9 @@ def identity(edit):
         return (target, edit.get("key", edit.get("id")), edit["field"])
     if edit.get("file") == "tools/r19/data/timelines.json":
         return ("timeline", edit["timelineId"], edit.get("stepKey"), edit["field"])
-    if edit.get("file") == "tools/v28/case-chronologies.json" and "pointer" in edit:
+    if edit.get("file") in POINTER_FILES and "pointer" in edit:
+        return ("pointer", edit["file"], edit["pointer"])
+    if "pointer" in edit and re.fullmatch(r"tools/cold-call/narratives/[a-z0-9-]+\.json", str(edit.get("file"))):
         return ("pointer", edit["file"], edit["pointer"])
     raise ValueError(f"unknown correction target: {target or edit.get('file')}")
 
@@ -125,6 +139,8 @@ def run(ledger_path):
                            ("chronologies", chronologies), ("plain-language", overlay)]:
         metadata_checks(document, name, errors)
 
+    files = {}
+
     def resolve(edit, target):
         if target[0] == "effectiveBrief":
             _, cid, field = target
@@ -142,7 +158,11 @@ def run(ledger_path):
             line = one([t for t in timelines["timelines"] if t["id"] == target[1]], str(target))
             item = line if target[2] is None else one([s for s in line["steps"] if key(s) == target[2]], str(target))
             return item.get(target[3])
-        return pointer(chronologies, target[2])
+        if target[1] == "tools/v28/case-chronologies.json":
+            return pointer(chronologies, target[2])
+        if target[1] not in files:
+            files[target[1]] = read(target[1])
+        return pointer(files[target[1]], target[2])
 
     identities = [identity(e) for e in edits]
     for index, (edit, target) in enumerate(zip(edits, identities)):
