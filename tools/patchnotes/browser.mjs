@@ -1,5 +1,6 @@
-/* Patch notes (src/features/patchnotes): the last item of the ☰ menu opens a dialog listing every version
-   from v3.0 back to v9, newest first; choosing a version shows its notes; Escape closes it.
+/* Patch notes (src/features/patchnotes): the last of the links in the Library's footer opens a dialog
+   listing every version from v3.1 back to v9, newest first; choosing a version shows its notes; Escape
+   closes it.
 
      node tools/patchnotes/browser.mjs http://127.0.0.1:8766/DKLA-v3.1.html */
 import assert from 'node:assert/strict';
@@ -28,18 +29,15 @@ try {
   await page.locator('#moreBtn').click();
   const item = page.locator('#moreMenu [data-dkla-patch]');
   await item.waitFor();
-  // Since v3.2 the menu is the Library, a dialog of three short groups that fits the window (owner: the
-  // long list was unusable). Patch notes is the last of its rows (it is a curiosity, not a tool), with the
-  // version beside it.
+  // Since v3.2 the menu is the Library, a dialog of four short groups that fits the window (owner: the
+  // long list was unusable). Patch notes is the last of the footer's own links (it is about the atlas,
+  // not a tool for studying), with the version beside it.
   await page.waitForFunction(() => !document.getElementById('libraryDialog').getAnimations().length);
   const last = await page.evaluate(() => {
-    const row = [...document.querySelectorAll('#moreMenu .v32-row')].pop();
-    return [
-      row?.querySelector('.v32-row-label')?.textContent.trim(),
-      row?.querySelector('.v32-row-meta')?.textContent.trim(),
-    ];
+    const link = [...document.querySelectorAll('#moreMenu .v32-lib-foot button.v32-quiet')].pop();
+    return [link?.firstChild?.textContent.trim(), link?.querySelector('.v32-quiet-meta')?.textContent.trim()];
   });
-  assert.deepEqual(last, ['Patch notes', 'v3.1'], 'Patch notes is the last row of the Library');
+  assert.deepEqual(last, ['Patch notes', 'v3.1'], "Patch notes is the last of the Library footer's links");
   const panel = await page.evaluate(() => {
     const dialog = document.getElementById('libraryDialog'),
       m = document.getElementById('moreMenu'),
@@ -77,7 +75,7 @@ try {
   await page.locator('#patchNotesDialog[open]').waitFor({ state: 'detached' });
   assert.deepEqual(errors, []);
   console.log(
-    `Library: three groups that fit the window. Patch notes: ${names.length} versions, v3.1 to v9, closes with Escape.`,
+    `Library: four groups that fit the window. Patch notes: ${names.length} versions, v3.1 to v9, closes with Escape.`,
   );
 } finally {
   await browser.close();

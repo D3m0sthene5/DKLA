@@ -264,14 +264,15 @@ if (shots) {
 assert.deepEqual(moving.errors, []);
 await moving.context.close();
 
-// Below 1280 px the clock is hidden, and the gauge and its label with it; at 1280 px both are there.
+// Below 1280 px the clock is hidden, and the gauge and its label with it; at 1280 px both are there (the
+// clock is a grid since v3.2: its frame holds the time and, in its last column, the version readout).
 const edge = await open({ width: 1280 });
 assert.deepEqual(
   await edge.page.evaluate(() => ({
     clock: getComputedStyle(document.querySelector('.study-header .ny-clock')).display,
     label: getComputedStyle(document.querySelector('.study-header .ny-fuel-label')).display,
   })),
-  { clock: 'flex', label: 'block' },
+  { clock: 'grid', label: 'block' },
 );
 assert.deepEqual(edge.errors, []);
 await edge.context.close();

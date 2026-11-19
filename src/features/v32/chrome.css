@@ -355,6 +355,8 @@ html.v32-chrome .v32-splash-hook .dkla-splash {
 @container v32-left (max-width: 280px) {
   .dkla-splash.dkla-splash-brand {
     display: none;
+    /* at once: through its 0.2 s way out (splash.css) it stood squeezed into three clipped rows */
+    transition: none;
   }
 }
 
@@ -834,11 +836,13 @@ html.v32-chrome #searchResults .search-where + .search-snippet::before {
    match is in sight; the earlier ones (dklaR13Search.js sets them apart, at a word) stay in the page
    for a screen reader, out of sight. Never cut inside a word. */
 html.v32-chrome #searchResults .search-lead-far {
-  position: absolute;
-  width: 1px;
-  height: 1px;
+  /* in the line, taking no room (taken out of the line it would break the passage in two for anything
+     that reads the row's text) */
+  display: inline-block;
+  width: 0;
+  height: 0;
   overflow: hidden;
-  clip-path: inset(50%);
+  vertical-align: top;
   white-space: nowrap;
 }
 html.v32-chrome #searchResults .search-lead:has(> .search-lead-far)::before {
@@ -1065,11 +1069,15 @@ dialog.v32-shell {
   width: calc(100% + var(--v32-s3) * 2);
   margin: 0 calc(var(--v32-s3) * -1);
 }
+/* The footer's links are never broken or squeezed: in a window too narrow for them and the atlas's
+   name on one line the name steps out (it is the wordmark's tooltip too), and narrower still the
+   links take a second line, whole. */
 .v32-lib-foot {
   grid-column: 1 / -1;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: var(--v32-s2);
+  gap: 0 var(--v32-s2);
   margin-top: var(--v32-s4);
   padding-top: var(--v32-s2);
   border-top: 1px solid var(--v32-hair);
@@ -1077,6 +1085,7 @@ dialog.v32-shell {
 .v32-quiet {
   position: relative;
   display: inline-flex;
+  flex: none;
   align-items: center;
   height: var(--v32-h-control);
   margin: 0 0 0 calc(var(--v32-s2) * -1);
@@ -1088,6 +1097,7 @@ dialog.v32-shell {
   font: var(--v32-ui-small);
   letter-spacing: 0;
   text-decoration: none;
+  white-space: nowrap;
   cursor: pointer;
 }
 .v32-quiet + .v32-quiet {
@@ -1110,6 +1120,12 @@ dialog.v32-shell {
   color: var(--v31-muted);
   font: var(--v31-label);
   font-weight: 400;
+  white-space: nowrap;
+}
+@media (max-width: 899px) {
+  .v32-lib-name {
+    display: none;
+  }
 }
 /* One column in a narrow window. A row's name is never cut: the line of explanation steps out
    where a count is shown, a second count ("· 975 steps") steps out, and in the narrowest windows
@@ -1132,12 +1148,6 @@ dialog.v32-shell {
   }
   .v32-library .v32-row:has(.v32-row-meta:not(:empty)) .v32-row-note,
   .v32-library .v32-row-more {
-    display: none;
-  }
-  .v32-lib-foot {
-    flex-wrap: wrap;
-  }
-  .v32-lib-name {
     display: none;
   }
 }
