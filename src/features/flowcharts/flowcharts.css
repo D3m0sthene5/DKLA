@@ -626,7 +626,7 @@
   background: var(--v31-raised);
 }
 .fc-map-node.fc-outcome {
-  border-radius: 999px 999px 999px 999px / 28px 28px 28px 28px;
+  border-radius: 20px;
   background: color-mix(in srgb, var(--fc-course, var(--v31-link)) 20%, var(--v31-ground));
 }
 .fc-map-node.fc-path {

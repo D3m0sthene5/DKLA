@@ -1078,25 +1078,39 @@ html:root body #inspector .v32db-all {
   padding: 32px 0 0;
   border-top: 1px solid var(--v32-hair);
 }
-html:root body #inspector .v32db-all-head > h3,
-html:root body #inspector .v32db-now > h3 {
+/* What ties the entries together, before the entries: the timeline's stored guide set as a lead
+   paragraph, and beside it what the sources establish. The timeline's question is the page's title
+   and is not asked again here. */
+html:root body #inspector .v32db-lead {
+  display: grid;
+  grid-template-columns: minmax(0, 720px) minmax(0, 480px);
+  gap: 24px 64px;
+  align-items: start;
+  margin-bottom: 48px;
+}
+html:root body #inspector .v32db-lead h3 {
+  margin-bottom: 8px;
+  font: var(--v32-ui-small);
+  font-weight: 600;
+  color: var(--v31-muted);
+}
+html:root body #inspector .v32db-lead-guide > p {
   font:
-    600 22px/28px var(--dkla-interface, Inter),
+    400 20px/30px var(--dkla-interface, Inter),
     sans-serif;
+  text-wrap: pretty;
   color: var(--v31-text);
 }
-html:root body #inspector .v32db-guide {
-  max-width: 640px;
-  margin-top: 12px;
+html:root body #inspector .v32db-lead-now > p {
   font: var(--v32-reading);
   text-wrap: pretty;
   color: var(--v31-body);
 }
-html:root body #inspector .v32db-guide > b {
-  display: block;
-  font: var(--v32-ui-small);
-  font-weight: 600;
-  color: var(--v31-muted);
+html:root body #inspector .v32db-all-head > h3 {
+  font:
+    600 22px/28px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-text);
 }
 html:root body #inspector .v32db-list {
   margin: 32px 0 0;
@@ -1241,22 +1255,13 @@ html:root body #inspector .v32db-unit.v32db-is-here > .v32db-unit-main {
   border-radius: 12px;
   background: var(--v31-here-bg);
 }
-html:root body #inspector .v32db-now {
-  max-width: 640px;
-  margin: 48px 0 0 160px;
-  padding-top: 24px;
-  border-top: 1px solid var(--v32-hair);
-}
-html:root body #inspector .v32db-now > p {
-  margin-top: 12px;
-  font: var(--v32-reading);
-  text-wrap: pretty;
-  color: var(--v31-body);
-}
 
 /* ---------- narrower readers ---------- */
 @media (max-width: 1199px) {
   html:root body #inspector .v32db-account {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  html:root body #inspector .v32db-lead {
     grid-template-columns: minmax(0, 1fr);
   }
   /* (The legend turns onto a second line here: its groups are parted by space alone.) */
@@ -1270,10 +1275,7 @@ html:root body #inspector .v32db-now > p {
   html:root body #inspector .v32db-unit-art {
     display: none;
   }
-  html:root body #inspector .v32db-now {
-    margin-left: 144px;
   }
-}
 
 /* Said to a screen reader, not drawn. */
 html:root body #inspector .v32db-vh {
@@ -1414,20 +1416,8 @@ html:root body #inspector .v32db-st-fate::before {
   font-weight: 600;
   color: var(--v31-soft);
 }
-html:root body #inspector .v32db-st-kind {
-  display: none;
-  margin-left: 8px;
-  font: var(--v32-ui-small);
-  line-height: 1;
-  white-space: nowrap;
-  color: var(--f, var(--v31-muted));
-}
-html:root body #inspector .v32db-plate[data-v32db-level='1'] .v32db-st-kind {
-  display: inline;
-}
-/* Less room: applications are named only; least: only the turns of the rule and the open case say more. */
+/* Less room: applications are named only. Turns of the rule, widenings and narrowings keep their words. */
 html:root body #inspector .v32db-plate[data-v32db-level='2'] .v32db-st-row.v32db-small .v32db-st-fx,
-html:root body #inspector .v32db-plate[data-v32db-level='1'] .v32db-st-row:not(.v32db-big) .v32db-st-fx,
 html:root body #inspector .v32db-plate:not([data-v32db-level='3']) .v32db-st-fate {
   display: none;
 }
@@ -1511,6 +1501,13 @@ html:root body #inspector .v32db-st-rule {
   text-wrap: pretty;
   color: var(--v31-soft);
 }
+html:root body #inspector .v32db-st-beam .v32db-st-fate {
+  margin-top: 2px;
+  color: var(--v31-soft);
+}
+html:root body #inspector .v32db-st-beam .v32db-st-fate::before {
+  color: var(--v31-text);
+}
 html:root body #inspector .v32db-st-in,
 html:root body #inspector .v32db-st-end {
   position: relative;
@@ -1537,27 +1534,27 @@ html:root body #inspector .v32db-st-band.v32db-open-end > .v32db-st-in > li:last
   mask-image: linear-gradient(#000 calc(100% - 32px), transparent);
 }
 html:root body #inspector .v32db-st-in > .v32db-st-apart {
-  margin: 8px 0;
+  margin: 14px 0;
 }
 html:root body #inspector .v32db-st-in > .v32db-st-apart:last-child {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 html:root body #inspector .v32db-st-in:has(> .v32db-st-apart:last-child) + .v32db-st-end::after {
   content: '';
   position: absolute;
   left: 28px;
-  top: -12px;
+  top: -14px;
   width: 3px;
-  height: 12px;
+  height: 14px;
   background: var(--v32db-span);
 }
-/* (Its dashed rail starts out at the line's side of where the bar would be.) */
-html:root body #inspector .v32db-st-in > .v32db-st-apart > .v32db-st-row::before {
+/* (Its dashed rail starts beside the line and runs through its mark to its name.) */
+html:root body #inspector .v32db-st-apart > .v32db-st-row::before {
   content: '';
   position: absolute;
-  left: 20px;
-  top: 16px;
-  width: 22px;
+  left: 18px;
+  top: 15px;
+  width: 36px;
   border-top: 1.5px dashed var(--v31-soft);
 }
 html:root body #inspector .v32db-st-in > .v32db-st-item > .v32db-st-row {
@@ -1592,24 +1589,27 @@ html:root body #inspector .v32db-st-hung > .v32db-st-row > .v32db-st-mark > .v32
 html:root body #inspector .v32db-st-loose > .v32db-st-row > .v32db-st-main {
   padding-left: 20px;
 }
-/* A line of its own: clear of the line and of the bar, its name lettered on a dashed rail. */
+/* A line of its own: clear of the line and of the bar. It is set out toward the page's edge, not
+   under the rule it is not part of; its mark sits on a dashed rail that runs the width of the column
+   with the line's name lettered on it. */
+html:root body #inspector .v32db-st-apart > .v32db-st-row {
+  grid-template-columns: 20px 24px minmax(0, 1fr);
+}
 html:root body #inspector .v32db-st-apart > .v32db-st-row > .v32db-st-mark {
   grid-column: 2;
   grid-row: 1;
-  justify-self: start;
-  width: 16px;
-  margin-left: 22px;
+  justify-self: center;
+  width: 24px;
+  margin: 0;
 }
 html:root body #inspector .v32db-st-apart > .v32db-st-row > .v32db-st-main {
+  grid-column: 3;
   grid-row: 1;
-  padding-left: 32px;
+  padding-left: 8px;
 }
-html:root body #inspector .v32db-st > .v32db-st-apart > .v32db-st-row > .v32db-st-mark {
-  grid-column: 1;
-  margin-left: 30px;
-}
-html:root body #inspector .v32db-st > .v32db-st-apart > .v32db-st-row > .v32db-st-main {
-  padding-left: 40px;
+html:root body #inspector .v32db-st-apart > .v32db-st-row > .v32db-st-mark > .v32db-glyph {
+  box-shadow: 0 0 0 3px var(--v31-panel);
+  background: var(--v31-panel);
 }
 html:root body #inspector .v32db-st-rail {
   display: flex;
@@ -1658,36 +1658,54 @@ html:root body #inspector .v32db-st-end:has(.v32db-is-here)::before {
 html:root body #inspector .v32db-st-end > .v32db-st-item > .v32db-st-row {
   padding-top: 8px;
 }
-/* A named line inside a rule (one of its questions), or one of the answers a timeline compares. */
+/* A named line inside a rule (one of its questions), or one of the answers a timeline compares: a
+   group. Its name stands over it with a rule; its entries hang on a short line of their own, so the
+   dates are read down one group at a time. */
+html:root body #inspector .v32db-st-note {
+  position: relative;
+  padding: 8px 0 0 44px;
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
+}
+html:root body #inspector .v32db-st-lanes > .v32db-st-note {
+  padding: 0 0 4px;
+}
 html:root body #inspector .v32db-st-lane {
   position: relative;
-  padding: 6px 0 2px 44px;
+  padding: 12px 0 4px 44px;
 }
 html:root body #inspector .v32db-st-lanes > .v32db-st-lane {
   padding-left: 0;
 }
 html:root body #inspector .v32db-st-lane-name {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  display: block;
+  padding-top: 8px;
+  border-top: 1.5px solid color-mix(in srgb, var(--v32db-span) 62%, var(--v31-panel));
   font:
-    600 15px/22px var(--dkla-display, 'Exo 2'),
+    600 16px/22px var(--dkla-display, 'Exo 2'),
     sans-serif;
+  text-wrap: balance;
   color: var(--v31-text);
 }
-html:root body #inspector .v32db-st-lane-name::after {
+html:root body #inspector .v32db-st-lane > ol {
+  position: relative;
+  margin-top: 4px;
+}
+html:root body #inspector .v32db-st-lane > ol::before {
   content: '';
-  flex: 1 1 16px;
-  min-width: 16px;
-  height: 0;
-  border-top: 1.5px solid color-mix(in srgb, var(--v32db-span) 62%, var(--v31-panel));
+  position: absolute;
+  left: 11px;
+  top: 14px;
+  bottom: 14px;
+  width: 2px;
+  background: color-mix(in srgb, var(--v32db-span) 62%, var(--v31-panel));
 }
 html:root body #inspector .v32db-st-lane > ol > .v32db-st-item > .v32db-st-row {
   grid-template-columns: 24px minmax(0, 1fr);
 }
 html:root body #inspector .v32db-st-lane .v32db-st-mark > .v32db-glyph {
-  box-shadow: none;
-  background: none;
+  box-shadow: 0 0 0 3px var(--v31-panel);
+  background: var(--v31-panel);
 }
 
 /* ---------- a narrow reader: one column, and the header line gives the case's name the room ---------- */
@@ -1715,8 +1733,24 @@ html:root body #inspector .v32db-st-lane .v32db-st-mark > .v32db-glyph {
   html:root body.v32db-on #inspector .v32 > .v32-bar {
     top: var(--v32db-strip, 52px);
   }
+  /* The header line keeps the course and the place (above the name) as it compacts. */
+  html:root body.v32db-on #inspector .reader-top > .v32db-mast {
+    display: grid;
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 0 12px;
+    align-items: center;
+  }
+  html:root body #inspector .v32db-mast > .v32db-art {
+    grid-row: 1 / span 2;
+  }
   html:root body #inspector .v32db-mast > .v32db-crumbs {
-    display: none;
+    grid-column: 2;
+    grid-row: 1;
+    margin-left: 0;
+  }
+  html:root body #inspector .v32db-mast > strong {
+    grid-column: 2;
+    grid-row: 2;
   }
   html:root body #inspector .v32db-title {
     font-size: 22px !important;
@@ -1764,11 +1798,16 @@ html:root body #inspector .v32db-st-lane .v32db-st-mark > .v32db-glyph {
     font-size: 15px;
     line-height: 26px;
   }
-  html:root body #inspector .v32db-now {
-    margin-left: 0;
-  }
-  html:root body #inspector .v32db-all {
+    html:root body #inspector .v32db-all {
     margin-top: 40px;
+  }
+  html:root body #inspector .v32db-lead {
+    grid-template-columns: minmax(0, 1fr);
+    margin-bottom: 32px;
+  }
+  html:root body #inspector .v32db-lead-guide > p {
+    font: var(--v32-reading);
+    color: var(--v31-text);
   }
   html:root body #inspector .v32db-key-group + .v32db-key-group {
     padding-left: 0;

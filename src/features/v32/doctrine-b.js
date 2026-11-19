@@ -953,9 +953,7 @@
       : '';
     const fate =
       item.s.fate && !item.later && !item.hung ? `<span class="v32db-st-fate">${esc(item.s.fate)}</span>` : '';
-    // (Where there is no room for what a widening or a narrowing did, its direction is still said in
-    // the timeline's own two words, after its name.)
-    return `<li class="v32db-st-item ${cls}${apart ? ' v32db-st-apart' : ''}"><button type="button" class="v32db-st-row v32db-c-${item.cls} v32db-f-${item.fam}${big ? ' v32db-big' : ''}${small ? ' v32db-small' : ''}${item.here ? ' v32db-is-here' : ''}" data-v32db-i="${item.i}"><span class="v32db-st-mark">${glyph(item.turn, { rule: 18, reach: 14, steady: 11, aside: 12 }[item.cls])}</span><span class="v32db-st-main">${line}<span class="v32db-st-top">${timeHTML(item.s, 'v32db-yr')}<span class="v32db-st-name">${name}</span>${item.here ? '<span class="v32db-here">You are here</span>' : ''}${item.cls === 'reach' && !item.here ? `<span class="v32db-st-kind v32db-f-${item.fam}">${esc(item.kind)}</span>` : ''}</span><span class="v32db-st-fx">${esc(item.words)}</span>${fate}</span></button></li>`;
+    return `<li class="v32db-st-item ${cls}${apart ? ' v32db-st-apart' : ''}"><button type="button" class="v32db-st-row v32db-c-${item.cls} v32db-f-${item.fam}${big ? ' v32db-big' : ''}${small ? ' v32db-small' : ''}${item.here ? ' v32db-is-here' : ''}" data-v32db-i="${item.i}"><span class="v32db-st-mark">${glyph(item.turn, { rule: 18, reach: 14, steady: 11, aside: 12 }[item.cls])}</span><span class="v32db-st-main">${line}<span class="v32db-st-top">${timeHTML(item.s, 'v32db-yr')}<span class="v32db-st-name">${name}</span>${item.here ? '<span class="v32db-here">You are here</span>' : ''}</span><span class="v32db-st-fx">${esc(item.words)}</span>${fate}</span></button></li>`;
   }
   function stackHTML(model) {
     const items = model.items;
@@ -967,11 +965,15 @@
         ? `<li class="v32db-st-gap"><span>${Math.round(years)} years</span></li>`
         : '';
     };
+    // A named line is a group with its name over it and a short line of its own down its marks, so the
+    // order within it (by date) is seen to start again in the next group.
     const laneHTML = (rail) =>
       `<li class="v32db-st-lane"><span class="v32db-st-lane-name">${esc(rail.line.name)}</span><ol>${rail.items.map((item) => stackRow(item, model, 'v32db-st-on')).join('')}</ol></li>`;
+    const lanesNote = (n) =>
+      `<li class="v32db-st-note">${n} groups. Within each, entries run in date order.</li>`;
     const out = [];
     if (model.form === 'lanes')
-      return `<ol class="v32db-st v32db-st-lanes">${model.rails.filter((rail) => !rail.of).map(laneHTML).join('')}</ol>`;
+      return `<ol class="v32db-st v32db-st-lanes">${lanesNote(model.rails.length)}${model.rails.filter((rail) => !rail.of).map(laneHTML).join('')}</ol>`;
     for (let i = 0; i < items.length; i++) {
       const item = items[i];
       if (!item.span) {
@@ -989,23 +991,19 @@
       }
       const rule = onPlate(sentences(item.s.note || '')[0] || '') || item.words;
       out.push(
-        `<li class="v32db-st-band${span.b ? '' : ' v32db-open-end'}"><span class="v32db-st-origin v32db-c-rule v32db-f-${item.fam}">${glyph(item.turn, 18)}</span><button type="button" class="v32db-st-beam v32db-f-${item.fam}${item.here ? ' v32db-is-here' : ''}" data-v32db-i="${item.i}">${art(item.artId)}<span class="v32db-st-beam-words"><span class="v32db-st-top"><span class="v32db-deck-name">${esc(span.short)}</span><span class="v32db-yr">${esc(yearOf(item.s))}–${span.b ? esc(yearOf(span.b.s)) : ''}</span>${item.here ? '<span class="v32db-here">You are here</span>' : ''}</span><span class="v32db-st-rule">${esc(rule)}</span></span></button><ol class="v32db-st-in">${inside.join('')}${span.rails.map(laneHTML).join('')}</ol>${span.b ? `<ol class="v32db-st-end">${stackRow(span.b, model, 'v32db-st-ender')}</ol>` : ''}</li>`,
+        `<li class="v32db-st-band${span.b ? '' : ' v32db-open-end'}"><span class="v32db-st-origin v32db-c-rule v32db-f-${item.fam}">${glyph(item.turn, 18)}</span><button type="button" class="v32db-st-beam v32db-f-${item.fam}${item.here ? ' v32db-is-here' : ''}" data-v32db-i="${item.i}">${art(item.artId)}<span class="v32db-st-beam-words"><span class="v32db-st-top"><span class="v32db-deck-name">${esc(span.short)}</span><span class="v32db-yr">${esc(yearOf(item.s))}–${span.b ? esc(yearOf(span.b.s)) : ''}</span>${item.here ? '<span class="v32db-here">You are here</span>' : ''}</span><span class="v32db-st-rule">${esc(rule)}</span>${item.s.fate ? `<span class="v32db-st-fate">${esc(item.s.fate)}</span>` : ''}</span></button><ol class="v32db-st-in">${inside.join('')}${span.rails.length ? lanesNote(span.rails.length) : ''}${span.rails.map(laneHTML).join('')}</ol>${span.b ? `<ol class="v32db-st-end">${stackRow(span.b, model, 'v32db-st-ender')}</ol>` : ''}</li>`,
         gapAfter(last),
       );
       i = last;
     }
     return `<ol class="v32db-st">${out.join('')}</ol>`;
   }
-  // The stood plate: as many words as leave the whole drawing in the opening view.
+  // The stood plate. Every entry keeps its own words at any size (two narrowings are told apart by
+  // what each did, not by a shared direction) and the page grows to hold them. So that the opening
+  // view still says how a rule ended, its beam carries its stored later development.
   function layoutStack(root, model, plate) {
-    const above =
-      plate.getBoundingClientRect().top - inspector.getBoundingClientRect().top + inspector.scrollTop;
-    const room = inspector.clientHeight - above - 12;
     plate.style.height = '';
-    for (const level of [3, 2, 1]) {
-      plate.dataset.v32dbLevel = String(level);
-      if (plate.offsetHeight <= room) break;
-    }
+    plate.dataset.v32dbLevel = '3';
     plate.dataset.v32dbLaid = String(plate.clientWidth);
     state.shown = Number(plate.dataset.v32dbLevel);
     if (state.sel >= 0 && root.querySelector('.v32db-account')?.firstElementChild) select(state.sel);
@@ -1407,14 +1405,19 @@
         <p class="v32db-vh" id="v32dbHint">${model.items.length} entries${range ? `, ${range}` : ''}. Select an entry on the drawing, or press the Left and Right keys.</p>
       </div>
       <section class="v32db-account" aria-live="polite" aria-label="The selected entry and how it relates to the others"></section>
-      <section class="v32db-all" aria-label="Every entry, in order">
+      <section class="v32db-all" aria-label="How the entries connect, then every entry in order">
+        ${
+          t.guide || t.now
+            ? `<div class="v32db-lead">
+          ${t.guide ? `<div class="v32db-lead-guide"><h3>How these entries connect</h3><p>${esc(t.guide)}</p></div>` : ''}
+          ${t.now ? `<div class="v32db-lead-now"><h3>${esc(t.summaryLabel || 'Main takeaway')}</h3><p>${esc(t.now)}</p>${P.reviewSources(t) ? `<p class="v32db-unit-sources">${P.reviewSources(t)}</p>` : ''}</div>` : ''}
+        </div>`
+            : ''
+        }
         <header class="v32db-all-head">
           <h3>Every entry, in order</h3>
-          ${t.question ? `<p class="v32db-guide"><b>The question</b>${esc(t.question)}</p>` : ''}
-          ${t.guide ? `<p class="v32db-guide"><b>How these entries connect</b>${esc(t.guide)}</p>` : ''}
         </header>
         <ol class="v32db-list">${model.items.map((item) => unitHTML(item, model)).join('')}</ol>
-        ${t.now ? `<section class="v32db-now"><h3>${esc(t.summaryLabel || 'Main takeaway')}</h3><p>${esc(t.now)}</p>${P.reviewSources(t) ? `<p class="v32db-unit-sources">${P.reviewSources(t)}</p>` : ''}</section>` : ''}
       </section>`;
   }
   // Which entry is selected, on the plate, in the account and in the list.
