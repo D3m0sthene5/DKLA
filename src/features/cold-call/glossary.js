@@ -27,6 +27,38 @@
   const RUN = new RegExp(`^[${WORD}]+`, 'u');
   const WORD_CHAR = new RegExp(`^[${WORD}]$`, 'u');
   const firstRun = (s) => (s.match(RUN)?.[0] || '').toLowerCase();
+  // Is the character starting at i, or the one ending just before i, part of a word?
+  const wordStartsAt = (text, i) => {
+    const c = text.codePointAt(i);
+    return c !== undefined && WORD_CHAR.test(String.fromCodePoint(c));
+  };
+  const wordEndsAt = (text, i) => {
+    const low = text.charCodeAt(i - 1),
+      pair = low >= 0xdc00 && low <= 0xdfff && i > 1 ? text.codePointAt(i - 2) : undefined;
+    return WORD_CHAR.test(String.fromCodePoint(pair !== undefined && pair > 0xffff ? pair : low));
+  };
+  /** The one-word capitalised terms whose name is a word of `title` (see begin()). */
+  function titleTerms(g, title) {
+    const own = new Set();
+    if (!g || !title) return own;
+    // The candidate names, listed once per table.
+    g.names ||= g.forms.filter((f) => f.term.caps && !/\s/.test(f.form));
+    // A plain ASCII name can only be in the title if the title's lowercase text holds it (no long s there,
+    // as in annotate()), so no pattern is built for the thousands of names that are not in it.
+    const lowered = title.toLowerCase(),
+      quick = lowered.length === title.length && !lowered.includes('\u017f') ? lowered : null,
+      // In a title of plain ASCII, any name must begin with its first word as lowercase text (`head`; a name
+      // whose first word is not ASCII cannot be there at all).
+      ascii = /^[\x00-\x7f]*$/.test(title) ? lowered : null;
+    for (const f of g.names)
+      if (
+        !(quick !== null && f.simple && !quick.includes(f.form)) &&
+        !(ascii !== null && !f.form.includes('\u017f') && !ascii.includes(f.head)) &&
+        new RegExp(`(?<![${WORD}])${formPattern(f.form)}(?![${WORD}])`, 'iu').test(title)
+      )
+        own.add(f.term.key);
+    return own;
+  }
   const ABBREVIATIONS = new Set(
     (
       'v vs Inc Co Corp Ltd No Nos Mr Mrs Ms Dr St Jr Sr Id Cir App Supp Ct Stat Fed Civ Proc Art Sec Ch Cl ' +
@@ -101,6 +133,8 @@
           // Unicode pattern up front took over a second on the first account opened.
           return {
             re: null,
+            // plain ASCII: found by comparing text where the paragraph has plain spacing (see excluded())
+            simple: /^[a-z0-9 -]+$/.test(phrase.trim()) ? phrase.trim() : null,
             pattern: `(?<![${WORD}])${formPattern(phrase.trim())}(?![${WORD}])`,
             reach: phrase.trim().length + 8,
             head: phrase.trim().split(/[ '’]/)[0],
@@ -150,9 +184,11 @@
     // (one alternation of every form took a quarter of a second per long account with 700 terms).
     yield;
     const byRun = new Map();
+    let grouped = 0;
     for (const f of forms) {
       if (!byRun.has(f.run)) byRun.set(f.run, []);
       byRun.get(f.run).push(f);
+      if (++grouped % 500 === 0) yield;
     }
     yield;
     const words = forms.length ? new RegExp(`(?<![${WORD}])[${WORD}]+`, 'gu') : null;
@@ -168,7 +204,10 @@
     const lowered = text.toLowerCase(),
       lower = lowered.length === text.length ? lowered : null,
       // single plain spaces only: a form with spaces can then be compared as a string
-      plainSpacing = lower !== null && !/\s\s|[^\S ]/.test(text);
+      plainSpacing = lower !== null && !/\s\s|[^\S ]/.test(text),
+      // An except phrase of plain ASCII is searched for as text when, besides, the paragraph has no long s
+      // (ſ): the one character a case-blind pattern treats as an ASCII letter and lowercasing does not.
+      foldSafe = plainSpacing && !lower.includes('\u017f');
     const sentenceAt = (i) => {
       spans ||= sentences(text);
       return spans.find(([a, b]) => i >= a && i < b) || [0, text.length];
@@ -181,6 +220,28 @@
         const from = Math.max(0, s - reach),
           to = Math.min(text.length, e + reach);
         if (lower && !lower.slice(from, to).includes(head)) continue;
+        if (foldSafe && x.simple) {
+          // v3.2: the same search as the pattern below, left to right over the same few words, without
+          // building a pattern for the phrase (building them was most of the time spent marking an account).
+          const phrase = x.simple;
+          let covers = false;
+          for (let i = from; ; ) {
+            const a = lower.indexOf(phrase, i);
+            if (a < 0 || a + phrase.length > to) break;
+            const b = a + phrase.length;
+            if ((a > from && wordEndsAt(text, a)) || (b < to && wordStartsAt(text, b))) {
+              i = a + 1;
+              continue;
+            }
+            if (a <= s && e <= b) {
+              covers = true;
+              break;
+            }
+            i = b;
+          }
+          if (covers) return true;
+          continue;
+        }
         const window = text.slice(from, to),
           re = (x.re ||= new RegExp(x.pattern, 'giu'));
         re.lastIndex = 0;
@@ -508,15 +569,7 @@
     if (!g && !plain) return null;
     // A name in the account's own title is a party here ("Garcia" in Garcia v. Hilton), not the other case
     // a one-word term of that name defines, so such terms never link in this account.
-    const own = new Set();
-    if (g && title)
-      for (const f of g.forms)
-        if (
-          f.term.caps &&
-          !/\s/.test(f.form) &&
-          new RegExp(`(?<![${WORD}])${formPattern(f.form)}(?![${WORD}])`, 'iu').test(title)
-        )
-          own.add(f.term.key);
+    const own = titleTerms(g, title);
     const used = new Set(),
       listed = (plain && plain.cases.get(caseId)) || null;
     shown = new Map();
@@ -851,6 +904,7 @@
     load: () => Promise.all([compiled.load(), plainTable.load()]).then(() => {}),
     compilePlain,
     placeSentences,
+    titleTerms,
     plainTable: () => plainTable() || null,
     /** The plain-English entries drawn in the open account: [{ id, caseId, n (its place in the table), at, sentence, plain }]. */
     plainShown: () =>
