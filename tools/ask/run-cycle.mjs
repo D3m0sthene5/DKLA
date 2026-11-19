@@ -145,6 +145,7 @@ const BODY_UP = 17.0; // height of the middle of the body above the ground, stan
 const NECK = [10.8, 0.4]; // where the head joins the body
 const TAIL_ROOT = [-13.2, 1.8];
 const HEAD_TILT = 3; // degrees nose down against the ground under the head
+const HEAD_NOD = 1.5; // degrees the head tips to keep the nose level as the body bobs
 const EAR = [4.86, -7.29]; // where the near ear joins the head
 const TAIL_DROOP = 14; // degrees the tail leaves the rump pointing down
 const TAIL = [
@@ -234,7 +235,7 @@ const ART = {
   // Upper legs run from the joint at (0, 0) down to the knee or elbow; lower legs from the ankle
   // at (0, 0) up to it; paws sit on the ground line y = 0 with the ball of the foot at (0, 0).
   upper: (leg, far) => capsule(2.4, 1.9, LEGS[leg].upper, far ? 'legFar' : 'legNear'),
-  lower: (leg, far) => capsule(1.5, 1.9, -LEGS[leg].lower, far ? 'legFar' : 'legNear'),
+  lower: (leg, far) => capsule(1.2, 1.9, -LEGS[leg].lower, far ? 'legFar' : 'legNear'),
   paw: (leg, far) =>
     leg === 'hind'
       ? `<path d="M-4.3 0C-4.8-2.2-2.2-3.1-.4-2.6 1.3-2.2 2.4-1.2 1.9 0Z" fill="{${far ? 'pawFar' : 'pink'}}"/>`
@@ -276,12 +277,14 @@ export function pose(p) {
   const parts = {};
   parts.body = { at: centre, turn: lean, scale };
 
-  // Head: it rides a calmer body (half the bob, a little late, no rocking), and nods after it.
+  // Head: it rides a calmer body (half the bob, a little late, no rocking).
   const calm = standing ? 0 : BOB * 0.5 * bob(h - 0.05);
   const reach = standing ? 0 : 0.5 * bob(h - 0.05);
   const lead = surge * 0.5 + reach;
   const neck = add(fromPolar(lead, up(S * BODY_UP + calm)), rot(square(lead), [S * NECK[0], S * NECK[1]]));
-  const headTurn = square(toPolar(neck)[0]) + HEAD_TILT - (standing ? 0 : 2.8 * bob(h - 0.1));
+  // The nod works against the bob: as the shoulders drop the nose lifts, so the nose and the eye
+  // hold their line (an animal keeps its head steady when it runs), a beat late.
+  const headTurn = square(toPolar(neck)[0]) + HEAD_TILT + (standing ? 0 : HEAD_NOD * bob(h - 0.08));
   parts.head = { at: neck, turn: headTurn };
   // Ear: hinged on the head, flopping a quarter of a beat behind the body.
   parts.ear = {

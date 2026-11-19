@@ -27,6 +27,7 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { chromium } from '@playwright/test';
+import { mount, openBare } from './spinner-page.mjs';
 
 // The table of poses in dottie.js is exactly what the generator makes from the rig and the gait.
 {
@@ -43,15 +44,6 @@ const address = source ? null : new URL(process.argv[2]);
 if (address) assert.ok(['127.0.0.1', 'localhost'].includes(address.hostname), 'local preview only');
 const browser = await chromium.launch();
 const sleep = (ms) => new Promise((done) => setTimeout(done, ms));
-
-// A bare page with the app's own stylesheet and artwork, and a row like the Ask dialog's.
-async function bare() {
-  const at = (file) => readFile(new URL(`../../src/features/ask/${file}`, import.meta.url), 'utf8');
-  return `<!doctype html><meta charset="utf-8"><style>${await at('ask.css')}</style>
-    <style>html,body{margin:0;background:#152423}#dklaAskDialog{position:static;display:block;margin:0;border:0;padding:24px}</style>
-    <div id="dklaAskDialog"><div class="ask-progress"><p class="ask-working"></p><button type="button" class="ask-cancel">Cancel</button></div></div>
-    <script>${await at('dottie.js')}</script>`;
-}
 
 async function open({ reducedMotion = 'no-preference' } = {}) {
   const context = await browser.newContext({
@@ -128,34 +120,21 @@ async function open({ reducedMotion = 'no-preference' } = {}) {
       };
     };
   });
-  const page = await context.newPage();
+  // The bare page (spinner-page.mjs) or the built app.
+  const page = source ? await openBare(context) : await context.newPage();
   const errors = [];
   page.on('pageerror', (error) => errors.push(error.message));
   const cdp = await context.newCDPSession(page);
   await cdp.send('Performance.enable');
   const counters = async () =>
     Object.fromEntries((await cdp.send('Performance.getMetrics')).metrics.map((m) => [m.name, m.value]));
-  if (source) {
-    // Served from a made-up address, so the page has an origin like the real one.
-    const html = await bare();
-    await context.route('http://dottie.test/**', (route) =>
-      route.fulfill({ contentType: 'text/html', body: html }),
-    );
-    await page.goto('http://dottie.test/');
-  } else {
+  if (!source) {
     await page.goto(address.href, { waitUntil: 'domcontentloaded', timeout: 120_000 });
     await page.locator('html.dkla-boot-ready').waitFor({ timeout: 120_000 });
   }
   // Put her to work, and send her away, the way the dialog does.
   const research = async () => {
-    if (source)
-      await page.evaluate(() => {
-        const mascot = document.createElement('span');
-        mascot.className = 'ask-dottie';
-        mascot.dataset.pose = 'spinner';
-        mascot.innerHTML = window.DKLADottie.spinner();
-        document.querySelector('#dklaAskDialog .ask-progress').prepend(mascot);
-      });
+    if (source) await mount(page);
     else {
       await page.evaluate(() => {
         const dialog = document.getElementById('dklaAskDialog');
