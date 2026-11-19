@@ -672,6 +672,19 @@ for (const { key, id } of dialogs) {
   assert.ok(out.opacity >= 0.6, `${id} leaves from where it had got to (${out.opacity})`);
   for (const property of ['opacity', 'scale', 'display', 'overlay'])
     assert.ok(out.leaving.includes(property), `${id} leaves with a ${property} transition (${out.leaving})`);
+  // And it leaves towards nothing: gone from the screen, at opacity 0 and 98% size.
+  await page.waitForFunction(
+    (s) => getComputedStyle(document.querySelector(s)).display === 'none',
+    selector,
+    {
+      timeout: 5000,
+    },
+  );
+  const gone = await page.evaluate((s) => {
+    const style = getComputedStyle(document.querySelector(s));
+    return [style.opacity, style.scale];
+  }, selector);
+  assert.deepEqual(gone, ['0', '0.98'], `${id} fades and shrinks away`);
 }
 report.push(`${dialogs.length} dialogs fade and scale in and out on one scrim`);
 

@@ -296,8 +296,8 @@ const breakages = [
     () =>
       edit(
         'src/features/calm/calm.js',
-        'const now = document.hidden || open.size > 0;',
-        'const now = document.hidden;',
+        'const now = document.hidden || open.size > 0 || gesture;',
+        'const now = document.hidden || gesture;',
       ),
   ],
   [
