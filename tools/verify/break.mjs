@@ -471,14 +471,34 @@ const breakages = [
     () => edit('lib/ask/fuel.js', 'calls * SEARCH_USD;', '0;'),
   ],
   [
-    'Ask Dottie opossums: every trot frame shows at once',
-    'src/features/ask/ask.css',
+    'Ask Dottie opossums: the ring falls behind their feet, so planted paws slide',
+    'src/features/ask/dottie.js',
     () =>
       edit(
-        'src/features/ask/ask.css',
-        'animation: dottie-trot 0.72s step-end infinite;',
-        'opacity: 1 !important;',
+        'src/features/ask/dottie.js',
+        '{ transform: `rotate(${-stride - 360}deg)` }',
+        '{ transform: `rotate(${-stride - 330}deg)` }',
       ),
+  ],
+  [
+    'Ask Dottie opossums: a script touches the spinner on every frame while it runs',
+    'src/features/ask/dottie.js',
+    () =>
+      edit(
+        'src/features/ask/dottie.js',
+        'this.lapping = true;',
+        "this.lapping = true; const tick = () => { if (!this.running) return; this.style.outlineOffset = (performance.now() % 2) + 'px'; requestAnimationFrame(tick); }; requestAnimationFrame(tick);",
+      ),
+  ],
+  [
+    'Ask Dottie opossums: the spinner keeps running in a hidden tab',
+    'src/features/ask/dottie.js',
+    () => edit('src/features/ask/dottie.js', 'if (document.hidden) this.hold();', 'if (false) this.hold();'),
+  ],
+  [
+    'Ask Dottie opossums: a pose of the run cycle is changed by hand in dottie.js',
+    'src/features/ask/dottie.js',
+    () => edit('src/features/ask/dottie.js', "{ id: 'nhPaw', box: [", "{ id: 'nhPaw', box: [0.5 + "),
   ],
   [
     'v3.1 case page: flowchart steps open the chart at its start instead of the step',
@@ -698,9 +718,9 @@ const breakages = [
       ),
   ],
   [
-    'Ask Dottie spinner: back to the small 44 px spinner',
+    'Ask Dottie spinner: back to the small 56 px spinner',
     'src/features/ask/ask.css',
-    () => edit('src/features/ask/ask.css', 'width: 56px;\n  height: 56px;', 'width: 44px;\n  height: 44px;'),
+    () => edit('src/features/ask/ask.css', 'width: 96px;\n  height: 96px;', 'width: 56px;\n  height: 56px;'),
   ],
   [
     'Ask Dottie research route makes an Atlas-only draft first',

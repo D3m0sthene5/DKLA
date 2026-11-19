@@ -396,16 +396,18 @@ try {
     await input.press('Enter');
     await expect.poll(() => asked).toBe(6);
     await expect(dialog.getByRole('status')).toHaveText('Looking for relevant sources…');
-    // A long search: the thinking spinner (three opossums round her question-mark tail) turns,
-    // and the words beside it change every two seconds. Screen readers hear only the status.
+    // A long search: the thinking spinner (three opossums running round her question-mark tail)
+    // turns, and the words beside it change every two seconds. Screen readers hear only the
+    // status. (tools/ask/trot-browser.mjs measures the run itself.)
     await expectOnlyDottie('research');
-    const spinner = dialog.locator('.ask-progress .ask-dottie svg.dottie-spinner');
+    const spinner = dialog.locator('.ask-progress .ask-dottie .dottie-spinner');
     const words = dialog.locator('.ask-progress .ask-working');
     await expect(spinner).toBeVisible();
-    await expect(spinner.locator('.dottie-ring > g')).toHaveCount(3);
-    assert.notEqual(
-      await spinner.locator('.dottie-ring').evaluate((g) => getComputedStyle(g).animationName),
-      'none',
+    await expect(spinner.locator('.dottie-ring > .dottie-runner')).toHaveCount(3);
+    assert.equal(
+      await spinner.locator('.dottie-ring').evaluate((ring) => ring.getAnimations().length),
+      1,
+      'the ring is turning',
     );
     await expect(words).toBeVisible();
     await expect(words).toHaveAttribute('aria-hidden', 'true');
@@ -421,9 +423,9 @@ try {
     );
     const progressBox = await dialog.locator('.ask-progress').boundingBox();
     assert.ok(progressBox.x + progressBox.width <= viewport.width, 'the progress line fits');
-    // Large enough to make out (56 px, 48 px on a phone), with the words on one line centred on it.
+    // Large enough to carry a run (96 px, 80 px on a phone), with the words on one line centred on it.
     const spinnerBox = await spinner.boundingBox();
-    const size = phone ? 48 : 56;
+    const size = phone ? 80 : 96;
     assert.ok(Math.abs(spinnerBox.width - size) <= 1, `spinner is ${spinnerBox.width} px, not ${size}`);
     assert.ok(Math.abs(spinnerBox.height - size) <= 1, `spinner is ${spinnerBox.height} px tall`);
     const wordsBox = await words.boundingBox();
@@ -507,8 +509,9 @@ try {
     await input.press('Enter');
     await expect(spinner).toBeVisible();
     assert.equal(
-      await spinner.locator('.dottie-ring').evaluate((g) => getComputedStyle(g).animationName),
-      'none',
+      await spinner.locator('.dottie-ring').evaluate((ring) => ring.getAnimations().length),
+      0,
+      'reduced motion: the ring stands still',
     );
     const still = await words.textContent();
     await expect.poll(() => words.textContent(), { timeout: 5000 }).not.toBe(still);
