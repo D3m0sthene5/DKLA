@@ -40,11 +40,12 @@
     total = 0,
     frame = 0;
   const count = () => (reader.loaded() ? reader.cases().length : null);
-  /* The glyph that says what kind of thing a row is (docs/DESIGN.md rule 7). A case on the map: its own
-     drawing where that still reads at 16 px (the map's own test), otherwise the scales the map uses for a
-     case. A supporting case, which has no place on the map and no drawing: a page. */
+  /* What stands at the head of a row. A case on the map: its own drawing, at 40 px, large enough to know the
+     case by (docs/DESIGN.md, "size artwork by what the eye can recognise"; at 16 px a coil or a boat is a
+     smudge, so it is drawn at this size or not at all). A supporting case has no drawing: a small page, the
+     glyph for its kind, in the same column. */
   const art = (box, inner, extra = '') =>
-    `<svg class="cc-ix-art${extra}" viewBox="0 0 ${box} ${box}" fill="none" stroke="currentColor" stroke-width="${box === 24 ? 1.5 : 1.25}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${inner}</svg>`;
+    `<svg class="cc-ix-art${extra}" viewBox="0 0 ${box} ${box}" fill="none" stroke="currentColor" stroke-width="${box === 24 ? 1.35 : 1.25}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${inner}</svg>`;
   const SCALES = art(
       16,
       '<path d="M8 2.5v11M5 13.5h6M3 5.5h10M3 5.5 1.6 9.2a1.9 1.9 0 0 0 2.8 0ZM13 5.5l-1.4 3.7a1.9 1.9 0 0 0 2.8 0Z"/>',
@@ -61,7 +62,7 @@
       icons ||= JSON.parse(document.getElementById('dklaIcons')?.textContent || 'null') || {};
       const record = icons.records?.[id],
         drawing = record && icons.paths?.[record.motif];
-      if (drawing && pictReads(record.motif, drawing)) return art(24, drawing, ' cc-ix-own');
+      if (drawing) return art(24, drawing, ' cc-ix-own');
     } catch {
       /* no drawings in this page */
     }
@@ -123,7 +124,7 @@
      belongs to button[data-cold-call], the one control on a case page, and 742 frosted rows would be noise. */
   const rowHTML = (a, art) => {
     const year = yearOf(a.citation);
-    return `<div role="button" tabindex="0" class="cc-ix-row" data-cold-call="${esc(a.id)}" data-cc-key="${esc(fold(a.title + ' ' + a.citation))}" title="${esc(a.title + (a.citation ? ' · ' + a.citation : ''))}">${art}<span class="cc-ix-name">${captionLine(a.title)}</span><span class="cc-ix-year">${esc(year)}</span><span class="cc-ix-count">${plural(a.episodes, 'episode')}</span></div>`;
+    return `<div role="button" tabindex="0" class="cc-ix-row${art.includes('cc-ix-own') ? ' cc-ix-row-art' : ''}" data-cold-call="${esc(a.id)}" data-cc-key="${esc(fold(a.title + ' ' + a.citation))}" title="${esc(a.title + (a.citation ? ' · ' + a.citation : ''))}">${art}<span class="cc-ix-name">${captionLine(a.title)}</span><span class="cc-ix-year">${esc(year)}</span><span class="cc-ix-count">${plural(a.episodes, 'episode')}</span></div>`;
   };
   function build() {
     const courses = arrange();
@@ -157,7 +158,7 @@
       built = `<div class="cc-layout"><nav class="cc-ix-rail" aria-label="Courses and subjects"><ol>${rail}</ol></nav><div class="cc-main"><div class="cc-ix-scroll" id="ccIxScroll" tabindex="-1"><div class="cc-ix-head"><label class="cc-ix-find">${FIND}<span class="cc-sr">Search the Cold Calls</span><input type="search" id="ccIxFind" placeholder="Search by case name or citation" autocomplete="off" spellcheck="false" aria-controls="ccIxList" /></label></div><div id="ccIxList">${list}</div><p class="cc-ix-none" id="ccIxNone" role="status" hidden></p></div></div></div>`;
     }
     dialog.innerHTML = bar + built;
-    $('ccIxTotal').textContent = plural(total, 'account');
+    $('ccIxTotal').textContent = plural(total, 'case');
     $('ccIxClose').onclick = close;
     $('ccIxFind').addEventListener('input', () => {
       if (frame) return;
@@ -227,8 +228,8 @@
       shown += inCourse;
     }
     $('ccIxTotal').textContent = words.length
-      ? `${shown.toLocaleString('en-US')} of ${plural(total, 'account')}`
-      : plural(total, 'account');
+      ? `${shown.toLocaleString('en-US')} of ${plural(total, 'case')}`
+      : plural(total, 'case');
     const none = $('ccIxNone');
     none.hidden = shown > 0;
     none.textContent = shown ? '' : `No Cold Call matches “${$('ccIxFind').value.trim()}”.`;

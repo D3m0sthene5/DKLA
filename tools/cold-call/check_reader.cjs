@@ -122,6 +122,8 @@ const context = {
     getItem() {
       return null;
     },
+    setItem() {},
+    removeItem() {},
   },
   matchMedia() {
     return { matches: true, addEventListener() {} };
@@ -137,9 +139,16 @@ assert.equal(
 );
 // The definitions layer loads first, exactly as in src/features/manifest.json; captions are composed by
 // src/features/v32/caption.js, which the reader looks for when it draws.
-for (const file of ['cold-call/glossary.js', 'cold-call/reader.js', 'v32/caption.js'])
+for (const file of [
+  'cold-call/glossary.js',
+  'cold-call/reader.js',
+  'v32/caption.js',
+  'v32/coldcall-answers.js',
+])
   vm.runInContext(fs.readFileSync(path.join(__dirname, '../../src/features', file), 'utf8'), context);
 assert.ok(window.DKLACaption, 'the caption composer did not install');
+const answers = window.DKLAColdCallAnswers?.answers;
+assert.ok(answers && Object.keys(answers).length, 'the stored direct answers did not install');
 const gloss = window.DKLAColdCallGloss;
 assert.ok(gloss, 'Cold Call definitions did not install');
 const compiled = gloss.compile(glossary);
@@ -169,7 +178,7 @@ const dialog = document.getElementById('coldCallDialog');
 const listOf = (value) => (Array.isArray(value) ? value : value ? [value] : []);
 // Markup with its tags taken out and its entities read: what the words on the page are.
 const wordsOf = (markup) => words(unescape(markup.replace(/<[^>]*>/g, '')));
-const setup = { leads: 0, actors: 0, steps: 0, cues: 0 };
+const setup = { leads: 0, actors: 0, steps: 0, cues: 0, direct: 0 };
 for (const account of data.cases) {
   window.DKLAColdCall.open(account.id);
   assert.equal(dialog.open, true, `${account.id}: reader did not open`);
@@ -215,19 +224,34 @@ for (const account of data.cases) {
       setup.steps++;
     }
     account.sections.forEach((section, i) => {
+      // The episode's own title is its heading; its prompt is a paragraph (a margin note when read, the
+      // thing asked when rehearsed), after the title.
+      const title = `<h3 class="cc-title" id="cc-heading-${escape(section.id)}" tabindex="-1">${escape(section.title)}</h3>`,
+        cue = `<p class="cc-cue" id="cc-cue-${escape(section.id)}"${section.cue.length > 80 ? ' data-cc-long' : ''} tabindex="-1"><span class="cc-cue-label">If called on</span> ${escape(section.cue)}</p>`;
       assert.ok(
-        html.includes(
-          `<h3 class="cc-cue" id="cc-cue-${escape(section.id)}"${section.cue.length > 80 ? ' data-cc-long' : ''} tabindex="-1">${escape(section.cue)}</h3>`,
-        ),
-        `${account.id}: episode ${i + 1} does not lead with its prompt`,
-      );
-      assert.ok(
-        html.includes(
-          `<h4 class="cc-title" id="cc-heading-${escape(section.id)}" tabindex="-1">${escape(section.title)}</h4>`,
-        ),
-        `${account.id}: episode ${i + 1} has no title`,
+        html.includes(title + cue),
+        `${account.id}: episode ${i + 1} is not headed by its title, then its prompt`,
       );
       setup.cues++;
+      // A stored direct answer is shown, each sentence whole and in the episode; no other episode has one.
+      const stored = answers[account.id]?.[section.id],
+        at = html.indexOf(`<div class="cc-direct" id="cc-direct-${escape(section.id)}"`),
+        block = at < 0 ? null : html.slice(at, html.indexOf('</div>', at));
+      if (stored) {
+        assert.ok(block, `${account.id} ${section.id}: its stored answer is not shown`);
+        const text = words(section.paragraphs.join(' '));
+        for (const sentence of stored) {
+          assert.ok(
+            text.includes(words(sentence)),
+            `${account.id} ${section.id}: a stored sentence is not in the episode`,
+          );
+          assert.ok(
+            block.includes(`<p class="cc-direct-say">${escape(words(sentence))}</p>`),
+            `${account.id} ${section.id}: a stored sentence is not shown`,
+          );
+        }
+        setup.direct++;
+      } else assert.ok(!block, `${account.id} ${section.id}: an answer is shown that was never stored`);
     });
     // One action at the foot, one switch, and the frost over each narration (shown only while rehearsing).
     assert.equal((html.match(/data-cc-act/g) || []).length, 1, `${account.id}: one action at the foot`);
@@ -358,6 +382,12 @@ for (const account of data.cases) {
   window.DKLAColdCall.close();
   assert.equal(dialog.innerHTML, '', `${account.id}: closed reader retained searchable prose`);
 }
+// Every stored answer was met above: none is filed under a case or an episode that does not exist.
+assert.equal(
+  setup.direct,
+  Object.values(answers).reduce((n, episodes) => n + Object.keys(episodes).length, 0),
+  'a stored direct answer belongs to no episode',
+);
 // The Garcia account, as the owner described it: "compromised" and "moved to dismiss" are defined; names and plain words are not.
 {
   window.DKLAColdCallGloss.close();
@@ -447,8 +477,8 @@ assert.deepEqual(
     'bare account: a heading for limits with no limits',
   );
   assert.ok(
-    /<h3 class="cc-cue"[^>]*>Episode 1<\/h3>/.test(html),
-    'bare account: an episode with no prompt has no heading',
+    /<p class="cc-cue"[^>]*><span class="cc-cue-label">If called on<\/span> Episode 1<\/p>/.test(html),
+    'bare account: an episode with no prompt is not told from its number',
   );
   assert.equal(
     (html.match(/class="cc-section"/g) || []).length,

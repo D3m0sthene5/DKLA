@@ -238,12 +238,13 @@ const release = (page, ...ids) =>
   assert.equal(await reader.locator('.cc-loading').count(), 1, 'the reader waits for its definitions too');
   await release(page, 'dklaColdCallGlossary', 'dklaColdCallPlain');
   await reader.locator('.cc-section').first().waitFor();
-  // v3.2: the account arrives on its setup, with the caption as its heading and focus on the one action.
+  // v3.2: the account arrives in its story (the first episode, with the setup and its caption one scroll
+  // back), and focus is on that episode's title, inside the story, so the keys scroll it.
   assert.equal(
     await reader.locator('#ccCaption').evaluate((h) => h.textContent.replace(/\s+/g, ' ').trim()),
     caseTitle,
   );
-  assert.equal(await page.evaluate(() => document.activeElement?.id), 'ccAct');
+  assert.match(await page.evaluate(() => document.activeElement?.id || ''), /^cc-heading-/);
   const word = reader.locator('.cc-term[data-cc-term="compromise"]').first();
   await word.hover();
   await reader.locator('#ccGlossCard.is-in').waitFor();

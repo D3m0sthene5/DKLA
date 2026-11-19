@@ -45,54 +45,79 @@ views draw now, all of it in `draw()` (`src/runtime/studyCode.js`) and `src/feat
   curves of association shown on hover still run straight behind tiles; the books in Rules &
   authorities are now the quietest thing on Home.
 
-## Cold Call as a rehearsal (19 November 2026, branch `v32-coldcall`, not merged, not deployed)
+## Cold Call: the story to read, the rehearsal to choose (19 November 2026, branch `v32-coldcall`; second round after the owner's review; not deployed)
 
-- **What it is now.** An account opens on a setup that answers "tell us about this case": the case's
-  drawing on a plate of clear ice, its hook, the composed caption, the citation, then the `lead` as the
-  largest text, the cast (`actors`) and "How it got here" (`proceedings`, numbered). Each episode leads
-  with its `cue`, the question a professor would open with. The end is "What this case does not decide"
-  (`limits`), the sources and the ways out. `lead`, `actors`, `proceedings` and `cue` were in the data all
-  along and were not shown before. No narrative text was changed.
-- **Two ways through it, one switch** at the foot, remembered in this browser under
-  `dkla.coldCallMode.v1` (a preference, not saved work; `dkla.coldCall.v1` is still never read or
-  written). Read: everything open, each question above its title. Rehearse: one question at a time, the
-  narration and its title under a still pane of frost until asked for; the list at the side shows
-  questions, not titles, until then. **The owner has not chosen the default.** It is Read, behind one
-  constant: `DEFAULT_MODE` near the top of `src/features/cold-call/reader.js`.
-- **The foot is the one deck of controls**, the same place at every step: the switch, the one action that
-  comes next ("Start reading", "Show the answer", "Next question", "Back to the case"), where you are, the
-  keys. Space or Enter shows and moves on while rehearsing (Space first pages through an answer longer
-  than the screen); Left and Right move between steps; Escape closes; focus returns to what opened it.
-- **The frost** (`--cc-ice-*` at the top of `reader.css`, the palette of `frost.css`) is used twice in the
-  reader and nowhere else: the plate behind the drawing and the pane over a covered narration. Both are
-  still. The frosted button style itself belongs to `button[data-cold-call]`, which is why the rows of
-  the index and the "Next Cold Call" row are not `<button>` elements: they keep `data-cold-call` (the
-  reader's own listener opens them, and the analytics layer counts a `cold_call` from that attribute).
-- **Captions** are composed by `src/features/v32/caption.js` (`DKLACaption.parse/html/inline/year`): a
-  break only before "v.", "v." tied to the word after it, consolidated cases one per line with the second
-  subordinate, a stage note on its own line. A caption whose longest line would not fit is set at 30 px
-  instead of 34, and a prompt over 80 characters keeps 22 px while rehearsing.
-- **The index**: `window.DKLAColdCallIndex = { count(), open(trigger), close() }`
-  (`src/features/v32/coldcall-index.js`). `count()` is null until the narratives have arrived. The list is
-  grouped by course, then by subject in the map's order, then that course's supporting cases; typing
-  filters by caption and citation; a row opens the reader over the list. Nothing in the app opens it yet:
-  the Library (another branch) is to show a row when `DKLAColdCallIndex` exists.
-- **What the data holds** (audit of all 742, 4,097 episodes): every account has every field. `lead` 99 to
-  359 characters (median 204); cast 2 to 7 (median 3); `proceedings` is one paragraph in 208 accounts and
-  2 to 5 steps in the rest; `limits` is two paragraphs in 76; episodes 3 to 11 (median 5); `cue` 4 to 104
-  characters, a question in 2,417 episodes and an instruction, headline or date in 1,680; 392 accounts
-  (the map cases) have a drawing and 350 (supporting cases) do not. A missing field is drawn as nothing
-  (checked with fields taken away, since no real account lacks one).
-- **Checks**: `tools/v32/check-coldcall.mjs` ("Cold Call rehearsal"), `tools/v32/caption.test.mjs` ("case
-  captions composed"), `tools/cold-call/check_reader.cjs` (now holds the setup, the prompts and a bare
-  account), nine breakages in `tools/verify/break.mjs`.
-- **For the owner's PC**: the `cold-call` picture changes (the reader opens on the setup); run
-  `pnpm views:update` after looking at `work/views/`.
-- **Known and not done**: the next case offered at the end is the next in the same group of the map (the
-  session cards do not expose which session a case belongs to); a setup with five or more actors is
-  taller than the first screen at 1440 x 900 (about a fifth of the accounts) and scrolls; the rail of the
-  index does not mark the group in view; the `cold_call` analytics event is unchanged (it carries no mode
-  or reveal, because the tracker has no public way to send one and what is collected is the owner's call).
+What Cold Call is for, in the owner's words: "getting straight into a detailed chronological story, knowing
+who did what, and recognizing the case through its artwork." His decisions of 19 November are built in:
+Cold Call opens into the story; a return visit comes back to where he was reading; the setup stays within
+reach; the episode's own title, the case illustration, a way back in words and the option to rehearse stay.
+
+- **Read (the default, `DEFAULT_MODE` in `src/features/cold-call/reader.js`).** One continuous page. One
+  click from a case lands on episode 1 (`READ_OPENS_AT = 'story'`; `'setup'` opens at the top instead).
+  Each episode is headed by its own title (30 px, 600); its narration runs on a 568 px measure with the
+  dotted definition terms and the ≈ plain-English markers; the professor's question (`cue`) is a small
+  note in the right margin, shown for cues that are questions and only where there is a margin (it is
+  hidden when the reading column is under 740 px, so the prose has the width). No button stands before
+  the story and the foot has no action while reading.
+- **The setup** (the drawing on a plate of clear ice, hook, composed caption, citation, `lead`, cast from
+  `actors`, numbered steps from `proceedings`) is the top of the same page: one scroll back, the first row
+  of the list ("The setup / Who is involved, how it got here"), and the destination of the case's name
+  and drawing in the bar.
+- **The case stays in sight.** Once the setup's head is out of view, and at every step of a rehearsal, the
+  bar carries the drawing (40 px on a 48 px plate) and the caption in the title face (`data-cc-docked`,
+  set by `dock()`; opacity only). The way out is a labelled button at the top right: "Back to the case",
+  "Back to the brief", "All Cold Calls" or "Close Cold Call" (`backLabel()`), "Back" on a phone.
+- **Resume.** Closing mid-read keeps the place as `[step, pixels into it, the account's revision, when]`
+  under `dkla.coldCallResume.v1` (one small entry per case, at most 60, not saved work). The next opening,
+  in any session, is there again; `hold()` keeps the place on its episode while the later episodes get
+  their definitions. Reading to the end clears the entry; a case opened and closed without reading on
+  keeps none; rehearsing does not touch it.
+- **Rehearse** (the switch at the foot, remembered under `dkla.coldCallMode.v1`). One prompt at a time,
+  large; directly under it the control that shows the narration (clear ice; Space and Enter do the same)
+  and "Answer aloud from memory first". Nothing imitates hidden text. The reveal leads with the **stored
+  direct answer** where there is one, then the episode's title and narration. The list at the side shows
+  prompts before and after a reveal; a revealed row gains a tick. "Next question" is at the foot.
+- **Direct answers** are sentences of the episode's own paragraphs, whole and word for word, chosen so
+  that the first one spoken answers the question. Source of truth: `tools/cold-call/answers.json` (a
+  pinned content file). `node tools/cold-call/answers.mjs` checks every entry (the case and episode exist,
+  the stored question is still the episode's and is a question, one to four whole sentences each found in
+  the episode), `--write` makes the page's copy `src/features/v32/coldcall-answers.js`, `--todo` counts and
+  lists what is missing, `--fill` stores picks made by sentence number (nothing can be typed in). The
+  reader checks again at draw time and shows no sentence it cannot find in the episode. **Pilot only:
+  C. Itoh (5) and Loper Bright (6), chosen by hand. 2,406 questions have none and show the narration as
+  before; the owner decides whether to fill them** (the scope is in the session report).
+- **The inline reading tools** (`glossary.js`, unchanged) work in both modes: a definition and a
+  plain-English card open by mouse, keyboard and touch, reading and after a reveal, and the reader is on
+  the same episode, mode and scroll position afterwards (checked twelve ways).
+- **The collection.** `window.DKLAColdCallIndex = { count(), open(trigger), close() }`
+  (`src/features/v32/coldcall-index.js`). The Library's "Cold Calls 742 cases" row (`chrome.js`) opens it;
+  it lists every account by course and subject in the map's order, each map case with its drawing at
+  40 px in a 56 px row, supporting cases in 36 px rows with a page glyph, subject names in the rail
+  wrapped, filtered by typing; a row opens the reader over the list and "All Cold Calls" comes back.
+  Rows are not `<button>` elements, so the frosted style of `button[data-cold-call]` stays on the one
+  entry control; they keep `data-cold-call`, which opens them and is what analytics counts as a
+  `cold_call` (unchanged, no added detail).
+- **Captions** are composed by `src/features/v32/caption.js`: a break only before "v.", "v." tied to the
+  word after it, consolidated cases one per line, a stage note on its own line.
+- **Against the 3.1 reader** (what moved; the owner asked to be told): the header's "CONTRACTS / COLD
+  CALL" line is now "Cold Call · Contracts" in the bar; the caption as the page title (about 30 px, always
+  on screen) is now 22 px in the bar with the drawing, and 34 px on the setup; the citation is on the
+  setup only; "Full brief" moved from the top right to the foot; "← Back to case" is "← Back to the case"
+  at the top right; "IN THIS CASE 1 / 5" over the list is gone (the foot says "Episode 1 of 5", the list
+  marks the place); the list's "01" numbers in amber are "1" in grey; the "01 / 5" line over each title
+  is "1 of 5" in grey; the hairline between episodes is space; the reading measure went from about 80
+  characters to about 65; "Scope of this decision", a closed disclosure at the end, is an open section,
+  "What this case does not decide"; "Full source brief" at the end is a "Sources" row. Added: the setup,
+  the margin question, resume across sessions, Rehearse, the next Cold Call at the end, the collection.
+- **Checks**: `tools/v32/check-coldcall.mjs` ("Cold Call rehearsal"), `tools/cold-call/answers.mjs`
+  ("Cold Call direct answers"), `tools/v32/caption.test.mjs` ("case captions composed"),
+  `tools/cold-call/check_reader.cjs`; eighteen breakages in `tools/verify/break.mjs`.
+- **For the owner's PC**: the `cold-call` picture changes; run `pnpm views:update` after looking at
+  `work/views/`.
+- **Known and not done**: the remaining direct answers; a two-part question is rarely answered by one
+  whole sentence, so its answer is two or three; the next case at the end is the next in the same group
+  of the map (the session cards do not expose which session a case belongs to); the collection's rail
+  does not mark the group in view; only Chromium was used.
 
 ## What the map draws (19 November 2026, branch `v32-cards`, not merged, not deployed)
 

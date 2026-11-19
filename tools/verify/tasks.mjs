@@ -211,10 +211,14 @@ export const tasks = [
   ),
   // Hover, keyboard, tap and reduced motion on the Garcia Cold Call's definition links.
   step('browser', 'Cold Call definitions', node('tools/cold-call/glossary_browser.cjs', '{page}'), SERVER),
-  // v3.2: Cold Call as a rehearsal. The setup (lead, cast, steps), Read and Rehearse, the frost over a
-  // narration not yet asked for, the keys, the remembered mode, the end, the index of all 742, and no
-  // caption line ending in "v." at any width.
+  // v3.2: Cold Call to read and to rehearse. Read: one click and the story is on the page, each episode
+  // under its own title, the case in the bar, a case left mid-read resumed. Rehearse: the control beside the
+  // prompt, the stored answer first, the list unchanged by a reveal. The keys, the remembered mode, the end,
+  // the library of all 742, and no caption line ending in "v." at any width.
   step('browser', 'Cold Call rehearsal', node('tools/v32/check-coldcall.mjs', '{page}'), SERVER),
+  // Every stored direct answer is whole sentences of its own episode, and the page's copy is current
+  // (reads source files only).
+  step('datasets', 'Cold Call direct answers', node('tools/cold-call/answers.mjs')),
   // The caption composer on every Cold Call title (reads source files only).
   step('features', 'case captions composed', test('tools/v32/caption.test.mjs')),
   // v3.1 lazy data: Cold Call, its definitions and the dictionary arriving after the page is drawn.
