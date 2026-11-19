@@ -378,6 +378,72 @@ const breakages = [
     () => append('src/features/v32/chrome.js', '\nsetInterval(() => {}, 200);\n'),
   ],
   [
+    'The frame: the top bar grows past 56 px',
+    'src/features/v32/chrome.css',
+    () => edit('src/features/v32/chrome.css', '--top: 56px;', '--top: 64px;'),
+  ],
+  [
+    'The frame: the command field is no longer centred on the window',
+    'src/features/v32/chrome.css',
+    () => edit('src/features/v32/chrome.css', '    minmax(var(--v32c-side), 1fr);', '    auto;'),
+  ],
+  [
+    'The frame: a path too long for its room is clipped by the browser instead of folded',
+    'src/features/v32/chrome.js',
+    () =>
+      edit('src/features/v32/chrome.js', '      if (over() <= 0) return push(0);', '      return push(0);'),
+  ],
+  [
+    'The frame: the command field gives a long path no room, so its last level is cut',
+    'src/features/v32/chrome.js',
+    () => edit('src/features/v32/chrome.js', 'const FIELD_LEAST = 320;', 'const FIELD_LEAST = 5200;'),
+  ],
+  [
+    'The frame: a count in the Library is a bare number again, with nothing to say what it counts',
+    'src/features/v32/chrome.js',
+    () => edit('src/features/v32/chrome.js', '`${count(n)} ${n === 1 ? one : many}`', 'count(n)'),
+  ],
+  [
+    'The frame: the Flowcharts row of the Library opens the canons',
+    'src/features/v32/chrome.js',
+    () => edit('src/features/v32/chrome.js', "attrs: 'data-flowcharts-menu',", "attrs: 'data-canons-menu',"),
+  ],
+  [
+    'The frame: the instrument cluster stays lit beside a reader',
+    'src/features/v32/chrome.js',
+    () =>
+      edit(
+        'src/features/v32/chrome.js',
+        'const reading = !!S.panelOpen || court ||',
+        'const reading = false && !!S.panelOpen || false && court || false &&',
+      ),
+  ],
+  [
+    'The frame: the clock keeps flipping beside a reader',
+    'src/features/clock/clock.js',
+    () =>
+      edit(
+        'src/features/clock/clock.js',
+        "    document.documentElement.classList.contains('v32-reading') ||\n",
+        '',
+      ),
+  ],
+  [
+    'The frame: the zoom-out button has no name for a screen reader',
+    'src/markup/13.html',
+    () => edit('src/markup/13.html', 'title="Zoom out" aria-label="Zoom out"', 'title="Zoom out"'),
+  ],
+  [
+    "The frame: a phone's Library keeps the second count, which no longer fits beside a row's name",
+    'src/features/v32/chrome.css',
+    () =>
+      edit(
+        'src/features/v32/chrome.css',
+        '  .v32-library .v32-row-more {\n    display: none;',
+        '  .v32-library .v32-row-more-kept {\n    display: none;',
+      ),
+  ],
+  [
     'Calm: ambient motion keeps running under an open dialog',
     'src/features/calm/calm.js',
     () =>

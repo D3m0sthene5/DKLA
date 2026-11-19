@@ -104,7 +104,14 @@ async function snap(page, name) {
   await page.screenshot({ path: path.join(shots, name + '.png') });
 }
 let failures = 0;
+// DKLA_CHROME_ONLY="breadcrumb,long path" runs only the checks whose names hold one of those words (for
+// working on one of them; the pass itself always runs them all).
+const only = (process.env.DKLA_CHROME_ONLY || '')
+  .split(',')
+  .map((word) => word.trim())
+  .filter(Boolean);
 async function check(name, run) {
+  if (only.length && !only.some((word) => name.includes(word))) return;
   try {
     await run();
     console.log('ok   ' + name);
@@ -1576,6 +1583,10 @@ try {
 if (failures) {
   console.log(`${failures} frame check(s) failed.`);
   process.exit(1);
+}
+if (only.length) {
+  console.log('Only the checks named ' + only.join(', ') + ' were run.');
+  process.exit(0);
 }
 console.log(
   'The frame: a 56 px bar in three groups with the field centred; the breadcrumb on one line at every level, whole or folded, with the field giving it room; Ctrl/Cmd+K and "/"; the palette’s sections, one highlight, Enter and Escape; every Library row opens its view and says what its count counts; the splash on Home only; the cluster still and unlit beside a reader or a dialog; nothing in the bar moves between states; no control under 36 px or without a name; the composition lint finds nothing through a resize; search results unchanged.',
