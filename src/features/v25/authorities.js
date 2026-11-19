@@ -1347,11 +1347,24 @@
   }
   const fontCanvas = document.createElement('canvas'),
     fontContext = fontCanvas.getContext?.('2d');
+  // v3.2: each width is measured once (the same words at the same size were measured on every draw).
+  // The record is dropped when a font finishes loading, since a width measured in a fallback font is wrong.
+  const widths = new Map();
+  document.fonts?.addEventListener?.('loadingdone', () => widths.clear());
+  document.fonts?.ready?.then(() => widths.clear());
   function widthOf(value, fs, weight = 450, cls = '') {
     if (fontContext) {
-      const serif = cls === 'authority-preamble-excerpt';
-      fontContext.font = `${serif ? 'italic ' : ''}${weight} ${fs}px ${serif ? 'Georgia, Cambria, serif' : cls === 'authority-preview-code' ? 'Consolas, monospace' : '"DKLA Inter", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",Roboto, Helvetica, Arial, sans-serif'}`;
-      return fontContext.measureText(value).width;
+      const serif = cls === 'authority-preamble-excerpt',
+        family = serif ? 'S' : cls === 'authority-preview-code' ? 'M' : 'I',
+        key = family + weight + '|' + fs + '|' + value;
+      let w = widths.get(key);
+      if (w === undefined) {
+        fontContext.font = `${serif ? 'italic ' : ''}${weight} ${fs}px ${serif ? 'Georgia, Cambria, serif' : cls === 'authority-preview-code' ? 'Consolas, monospace' : '"DKLA Inter", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",Roboto, Helvetica, Arial, sans-serif'}`;
+        w = fontContext.measureText(value).width;
+        if (widths.size > 30000) widths.clear();
+        widths.set(key, w);
+      }
+      return w;
     }
     return typeof measure === 'function' ? measure(value, fs, weight, cls) : String(value).length * fs * 0.54;
   }
@@ -1666,9 +1679,11 @@
   function paintMap() {
     const n = current(),
       g = geometry(n),
-      z = S.z,
-      B = visibleBox();
-    svg.setAttribute('viewBox', `${B.x} ${B.y} ${B.w} ${B.h}`);
+      z = S.z;
+    // v3.2: this view paints the map itself, so it tells the camera engine what it painted.
+    camDrawBegin();
+    camDrawn();
+    setViewBox();
     let out = `<g class="authority-map-view" data-authority-view="${esc(n.key)}">${frame(n, g)}`;
     for (const c of g.cards.values()) out += tile(c);
     svg.innerHTML = out + '</g>';
@@ -1704,8 +1719,18 @@
     let out = `<g class="authority-map-entrance" data-map-region="${ROOT}" role="group" aria-label="Rules and authorities"><title>Constitution, federal rules, codes and Restatements</title>${frame(root, g, true)}<g class="authority-title-control" data-map-region="${ROOT}" role="button" tabindex="0" aria-label="Explore rules and authorities"><rect x="${(g.panels?.[0] || g.box).x + 26 * g.unit}" y="${g.box.y + 14 * g.unit}" width="${(g.panels?.[0] || g.box).w - 52 * g.unit}" height="${g.header - 24 * g.unit}" fill="transparent" pointer-events="all"/></g>`;
     for (const card of g.cards.values()) out += tile(card, true);
     out += dictionarySpine(g) + '</g>';
-    svg.insertAdjacentHTML('beforeend', out);
+    // v3.2: turning this markup into elements was the largest single cost of a draw. While the markup is
+    // the same as last time (a pan, or a draw that changed something else) the elements made then are put
+    // back. They are a copy kept aside, never the ones on the page, so nothing a later layer does to the
+    // drawn tile can leak into the next draw.
+    if (entranceKept?.markup !== out) {
+      const holder = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      holder.innerHTML = out;
+      entranceKept = { markup: out, node: holder.firstElementChild };
+    }
+    svg.appendChild(entranceKept.node.cloneNode(true));
   }
+  let entranceKept = null;
   const oldDraw = draw;
   draw = function (...args) {
     if (active()) return paintMap();
@@ -1718,6 +1743,11 @@
       if (active()) paintMap();
       else entrance();
     });
+  // This view has its own levels (group, sub-group, provision): a pinch steps through them.
+  const oldContinuous = R11.continuous;
+  R11.continuous = function () {
+    return !active() && oldContinuous();
+  };
   const oldLevel = R11.level;
   R11.level = function (p) {
     if (active()) return { lvl: ancestors(current()).length, authority: current().key };

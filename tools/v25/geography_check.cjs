@@ -8,13 +8,18 @@ const fs = require('fs'),
 const root = path.resolve(__dirname, '../..');
 const G = JSON.parse(fs.readFileSync(path.join(__dirname, 'geography.json'), 'utf8'));
 const study = fs.readFileSync(path.join(root, 'src/runtime/studyCode.js'), 'utf8');
-// The same four top-level statements, found by parsing rather than by how the
+// The same top-level statements, found by parsing rather than by how the
 // file happens to be laid out: spacing and optional parentheses do not matter.
+// v3.2: the handlers record the pointer and the camera follows in the next
+// animation frame (camPointers), so that step is extracted too and run as the
+// frame would run it.
 const acorn = require('acorn');
 const squash = (text) => text.replace(/\s+/g, '').replace(/\((\w+)\)=>/g, '$1=>');
 const wanted = [
-  "svg.addEventListener('pointerdown',e=>{if(e.button",
-  "svg.addEventListener('pointermove',e=>{if(!S.pointers",
+  'functiononMapPointerDown(',
+  "svg.addEventListener('pointerdown',onMapPointerDown",
+  "svg.addEventListener('pointermove',e=>{constp=S.pointers.get",
+  'functioncamPointers(',
   'functionpointerEnd(',
   "svg.addEventListener('pointerup',pointerEnd)",
   "svg.addEventListener('pointercancel',pointerEnd)",
@@ -156,6 +161,23 @@ const context = {
 context.R11.step = () => {
   steps++;
 };
+// The camera engine around the handlers: no flight or glide to stop, the map's
+// edge is not in play, and "the next frame" runs at once.
+let continuous = false;
+context.R11.continuous = () => continuous;
+context.R11.level = () => ({ lvl: 1 });
+Object.assign(context, {
+  CAM: { pinch: null, snapAt: 0, glide: null, spring: null, dirty: false },
+  CAM_ZMAX: 1.25,
+  reducedMotion: false,
+  camStop: () => false,
+  camClamp() {},
+  camRelease() {},
+  camHeld: () => ({ z0: 0.01 }),
+  camKick() {
+    context.camPointers(0, size);
+  },
+});
 vm.createContext(context);
 vm.runInContext(pointerLines.join('\n'), context, { filename: 'immutable-pointer-handlers.js' });
 vm.runInContext(
@@ -177,6 +199,7 @@ for (const type of ['mouse', 'touch', 'pen']) {
   const cx = context.S.x;
   handlers.get('pointermove')(event('pointermove', 140, 150, type));
   assert.equal(context.S.x, cx - 40, 'Card drag must pan camera');
+  assert.equal(context.S.drag.node, null, 'A moving card drag is still a camera drag');
   handlers.get('pointerup')(event('pointerup', 140, 150, type));
   assert.equal(JSON.stringify(data.studyMap.homes['cp-pennoyer']), h, 'Card drag changed curated home');
 }
@@ -189,6 +212,19 @@ handlers.get('pointermove')(event('pointermove', 400, 100, 'touch', 2));
 assert(steps > 0, 'Pinch zoom disabled');
 handlers.get('pointercancel')(event('pointercancel', 100, 100, 'touch', 1));
 handlers.get('pointercancel')(event('pointercancel', 400, 100, 'touch', 2));
+// On the main map a two-finger pinch zooms continuously (v3.2).
+continuous = true;
+const z0 = context.S.z;
+context.S.z = 0.5;
+handlers.get('pointerdown')(event('pointerdown', 100, 100, 'touch', 1));
+handlers.get('pointerdown')(event('pointerdown', 200, 100, 'touch', 2));
+handlers.get('pointermove')(event('pointermove', 300, 100, 'touch', 2));
+assert.equal(context.S.z, 1, 'Fingers twice as far apart must double the zoom');
+assert.equal(context.S.drag.node, null);
+handlers.get('pointercancel')(event('pointercancel', 100, 100, 'touch', 1));
+handlers.get('pointercancel')(event('pointercancel', 300, 100, 'touch', 2));
+context.S.z = z0;
+continuous = false;
 assert.equal(context.commitMove('cp-pennoyer', 9999, 9999), false);
 assert.equal(context.window.LegalAtlas.placeEntry('cp-pennoyer', 'cp-venue-area'), false);
 context.r6Place('cp-pennoyer', 'cp-venue-area');

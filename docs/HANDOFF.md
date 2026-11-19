@@ -3,6 +3,31 @@
 Written at the end of a session so the next one can pick up cleanly.
 Update or replace this file when the state changes.
 
+## The map in motion (19 November 2026, branch `v32-map`, not merged, not deployed)
+
+- **What changed**: a drag, a pinch, a glide or a flight no longer draws the map on every frame. The picture
+  on the page is moved by one transform on `#geoCanvas`, set once per animation frame; the map is drawn when
+  the camera rests, and during a long motion only when blank map is about to show or the scale has drifted
+  past what the level of detail suits (spaced so draws take at most a fifth of the time). All of it is in
+  `src/runtime/studyCode.js` under "the camera in motion" (`CAM`, `camFrame`, `camDraw`, `setCamera`).
+  `schedule()` still means "something changed, draw"; anything that paints the map itself must call
+  `camDrawBegin()`, `camDrawn()` and `setViewBox()` as the rules-and-authorities view does.
+- **Feel**: 1:1 tracking, momentum on release, soft edges that spring back, a press stops a glide or a
+  flight, Ctrl + wheel (trackpad pinch) and two-finger pinch zoom continuously about the pointer and rest on
+  one of the four levels, flights are a critically damped spring that can be redirected. A plain wheel still
+  steps one level. Reduced motion: no glide, no flights.
+- **Draws made while moving are complete at once** (no fade-in); a change made at rest fades as before. The
+  draw at rest repeats (at most three times) until label placement agrees with itself.
+- **One reading of the page per draw**: `rect()`, the reader's width and the welcome note are measured once
+  per draw (`measured`, `LAY`). While the canvas is moved, `rect()` answers from the last draw.
+- **Start-up**: draws asked for behind the loading curtain are made at most five times a second.
+- **Check**: `tools/feel/check-map.mjs` ("the map in motion" in `pnpm verify`), two breakages in
+  `tools/verify/break.mjs`. `tools/v25/geography_check.cjs` and `authorities_check.cjs` were updated for the
+  new handlers. Numbers: `node tools/feel/measure.mjs <page> --only map,case,startup`.
+- **Known**: the top bar's always-running animations make the browser re-compose the page every frame, at a
+  cost that grows with the number of map elements; on a slow machine that is most of what a moving frame
+  costs. During a fast zoom the picture is the last draw magnified, so text is soft until the next draw.
+
 ## Latest (18 November 2026, v3.1)
 
 Read this first; the sections below it are older.

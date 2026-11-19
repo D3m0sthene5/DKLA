@@ -536,7 +536,7 @@
         R11.stepping = true;
         setTimeout(() => {
           R11.stepping = false;
-        }, 650);
+        }, 300);
         home('Atlas');
         return true;
       }
