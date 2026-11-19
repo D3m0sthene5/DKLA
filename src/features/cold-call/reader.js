@@ -643,7 +643,7 @@
   let aim = null; // where a scroll that go() began is heading, until it arrives or the reader takes over
   function glide(box, top) {
     aim = Math.max(0, Math.min(box.scrollHeight - box.clientHeight, top));
-    if (window.DKLACalm?.scrollTo) DKLACalm.scrollTo(box, top);
+    if (window.DKLACalm?.scrollTo) window.DKLACalm.scrollTo(box, top);
     else box.scrollTop = top;
   }
   function go(k) {

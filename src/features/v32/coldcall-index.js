@@ -247,7 +247,7 @@
       target.getBoundingClientRect().top -
       box.getBoundingClientRect().top -
       (box.querySelector('.cc-ix-head')?.offsetHeight || 0);
-    if (window.DKLACalm?.scrollTo) DKLACalm.scrollTo(box, top);
+    if (window.DKLACalm?.scrollTo) window.DKLACalm.scrollTo(box, top);
     else box.scrollTop = top;
     target.querySelector('h3, h4')?.focus({ preventScroll: true });
   });
