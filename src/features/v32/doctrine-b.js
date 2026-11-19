@@ -1134,11 +1134,14 @@
     const said = root?.querySelector(`.v32db-tag[data-v32db-i="${item.i}"] > .v32db-tag-fx`);
     return !!said && said.getClientRects().length > 0;
   }
-  // What stands beside the selected entry, and why. Nothing is there because it is next in time: each
-  // part is a stored relationship of this entry, under a heading that says which.
+  // What stands beside the selected entry. The space is used only for something worth learning that
+  // the stored material supports, under a heading that names it:
   //   - what became of earlier entries: each earlier entry whose stored later development names this one;
   //   - what became of it: this entry's own later development, and the entry that made it if it is here;
-  //   - why it is drawn where it is: the stored sentence of the Atlas's own account that places it.
+  //   - a distinction, consequence or comparison stored with the entry (`bears.beside`: a heading, the
+  //     Atlas's own sentences, where they come from, and sometimes another entry to compare).
+  // Nothing is there because it is next in time, and the chart is not explained again in words. With
+  // nothing to say the account is set on its own at full width.
   function besideHTML(model, item) {
     const parts = [];
     if (item.became.length)
@@ -1149,30 +1152,38 @@
       parts.push(
         `<section class="v32db-rel"><h4>What became of it</h4><p class="v32db-rel-said">${esc(item.s.fate)}</p>${item.later ? `<div class="v32db-rows">${rowHTML(item.later, item.later.words)}</div>` : ''}</section>`,
       );
-    const bears = item.bears;
-    if (!bears && item.rail && aside(model, item))
-      // Drawn apart by its stored kind of move: the timeline's own words for what that kind is.
+    const beside = item.bears?.beside;
+    if (beside?.text) {
+      // A line whose name on the chart is not the source's own term gives both.
+      const line = item.rail?.line;
+      const term = line?.term
+        ? `<p class="v32db-rel-line"><b>${esc(line.name)}</b> on the chart; the brief’s term is <b>${esc(line.term)}</b>.</p>`
+        : '';
       parts.push(
-        `<section class="v32db-rel v32db-rel-why"><h4>Why it is drawn apart, on ${esc(item.rail.line.name)}</h4><p class="v32db-rel-said">${esc(P.MEANS[item.turn] || '')}</p></section>`,
-      );
-    if (bears?.basis && !['sets', 'ends'].includes(bears.as)) {
-      const bands = model.spans.map((span) => span.short);
-      const where = item.hung
-        ? `on ${item.hung.short}`
-        : item.rail && aside(model, item)
-          ? `apart, on ${item.rail.line.name}`
-          : item.rail
-            ? `on ${item.rails.map((rail) => `“${rail.line.name}”`).join(' and ')}`
-            : `on the line${bands.length ? `, not on ${bands.join(' or ')}` : ''}`;
-      const concerns =
-        item.rail?.line.concerns && aside(model, item)
-          ? `<p class="v32db-rel-line"><b>${esc(item.rail.line.name)}</b> ${esc(item.rail.line.concerns)}</p>`
-          : '';
-      parts.push(
-        `<section class="v32db-rel v32db-rel-why"><h4>Why it is drawn ${esc(where)}</h4>${concerns}<blockquote class="v32db-rel-basis">${esc(bears.basis)}</blockquote><p class="v32db-rel-source">${esc(bears.source || '')}</p></section>`,
+        `<section class="v32db-rel"><h4>${esc(beside.heading)}</h4>${term}<p class="v32db-rel-said">${esc(beside.text)}</p>${beside.source ? `<p class="v32db-rel-source">${esc(beside.source)}</p>` : ''}</section>`,
       );
     }
+    const other = beside?.compare && model.items.find((x) => (x.s.id || x.s.sup) === beside.compare.to);
+    if (other)
+      parts.push(
+        `<section class="v32db-rel"><h4>${esc(beside.compare.heading)}</h4><p class="v32db-rel-said">${esc(beside.compare.why)}</p><div class="v32db-rows v32db-rows-note">${rowHTML(other, other.s.note || other.words)}</div></section>`,
+      );
     return parts.join('');
+  }
+  // Where the entry's place on the chart comes from: kept within reach, never the headline.
+  function sourceHTML(model, item) {
+    const bears = item.bears;
+    if (!bears?.basis) return '';
+    const where = item.span
+      ? `Sets ${item.span.short}`
+      : item.ends
+        ? `Ends ${item.ends.short}`
+        : item.hung
+          ? `Drawn on ${item.hung.short}`
+          : item.rail
+            ? `Drawn on ${item.rails.map((rail) => `“${rail.line.name}”`).join(' and ')}`
+            : 'Drawn on the line';
+    return `<details class="v32db-src"><summary>Source</summary><p><b>${esc(where)}.</b> ${esc(bears.basis)}</p><p class="v32db-rel-source">${esc(bears.source || '')}</p></details>`;
   }
   function accountHTML(model, index) {
     const items = model.items,
@@ -1190,6 +1201,7 @@
             <div>${fx}<p class="v32db-sel-note">${esc(item.s.note || '')}</p></div>
             ${item.s.context ? `<p class="v32db-sel-context">${esc(item.s.context)}</p>` : ''}
           </div>
+          ${sourceHTML(model, item)}
         </div>
       </article>
       ${beside ? `<aside class="v32db-side" aria-label="How this entry relates to the others">${beside}</aside>` : ''}`;
@@ -1217,7 +1229,7 @@
         <div class="v32db-unit-date">${timeHTML(s, 'v32db-yr')}${dayOf(s) ? `<span class="v32db-day">${esc(dayOf(s))}</span>` : ''}</div>
         <div class="v32db-unit-mark">${glyph(item.turn, { rule: 18, reach: 14, steady: 11, aside: 12 }[item.cls])}</div>
         <div class="v32db-unit-main">
-          ${kindLine(item, (item.rail ? `<span class="v32db-authority">On ${esc(item.rail.line.name)}</span>` : '') + (item.here ? '<span class="v32db-here">You are here</span>' : ''))}
+          ${kindLine(item, (item.rail ? `<span class="v32db-authority">On ${esc(item.rails.map((rail) => rail.line.name + (rail.line.term ? ` (the brief’s term: ${rail.line.term})` : '')).join(' and '))}</span>` : '') + (item.here ? '<span class="v32db-here">You are here</span>' : ''))}
           ${nameHTML(item, 'h4', 'v32db-unit-name', true)}
           <p class="v32db-unit-fx">${esc(item.words)}</p>
           <p class="v32db-unit-note">${esc(s.note || '')}</p>
@@ -1496,6 +1508,7 @@
     draw,
     select,
     model: () => state.model,
+    held,
     destroy() {
       inspector.removeEventListener('click', onClick);
       document.removeEventListener('keydown', onKey);

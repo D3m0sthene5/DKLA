@@ -76,6 +76,12 @@ html:root body #inspector .v32db-mast > .v32db-crumbs {
   white-space: nowrap;
   color: var(--v31-muted);
 }
+/* The path is shown once: where the top bar carries it, the header line does not repeat it. */
+@media (min-width: 1024px) {
+  html.v32-chrome:root body #inspector .v32db-mast > .v32db-crumbs {
+    display: none;
+  }
+}
 html:root body #inspector .v32db-crumbs > span {
   flex: 0 1 auto;
   min-width: 0;
@@ -97,21 +103,18 @@ html:root body #inspector .v32db-crumbs > .v32-sep {
   flex: none;
   color: var(--v31-faint);
 }
-/* The tab bar sits under the strip; Cold Call moves to its far end so the tabs start on the page's edge. */
+/* The tab bar sits under the strip, a little shorter. */
 html:root body.v32db-on #inspector .v32 > .v32-bar {
   top: 52px;
   height: 48px;
 }
 html:root body.v32db-on #inspector .v32 .v32-tabs {
   height: 48px;
-  padding-right: 160px;
 }
 html:root body.v32db-on #inspector .v32 .v32-tab::after {
   bottom: -6px;
 }
 html:root body.v32db-on #inspector .v32 .v32-cc {
-  left: auto;
-  right: var(--v32-gutter);
   top: 2px;
 }
 html:root body.v32db-on #inspector .v32 > .v32-panel {
@@ -958,32 +961,77 @@ html:root body #inspector .v32db-rel-said + .v32db-row {
   margin-top: 4px;
 }
 html:root body #inspector .v32db-rel-line {
+  margin-bottom: 4px;
   font:
     400 15px/22px var(--dkla-interface, Inter),
     sans-serif;
   color: var(--v31-soft);
 }
 html:root body #inspector .v32db-rel-line > b {
-  margin-right: 6px;
   font-weight: 600;
   color: var(--v31-text);
 }
-html:root body #inspector .v32db-rel-basis {
-  max-width: 560px;
-  margin: 4px 0 0;
-  padding: 0 0 0 12px;
-  border-left: 2px solid var(--v31-line-strong);
-  font:
-    400 15px/22px var(--dkla-interface, Inter),
-    sans-serif;
-  text-wrap: pretty;
-  color: var(--v31-body);
-}
 html:root body #inspector .v32db-rel-source {
-  margin-top: 4px;
-  padding-left: 14px;
+  margin-top: 6px;
   font: var(--v32-ui-small);
   color: var(--v31-muted);
+}
+html:root body #inspector .v32db-rows-note {
+  grid-template-columns: minmax(0, 1fr);
+  margin-top: 4px;
+}
+html:root body #inspector .v32db-rows-note > .v32db-row {
+  grid-template-columns: minmax(0, 1fr);
+}
+/* The source of an entry's place on the chart: one quiet word that opens. */
+html:root body #inspector .v32db-src {
+  max-width: 600px;
+  margin-top: 12px;
+  font:
+    400 14px/22px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-soft);
+}
+html:root body #inspector .v32db-src > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+  font: var(--v32-ui-small);
+  color: var(--v31-link);
+  list-style: none;
+  cursor: pointer;
+}
+html:root body #inspector .v32db-src > summary::-webkit-details-marker {
+  display: none;
+}
+html:root body #inspector .v32db-src > summary::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  border: solid currentColor;
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
+}
+html:root body #inspector .v32db-src[open] > summary::after {
+  margin-top: 3px;
+  transform: rotate(-135deg);
+}
+html:root body #inspector .v32db-src > summary:hover {
+  color: var(--v31-link-hover);
+}
+html:root body #inspector .v32db-src > summary:focus-visible {
+  box-shadow: var(--v31-focus);
+  border-radius: 6px;
+}
+html:root body #inspector .v32db-src > p {
+  margin: 4px 0 0;
+  text-wrap: pretty;
+}
+html:root body #inspector .v32db-src > p > b {
+  font-weight: 600;
+  color: var(--v31-text);
 }
 /* Nothing beside it: the account has the room. Its note and its context stand side by side. */
 html:root body #inspector .v32db-account[data-v32db-side='0'] {

@@ -642,29 +642,31 @@
     go.insertAdjacentHTML('beforeend', ARROW);
     return [part, go];
   }
+  // What this case changed on its doctrine's timeline, in the timeline's stored words, and one route
+  // into Doctrine. The chart itself has a home there: none of it is redrawn here.
   function sitTimeline(host) {
-    const lines = [
-      ...host.querySelectorAll(':scope > .v28-case-timelines > .dkla-timeline, :scope > .dkla-timeline'),
-    ];
-    const line = lines.find((one) => one.dataset.v32Place) || lines[0];
-    if (!line) return null;
-    const total = Number(line.dataset.v32Count) || 0,
-      at = Number(line.dataset.v32Place) || 0;
+    const id = entry()?.node?.id;
+    const T = window.DKLATimelines;
+    const lines = id && T?.parts ? T.list().filter((t) => t.steps.some((s) => s.id === id)) : [];
+    if (!lines.length || !host.querySelector(':scope > .v28-case-timelines, :scope > .dkla-timeline'))
+      return null;
+    const said = (text) => window.DKLADoctrineB?.held?.(text) ?? text;
+    const first = lines[0].steps.filter(T.parts.live);
+    const at = first.findIndex((s) => s.id === id) + 1;
     const [part, go] = sitPart(
-      'Timeline',
-      at ? `${ordinal(at)} of ${total}` : `${total} ${total === 1 ? 'entry' : 'entries'}`,
-      'timeline',
-      lines.length > 1 ? `All ${lines.length} timelines` : 'Every entry',
+      'Doctrine',
+      lines.length > 1 ? `${lines.length} timelines` : `${ordinal(at)} of ${first.length}`,
+      'doctrine',
+      lines.length > 1 ? `See its ${lines.length} doctrine charts` : 'See it on the doctrine chart',
     );
-    const question = line.querySelector('.v31-tl-q')?.textContent.trim() || line.getAttribute('aria-label');
-    if (question) part.appendChild(titled(question));
-    const axis = line.querySelector('.v31-axis');
-    if (axis) part.appendChild(axis.cloneNode(true));
-    const here = line.querySelector('.v31-tl-rows > li.v31-here');
-    const turn = here?.querySelector('.v31-tl-turn'),
-      note = here?.querySelector('.v31-tl-note');
-    if (turn?.textContent.trim()) part.appendChild(turn.cloneNode(true));
-    if (note?.textContent.trim()) part.appendChild(clamped(note.textContent.trim()));
+    part.classList.add('v32-sit-doctrine');
+    for (const t of lines.slice(0, 3)) {
+      const step = t.steps.find((s) => s.id === id);
+      const changed = element('div', 'v32-sit-changed', bound(said(T.parts.label(step, t) || '')));
+      part.appendChild(changed);
+      if (step.fate) part.appendChild(element('div', 'v32-sit-later', 'Later: ' + step.fate));
+      part.appendChild(titled(t.title));
+    }
     part.appendChild(go);
     return part;
   }
