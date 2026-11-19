@@ -706,7 +706,9 @@
 }
 #dklaFlowcharts .fc-map-node .fc-exit {
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
   min-height: 0;
   margin: 0;
@@ -761,6 +763,136 @@
 }
 .fc-merge {
   fill: currentColor;
+}
+/* Fitted to the window (under half size) the chart shows its shape, not its words: each step is its
+   number in its shape, enlarged; outcomes are tinted and named by the cases they rest on; the first
+   decision's answers stand beside it; wires and the bars where paths meet are drawn heavier. */
+.fc-over {
+  display: none;
+}
+.fc-overview .fc-node-heading > span:last-child,
+.fc-overview .fc-exits,
+.fc-overview .fc-node-type,
+.fc-overview .fc-art-name,
+.fc-overview .fc-art-row {
+  visibility: hidden;
+}
+.fc-overview .fc-number {
+  zoom: calc(0.82 / var(--fc-map-scale));
+}
+#dklaFlowcharts .fc-overview .fc-node-heading {
+  padding: calc(3px / var(--fc-map-scale)) calc(4px / var(--fc-map-scale)) 0;
+}
+.fc-overview .fc-over {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: calc(100% + 2px);
+  width: max-content;
+  zoom: calc(1 / var(--fc-map-scale));
+  font:
+    500 11px/14px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-text);
+  text-shadow:
+    0 0 3px var(--v31-panel),
+    0 0 3px var(--v31-panel),
+    0 0 3px var(--v31-panel);
+}
+.fc-overview .fc-over-low {
+  top: calc(100% + 15px);
+}
+.fc-overview .fc-beside > .fc-over {
+  left: calc(100% + 6px);
+  top: 3px;
+}
+.fc-overview .fc-over-L,
+.fc-overview .fc-over-R {
+  font:
+    600 12px/15px var(--dkla-interface, Inter),
+    sans-serif;
+}
+.fc-overview .fc-over-L {
+  left: auto;
+  right: calc(100% + 8px);
+  top: 0;
+  text-align: end;
+}
+.fc-overview .fc-over-R {
+  left: calc(100% + 8px);
+  top: 0;
+}
+.fc-overview .fc-wire {
+  stroke-width: calc(1.3px / var(--fc-map-scale));
+}
+.fc-overview .fc-join > .fc-join-bar {
+  stroke-width: calc(3px / var(--fc-map-scale));
+}
+.fc-overview .fc-join > .fc-join-in {
+  stroke-width: calc(1.3px / var(--fc-map-scale));
+}
+.fc-overview .fc-join > circle,
+.fc-overview .fc-merge {
+  r: calc(2.6px / var(--fc-map-scale));
+}
+.fc-overview .fc-path-wire {
+  stroke-width: calc(2.2px / var(--fc-map-scale));
+}
+.fc-overview .fc-map-node.fc-outcome {
+  background: color-mix(in srgb, var(--fc-course, var(--v31-link)) 42%, var(--v31-ground));
+}
+/* Arrangement b (flow=b), while the two are compared. The answers share one reading edge: each is set
+   from the left whichever side its wire leaves by, and under it a short cue names the step it leads
+   to, so a destination can be read without following the wire and two answers that reach the same
+   step are seen to. An answer that leads to an outcome nothing else reaches has that outcome beside
+   it on its own line. */
+#dklaFlowcharts .fc-flow-b .fc-map-node .fc-exit-R {
+  text-align: start;
+}
+#dklaFlowcharts .fc-flow-b .fc-map-node .fc-destination {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip-path: none;
+  white-space: normal;
+  font:
+    500 12px/16px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-muted);
+}
+#dklaFlowcharts .fc-flow-b .fc-map-node .fc-exit-I > .fc-destination {
+  display: none;
+}
+#dklaFlowcharts .fc-flow-b .fc-map-node li + li > .fc-exit {
+  border-top: 1px solid var(--v32-hair, rgba(255, 255, 255, 0.08));
+}
+#dklaFlowcharts .fc-flow-b .fc-map-node .fc-exit {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+/* An outcome beside its answer: the disc says it is an outcome; each case is named by its drawing. */
+#dklaFlowcharts .fc-map-node.fc-beside > .fc-node-type {
+  display: none;
+}
+#dklaFlowcharts .fc-map-node.fc-beside > .fc-node-heading {
+  padding-bottom: 6px;
+}
+#dklaFlowcharts .fc-art-row.fc-art-named {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 4px 8px;
+  align-items: center;
+}
+#dklaFlowcharts .fc-art-name {
+  font:
+    500 13px/18px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-soft);
+}
+#dklaFlowcharts .fc-map-node .fc-exit-I::after {
+  right: -3px;
 }
 .fc-tracing .fc-merge {
   opacity: 0.35;
