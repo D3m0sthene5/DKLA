@@ -1,0 +1,743 @@
+{
+  "reviewedAt": "2026-11-19",
+  "baseline": "c3191d285cf72097984dddcd689545f32db73908",
+  "scope": "Source-first audit of Contracts class sessions (Opus, owner's brief of 19 November 2026). Each correction was found by a source-reading worker or a separate challenge worker, then checked by the lead against the assigned C&M pages, supplement, selections and slides. Evidence: docs/history/corpus-audit-2026-11/contracts/<packet>/. Not a full-opinion, citator or all-claims certification.",
+  "edits": [
+    {
+      "file": "tools/cold-call/narratives/austin.json",
+      "pointer": "/sections/6/paragraphs/1",
+      "old": "The assigned note connects the decision with sales-law modification rules. UCC § 2-209 removes the need for new consideration, but duress remains available through § 1-103(b), and Comment 2 to § 2-209 requires good faith. Thus, the consideration objection associated with Alaska Packers did not exhaust the analysis. The later Restatement §§ 175–176 framework maps coerced assent and absence of reasonable alternatives to § 175, and wrongful threatened breach to § 176(1)(d). Those are explanatory comparisons, not additional holdings in this appeal.",
+      "new": "The assigned note connects the decision with sales-law modification rules. UCC § 2-209 removes the need for new consideration, but duress remains available through § 1-103(b), and Comment 2 to § 2-209 requires good faith. Thus, the consideration objection associated with Alaska Packers did not exhaust the analysis. The later Restatement §§ 175–176 framework maps coerced assent and absence of reasonable alternatives to § 175, and a threatened breach that is itself a breach of the duty of good faith and fair dealing to § 176(1)(d). Those are explanatory comparisons, not additional holdings in this appeal.",
+      "reason": "Restatement § 176(1)(d) makes a threat improper only when the threat is a breach of the duty of good faith and fair dealing under a contract with the recipient; not every threatened breach qualifies.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 176(1)(d), (2)"
+        },
+        {
+          "file": "added-sources/Class 11_Contract modifications - Copy (2).pptx",
+          "slides": [
+            13,
+            14
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/austin/10/sentence",
+      "old": "The later Restatement §§ 175–176 framework maps coerced assent and absence of reasonable alternatives to § 175, and wrongful threatened breach to § 176(1)(d).",
+      "new": "The later Restatement §§ 175–176 framework maps coerced assent and absence of reasonable alternatives to § 175, and a threatened breach that is itself a breach of the duty of good faith and fair dealing to § 176(1)(d).",
+      "reason": "Restatement § 176(1)(d) makes a threat improper only when the threat is a breach of the duty of good faith and fair dealing under a contract with the recipient; not every threatened breach qualifies.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 176(1)(d), (2)"
+        },
+        {
+          "file": "added-sources/Class 11_Contract modifications - Copy (2).pptx",
+          "slides": [
+            13,
+            14
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/austin/10/plain",
+      "old": "The later Restatement §§ 175–176 framework fits this case. Section 175 covers coerced \"assent\" (agreement forced by a threat) where there is no reasonable alternative, and § 176(1)(d) treats a wrongful threatened \"breach\" of contract as an improper threat.",
+      "new": "The later Restatement §§ 175–176 framework fits this case. Section 175 covers coerced \"assent\" (agreement forced by a threat) where there is no reasonable alternative, and § 176(1)(d) treats a threat as improper when the threat is itself a breach of the duty of \"good faith and fair dealing\" under the contract, as a threat to withhold owed deliveries to extract new terms may be.",
+      "reason": "Restatement § 176(1)(d) makes a threat improper only when the threat is a breach of the duty of good faith and fair dealing under a contract with the recipient; not every threatened breach qualifies.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 176(1)(d), (2)"
+        },
+        {
+          "file": "added-sources/Class 11_Contract modifications - Copy (2).pptx",
+          "slides": [
+            13,
+            14
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/austin/5/plain",
+      "old": "Normally a pressured party must \"disaffirm,\" or reject, the forced deal promptly. But the pressure continued while Austin still owed critical deliveries under the second \"subcontract,\" so objecting three days after the last delivery was soon enough.",
+      "new": "Normally a pressured party must \"disaffirm,\" or reject, the forced deal promptly. But the pressure continued while Austin still owed critical deliveries under the second \"subcontract,\" so demanding repayment three days after the last delivery was soon enough.",
+      "reason": "Loral protested in writing when it gave in (July 22); what it delayed was its demand for a refund.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            488,
+            491
+          ],
+          "pdfPages": [
+            181,
+            184
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/austin/1/plain",
+      "old": "A pressured party may undo a contract if it agreed only because the other side made a wrongful threat that left it no real free choice.",
+      "new": "A pressured party may undo a contract if the other side's wrongful threat forced it to agree by leaving it no real free choice.",
+      "reason": "The court's test is that the party 'was forced to agree to it by means of a wrongful threat precluding the exercise of his free will'; it does not require that the threat be the only reason (Restatement § 175 comment c: substantially contributes).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            489
+          ],
+          "pdfPages": [
+            182
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 175 comment c"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-036",
+      "field": "rule",
+      "old": "A contract modification is voidable for economic duress when a party threatens to withhold goods owed under a contract, and the threatened party cannot obtain them from another source in time and an ordinary action for breach would be inadequate.",
+      "new": "A contract modification is voidable for economic duress when a wrongful threat precluding free will, such as withholding owed goods unless a further demand is met, forces agreement, the threatened party cannot obtain the goods elsewhere in time, and an ordinary action for breach would be inadequate.",
+      "reason": "Austin's test requires that the party was forced to agree by a wrongful threat precluding the exercise of free will, the threat being to withhold goods unless the other party agrees to a further demand; the rule line dropped the inducement and the link between threat and demand.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            489
+          ],
+          "pdfPages": [
+            182
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/v28/case-chronologies.json",
+      "pointer": "/0/steps/213/note",
+      "old": "A contract modification is voidable for economic duress when a party threatens to withhold goods owed under a contract, and the threatened party cannot obtain them from another source in time and an ordinary action for breach would be inadequate.",
+      "new": "A contract modification is voidable for economic duress when a wrongful threat precluding free will, such as withholding owed goods unless a further demand is met, forces agreement, the threatened party cannot obtain the goods elsewhere in time, and an ordinary action for breach would be inadequate.",
+      "reason": "Austin's test requires that the party was forced to agree by a wrongful threat precluding the exercise of free will, the threat being to withhold goods unless the other party agrees to a further demand; the rule line dropped the inducement and the link between threat and demand.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            489
+          ],
+          "pdfPages": [
+            182
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/cold-call/narratives/alaska-packers.json",
+      "pointer": "/sections/5/paragraphs/1",
+      "old": "Later Restatement § 89 can support some modifications without new consideration, but replacement difficulty alone does not establish unforeseen circumstances supporting a fair adjustment, and § 89(c) does not automatically protect every performance of an existing duty. New York General Obligations Law § 5-1103 can remove consideration objections to qualifying signed modifications without supplying authority or eliminating duress. Uniform Commercial Code § 2-209 applies to goods modifications; a crew’s services contract is not a goods sale merely because its employer sells salmon.",
+      "new": "Later Restatement § 89 can support some modifications without new consideration, but replacement difficulty alone does not establish circumstances not anticipated by the parties that would make an adjustment fair and equitable, and § 89(c) does not automatically protect every performance of an existing duty. New York General Obligations Law § 5-1103 can remove consideration objections to qualifying signed modifications without supplying authority or eliminating duress. Uniform Commercial Code § 2-209 applies to goods modifications; a crew’s services contract is not a goods sale merely because its employer sells salmon.",
+      "reason": "Restatement § 89(a) asks whether the modification is 'fair and equitable in view of circumstances not anticipated by the parties when the contract was made'; comment b counts an event foreseen as a remote possibility if the contract did not adequately cover it, so 'events nobody expected' changes the test.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 89(a) and comment b"
+        },
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            476
+          ],
+          "pdfPages": [
+            169
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/alaska-packers/13/sentence",
+      "old": "Later Restatement § 89 can support some modifications without new consideration, but replacement difficulty alone does not establish unforeseen circumstances supporting a fair adjustment, and § 89(c) does not automatically protect every performance of an existing duty.",
+      "new": "Later Restatement § 89 can support some modifications without new consideration, but replacement difficulty alone does not establish circumstances not anticipated by the parties that would make an adjustment fair and equitable, and § 89(c) does not automatically protect every performance of an existing duty.",
+      "reason": "Restatement § 89(a) asks whether the modification is 'fair and equitable in view of circumstances not anticipated by the parties when the contract was made'; comment b counts an event foreseen as a remote possibility if the contract did not adequately cover it, so 'events nobody expected' changes the test.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 89(a) and comment b"
+        },
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            476
+          ],
+          "pdfPages": [
+            169
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/alaska-packers/13/plain",
+      "old": "Restatement § 89, a later rule, can make some contract \"modifications\" (changes) binding without new consideration if fair and caused by \"unforeseen circumstances,\" events nobody expected. Difficulty finding replacement workers alone does not qualify, and § 89(c) does not automatically protect every \"performance\" of a duty already owed.",
+      "new": "Restatement § 89, a later rule, can make a \"modification\" (change) of a contract not yet fully performed binding without new consideration if it is \"fair and equitable\" in view of circumstances the parties did not anticipate when they contracted. An event foreseen only as a remote possibility can count if the contract did not adequately cover it. Difficulty finding replacement workers alone does not qualify, and § 89(c) does not automatically protect every \"performance\" of a duty already owed.",
+      "reason": "Restatement § 89(a) asks whether the modification is 'fair and equitable in view of circumstances not anticipated by the parties when the contract was made'; comment b counts an event foreseen as a remote possibility if the contract did not adequately cover it, so 'events nobody expected' changes the test.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 89(a) and comment b"
+        },
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            476
+          ],
+          "pdfPages": [
+            169
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/alaska-packers/14/plain",
+      "old": "New York General Obligations Law § 5-1103 can remove \"consideration\" objections (that nothing new was exchanged) to qualifying signed, written \"modifications\" of a contract. But it does not give someone authority he lacked, and it does not cure duress, meaning improper pressure.",
+      "new": "New York General Obligations Law § 5-1103 can remove \"consideration\" objections (that nothing new was exchanged) to a written \"modification\" of a contract signed by the party against whom it is to be enforced, or by that party's agent. But it does not give someone authority he lacked, and it does not cure duress, meaning improper pressure.",
+      "reason": "N.Y. Gen. Oblig. Law § 5-1103 protects only a writing signed by the party against whom the change is to be enforced, or by that party's agent.",
+      "sources": [
+        {
+          "url": "https://www.nysenate.gov/legislation/laws/GOB/5-1103",
+          "pinpoint": "N.Y. Gen. Oblig. Law § 5-1103"
+        }
+      ],
+      "pinpoints": [
+        {
+          "file": "added-sources/FA26 Contracts Supplement.pdf",
+          "pages": [
+            9
+          ]
+        },
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            473
+          ],
+          "pdfPages": [
+            166
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "modification",
+      "stepKey": "ny51103",
+      "field": "note",
+      "old": "New York: a signed written agreement to modify or discharge a contract does not fail for lack of consideration.",
+      "new": "New York: a written agreement to modify or discharge a contract, signed by the party against whom it is to be enforced or by that party's agent, does not fail for lack of consideration.",
+      "reason": "N.Y. Gen. Oblig. Law § 5-1103 protects only a writing signed by the party against whom the change is to be enforced, or by that party's agent.",
+      "sources": [
+        {
+          "url": "https://www.nysenate.gov/legislation/laws/GOB/5-1103",
+          "pinpoint": "N.Y. Gen. Oblig. Law § 5-1103"
+        }
+      ],
+      "pinpoints": [
+        {
+          "file": "added-sources/FA26 Contracts Supplement.pdf",
+          "pages": [
+            9
+          ]
+        },
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            473
+          ],
+          "pdfPages": [
+            166
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "modification",
+      "stepKey": null,
+      "field": "now",
+      "old": "A services modification may encounter the pre-existing-duty rule. Model UCC § 2-209 removes consideration as a requirement for a goods modification, while good faith still matters. New York’s signed-writing statute and the Restatement’s fair-modification approach offer distinct routes. None makes coercion irrelevant.",
+      "new": "A services modification may encounter the pre-existing-duty rule. Model UCC § 2-209 removes consideration as a requirement for a goods modification, but the modification must meet the Code’s test of good faith. New York’s statute for a writing signed by the party against whom the change is enforced and the Restatement’s fair-modification approach offer distinct routes. None makes coercion irrelevant.",
+      "reason": "UCC § 2-209 comment 2 makes good faith a requirement ('must meet the test of good faith'), and § 5-1103 requires the signature of the party to be charged.",
+      "sources": [
+        {
+          "url": "https://www.law.cornell.edu/ucc/2/2-209",
+          "pinpoint": "Model UCC § 2-209 and Official Comment 2"
+        },
+        {
+          "url": "https://www.nysenate.gov/legislation/laws/GOB/5-1103",
+          "pinpoint": "N.Y. Gen. Oblig. Law § 5-1103"
+        }
+      ],
+      "pinpoints": [
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "UCC § 2-209 comment 2"
+        },
+        {
+          "file": "added-sources/FA26 Contracts Supplement.pdf",
+          "pages": [
+            9
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/alaska-packers/8/plain",
+      "old": "The record did not show \"rescission\" (the company freely canceling the old contracts) and substitution of new ones. Nor did it show \"waiver\" (knowingly giving up its rights) just from the superintendent's apparent \"assent,\" his seeming agreement to the demand.",
+      "new": "The record did not show \"rescission\" (both sides freely agreeing to cancel the old contracts) and substitution of new ones. Nor did it show \"waiver\" (knowingly giving up its rights) just from the superintendent's apparent \"assent,\" his seeming agreement to the demand.",
+      "reason": "Rescission of the old contract requires the consent of both parties (the 'parties' have 'voluntarily rescinded'; Watkins: 'by mutual consent'); the gloss made it the company's act.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            472,
+            475,
+            479
+          ],
+          "pdfPages": [
+            165,
+            168,
+            172
+          ]
+        },
+        {
+          "file": "added-sources/Class 11_Contract modifications - Copy (2).pptx",
+          "slides": [
+            5
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-035",
+      "field": "rule",
+      "old": "Parties to an existing contract may, in a single transaction, voluntarily",
+      "new": "Under New Hampshire law, when later-learned facts make performance unexpectedly burdensome, parties may, in a single transaction, voluntarily",
+      "reason": "Watkins states New Hampshire law, applied where facts learned after contracting made performance burdensome and the special price was fair; Restatement § 89 comment b rejects the simultaneous-rescission theory.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            478,
+            479,
+            480
+          ],
+          "pdfPages": [
+            171,
+            172,
+            173
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 89 comment b"
+        },
+        {
+          "file": "added-sources/Class 11_Contract modifications - Copy (2).pptx",
+          "slides": [
+            10
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/v28/case-chronologies.json",
+      "pointer": "/0/steps/111/note",
+      "old": "Parties to an existing contract may, in a single transaction, voluntarily rescind the old arrangement in whole or in part and substitute a fair new one, so an owner's voluntary surrender of his right to the original price is effective.",
+      "new": "Under New Hampshire law, when later-learned facts make performance unexpectedly burdensome, parties may, in a single transaction, voluntarily rescind the old arrangement in whole or in part and substitute a fair new one, so an owner's voluntary surrender of his right to the original price is effective.",
+      "reason": "Watkins states New Hampshire law, applied where facts learned after contracting made performance burdensome and the special price was fair; Restatement § 89 comment b rejects the simultaneous-rescission theory.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            478,
+            479,
+            480
+          ],
+          "pdfPages": [
+            171,
+            172,
+            173
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 89 comment b"
+        },
+        {
+          "file": "added-sources/Class 11_Contract modifications - Copy (2).pptx",
+          "slides": [
+            10
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "target": "takeaway",
+      "id": "watkins",
+      "old": "The parties to a contract can tear up the old price and agree a fairer new one in a single conversation. An owner who voluntarily agreed to pay more when the digging hit rock was held to the new rate.",
+      "new": "Under New Hampshire law, the parties to a contract could give up the old price and agree a fair new one in a single transaction when unexpected difficulties made performance burdensome. An owner who voluntarily agreed to pay a fair special rate when the digging unexpectedly hit solid rock was held to the new rate.",
+      "reason": "Watkins states New Hampshire law, applied where facts learned after contracting made performance burdensome and the special price was fair; Restatement § 89 comment b rejects the simultaneous-rescission theory.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            478,
+            479,
+            480
+          ],
+          "pdfPages": [
+            171,
+            172,
+            173
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 89 comment b"
+        },
+        {
+          "file": "added-sources/Class 11_Contract modifications - Copy (2).pptx",
+          "slides": [
+            10
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "modification",
+      "stepKey": "watkins",
+      "field": "note",
+      "old": "Parties may rescind and replace a deal in one transaction; an owner who freely gives up the old price after unforeseen rock is bound (New Hampshire).",
+      "new": "Parties may rescind and replace a deal in one transaction; an owner who freely gives up the old price after unforeseen rock and promises a fair special rate is bound to it (New Hampshire).",
+      "reason": "Watkins states New Hampshire law, applied where facts learned after contracting made performance burdensome and the special price was fair; Restatement § 89 comment b rejects the simultaneous-rescission theory.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            478,
+            479,
+            480
+          ],
+          "pdfPages": [
+            171,
+            172,
+            173
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 89 comment b"
+        },
+        {
+          "file": "added-sources/Class 11_Contract modifications - Copy (2).pptx",
+          "slides": [
+            10
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/cold-call/narratives/watkins.json",
+      "pointer": "/sections/5/paragraphs/1",
+      "old": "The casebook compares Schwartzreich, where parties tore signatures from the old salary agreement and signed a replacement. Watkins did not require that ceremony. Later Restatement § 89 comment b criticized simultaneous rescission as a fiction and instead tested a modification’s fairness and justification directly. Its first illustration uses the cellar, unexpected rock, and nine-times rate to reach a binding modification when reasonable. That later route was not the rule Allen applied and does not erase his conclusion that mutual mistake failed. An event can leave the initial obligation intact yet support a consensual adjustment.",
+      "new": "The casebook compares Schwartzreich, where parties tore signatures from the old salary agreement and signed a replacement. Watkins did not require that ceremony. Later Restatement § 89 comment b rejected simultaneous rescission as a fiction and instead asked directly whether a modification is fair and equitable in view of circumstances not anticipated when the contract was made. Its first illustration uses the cellar, unexpected rock, and nine-times rate to reach a binding modification when reasonable. That later route was not the rule Allen applied and does not erase his conclusion that mutual mistake failed. An event can leave the initial obligation intact yet support a consensual adjustment.",
+      "reason": "Restatement § 89 comment b says 'That theory is rejected here'; the § 89(a) test is fair and equitable in view of circumstances not anticipated.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 89 comment b"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/watkins/9/sentence",
+      "old": "Later Restatement § 89 comment b criticized simultaneous rescission as a fiction and instead tested a modification’s fairness and justification directly.",
+      "new": "Later Restatement § 89 comment b rejected simultaneous rescission as a fiction and instead asked directly whether a modification is fair and equitable in view of circumstances not anticipated when the contract was made.",
+      "reason": "Restatement § 89 comment b says 'That theory is rejected here'; the § 89(a) test is fair and equitable in view of circumstances not anticipated.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 89 comment b"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/watkins/9/plain",
+      "old": "Later, Restatement § 89 comment b, part of an influential summary of contract law, criticized the idea of simultaneous rescission (cancel and remake at the same moment) as a fiction. It instead tests directly whether a modification is fair and justified.",
+      "new": "Later, Restatement § 89 comment b, part of an influential summary of contract law, rejected the idea of simultaneous rescission (cancel and remake at the same moment) as a fiction. It instead asks directly whether a modification is fair and equitable in view of circumstances the parties did not anticipate when they contracted.",
+      "reason": "Restatement § 89 comment b says 'That theory is rejected here'; the § 89(a) test is fair and equitable in view of circumstances not anticipated.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 89 comment b"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/19/nodes/1/edges/0/label",
+      "old": "Adequate basis",
+      "new": "New consideration or a recognized alternative",
+      "reason": "Node b asks about new consideration or a recognized alternative; Watkins-type substitution and Restatement § 89 are alternatives, so 'Same duty only' sent the Watkins facts and § 89 Illustration 1 to the failed-modification outcome.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            477,
+            478,
+            479,
+            480
+          ],
+          "pdfPages": [
+            170,
+            171,
+            172,
+            173
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 89 comment a, Illustration 1"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/19/nodes/1/edges/1/label",
+      "old": "Same duty only",
+      "new": "Same duty, no recognized alternative",
+      "reason": "Same reason as the companion edge: the same duty with a recognized alternative is enforceable (Watkins; Restatement § 89).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            477,
+            478,
+            479,
+            480
+          ],
+          "pdfPages": [
+            170,
+            171,
+            172,
+            173
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 89 comment a, Illustration 1"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/19/nodes/1/detail",
+      "old": "The fishermen in Alaska Packers already owed the same work. Watkins enforced the voluntary substitution of a higher excavation price. Consider any supported exception for fair adjustment to unanticipated circumstances under local law.",
+      "new": "The fishermen in Alaska Packers already owed the same work. Watkins enforced the voluntary substitution of a fair, higher price after unexpected rock (New Hampshire). Restatement § 89 enforces a modification that is fair and equitable in view of circumstances not anticipated when the contract was made, to the extent a statute provides, or to the extent justice requires because of a material change of position in reliance.",
+      "reason": "States the § 89 routes, including reliance under § 89(c), which the chart gave no route, and the fair price on which Watkins relied.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            478
+          ],
+          "pdfPages": [
+            171
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 89(a)–(c)"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/19/nodes/4/detail",
+      "old": "In Austin a gear supplier withheld indispensable supply while Loral could not timely replace it and faced Navy obligations. Test market alternatives, timing, inducement and whether apparent acquiescence continued under the pressure.",
+      "new": "In Austin a gear supplier withheld indispensable supply while Loral could not timely replace it and faced Navy obligations. Test market alternatives, whether an ordinary action for breach would be adequate, timing, inducement and whether apparent acquiescence continued under the pressure.",
+      "reason": "Austin requires, besides the wrongful threat and no other timely source, that 'the ordinary remedy of an action for breach of contract would not be adequate.'",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            489,
+            490,
+            491
+          ],
+          "pdfPages": [
+            182,
+            183,
+            184
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/19/nodes/7/detail",
+      "old": "The coerced party may avoid the modification and seek appropriate recovery. Continued performance or a delay in protesting can be consistent with ongoing pressure, as in Austin.",
+      "new": "The coerced party may avoid the modification and seek appropriate recovery. The coerced party must disaffirm promptly once the pressure ends. In Austin, Loral protested in writing when it gave in and could wait to demand a refund until three days after the last delivery, because further stoppages remained possible until then.",
+      "reason": "Loral did not delay its protest (letter of July 22); the court required one who would recover money paid under duress to 'act promptly' and excused only the wait for the refund demand while further compulsion was possible.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            488,
+            491,
+            492
+          ],
+          "pdfPages": [
+            181,
+            184,
+            185
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/19/nodes/6/detail",
+      "old": "A failed modification leaves the original bargain available, subject to any separately valid waiver or discharge.",
+      "new": "A failed modification leaves the original bargain available, subject to any separately valid waiver or discharge and to enforcement to the extent justice requires because of a material change of position in reliance (Restatement § 89(c)).",
+      "reason": "Restatement § 89(c) and comment d enforce a modification, otherwise not binding, to the extent justice requires because of reliance.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 89(c), comment d, Illustrations 7–8"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/canons/data/lectures.json",
+      "pointer": "/32/topics/1/body",
+      "old": "Slide 5 quotes Restatement § 73: performing a legal duty owed to the promisor that is neither doubtful nor in honest dispute is not consideration. Mutual promises to rescind are supported by consideration, so the rule does not stop parties from rescinding and replacing a contract, and a modification supported by even minimal consideration is enforceable.",
+      "new": "Slide 5 quotes Restatement § 73: performing a legal duty owed to the promisor that is neither doubtful nor in honest dispute is not consideration. Mutual promises to rescind are supported by consideration, so the rule does not stop parties from rescinding and replacing a contract, and a modification supported by even minimal consideration is enforceable under the pre-existing duty rule.",
+      "reason": "Slide 5 reads 'will be enforceable under the pre-existing duty rule'; without the qualifier the note says minimal consideration makes any modification enforceable, which duress (Austin) and UCC § 2-209 comment 2 contradict.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/Class 11_Contract modifications - Copy (2).pptx",
+          "slides": [
+            5
+          ]
+        },
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            489
+          ],
+          "pdfPages": [
+            182
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-11"
+    }
+  ]
+}

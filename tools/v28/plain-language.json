@@ -1960,6 +1960,60 @@
           "pinpoint": "Official opinion link / source identity"
         }
       ]
+    },
+    {
+      "id": "CTR-036",
+      "field": "rule",
+      "from": "A contract modification is voidable for economic duress when a party threatens to withhold goods owed under a contract, and the threatened party cannot obtain them from another source in time and an ordinary action for breach would be inadequate.",
+      "to": "A contract modification is voidable for economic duress when a wrongful threat precluding free will, such as withholding owed goods unless a further demand is met, forces agreement, the threatened party cannot obtain the goods elsewhere in time, and an ordinary action for breach would be inadequate.",
+      "occurrences": 1,
+      "reason": "Austin's test requires that the party was forced to agree by a wrongful threat precluding the exercise of free will, the threat being to withhold goods unless the other party agrees to a further demand; the rule line dropped the inducement and the link between threat and demand.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            489
+          ],
+          "pdfPages": [
+            182
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CTR-035",
+      "field": "rule",
+      "from": "Parties to an existing contract may, in a single transaction, voluntarily",
+      "to": "Under New Hampshire law, when later-learned facts make performance unexpectedly burdensome, parties may, in a single transaction, voluntarily",
+      "occurrences": 1,
+      "reason": "Watkins states New Hampshire law, applied where facts learned after contracting made performance burdensome and the special price was fair; Restatement § 89 comment b rejects the simultaneous-rescission theory.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            478,
+            479,
+            480
+          ],
+          "pdfPages": [
+            171,
+            172,
+            173
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 89 comment b"
+        },
+        {
+          "file": "added-sources/Class 11_Contract modifications - Copy (2).pptx",
+          "slides": [
+            10
+          ]
+        }
+      ]
     }
   ],
   "primaryPassageCheck": {

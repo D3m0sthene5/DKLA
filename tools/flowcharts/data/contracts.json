@@ -2718,7 +2718,7 @@
       {
         "id": "b",
         "label": "Was there new consideration or a recognized alternative?",
-        "detail": "The fishermen in Alaska Packers already owed the same work. Watkins enforced the voluntary substitution of a higher excavation price. Consider any supported exception for fair adjustment to unanticipated circumstances under local law.",
+        "detail": "The fishermen in Alaska Packers already owed the same work. Watkins enforced the voluntary substitution of a fair, higher price after unexpected rock (New Hampshire). Restatement § 89 enforces a modification that is fair and equitable in view of circumstances not anticipated when the contract was made, to the extent a statute provides, or to the extent justice requires because of a material change of position in reliance.",
         "sources": [
           "modification",
           "alaska-packers",
@@ -2726,11 +2726,11 @@
         ],
         "edges": [
           {
-            "label": "Adequate basis",
+            "label": "New consideration or a recognized alternative",
             "to": "e"
           },
           {
-            "label": "Same duty only",
+            "label": "Same duty, no recognized alternative",
             "to": "g"
           }
         ]
@@ -2776,7 +2776,7 @@
       {
         "id": "e",
         "label": "Did an improper threat leave no reasonable choice?",
-        "detail": "In Austin a gear supplier withheld indispensable supply while Loral could not timely replace it and faced Navy obligations. Test market alternatives, timing, inducement and whether apparent acquiescence continued under the pressure.",
+        "detail": "In Austin a gear supplier withheld indispensable supply while Loral could not timely replace it and faced Navy obligations. Test market alternatives, whether an ordinary action for breach would be adequate, timing, inducement and whether apparent acquiescence continued under the pressure.",
         "sources": [
           "duress",
           "austin",
@@ -2807,7 +2807,7 @@
       {
         "id": "g",
         "label": "Apply the original obligation if the change fails",
-        "detail": "A failed modification leaves the original bargain available, subject to any separately valid waiver or discharge.",
+        "detail": "A failed modification leaves the original bargain available, subject to any separately valid waiver or discharge and to enforcement to the extent justice requires because of a material change of position in reliance (Restatement § 89(c)).",
         "sources": [
           "alaska-packers",
           "modification"
@@ -2817,7 +2817,7 @@
       {
         "id": "h",
         "label": "Modification voidable for duress",
-        "detail": "The coerced party may avoid the modification and seek appropriate recovery. Continued performance or a delay in protesting can be consistent with ongoing pressure, as in Austin.",
+        "detail": "The coerced party may avoid the modification and seek appropriate recovery. The coerced party must disaffirm promptly once the pressure ends. In Austin, Loral protested in writing when it gave in and could wait to demand a refund until three days after the last delivery, because further stoppages remained possible until then.",
         "sources": [
           "duress",
           "austin"
