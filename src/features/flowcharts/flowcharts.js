@@ -172,7 +172,7 @@
     return { chart, byId, trail: [{ id: chart.entry }], view: 'walkthrough', zoom: 1 };
   }
 
-  function graphLayout({ chart, byId, heights }) {
+  function graphLayout({ chart, byId, sizes }) {
     const rows = [];
     const incoming = new Map(chart.nodes.map((node) => [node.id, []]));
     for (const node of chart.nodes)
@@ -202,123 +202,280 @@
     }
     for (const node of byId.values()) (rows[rank(node.id)] ||= []).push(node);
 
-    const cardWidth = 264;
-    const gap = 28;
-    const padding = 28;
-    const rowGap = 60;
-    // After the first decision the chart's main branches are named in large type: that row is deeper.
-    const trunkGap = 30;
-    let leftLanes = 0;
-    let rightLanes = 0;
-    const widest = Math.max(...rows.map((row) => row.length));
-    const contentWidth = widest * (cardWidth + gap) - gap;
-    const positions = new Map();
-    let y = padding;
-    rows.forEach((row, level) => {
-      const parentPosition = (node) => {
-        const parents = forward.get(node.id);
-        return parents.length
-          ? parents.reduce((sum, from) => sum + positions.get(from).x, 0) / parents.length
-          : 0;
-      };
-      row.sort((a, b) => parentPosition(a) - parentPosition(b));
-      // A step is its question, its answers as lettered lines and the drawings of the cases it cites.
-      const lines = (text, perLine) => Math.max(1, Math.ceil(String(text).length / perLine));
-      // (An estimate until the chart has been shown once; then each step's measured height.)
-      const cardHeight = (node) =>
-        heights?.get(node.id) ??
-        22 +
-        lines(node.label, 21) * 20 +
-        (node.edges.length
-          ? 8 + node.edges.reduce((sum, edge) => sum + lines(edge.label, 22) * 18 + 6, 0)
-          : 20) +
-        (artOf(node).length ? 44 : 6);
-      const rowHeight = Math.max(...row.map(cardHeight));
-      let x = (contentWidth - (row.length * (cardWidth + gap) - gap)) / 2;
-      for (const node of row) {
-        positions.set(node.id, {
-          x,
-          y,
-          level,
-          width: cardWidth,
-          height: cardHeight(node),
-          rowEnd: y + rowHeight,
+    // The whole chart as a drawing to follow. A step is its question; under it each answer is written
+    // once, on its own line, and that line is where its wire begins: it leaves by the step's side,
+    // runs down a lane of its own, and reaches the step it leads to from above. Wires that reach the
+    // same step meet on a bar over it, so a place where paths come together is seen as one. Wires
+    // between rows run on separate tracks, and a wire to a step more than one row down passes between
+    // the steps of the rows on its way.
+    const cardWidth = 256;
+    const padding = 24;
+    const lanePitch = 10;
+    const trackPitch = 10;
+    const lines = (text, perLine) => Math.max(1, Math.ceil(String(text).length / perLine));
+    // A step's height and where each answer's line sits in it: measured once the chart has been
+    // shown (sizes), estimated before.
+    const sizeOf = (node) => {
+      const known = sizes?.get(node.id);
+      if (known) return known;
+      let y = 16 + lines(node.label, 20) * 20 + 10;
+      const exits = node.edges.map((edge) => {
+        const h = lines(edge.label, 26) * 18 + 8;
+        y += h;
+        return y - h / 2;
+      });
+      return { h: y + (artOf(node).length ? 44 : 10), exits };
+    };
+    const level = (id) => ranks.get(id);
+    // Order in each row, then a first placing to learn which side each answer leaves by.
+    const place = (gapOf) => {
+      const xs = new Map();
+      const widths = rows.map((row) =>
+        row.reduce((sum, node, i) => sum + cardWidth + (i ? gapOf(row[i - 1], node) : 0), 0),
+      );
+      const widest = Math.max(...widths);
+      rows.forEach((row, r) => {
+        let x = (widest - widths[r]) / 2;
+        row.forEach((node, i) => {
+          if (i) x += gapOf(row[i - 1], node);
+          xs.set(node.id, x);
+          x += cardWidth;
         });
-        x += cardWidth + gap;
-      }
-      y += rowHeight + rowGap + (level === 0 && row.length === 1 && row[0].edges.length > 1 ? trunkGap : 0);
-    });
-
-    const wires = [];
-    // Wires leave a step in the order of where they go, and reach a step in the order of where they
-    // come from, so a step's own wires do not cross one another (each still carries its letter).
-    const centre = (id) => positions.get(id).x + cardWidth / 2;
-    const leaves = new Map(
-      chart.nodes.map((node) => [
-        node.id,
-        node.edges
-          .map((edge, index) => index)
-          .sort((p, q) => centre(node.edges[p].to) - centre(node.edges[q].to) || p - q),
-      ]),
-    );
-    for (const list of incoming.values()) list.sort((p, q) => centre(p.from) - centre(q.from) || p.index - q.index);
-    // A wire to a step more than one row down runs between the steps of the rows it passes, by the
-    // opening nearest where it is going, instead of out round the whole chart.
-    const rowOf = [];
-    for (const pos of positions.values()) (rowOf[pos.level] ||= []).push(pos);
-    const openings = rowOf.map((row) => {
-      const sorted = [...row].sort((p, q) => p.x - q.x);
-      return [
-        sorted[0].x - gap / 2,
-        ...sorted.slice(1).map((pos) => pos.x - gap / 2),
-        sorted[sorted.length - 1].x + cardWidth + gap / 2,
-      ];
-    });
-    const rowEnd = rowOf.map((row) => row[0].rowEnd);
-    let passing = 0;
-    for (const node of byId.values()) {
-      const from = positions.get(node.id);
-      node.edges.forEach((edge, index) => {
-        const to = positions.get(edge.to);
-        const parents = incoming.get(edge.to);
-        const port = parents.findIndex((parent) => parent.from === node.id && parent.index === index);
-        const out = leaves.get(node.id).indexOf(index);
-        const sx = from.x + (cardWidth * (out + 1)) / (node.edges.length + 1);
-        const tx = to.x + (cardWidth * (port + 1)) / (parents.length + 1);
-        const sy = from.y + from.height;
-        let path;
-        if (to.level === from.level + 1) {
-          const middle = (from.rowEnd + to.y) / 2;
-          path = `M ${sx} ${sy} V ${from.rowEnd} C ${sx} ${middle}, ${tx} ${middle}, ${tx} ${to.y - 3}`;
-        } else if (to.level > from.level + 1) {
-          const lane = 12 + (passing++ % 5) * 6;
-          path = `M ${sx} ${sy}`;
-          for (let level = from.level + 1; level < to.level; level++) {
-            const through = openings[level].reduce((best, x) =>
-              Math.abs(x - tx) < Math.abs(best - tx) ? x : best,
-            );
-            path += ` V ${rowEnd[level - 1] + lane} H ${through}`;
-          }
-          path += ` V ${rowEnd[to.level - 1] + lane} H ${tx} V ${to.y - 3}`;
-        } else {
-          // Back to an earlier row: round the outside of the chart.
-          const side = (sx + tx) / 2 < contentWidth / 2 ? -1 : 1;
-          const lane = side < 0 ? ++leftLanes : ++rightLanes;
-          const outer = (side < 0 ? 0 : contentWidth) + side * (12 + lane * 9);
-          path = `M ${sx} ${sy} V ${from.rowEnd + 16 + index * 6} H ${outer} V ${to.y - 16 - port * 4} H ${tx} V ${to.y - 3}`;
-        }
-        // Each wire carries the letter of its answer where it leaves the step. The first decision's
-        // answers name the chart's main branches: each is lettered above the step it leads to.
-        const trunk =
-          node.id === chart.entry && node.edges.length > 1 && to.level === from.level + 1 && parents.length === 1
-            ? { x: tx + 14, y: to.y - 12, label: edge.label }
-            : null;
-        wires.push({ path, from: node.id, edge: index, key: { x: sx + 6, y: sy + 15 }, trunk });
+      });
+      return { xs, widest };
+    };
+    {
+      const seen = new Map();
+      rows.forEach((row) => {
+        const parentX = (node) => {
+          const parents = forward.get(node.id);
+          return parents.length ? parents.reduce((sum, from) => sum + (seen.get(from) ?? 0), 0) / parents.length : 0;
+        };
+        row.sort((a, b) => parentX(a) - parentX(b));
+        const width = row.length * (cardWidth + 36) - 36;
+        row.forEach((node, i) => seen.set(node.id, -width / 2 + i * (cardWidth + 36)));
       });
     }
-    const shift = padding + (leftLanes ? 12 + leftLanes * 9 : 0);
-    const width = contentWidth + shift + padding + (rightLanes ? 12 + rightLanes * 9 : 0);
-    return { positions, wires, shift, width, height: y - rowGap + padding };
+    let { xs } = place(() => 36);
+    const centre = (id) => xs.get(id) + cardWidth / 2;
+    // The side an answer leaves by: toward where it goes. One way on leaves from underneath.
+    const exitOf = new Map();
+    for (const node of chart.nodes) {
+      const sides = node.edges.map((edge) => {
+        if (node.edges.length === 1 && level(edge.to) > level(node.id)) return 'D';
+        const dx = centre(edge.to) - centre(node.id);
+        return Math.abs(dx) > 24 ? (dx < 0 ? 'L' : 'R') : '';
+      });
+      // An answer that goes straight down takes the side with fewer wires.
+      sides.forEach((side, i) => {
+        if (side) return;
+        const left = sides.filter((s) => s === 'L').length,
+          right = sides.filter((s) => s === 'R').length;
+        sides[i] = left <= right ? 'L' : 'R';
+      });
+      // On each side the highest answer takes the outermost lane, so no wire crosses a line below it.
+      const count = { L: sides.filter((s) => s === 'L').length, R: sides.filter((s) => s === 'R').length };
+      const taken = { L: 0, R: 0 };
+      exitOf.set(
+        node.id,
+        sides.map((side) => (side === 'D' ? { side, lane: 0 } : { side, lane: count[side] - taken[side]++ })),
+      );
+    }
+    const lanes = (node, side) => exitOf.get(node.id).filter((exit) => exit.side === side).length;
+    // Room between two steps for the lanes that run there.
+    const gapOf = (a, b) => 22 + lanePitch * (lanes(a, 'R') + lanes(b, 'L'));
+    const leftRoom = Math.max(0, ...rows.map((row) => lanes(row[0], 'L'))) * lanePitch + 14;
+    const rightRoom = Math.max(0, ...rows.map((row) => lanes(row[row.length - 1], 'R'))) * lanePitch + 14;
+    let widest;
+    ({ xs, widest } = place(gapOf));
+    for (const [id, x] of xs) xs.set(id, x + leftRoom);
+    const contentWidth = leftRoom + widest + rightRoom;
+    // The openings between the steps of a row, for a wire that passes it. Wires on their way to the
+    // same step share one line through an opening: from there on they are one path, and the place
+    // each joins it is marked. Wires to different steps each take a line of their own.
+    const openings = rows.map((row) => [
+      xs.get(row[0].id) - 16,
+      ...row.slice(1).map((node, i) => (xs.get(row[i].id) + cardWidth + xs.get(node.id)) / 2),
+      xs.get(row[row.length - 1].id) + cardWidth + 16,
+    ]);
+    const through = new Map();
+    const pass = (r, target) => {
+      const want = centre(target);
+      const at = openings[r].reduce((best, o) => (Math.abs(o - want) < Math.abs(best - want) ? o : best));
+      const key = r + '/' + at;
+      if (!through.has(key)) through.set(key, new Map());
+      const lines = through.get(key);
+      if (!lines.has(target)) lines.set(target, lines.size);
+      const n = lines.get(target);
+      return at + (n % 2 ? -1 : 1) * Math.ceil(n / 2) * 8;
+    };
+    let outerLeft = 0,
+      outerRight = 0;
+    const routes = [];
+    for (const node of chart.nodes) {
+      const a = level(node.id);
+      node.edges.forEach((edge, index) => {
+        const b = level(edge.to);
+        const exit = exitOf.get(node.id)[index];
+        const x0 =
+          exit.side === 'D'
+            ? centre(node.id)
+            : exit.side === 'L'
+              ? xs.get(node.id) - exit.lane * lanePitch
+              : xs.get(node.id) + cardWidth + exit.lane * lanePitch;
+        // The uprights it takes on the way: through each row it passes, or round the outside of the
+        // chart for a wire back to an earlier step.
+        const via = []; // { channel: the channel it leaves by a level run, x }
+        if (b > a) for (let r = a + 1; r < b; r++) via.push({ channel: r - 1, x: pass(r, edge.to) });
+        else {
+          const left = (x0 + centre(edge.to)) / 2 < contentWidth / 2;
+          via.push({
+            channel: a,
+            x: left ? -(8 + ++outerLeft * lanePitch) : contentWidth + 8 + ++outerRight * lanePitch,
+          });
+        }
+        // Wires that arrive at a step along the same line land on it together.
+        const arrives = b > a && via.length ? `p${via[via.length - 1].x}` : `w${node.id}/${index}`;
+        routes.push({ from: node.id, index, to: edge.to, exit, x0, via, arrives, last: b - 1 });
+      });
+    }
+    // Where wires reach a step: side by side along its top, in the order of where they come from.
+    const arrivals = new Map();
+    for (const route of routes) {
+      if (!arrivals.has(route.to)) arrivals.set(route.to, new Map());
+      const from = route.via.length ? route.via[route.via.length - 1].x : route.x0;
+      if (!arrivals.get(route.to).has(route.arrives)) arrivals.get(route.to).set(route.arrives, from);
+    }
+    const portOf = (route) => {
+      const groups = [...arrivals.get(route.to)].sort((p, q) => p[1] - q[1]);
+      const k = groups.findIndex((group) => group[0] === route.arrives);
+      return xs.get(route.to) + (cardWidth * (k + 1)) / (groups.length + 1);
+    };
+    for (const route of routes) {
+      route.tx = portOf(route);
+      route.runs = [];
+      let x = route.x0;
+      for (const step of route.via) {
+        route.runs.push({ channel: step.channel, from: x, to: step.x });
+        x = step.x;
+      }
+      route.runs.push({ channel: route.last, from: x, to: route.tx });
+    }
+    // Tracks: level runs in one channel that would overlap lie on different tracks; a run shared by
+    // wires to the same step is one run.
+    const tracks = new Map();
+    const byChannel = new Map();
+    const shared = new Map();
+    for (const route of routes)
+      for (const run of route.runs) {
+        if (Math.abs(run.from - run.to) < 1) continue;
+        const key = `${run.channel}|${run.from}|${run.to}|${route.to}`;
+        if (shared.has(key)) {
+          run.same = shared.get(key);
+          continue;
+        }
+        shared.set(key, run);
+        if (!byChannel.has(run.channel)) byChannel.set(run.channel, []);
+        byChannel.get(run.channel).push(run);
+      }
+    for (const [channel, list] of byChannel) {
+      list.sort((p, q) => Math.min(p.from, p.to) - Math.min(q.from, q.to));
+      const ends = [];
+      for (const run of list) {
+        const lo = Math.min(run.from, run.to) - 12,
+          hi = Math.max(run.from, run.to) + 12;
+        let t = ends.findIndex((end) => end <= lo);
+        if (t < 0) t = ends.length;
+        ends[t] = hi;
+        run.track = t;
+      }
+      tracks.set(channel, ends.length);
+    }
+    const channelHeight = (r) => 18 + (tracks.get(r) || 0) * trackPitch + 26;
+    // Rows from the top, each channel as deep as its tracks.
+    const positions = new Map();
+    const rowTop = [],
+      rowEnd = [];
+    let y = padding + (tracks.get(-1) ? channelHeight(-1) : 0);
+    rows.forEach((row, r) => {
+      const height = Math.max(...row.map((node) => sizeOf(node).h));
+      rowTop[r] = y;
+      rowEnd[r] = y + height;
+      for (const node of row)
+        positions.set(node.id, { x: xs.get(node.id), y, level: r, width: cardWidth, height: sizeOf(node).h });
+      y += height + channelHeight(r);
+    });
+    const height = rowEnd[rows.length - 1] + padding;
+    const trackY = (run) =>
+      (run.channel < 0 ? padding : rowEnd[run.channel]) + 18 + ((run.same || run).track ?? 0) * trackPitch;
+    // Paths. A wire that reaches a step alone ends in an arrow on it; wires that share a step end on
+    // the bar over it.
+    const round = (points) => {
+      const pts = points.filter((p, i) => !i || Math.abs(p[0] - points[i - 1][0]) > 0.5 || Math.abs(p[1] - points[i - 1][1]) > 0.5);
+      let d = `M ${pts[0][0]} ${pts[0][1]}`;
+      for (let i = 1; i < pts.length; i++) {
+        const [x1, y1] = pts[i];
+        const next = pts[i + 1];
+        if (!next) {
+          d += ` L ${x1} ${y1}`;
+          break;
+        }
+        const [x0, y0] = pts[i - 1];
+        const r = Math.min(7, Math.hypot(x1 - x0, y1 - y0) / 2, Math.hypot(next[0] - x1, next[1] - y1) / 2);
+        const ax = x1 - Math.sign(x1 - x0) * r,
+          ay = y1 - Math.sign(y1 - y0) * r;
+        const bx = x1 + Math.sign(next[0] - x1) * r,
+          by = y1 + Math.sign(next[1] - y1) * r;
+        d += ` L ${ax} ${ay} Q ${x1} ${y1} ${bx} ${by}`;
+      }
+      return d;
+    };
+    const wires = [];
+    const joins = [];
+    const merges = []; // where a wire joins a line already on its way to the same step
+    const taken = new Map(); // an upright shared by wires to one step -> the highest point drawn on it
+    for (const route of routes) {
+      const from = positions.get(route.from),
+        to = positions.get(route.to);
+      const meets = arrivals.get(route.to).size > 1;
+      const startY =
+        route.exit.side === 'D'
+          ? from.y + from.height
+          : from.y + sizeOf(byId.get(route.from)).exits[route.index];
+      const points = [
+        [route.exit.side === 'D' ? route.x0 : route.exit.side === 'L' ? from.x : from.x + cardWidth, startY],
+        [route.x0, startY],
+      ];
+      route.runs.forEach((run, i) => {
+        const ty = trackY(run);
+        points.push([run.from, ty], [run.to, ty]);
+        // The upright this run turns into, if other wires to the same step use it too.
+        if (i === route.runs.length - 1) return;
+        const key = `${route.to}|${run.to}`;
+        if (taken.has(key) && taken.get(key) < ty - 0.5) merges.push({ x: run.to, y: ty, to: route.to });
+        if (!taken.has(key) || ty < taken.get(key)) taken.set(key, ty);
+      });
+      points.push([route.tx, to.y - (meets ? 12 : 3)]);
+      wires.push({ path: round(points), from: route.from, edge: route.index, to: route.to, arrow: !meets });
+    }
+    for (const node of chart.nodes) {
+      const groups = arrivals.get(node.id);
+      if (!groups || groups.size < 2) continue;
+      const to = positions.get(node.id);
+      const ports = [...groups.keys()].map((key) => routes.find((r) => r.to === node.id && r.arrives === key).tx);
+      joins.push({
+        to: node.id,
+        y: to.y - 12,
+        x0: Math.min(...ports),
+        x1: Math.max(...ports),
+        ports,
+        cx: to.x + cardWidth / 2,
+        top: to.y,
+      });
+    }
+    const shift = padding + outerLeft * lanePitch + (outerLeft ? 8 : 0);
+    const width = contentWidth + shift + padding + outerRight * lanePitch + (outerRight ? 8 : 0);
+    return { positions, wires, joins, merges, exitOf, shift, width, height };
   }
 
   // A step's number sits in the shape of what the step is: a decision between answers (diamond), a
@@ -353,13 +510,17 @@
       .filter(Boolean)
       .slice(0, 4);
   }
+  const artSVG = (one) =>
+    `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${one.path}</svg>`;
+  // On the map a drawing names its case when pointed at or focused, and selecting it selects the step,
+  // whose sources are then listed beside the map with each drawing next to its name.
   const artHTML = (node) => {
     const list = artOf(node);
     return list.length
       ? `<div class="fc-art-row">${list
           .map(
             (one) =>
-              `<a class="fc-art" href="${sourceURL(one.id)}" data-flowchart-source="${esc(one.id)}" title="${esc(one.title)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${one.path}</svg><span class="fc-sr-only">${esc(one.title)}</span></a>`,
+              `<button type="button" class="fc-art" data-flowchart-node="${esc(node.id)}" data-fc-name="${esc(one.title)}" title="${esc(one.title)}" aria-label="${esc(one.title)}: a source for step ${node.number}">${artSVG(one)}</button>`,
           )
           .join('')}</div>`
       : '';
@@ -387,7 +548,7 @@
   const nodeType = (node) => (node.edges.length ? '' : 'Outcome');
   function graphHTML(session) {
     const { byId } = session;
-    const { positions, wires, shift, width, height } = graphLayout(session);
+    const { positions, wires, joins, merges, exitOf, shift, width, height } = graphLayout(session);
     const printScale = Math.min(1, 640 / width, 800 / height);
     return `<section class="fc-map" hidden aria-label="Whole flowchart">
       <div class="fc-map-tools">
@@ -397,42 +558,41 @@
           <button type="button" data-flowcharts-zoom="fit" aria-label="Fit whole map">Fit</button>
           <button type="button" data-flowcharts-zoom="reset" aria-label="Reset zoom to 100%">100%</button>
         </div>
+        <p class="fc-map-help">Point at an answer to trace where it leads. Select it to go there.</p>
         <output class="fc-zoom-value" aria-label="Diagram zoom level"></output>
       </div>
-      <p class="fc-map-help">Select a step to read its details.</p>
       <div class="fc-map-scroll" role="region" aria-label="Scrollable flowchart diagram" tabindex="0">
         <div class="fc-graph" style="--fc-graph-width:${width}px;--fc-graph-height:${height}px;--fc-print-scale:${printScale}">
           <svg class="fc-wires" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" aria-hidden="true">
             <defs><marker id="fcArrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
               <path d="M 0 0 L 8 4 L 0 8 Z"></path></marker></defs>
-            <g transform="translate(${shift} 0)">${wires
+            <g transform="translate(${shift} 0)">${joins
               .map(
-                ({ path, from, edge, key }) =>
-                  `<path class="fc-wire" data-fc-from="${esc(from)}" data-fc-edge="${edge}" d="${path}" marker-end="url(#fcArrow)"></path>${byId.get(from).edges.length > 1 ? `<text class="fc-wire-key" x="${key.x}" y="${key.y}">${String.fromCharCode(97 + edge)}</text>` : ''}`,
+                (join) =>
+                  `<g class="fc-join" data-fc-to="${esc(join.to)}"><path class="fc-join-bar" d="M ${join.x0} ${join.y} H ${join.x1}"></path><path class="fc-join-in" d="M ${join.cx} ${join.y} V ${join.top - 3}" marker-end="url(#fcArrow)"></path>${join.ports.map((x) => `<circle cx="${x}" cy="${join.y}" r="2.5"></circle>`).join('')}</g>`,
               )
-              .join('')}</g>
+              .join('')}${wires
+              .map(
+                ({ path, from, edge, to, arrow }) =>
+                  `<path class="fc-wire" data-fc-from="${esc(from)}" data-fc-edge="${edge}" data-fc-to="${esc(to)}" d="${path}"${arrow ? ' marker-end="url(#fcArrow)"' : ' data-fc-joined'}></path>`,
+              )
+              .join('')}${merges.map((m) => `<circle class="fc-merge" data-fc-to="${esc(m.to)}" cx="${m.x}" cy="${m.y}" r="3"></circle>`).join('')}</g>
           </svg>
-          ${wires
-            .filter((wire) => wire.trunk)
-            .map(
-              ({ trunk }) =>
-                `<p class="fc-trunk" style="left:${trunk.x + shift}px;top:${trunk.y - 22}px">${esc(trunk.label)}</p>`,
-            )
-            .join('')}
           ${[...byId.values()]
             .map((node) => {
               const pos = positions.get(node.id);
+              const exits = exitOf.get(node.id);
               return `<article class="fc-map-node fc-kind-${kindOf(node)}${node.edges.length ? '' : ' fc-outcome'}" data-fc-cell="${esc(node.id)}"
               style="left:${pos.x + shift}px;top:${pos.y}px;width:${pos.width}px;height:${pos.height}px">
               <button type="button" class="fc-node-heading" data-flowchart-node="${esc(node.id)}">
                 ${badge(node)}<span><span class="fc-sr-only">Step ${node.number}. </span>${esc(node.label)}</span></button>
               ${
                 node.edges.length
-                  ? `<ul>${node.edges
+                  ? `<ul class="fc-exits">${node.edges
                       .map(
                         (edge, index) =>
-                          `<li><button type="button" data-fc-map-branch="${index}" data-fc-from="${esc(node.id)}" title="Take this answer to step ${byId.get(edge.to).number}">
-                  ${node.edges.length > 1 ? `<i class="fc-key" aria-hidden="true">${String.fromCharCode(97 + index)}</i>` : '<i class="fc-key" aria-hidden="true"></i>'}<span>${esc(edge.label)}</span><span class="fc-destination">→ ${byId.get(edge.to).number}</span>
+                          `<li><button type="button" class="fc-exit fc-exit-${exits[index].side}" data-fc-map-branch="${index}" data-fc-from="${esc(node.id)}" title="Leads to step ${byId.get(edge.to).number}: ${esc(byId.get(edge.to).label)}">
+                  <span>${esc(edge.label)}</span><span class="fc-destination">→ ${byId.get(edge.to).number}</span>
                 </button></li>`,
                       )
                       .join('')}</ul>`
@@ -447,14 +607,17 @@
     </section>`;
   }
 
+  // The first sentence of a step's explanation: what choosing the answer that leads there turns on.
+  const opening = (text) => String(text || '').split(/(?<=[.!?])\s+(?=[A-Z“"(])/)[0];
   function sourcesHTML(node) {
     // v3.1: each source says what kind of entry it is (case, rule, concept).
     const KIND = { Case: 'Case', Rule: 'Rule', Concept: 'Concept', Statute: 'Statute', Note: 'Note' };
     const links = node.sources.map((id) => {
       const title = esc(titleOf(id));
       const kind = KIND[nodesById.get(id)?.kind] || 'Entry';
+      const drawn = artOf({ sources: [id] })[0];
       return nodesById.has(id)
-        ? `<a href="${sourceURL(id)}" data-flowchart-source="${esc(id)}"><small class="fc-kind">${kind}</small>${title}</a>`
+        ? `<a href="${sourceURL(id)}" data-flowchart-source="${esc(id)}"${drawn ? ' class="fc-drawn"' : ''}>${drawn ? `<span class="fc-art">${artSVG(drawn)}</span>` : ''}<small class="fc-kind">${kind}</small>${title}</a>`
         : title;
     });
     for (const link of node.links || [])
@@ -573,7 +736,7 @@
                 const next = byId.get(edge.to);
                 const own = active.from && next.sources.includes(active.from);
                 return `<li><button type="button" data-flowchart-branch="${esc(edge.to)}" data-fc-branch-index="${index}"${own ? ' class="fc-own"' : ''}>
-          <span>${esc(edge.label)}</span><span class="fc-destination">→ ${nodeType(next) || 'Step'} ${next.number} · ${esc(next.label)}</span>
+          <span>${esc(edge.label)}</span><span class="fc-destination">→ ${nodeType(next) || 'Step'} ${next.number} · ${esc(next.label)}</span><span class="fc-leads">${esc(opening(next.detail))}</span>
         </button></li>`;
               })
               .join('')}</ol>`
@@ -617,18 +780,28 @@
     const route = new Set(trail.slice(1).map((step, i) => `${trail[i].id}/${step.edge}`));
     for (const wire of map.querySelectorAll('.fc-wire'))
       wire.classList.toggle('fc-path-wire', route.has(`${wire.dataset.fcFrom}/${wire.dataset.fcEdge}`));
+    // The bar over a step the walked path reaches is part of the path.
+    const reached = new Set(trail.slice(1).map((step) => step.id));
+    for (const join of map.querySelectorAll('.fc-join'))
+      join.classList.toggle('fc-path-wire', reached.has(join.dataset.fcTo));
     if (view === 'map') {
       fitArt(map);
-      if (!active.heights) {
-        // Shown for the first time: each step is measured and the chart is laid out to those heights.
+      if (!active.sizes) {
+        // Shown for the first time: each step is measured (its height, and where each answer's line
+        // sits in it) and the chart is laid out and its wires routed to those measures.
         const scale = currentZoom(map.querySelector('.fc-graph'));
-        active.heights = new Map(
+        active.sizes = new Map(
           [...map.querySelectorAll('[data-fc-cell]')].map((cell) => {
             const set = cell.style.height;
             cell.style.height = 'auto';
-            const height = Math.ceil(cell.getBoundingClientRect().height / scale) + 2;
+            const box = cell.getBoundingClientRect();
+            const exits = [...cell.querySelectorAll('.fc-exit')].map((exit) => {
+              const row = exit.getBoundingClientRect();
+              return Math.round((row.top + row.height / 2 - box.top) / scale);
+            });
+            const h = Math.ceil(box.height / scale) + 2;
             cell.style.height = set;
-            return [cell.dataset.fcCell, height];
+            return [cell.dataset.fcCell, { h, exits }];
           }),
         );
         map.outerHTML = graphHTML(active);
@@ -758,6 +931,33 @@
   window.addEventListener('resize', () => {
     if (active?.view === 'map' && active.zoom === 'fit') paintZoom();
   });
+  // Pointing at an answer on the map, or reaching it with the keyboard, traces its wire to the step
+  // it leads to.
+  function trace(exit) {
+    const map = dialog.querySelector('.fc-map');
+    if (!map) return;
+    for (const el of map.querySelectorAll('.fc-trace')) el.classList.remove('fc-trace');
+    map.classList.toggle('fc-tracing', !!exit);
+    if (!exit) return;
+    const from = exit.dataset.fcFrom,
+      index = exit.dataset.fcMapBranch;
+    const wire = [...map.querySelectorAll('.fc-wire')].find(
+      (one) => one.dataset.fcFrom === from && one.dataset.fcEdge === index,
+    );
+    if (!wire) return;
+    const to = wire.dataset.fcTo;
+    wire.classList.add('fc-trace');
+    exit.classList.add('fc-trace');
+    for (const el of map.querySelectorAll('.fc-join, [data-fc-cell]'))
+      if ((el.dataset.fcTo || el.dataset.fcCell) === to) el.classList.add('fc-trace');
+    // (Drawn last, so it lies over the wires it crosses.)
+    wire.parentNode.appendChild(wire);
+  }
+  dialog.addEventListener('pointerover', (event) => {
+    const exit = event.target.closest?.('.fc-exit');
+    if (exit || event.target.closest?.('.fc-map')) trace(exit || null);
+  });
+  dialog.addEventListener('focusin', (event) => trace(event.target.closest?.('.fc-exit') || null));
   dialog.addEventListener('cancel', (event) => {
     event.preventDefault();
     close();

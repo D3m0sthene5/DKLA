@@ -252,11 +252,25 @@ try {
       chart.nodes,
       chart.id + ' overview nodes',
     );
-    assert.equal(
-      await phoneDialog.locator('.fc-wire[marker-end]').count(),
-      chart.arrows,
-      chart.id + ' overview arrows',
-    );
+    // Every answer has its wire. A wire ends in an arrow on the step it leads to, or, where paths
+    // meet, on the bar over that step, which carries the arrow for all of them.
+    const drawn = await phoneDialog.locator('.fc-map').evaluate((map) => {
+      const wires = [...map.querySelectorAll('.fc-wire')];
+      const joined = wires.filter((wire) => wire.hasAttribute('data-fc-joined'));
+      const bars = new Set(
+        [...map.querySelectorAll('.fc-join')]
+          .filter((join) => join.querySelector('path[marker-end]'))
+          .map((join) => join.dataset.fcTo),
+      );
+      return {
+        wires: wires.length,
+        ended: wires.filter((wire) => wire.hasAttribute('marker-end')).length + joined.length,
+        unmet: joined.filter((wire) => !bars.has(wire.dataset.fcTo)).length,
+      };
+    });
+    assert.equal(drawn.wires, chart.arrows, chart.id + ' overview wires');
+    assert.equal(drawn.ended, chart.arrows, chart.id + ' overview arrows');
+    assert.equal(drawn.unmet, 0, chart.id + ': every wire that ends on a bar has a bar with an arrow');
   }
   assert.deepEqual(mobile.errors, []);
   await mobile.context.close();
