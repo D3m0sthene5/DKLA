@@ -507,7 +507,7 @@
       let pick = null;
       // strict: not over the stem of an entry that has no label yet. loose: its own stem may run
       // through a label (the last resort; nothing is left without a place).
-      const consider = (strict, loose) => {
+      const consider = (strict, loose, last) => {
         for (const item of left) {
           const forms = opt.forms?.(item) || [opt.size(item)];
           for (const [form, sz] of forms.entries()) {
@@ -517,7 +517,7 @@
             for (const flip of [false, true]) {
               const from = flip ? x - sz.w : x;
               if (!loose && (from < opt.min || from + sz.w > opt.max)) continue;
-              if (loose && flip && from < 0) continue;
+              if (loose && flip && from < (last ? 0 : opt.min)) continue;
               if (flip && opt.noFlip?.(item) && !loose) continue;
               if (
                 strict &&
@@ -568,6 +568,7 @@
       consider(true, false);
       if (!pick) consider(false, false);
       if (!pick) consider(false, true);
+      if (!pick) consider(false, true, true);
       if (!pick) break;
       missed += pick.miss;
       put(pick.item, pick.side, pick.flip, pick.from, pick.level, pick.sz, pick.x);
@@ -661,7 +662,7 @@
         only: (item) => (item.fam === 'wide' ? 'up' : 'down'),
         forms: formsOf,
         formCost,
-        ok: (side, left, sz) => side === 'up' || left + sz.w <= one.x + one.w - 10,
+        ok: (side, left, sz) => side === 'up' || left + sz.w <= one.x + one.w - 2,
         min: one.x + 6,
         max: W - 4,
       });
