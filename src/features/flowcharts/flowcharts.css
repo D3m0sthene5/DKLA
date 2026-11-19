@@ -1339,3 +1339,189 @@
     padding: 16px;
   }
 }
+
+/* ---------- the map on a phone (under 700 px): one list, read downwards (outlineHTML) ---------- */
+.fc-outline {
+  display: none;
+}
+@media (max-width: 699px) {
+  #dklaFlowcharts .fc-map .fc-zoom,
+  #dklaFlowcharts .fc-map .fc-zoom-value,
+  #dklaFlowcharts .fc-map .fc-map-scroll,
+  #dklaFlowcharts .fc-map .fc-index {
+    display: none;
+  }
+  .fc-outline {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--fc-line);
+  }
+  .fc-outline > .fc-line {
+    margin: 0 -12px;
+    padding: 14px 12px 16px;
+    border-bottom: 1px solid var(--fc-line);
+    scroll-margin-top: 4px;
+  }
+  .fc-outline .fc-line[aria-current='step'] {
+    background: var(--v31-here-bg);
+    box-shadow: inset 3px 0 0 var(--v31-here);
+  }
+  /* Where routes meet, and the ways back to each branch. */
+  .fc-line-from {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin: 0 0 8px 38px;
+    font: var(--v31-label);
+    color: var(--v31-muted);
+  }
+  #dklaFlowcharts .fc-line-from > button {
+    all: unset;
+    box-sizing: border-box;
+    position: relative;
+    min-width: 30px;
+    height: 26px;
+    padding: 0 8px;
+    border-radius: 6px;
+    background: var(--v32-hair, rgb(255 255 255 / 0.08));
+    text-align: center;
+    font:
+      600 12px/26px var(--dkla-mono, 'JetBrains Mono'),
+      monospace;
+    color: var(--v31-link);
+    cursor: pointer;
+  }
+  #dklaFlowcharts .fc-line-from > button::after {
+    content: '';
+    position: absolute;
+    inset: -9px -3px;
+  }
+  #dklaFlowcharts .fc-outline .fc-node-heading {
+    padding: 0;
+    font:
+      600 17px/22px var(--dkla-interface, Inter),
+      sans-serif;
+  }
+  .fc-outline .fc-line.fc-path > .fc-node-heading > span:last-child {
+    color: var(--v31-text);
+  }
+  .fc-line-now {
+    display: none;
+    margin: 12px 0 0 38px;
+  }
+  .fc-line[aria-current='step'] > .fc-line-now {
+    display: block;
+  }
+  /* On the step being read, how the reader got here stands for the plain "From" line; where
+     several routes meet, both are shown. */
+  .fc-line-came:not(:empty) ~ .fc-line-from:not(.fc-line-met),
+  .fc-line-from:not(.fc-line-met):has(~ .fc-line-came:not(:empty)) {
+    display: none;
+  }
+  .fc-line-came {
+    margin: 0 0 8px 38px;
+    font: var(--v32-ui-small, 13px/18px sans-serif);
+    color: var(--v31-muted);
+  }
+  .fc-line-came:empty {
+    display: none;
+  }
+  #dklaFlowcharts .fc-line-came > button,
+  #dklaFlowcharts .fc-line-sources {
+    all: unset;
+    padding: 6px 0;
+    font:
+      500 14px/20px var(--dkla-interface, Inter),
+      sans-serif;
+    color: var(--v31-link);
+    cursor: pointer;
+  }
+  .fc-line-pair .fc-line-came {
+    margin-left: 0;
+  }
+  .fc-line-detail {
+    margin: 0 0 4px;
+    font:
+      400 15px/22px var(--dkla-interface, Inter),
+      sans-serif;
+    color: var(--v31-soft);
+  }
+  #dklaFlowcharts .fc-outline .fc-art-row {
+    flex-flow: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin: 0;
+    padding: 8px 0 0 38px;
+  }
+  #dklaFlowcharts .fc-outline .fc-art-name {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .fc-line-exits {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 12px 0 0 38px;
+    padding: 0;
+    list-style: none;
+  }
+  .fc-line-exits > li {
+    margin: 0;
+    padding: 0;
+    border-radius: 8px;
+    background: var(--v31-raised);
+  }
+  #dklaFlowcharts .fc-line-exit {
+    all: unset;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  #dklaFlowcharts .fc-line-exit:active {
+    background: var(--v32-hair, rgb(255 255 255 / 0.08));
+  }
+  #dklaFlowcharts .fc-line-exit:focus-visible,
+  #dklaFlowcharts .fc-line-from > button:focus-visible {
+    outline: 2px solid var(--v31-link);
+    outline-offset: 1px;
+  }
+  .fc-line-exit > .fc-answer {
+    display: block;
+    font:
+      500 15px/20px var(--dkla-interface, Inter),
+      sans-serif;
+    color: var(--v31-text);
+  }
+  #dklaFlowcharts .fc-line-exit > .fc-destination {
+    display: block;
+    margin-top: 3px;
+    font:
+      400 13px/18px var(--dkla-interface, Inter),
+      sans-serif;
+    color: var(--v31-muted);
+  }
+  /* An answer that is the only way to an outcome: the outcome and its cases directly under it. */
+  #dklaFlowcharts .fc-line-pair > .fc-line-exit {
+    padding-bottom: 6px;
+  }
+  .fc-line-pair > .fc-line {
+    margin: 0 6px 6px;
+    padding: 8px 10px 10px;
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--fc-course, var(--v31-link)) 16%, var(--v31-raised));
+    scroll-margin-top: 96px;
+  }
+  .fc-line-pair > .fc-line[aria-current='step'] {
+    box-shadow: 0 0 0 2px var(--v31-here);
+  }
+  #dklaFlowcharts .fc-line-pair .fc-node-heading {
+    font-size: 16px;
+    line-height: 21px;
+  }
+}

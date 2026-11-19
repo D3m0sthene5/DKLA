@@ -901,7 +901,7 @@ async function readerScenario(S) {
     events: click,
   });
   await interact(S, 'reader: flowchart, previous step', {
-    act: () => page.locator('#dklaFlowcharts [data-flowcharts-back]').click(),
+    act: () => page.locator('#dklaFlowcharts .fc-walk-controls [data-flowcharts-back]').click(),
     mutations: '#dklaFlowcharts',
     after: 800,
     events: click,

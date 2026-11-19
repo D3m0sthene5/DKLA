@@ -233,7 +233,7 @@ async function trip(page, hash, tap) {
   await expect(dialog.locator('.fc-trail li[aria-current] .fc-trail-n')).toHaveText('chart step 20 · now');
   // Decisions are counted only where the reader decides: from the route's end, back one step to the
   // fork, which is then the reader's 1st decision, and on by an answer.
-  await act(dialog.locator('[data-flowcharts-back]'));
+  await act(dialog.locator('.fc-walk-controls [data-flowcharts-back]'));
   await expect(dialog.locator('.fc-step-label')).toHaveText(/^Your 1st decision · chart step 19/);
   await act(branch(page, 'mathews'));
   await expect(dialog.locator('.fc-trail-label')).toHaveText([
@@ -253,8 +253,11 @@ async function drawings(page, tap) {
   // The line of help says "point" only where there is a pointer.
   await expect(dialog.locator('.fc-help-touch')).toBeVisible({ visible: !!tap });
   await expect(dialog.locator('.fc-help-point')).toBeVisible({ visible: !tap });
+  // (On a phone the map is the list of steps; on a wider window, the wired chart.)
+  const at = (step) =>
+    dialog.locator(tap ? `.fc-outline [data-fc-line="${step}"]` : `.fc-map [data-fc-cell="${step}"]`);
   for (const step of ['hearing', 'state']) {
-    const item = dialog.locator(`.fc-map [data-fc-cell="${step}"] .fc-art-item`).first();
+    const item = at(step).locator('.fc-art-item').first();
     const card = item.locator('.fc-art-card');
     await expect(card).toBeHidden();
     await act(item.locator('[data-fc-art]'));
@@ -264,7 +267,7 @@ async function drawings(page, tap) {
     await expect(activeHeading(page)).toHaveText('Which adjudication statute applies?');
   }
   // What the card says of the case is the step's own stored sentence that names it, word for word.
-  const marathon = dialog.locator('.fc-map [data-fc-cell="hearing"] .fc-art-item', {
+  const marathon = at('hearing').locator('.fc-art-item', {
     has: page.locator('.fc-art-title', { hasText: 'Marathon Oil' }),
   });
   await act(marathon.locator('[data-fc-art]'));
@@ -272,7 +275,7 @@ async function drawings(page, tap) {
     'Marathon Oil read an opportunity for public hearing on individualized discharge permits to entail formal adjudication.',
   );
   // By the keyboard too: Enter on the drawing shows the card, Escape shuts the card and not the chart.
-  const keyed = dialog.locator('.fc-map [data-fc-cell="state"] .fc-art-item').first();
+  const keyed = at('state').locator('.fc-art-item').first();
   if (!tap) {
     await keyed.locator('[data-fc-art]').focus();
     await page.keyboard.press('Enter');
@@ -331,6 +334,52 @@ async function fitted(page, tap) {
   await expect(activeHeading(page)).toHaveText(before);
 }
 
+/* The map on a phone (390 px): one scroll, named destinations, joins in words, a way back to the
+   branch come from; the three outcomes of step 19 can be compared without leaving the fork. */
+async function phoneMap(page) {
+  const dialog = courseDialog(page);
+  await page.goto(routeFor('#flowchart=LRS-15&step=order'));
+  await dialog.locator('[data-flowcharts-view="map"]').tap();
+  const line = (id) => dialog.locator(`.fc-outline [data-fc-line="${id}"]`);
+  await expect(dialog.locator('.fc-map-scroll')).toBeHidden();
+  await expect(line('order')).toHaveAttribute('aria-current', 'step');
+  await expect(line('order')).toBeInViewport();
+  // Each of step 14's four answers names where it leads; pressing one goes there, and there says
+  // which answer brought you and offers the way back.
+  await expect(line('order').locator('.fc-line-exit .fc-destination')).toHaveText([
+    '→ 16 Use the formal adjudication process',
+    '→ 15 What does hearing mean in this statute?',
+    '→ 17 Apply the applicable informal or special procedure',
+    '→ 3 Find the governing state or local procedure',
+  ]);
+  await line('order').locator('.fc-line-exit').first().tap();
+  await expect(activeHeading(page)).toHaveText('Use the formal adjudication process');
+  await expect(line('orderhearing')).toBeInViewport();
+  await expect(line('orderhearing').locator('.fc-line-from')).toHaveText(
+    /^2 routes meet here, from\s*14\s*15$/,
+  );
+  await expect(line('orderhearing').locator('.fc-line-came')).toHaveText(
+    /Back to step 14.*You chose “Federal statute requires a record hearing”/s,
+  );
+  await line('orderhearing').locator('.fc-line-came [data-flowcharts-back]').tap();
+  await expect(activeHeading(page)).toHaveText('Which adjudication statute applies?');
+  await expect(line('order')).toBeInViewport();
+  // A join in words, each number a way to that branch.
+  await expect(line('interest').locator('.fc-line-from button')).toHaveText(['3', '5', '13', '16', '17']);
+  // Step 19: the three outcomes, each under its condition with its cases, on one screen.
+  await line('interest').locator('.fc-line-from button').nth(3).tap();
+  await expect(activeHeading(page)).toHaveText('Use the formal adjudication process');
+  await line('orderhearing').locator('.fc-line-exit').tap();
+  await line('interest').locator('.fc-line-exit').first().tap();
+  await expect(activeHeading(page)).toHaveText('What procedures and timing does due process require?');
+  for (const outcome of ['goldberg', 'loudermill', 'mathews']) {
+    await expect(line(outcome).locator('.fc-node-heading')).toBeInViewport({ ratio: 1 });
+    await expect(line(outcome).locator('.fc-art-name').first()).toBeInViewport({ ratio: 1 });
+  }
+  await assertFits(page, line('balance'));
+  await capture(page, 'flagship-phone-map-step19');
+}
+
 try {
   const desktop = await open({ width: 1440, height: 900 });
   const { page } = desktop;
@@ -385,7 +434,7 @@ try {
 
   await branch(page, 'c').click();
   await expect(activeHeading(page)).toHaveText('Did the offeror assent or did both sides perform?');
-  await dialog.locator('[data-flowcharts-back]').click();
+  await dialog.locator('.fc-walk-controls [data-flowcharts-back]').click();
   await expect(activeHeading(page)).toHaveText('Do the writings establish an agreement?');
   await dialog.locator('[data-flowcharts-view="map"]').click();
   await expect(graphNode(page, 'a')).toBeVisible();
@@ -460,7 +509,6 @@ try {
   await expect(graphNode(phone, '1')).toBeVisible();
   await assertFits(phone, phoneDialog);
   await capture(phone, 'map-phone');
-  await verifyZoom(phoneDialog);
 
   await phone.goto(routeFor('#flowchart=CP-34'));
   await expect(activeHeading(phone)).toHaveText('Did the parties agree to arbitrate?');
@@ -483,7 +531,7 @@ try {
   await phone.goto(routeFor('#flowchart=CP-35'));
   for (const id of ['3', '4', '8', '1']) await branch(phone, id).tap();
   await expect(activeHeading(phone)).toHaveText('Identify the elements, trial burdens and requested ruling');
-  await phoneDialog.locator('[data-flowcharts-back]').tap();
+  await phoneDialog.locator('.fc-walk-controls [data-flowcharts-back]').tap();
   await expect(activeHeading(phone)).toHaveText('Defer, deny or permit discovery under Rule 56(d)');
 
   const graphSizes = await phone.evaluate(() =>
@@ -494,28 +542,69 @@ try {
       arrows: nodes.reduce((sum, node) => sum + node.edges.length, 0),
     })),
   );
-  let answers = 0;
+  // On a phone the map is one list read downwards. On every chart: each step is there once, each
+  // answer is there once, and it names the step the data says it leads to (or has that outcome
+  // directly under it).
   for (const chart of graphSizes) {
     await phone.goto(routeFor('#flowchart=' + chart.id), { waitUntil: 'commit' });
     await expect(phoneDialog.locator('#flowchartsTitle')).toHaveText(chart.title);
-    assert.equal(
-      await phoneDialog.locator('[data-fc-cell]').count(),
-      chart.nodes,
-      chart.id + ' overview nodes',
-    );
-    const drawn = await phone.evaluate(reach);
+    const listed = await phone.evaluate(() => {
+      const dialog = document.querySelector('dialog#dklaFlowcharts');
+      const data = JSON.parse(document.getElementById('dklaFlowchartsData').textContent).find(
+        (one) => one.id === dialog.dataset.printChart,
+      );
+      const number = new Map(data.nodes.map((node, i) => [node.id, i + 1]));
+      const label = new Map(data.nodes.map((node) => [node.id, node.label]));
+      const faults = [];
+      const lines = [...dialog.querySelectorAll('.fc-outline [data-fc-line]')].map(
+        (line) => line.dataset.fcLine,
+      );
+      if (lines.length !== data.nodes.length || new Set(lines).size !== lines.length)
+        faults.push(`${lines.length} lines for ${data.nodes.length} steps`);
+      let answers = 0;
+      for (const node of data.nodes)
+        node.edges.forEach((edge, index) => {
+          answers += 1;
+          const exits = dialog.querySelectorAll(
+            `.fc-outline .fc-line-exit[data-fc-from="${CSS.escape(node.id)}"][data-fc-map-branch="${index}"]`,
+          );
+          if (exits.length !== 1)
+            return faults.push(`${node.id} answer ${index + 1}: ${exits.length} in the list`);
+          const exit = exits[0];
+          if (exit.querySelector('.fc-answer').textContent !== edge.label)
+            faults.push(`${node.id}: answer words`);
+          const cue = exit.querySelector('.fc-destination')?.textContent;
+          const under = exit.nextElementSibling?.dataset.fcLine;
+          if (cue ? cue !== `→ ${number.get(edge.to)} ${label.get(edge.to)}` : under !== edge.to)
+            faults.push(`${node.id} answer ${index + 1} does not name ${edge.to}`);
+        });
+      return { answers, faults };
+    });
+    assert.equal(listed.answers, chart.arrows, chart.id + ' answers in the phone map');
+    assert.deepEqual(listed.faults, [], `${chart.id}: the phone map names every answer's step`);
+  }
+  await trip(phone, '#flowchart=LRS-15', true);
+  await trip(phone, '#flowchart=LRS-15&step=order&from=lrs-o-hearing-trigger', true);
+  await drawings(phone, true);
+  await phoneMap(phone);
+  assert.deepEqual(mobile.errors, []);
+  await mobile.context.close();
+
+  // The wired map (wider windows): on every chart, every answer reaches the step the data names.
+  const wide = await open({ width: 1440, height: 900 }, '#flowcharts');
+  let answers = 0;
+  for (const chart of graphSizes) {
+    await wide.page.goto(routeFor('#flowchart=' + chart.id), { waitUntil: 'commit' });
+    await expect(courseDialog(wide.page).locator('#flowchartsTitle')).toHaveText(chart.title);
+    const drawn = await wide.page.evaluate(reach);
     assert.equal(drawn.cells, chart.nodes, chart.id + ' steps on the whole map');
     assert.equal(drawn.answers, chart.arrows, chart.id + ' answers');
     assert.equal(drawn.wires, chart.arrows, chart.id + ' wires');
     assert.deepEqual(drawn.faults, [], `${chart.id}: every answer reaches its step`);
     answers += drawn.answers;
   }
-  await trip(phone, '#flowchart=LRS-15', true);
-  await trip(phone, '#flowchart=LRS-15&step=order&from=lrs-o-hearing-trigger', true);
-  await drawings(phone, true);
-  await fitted(phone, true);
-  assert.deepEqual(mobile.errors, []);
-  await mobile.context.close();
+  assert.deepEqual(wide.errors, []);
+  await wide.context.close();
   console.log(
     `Desktop and 390px chart navigation, source and related links, history, print passed; on ${graphSizes.length} charts every one of ${answers} answers reaches the step the data names.`,
   );

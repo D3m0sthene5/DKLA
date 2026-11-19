@@ -783,7 +783,51 @@
         </div>
       </div>
       ${indexHTML(session)}
+      ${outlineHTML(session, inline)}
     </section>`;
+  }
+  /* The map composed for a phone (under 700 px; the wired chart is for wider windows). One scroll,
+     downwards: every step in the chart's own order, full width. Under a step, each answer with the
+     number and title of the step it leads to; pressing it goes there. An answer that is the only way
+     to an outcome has that outcome, with its cases, directly under it, so the outcomes of one fork
+     are compared without leaving it. Over a step, the steps that lead to it ("3 routes meet here,
+     from 3 · 14 · 15"), each a way back to that branch. The step being read carries its stored
+     explanation and, when it was reached by an answer, the way back to where that answer was. */
+  function outlineHTML({ byId }, inline) {
+    const from = new Map();
+    for (const node of byId.values())
+      for (const edge of node.edges) from.set(edge.to, (from.get(edge.to) || new Set()).add(node));
+    // A step's own parts, in the order they are wanted on a small screen: how the reader got here
+    // (when it was by an answer), the question, the answers with what each leads to, and only then
+    // the explanation and the cases, so that a fork and its outcomes share one screen.
+    const head = (node) =>
+      `<p class="fc-line-came"></p><button type="button" class="fc-node-heading" data-flowchart-node="${esc(node.id)}">${badge(node)}<span><span class="fc-sr-only">Step ${node.number}. </span>${esc(node.label)}</span></button>`;
+    const foot = (node) =>
+      `<div class="fc-line-now"><p class="fc-line-detail">${esc(node.detail)}</p><button type="button" class="fc-line-sources" data-fc-sources>Sources and related charts for this step ↓</button></div>${artHTML(node, true)}`;
+    return `<ol class="fc-outline" aria-label="The chart, step by step">${[...byId.values()]
+      .filter((node) => !inline.has(node.id))
+      .map((node) => {
+        const met = [...(from.get(node.id) || [])];
+        return `<li class="fc-line fc-kind-${kindOf(node)}${node.edges.length ? '' : ' fc-outcome'}" data-fc-line="${esc(node.id)}">
+          ${met.length ? `<p class="fc-line-from${met.length > 1 ? ' fc-line-met' : ''}">${met.length > 1 ? `${met.length} routes meet here, from` : 'From'} ${met.map((one) => `<button type="button" data-fc-seek="${esc(one.id)}" aria-label="Go to step ${one.number}: ${esc(one.label)}">${one.number}</button>`).join('')}</p>` : ''}
+          ${head(node)}
+          ${
+            node.edges.length
+              ? `<ul class="fc-line-exits">${node.edges
+                  .map((edge, index) => {
+                    const to = byId.get(edge.to);
+                    const answer = `data-fc-map-branch="${index}" data-fc-from="${esc(node.id)}"`;
+                    return inline.get(edge.to)?.parent === node.id
+                      ? `<li class="fc-line-pair"><button type="button" class="fc-line-exit" ${answer}><span class="fc-answer">${esc(edge.label)}</span></button><div class="fc-line fc-outcome fc-kind-outcome" data-fc-line="${esc(to.id)}">${head(to)}${artHTML(to, true)}<div class="fc-line-now"><p class="fc-line-detail">${esc(to.detail)}</p><button type="button" class="fc-line-sources" data-fc-sources>Sources and related charts for this step ↓</button></div></div></li>`
+                      : `<li><button type="button" class="fc-line-exit" ${answer}><span class="fc-answer">${esc(edge.label)}</span><span class="fc-destination">→ ${to.number} ${esc(to.label)}</span></button></li>`;
+                  })
+                  .join('')}</ul>`
+              : ''
+          }
+          ${foot(node)}
+        </li>`;
+      })
+      .join('')}</ol>`;
   }
   // Fitted to the window a tall chart is a narrow column with the rest of the window empty, and no
   // question can be read on it. The room beside it (below it, on a narrow screen) lists every step:
@@ -1012,7 +1056,7 @@
           ? `<p class="fc-trail-label">One route to this step</p><ol>${rows.join('')}</ol>${next}`
           : `${lead ? `<p class="fc-trail-label">One route to chart step ${byId.get(trail[lead].id).number}</p><ol class="fc-trail-route">${rows.slice(0, lead).join('')}</ol>` : ''}<p class="fc-trail-label">${own}</p><ol>${rows.slice(lead).join('')}</ol>${next}`;
     }
-    dialog.querySelector('[data-flowcharts-back]').disabled = trail.length < 2;
+    dialog.querySelector('.fc-walk-controls [data-flowcharts-back]').disabled = trail.length < 2;
     dialog.querySelector('[data-flowcharts-reset]').disabled =
       trail.length < 2 && node.id === active.chart.entry;
     for (const button of dialog.querySelectorAll('[data-flowcharts-view]'))
@@ -1021,6 +1065,7 @@
     map.hidden = view !== 'map';
     dialog.querySelector('.fc-board').classList.toggle('fc-board-map', view === 'map');
     const visited = new Set(trail.map((step) => step.id));
+    let outlined = null; // the step's line in the phone map, when that is what is shown
     for (const cell of map.querySelectorAll('[data-fc-cell]')) {
       cell.classList.toggle('fc-path', visited.has(cell.dataset.fcCell));
       const button = cell.querySelector('[data-flowchart-node]');
@@ -1033,6 +1078,28 @@
       if (row.dataset.fcRow === node.id) row.setAttribute('aria-current', 'step');
       else row.removeAttribute('aria-current');
     }
+    for (const line of map.querySelectorAll('[data-fc-line]')) {
+      line.classList.toggle('fc-path', visited.has(line.dataset.fcLine));
+      const here = line.dataset.fcLine === node.id;
+      if (here) line.setAttribute('aria-current', 'step');
+      else line.removeAttribute('aria-current');
+      if (!here) {
+        line.querySelector('.fc-line-came').textContent = '';
+        continue;
+      }
+      // Reached by an answer: the way back to the step that answer is on, in the answer's words.
+      const before = current.label && byId.get(trail.at(-2).id);
+      line.querySelector('.fc-line-came').innerHTML = before
+        ? `<button type="button" data-flowcharts-back>← Back to step ${before.number}</button> <span>You chose “${esc(current.label)}”</span>`
+        : '';
+      // (Only the chart's own page is scrolled: scrollIntoView would also move the dialog under its
+      // heading.)
+      if (view === 'map' && line.getClientRects().length && (focus || center)) {
+        outlined = line;
+        const target = line.closest('.fc-outline > .fc-line');
+        body.scrollTop += target.getBoundingClientRect().top - body.getBoundingClientRect().top - 4;
+      }
+    }
     const route = new Set(trail.slice(1).map((step, i) => `${trail[i].id}/${step.edge}`));
     for (const wire of map.querySelectorAll('.fc-wire'))
       wire.classList.toggle('fc-path-wire', route.has(`${wire.dataset.fcFrom}/${wire.dataset.fcEdge}`));
@@ -1042,7 +1109,7 @@
       join.classList.toggle('fc-path-wire', reached.has(join.dataset.fcTo));
     if (view === 'map') {
       fitArt(map);
-      if (!active.sizes) {
+      if (!active.sizes && map.querySelector('.fc-map-scroll').clientWidth) {
         // Shown for the first time: each step is measured (its height, and where each answer's line
         // sits in it) and the chart is laid out and its wires routed to those measures.
         const scale = currentZoom(map.querySelector('.fc-graph'));
@@ -1067,7 +1134,8 @@
       }
       paintZoom({ center });
     }
-    if (focus) {
+    if (focus && outlined) outlined.querySelector('.fc-node-heading').focus({ preventScroll: true });
+    else if (focus) {
       const destination = detail.querySelector('h3');
       destination.focus({ preventScroll: true });
       if (view !== 'map' || matchMedia('(max-width: 850px)').matches)
@@ -1311,7 +1379,10 @@
     }
   });
   window.addEventListener('resize', () => {
-    if (active?.view === 'map' && active.zoom === 'fit') paintZoom();
+    if (active?.view !== 'map') return;
+    // (A window widened past the phone layout: the wired map is measured and laid out now.)
+    if (!active.sizes) paintStep();
+    else if (active.zoom === 'fit') paintZoom();
   });
   // Pointing at an answer on the map, or reaching it with the keyboard, traces its wire to the step
   // it leads to.
@@ -1413,7 +1484,11 @@
       paintStep({ focus: true, center: true });
     } else if ('flowchartBranch' in d) follow(active.trail.at(-1).id, Number(d.fcBranchIndex));
     else if ('fcMapBranch' in d) follow(d.fcFrom, Number(d.fcMapBranch));
-    else if ('flowchartNode' in d && button.closest('.fc-overview, .fc-index')) look(d.flowchartNode);
+    else if ('fcSeek' in d) visit(d.fcSeek);
+    else if ('fcSources' in d) {
+      const sources = dialog.querySelector('#flowchartDetail');
+      body.scrollTop += sources.getBoundingClientRect().top - body.getBoundingClientRect().top - 4;
+    } else if ('flowchartNode' in d && button.closest('.fc-overview, .fc-index')) look(d.flowchartNode);
     else if ('flowchartNode' in d && active.trail.at(-1).id !== d.flowchartNode) visit(d.flowchartNode);
   });
   dialog.addEventListener('keydown', (event) => {
