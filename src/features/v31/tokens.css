@@ -51,6 +51,38 @@
   --v31-scrim: #050b11b8;
   /* One focus ring: a gap in the ground colour, then the link blue. */
   --v31-focus: 0 0 0 2px var(--v31-ground), 0 0 0 4px var(--v31-link);
+  /* v3.2 "Instrument" (docs/DESIGN.md). Spacing: every padding, margin and gap is one of these. */
+  --v32-s1: 4px;
+  --v32-s2: 8px;
+  --v32-s3: 12px;
+  --v32-s4: 16px;
+  --v32-s5: 24px;
+  --v32-s6: 32px;
+  --v32-s7: 48px;
+  --v32-s8: 64px;
+  /* Radii: controls, surfaces, pills. An inner radius is its outer radius minus the padding between. */
+  --v32-r-control: 6px;
+  --v32-r-surface: 12px;
+  --v32-r-pill: 999px;
+  /* Hairlines: the only borders. A container gets a fill step or a hairline, never both loud. */
+  --v32-hair: #ffffff12;
+  --v32-hair-strong: #ffffff1f;
+  /* Elevation: light comes from above (a top-edge highlight, a shadow below). No coloured glows. */
+  --v32-e0: none;
+  --v32-e1: inset 0 1px 0 #ffffff0d, 0 8px 24px #00000059;
+  --v32-e2: inset 0 1px 0 #ffffff12, 0 24px 80px #0000008c;
+  /* Controls: one height, one hit area, one icon size. */
+  --v32-h-control: 36px;
+  --v32-h-row: 36px;
+  --v32-hit: 44px;
+  --v32-icon: 20px;
+  --v32-icon-stroke: 1.5px;
+  /* Type added in v3.2: the reader's body, small interface text, and readouts (counts, citations, clock). */
+  --v32-reading: 400 17px/28px var(--dkla-interface, Inter), sans-serif;
+  --v32-ui-small: 500 13px/18px var(--dkla-interface, Inter), sans-serif;
+  --v32-readout: 500 12px/16px 'JetBrains Mono', ui-monospace, monospace;
+  /* The instrument cluster's glow (clock, fuel, version) and nothing else. */
+  --v32-hud: #7fd6f2;
 }
 @supports (transition-timing-function: linear(0, 1)) {
   :root {
