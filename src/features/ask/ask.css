@@ -349,6 +349,15 @@
 .dottie-spinner svg.dottie-part {
   overflow: visible;
 }
+/* A spinner on its way out (dottie.js leave()): a copy left for a third of a second exactly where
+   she was, at the start of the row and over it, so the row is free for what comes next. */
+#dklaAskDialog .ask-progress > .dottie-leaving {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  font-size: 96px;
+  pointer-events: none;
+}
 /* With reduced motion nothing runs (dottie.js starts no animation): the three stand in their
    ring and the whole spinner breathes, opacity only, so it still says "working". */
 @keyframes dottie-pulse {
@@ -487,6 +496,9 @@
   #dklaAskDialog .ask-progress .ask-dottie[data-pose='spinner'] {
     width: 80px;
     height: 80px;
+    font-size: 80px;
+  }
+  #dklaAskDialog .ask-progress > .dottie-leaving {
     font-size: 80px;
   }
   #dklaAskDialog .ask-progress.is-working .ask-working {

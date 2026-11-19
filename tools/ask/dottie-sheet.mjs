@@ -124,18 +124,22 @@ const sheet = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}
 await writeFile(new URL('dottie-sprite-sheet.svg', out), sheet);
 console.log(`Dottie sprite sheet: ${cells.length} poses written to docs/ask-mascot/.`);
 
-/* The spinner's running trot as a Muybridge plate: one opossum in strict side profile, its 8
- * frames in a 4 x 2 grid read left to right, each numbered in its lower-left corner, over a
- * measured grid. The frames come from the same drawing data as the spinner (DKLADottie.trot). */
-const trot = dottie.trot;
-const S = 10; // sheet units per pixel of the 56 px spinner: one grid square is one such pixel
-const fw = 40 * S; // frame: 40 x 16 squares
-const fh = 16 * S;
+/* The spinner's run as a Muybridge plate: one opossum in strict side profile at the bottom of her
+ * ring, 12 phases of one stride in a 4 x 3 grid read left to right, each numbered in its lower-left
+ * corner, over a measured ground; under it, the footfalls as a gait diagram (after Hildebrand).
+ * Every phase is drawn by the spinner's own rig at one of its own poses (DKLADottie.run.frame). */
+const run = dottie.run;
+const PHASES = 12;
+const Z = 6; // sheet units per spinner unit
+const fw = 84 * Z; // frame: 84 x 40 spinner units
+const fh = 40 * Z;
 const fgap = 14;
 const margin = 40;
 const plateTop = 128;
+const rows = PHASES / 4;
 const TW = margin * 2 + 4 * fw + 3 * fgap;
-const TH = plateTop + 2 * fh + fgap + 92;
+const gaitTop = plateTop + rows * fh + (rows - 1) * fgap + 46;
+const TH = gaitTop + 4 * 22 + 118;
 const sepia = {
   paper: '#f1e8d4',
   back: '#ddcdaa',
@@ -144,43 +148,78 @@ const sepia = {
   ink: '#2e2418',
   soft: '#6b5a40',
 };
+const strideDeg = 360 / run.strides;
+// Phase j (1 to 12) is pose 2j - 1 of the 24: the odd poses hold both moments in the air.
+const poseOf = (j) => 2 * j - 1;
 let frames = '';
-for (let k = 0; k < trot.frames; k++) {
-  const x = margin + (k % 4) * (fw + fgap);
-  const y = plateTop + Math.floor(k / 4) * (fh + fgap);
-  // Ground 2 squares above the frame's bottom; the opossum's mid-trunk 21 squares from its left.
-  const ox = x + 21 * S;
-  const oy = y + fh - 2 * S;
-  // The grid is fixed to the ground: she runs trot.step squares a frame, so it moves back by
-  // that much, and a planted foot stays on its square from frame to frame.
-  const line = (d, heavy) =>
-    `<path d="${d}" stroke="${heavy ? sepia.heavy : sepia.fine}" stroke-width="${heavy ? 1.3 : 0.6}"/>`;
+for (let j = 1; j <= PHASES; j++) {
+  const k = poseOf(j);
+  const x = margin + ((j - 1) % 4) * (fw + fgap);
+  const y = plateTop + Math.floor((j - 1) / 4) * (fh + fgap);
+  // The centre of the ring: above the frame, so its lowest stretch is the ground she runs on.
+  const ox = x + fw / 2 + 4 * Z;
+  const oy = y + fh - (run.ground + 3) * Z;
+  // The ground is fixed and she runs forward, so in her frame it turns back (clockwise here) by
+  // one stride of angle per stride: a planted paw keeps its line from phase to phase. Half a
+  // stride is 18 degrees, so the heavier lines come round to the same places every half stride.
+  const turned = (k / run.keys) * strideDeg;
   let grid = '';
-  for (let i = -21; i <= 19; i++) {
-    const ground = i + k * trot.step; // the column's place on the ground
-    grid += line(`M${ox + i * S} ${y}V${y + fh}`, ground % 5 === 0);
+  for (let a = -72; a <= 72; a += 6) {
+    const heavy = a % 18 === 0;
+    grid += `<path d="M0 ${run.ground - 30}V${run.ground + 3}" transform="rotate(${+(a + (turned % 18)).toFixed(3)})" stroke="${heavy ? sepia.heavy : sepia.fine}" stroke-width="${heavy ? 0.2 : 0.1}"/>`;
   }
-  for (let j = -2; j <= 14; j++) grid += line(`M${x} ${oy - j * S}H${x + fw}`, j % 5 === 0);
+  for (let up = 10; up <= 30; up += 10)
+    grid += `<circle r="${run.ground - up}" fill="none" stroke="${sepia.fine}" stroke-width=".1"/>`;
   frames += `
   <g>
-    <clipPath id="trot-frame-${k + 1}"><rect x="${x}" y="${y}" width="${fw}" height="${fh}"/></clipPath>
-    <g clip-path="url(#trot-frame-${k + 1})">
+    <clipPath id="run-frame-${j}"><rect x="${x}" y="${y}" width="${fw}" height="${fh}"/></clipPath>
+    <g clip-path="url(#run-frame-${j})">
       <rect x="${x}" y="${y}" width="${fw}" height="${fh}" fill="${sepia.back}"/>
-      ${grid}
-      ${trot.frame(k, trot.straight(ox, oy, S))}
+      <g transform="translate(${ox} ${oy}) scale(${Z})">
+        ${grid}
+        <circle r="${run.ground + 0.25}" fill="none" stroke="${sepia.ink}" stroke-width=".5"/>
+        ${run.frame(k / run.keys)}
+      </g>
     </g>
     <rect x="${x}" y="${y}" width="${fw}" height="${fh}" fill="none" stroke="${sepia.ink}" stroke-width="1.5"/>
-    <rect x="${x + 6}" y="${y + fh - 22}" width="${k + 1 > 9 ? 24 : 16}" height="16" fill="${sepia.paper}" opacity=".85"/>
-    <text x="${x + 14}" y="${y + fh - 10}" text-anchor="middle" fill="${sepia.ink}" font-size="12">${k + 1}</text>
+    <rect x="${x + 6}" y="${y + fh - 22}" width="${j > 9 ? 24 : 16}" height="16" fill="${sepia.paper}" opacity=".85"/>
+    <text x="${x + (j > 9 ? 18 : 14)}" y="${y + fh - 10}" text-anchor="middle" fill="${sepia.ink}" font-size="12">${j}</text>
   </g>`;
 }
+// The gait diagram: a bar for each foot while it is on the ground, across one stride.
+const feet = [
+  ['nh', 'Near (right) hind'],
+  ['ff', 'Far (left) fore'],
+  ['fh', 'Far (left) hind'],
+  ['nf', 'Near (right) fore'],
+];
+const gx = margin + 150;
+const gw = TW - margin - gx;
+const cell = gw / run.keys;
+let gait = '';
+feet.forEach(([id, label], row) => {
+  const [down, stay] = run.feet[id];
+  const y = gaitTop + row * 22;
+  gait += `<text x="${margin}" y="${y + 13}" fill="${sepia.ink}" font-size="13">${label}</text>
+    <rect x="${gx}" y="${y + 2}" width="${gw}" height="14" fill="${sepia.back}"/>
+    <rect x="${gx + down * cell}" y="${y + 2}" width="${stay * cell}" height="14" fill="${sepia.ink}"/>`;
+});
+for (let j = 1; j <= PHASES; j++) {
+  const x = gx + poseOf(j) * cell;
+  gait += `<path d="M${x} ${gaitTop - 4}V${gaitTop + 4 * 22 - 2}" stroke="${sepia.heavy}" stroke-width=".6" stroke-dasharray="2 3"/>
+    <text x="${x}" y="${gaitTop - 9}" text-anchor="middle" fill="${sepia.soft}" font-size="11">${j}</text>`;
+}
+const stepMs = Math.round((2 * run.ms) / run.keys);
 const plate = `<svg xmlns="http://www.w3.org/2000/svg" width="${TW}" height="${TH}" viewBox="0 0 ${TW} ${TH}" font-family="Georgia, 'Times New Roman', serif">
   <rect width="${TW}" height="${TH}" fill="${sepia.paper}"/>
-  <text x="${margin}" y="60" fill="${sepia.ink}" font-size="30"><tspan font-style="italic">Didelphis virginiana</tspan> — trotting. ${trot.frames} phases, ${trot.ms} ms.</text>
-  <text x="${margin}" y="94" fill="${sepia.soft}" font-size="15">Dottie Docket in the Ask Dottie thinking spinner. One stride, ${trot.frames * trot.ms} ms: left hind with right fore, then right hind with left fore; all four feet up in phases 4 and 8.</text>
+  <text x="${margin}" y="60" fill="${sepia.ink}" font-size="30"><tspan font-style="italic">Didelphis virginiana</tspan> — a running trot. ${PHASES} phases, ${stepMs} ms apart.</text>
+  <text x="${margin}" y="94" fill="${sepia.soft}" font-size="15">Dottie Docket in the Ask Dottie thinking spinner. One stride, ${run.ms} ms: near hind with far fore (phases 1 to 5), then far hind with near fore (7 to 11); all four feet off the ground in phases 6 and 12.</text>
   ${frames}
-  <text x="${margin}" y="${TH - 50}" fill="${sepia.soft}" font-size="14">One square is one pixel of the 56 px spinner; heavier lines every 5. The grid is fixed to the ground and moves back ${trot.step} squares a phase as she runs, so a planted foot keeps its square.</text>
-  <text x="${margin}" y="${TH - 28}" fill="${sepia.soft}" font-size="14">Far-side (right) legs are drawn darker. Drawn from the spinner’s own frames (src/features/ask/dottie.js) by tools/ask/dottie-sheet.mjs.</text>
+  <text x="${margin}" y="${gaitTop - 26}" fill="${sepia.soft}" font-size="14">Footfalls across the stride: a bar while a foot is on the ground. Each is down for ${run.feet.nh[1]} of the rig’s ${run.keys} poses; a fore foot lands one pose after its diagonal hind foot.</text>
+  ${gait}
+  <text x="${margin}" y="${TH - 62}" fill="${sepia.soft}" font-size="14">She runs inside a ring, as in the spinner; its lowest stretch is the ground. Lines every 6° of track (4.7 px of the 96 px spinner), heavier every 18° (half a stride); arcs every 10 px above the ground.</text>
+  <text x="${margin}" y="${TH - 40}" fill="${sepia.soft}" font-size="14">The grid is fixed to the ground and turns back 3° a phase as she runs, so a planted paw keeps its line. The far-side (left) legs are darker.</text>
+  <text x="${margin}" y="${TH - 18}" fill="${sepia.soft}" font-size="14">Drawn by the spinner’s own rig (src/features/ask/dottie.js, posed by tools/ask/run-cycle.mjs) with tools/ask/dottie-sheet.mjs.</text>
 </svg>
 `;
 await writeFile(new URL('possum-trot.svg', out), plate);
@@ -195,7 +234,10 @@ if (process.argv.includes('--png')) {
     [sheet, W, H, 'dottie-sprite-sheet.png'],
     [plate, TW, TH, 'possum-trot.png'],
   ]) {
-    const page = await browser.newPage({ viewport: { width, height }, deviceScaleFactor: 2 });
+    const page = await browser.newPage({
+      viewport: { width, height },
+      deviceScaleFactor: name === 'possum-trot.png' ? 1.5 : 2,
+    });
     await page.setContent(`<body style="margin:0">${markup}</body>`);
     await page
       .locator('svg')

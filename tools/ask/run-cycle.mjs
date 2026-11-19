@@ -43,7 +43,7 @@ const STRIDE = 360 / STRIDES; // degrees of ring in one stride
 const GROUND = 46.5; // radius of the ground (where the paws land)
 const STANCE = 9; // poses a foot is down
 const FORE_LATE = 1; // poses by which a fore foot lands after its diagonal hind foot
-const S = Number(process.env.DOTTIE_S ?? 0.95); // the size of the animal in that ring
+const S = 1; // the size of the animal in that ring (1: an opossum 25 units tall at the shoulder)
 
 // ---------------------------------------------------------------- small maths
 const rad = Math.PI / 180;
@@ -112,7 +112,7 @@ function hermite([x1, v1], [x2, v2], m1, m2, x) {
 // ---------------------------------------------------------------- the gait, as curves
 // Everything about the trunk repeats every half stride. h is the phase within a half stride:
 // 0 = a hind foot touches down, 0.75 = it leaves, 0.83 to 1 = all four feet in the air.
-const BOB = 1.55; // how far the body sinks and rises (units; about a third of a leg)
+const BOB = 1.3; // how far the body sinks and rises (units; about a third of a leg)
 const bob = cycle(
   [
     [0.0, 0.8], // contact, already coming down
@@ -160,8 +160,8 @@ const LEGS = {
   // (+1, forward) or elbow (-1, back) points. centre: where on the ground, in degrees from the
   // joint, the paw is at the middle of its time down. lift: how high the paw is carried.
   // roll: degrees the heel has risen when the toes leave the ground.
-  hind: { joint: [-9.2, 4.0], upper: 6.4, lower: 6.8, bend: 1, centre: 0.3, lift: 4.3, roll: 32 },
-  fore: { joint: [8.2, 4.3], upper: 6.0, lower: 6.9, bend: -1, centre: 1.2, lift: 4.9, roll: 28 },
+  hind: { joint: [-9.2, 4.0], upper: 6.2, lower: 6.8, bend: 1, centre: 0.3, lift: 5.4, roll: 32 },
+  fore: { joint: [8.2, 4.3], upper: 5.8, lower: 6.9, bend: -1, centre: 1.2, lift: 5.8, roll: 28 },
 };
 const FAR = [1.5, -0.5]; // the far-side joints sit this much forward and up, so the pairs separate
 const FOOT = {
