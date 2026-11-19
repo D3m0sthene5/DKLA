@@ -1454,6 +1454,81 @@ const breakages = [
       ),
   ],
   [
+    'Cold Call rehearsal shows a narration before it is asked for',
+    'src/features/cold-call/reader.css',
+    () =>
+      edit(
+        'src/features/cold-call/reader.css',
+        "#coldCallDialog[data-cc-mode='rehearse'] .cc-section:not([data-cc-revealed]) .cc-answer {\n  display: none;",
+        "#coldCallDialog[data-cc-mode='rehearse'] .cc-section:not([data-cc-revealed]) .cc-answer {\n  display: block;",
+      ),
+  ],
+  [
+    'while rehearsing, the list at the side gives every answer away',
+    'src/features/cold-call/reader.css',
+    () =>
+      edit(
+        'src/features/cold-call/reader.css',
+        "#coldCallDialog .cc-nav-cue,\n#coldCallDialog[data-cc-mode='rehearse'] .cc-nav-row:not([data-cc-revealed]) .cc-nav-title {\n  display: none;",
+        '#coldCallDialog .cc-nav-cue {\n  display: none;',
+      ),
+  ],
+  [
+    'Space no longer shows the answer in a Cold Call rehearsal',
+    'src/features/cold-call/reader.js',
+    () =>
+      edit(
+        'src/features/cold-call/reader.js',
+        'if (!revealed.has(step - 1)) return reveal(step - 1);',
+        'if (!revealed.has(step - 1)) return;',
+      ),
+  ],
+  [
+    'Cold Call forgets whether it was being read or rehearsed',
+    'src/features/cold-call/reader.js',
+    () => edit('src/features/cold-call/reader.js', 'localStorage.setItem(MODE_KEY, mode);', ''),
+  ],
+  [
+    'the Cold Call setup leaves out how the case reached this court',
+    'src/features/cold-call/reader.js',
+    () => edit('src/features/cold-call/reader.js', 'path = lines(c.proceedings);', 'path = [];'),
+  ],
+  [
+    'a case caption may break anywhere, leaving "v." at the end of a line',
+    'src/features/cold-call/reader.css',
+    () =>
+      edit(
+        'src/features/cold-call/reader.css',
+        '  display: inline-block;\n  max-width: 100%;\n  vertical-align: top;\n  text-wrap: balance;\n}\n.cc-shell .cc-caption .cap-tie {\n  white-space: nowrap;\n}',
+        '  display: inline;\n}\n.cc-shell .cc-caption .cap-tie {\n  white-space: normal;\n}',
+      ),
+  ],
+  [
+    'the index of Cold Calls leaves out the supporting cases',
+    'src/features/v32/coldcall-index.js',
+    () =>
+      edit(
+        'src/features/v32/coldcall-index.js',
+        '        course.supporting.push(account);\n        continue;',
+        '        continue;',
+      ),
+  ],
+  [
+    'every row of the Cold Calls index is a frosted button',
+    'src/features/v32/coldcall-index.js',
+    () =>
+      edit(
+        'src/features/v32/coldcall-index.js',
+        '`<div role="button" tabindex="0" class="cc-ix-row"',
+        '`<button type="button" class="cc-ix-row"',
+      ),
+  ],
+  [
+    'a composed caption drops the second of two consolidated cases',
+    'src/features/v32/caption.js',
+    () => edit('src/features/v32/caption.js', '      cases.push(split(head));\n', ''),
+  ],
+  [
     'Lazy data blocks are no longer verified before use',
     'src/features/performance/data-loader.js',
     () =>

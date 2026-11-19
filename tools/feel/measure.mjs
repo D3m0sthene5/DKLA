@@ -926,7 +926,7 @@ async function readerScenario(S) {
   await interact(S, 'reader: open Cold Call', {
     act: () => page.locator('#inspector [data-cold-call]').first().click(),
     until: fn(
-      'function(){ const d = document.getElementById("coldCallDialog"); return d.open && d.querySelectorAll("#ccNarrative .cc-section > p:not(.cc-kicker)").length > 3 }',
+      'function(){ const d = document.getElementById("coldCallDialog"); return d.open && d.querySelectorAll("#ccNarrative .cc-answer > p").length > 3 }',
     ),
     mutations: '#coldCallDialog',
     after: 1500,

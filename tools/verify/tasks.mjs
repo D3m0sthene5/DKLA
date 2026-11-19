@@ -202,6 +202,12 @@ export const tasks = [
   ),
   // Hover, keyboard, tap and reduced motion on the Garcia Cold Call's definition links.
   step('browser', 'Cold Call definitions', node('tools/cold-call/glossary_browser.cjs', '{page}'), SERVER),
+  // v3.2: Cold Call as a rehearsal. The setup (lead, cast, steps), Read and Rehearse, the frost over a
+  // narration not yet asked for, the keys, the remembered mode, the end, the index of all 742, and no
+  // caption line ending in "v." at any width.
+  step('browser', 'Cold Call rehearsal', node('tools/v32/check-coldcall.mjs', '{page}'), SERVER),
+  // The caption composer on every Cold Call title (reads source files only).
+  step('features', 'case captions composed', test('tools/v32/caption.test.mjs')),
   // v3.1 lazy data: Cold Call, its definitions and the dictionary arriving after the page is drawn.
   step(
     'browser',
