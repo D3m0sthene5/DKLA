@@ -289,6 +289,10 @@ html {
    longer than 150 ms, so a fast load shows no flash. */
 .calm-wait {
   display: block !important;
+  /* its own width: with no text drawn it would shrink to nothing where its parent fits its contents */
+  width: 520px;
+  max-width: 100%;
+  box-sizing: border-box;
   min-height: 74px;
   margin: 18px 0 !important;
   padding: 0 !important;

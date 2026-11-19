@@ -341,22 +341,24 @@ const drawer = await page.evaluate(
         visibility: style.contentVisibility,
         opacity: Number(style.opacity),
       };
-      requestAnimationFrame(() =>
-        requestAnimationFrame(() => {
-          const mid = Number(getComputedStyle(details, '::details-content').opacity);
-          const height = getComputedStyle(details, '::details-content').transitionProperty;
-          details.open = false;
-          const shut = getComputedStyle(details, '::details-content').contentVisibility;
-          done({ closed, atOnce, mid, height, shut, supported: CSS.supports('selector(::details-content)') });
-        }),
-      );
+      // Looked at on each frame until the fade is under way (its first frame can be a moment coming).
+      let frames = 0;
+      const look = () => {
+        const mid = Number(getComputedStyle(details, '::details-content').opacity);
+        if ((mid <= 0 || mid >= 1) && ++frames < 40) return requestAnimationFrame(look);
+        const height = getComputedStyle(details, '::details-content').transitionProperty;
+        details.open = false;
+        const shut = getComputedStyle(details, '::details-content').contentVisibility;
+        done({ closed, atOnce, mid, height, shut, supported: CSS.supports('selector(::details-content)') });
+      };
+      requestAnimationFrame(look);
     }),
 );
 assert.ok(drawer.atOnce.text > drawer.closed, 'an opened drawer has its contents at once');
 if (drawer.supported) {
   assert.equal(drawer.atOnce.visibility, 'visible');
   assert.ok(drawer.atOnce.opacity < 0.2, `a drawer's contents start faded (${drawer.atOnce.opacity})`);
-  assert.ok(drawer.mid > 0 && drawer.mid < 1, `and fade in (${drawer.mid} two frames on)`);
+  assert.ok(drawer.mid > 0 && drawer.mid < 1, `and fade in (${drawer.mid})`);
   assert.ok(!/height/.test(drawer.height), 'a drawer does not animate its height');
   assert.equal(drawer.shut, 'hidden', 'a drawer shuts at once');
 }
@@ -744,6 +746,16 @@ await page.evaluate(() => {
   document.getElementById('calmCheckLine').remove();
   document.getElementById('glossaryDialog').close();
 });
+// The same in the source reader, whose text column fits its contents: the skeleton keeps a width
+// (a locator's "visible" means it has a box).
+await page.evaluate(() => window.LegalAtlas.openFile('added-sources/opinions/lrs-i-benzene.txt', 1));
+await page.locator('#fileDialog[open] .file-text').first().waitFor({ timeout: 20_000 });
+await page.evaluate(() => {
+  document.querySelector('#fileDialog .file-text').innerHTML =
+    '<p class="file-loading" role="status">Loading the source text…</p>';
+});
+await page.locator('#fileDialog[open] .file-loading.calm-wait').waitFor({ timeout: 5000 });
+await page.evaluate(() => document.getElementById('fileDialog').close());
 report.push('a Loading line waits 150 ms, then is a skeleton');
 
 assert.deepEqual(errors, []);

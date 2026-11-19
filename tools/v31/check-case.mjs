@@ -173,7 +173,7 @@ assert.deepEqual((await marked()).now, ['5 Holding'], 'the clicked place is mark
 await page.waitForFunction(() => {
   const reader = document.getElementById('inspector');
   const y = reader.scrollTop;
-  return new Promise((done) => setTimeout(() => done(reader.scrollTop === y), 150));
+  return new Promise((done) => setTimeout(() => done(reader.scrollTop === y), 500));
 });
 let place = await marked();
 assert.deepEqual(place.now, ['5 Holding']);

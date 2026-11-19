@@ -376,7 +376,9 @@
       const target = button.closest('.v31-rail').v31Targets?.[Number(button.dataset.v31Place)];
       if (!target?.isConnected) return;
       const offset = (inspector.querySelector('.reader-top')?.offsetHeight || 0) + 16;
-      const top =
+      // Asked again on every frame of the scroll, so it lands on the heading even if the page above
+      // it changes height on the way.
+      const top = () =>
         inspector.scrollTop +
         target.getBoundingClientRect().top -
         inspector.getBoundingClientRect().top -
@@ -388,7 +390,7 @@
       clearTimeout(pinTimer);
       pinTimer = setTimeout(unpin, 320);
       if (window.DKLACalm?.scrollTo) window.DKLACalm.scrollTo(inspector, top, 250);
-      else inspector.scrollTo({ top });
+      else inspector.scrollTo({ top: top() });
     });
   function supportingCase() {
     if (!supporting) return;

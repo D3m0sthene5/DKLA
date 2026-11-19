@@ -14,7 +14,7 @@
  *                                (a click, a key, a route change, a dialog opening or closing), once in
  *                                the next frame and once more when panels have settled; replaces timers
  *                                that looked every 200 or 500 ms
- *   DKLACalm.scrollTo(box, top)  a short eased scroll (about 250 ms) that stops the moment the visitor
+ *   DKLACalm.scrollTo(box, top)  (top: a number, or a function asked on every frame) a short eased scroll (about 250 ms) that stops the moment the visitor
  *                                scrolls, drags, or presses a key
  *   'dkla:ambient' on document   fired when quiet() changes (detail.off)
  *
@@ -181,9 +181,14 @@
   const STOPPERS = ['wheel', 'touchstart', 'pointerdown', 'keydown'];
   function scrollTo(box, top, ms = 250) {
     stopScroll();
+    // `top` may be a function: where to land is then asked again on every frame, so the scroll still
+    // ends in the right place if the page above it changes height on the way (a late brief).
+    const where = () => {
+      const limit = Math.max(0, box.scrollHeight - box.clientHeight);
+      return Math.max(0, Math.min(limit, typeof top === 'function' ? top() : top));
+    };
     const from = box.scrollTop,
-      limit = Math.max(0, box.scrollHeight - box.clientHeight),
-      to = Math.max(0, Math.min(limit, top));
+      to = where();
     if (reduced.matches || Math.abs(to - from) < 2 || !box.animate) {
       box.scrollTop = to;
       return;
@@ -195,7 +200,7 @@
       if (scrolling !== state) return;
       const t = Math.min(1, (now - began) / ms),
         eased = 1 - (1 - t) ** 3;
-      box.scrollTop = from + (to - from) * eased;
+      box.scrollTop = from + (where() - from) * eased;
       if (t < 1) state.frame = requestAnimationFrame(step);
       else stopScroll();
     };
