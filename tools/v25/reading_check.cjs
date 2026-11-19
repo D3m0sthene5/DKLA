@@ -75,9 +75,13 @@ class El {
   }
   addEventListener() {}
   insertBefore(c, anchor) {
+    if (!anchor) return this.appendChild(c);
     c.remove();
     this.children.splice(this.children.indexOf(anchor), 0, c);
     c.parentElement = this;
+  }
+  get firstElementChild() {
+    return this.children[0] || null;
   }
   remove() {
     if (this.parentElement) {

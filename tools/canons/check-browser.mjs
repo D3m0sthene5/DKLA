@@ -40,6 +40,9 @@ try {
     await source.click();
     await expect(dialog).toBeHidden();
     await expect(page).toHaveURL(new URL(node, url).href);
+    // The case's canons are a facet of its page (v3.2): its tab counts them, and opening it lists them.
+    await expect(page.locator('#inspector .v32-tabs [data-v32-tab="canons"] .v32-count')).toHaveText(/^\d+$/);
+    await page.locator('#inspector .v32-tabs [data-v32-tab="canons"]').click();
     await expect(page.locator('#inspector .canons-related a[href="#canon=noscitur-a-sociis"]')).toBeVisible();
     await page.goBack();
     await expect(dialog).toBeVisible();
@@ -73,11 +76,11 @@ try {
         return deck.topics.length + deck.conflicts.length;
       }),
     );
-    // ...and its case page shows the class under Lecture context.
+    // ...and its case page shows the class in its Lecture facet.
     await pge.locator('a[href="#node=pacific-gas"]').click();
     const related = page.locator('#inspector .lecture-related');
     await expect(related).toContainText(/Contracts Class 14/);
-    await related.locator('summary').click();
+    await page.locator('#inspector .v32-tabs [data-v32-tab="lecture"]').click();
     await expect(related.locator('a[href="#lecture=contracts-14:6"]')).toBeVisible();
     // LRS Class 4's second deck is labelled by its own name and slide numbers.
     await loaded('#lecture=lrs-4');

@@ -459,7 +459,7 @@ assert.deepEqual(
   'the late block has its tab and count',
 );
 assert.equal(late.open, 'brief');
-assert.ok(Math.abs(late.moved) < 1, `what is being read does not move (${late.moved} px)`);
+assert.ok(Math.abs(late.moved) < 0.5, `what is being read does not move (${late.moved} px)`);
 assert.equal(late.drawn, 0, 'a late block of another facet is not drawn into the open one');
 assert.equal(late.told, 'update');
 assert.equal(late.after, 7, 'and its tab goes when it goes');

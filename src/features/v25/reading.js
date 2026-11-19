@@ -352,7 +352,13 @@
         if (later) later(() => (reorders = 0));
         else reorders = 0;
       }
-      body.append(...wanted);
+      // Only the blocks that are out of place move (a block that is put back into the page starts its
+      // animations again, so a late arrival must not touch what is being read).
+      let at = body.firstElementChild;
+      for (const node of wanted) {
+        if (node === at) at = at.nextElementSibling;
+        else body.insertBefore(node, at);
+      }
     }
     return [bar, panel];
   }

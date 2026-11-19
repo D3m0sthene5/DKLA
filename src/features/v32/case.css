@@ -490,6 +490,30 @@
 #inspector .v32 .v32-tabs::-webkit-scrollbar {
   display: none;
 }
+/* More tabs than fit: the side that holds more fades out (case.js says which). */
+#inspector .v32 .v32-tabs[data-v32-more='end'] {
+  mask-image: linear-gradient(to left, transparent, #000 48px);
+}
+#inspector .v32 .v32-tabs[data-v32-more='start'] {
+  mask-image: linear-gradient(to right, transparent, #000 48px);
+}
+#inspector .v32 .v32-tabs[data-v32-more='start end'] {
+  mask-image: linear-gradient(to right, transparent, #000 48px, #000 calc(100% - 48px), transparent);
+}
+/* A narrower reader: the tabs sit closer. */
+@media (max-width: 1319px) {
+  #inspector .v32 .v32-tabs {
+    gap: 0;
+    margin: 0 -8px;
+  }
+  #inspector .v32 .v32-tab {
+    padding: 0 8px;
+  }
+  #inspector .v32 .v32-tab::after {
+    left: 8px;
+    right: 8px;
+  }
+}
 #inspector .v32 .v32-tab {
   all: unset;
   box-sizing: border-box;
@@ -1707,8 +1731,19 @@
 }
 
 /* ---------- print: every facet, in order, each under its name ---------- */
+/* (The older print rules hide every button, so the sources print from the record's own list of links.) */
 @media print {
-  #inspector .reader-body.v32[data-v32-show] > [data-v32-facet]:not(.brief-jump) {
+  #inspector
+    .reader-body.v32[data-v32-show]
+    > [data-v32-facet]:not(
+      .brief-jump,
+      .v32-sources,
+      .v25-source-details,
+      .authority-context,
+      .dkla-file-chips,
+      .source-strip,
+      .r19-chiprow
+    ) {
     display: block !important;
     animation: none !important;
   }
@@ -1722,9 +1757,13 @@
   }
   #inspector .v32 > .v32-bar,
   #inspector .v32 > .v31-rail,
+  #inspector .v32 > .v32-sources,
   #inspector .v32 > .v32-brief-head .v32-seg,
   #inspector .reader-top {
     display: none !important;
+  }
+  #inspector .v32 > details.quiet-details :is(h4, a.source-link) {
+    display: block !important;
   }
   #inspector .reader-body.v32 {
     min-height: 0 !important;

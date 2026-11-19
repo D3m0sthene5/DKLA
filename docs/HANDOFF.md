@@ -3,6 +3,56 @@
 Written at the end of a session so the next one can pick up cleanly.
 Update or replace this file when the state changes.
 
+## The reader, one facet at a time (19 November 2026, branch `v32-case`, not merged, not deployed)
+
+Read `docs/DESIGN.md` first. The case page was one scroll of 5,483 px (6.7 screens, 96 controls); an entry is
+now read one facet at a time.
+
+- **Structure.** From the top: a 44 px strip (a course dot, then course, unit and subject; the entry's name
+  once the title has scrolled away; one 36 px close button), the header (name, citation line, the line under
+  its picture), the facet bar (the Cold Call button in the margin, then a tab per facet with its count), and
+  the blocks of the open facet. Facets: Brief (Overview on a concept or rule), Timeline, Flowchart, Canons,
+  Lecture, Court (the Supreme Court's vote), Cases, Connections, Sources, Study. A facet with nothing in it has
+  no tab. An entry with one facet (a rule or authority page, a connection, a subject) has no bar.
+- **Who owns what.** `src/features/v25/reading.js` marks every direct child of `.reader-body` with its facet
+  (`data-v32-facet`; the table is `RULES`, and a block no rule names joins the Brief) and keeps the children in
+  one order, moving only those out of place. The blocks stay direct children on purpose: the layers that draw
+  them look for them there. `src/features/v32/case.js` runs the bar, the open facet, Short | Full, the strip,
+  the citation line, the one list of sources and the timeline switch. `src/features/v32/case.css` is the look.
+  A layer that adds a block only has to draw it once into `.reader-body`; to give it a facet, add a line to
+  `RULES` and, if it has a count, to `count()` in case.js.
+- **`window.DKLAReader`**: `facets()` → `[{id, label, count}]`, `show(id)`, `current()`, `mode()`,
+  `setMode('short' | 'full')`, `reveal(element)` (opens the facet an element is in and scrolls to it). The
+  event `dkla:facet` on `document` (`detail: {entry, facet, facets, reason: 'open' | 'change' | 'update'}`).
+  A link can name a facet: `#node=citoh&facet=timeline`. Keys: arrows, Home and End on the tabs; 1 to 9
+  anywhere in the reader when no field has the keyboard and no dialog is open.
+- **Scrolling.** The bar is sticky under the strip. The body's `min-height` is kept long enough for the bar to
+  stay stuck whatever facet is open (`keepHeight`), a facet remembers where it was read to, and the same entry
+  drawn again (an edit, a rating, coming back from a flowchart or a source) keeps its facet.
+- **Sources** are one list built from the controls the older layers draw (which stay in the page, not shown):
+  the reading the brief was written from first (`data-v32-original`, what "Original source" opened), other
+  files, then the authorities cited; the record's own details are one drawer under it. A reading is listed
+  once however many layers name it.
+- **The citation line** is the first reporter citation in the full brief's opening lines, shown in the brief's
+  own words (`CITE` in case.js; 382 of the 391 mapped briefs have one); until the brief arrives, or when it
+  has none, the line shows what the entry's notes say of the court, or nothing. Opening a case now fetches its
+  full brief (one small file, cached), which also makes Short | Full immediate.
+- **Old rules removed where they lived** (reader-only rules with `!important`): the panel colour in
+  `dklaR16HistoryStyle.css`, the title and rule fonts in `dklaR11Styles.css`, the caption in `r20.css` and
+  `dklaR10bStyles.css`, the brief's headings and paragraphs in `studyStyle.css` and `dklaStyles.css`, the close
+  button and the provision text in `polish.css`, `briefs.css` and `authorities.css`, the launch button in
+  `cold-call/reader.css`, and the whole v3.1 case section of `reading.css`. Still there: the generic paragraph
+  and heading rules of `v26/typography.css` (case.css outranks them by naming `.v32` and one more class; the
+  title's face needs `!important`), and the Supreme Court record's `!important` paint, which case.css
+  overrides inside the reader only.
+- **Checks**: `tools/v31/check-case.mjs` (the facets, counts, one facet at a time, header, close button, rail,
+  sticky bar, keyboard, a late block, a link to a facet, Loper Bright, a concept and a rule page),
+  `tools/v25/reading_check.cjs` (the order and facets in a stand-in DOM), five breakages in
+  `tools/verify/break.mjs`. `tools/v32/conformance.mjs` measures a facet against the scales.
+- **Not done**: the supporting-case brief's dialog and the connection and subject readers have the new strip,
+  left edge and title but keep their older insides; the pictures in `tools/verify/views` must be recorded
+  again on the owner's PC (`pnpm views:update`): every picture with the reader in it changes.
+
 ## The map in motion (19 November 2026, branch `v32-map`, not merged, not deployed)
 
 - **What changed**: a drag, a pinch, a glide or a flight no longer draws the map on every frame. The picture

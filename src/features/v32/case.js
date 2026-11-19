@@ -152,10 +152,22 @@
         tabs.replaceChildren(...next);
       tabs.dataset.v32Tabs = signature;
     }
+    edges(tabs);
     for (const tab of tabs.children) {
       const on = tab.dataset.v32Tab === state.facet;
       if (tab.getAttribute('aria-selected') !== String(on)) tab.setAttribute('aria-selected', String(on));
       if (tab.tabIndex !== (on ? 0 : -1)) tab.tabIndex = on ? 0 : -1;
+    }
+  }
+  // Where the tabs do not all fit (an entry with nine facets in a narrow reader) the row scrolls sideways,
+  // and the side that holds more fades out to say so.
+  function edges(tabs) {
+    const more =
+      (tabs.scrollLeft > 1 ? 'start ' : '') +
+      (tabs.scrollLeft + tabs.clientWidth < tabs.scrollWidth - 1 ? 'end' : '');
+    if ((tabs.dataset.v32More || '') !== more.trim()) {
+      if (more.trim()) tabs.dataset.v32More = more.trim();
+      else delete tabs.dataset.v32More;
     }
   }
   // What a screen reader is told the open tab's panel holds: the blocks of the open facet.
@@ -593,10 +605,17 @@
     }
   }
   // A facet's blocks arrive with a short fade; the keyframes alternate so each change starts afresh.
+  let fading = 0;
   function fade(host) {
     if (reduced.matches) return;
     state.tick ^= 1;
-    host.dataset.v32Tick = String(state.tick);
+    const tick = String(state.tick);
+    host.dataset.v32Tick = tick;
+    // Once the fade is over the blocks carry no animation, so nothing can start it again by accident.
+    clearTimeout(fading);
+    fading = setTimeout(() => {
+      if (host.dataset.v32Tick === tick) delete host.dataset.v32Tick;
+    }, 400);
   }
   function show(id, options = {}) {
     const host = body();
@@ -644,7 +663,10 @@
     typeof ResizeObserver === 'function'
       ? new ResizeObserver(() => {
           const host = body();
-          if (host) keepHeight(host);
+          if (!host) return;
+          keepHeight(host);
+          const tabs = host.querySelector(':scope > .v32-bar > .v32-tabs');
+          if (tabs) edges(tabs);
         })
       : null;
   let sized = null;
@@ -656,11 +678,21 @@
     if (head) sizes.observe((sized = head));
   }
 
+  // (Scroll events do not bubble: this one is caught on the way down.)
+  inspector.addEventListener(
+    'scroll',
+    (event) => {
+      if (event.target.classList?.contains('v32-tabs')) edges(event.target);
+    },
+    { capture: true, passive: true },
+  );
+
   /* ---------- pointer and keyboard ---------- */
   inspector.addEventListener('click', (event) => {
     const tab = event.target.closest('.v32-tab');
     if (tab) {
       show(tab.dataset.v32Tab);
+      tab.scrollIntoView({ block: 'nearest', inline: 'nearest' });
       return;
     }
     const mode = event.target.closest('.v32-brief-head [data-v32-mode]');
