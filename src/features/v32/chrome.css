@@ -1003,7 +1003,7 @@ dialog.v32-shell {
     max-height: calc(100dvh - var(--v32-s4));
   }
   .v32-shell-head {
-    padding: var(--v32-s3) var(--v32-s2) 0 var(--v32-s4);
+    padding: var(--v32-s4) var(--v32-s2) 0 var(--v32-s4);
   }
   .v32-library {
     grid-template-columns: minmax(0, 1fr);
@@ -1133,7 +1133,7 @@ html.v32-chrome #saveStatus {
     0 0 2px var(--v31-ground),
     0 0 6px var(--v31-ground);
   pointer-events: none;
-  transition: opacity var(--v31-t-panel) linear;
+  transition: opacity var(--v31-t-pop) linear;
 }
 html.v32-chrome.v32-hint-fading #mapHint {
   opacity: 0;

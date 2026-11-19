@@ -5,30 +5,45 @@
    1. The bar is 56 px with one hairline under it and three groups and nothing else: the mark and wordmark
       (then the breadcrumb), the command field centred on the window, and the instrument cluster (clock and
       version), Ask Dottie and the Library. Only Exo 2, Inter and the mono face are used in it.
-   2. The breadcrumb is in the bar and right at each level (course, subject, topic and entry); a trail longer
-      than its room drops its first crumbs and keeps the last two; a crumb and Back both navigate; the
-      wordmark is the way Home, where the breadcrumb steps aside.
+   2. The breadcrumb is in the bar, on one line, and right at each level. A path longer than its room is
+      shortened by design: a level is shown whole or folded into a "…" control that opens the whole path;
+      the command field gives the last level room (down to 320 px, its right edge fixed); only then is the
+      last level cut, at a word, with its whole text as its title. Held through a resize with the longest
+      path in the data. A crumb and Back both navigate; the wordmark is the way Home, where the breadcrumb
+      steps aside. Under 1024 px the path sits on the map.
    3. Ctrl/Cmd+K and "/" put the keyboard in the field from anywhere, but not while something is being typed
       into another field; the field shows the shortcut as this machine writes it.
    4. The empty palette has its sections: "On this entry" only when the reader offers facets, "Go to" (the
-      Library's collections with their counts), "Recent" (the last five entries opened), Ask Dottie, and the
-      keys in the footer.
+      Library's collections and classes, each count with its unit), "Recent" (the last five entries opened),
+      Ask Dottie, and the keys in the footer.
    5. Up and Down move one highlight, Enter opens the highlighted row, Escape closes and hands the keyboard
       back to where it was.
-   6. The Library is one dialog in three groups; every row shows its count where it has one and opens the
-      right thing; a count that is not known yet shows nothing (not zero) and fills in when its data arrives.
+   6. The Library is one dialog in four groups of at most eight; every row says how much is behind it and of
+      what ("115 flowcharts · 975 steps") in the muted colour at 13 px, and opens the right thing; a count
+      that is not known yet shows nothing (not zero) and fills in when its data arrives.
    7. The splash line shows on Home only, and steps out while a dialog is open.
    8. No control in the bar, the palette or the Library is under 36 px.
    9. A fixed list of searches returns exactly the rows it returned before the frame was redrawn
       (tools/v32/search-baseline.json; see search-rows.mjs).
   10. The map's own controls: zoom is one segmented control on the 24 px gutter; the hint fades at the first
-      thing done to the map and stays gone. */
+      thing done to the map and stays gone.
+  11. Quiet beside the reading (docs/DESIGN.md rule 14): with a reader or a dialog open the clock does not
+      flip and the fuel line and version lose their glow and their crossing band; on Home they light again.
+  12. Stable places: the mark, Ask Dottie, the Library and the cluster are in the same place in every state;
+      the field moves only when a path borrows room; the palette opens in one place; the Library's title
+      and close button sit at the same offsets.
+  13. No control without a word on it lacks a name: the few drawn-only controls (back, the three zoom
+      buttons, close, and the path's "…") each carry a title and an aria-label.
+  14. The composition lint (tools/v32/composition.mjs) finds nothing in the bar, the breadcrumb, the Library
+      or the palette through a resize from 1680 px to a phone. (A phone's result rows are two lines by
+      design, a title over its place, which the lint reads as a wrapped label: they are not counted.) */
 import assert from 'node:assert/strict';
 import { mkdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { chromium } from '@playwright/test';
 import { BASELINE, QUERIES, ready, rowsFor } from './search-rows.mjs';
 import { conformance } from './conformance.mjs';
+import { composition } from './composition.mjs';
 
 const address = new URL(process.argv[2]);
 assert.ok(['127.0.0.1', 'localhost'].includes(address.hostname), 'local preview only');
@@ -95,9 +110,12 @@ async function check(name, run) {
     console.log('ok   ' + name);
   } catch (error) {
     failures++;
+    // Where in this file it stopped (a timed-out wait says nothing else about which one it was).
+    const at = /check-chrome\.mjs:(\d+)/.exec(String(error.stack || ''));
     console.log(
       'FAIL ' +
         name +
+        (at ? ' (line ' + at[1] + ')' : '') +
         '\n     ' +
         String(error.message || error)
           .split('\n')
@@ -177,18 +195,36 @@ const frame = (page) =>
 const trail = (page) =>
   page.evaluate(() => {
     const nav = document.querySelector('nav.map-nav'),
+      crumb = document.getElementById('geoBreadcrumb'),
       shown = (el) => el.getClientRects().length > 0;
     const r = nav.getBoundingClientRect();
+    const parts = [...crumb.children].filter(shown);
+    // A label the browser has clipped is narrower than it would be with room to spare.
+    const actual = parts.map((el) => el.getBoundingClientRect().width);
+    crumb.classList.add('v32-trail-measure');
+    const natural = parts.map((el) => el.getBoundingClientRect().width);
+    crumb.classList.remove('v32-trail-measure');
+    const field = document.querySelector('.study-header .study-search').getBoundingClientRect();
+    const last = [...crumb.querySelectorAll('button')].at(-1);
     return {
       inBar: !!nav.closest('.v32-bar-left'),
+      onMap: nav.parentElement.id === 'studyMain',
       shown: shown(nav),
       bottom: r.bottom,
-      crumbs: [...nav.querySelectorAll('#geoBreadcrumb button')].map((b) => b.textContent.trim()),
-      visible: [...nav.querySelectorAll('#geoBreadcrumb button')]
-        .filter(shown)
-        .map((b) => b.textContent.trim()),
-      cut: nav.querySelector('#geoBreadcrumb').classList.contains('v32-trail-cut'),
+      right: r.right,
+      crumbs: [...crumb.querySelectorAll('button:not(.v32-crumb-more)')].map((b) => b.textContent.trim()),
+      // what is drawn, in order: "Atlas › … › Bargained-for exchange"
+      text: parts.map((el) => el.textContent.trim()).join(' '),
+      lines: new Set(parts.map((el) => Math.round(el.getBoundingClientRect().top + el.offsetHeight / 2)))
+        .size,
+      clipped: parts.filter((el, i) => natural[i] - actual[i] > 0.01).map((el) => el.textContent.trim()),
+      last: last
+        ? { text: last.textContent.trim(), title: last.title, label: last.getAttribute('aria-label') }
+        : null,
+      cut: crumb.classList.contains('v32-trail-cut'),
+      more: !!crumb.querySelector('.v32-crumb-more'),
       back: shown(document.getElementById('studyBack')),
+      field: { x: field.x, w: field.width, right: field.right },
     };
   });
 const palette = (page) =>
@@ -215,45 +251,67 @@ const palette = (page) =>
       focus: document.activeElement?.id || document.activeElement?.tagName,
     };
   });
-// The counts, worked out here from the page's data, independently of the code that draws them.
+// What each row says is behind it, worked out here from the page's data, independently of the code that
+// draws it: the number and what it counts.
 const expectedCounts = (page) =>
   page.evaluate(() => {
     const block = (id) => JSON.parse(document.getElementById(id).textContent);
-    const n = (value) => value.toLocaleString('en-US');
+    const say = (value, one, many) => `${value.toLocaleString('en-US')} ${value === 1 ? one : many}`;
+    const charts = block('dklaFlowchartsData');
     return {
-      timelines: n(window.DKLATimelines.list().length),
-      flowcharts: n(block('dklaFlowchartsData').length),
-      canons: n(block('dklaCanonsData').length),
-      dictionary: n(window.DKLA.glossaryTerms().length),
-      lectures: n(block('dklaLecturesData').length),
-      sessions: n(
+      timelines: say(window.DKLATimelines.list().length, 'timeline', 'timelines'),
+      flowcharts:
+        say(charts.length, 'flowchart', 'flowcharts') +
+        ' · ' +
+        say(
+          charts.reduce((sum, chart) => sum + chart.nodes.length, 0),
+          'step',
+          'steps',
+        ),
+      canons: say(block('dklaCanonsData').length, 'canon', 'canons'),
+      dictionary: say(window.DKLA.glossaryTerms().length, 'term', 'terms'),
+      lectures: say(block('dklaLecturesData').length, 'lecture', 'lectures'),
+      sessions: say(
         Object.keys(data.corpus.assignmentTitles).length +
           data.lrsCorpus.classes.length +
           data.nodes.filter((node) => /^cp-week-\d+$/.test(node.id)).length,
+        'session',
+        'sessions',
       ),
-      authorities: n(window.DKLAAuthorities.data.entries.length),
-      scotus: n(Object.keys(window.SCOTUSHistory.data.people).length),
-      supporting: n(window.DKLABriefs.data.entries.length - Object.keys(window.DKLABriefs.data.map).length),
-      textbook: n(data.corpus.sourcePageCount),
-      drill: n(window.DKLAStudy.entries().length),
-      pairs: n(window.DKLAStudy.pairs().length),
+      authorities: say(window.DKLAAuthorities.data.entries.length, 'provision', 'provisions'),
+      scotus: say(Object.keys(window.SCOTUSHistory.data.people).length, 'justice', 'justices'),
+      supporting: say(
+        window.DKLABriefs.data.entries.length - Object.keys(window.DKLABriefs.data.map).length,
+        'case',
+        'cases',
+      ),
+      textbook: say(data.corpus.sourcePageCount, 'page', 'pages'),
+      drill: say(window.DKLAStudy.entries().length, 'entry', 'entries'),
+      pairs: say(window.DKLAStudy.pairs().length, 'pair', 'pairs'),
     };
   });
+// The collections, then the classes: the palette's "Go to" (what only the Library lists is left out there).
 const GO_TO = [
   'timelines',
   'flowcharts',
   'canons',
   'dictionary',
-  'lectures',
-  'sessions',
   'authorities',
   'scotus',
+  'sessions',
+  'lectures',
 ];
 const LIBRARY = {
-  Collections: [...GO_TO, 'supporting', 'textbook'],
+  Collections: ['timelines', 'flowcharts', 'canons', 'dictionary', 'authorities', 'scotus', 'supporting'],
+  Classes: ['sessions', 'lectures', 'textbook'],
   Study: ['drill', 'pairs', 'sheets', 'progress'],
   Yours: ['add', 'connect', 'path', 'save', 'guide', 'patch'],
 };
+// The longest path in the data ("Atlas › Legislation and the Regulatory State › Legislative process and
+// statutory interpretation › Katzmann: methods and legislative context", found by walking every entry),
+// and the one the owner's critique named.
+const LONGEST = 'lrs-k-congress',
+  LONGEST_LAST = 'Katzmann: methods and legislative context';
 
 try {
   const { context, page, errors } = await open();
@@ -351,54 +409,69 @@ try {
   );
 
   /* ---------- 2. the breadcrumb ---------- */
-  await check('the breadcrumb is in the bar and right at each level', async () => {
+  await check('the breadcrumb is in the bar, on one line, and right at each level', async () => {
     let t = await trail(page);
     assert.ok(t.inBar, 'the trail is in the bar');
     assert.equal(t.shown, false, 'on Home it steps aside');
     assert.deepEqual(t.crumbs, ['Atlas']);
+    const rest = t.field;
     await page.evaluate(() => home('Contracts'));
     await page.waitForFunction(() => document.querySelector('nav.map-nav').getClientRects().length > 0);
     t = await trail(page);
-    assert.deepEqual(t.visible, ['Atlas', 'Contracts'], 'a course');
+    assert.equal(t.text, 'Atlas › Contracts', 'a course');
     assert.ok(t.bottom <= 56 && t.back, 'in the bar, with the way back: ' + JSON.stringify(t));
     assert.equal(t.cut, false);
     await snap(page, 'chrome-2-course');
     await page.evaluate(() => goRegion('consideration'));
     await page.waitForFunction(() => document.querySelectorAll('#geoBreadcrumb button').length === 3);
     t = await trail(page);
-    assert.deepEqual(t.visible, ['Atlas', 'Contracts', 'Consideration'], 'a subject');
-    // An entry: four levels are more than the bar has room for at 1440 px. The first crumbs step out, the
-    // last two stay, and the trail says it is cut.
+    assert.equal(t.text, 'Atlas › Contracts › Consideration', 'a subject');
+    assert.deepEqual(t.field, rest, 'a path that fits leaves the field where it was');
+    // An entry: four levels are more than the bar has room for at 1440 px. The middle folds into "…",
+    // the first level and the last stay whole, and the field has not moved.
     await page.evaluate(() => goNode('hamer', true));
-    await page.waitForFunction(() => document.querySelectorAll('#geoBreadcrumb button').length === 4);
+    await page.waitForFunction(
+      () => document.querySelectorAll('#geoBreadcrumb button:not(.v32-crumb-more)').length === 4,
+    );
     t = await trail(page);
     assert.deepEqual(t.crumbs, ['Atlas', 'Contracts', 'Consideration', 'Bargained-for exchange']);
-    assert.deepEqual(t.visible.slice(-2), ['Consideration', 'Bargained-for exchange'], 'the last two stay');
-    assert.equal(t.cut, t.visible.length < 4, 'a cut trail says so');
-    const fits = await page.evaluate(() => {
-      const left = document.querySelector('.v32-bar-left').getBoundingClientRect(),
-        nav = document.querySelector('nav.map-nav').getBoundingClientRect(),
-        last = document.querySelector('#geoBreadcrumb button:last-of-type');
-      return { inside: nav.right <= left.right + 1, title: last.title };
-    });
-    assert.ok(fits.inside, 'the trail stays inside its group');
-    assert.equal(fits.title, 'Bargained-for exchange', 'a crumb says its whole name on hover');
+    assert.equal(t.text, 'Atlas › … › Bargained-for exchange', 'the middle folds; the ends stay');
+    assert.ok(t.cut && t.more, 'a folded trail says so and offers the whole path');
+    assert.equal(t.lines, 1, 'one line');
+    assert.deepEqual(t.clipped, [], 'nothing is clipped by the browser');
+    assert.equal(t.last.title, 'Bargained-for exchange', 'a crumb says its whole name on hover');
+    assert.deepEqual(t.field, rest, 'folding was enough: the field has not moved');
     await snap(page, 'chrome-3-entry');
     // The same when an entry is opened straight from Home (the trail is fitted as it comes into the bar).
     await goHome(page);
     await page.evaluate(() => goNode('hamer', true));
     await page.waitForFunction(() => document.querySelector('nav.map-nav').getClientRects().length > 0);
     const direct = await trail(page);
-    assert.deepEqual(direct.visible, t.visible, 'from Home: ' + direct.visible);
-    assert.equal(direct.cut, t.cut);
+    assert.equal(direct.text, t.text, 'from Home: ' + direct.text);
     await page.evaluate(() => goRegion('consideration'));
     await page.evaluate(() => goNode('hamer', true));
     await page.waitForFunction(() => selected?.id === 'hamer' && S.history.length > 0);
-    // A crumb navigates; Back returns; the wordmark goes Home.
-    await page.locator('#geoBreadcrumb button', { hasText: 'Consideration' }).click();
+    // "…" opens the whole path, every level by its whole name, where you are marked; a level in it navigates.
+    await page.locator('#geoBreadcrumb .v32-crumb-more').click();
+    const whole = page.locator('#v32Path button');
+    await whole.first().waitFor();
+    assert.deepEqual(await whole.allInnerTexts(), [
+      'Atlas',
+      'Contracts',
+      'Consideration',
+      'Bargained-for exchange',
+    ]);
+    assert.equal(await whole.last().getAttribute('aria-current'), 'location');
+    await whole.nth(2).click();
     await page.waitForFunction(() => S.region === 'consideration' && !S.district && !selected);
+    assert.equal(await page.locator('#v32Path').isVisible(), false, 'and the path closes');
+    // Back returns; a crumb navigates; the wordmark goes Home.
     await page.locator('#studyBack').click();
     await page.waitForFunction(() => selected?.id === 'hamer');
+    await page.evaluate(() => goRegion('consideration'));
+    await page.waitForFunction(() => S.region === 'consideration' && !selected);
+    await page.locator('#geoBreadcrumb button', { hasText: 'Contracts' }).click();
+    await page.waitForFunction(() => S.scope === 'Contracts' && !S.region);
     await page.locator('#atlasHome').click();
     await page.waitForFunction(() => S.scope === 'Atlas' && !S.region && !selected);
     await goHome(page);
@@ -406,6 +479,89 @@ try {
     // Nothing of it is left over the map.
     assert.equal(await page.locator('#studyMain > .map-nav').count(), 0);
   });
+  await check(
+    'a long path: a course by its short name, the field gives the last level room, its right edge fixed',
+    async () => {
+      await goHome(page);
+      const rest = (await trail(page)).field;
+      await page.evaluate((id) => goNode(id, true), LONGEST);
+      await page.waitForFunction(() => document.querySelector('nav.map-nav').getClientRects().length > 0);
+      const t = await trail(page);
+      assert.equal(t.crumbs[1], 'LRS', 'the course by the name Home gives it');
+      assert.equal(
+        await page.locator('#geoBreadcrumb [data-study-scope]').nth(1).getAttribute('title'),
+        'Legislation and the Regulatory State',
+        'its whole name is its title',
+      );
+      // 1440 px: the last level is whole because the field gave up some of its width.
+      assert.equal(t.text, 'Atlas › … › ' + LONGEST_LAST);
+      assert.deepEqual(t.clipped, []);
+      assert.equal(t.lines, 1);
+      assert.ok(t.field.w < rest.w && t.field.w >= 320, `the field gave room: ${rest.w} to ${t.field.w}`);
+      assert.ok(Math.abs(t.field.right - rest.right) < 0.5, "the field's right edge has not moved");
+      assert.ok(t.right <= t.field.x - 8, 'the path ends before the field starts');
+      await snap(page, 'chrome-3b-long-path');
+      // The whole path names the course in full.
+      await page.locator('#geoBreadcrumb .v32-crumb-more').click();
+      assert.deepEqual(await page.locator('#v32Path button').allInnerTexts(), [
+        'Atlas',
+        'Legislation and the Regulatory State',
+        'Legislative process and statutory interpretation',
+        LONGEST_LAST,
+      ]);
+      await page.keyboard.press('Escape');
+      // Back on Home the field is where it was.
+      await goHome(page);
+      assert.deepEqual((await trail(page)).field, rest, 'Home: the field is back');
+    },
+  );
+  await check(
+    'the longest path through a resize: one line, whole or folded, cut only at a word and only last',
+    async () => {
+      const wrong = [];
+      const seen = new Set();
+      for (let width = 1680; width >= 600; width -= 60) {
+        await page.setViewportSize({ width, height: 900 });
+        // Up to 860 px a reader leaves no room for a path on the map: looked at without one there.
+        await page.evaluate(
+          ([id, bare]) => {
+            goNode(id, true);
+            if (bare) setReader(false);
+          },
+          [LONGEST, width <= 860],
+        );
+        // (the path changes places when the window crosses 1024 px, a moment after the resize)
+        await page.waitForFunction((bar) => {
+          const nav = document.querySelector('nav.map-nav');
+          return nav.getClientRects().length > 0 && !!nav.closest('.v32-bar-left') === bar;
+        }, width >= 1024);
+        const t = await trail(page);
+        const say = (what) => wrong.push(`${width}px: ${what} [${t.text}]`);
+        seen.add(t.text);
+        if (t.inBar !== width >= 1024) say(width >= 1024 ? 'not in the bar' : 'not on the map');
+        if (t.lines !== 1) say(t.lines + ' lines');
+        if (t.clipped.length) say('clipped by the browser: ' + t.clipped.join(' | '));
+        if (/^›|›$|› ›/.test(t.text)) say('a separator without its label');
+        // The last level: whole, or cut at a word with "…" and its whole text as title and name.
+        if (t.last.text !== LONGEST_LAST) {
+          const kept = t.last.text.replace(/…$/, '');
+          if (!t.last.text.endsWith('…')) say('the last level is cut without saying so');
+          if (!(LONGEST_LAST.startsWith(kept) && /^[\s:,]/.test(LONGEST_LAST.slice(kept.length))))
+            say('the last level is cut inside a word');
+          if (/\b(and|of|the)$/.test(kept)) say('the cut ends on a loose word');
+          if (t.last.title !== LONGEST_LAST || t.last.label !== LONGEST_LAST)
+            say('a cut level does not carry its whole text');
+          if (t.inBar && t.field.w > 321) say(`cut while the field is still ${t.field.w}px wide`);
+        }
+        if (t.inBar && t.right > t.field.x - 8) say('the path runs into the field');
+        if (!t.inBar && t.right > width - 23) say('the path runs past the map');
+      }
+      await page.setViewportSize({ width: 1440, height: 900 });
+      await goHome(page);
+      assert.deepEqual(wrong, []);
+      assert.ok(seen.size >= 3, 'the path took several shapes on the way: ' + [...seen].join(' | '));
+    },
+  );
 
   /* ---------- 3. the shortcuts ---------- */
   await check('Ctrl+K and "/" put the keyboard in the field, but not while typing elsewhere', async () => {
@@ -434,7 +590,7 @@ try {
 
   /* ---------- 4. the empty palette ---------- */
   await check(
-    'the empty palette: Go to with counts, Ask Dottie, the keys; no section without its data',
+    'the empty palette: Go to with counts and their units, Ask Dottie, the keys; no section without its data',
     async () => {
       const want = await expectedCounts(page);
       await page.locator('#search').focus();
@@ -453,7 +609,7 @@ try {
         GO_TO,
       );
       for (const row of go) {
-        assert.equal(row.meta, want[row.id], `${row.label}: its count`);
+        assert.equal(row.meta, want[row.id], `${row.label}: its count, and what it counts`);
         assert.equal(row.height, 36, `${row.label}: one row high`);
       }
       assert.match(p.sections.at(-1).rows[0].label, /^Ask Dottie/);
@@ -473,19 +629,19 @@ try {
     await page.locator('#search').focus();
     await page.locator('#searchResults .v32-row').first().waitFor();
     let recent = (await palette(page)).sections.find((s) => s.name === 'Recent');
-    assert.deepEqual(
-      recent.rows.map((r) => r.label),
-      ['Lucy v. Zehmer', 'Hamer v. Sidway'],
-    );
+    // (entries opened by the checks above come after these)
+    assert.deepEqual(recent.rows.map((r) => r.label).slice(0, 2), ['Lucy v. Zehmer', 'Hamer v. Sidway']);
     await page.keyboard.press('Escape');
     await goHome(page);
     await page.locator('#search').focus();
     await page.locator('#searchResults .v32-row').first().waitFor();
     recent = (await palette(page)).sections.find((s) => s.name === 'Recent');
-    assert.deepEqual(
-      recent.rows.map((r) => r.label),
-      ['Hawkins v. McGee', 'Lucy v. Zehmer', 'Hamer v. Sidway'],
-    );
+    assert.deepEqual(recent.rows.map((r) => r.label).slice(0, 3), [
+      'Hawkins v. McGee',
+      'Lucy v. Zehmer',
+      'Hamer v. Sidway',
+    ]);
+    assert.ok(recent.rows.length <= 5, 'the last five at most');
     // A recent row opens its entry.
     await page.locator('#searchResults .v32-row', { hasText: 'Lucy v. Zehmer' }).click();
     await page.waitForFunction(() => selected?.id === 'lucy');
@@ -510,7 +666,16 @@ try {
         facets: () => [
           { id: 'cold', label: 'Cold Call', open: () => (window.__facet = 'cold') },
           { id: 'brief', label: 'Brief', open: () => (window.__facet = 'brief') },
-          { id: 'timeline', label: 'Timeline', count: 6, open: () => (window.__facet = 'timeline') },
+          {
+            id: 'timeline',
+            label: 'Timeline',
+            count: 6,
+            unit: ['entry', 'entries'],
+            open: () => (window.__facet = 'timeline'),
+          },
+          { id: 'flowchart', label: 'Flowchart steps', count: 1, unit: 'step', open: () => {} },
+          // a number with nothing to say what it counts is not shown
+          { id: 'rule', label: 'The rule', count: 3, open: () => {} },
           { label: 'No action: left out' },
         ],
       };
@@ -524,7 +689,9 @@ try {
       [
         ['Cold Call', ''],
         ['Brief', ''],
-        ['Timeline', '6'],
+        ['Timeline', '6 entries'],
+        ['Flowchart steps', '1 step'],
+        ['The rule', ''],
       ],
     );
     await snap(page, 'chrome-5-palette-entry');
@@ -625,16 +792,34 @@ try {
               id: row.dataset.v32Row,
               label: text(row.querySelector('.v32-row-label')),
               meta: text(row.querySelector('.v32-row-meta')),
+              metaSize: parseFloat(getComputedStyle(row.querySelector('.v32-row-meta')).fontSize),
+              metaInk: getComputedStyle(row.querySelector('.v32-row-meta')).color,
               height: row.getBoundingClientRect().height,
             })),
           ]),
         ),
+        fill: style.backgroundColor,
         foot: [...dialog.querySelectorAll('.v32-lib-foot .v32-quiet')].map(text),
         expanded: document.getElementById('moreBtn').getAttribute('aria-expanded'),
         menuHidden: document.getElementById('moreMenu').hidden,
       };
     });
-  await check('the Library: one dialog, three groups, counts beside the rows', async () => {
+  // Contrast of one colour on another (WCAG): both as the page computes them, "rgb(r, g, b)".
+  const contrast = (ink, ground) => {
+    const lum = (rgb) => {
+      const [r, g, b] = rgb
+        .match(/[\d.]+/g)
+        .slice(0, 3)
+        .map((v) => {
+          v /= 255;
+          return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4;
+        });
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    };
+    const [hi, lo] = [lum(ink), lum(ground)].sort((a, b) => b - a);
+    return (hi + 0.05) / (lo + 0.05);
+  };
+  await check('the Library: one dialog, four groups, each count with what it counts', async () => {
     const want = await expectedCounts(page);
     await openLibrary();
     const l = await library();
@@ -654,10 +839,26 @@ try {
         ids,
         name,
       );
+    assert.ok(Object.keys(l.groups).length >= 4 && Object.keys(l.groups).length <= 6, 'four to six groups');
+    for (const [name, rows] of Object.entries(l.groups))
+      assert.ok(rows.length <= 8, `${name} has ${rows.length} rows: at most eight`);
     for (const row of Object.values(l.groups).flat()) {
       assert.equal(row.height, 36, row.label + ' is one row high');
-      if (want[row.id]) assert.equal(row.meta, want[row.id], row.label + ': its count');
+      if (want[row.id]) assert.equal(row.meta, want[row.id], row.label + ': its count, and what it counts');
+      // Never a bare number, never small and faint (docs/DESIGN.md rule 8).
+      if (row.meta) {
+        assert.doesNotMatch(row.meta, /^[\d,]+$/, row.label + ': a bare number');
+        assert.ok(row.metaSize >= 13, `${row.label}: its count is ${row.metaSize}px`);
+        assert.ok(
+          contrast(row.metaInk, l.fill) >= 4.5,
+          `${row.label}: its count is ${contrast(row.metaInk, l.fill).toFixed(2)}:1`,
+        );
+      }
     }
+    // The button says what is inside before it is pressed.
+    const hint = await page.locator('#moreBtn').getAttribute('title');
+    for (const word of ['timelines', 'flowcharts', 'dictionary', 'class sessions'])
+      assert.ok(hint.includes(word), 'the Library button names ' + word + ': ' + hint);
     // The version readout beside the patch notes.
     const version = await page.evaluate(() =>
       document.querySelector('.study-header .dkla-release').textContent.trim(),
@@ -791,7 +992,7 @@ try {
       await openLibrary();
       assert.ok((await ids()).includes('undo'));
       const cold = page.locator('#libraryDialog [data-v32-row="coldcalls"]');
-      assert.equal((await cold.locator('.v32-row-meta').innerText()).trim(), '7');
+      assert.equal((await cold.locator('.v32-row-meta').innerText()).trim(), '7 cases');
       await cold.click();
       assert.equal(await page.evaluate(() => window.__cold), 'opened');
       await page.evaluate(() => {
@@ -934,13 +1135,13 @@ try {
         (
           await slow.page.locator('#libraryDialog [data-v32-row="flowcharts"] .v32-row-meta').textContent()
         ).trim(),
-        /^\d+$/,
+        /^\d+ flowcharts · [\d,]+ steps$/,
         'what is known is shown',
       );
       slow.release();
       await slow.page.waitForFunction(
         () =>
-          /^[\d,]+$/.test(
+          /^[\d,]+ terms$/.test(
             document
               .querySelector('#libraryDialog [data-v32-row="dictionary"] .v32-row-meta')
               .textContent.trim(),
@@ -971,7 +1172,8 @@ try {
   /* ---------- narrower windows ---------- */
   for (const [width, height, want] of [
     [1180, 820, { right: ['.v32-cluster', '.ask-bar', '#moreBtn'], cluster: ['.dkla-release'] }],
-    [1024, 768, { right: ['.v32-cluster', '.ask-bar', '#moreBtn'], cluster: ['.dkla-release'] }],
+    // (the version readout joins from 1100 px, so a path has room beside the field below that)
+    [1024, 768, { right: ['.ask-bar', '#moreBtn'], cluster: [] }],
     [
       1920,
       1080,
@@ -1003,34 +1205,371 @@ try {
         await at.context.close();
       }
     });
-  await check('a phone: the breadcrumb stays on the map, and the Library still opens', async () => {
-    const phone = await open({ width: 390, height: 844 });
-    try {
-      const p = await phone.page.evaluate(() => {
-        const nav = document.querySelector('nav.map-nav');
+  await check(
+    'a phone: the path sits on the map, the Library keeps its label and cuts no name, a result takes two lines',
+    async () => {
+      const phone = await open({ width: 390, height: 844 });
+      try {
+        const p = await phone.page.evaluate(() => {
+          const nav = document.querySelector('nav.map-nav');
+          const more = document.getElementById('moreBtn');
+          return {
+            bar: document.querySelector('header.study-header').getBoundingClientRect().height,
+            onMap: nav.parentElement.id === 'studyMain',
+            shown: nav.getClientRects().length > 0,
+            over: document.documentElement.scrollWidth - innerWidth,
+            library: more.innerText.trim(),
+            libraryRight: innerWidth - more.getBoundingClientRect().right,
+            brandLeft: document.getElementById('atlasHome').getBoundingClientRect().left,
+          };
+        });
+        assert.equal(p.bar, 56);
+        assert.ok(p.onMap && !p.shown, 'on Home there is no path: ' + JSON.stringify(p));
+        assert.equal(p.over, 0);
+        assert.equal(p.library, 'Library', 'the Library button keeps its word');
+        assert.deepEqual([p.brandLeft, p.libraryRight], [24, 24], 'the same 24 px gutters as a wide window');
+        // A course: the path, on the map, on one line inside the gutters.
+        await phone.page.evaluate(() => home('Contracts'));
+        await phone.page.waitForFunction(
+          () => document.querySelector('nav.map-nav').getClientRects().length > 0,
+        );
+        let t = await trail(phone.page);
+        assert.ok(t.onMap && t.shown, 'the trail is on the map');
+        assert.equal(t.text, 'Atlas › Contracts');
+        // The longest path: folded, never clipped, inside the window.
+        await phone.page.evaluate((id) => {
+          goNode(id, true);
+          setReader(false);
+        }, LONGEST);
+        await phone.page.waitForFunction(() => document.querySelectorAll('#geoBreadcrumb button').length > 3);
+        t = await trail(phone.page);
+        assert.equal(t.lines, 1);
+        assert.deepEqual(t.clipped, []);
+        assert.ok(t.right <= 390 - 23, 'inside the gutter: ' + t.right);
+        assert.ok(t.more, 'with the whole path one press away: ' + t.text);
+        await snap(phone.page, 'chrome-10-phone-path');
+        // The Library fits, and no row's name is cut.
+        await phone.page.evaluate(() => home('Atlas'));
+        await openLibraryOn(phone.page);
+        const lib = await phone.page.evaluate(() => {
+          const d = document.getElementById('libraryDialog'),
+            r = d.getBoundingClientRect();
+          return {
+            fits: r.left >= 0 && r.right <= innerWidth && r.top >= 0 && r.bottom <= innerHeight,
+            cut: [...d.querySelectorAll('.v32-row-label, .v32-row-meta')]
+              .filter((el) => el.getClientRects().length && el.scrollWidth > el.clientWidth + 1)
+              .map((el) => el.textContent.trim()),
+            flowcharts: d.querySelector('[data-v32-row="flowcharts"] .v32-row-meta').innerText.trim(),
+          };
+        });
+        assert.ok(lib.fits, 'the Library fits the window');
+        assert.deepEqual(lib.cut, [], 'no name or count is cut');
+        assert.match(lib.flowcharts, /^\d+ flowcharts$/, 'the second count steps out before a name is cut');
+        await snap(phone.page, 'chrome-10-phone-library');
+        await settle(phone.page);
+        // Search: a panel; a result is its title over where it sits.
+        await phone.page.locator('button.search-open').click();
+        await phone.page.locator('#searchResults .v32-row').first().waitFor();
+        await phone.page.keyboard.type('consideration');
+        await phone.page.waitForFunction(
+          () => document.querySelectorAll('#searchResults button[data-search-type="node"]').length > 3,
+        );
+        const row = await phone.page.evaluate(() => {
+          const b = document.querySelector('#searchResults button[data-search-type="node"]'),
+            title = b.querySelector('strong').getBoundingClientRect(),
+            sub = b.querySelector('.search-sub').getBoundingClientRect();
+          return {
+            below: sub.top >= title.bottom - 1,
+            left: Math.abs(sub.left - title.left),
+            h: b.offsetHeight,
+          };
+        });
+        assert.ok(row.below && row.left < 1 && row.h >= 48, 'two lines, one edge: ' + JSON.stringify(row));
+        assert.equal(
+          await phone.page.locator('#searchResults .v32-keys').isVisible(),
+          false,
+          'no list of keys where there is no keyboard',
+        );
+        await snap(phone.page, 'chrome-10-phone-results');
+        assert.deepEqual(phone.errors, []);
+      } finally {
+        await phone.context.close();
+      }
+    },
+  );
+
+  /* ---------- 11 to 14: quiet, stable, named, composed ---------- */
+  const calm = await open();
+  try {
+    const page = calm.page;
+    const cluster = () =>
+      page.evaluate(() => {
+        const css = (selector, property) => {
+          const el = document.querySelector(selector);
+          return el ? getComputedStyle(el)[property] : null;
+        };
         return {
-          bar: document.querySelector('header.study-header').getBoundingClientRect().height,
-          onMap: nav.parentElement.id === 'studyMain',
-          shown: nav.getClientRects().length > 0,
-          crumbs: nav.textContent.trim(),
-          over: document.documentElement.scrollWidth - innerWidth,
+          reading: document.documentElement.classList.contains('v32-reading'),
+          fuelGlow: css('.ny-clock .ny-fuel-lit', 'filter'),
+          fuelBand: css('.ny-clock .ny-fuel-shine', 'display'),
+          versionGlow: css('.study-header .dkla-release', 'filter'),
+          versionInk: css('.study-header .dkla-release', 'color'),
+          versionBand: css('.study-header .dkla-release-shine', 'display'),
+          digits: css('.ny-clock .ny-time .flip', 'color'),
         };
       });
-      assert.equal(p.bar, 56);
-      assert.ok(p.onMap && p.shown, 'the trail is on the map: ' + JSON.stringify(p));
-      assert.equal(p.over, 0);
-      await openLibraryOn(phone.page);
-      const fits = await phone.page.evaluate(() => {
-        const r = document.getElementById('libraryDialog').getBoundingClientRect();
-        return r.left >= 0 && r.right <= innerWidth && r.top >= 0 && r.bottom <= innerHeight;
-      });
-      assert.ok(fits, 'the Library fits the window');
-      await snap(phone.page, 'chrome-10-phone-library');
-      assert.deepEqual(phone.errors, []);
-    } finally {
-      await phone.context.close();
+    // Does any card of the clock fall in the next two and a half seconds? (Its seconds change every one.)
+    const flips = () =>
+      page.evaluate(
+        () =>
+          new Promise((done) => {
+            let seen = 0,
+              turns = 0;
+            const look = setInterval(() => {
+              if (document.querySelector('.ny-clock .flipping')) seen++;
+              if (++turns >= 25) {
+                clearInterval(look);
+                done(seen);
+              }
+            }, 100);
+          }),
+      );
+    await check(
+      'quiet beside the reading: the cluster is lit on Home, still and unlit beside a reader or a dialog',
+      async () => {
+        await page.waitForFunction(() => document.querySelector('.ny-clock .ny-fuel-lit'));
+        const home = await cluster();
+        assert.equal(home.reading, false);
+        assert.notEqual(home.fuelGlow, 'none', 'Home: the fuel line glows');
+        assert.notEqual(home.versionGlow, 'none', 'Home: the version glows');
+        assert.notEqual(home.fuelBand, 'none');
+        assert.ok((await flips()) > 0, 'Home: the clock flips');
+        const quiet = async (where) => {
+          await page.waitForFunction(() => document.documentElement.classList.contains('v32-reading'));
+          const c = await cluster();
+          assert.equal(c.fuelGlow, 'none', where + ': no glow on the fuel line');
+          assert.equal(c.fuelBand, 'none', where + ': no band crossing the fuel line');
+          assert.equal(c.versionGlow, 'none', where + ': no glow on the version');
+          assert.equal(c.versionBand, 'none', where + ': no band crossing the version');
+          assert.notEqual(c.versionInk, home.versionInk, where + ': the version drops to the muted grey');
+          assert.notEqual(c.digits, home.digits, where + ': the digits drop to the muted grey');
+          const seconds = () =>
+            page.evaluate(() =>
+              [...document.querySelectorAll('.ny-clock .ny-seconds .flip')]
+                .map((el) => el.dataset.value)
+                .join(''),
+            );
+          const before = await seconds();
+          assert.equal(await flips(), 0, where + ': no card falls');
+          assert.notEqual(await seconds(), before, where + ': the clock still tells the time, in place');
+        };
+        await page.evaluate(() => goNode('hamer', true));
+        await quiet('beside a reader');
+        await snap(page, 'chrome-11-quiet');
+        await goHome(page);
+        await page.waitForFunction(() => !document.documentElement.classList.contains('v32-reading'));
+        assert.notEqual((await cluster()).fuelGlow, 'none', 'Home again: lit');
+        await openLibraryOn(page);
+        await quiet('behind a dialog');
+        await settle(page);
+        await page.waitForFunction(() => !document.documentElement.classList.contains('v32-reading'));
+        assert.ok((await flips()) > 0, 'Home again: the clock flips');
+      },
+    );
+    await check(
+      'stable places: the mark, the cluster, Ask Dottie and the Library never move; the palette opens in one place',
+      async () => {
+        const places = () =>
+          page.evaluate(() => {
+            const box = (selector) => {
+              const el = document.querySelector(selector);
+              if (!el || !el.getClientRects().length) return null;
+              const r = el.getBoundingClientRect();
+              return [r.left, r.top, r.width, r.height].map((n) => Math.round(n * 10) / 10).join(' ');
+            };
+            const dialog = document.querySelector('#libraryDialog[open]');
+            let shell = null;
+            if (dialog) {
+              const r = dialog.getBoundingClientRect(),
+                title = dialog.querySelector('h2').getBoundingClientRect(),
+                close = dialog.querySelector('.v32-close').getBoundingClientRect();
+              shell = [title.left - r.left, title.top - r.top, r.right - close.right, close.top - r.top]
+                .map(Math.round)
+                .join(' ');
+            }
+            return {
+              fixed: [
+                '#atlasHome',
+                '.v32-cluster',
+                '.study-header .ask-bar',
+                '#moreBtn',
+                'header.study-header',
+              ]
+                .map(box)
+                .join(' | '),
+              field: box('.study-header .study-search'),
+              palette: box('#searchResults'),
+              shell,
+            };
+          });
+        await goHome(page);
+        const home = await places();
+        const same = async (where, { field = true } = {}) => {
+          const now = await places();
+          assert.equal(now.fixed, home.fixed, where + ': something in the bar moved');
+          if (field) assert.equal(now.field, home.field, where + ': the field moved');
+          return now;
+        };
+        await page.evaluate(() => home('Contracts'));
+        await page.waitForFunction(() => document.querySelector('nav.map-nav').getClientRects().length > 0);
+        await same('a course');
+        await page.evaluate(() => goNode('hamer', true));
+        await page.waitForFunction(() => selected?.id === 'hamer');
+        await same('a reader');
+        // The longest path borrows room from the field, and from nothing else.
+        await page.evaluate((id) => goNode(id, true), LONGEST);
+        await page.waitForFunction(
+          () => !!document.querySelector('.study-header').style.getPropertyValue('--v32c-push'),
+        );
+        await same('the longest path', { field: false });
+        // (the panel arrives over 0.2 s; its place is where it comes to rest)
+        const arrived = async () => {
+          await page.locator('#searchResults .v32-row').first().waitFor();
+          await page.waitForFunction(() => !document.getElementById('searchResults').getAnimations().length);
+        };
+        await page.keyboard.press('Control+k');
+        await arrived();
+        const pushed = (await places()).palette;
+        await page.keyboard.press('Escape');
+        await goHome(page);
+        await page.keyboard.press('Control+k');
+        await arrived();
+        const rest = await same('the palette open');
+        // (its height depends on what it lists; its left edge, top and width are its place)
+        const place = (box) =>
+          box
+            .split(' ')
+            .filter((_, i) => i !== 3)
+            .join(' ');
+        assert.equal(place(pushed), place(rest.palette), 'the palette opens in one place, whatever the path');
+        await page.keyboard.press('Escape');
+        await openLibraryOn(page);
+        const wide = await same('the Library open');
+        await settle(page);
+        // The Library's title and close button: the same offsets in a smaller window.
+        await page.setViewportSize({ width: 1024, height: 700 });
+        await openLibraryOn(page);
+        assert.equal((await places()).shell, wide.shell, "the Library's title and close button");
+        await settle(page);
+        await page.setViewportSize({ width: 1440, height: 900 });
+      },
+    );
+    await check('every control without a word on it has a name and a tooltip', async () => {
+      const wordless = () =>
+        page.evaluate(() =>
+          [
+            ...document.querySelectorAll(
+              'header.study-header button, .study-zoom button, #libraryDialog button, #v32Path button, nav.map-nav button',
+            ),
+          ]
+            .filter((b) => b.getClientRects().length && !b.closest('#searchResults'))
+            .filter((b) => !/[\p{L}\p{N}]/u.test(b.innerText))
+            .map((b) => ({ name: b.getAttribute('aria-label') || '', title: b.title || '' })),
+        );
+      const seen = new Map();
+      const gather = async () => {
+        for (const b of await wordless()) seen.set(b.name || '(no name)', b);
+      };
+      await goHome(page);
+      await gather();
+      await page.evaluate((id) => goNode(id, true), LONGEST);
+      await page.locator('#geoBreadcrumb .v32-crumb-more').waitFor();
+      await gather();
+      await goHome(page);
+      await openLibraryOn(page);
+      await gather();
+      await settle(page);
+      for (const [name, b] of seen) {
+        assert.notEqual(name, '(no name)', 'a control with no word and no name');
+        assert.ok(b.title, name + ' has no tooltip');
+      }
+      // Five drawn-only controls (docs/DESIGN.md), and the path's "…".
+      const kinds = [...seen.keys()].map((name) => name.replace(/ \(.*$/, '')).sort();
+      assert.deepEqual(kinds, [
+        'Back to previous view',
+        'Close Library',
+        'Fit this area',
+        'Show the whole path',
+        'Zoom in',
+        'Zoom out',
+      ]);
+    });
+    await check(
+      'the composition lint finds nothing in the bar, the breadcrumb, the Library or the palette through a resize',
+      async () => {
+        const found = [];
+        const lint = async (width, where, root) => {
+          const result = await composition(page, root);
+          assert.ok(!result.error, `${where}: ${result.error}`);
+          for (const [kind, list] of Object.entries(result))
+            if (Array.isArray(list))
+              for (const item of list)
+                found.push(
+                  `${width}px ${where}: ${kind} ${item.el || ''} ${JSON.stringify(item.lines || item.px)}`,
+                );
+        };
+        const widths = [1440, 1024, 1023, 851, 850];
+        for (let width = 1680; width >= 390; width -= 86) widths.push(width);
+        widths.push(390);
+        for (const width of [...new Set(widths)].sort((a, b) => b - a)) {
+          await page.setViewportSize({ width, height: width < 600 ? 844 : 900 });
+          await goHome(page);
+          await page.evaluate(() => document.querySelector('.search-close')?.click());
+          await lint(width, 'Home', 'header.study-header');
+          await page.evaluate(() => home('Legislation and the Regulatory State'));
+          await page.waitForFunction(() => document.querySelector('nav.map-nav').getClientRects().length > 0);
+          await lint(width, 'a course', 'header.study-header');
+          await lint(width, 'a course', 'nav.map-nav');
+          await page.evaluate((id) => goNode(id, true), LONGEST);
+          await page.waitForFunction(() => document.querySelectorAll('#geoBreadcrumb button').length > 3);
+          await lint(width, 'the longest path', 'header.study-header');
+          if (await page.evaluate(() => document.querySelector('nav.map-nav').getClientRects().length > 0))
+            await lint(width, 'the longest path', 'nav.map-nav');
+          await goHome(page);
+          await openLibraryOn(page);
+          await lint(width, 'the Library', '#libraryDialog');
+          await settle(page);
+          if (width <= 850) await page.locator('button.search-open').click();
+          else await page.keyboard.press('Control+k');
+          await page.locator('#searchResults .v32-row').first().waitFor();
+          await lint(width, 'the empty palette', '#searchResults');
+          // A phone's result rows are two lines by design (a title over its place); the lint reads any
+          // two-line button as a wrapped label, so results are judged from 851 px up, where a row is one line.
+          if (width > 850) {
+            await page.keyboard.type('consideration');
+            await page.waitForFunction(() => document.querySelectorAll('#searchResults button').length > 8);
+            await lint(width, 'results', '#searchResults');
+          }
+          await page.keyboard.press('Escape');
+          await page.evaluate(() => {
+            const field = document.getElementById('search');
+            field.value = '';
+            field.dispatchEvent(new Event('input', { bubbles: true }));
+            field.blur();
+            document.querySelector('.search-close')?.click();
+          });
+        }
+        assert.deepEqual(found, []);
+        await page.setViewportSize({ width: 1440, height: 900 });
+      },
+    );
+    if (calm.errors.length) {
+      failures++;
+      console.log('FAIL page errors (quiet, stable, named, composed)\n     ' + calm.errors.join('\n     '));
     }
-  });
+  } finally {
+    await calm.context.close();
+  }
 } finally {
   await browser.close();
 }
@@ -1039,5 +1578,5 @@ if (failures) {
   process.exit(1);
 }
 console.log(
-  'The frame: a 56 px bar in three groups with the field centred; the breadcrumb in the bar at every level; Ctrl/Cmd+K and "/"; the palette’s sections, one highlight, Enter and Escape; every Library row opens its view and shows its count; the splash on Home only; no control under 36 px; search results unchanged.',
+  'The frame: a 56 px bar in three groups with the field centred; the breadcrumb on one line at every level, whole or folded, with the field giving it room; Ctrl/Cmd+K and "/"; the palette’s sections, one highlight, Enter and Escape; every Library row opens its view and says what its count counts; the splash on Home only; the cluster still and unlit beside a reader or a dialog; nothing in the bar moves between states; no control under 36 px or without a name; the composition lint finds nothing through a resize; search results unchanged.',
 );

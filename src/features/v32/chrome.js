@@ -206,6 +206,8 @@
   }
   roomy.addEventListener?.('change', () => {
     placeNav();
+    // Its room is a different one now.
+    fitTrail();
     if (typeof schedule === 'function') schedule();
   });
   placeNav();
@@ -497,7 +499,7 @@
       for (const type of ['pointerdown', 'wheel', 'keydown']) main.removeEventListener(type, used);
       session.set(HINT, '1');
       root.classList.add('v32-hint-fading');
-      setTimeout(() => root.classList.add('v32-hint-off'), 400);
+      setTimeout(() => root.classList.add('v32-hint-off'), 250);
     };
     for (const type of ['pointerdown', 'wheel', 'keydown'])
       main.addEventListener(type, used, { passive: true });
@@ -908,6 +910,14 @@
   // note, glyph, and either meta (text such as "6 entries") or count with unit }; anything else it returns
   // is left out rather than guessed at.
   let facets = [];
+  // What a facet says of itself at the row's end: its own words (`meta`), or its count with what it counts
+  // (`count` and `unit`, a word or [one, many]). A number with no unit is not shown (docs/DESIGN.md rule 8).
+  const said = (f) =>
+    typeof f.meta === 'string'
+      ? f.meta
+      : Number.isFinite(f.count) && f.unit
+        ? counting(f.count, Array.isArray(f.unit) ? f.unit : [f.unit, f.unit])
+        : '';
   function entryRows() {
     facets = [];
     let list = [];
@@ -923,7 +933,7 @@
         `<button type="button" class="v32-row" data-v32-facet="${i}">` +
         glyph(GLYPH[f.glyph] ? f.glyph : GLYPH[f.id] ? f.id : 'dot') +
         `<span class="v32-row-label">${E(f.label)}</span><span class="v32-row-note">${E(f.note || '')}</span>` +
-        `<span class="v32-row-meta">${E(typeof f.meta === 'string' ? f.meta : Number.isFinite(f.count) && typeof f.unit === 'string' ? count(f.count) + ' ' + f.unit : count(Number(f.count)))}</span></button>`,
+        `<span class="v32-row-meta">${E(said(f))}</span></button>`,
     );
   }
   function recentRows() {

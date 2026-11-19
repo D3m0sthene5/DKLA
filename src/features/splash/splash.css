@@ -70,14 +70,14 @@
   white-space: normal;
   z-index: auto;
   transition:
-    opacity 0.3s ease,
-    display 0.3s allow-discrete;
+    opacity 0.2s ease,
+    display 0.2s allow-discrete;
 }
 .dkla-splash.dkla-splash-brand[data-shown='false'] {
   display: none;
   transition:
-    opacity 0.3s ease,
-    display 0.3s allow-discrete;
+    opacity 0.2s ease,
+    display 0.2s allow-discrete;
 }
 @starting-style {
   .dkla-splash.dkla-splash-brand[data-shown='true'] {
