@@ -803,7 +803,7 @@
     button.type = 'button';
     button.className = 'cc-launch';
     button.dataset.coldCall = id;
-    button.textContent = 'Cold call';
+    button.textContent = 'Cold Call';
     button.setAttribute('aria-haspopup', 'dialog');
     button.title =
       'The case as you would tell it when called on: read it, or rehearse it question by question';
@@ -846,7 +846,7 @@
     button.type = 'button';
     button.dataset.coldCall = id;
     button.setAttribute('aria-haspopup', 'dialog');
-    button.textContent = 'Cold call';
+    button.textContent = 'Cold Call';
     // First in its row, where entryHTML puts it (v25/reading.js moves that row's buttons into the actions).
     (body.querySelector('.v25-support-actions') || body.querySelector('.r19-line'))?.prepend(button);
   }
