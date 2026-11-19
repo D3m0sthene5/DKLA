@@ -2671,9 +2671,11 @@ function draw() {
         counts = cardCounts('r:' + r.id),
         readout = countText(counts);
       // The panel: one fill step above the map, one hairline, light from above. It is also what a press on
-      // an empty part of the subject lands on.
+      // an empty part of the subject lands on. A subject of a course keeps its course's colour on that one
+      // edge as its tile had it (rule 15: the colour does not drop when a tile opens); its fill stays the
+      // panel's, because it is read from.
       parts.push(
-        `<g class="map-region v32-card${S.region === r.id ? ' is-open' : ''}" opacity="${dim.toFixed(3)}" data-card="${E(r.id)}">${[
+        `<g class="map-region v32-card${r.step && isCourse ? ' is-subject' : ''}${S.region === r.id ? ' is-open' : ''}" opacity="${dim.toFixed(3)}" data-card="${E(r.id)}" style="--tile:${acc}">${[
           [14, 5, 0.07],
           [7, 2, 0.11],
           [2.5, 0, 0.16],

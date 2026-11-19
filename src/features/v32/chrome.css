@@ -1096,7 +1096,8 @@ dialog.v32-shell {
   padding-top: var(--v32-s2);
   border-top: 1px solid var(--v32-hair);
 }
-.v32-quiet {
+/* (not the map's own quiet text: a subject's "4 notes and questions" row carries the same class) */
+.v32-quiet:where(:not(text)) {
   position: relative;
   display: inline-flex;
   flex: none;
@@ -1124,7 +1125,7 @@ dialog.v32-shell {
   font-variant-numeric: tabular-nums;
 }
 @media (hover: hover) {
-  .v32-quiet:hover {
+  .v32-quiet:where(:not(text)):hover {
     background: var(--v32-hair);
     color: var(--v31-text);
   }
