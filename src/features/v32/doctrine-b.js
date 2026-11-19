@@ -41,7 +41,10 @@
 
   /* ---------- small tools ---------- */
   const esc = (text) =>
-    String(text ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+    String(text ?? '').replace(
+      /[&<>"']/g,
+      (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c],
+    );
   const reEsc = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const MONTH = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const dated = (s) => /^(\d{4})-(\d{2})-(\d{2})$/.exec(s.date || '');
@@ -74,7 +77,12 @@
     const ends = /[.!?]["’”')]*\s+(?=["“‘(]?[A-Z§])/g;
     for (let m; (m = ends.exec(text)); ) {
       const before = text.slice(from, m.index + 1);
-      if (/(?:^|[\s(])(?:[A-Z]|v|vs|U\.S|Inc|Co|Corp|Ltd|No|Mr|Ms|Dr|St|e\.g|i\.e|cf|Cf|Bros|Ass’n|Ass'n)\.$/.test(before)) continue;
+      if (
+        /(?:^|[\s(])(?:[A-Z]|v|vs|U\.S|Inc|Co|Corp|Ltd|No|Mr|Ms|Dr|St|e\.g|i\.e|cf|Cf|Bros|Ass’n|Ass'n)\.$/.test(
+          before,
+        )
+      )
+        continue;
       out.push(text.slice(from, m.index + m[0].length).trim());
       from = m.index + m[0].length;
     }
@@ -218,14 +226,18 @@
   // A short name another entry's stored words give an entry: "Overruled by Loper Bright (2024)".
   function shortFrom(text, item) {
     const year = yearOf(item.s);
-    const found = [...String(text || '').matchAll(/((?:[A-Z][\w.'’&-]*)(?: [A-Z&][\w.'’&-]*)*) \((\d{4})\)/g)];
+    const found = [
+      ...String(text || '').matchAll(/((?:[A-Z][\w.'’&-]*)(?: [A-Z&][\w.'’&-]*)*) \((\d{4})\)/g),
+    ];
     for (const [, run, y] of found) {
       if (y !== year) continue;
       const list = words(run);
       for (let from = 0; from < list.length; from++) {
         const tail = list.slice(from).join(' ');
         if (tail.length < 4) break;
-        if (item.cases.flat().some((party) => new RegExp('(^|\\s)' + reEsc(tail) + '(\\s|[,.]|$)').test(party)))
+        if (
+          item.cases.flat().some((party) => new RegExp('(^|\\s)' + reEsc(tail) + '(\\s|[,.]|$)').test(party))
+        )
           return tail;
       }
     }
@@ -234,11 +246,17 @@
 
   // Everything the timeline says in prose, apart from one entry's own account.
   const prose = (t, items, except, more) =>
-    [t.guide, t.now, more, ...items.filter((o) => o !== except).flatMap((o) => [o.s.note, o.s.fate, o.s.context, o.s.object])]
+    [
+      t.guide,
+      t.now,
+      more,
+      ...items.filter((o) => o !== except).flatMap((o) => [o.s.note, o.s.fate, o.s.context, o.s.object]),
+    ]
       .filter(Boolean)
       .join(' \n ');
   // Words that open a party's name and are not a name a case goes by.
-  const COMMON = /^(United States|United|State|States|People|Commonwealth|City|County|Town|Board|Department|National|American|International|In re|Ex parte|The)$/;
+  const COMMON =
+    /^(United States|United|State|States|People|Commonwealth|City|County|Town|Board|Department|National|American|International|In re|Ex parte|The)$/;
   function calledBy(item, text) {
     let best = '';
     for (const party of item.first) {
@@ -335,7 +353,8 @@
         }
       }
       // A long caption takes the name the timeline's own prose calls the case by ("Brand X").
-      if (!item.short && plain(item.first).length > 34) item.short = calledBy(item, prose(t, items, item, subject));
+      if (!item.short && plain(item.first).length > 34)
+        item.short = calledBy(item, prose(t, items, item, subject));
     }
     for (const item of items) item.words = item.s.effect || item.kind;
     return { t, items, spans, here: items.findIndex((item) => item.here) };
@@ -438,8 +457,7 @@
     }
     const breaks = [];
     for (let i = 1; i < n; i++)
-      if (isBreak(i))
-        breaks.push({ from: xs[i - 1], to: xs[i], years: Math.round(ts[i] - ts[i - 1]), i });
+      if (isBreak(i)) breaks.push({ from: xs[i - 1], to: xs[i], years: Math.round(ts[i] - ts[i - 1]), i });
     // Decade marks inside each true stretch.
     const ticks = [];
     for (let i = 1; i < n; i++) {
@@ -491,51 +509,60 @@
       // through a label (the last resort; nothing is left without a place).
       const consider = (strict, loose) => {
         for (const item of left) {
-         const forms = opt.forms?.(item) || [opt.size(item)];
-         for (const [form, sz] of forms.entries()) {
-          const x = opt.x(item);
-          const prefers = opt.prefers(item),
-            only = opt.only(item);
-          for (const flip of [false, true]) {
-            const from = flip ? x - sz.w : x;
-            if (!loose && (from < opt.min || from + sz.w > opt.max)) continue;
-            if (loose && flip && from < 0) continue;
-            if (flip && opt.noFlip?.(item) && !loose) continue;
-            if (
-              strict &&
-              [...left].some((o) => o !== item && opt.x(o) > from - SGAP && opt.x(o) < from + sz.w + SGAP)
-            )
-              continue;
-            for (const side of only ? [only] : ['up', 'down']) {
-              let level = 0;
-              for (const o of sides[side]) {
-                const over = o.left < from + sz.w + HGAP && from < o.left + o.w + HGAP;
-                const stem = o.x > from - SGAP && o.x < from + sz.w + SGAP;
-                if ((over || stem) && o.level + o.h + TIER > level) level = o.level + o.h + TIER;
-              }
-              // Its own stem must not run through a label already there.
+          const forms = opt.forms?.(item) || [opt.size(item)];
+          for (const [form, sz] of forms.entries()) {
+            const x = opt.x(item);
+            const prefers = opt.prefers(item),
+              only = opt.only(item);
+            for (const flip of [false, true]) {
+              const from = flip ? x - sz.w : x;
+              if (!loose && (from < opt.min || from + sz.w > opt.max)) continue;
+              if (loose && flip && from < 0) continue;
+              if (flip && opt.noFlip?.(item) && !loose) continue;
               if (
-                !loose &&
-                sides[side].some(
-                  (o) => o.x !== x && x > o.left - SGAP && x < o.left + o.w + SGAP && level + sz.h + TIER > o.level,
-                )
+                strict &&
+                [...left].some((o) => o !== item && opt.x(o) > from - SGAP && opt.x(o) < from + sz.w + SGAP)
               )
                 continue;
-              if (!opt.ok(side, from, sz, level, item)) continue;
-              const miss = prefers && side !== prefers ? 1 : 0;
-              const cost = level + miss * 34 + (flip ? 3 : 0) + (side === 'up' ? 1 : 0) + form * (opt.formCost?.(item) ?? 8);
-              // The cheapest place first; between entries whose places cost about the same, the later one.
-              const better = !pick
-                ? true
-                : pick.item === item
-                  ? cost < pick.cost - 0.01
-                  : Math.abs(cost - pick.cost) <= 4
-                    ? item.i > pick.item.i
-                    : cost < pick.cost;
-              if (better) pick = { item, side, flip, from, level, sz, cost, x, miss, form };
+              for (const side of only ? [only] : ['up', 'down']) {
+                let level = 0;
+                for (const o of sides[side]) {
+                  const over = o.left < from + sz.w + HGAP && from < o.left + o.w + HGAP;
+                  const stem = o.x > from - SGAP && o.x < from + sz.w + SGAP;
+                  if ((over || stem) && o.level + o.h + TIER > level) level = o.level + o.h + TIER;
+                }
+                // Its own stem must not run through a label already there.
+                if (
+                  !loose &&
+                  sides[side].some(
+                    (o) =>
+                      o.x !== x &&
+                      x > o.left - SGAP &&
+                      x < o.left + o.w + SGAP &&
+                      level + sz.h + TIER > o.level,
+                  )
+                )
+                  continue;
+                if (!opt.ok(side, from, sz, level, item)) continue;
+                const miss = prefers && side !== prefers ? 1 : 0;
+                const cost =
+                  level +
+                  miss * 34 +
+                  (flip ? 3 : 0) +
+                  (side === 'up' ? 1 : 0) +
+                  form * (opt.formCost?.(item) ?? 8);
+                // The cheapest place first; between entries whose places cost about the same, the later one.
+                const better = !pick
+                  ? true
+                  : pick.item === item
+                    ? cost < pick.cost - 0.01
+                    : Math.abs(cost - pick.cost) <= 4
+                      ? item.i > pick.item.i
+                      : cost < pick.cost;
+                if (better) pick = { item, side, flip, from, level, sz, cost, x, miss, form };
+              }
             }
           }
-         }
         }
       };
       consider(true, false);
@@ -553,8 +580,12 @@
   // applications and comparisons are named only; 1, only the turns of the rule and the open case say more.
   function arrange(plate, model, level, W) {
     const items = model.items;
-    const tagOf = new Map([...plate.querySelectorAll('.v32db-tag')].map((el) => [Number(el.dataset.v32dbI), el]));
-    const deckOf = new Map([...plate.querySelectorAll('.v32db-deck')].map((el) => [Number(el.dataset.v32dbI), el]));
+    const tagOf = new Map(
+      [...plate.querySelectorAll('.v32db-tag')].map((el) => [Number(el.dataset.v32dbI), el]),
+    );
+    const deckOf = new Map(
+      [...plate.querySelectorAll('.v32db-deck')].map((el) => [Number(el.dataset.v32dbI), el]),
+    );
     for (const el of [...tagOf.values(), ...deckOf.values()]) {
       el.style.left = '';
       el.style.top = '';
@@ -593,7 +624,8 @@
       el.classList.remove(other);
     }
     let deckNeed = 0;
-    for (const el of deckOf.values()) deckNeed = Math.max(deckNeed, Math.ceil(el.getBoundingClientRect().width));
+    for (const el of deckOf.values())
+      deckNeed = Math.max(deckNeed, Math.ceil(el.getBoundingClientRect().width));
     const sizeOf = (item) => size.get(item.i);
     const formsOf = (item) => forms.get(item.i) || null;
     // Words under a name cost little; going without them costs two rows.
@@ -642,7 +674,14 @@
           w: at.w,
           h: at.h,
         };
-        placed.set(i, { box, from: at.side === 'up' ? one.y : one.y + one.h, side: at.side, stemX: at.x, flip: at.flip, form: at.form });
+        placed.set(i, {
+          box,
+          from: at.side === 'up' ? one.y : one.y + one.h,
+          side: at.side,
+          stemX: at.x,
+          flip: at.flip,
+          form: at.form,
+        });
         rects.push(box);
       }
       rects.push({ x: one.x, y: one.y - upRoom, w: one.w, h: upRoom + one.h, ends: span.b.i });
@@ -664,7 +703,8 @@
       fan(free, {
         x: xOf,
         size: sizeOf,
-        prefers: (item) => (item.fam === 'narrow' ? 'down' : item.cls === 'rule' || item.fam === 'wide' ? 'up' : ''),
+        prefers: (item) =>
+          item.fam === 'narrow' ? 'down' : item.cls === 'rule' || item.fam === 'wide' ? 'up' : '',
         only: (item) => (lanes.some((one) => xs[item.i] > one.x && xs[item.i] < one.x + one.w) ? 'down' : ''),
         forms: formsOf,
         formCost,
@@ -854,7 +894,8 @@
     // which says what that rule was; it is not said again here.) Each is named once.
     const near = [];
     const add = (other, relation) => {
-      if (other && other !== item && near.length < 3 && !near.some((n) => n[0] === other)) near.push([other, relation]);
+      if (other && other !== item && near.length < 3 && !near.some((n) => n[0] === other))
+        near.push([other, relation]);
     };
     add(items[index - 1], 'Before it');
     add(items[index + 1], 'After it');
@@ -921,7 +962,12 @@
     const seen = new Map();
     for (const item of model.items)
       if (!seen.has(item.turn))
-        seen.set(item.turn, ['overrules', 'displaces', 'extends', 'codifies', 'counterpoint'].includes(item.turn) ? P.TURN[item.turn] : item.kind);
+        seen.set(
+          item.turn,
+          ['overrules', 'displaces', 'extends', 'codifies', 'counterpoint'].includes(item.turn)
+            ? P.TURN[item.turn]
+            : item.kind,
+        );
     const order = Object.keys(CLASS).filter((turn) => seen.has(turn));
     const groups = ['rule', 'reach', 'steady', 'aside']
       .map((cls) => {
@@ -992,7 +1038,8 @@
     account.innerHTML = accountHTML(model, index);
     fitArt(account);
     mark(root);
-    if (focus) root.querySelector(`.v32db-plate button[data-v32db-i="${index}"]`)?.focus({ preventScroll: true });
+    if (focus)
+      root.querySelector(`.v32db-plate button[data-v32db-i="${index}"]`)?.focus({ preventScroll: true });
   }
   // The case's header as one line of the top strip: its picture, its name, where it sits.
   function masthead(node) {
@@ -1029,15 +1076,17 @@
   function draw() {
     const body = host();
     const id = current();
-    const on = flagged() && !!body && !!id && window.DKLAReader?.current?.() === 'doctrine';
+    const on =
+      flagged() && !inspector.hidden && !!body && !!id && window.DKLAReader?.current?.() === 'doctrine';
     const lines = on
-      ? window.DKLATimelines.list().filter((t) => t.steps.some((s) => s.id === id) && t.steps.filter(P.live).length > 1)
+      ? window.DKLATimelines.list().filter(
+          (t) => t.steps.some((s) => s.id === id) && t.steps.filter(P.live).length > 1,
+        )
       : [];
     const active = on && lines.length > 0;
-    if (document.body.classList.contains('v32db-on') !== active) {
+    // (The reader's width changes with this class; the map behind it is not asked to fit itself again.)
+    if (document.body.classList.contains('v32db-on') !== active)
       document.body.classList.toggle('v32db-on', active);
-      // The reader changed width: the map behind it is not asked to fit itself again.
-    }
     if (!active) {
       masthead(null);
       if (!flagged() || !body) root = null;
@@ -1147,7 +1196,7 @@
   };
   // (src/features/v25/reading.js puts the blocks in their tabs in a microtask of its own: this one follows it.)
   const renders = new MutationObserver(() => queueMicrotask(redraw));
-  renders.observe(inspector, { childList: true });
+  renders.observe(inspector, { childList: true, attributes: true, attributeFilter: ['hidden'] });
   window.DKLADoctrineB = {
     draw,
     select,
