@@ -203,7 +203,8 @@ async function limits(page) {
       }
     }
     out.outside = document.querySelectorAll(
-      '#coldCallDialog h2 .cc-term, #coldCallDialog h3 .cc-term, #coldCallDialog .cc-citations .cc-term, #coldCallDialog .cc-end .cc-term, #coldCallDialog summary .cc-term, #ccBriefDialog .cc-term',
+      // (v3.2 names: the setup, a prompt and a title are headings; .cc-refs are citations; .cc-finish is the end.)
+      '#coldCallDialog h2 .cc-term, #coldCallDialog h3 .cc-term, #coldCallDialog h4 .cc-term, #coldCallDialog .cc-setup .cc-term, #coldCallDialog .cc-refs .cc-term, #coldCallDialog .cc-finish .cc-term, #coldCallDialog .cc-cover .cc-term, #coldCallDialog .cc-foot .cc-term, #coldCallDialog summary .cc-term, #ccBriefDialog .cc-term',
     ).length;
     const linked = [...document.querySelectorAll('#ccNarrative .cc-term')].map((t) => t.textContent);
     out.linked = linked;

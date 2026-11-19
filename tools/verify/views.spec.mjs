@@ -169,8 +169,10 @@ for (const size of sizes)
       async () => {
         await expect(page.locator('#coldCallDialog')).toHaveAttribute('open', '');
         await expect
-          .poll(() => page.locator('#ccNarrative .cc-section > p:not(.cc-kicker)').count())
+          .poll(() => page.locator('#ccNarrative .cc-section .cc-answer > p').count())
           .toBeGreaterThan(5);
+        // v3.2: the reader opens on the setup (the lead, the cast, how the case got here).
+        await expect(page.locator('#coldCallDialog .cc-setup .cc-lead')).toBeVisible();
       },
     );
     await view(
