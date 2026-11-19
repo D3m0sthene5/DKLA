@@ -293,8 +293,10 @@ html.v32-chrome .map-nav #geoBreadcrumb .v32-crumb-more {
     color: var(--v31-text);
   }
 }
-/* The whole path, opened from the "…" control: a small menu under the bar (plane 3). */
-.v32-path {
+/* The whole path, opened from the "…" control: a small menu under the bar (plane 3). Named by its
+   id: the case page's list of flowchart steps is also a .v32-path, and a rule on the class alone
+   took that list out of the page as a fixed panel. */
+#v32Path {
   position: fixed;
   inset: auto;
   min-width: 240px;
@@ -308,7 +310,7 @@ html.v32-chrome .map-nav #geoBreadcrumb .v32-crumb-more {
   color: var(--v31-text);
   z-index: 60;
 }
-.v32-path .v32-row[aria-current] {
+#v32Path .v32-row[aria-current] {
   font-weight: 600;
 }
 /* The separators are drawn (a 12 px chevron), whatever character a layer wrote into the span. */

@@ -1,0 +1,103 @@
+{
+  "reviewedAt": "2026-11-19",
+  "baseline": "75db269d",
+  "scope": "Six display labels of the deference timeline restated in the past tense on the owner's instruction. No other stored text changed; the placement fields added the same day (lines, bears, term, effectOriginal) are new fields and are recorded in tools/v25/timeline-audit.json.",
+  "edits": [
+    {
+      "timelineId": "deference",
+      "stepKey": "lrs-i-gray-powell",
+      "field": "effect",
+      "old": "Historically accepts the agency’s statutory classification",
+      "new": "Accepted the agency’s statutory classification",
+      "reason": "Owner's instruction of 19 November 2026: say what the Court held in the past tense; \"Historically\" alone left the reader guessing which part still matters. The earlier wording is kept on the step as effectOriginal.",
+      "sources": [
+        {
+          "url": "https://dannykind.wiki/added-sources/opinion-pdfs/lrs-i-gray-powell.pdf#page=1",
+          "label": "Assigned source: lrs-i-gray-powell.pdf · PDF p. 1 (existing locator, not freshly reread)"
+        }
+      ],
+      "reviewDepth": "Wording only: read against the step's stored note for meaning; the verb's tense changed and \"Historically\" was removed. No fresh opinion review.",
+      "file": "tools/r19/data/timelines.json"
+    },
+    {
+      "timelineId": "deference",
+      "stepKey": "lrs-i-hearst",
+      "field": "effect",
+      "old": "Historically accepts the Board’s employee classification",
+      "new": "Accepted the Board’s employee classification",
+      "reason": "Owner's instruction of 19 November 2026: say what the Court held in the past tense; \"Historically\" alone left the reader guessing which part still matters. The earlier wording is kept on the step as effectOriginal.",
+      "sources": [
+        {
+          "url": "https://dannykind.wiki/added-sources/opinion-pdfs/lrs-i-hearst.pdf#page=1",
+          "label": "Assigned source: lrs-i-hearst.pdf · PDF p. 1 (existing locator, not freshly reread)"
+        }
+      ],
+      "reviewDepth": "Wording only: read against the step's stored note for meaning; the verb's tense changed and \"Historically\" was removed. No fresh opinion review.",
+      "file": "tools/r19/data/timelines.json"
+    },
+    {
+      "timelineId": "deference",
+      "stepKey": "lrs-i-chevron",
+      "field": "effect",
+      "old": "Historically requires Chevron deference",
+      "new": "Required Chevron deference",
+      "reason": "Owner's instruction of 19 November 2026: say what the Court held in the past tense; \"Historically\" alone left the reader guessing which part still matters. The earlier wording is kept on the step as effectOriginal.",
+      "sources": [
+        {
+          "url": "https://dannykind.wiki/added-sources/LRS-november-1-165%20%281%29.pdf#page=153",
+          "label": "Assigned source: LRS-november-1-165 (1).pdf · PDF p. 153 (existing locator, not freshly reread)"
+        }
+      ],
+      "reviewDepth": "Wording only: read against the step's stored note for meaning; the verb's tense changed and \"Historically\" was removed. No fresh opinion review.",
+      "file": "tools/r19/data/timelines.json"
+    },
+    {
+      "timelineId": "deference",
+      "stepKey": "lrs-i-mead-note",
+      "field": "effect",
+      "old": "Historically limits which acts receive Chevron deference",
+      "new": "Limited which acts received Chevron deference",
+      "reason": "Owner's instruction of 19 November 2026: say what the Court held in the past tense; \"Historically\" alone left the reader guessing which part still matters. The earlier wording is kept on the step as effectOriginal.",
+      "sources": [
+        {
+          "url": "https://dannykind.wiki/added-sources/USVMEAD.pdf#page=1",
+          "label": "Assigned source: USVMEAD.pdf · PDF p. 1 (existing locator, not freshly reread)"
+        }
+      ],
+      "reviewDepth": "Wording only: read against the step's stored note for meaning; the verb's tense changed and \"Historically\" was removed. No fresh opinion review.",
+      "file": "tools/r19/data/timelines.json"
+    },
+    {
+      "timelineId": "deference",
+      "stepKey": "lrs-i-brand-x",
+      "field": "effect",
+      "old": "Historically lets an agency displace some judicial readings",
+      "new": "Let an agency displace some judicial readings",
+      "reason": "Owner's instruction of 19 November 2026: say what the Court held in the past tense; \"Historically\" alone left the reader guessing which part still matters. The earlier wording is kept on the step as effectOriginal.",
+      "sources": [
+        {
+          "url": "https://dannykind.wiki/added-sources/opinion-pdfs/lrs-i-brand-x.pdf#page=1",
+          "label": "Assigned source: lrs-i-brand-x.pdf · PDF p. 1 (existing locator, not freshly reread)"
+        }
+      ],
+      "reviewDepth": "Wording only: read against the step's stored note for meaning; the verb's tense changed and \"Historically\" was removed. No fresh opinion review.",
+      "file": "tools/r19/data/timelines.json"
+    },
+    {
+      "timelineId": "deference",
+      "stepKey": "LRS-CLOSURE-031",
+      "field": "effect",
+      "old": "Historically applies Chevron to agency authority",
+      "new": "Applied Chevron to agency authority",
+      "reason": "Owner's instruction of 19 November 2026: say what the Court held in the past tense; \"Historically\" alone left the reader guessing which part still matters. The earlier wording is kept on the step as effectOriginal.",
+      "sources": [
+        {
+          "url": "https://dannykind.wiki/added-sources/LRS-november-1-165%20%281%29.pdf#page=158",
+          "label": "Assigned source: LRS-november-1-165 (1).pdf · PDF p. 158 (existing locator, not freshly reread)"
+        }
+      ],
+      "reviewDepth": "Wording only: read against the step's stored note for meaning; the verb's tense changed and \"Historically\" was removed. No fresh opinion review.",
+      "file": "tools/r19/data/timelines.json"
+    }
+  ]
+}

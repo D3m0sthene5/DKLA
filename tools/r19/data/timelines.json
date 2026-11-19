@@ -508,7 +508,14 @@
               "url": "https://supreme.justia.com/cases/federal/us/119/149/",
               "label": "119 U.S. 151–152"
             }
-          ]
+          ],
+          "bears": {
+            "on": null,
+            "as": "line",
+            "basis": "A response proposing different terms rejects the original offer unless the offeror renews it or assents to the proposed change.",
+            "source": "Atlas brief of Minneapolis & St. Louis Railway Co. v. Columbus Rolling-Mill Co.",
+            "brief": "CT-ADDITIONAL-CM-B1-077"
+          }
         },
         {
           "id": "ucc207",
@@ -517,7 +524,13 @@
           "object": "the mirror-image rule",
           "note": "For sales of goods the Code drops the mirror-image rule: an acceptance can form a contract though it adds or changes terms.",
           "authorityKind": "Model UCC text",
-          "effect": "Allowing agreement despite different forms"
+          "effect": "Allowing agreement despite different forms",
+          "bears": {
+            "on": "ucc207",
+            "as": "sets",
+            "basis": "For sales of goods the Code drops the mirror-image rule: an acceptance can form a contract though it adds or changes terms.",
+            "source": "This entry’s own stored note"
+          }
         },
         {
           "id": "dorton",
@@ -526,7 +539,14 @@
           "turn": "sharpens",
           "note": "An acceptance is expressly conditional only if it clearly says the offeree will not proceed without assent to its terms; 'subject to' is not enough.",
           "authorityKind": "Court decision",
-          "effect": "Testing conditional acceptance"
+          "effect": "Testing conditional acceptance",
+          "bears": {
+            "on": "form",
+            "as": "under",
+            "basis": "Did the seller's acknowledgments make acceptance expressly conditional on the buyer's assent to additional terms, so that the writings failed to form a contract and § 2-207(3) governed?",
+            "source": "Atlas brief of Dorton v. Collins & Aikman Corp.",
+            "brief": "CTR-032"
+          }
         },
         {
           "id": "citoh",
@@ -535,7 +555,19 @@
           "turn": "sharpens",
           "note": "When forms do not form a contract but both sides perform, § 2-207(3) supplies the terms the writings share plus Code gap-fillers.",
           "authorityKind": "Court decision",
-          "effect": "Finding a contract through conduct"
+          "effect": "Finding a contract through conduct",
+          "bears": {
+            "on": "conduct",
+            "as": "under",
+            "basis": "The parties' subsequent performance nevertheless established a contract under § 2-207(3).",
+            "source": "Atlas brief of C. Itoh & Co. (America) Inc. v. Jordan International Co.",
+            "brief": "CTR-033",
+            "beside": {
+              "heading": "The risk a seller takes with an expressly conditional form",
+              "text": "Before the buyer assents or the parties proceed with conduct creating a contract, the seller benefits from not being committed through the writings alone. If the additional terms truly are essential, it can withhold delivery until it obtains the required assent. If it elects to deliver without that assent, it accepts the risk that the conduct-based contract will omit its unagreed terms.",
+              "source": "Atlas brief of C. Itoh & Co. (America) Inc. v. Jordan International Co."
+            }
+          }
         },
         {
           "id": "northrop",
@@ -544,7 +576,19 @@
           "turn": "sharpens",
           "note": "Different terms in offer and acceptance knock each other out and Code gap-fillers replace them: the majority rule, predicted for Illinois.",
           "authorityKind": "Court decision",
-          "effect": "Canceling conflicting warranty terms"
+          "effect": "Canceling conflicting warranty terms",
+          "bears": {
+            "on": "terms",
+            "as": "under",
+            "basis": "It predicted that Illinois would adopt the majority knockout approach: the conflicting ninety-day and unlimited warranty provisions drop out, leaving a reasonable period supplied through the Code.",
+            "source": "Atlas brief of Northrop Corp. v. Litronic Industries",
+            "brief": "CT-CB-0290",
+            "beside": {
+              "heading": "Three approaches to conflicting terms",
+              "text": "The knockout view removes conflicting terms from both forms and uses a neutral Code rule. The offeror-wins view excludes the offeree's conflicting terms and retains the offer's terms. A third approach treats different terms like additional terms, so materiality determines whether the offeree's variation enters the contract.",
+              "source": "Atlas brief of Northrop Corp. v. Litronic Industries"
+            }
+          }
         },
         {
           "id": "bayway",
@@ -554,12 +598,40 @@
           "note": "Between merchants, an additional term may enter the contract; the party opposing it had to prove material alteration.",
           "authorityKind": "Court decision",
           "effect": "Testing an additional merchant term",
-          "context": "Section 2-207(2) excludes an additional term if the offer limits acceptance, the term materially alters the bargain, or a timely objection occurs. Bayway addressed the material-alteration branch."
+          "context": "Section 2-207(2) excludes an additional term if the offer limits acceptance, the term materially alters the bargain, or a timely objection occurs. Bayway addressed the material-alteration branch.",
+          "bears": {
+            "on": "terms",
+            "as": "under",
+            "basis": "Between merchants, the statute presumptively incorporates additional terms unless one of the specified exceptions applies.",
+            "source": "Atlas brief of Bayway Refining Co. v. Oxygenated Marketing & Trading A.G.",
+            "brief": "CT-CB-0285"
+          }
         }
       ],
       "guide": "Keep three questions separate: do the writings form a contract, which added or conflicting terms enter, and did conduct create a contract despite the writings? Dorton addresses conditional acceptance; C. Itoh addresses conduct; Northrop and Bayway address different kinds of terms.",
       "summaryLabel": "What these sources establish",
-      "reviewedAt": "2026-10-11"
+      "reviewedAt": "2026-10-11",
+      "lines": [
+        {
+          "id": "ucc207",
+          "name": "UCC § 2-207"
+        },
+        {
+          "id": "form",
+          "name": "Do the writings form a contract?",
+          "of": "ucc207"
+        },
+        {
+          "id": "terms",
+          "name": "Which added or conflicting terms enter?",
+          "of": "ucc207"
+        },
+        {
+          "id": "conduct",
+          "name": "Did conduct create a contract despite the writings?",
+          "of": "ucc207"
+        }
+      ]
     },
     {
       "id": "standard-terms",
@@ -1371,7 +1443,14 @@
           "turn": "origin",
           "note": "When replacing innocent defective work would cost far more than the value it adds, the measure is diminution in value (New York).",
           "authorityKind": "Court decision",
-          "effect": "Using lost value for trivial deviation"
+          "effect": "Using lost value for trivial deviation",
+          "bears": {
+            "on": "value",
+            "as": "under",
+            "basis": "But where that cost is grossly and unfairly disproportionate to the benefit obtained, diminution in value supplies the allowance.",
+            "source": "Atlas brief of Jacob & Youngs, Inc. v. Kent",
+            "brief": "CT-NEXT-CM-0127"
+          }
         },
         {
           "id": "groves",
@@ -1380,7 +1459,21 @@
           "object": "Groves",
           "note": "Minnesota awards the cost of the promised grading for a deliberate breach, though it far exceeds the value the work would add to the land.",
           "authorityKind": "Court decision",
-          "effect": "Awarding the promised completion cost"
+          "effect": "Awarding the promised completion cost",
+          "bears": {
+            "on": "cost",
+            "as": "under",
+            "basis": "Stone’s prevailing opinion held that cost of performance was the appropriate measure for this deliberate failure to perform a construction obligation, subject to determining exactly what work the contract required on remand.",
+            "source": "Atlas brief of Groves v. John Wunder Co.",
+            "brief": "CT-NEXT-CM-0147",
+            "beside": {
+              "compare": {
+                "to": "peevyhouse",
+                "heading": "A contrasting result in another state",
+                "why": "Groves and Peevyhouse reach contrasting results in different states."
+              }
+            }
+          }
         },
         {
           "id": "plante",
@@ -1388,7 +1481,17 @@
           "turn": "sharpens",
           "note": "Repair cost for defects reasonably fixable; diminution in value where the fix would mean tearing out work, as with the misplaced wall (Wisconsin).",
           "authorityKind": "Court decision",
-          "effect": "Separating repair cost from waste"
+          "effect": "Separating repair cost from waste",
+          "bears": {
+            "on": [
+              "cost",
+              "value"
+            ],
+            "as": "under",
+            "basis": "Small, separable defects that can reasonably be corrected without destroying substantial completed work may be measured by correction cost. The court treated the applicable diminution measure as contemplating that the wall would remain.",
+            "source": "Atlas brief of Plante v. Jacobs",
+            "brief": "CT-NEXT-CM-0146"
+          }
         },
         {
           "id": "peevyhouse",
@@ -1397,7 +1500,24 @@
           "turn": "limits",
           "note": "Oklahoma caps damages at diminution in value when the broken term was incidental and its cost grossly exceeds the value it would add.",
           "authorityKind": "Court decision",
-          "effect": "Limiting incidental restoration damages"
+          "effect": "Limiting incidental restoration damages",
+          "bears": {
+            "on": "value",
+            "as": "under",
+            "basis": "In that combination of circumstances, recovery is limited to diminution in value caused by the omitted work.",
+            "source": "Atlas brief of Peevyhouse v. Garland Coal & Mining Co.",
+            "brief": "CT-NEXT-CM-0148",
+            "beside": {
+              "heading": "Performance cost is still the ordinary measure",
+              "text": "The court did not announce that market-value damages necessarily replace performance cost for every construction or restoration promise. It expressly acknowledged that a principal contractual purpose could be an improvement that reduces the property’s resale value; in such a case performance cost would ordinarily govern.",
+              "source": "Atlas brief of Peevyhouse v. Garland Coal & Mining Co.",
+              "compare": {
+                "to": "groves",
+                "heading": "A contrasting result in another state",
+                "why": "Groves and Peevyhouse reach contrasting results in different states."
+              }
+            }
+          }
         },
         {
           "sup": "CT-ADDITIONAL-CM-B3-108",
@@ -1407,12 +1527,39 @@
           "object": "English law",
           "note": "England's middle course: rebuilding cost is out when unreasonable, but the owner may recover for loss of amenity rather than nothing.",
           "authorityKind": "Court decision",
-          "effect": "Compensating lost enjoyment without rebuilding"
+          "effect": "Compensating lost enjoyment without rebuilding",
+          "bears": {
+            "on": "enjoyment",
+            "as": "under",
+            "basis": "Forsyth could not recover the £21,560 cost of demolishing and rebuilding his usable swimming pool merely because that was the only way to attain the specified depth. Restoration preserved the trial judge’s £2,500 loss-of-amenity award.",
+            "source": "Atlas brief of Ruxley Electronics & Construction Ltd. v. Forsyth",
+            "brief": "CT-ADDITIONAL-CM-B3-108",
+            "beside": {
+              "heading": "Loss of amenity, without the cost of rebuilding",
+              "text": "Forsyth could not recover the £21,560 cost of demolishing and rebuilding his usable swimming pool merely because that was the only way to attain the specified depth. Restoration preserved the trial judge’s £2,500 loss-of-amenity award.",
+              "source": "Atlas brief of Ruxley Electronics & Construction Ltd. v. Forsyth"
+            }
+          }
         }
       ],
       "guide": "Compare what was promised, why it mattered, and the cost of correcting the failure. Groves and Peevyhouse reach contrasting results in different states. Ruxley adds an English example of compensation for lost enjoyment without rebuilding.",
       "summaryLabel": "What these sources establish",
-      "reviewedAt": "2026-10-11"
+      "reviewedAt": "2026-10-11",
+      "lines": [
+        {
+          "id": "cost",
+          "name": "Completion cost"
+        },
+        {
+          "id": "value",
+          "name": "Lost market value"
+        },
+        {
+          "id": "enjoyment",
+          "name": "Lost enjoyment",
+          "term": "loss of amenity"
+        }
+      ]
     },
     {
       "id": "damages-limits",
@@ -4637,7 +4784,20 @@
           "turn": "origin",
           "note": "In this historical decision, the Court accepted the agency’s reasoned application of “producer” after fair proceedings. Read that approach alongside the later change in Loper Bright.",
           "authorityKind": "Court decision",
-          "effect": "Historically accepts the agency’s statutory classification"
+          "effect": "Accepted the agency’s statutory classification",
+          "bears": {
+            "on": null,
+            "as": "line",
+            "basis": "The assigned material uses Gray in contrasting accounts of deference: the later Loper Bright majority emphasizes a factbound delegated classification and distinguishes the independently construed other-disposal question; Kagan’s dissent stresses the agency’s interpretive responsibility and the significance of pre-APA practice.",
+            "source": "Atlas brief of Gray v. Powell",
+            "brief": "LRS-ATLAS-I-GRAY-POWELL",
+            "beside": {
+              "heading": "Contrasting accounts in Loper Bright",
+              "text": "The assigned material uses Gray in contrasting accounts of deference: the later Loper Bright majority emphasizes a factbound delegated classification and distinguishes the independently construed other-disposal question; Kagan’s dissent stresses the agency’s interpretive responsibility and the significance of pre-APA practice.",
+              "source": "Atlas brief of Gray v. Powell"
+            }
+          },
+          "effectOriginal": "Historically accepts the agency’s statutory classification"
         },
         {
           "id": "lrs-i-hearst",
@@ -4647,7 +4807,20 @@
           "note": "The Court accepted the labor Board’s classification of these workers as employees because the record and law reasonably supported it. Congress later changed the statutory treatment of independent contractors.",
           "fate": "Its 'employee' ruling was overridden by the Taft-Hartley Act (1947), which excluded independent contractors",
           "authorityKind": "Court decision",
-          "effect": "Historically accepts the Board’s employee classification"
+          "effect": "Accepted the Board’s employee classification",
+          "bears": {
+            "on": null,
+            "as": "line",
+            "basis": "The majority distinguished New Deal cases such as Gray and Hearst as involving delegated or factbound applications, rather than a general requirement to accept agency statutory constructions.",
+            "source": "Atlas brief of Loper Bright Enterprises v. Raimondo",
+            "brief": "LRS-MAX-LOPER",
+            "beside": {
+              "heading": "How the Loper Bright majority distinguished it",
+              "text": "The majority distinguished New Deal cases such as Gray and Hearst as involving delegated or factbound applications, rather than a general requirement to accept agency statutory constructions.",
+              "source": "Atlas brief of Loper Bright Enterprises v. Raimondo"
+            }
+          },
+          "effectOriginal": "Historically accepts the Board’s employee classification"
         },
         {
           "id": "lrs-i-skidmore",
@@ -4656,7 +4829,19 @@
           "turn": "sharpens",
           "note": "An agency’s interpretation does not bind the court. It earns weight through careful analysis, sound reasons, consistency, and its ability to persuade.",
           "authorityKind": "Court decision",
-          "effect": "Gives agency views persuasive rather than binding weight"
+          "effect": "Gives agency views persuasive rather than binding weight",
+          "bears": {
+            "on": null,
+            "as": "line",
+            "basis": "An agency's informed interpretation remains relevant under Skidmore, particularly when contemporaneous with enactment and consistent over time.",
+            "source": "Atlas brief of Loper Bright Enterprises v. Raimondo",
+            "brief": "LRS-MAX-LOPER",
+            "beside": {
+              "heading": "What remains after Loper Bright",
+              "text": "An agency's informed interpretation remains relevant under Skidmore, particularly when contemporaneous with enactment and consistent over time.",
+              "source": "Atlas brief of Loper Bright Enterprises v. Raimondo"
+            }
+          }
         },
         {
           "id": "lrs-i-chevron",
@@ -4666,8 +4851,16 @@
           "note": "Historically, clear statutory text controlled; otherwise a permissible agency interpretation received deference. Loper Bright later rejected this ambiguity-based approach.",
           "fate": "Overruled by Loper Bright (2024)",
           "authorityKind": "Court decision",
-          "effect": "Historically requires Chevron deference",
-          "context": "This is the historical rule that later cases in this line refined and Loper Bright overruled. A timeline includes superseded rules to show the change, not to recommend applying them now."
+          "effect": "Required Chevron deference",
+          "context": "This is the historical rule that later cases in this line refined and Loper Bright overruled. A timeline includes superseded rules to show the change, not to recommend applying them now.",
+          "bears": {
+            "on": "chevron",
+            "as": "sets",
+            "basis": "Second, when Congress had not directly resolved the issue, the historical Chevron framework asked whether the agency’s answer was a permissible construction.",
+            "source": "Atlas brief of Chevron U.S.A. Inc. v. Natural Resources Defense Council, Inc.",
+            "brief": "LRS-ATLAS-I-CHEVRON"
+          },
+          "effectOriginal": "Historically requires Chevron deference"
         },
         {
           "id": "lrs-i-mead-note",
@@ -4677,8 +4870,16 @@
           "note": "Under the former Chevron system, the agency generally needed delegated authority to act with the force of law and had to use it. Other interpretations could still persuade under Skidmore.",
           "fate": "Its Chevron threshold lapsed with Loper Bright (2024); Skidmore respect remains",
           "authorityKind": "Court decision",
-          "effect": "Historically limits which acts receive Chevron deference",
-          "context": "“Step zero” was shorthand for asking whether Chevron applied at all before using its two steps. After Loper Bright, agency reasoning can still be persuasive without that deference framework."
+          "effect": "Limited which acts received Chevron deference",
+          "context": "“Step zero” was shorthand for asking whether Chevron applied at all before using its two steps. After Loper Bright, agency reasoning can still be persuasive without that deference framework.",
+          "bears": {
+            "on": "chevron",
+            "as": "under",
+            "basis": "The Supreme Court granted review to address the limits of Chevron deference, rather than simply substitute its preferred tariff classification.",
+            "source": "Atlas brief of United States v. Mead Corp.",
+            "brief": "LRS-SUP-MEAD"
+          },
+          "effectOriginal": "Historically limits which acts receive Chevron deference"
         },
         {
           "id": "lrs-i-brand-x",
@@ -4688,7 +4889,15 @@
           "note": "Under the former Chevron system, a reasonable agency interpretation could displace an earlier judicial reading unless the court had found the statute unambiguous. Read this mechanism as historical.",
           "fate": "Fell with Chevron in Loper Bright (2024)",
           "authorityKind": "Court decision",
-          "effect": "Historically lets an agency displace some judicial readings"
+          "effect": "Let an agency displace some judicial readings",
+          "bears": {
+            "on": "chevron",
+            "as": "under",
+            "basis": "The Court held that a prior judicial construction displaced an otherwise Chevron-eligible agency interpretation only when the precedent held that the statute unambiguously required the judicial reading.",
+            "source": "Atlas brief of National Cable & Telecommunications Association v. Brand X Internet Services",
+            "brief": "LRS-ATLAS-I-BRAND-X"
+          },
+          "effectOriginal": "Historically lets an agency displace some judicial readings"
         },
         {
           "sup": "LRS-CLOSURE-031",
@@ -4698,7 +4907,15 @@
           "note": "Under the former Chevron system, a court deferred even on some questions about the agency’s own authority. Loper Bright later ended Chevron’s statutory-deference framework.",
           "fate": "Fell with Chevron in Loper Bright (2024)",
           "authorityKind": "Court decision",
-          "effect": "Historically applies Chevron to agency authority"
+          "effect": "Applied Chevron to agency authority",
+          "bears": {
+            "on": "chevron",
+            "as": "under",
+            "basis": "On May 20, 2013, the Supreme Court affirmed the Fifth Circuit and held that the then-governing Chevron framework applied to an agency’s interpretation of a statutory ambiguity concerning the scope of its authority.",
+            "source": "Atlas brief of City of Arlington v. FCC",
+            "brief": "LRS-CLOSURE-031"
+          },
+          "effectOriginal": "Historically applies Chevron to agency authority"
         },
         {
           "id": "lrs-i-king-burwell",
@@ -4707,7 +4924,19 @@
           "turn": "limits",
           "note": "The Court treated the tax-credit question as too important to assume Congress had left it to the IRS. It decided the statutory meaning itself.",
           "authorityKind": "Court decision",
-          "effect": "Reserves a major statutory question for the Court"
+          "effect": "Reserves a major statutory question for the Court",
+          "bears": {
+            "on": "chevron",
+            "as": "under",
+            "basis": "King therefore illustrates a historical limitation on the presumed delegation underlying Chevron that nonetheless produced a result agreeing with the agency.",
+            "source": "Atlas brief of King v. Burwell",
+            "brief": "LRS-ATLAS-I-KING-BURWELL",
+            "beside": {
+              "heading": "Deference withheld, the agency’s reading accepted",
+              "text": "King withholds deference on a major question while independently accepting the agency’s construction. Loper Bright cites King as an example of a court deciding statutory meaning itself instead of deferring, so it previews the post-Chevron approach.",
+              "source": "Atlas entry for King v. Burwell, its stored connections"
+            }
+          }
         },
         {
           "id": "lrs-i-kisor",
@@ -4722,7 +4951,19 @@
               "url": "https://supreme.justia.com/cases/federal/us/588/18-15/",
               "label": "Majority Part II-B, slip pp. 11–19; Chief Justice Roberts concurrence."
             }
-          ]
+          ],
+          "bears": {
+            "on": "auer",
+            "as": "under",
+            "basis": "The Court declined to overrule Auer and Seminole Rock deference to agency interpretations of their own regulations.",
+            "source": "Atlas brief of Kisor v. Wilkie",
+            "brief": "LRS-MAX-KISOR",
+            "beside": {
+              "heading": "Agency interpretations of their own regulations",
+              "text": "The Court declined to overrule Auer and Seminole Rock deference to agency interpretations of their own regulations. Kisor’s limited treatment of an agency’s own regulations is a separate issue.",
+              "source": "Atlas brief of Kisor v. Wilkie; this timeline’s summary"
+            }
+          }
         },
         {
           "id": "lrs-i-loper-bright",
@@ -4732,7 +4973,14 @@
           "object": "Chevron",
           "note": "Courts must determine statutes’ meaning independently. They still respect discretion Congress actually delegated and consider persuasive agency reasoning; ambiguity alone does not require deference.",
           "authorityKind": "Court decision",
-          "effect": "Ends Chevron deference to statutory interpretations"
+          "effect": "Ends Chevron deference to statutory interpretations",
+          "bears": {
+            "on": "chevron",
+            "as": "ends",
+            "basis": "The Court overruled Chevron's requirement that courts defer to reasonable agency interpretations merely because a statute is ambiguous.",
+            "source": "Atlas brief of Loper Bright Enterprises v. Raimondo",
+            "brief": "LRS-MAX-LOPER"
+          }
         }
       ],
       "guide": "Deference means accepting an agency’s reading instead of choosing the court’s own best reading. Distinguish a statute Congress passed from a regulation the agency wrote. Chevron’s statutory framework is historical after Loper Bright. Skidmore gives agency views persuasive weight; Kisor concerns limited deference to an agency’s own regulation.",
@@ -4742,6 +4990,17 @@
         {
           "url": "https://supreme.justia.com/cases/federal/us/603/22-451/",
           "label": "Majority Part II, slip pp. 16–18; Part III-C, slip pp. 34–35."
+        }
+      ],
+      "lines": [
+        {
+          "id": "chevron",
+          "name": "Chevron"
+        },
+        {
+          "id": "auer",
+          "name": "Auer deference",
+          "concerns": "agency interpretations of their own regulations"
         }
       ]
     },
