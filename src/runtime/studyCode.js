@@ -502,10 +502,10 @@ function camState(moving) {
   if (moving) {
     main.style.background = getComputedStyle(svg).background;
     svg.classList.add('is-moving');
-    document.documentElement.classList.add('dkla-map-moving');
+    document.documentElement.classList.add('dkla-map-moving', 'dkla-moving');
   } else {
     svg.classList.remove('is-moving');
-    document.documentElement.classList.remove('dkla-map-moving');
+    document.documentElement.classList.remove('dkla-map-moving', 'dkla-moving');
     main.style.background = '';
   }
 }
