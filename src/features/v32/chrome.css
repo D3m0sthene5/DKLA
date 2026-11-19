@@ -843,7 +843,8 @@ html.v32-chrome #searchResults .search-lead-far {
   height: 0;
   overflow: hidden;
   vertical-align: top;
-  white-space: nowrap;
+  /* (pre: the space after its last word is kept, for the same readers) */
+  white-space: pre;
 }
 html.v32-chrome #searchResults .search-lead:has(> .search-lead-far)::before {
   content: '…';
