@@ -2082,6 +2082,9 @@ function fitText(s, maxW, fs, weight = 400, lines = 1, family = '') {
           best = k;
         }
       }
+    // a case caption breaks between its parties, before "v.", wherever both lines then fit
+    const versus = lines >= 2 ? words.findIndex((w, k) => k > 0 && /^(v\.?|vs\.?) /.test(w)) : -1;
+    if (versus > 0 && span(0, versus) <= maxW && span(versus, words.length) <= maxW) best = versus;
     if (best > 0) rows.push(words.slice(0, best).join(' '), words.slice(best).join(' '));
     else {
       // more than fits: fill the lines, and the last one is cut on a letter and ends in an ellipsis
