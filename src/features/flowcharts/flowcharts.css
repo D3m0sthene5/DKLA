@@ -813,6 +813,12 @@
     600 12px/15px var(--dkla-interface, Inter),
     sans-serif;
 }
+/* (Each side's answers turn within 128 px, so the fork can be read without a wide margin.) */
+.fc-overview .fc-over-L,
+.fc-overview .fc-over-R {
+  max-width: 128px;
+  white-space: normal;
+}
 .fc-overview .fc-over-L {
   left: auto;
   right: calc(100% + 8px);
@@ -917,29 +923,164 @@
   color: var(--fc-course, var(--v31-link));
 }
 #dklaFlowcharts button.fc-art:hover,
-#dklaFlowcharts button.fc-art:focus-visible {
+#dklaFlowcharts button.fc-art:focus-visible,
+#dklaFlowcharts .fc-art-shown > .fc-art,
+#dklaFlowcharts a.fc-art-linked:hover > .fc-art {
   color: var(--v31-text);
 }
-/* A drawing says whose it is when pointed at or focused. */
-#dklaFlowcharts button.fc-art:hover::after,
-#dklaFlowcharts button.fc-art:focus-visible::after {
-  content: attr(data-fc-name);
+/* A drawing, on any step: pointed at, focused or pressed it shows a card with its case's name, and the
+   card opens the case. The card hangs from the drawing with no gap, so the pointer can travel onto
+   it; the plate it belongs to comes forward so the card lies over the plates and wires below. */
+.fc-art-item {
+  position: relative;
+  display: inline-flex;
+}
+#dklaFlowcharts .fc-art-card {
+  display: none;
   position: absolute;
   z-index: 3;
-  left: 0;
-  top: calc(100% + 6px);
+  left: -8px;
+  top: 100%;
   width: max-content;
-  max-width: 280px;
-  padding: 4px 8px;
-  border-radius: 6px;
-  background: var(--v31-ground);
-  box-shadow: 0 0 0 1px var(--v31-line-strong);
+  max-width: 264px;
+  padding: 8px 12px;
+  border: 0;
+  border-top: 6px solid transparent;
+  border-radius: 8px;
+  background: var(--v31-raised, var(--v31-ground)) padding-box;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.45);
   font:
     500 13px/18px var(--dkla-interface, Inter),
     sans-serif;
   text-align: start;
-  white-space: normal;
+  text-decoration: none;
   color: var(--v31-text);
+}
+#dklaFlowcharts .fc-art-item:hover > .fc-art-card,
+#dklaFlowcharts .fc-art-item:focus-within > .fc-art-card,
+#dklaFlowcharts .fc-art-shown > .fc-art-card {
+  display: block;
+}
+.fc-art-title,
+.fc-art-open {
+  display: block;
+}
+.fc-art-open {
+  margin-top: 2px;
+  font-weight: 400;
+  color: var(--v31-link);
+}
+#dklaFlowcharts .fc-art-card:hover > .fc-art-open,
+#dklaFlowcharts .fc-art-card:focus-visible > .fc-art-open {
+  color: var(--v31-link-hover, #9fd0ff);
+  text-decoration: underline;
+}
+.fc-map-node:has(.fc-art-item:hover, .fc-art-item:focus-within, .fc-art-shown) {
+  z-index: 6;
+}
+#dklaFlowcharts a.fc-art-linked {
+  display: contents;
+  text-decoration: none;
+}
+#dklaFlowcharts a.fc-art-linked:hover > .fc-art-name,
+#dklaFlowcharts a.fc-art-linked:focus-visible > .fc-art-name {
+  color: var(--v31-text);
+  text-decoration: underline;
+}
+/* The line of help says "point" only where there is something to point with. */
+@media (hover: hover) {
+  .fc-help-touch {
+    display: none;
+  }
+}
+@media (hover: none) {
+  .fc-help-point {
+    display: none;
+  }
+}
+/* Fitted to the window: every step listed in the room the chart leaves (see indexHTML). */
+.fc-index {
+  display: none;
+}
+.fc-indexed > .fc-index {
+  display: block;
+  margin: 0;
+  padding: 12px 0 0;
+  list-style: none;
+  columns: 280px;
+  column-gap: 24px;
+}
+.fc-index-beside {
+  display: grid;
+  grid-template-columns: var(--fc-fit-width) minmax(0, 1fr);
+  column-gap: 24px;
+}
+.fc-index-beside > .fc-map-tools {
+  grid-column: 1 / -1;
+}
+.fc-index-beside > .fc-index {
+  height: min(66dvh, 660px);
+  box-sizing: border-box;
+  overflow: auto;
+  border-top: 1px solid var(--fc-line);
+  column-fill: auto;
+}
+.fc-index > li {
+  break-inside: avoid;
+  margin: 0;
+  padding: 0;
+}
+#dklaFlowcharts .fc-index button {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  column-gap: 10px;
+  align-items: start;
+  width: 100%;
+  min-height: 0;
+  padding: 5px 8px 5px 4px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  text-align: start;
+  color: var(--v31-text);
+  font:
+    400 14px/20px var(--dkla-interface, Inter),
+    sans-serif;
+}
+#dklaFlowcharts .fc-index .fc-number {
+  grid-row: 1 / span 2;
+  zoom: 0.86;
+  margin-top: -1px;
+}
+.fc-index-to {
+  grid-column: 2;
+  font:
+    400 12px/16px var(--dkla-mono, 'JetBrains Mono'),
+    monospace;
+  color: var(--v31-muted);
+}
+.fc-index > .fc-outcome .fc-index-q {
+  color: var(--v31-soft);
+}
+#dklaFlowcharts .fc-index > .fc-trace > button,
+#dklaFlowcharts .fc-index button:hover,
+#dklaFlowcharts .fc-index button:focus-visible {
+  background: var(--v32-hair, rgb(255 255 255 / 0.06));
+}
+.fc-index > .fc-path .fc-index-q {
+  font-weight: 600;
+}
+#dklaFlowcharts .fc-index > [aria-current='step'] > button {
+  box-shadow: inset 2px 0 0 var(--v31-here);
+  background: var(--v31-here-bg);
+}
+/* The way to a step the chart was opened at, which the reader did not choose: set apart from the
+   reader's own path, under its own label. */
+.fc-trail ol.fc-trail-route {
+  margin-bottom: 20px;
+}
+.fc-overview .fc-map-node.fc-trace {
+  outline: calc(2px / var(--fc-map-scale)) solid var(--v31-link-hover, #9fd0ff);
 }
 .fc-art > svg {
   display: block;

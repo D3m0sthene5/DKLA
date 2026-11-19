@@ -174,7 +174,9 @@
         { ...node, number: index + 1, entry: node.id === chart.entry },
       ]),
     );
-    return { chart, byId, trail: [{ id: chart.entry }], view: 'walkthrough', zoom: 1 };
+    // (lead: how many steps at the head of the trail are a route shown to the reader, not answers
+    // the reader chose: a chart opened at a step shows one way to it and says so.)
+    return { chart, byId, trail: [{ id: chart.entry }], lead: 0, view: 'walkthrough', zoom: 1 };
   }
 
   function graphLayout({ chart, byId, sizes, variant }) {
@@ -601,16 +603,20 @@
   }
   const artSVG = (one) =>
     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${one.path}</svg>`;
-  // On the map a drawing names its case when pointed at or focused, and selecting it selects the step,
-  // whose sources are then listed beside the map with each drawing next to its name.
-  // (named: an outcome set beside its answer has room for each case's name next to its drawing.)
+  // On the map a drawing behaves the same on every step: pointed at, focused or tapped it shows a
+  // small card with its case's name, and the card is the way to open that case. It never moves the
+  // reader to another step. (named: an outcome set beside its answer has room for each case's name
+  // next to its drawing, and there the drawing and the name together are the link.)
+  const KIND = { Case: 'case', Rule: 'rule', Concept: 'concept', Statute: 'statute', Note: 'note' };
   const artHTML = (node, named) => {
     const list = artOf(node);
+    const open = (one) => `Open the ${KIND[nodesById.get(one.id)?.kind] || 'entry'}`;
     return list.length
       ? `<div class="fc-art-row${named ? ' fc-art-named' : ''}">${list
-          .map(
-            (one) =>
-              `<button type="button" class="fc-art" data-flowchart-node="${esc(node.id)}" data-fc-name="${esc(one.title)}" title="${esc(one.title)}" aria-label="${esc(one.title)}: a source for step ${node.number}">${artSVG(one)}</button>${named ? `<span class="fc-art-name">${esc(one.title)}</span>` : ''}`,
+          .map((one) =>
+            named
+              ? `<a class="fc-art-item fc-art-linked" href="${sourceURL(one.id)}" data-flowchart-source="${esc(one.id)}" title="${open(one)}"><span class="fc-art">${artSVG(one)}</span><span class="fc-art-name">${esc(one.title)}</span></a>`
+              : `<span class="fc-art-item"><button type="button" class="fc-art" data-fc-art aria-expanded="false" aria-label="${esc(one.title)}, a source for step ${node.number}: show its name">${artSVG(one)}</button><a class="fc-art-card" href="${sourceURL(one.id)}" data-flowchart-source="${esc(one.id)}"><span class="fc-art-title">${esc(one.title)}</span><span class="fc-art-open">${open(one)} →</span></a></span>`,
           )
           .join('')}</div>`
       : '';
@@ -686,7 +692,7 @@
           <button type="button" data-flowcharts-zoom="fit" aria-label="Fit whole map">Fit</button>
           <button type="button" data-flowcharts-zoom="reset" aria-label="Reset zoom to 100%">100%</button>
         </div>
-        <p class="fc-map-help">Point at an answer to trace where it leads. Select it to go there.</p>
+        <p class="fc-map-help"><span class="fc-help-point">Point at an answer to trace where it leads; select it to go there. A drawing names its case and opens it.</span><span class="fc-help-touch">Tap an answer to go where it leads. Tap a drawing to name its case and open it.</span></p>
         <output class="fc-zoom-value" aria-label="Diagram zoom level"></output>
       </div>
       <div class="fc-map-scroll" role="region" aria-label="Scrollable flowchart diagram" tabindex="0">
@@ -736,7 +742,21 @@
             .join('')}
         </div>
       </div>
+      ${indexHTML(session)}
     </section>`;
+  }
+  // Fitted to the window a tall chart is a narrow column with the rest of the window empty, and no
+  // question can be read on it. The room beside it (below it, on a narrow screen) lists every step:
+  // its number in its shape, as on the chart, its words, and for a step that goes on, the numbers of
+  // the steps its answers lead to. Pointing at a row marks that step on the chart with the lines
+  // into and out of it; selecting a row goes to the step.
+  function indexHTML({ byId }) {
+    return `<ol class="fc-index" aria-label="Every step of the chart">${[...byId.values()]
+      .map(
+        (node) =>
+          `<li class="fc-kind-${kindOf(node)}${node.edges.length ? '' : ' fc-outcome'}" data-fc-row="${esc(node.id)}"><button type="button" data-flowchart-node="${esc(node.id)}">${badge(node)}<span class="fc-index-q"><span class="fc-sr-only">Step ${node.number}. </span>${esc(node.label)}</span>${node.edges.length ? `<span class="fc-index-to"><span class="fc-sr-only">Leads to step </span>→ ${[...new Set(node.edges.map((edge) => byId.get(edge.to).number))].join(' · ')}</span>` : ''}</button></li>`,
+      )
+      .join('')}</ol>`;
   }
 
   const nth = (n) => n + (n % 100 > 10 && n % 100 < 14 ? 'th' : ['th', 'st', 'nd', 'rd'][n % 10] || 'th');
@@ -814,17 +834,34 @@
     const previous = currentZoom(graph);
     const x = frame.left + scroll.clientWidth / 2;
     const y = frame.top + scroll.clientHeight / 2;
-    const scale =
-      active.zoom === 'fit'
-        ? Math.min(
-            1,
-            (scroll.clientWidth - 4) / graph.offsetWidth,
-            (scroll.clientHeight - 28) / graph.offsetHeight,
-          )
-        : active.zoom;
+    // (Measured with the chart given the whole width, before any of it is given to the list of steps.)
+    const map = scroll.closest('.fc-map');
+    map.classList.remove('fc-indexed', 'fc-index-beside');
+    map.style.removeProperty('--fc-fit-width');
+    const tall = Math.min(1, (scroll.clientHeight - 28) / graph.offsetHeight),
+      wide = Math.min(1, (scroll.clientWidth - 4) / graph.offsetWidth);
+    const scale = active.zoom === 'fit' ? Math.min(tall, wide) : active.zoom;
     graph.style.setProperty('--fc-map-scale', scale);
-    // Too small to read: the chart shows its shape instead of its words.
-    graph.classList.toggle('fc-overview', scale < 0.5);
+    // Too small to read: the chart shows its shape instead of its words, and the steps are listed
+    // in the room the fitted chart leaves, beside it where that is at least a column wide.
+    const overview = scale < 0.5;
+    graph.classList.toggle('fc-overview', overview);
+    if (overview && active.zoom === 'fit') {
+      // The chart's column is as wide as the fitted chart and the words that stand beside its first
+      // fork, the same on both sides so the chart stays in the middle of it.
+      const box = graph.getBoundingClientRect();
+      let beyond = 0;
+      for (const label of graph.querySelectorAll('.fc-over')) {
+        const at = label.getBoundingClientRect();
+        if (at.width) beyond = Math.max(beyond, box.left - at.left, at.right - box.right);
+      }
+      const column = Math.ceil(box.width + 2 * beyond) + 32;
+      map.classList.add('fc-indexed');
+      if (tall <= wide && scroll.clientWidth - column >= 420) {
+        map.classList.add('fc-index-beside');
+        map.style.setProperty('--fc-fit-width', column + 'px');
+      }
+    }
     body.querySelector('.fc-zoom-value').textContent = `${Math.round(scale * 100)}%`;
     body
       .querySelector('[data-flowcharts-zoom="fit"]')
@@ -856,13 +893,14 @@
 
   function paintStep({ focus = false, center = false } = {}) {
     const { byId, trail, view } = active;
+    const lead = (active.lead = Math.min(active.lead || 0, trail.length - 1));
     const current = trail.at(-1);
     const node = byId.get(current.id);
     const detail = dialog.querySelector('#flowchartDetail');
     // v3.1: the entry the chart was opened from is named on the steps that cite it.
     const from = active.from && node.sources.includes(active.from) ? active.from : null;
     detail.innerHTML = `
-      <div class="fc-step-label">${nodeType(node) || 'Step'} ${node.number} of the chart’s ${byId.size}${trail.length > 1 ? ` · ${nth(trail.length)} on your path` : ''}${from ? ` · decided by ${esc(titleOf(from))}` : ''}</div>
+      <div class="fc-step-label">${nodeType(node) ? 'Outcome · chart step' : 'Chart step'} ${node.number}${trail.length - lead > 1 ? ` · ${nth(trail.length - lead)} on your path` : ''}${from ? ` · decided by ${esc(titleOf(from))}` : ''}</div>
       <h3 tabindex="-1">${esc(node.label)}</h3>
       ${current.label ? `<p class="fc-selected-branch">From step ${byId.get(trail.at(-2).id).number} · ${esc(current.label)}</p>` : ''}
       <p class="fc-explanation">${esc(node.detail)}</p>
@@ -886,17 +924,20 @@
     const path = dialog.querySelector('.fc-trail');
     if (path) {
       const endings = node.edges.map((edge) => byId.get(edge.to));
-      path.innerHTML = `<p class="fc-trail-label">Your path: ${trail.length} ${trail.length === 1 ? 'step' : 'steps'} so far</p><ol>${trail
-        .map((step, i) => {
-          const at = byId.get(step.id);
-          const taken = trail[i + 1]?.label;
-          return i === trail.length - 1
-            ? `<li aria-current="step"><span class="fc-trail-n">${nth(i + 1)} · chart step ${at.number} · now</span><span class="fc-trail-q">${esc(at.label)}</span></li>`
-            : `<li><button type="button" data-fc-trail="${i}"><span class="fc-trail-n">${nth(i + 1)} · chart step ${at.number}</span><span class="fc-trail-q">${esc(at.label)}</span>${taken ? `<span class="fc-trail-a">→ ${esc(taken)}</span>` : ''}</button></li>`;
-        })
-        .join(
-          '',
-        )}</ol>${endings.length ? `<p class="fc-trail-next">Then ${endings.length === 1 ? 'chart step' : 'one of chart steps'} ${endings.map((n) => n.number).join(', ')}</p>` : ''}`;
+      // A step is "chart step N" by the chart's own numbering, and "1st, 2nd, …" by the order the
+      // reader chose it in. Steps the reader did not choose (the way to a step the chart was opened
+      // at) are listed apart, as one route to it, and are not counted as the reader's.
+      const row = (step, i) => {
+        const at = byId.get(step.id);
+        const taken = trail[i + 1]?.label;
+        const order = i < lead ? '' : `${nth(i - lead + 1)} · `;
+        return i === trail.length - 1
+          ? `<li aria-current="step"><span class="fc-trail-n">${order}chart step ${at.number} · now</span><span class="fc-trail-q">${esc(at.label)}</span></li>`
+          : `<li><button type="button" data-fc-trail="${i}"><span class="fc-trail-n">${order}chart step ${at.number}</span><span class="fc-trail-q">${esc(at.label)}</span>${taken ? `<span class="fc-trail-a">→ ${esc(taken)}</span>` : ''}</button></li>`;
+      };
+      const rows = trail.map(row);
+      const walked = trail.length - lead;
+      path.innerHTML = `${lead ? `<p class="fc-trail-label">One route to chart step ${byId.get(trail[lead].id).number}</p><ol class="fc-trail-route">${rows.slice(0, lead).join('')}</ol>` : ''}<p class="fc-trail-label">Your path: ${walked} ${walked === 1 ? 'step' : 'steps'} so far</p><ol>${rows.slice(lead).join('')}</ol>${endings.length ? `<p class="fc-trail-next">Then ${endings.length === 1 ? 'chart step' : 'one of chart steps'} ${endings.map((n) => n.number).join(', ')}</p>` : ''}`;
     }
     dialog.querySelector('[data-flowcharts-back]').disabled = trail.length < 2;
     dialog.querySelector('[data-flowcharts-reset]').disabled =
@@ -913,6 +954,11 @@
       const selected = cell.dataset.fcCell === node.id;
       if (selected) button.setAttribute('aria-current', 'step');
       else button.removeAttribute('aria-current');
+    }
+    for (const row of map.querySelectorAll('[data-fc-row]')) {
+      row.classList.toggle('fc-path', visited.has(row.dataset.fcRow));
+      if (row.dataset.fcRow === node.id) row.setAttribute('aria-current', 'step');
+      else row.removeAttribute('aria-current');
     }
     const route = new Set(trail.slice(1).map((step, i) => `${trail[i].id}/${step.edge}`));
     for (const wire of map.querySelectorAll('.fc-wire'))
@@ -954,16 +1000,51 @@
       if (view !== 'map' || matchMedia('(max-width: 850px)').matches)
         detail.scrollIntoView({ block: 'nearest' });
     }
+    settle();
+  }
+  // The address names the step being shown, so a reload or a copied link comes back to it. It is
+  // rewritten in place: the browser's Back still leaves the chart in one press.
+  function settle() {
+    const at = active.trail.at(-1).id;
+    const step = at === active.chart.entry ? '' : at;
+    const hash =
+      '#flowchart=' +
+      encodeURIComponent(active.chart.id) +
+      (step ? '&step=' + encodeURIComponent(step) : '') +
+      (active.from ? '&from=' + encodeURIComponent(active.from) : '') +
+      (active.variant === 'b' ? '&flow=b' : '');
+    active.opened = `${step}|${active.from || ''}`;
+    if (location.hash === hash || !location.hash.startsWith('#flowchart=')) return;
+    history.replaceState(history.state, '', hash);
+    showing = hash;
+  }
+  // Going to a step other than by choosing an answer on the step being shown: back along the trail
+  // if it is on it; by the answer that leads there if there is one; otherwise one route to it from
+  // the chart's start, shown as a route and not as the reader's choices.
+  function visit(id) {
+    const { trail, byId } = active;
+    const on = trail.findIndex((step) => step.id === id);
+    const edge = byId.get(trail.at(-1).id).edges.findIndex((one) => one.to === id);
+    if (on >= 0) active.trail = trail.slice(0, on + 1);
+    else if (edge >= 0) return follow(trail.at(-1).id, edge);
+    else {
+      active.trail = pathTo(active.chart, id);
+      active.lead = active.trail.length - 1;
+    }
+    paintStep({ focus: true, center: true });
   }
 
   function renderChart(chart, { step, from, flow } = {}) {
     if (!sessions.has(chart.id)) sessions.set(chart.id, makeSession(chart));
     active = sessions.get(chart.id);
-    // Opened at a step (from a case page): the path to it counts as walked, and the case is named.
-    // Coming back to the same address (from a source, say) keeps the path as it was left.
-    const opened = `${step || ''}|${from || ''}`;
-    if (step && chart.nodes.some((node) => node.id === step) && active.opened !== opened)
+    // Opened at a step (from a case page, a copied link, a reload): one route to it is shown, as a
+    // route. Coming back to the address of the step being shown (from a source, say) keeps the path
+    // as it was left.
+    const opened = `${step && step !== chart.entry ? step : ''}|${from || ''}`;
+    if (step && chart.nodes.some((node) => node.id === step) && active.opened !== opened) {
       active.trail = pathTo(chart, step);
+      active.lead = active.trail.length - 1;
+    }
     active.opened = opened;
     // Two arrangements of the whole map can be opened side by side while they are compared: flow=b.
     const variant = flow === 'b' ? 'b' : 'a';
@@ -1019,8 +1100,12 @@
       delete dialog.dataset.printChart;
       showing = null;
       active = null;
+      if (cameFrom && hash !== cameFrom) cameFrom = null;
+      keepBack();
       return;
     }
+    cameFrom = null;
+    keepBack();
     if (showing === hash && dialog.open) return;
     showing = hash;
     active = null;
@@ -1068,15 +1153,56 @@
 
   function follow(from, index) {
     const edge = active.byId.get(from).edges[index];
-    if (active.trail.at(-1).id !== from) active.trail.push({ id: from });
+    // An answer pressed on the map, on a step other than the one shown: the reader is taken to that
+    // step first (back along the trail, or by one route to it), then on by the answer.
+    if (active.trail.at(-1).id !== from) {
+      const on = active.trail.findIndex((step) => step.id === from);
+      if (on >= 0) active.trail = active.trail.slice(0, on + 1);
+      else {
+        active.trail = pathTo(active.chart, from);
+        active.lead = active.trail.length - 1;
+      }
+    }
     active.trail.push({ id: edge.to, label: edge.label, edge: index });
     paintStep({ focus: true, center: true });
   }
 
+  /* An entry opened from a chart: the app's own Back (the arrow in the top bar) returns to the chart,
+     at the step, view, zoom and place it was left, as the browser's Back does. Only while that entry
+     is still the one shown; after going anywhere else, Back is the app's ordinary Back again. */
+  const appBack = document.getElementById('studyBack');
+  let cameFrom = null; // the address of the entry that was opened from the chart
+  const returning = () => !!cameFrom && location.hash === cameFrom;
+  const keepBack = () => {
+    if (!appBack) return;
+    if (returning()) {
+      if (appBack.disabled) appBack.disabled = false;
+      if (!appBack.dataset.fcTitle) {
+        appBack.dataset.fcTitle = appBack.title;
+        appBack.title = 'Back to the flowchart (Alt + Left)';
+      }
+    } else if (appBack.dataset.fcTitle) {
+      appBack.title = appBack.dataset.fcTitle;
+      delete appBack.dataset.fcTitle;
+    }
+  };
+  if (appBack) new MutationObserver(keepBack).observe(appBack, { attributeFilter: ['disabled'] });
+  document.addEventListener(
+    'click',
+    (event) => {
+      if (!returning() || !event.target.closest?.('#studyBack, [data-v32-back]')) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      history.back();
+    },
+    true,
+  );
   dialog.addEventListener(
     'click',
     (event) => {
-      if (!active || !event.target.closest?.('a[data-flowchart-source]')) return;
+      const source = event.target.closest?.('a[data-flowchart-source]');
+      if (!active || !source) return;
+      cameFrom = source.getAttribute('href');
       const scroll = dialog.querySelector('.fc-map-scroll');
       active.left = {
         opened: active.opened,
@@ -1125,11 +1251,33 @@
     // (Drawn last, so it lies over the wires it crosses.)
     wire.parentNode.appendChild(wire);
   }
+  // At Fit, pointing at a step in the list, or at its number on the chart, marks that step in both
+  // and lights every line into and out of it.
+  function traceStep(id) {
+    const map = dialog.querySelector('.fc-map');
+    if (!map) return;
+    for (const el of map.querySelectorAll('.fc-trace')) el.classList.remove('fc-trace');
+    map.classList.toggle('fc-tracing', !!id);
+    if (!id) return;
+    for (const el of map.querySelectorAll('.fc-wire, .fc-join, [data-fc-cell], [data-fc-row]')) {
+      const d = el.dataset;
+      if (d.fcFrom === id || d.fcTo === id || d.fcCell === id || d.fcRow === id) el.classList.add('fc-trace');
+    }
+  }
+  const stepAt = (target) =>
+    target.closest?.('[data-fc-row]')?.dataset.fcRow ||
+    target.closest?.('.fc-overview [data-fc-cell]')?.dataset.fcCell;
   dialog.addEventListener('pointerover', (event) => {
     const exit = event.target.closest?.('.fc-exit');
-    if (exit || event.target.closest?.('.fc-map')) trace(exit || null);
+    const step = !exit && stepAt(event.target);
+    if (step) traceStep(step);
+    else if (exit || event.target.closest?.('.fc-map')) trace(exit || null);
   });
-  dialog.addEventListener('focusin', (event) => trace(event.target.closest?.('.fc-exit') || null));
+  dialog.addEventListener('focusin', (event) => {
+    const step = stepAt(event.target);
+    if (step) traceStep(step);
+    else trace(event.target.closest?.('.fc-exit') || null);
+  });
   dialog.addEventListener('cancel', (event) => {
     event.preventDefault();
     close();
@@ -1147,8 +1295,19 @@
       return;
     }
     const button = event.target.closest('button');
+    // A drawing's card stays open until something else is pressed.
+    for (const item of dialog.querySelectorAll('.fc-art-shown'))
+      if (!button || item !== button.parentNode) {
+        item.classList.remove('fc-art-shown');
+        item.querySelector('[data-fc-art]').setAttribute('aria-expanded', 'false');
+      }
     if (!button) return;
     const d = button.dataset;
+    if ('fcArt' in d) {
+      const shown = button.parentNode.classList.toggle('fc-art-shown');
+      button.setAttribute('aria-expanded', String(shown));
+      return;
+    }
     if ('flowchartsClose' in d) close();
     else if ('flowchartsCourse' in d) {
       library.course = d.flowchartsCourse;
@@ -1166,13 +1325,20 @@
       paintStep({ focus: true, center: true });
     } else if ('flowchartsReset' in d) {
       active.trail = [{ id: active.chart.entry }];
+      active.lead = 0;
       paintStep({ focus: true, center: true });
     } else if ('flowchartBranch' in d) follow(active.trail.at(-1).id, Number(d.fcBranchIndex));
     else if ('fcMapBranch' in d) follow(d.fcFrom, Number(d.fcMapBranch));
-    else if ('flowchartNode' in d && active.trail.at(-1).id !== d.flowchartNode) {
-      active.trail.push({ id: d.flowchartNode });
-      paintStep({ focus: true, center: true });
-    }
+    else if ('flowchartNode' in d && active.trail.at(-1).id !== d.flowchartNode) visit(d.flowchartNode);
+  });
+  dialog.addEventListener('keydown', (event) => {
+    const shown = event.key === 'Escape' && dialog.querySelector('.fc-art-shown');
+    if (!shown) return;
+    // Esc shuts an open card first, not the whole chart.
+    event.preventDefault();
+    shown.classList.remove('fc-art-shown');
+    shown.querySelector('[data-fc-art]').setAttribute('aria-expanded', 'false');
+    shown.querySelector('[data-fc-art]').focus();
   });
 
   const menu = document.getElementById('moreMenu');

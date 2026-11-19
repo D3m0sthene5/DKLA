@@ -213,7 +213,96 @@ async function trip(page, hash, tap) {
     await page.goBack();
     await expect(dialog).toBeVisible();
     await expect.poll(place, { message: `${hash}, ${view}: back from a source` }).toEqual(left);
+    // The app's own Back (the arrow in the top bar, where there is one) does the same.
+    if (!tap) {
+      await act(source);
+      await expect(dialog).toBeHidden();
+      await expect(page.locator('#studyBack')).toHaveAttribute('title', /Back to the flowchart/);
+      await page.locator('#studyBack').click();
+      await expect(dialog).toBeVisible();
+      await expect.poll(place, { message: `${hash}, ${view}: the app's Back` }).toEqual(left);
+    }
   }
+  // The address names the step, so a reload comes back to it; and a step arrived at by its address
+  // is shown with one route to it, not as a path the reader walked.
+  assert.match(page.url(), /#flowchart=LRS-15&step=goldberg/, 'the address follows the step');
+  await page.reload();
+  await page.locator('html.dkla-boot-ready').waitFor({ timeout: 90_000 });
+  await expect(activeHeading(page)).toHaveText('Goldberg required an evidentiary hearing before cutoff');
+  await expect(dialog.locator('.fc-step-label')).toHaveText(/^Outcome · chart step 20(?: · decided by .+)?$/);
+  await expect(dialog.locator('.fc-trail-label').first()).toHaveText('One route to chart step 20');
+  await expect(dialog.locator('.fc-trail-label').nth(1)).toHaveText('Your path: 1 step so far');
+  await expect(dialog.locator('.fc-trail li[aria-current] .fc-trail-n')).toHaveText(
+    '1st · chart step 20 · now',
+  );
+}
+
+/* A drawing on the map, on the step being shown or on any other: pressed, it shows a card with its
+   case's name; the reader stays on the step; the card opens the case; Back returns to the chart. */
+async function drawings(page, tap) {
+  const dialog = courseDialog(page);
+  const act = (target) => (tap ? target.tap() : target.click());
+  await page.goto(routeFor('#flowchart=LRS-15&step=order'));
+  await expect(dialog).toBeVisible();
+  await act(dialog.locator('[data-flowcharts-view="map"]'));
+  // The line of help says "point" only where there is a pointer.
+  await expect(dialog.locator('.fc-help-touch')).toBeVisible({ visible: !!tap });
+  await expect(dialog.locator('.fc-help-point')).toBeVisible({ visible: !tap });
+  for (const step of ['hearing', 'state']) {
+    const item = dialog.locator(`.fc-map [data-fc-cell="${step}"] .fc-art-item`).first();
+    const card = item.locator('.fc-art-card');
+    await expect(card).toBeHidden();
+    await act(item.locator('[data-fc-art]'));
+    await expect(card).toBeVisible();
+    await expect(card.locator('.fc-art-title')).not.toBeEmpty();
+    await expect(card.locator('.fc-art-open')).toHaveText(
+      /^Open the (case|rule|concept|statute|note|entry) →$/,
+    );
+    await expect(activeHeading(page)).toHaveText('Which adjudication statute applies?');
+  }
+  const card = dialog.locator('.fc-map [data-fc-cell="state"] .fc-art-card').first();
+  const href = await card.getAttribute('href');
+  await act(card);
+  await expect(page).toHaveURL(routeFor(href));
+  await expect(dialog).toBeHidden();
+  await page.goBack();
+  await expect(dialog).toBeVisible();
+  await expect(activeHeading(page)).toHaveText('Which adjudication statute applies?');
+}
+
+/* Fitted to the window, the chart's words are too small to read: every step is listed in the room the
+   chart leaves, beside it on a wide window, with its number and its words in full. */
+async function fitted(page, tap) {
+  const dialog = courseDialog(page);
+  const act = (target) => (tap ? target.tap() : target.click());
+  await page.goto(routeFor('#flowchart=LRS-15'));
+  await act(dialog.locator('[data-flowcharts-view="map"]'));
+  await expect(dialog.locator('.fc-index')).toBeHidden();
+  await act(dialog.locator('[data-flowcharts-zoom="fit"]'));
+  const rows = dialog.locator('.fc-index [data-fc-row]');
+  await expect(rows).toHaveCount(23);
+  await expect(rows.first()).toBeVisible();
+  const state = await dialog.locator('.fc-map').evaluate((map) => {
+    const scroll = map.querySelector('.fc-map-scroll').getBoundingClientRect();
+    const index = map.querySelector('.fc-index').getBoundingClientRect();
+    return {
+      beside: index.left >= scroll.right - 1,
+      below: index.top >= scroll.bottom - 1,
+      cut: [...map.querySelectorAll('.fc-index-q')].filter((q) => q.scrollWidth > q.clientWidth + 1).length,
+      labels: [...map.querySelectorAll('.fc-overview .fc-over')].every((label) => {
+        const at = label.getBoundingClientRect();
+        return !at.width || (at.left >= scroll.left - 1 && at.right <= scroll.right + 1);
+      }),
+    };
+  });
+  assert.equal(state.beside, !tap, 'on a wide window the steps are listed beside the fitted chart');
+  assert.equal(state.below, !!tap, 'on a phone they are listed under it');
+  assert.equal(state.cut, 0, 'no step in the list is cut short');
+  assert.ok(state.labels, "the first fork's answers are whole beside the fitted chart");
+  await act(rows.nth(13).locator('button'));
+  await expect(activeHeading(page)).toHaveText('Which adjudication statute applies?');
+  await act(dialog.locator('[data-flowcharts-zoom="reset"]'));
+  await expect(dialog.locator('.fc-index')).toBeHidden();
 }
 
 try {
@@ -263,7 +352,8 @@ try {
       .first(),
   ).toBeVisible();
   await page.goBack();
-  await expect(page).toHaveURL(routeFor('#flowchart=K-16'));
+  // The address follows the step being shown.
+  await expect(page).toHaveURL(routeFor('#flowchart=K-16&step=b'));
   await expect(dialog).toBeVisible();
   await expect(activeHeading(page)).toHaveText('Do the writings establish an agreement?');
 
@@ -314,6 +404,8 @@ try {
   await expect(page).toHaveURL(routeFor(''));
   await trip(page, '#flowchart=LRS-15', false);
   await trip(page, '#flowchart=LRS-15&step=order', false);
+  await drawings(page, false);
+  await fitted(page, false);
   assert.deepEqual(desktop.errors, []);
   await desktop.context.close();
 
@@ -402,6 +494,8 @@ try {
   }
   await trip(phone, '#flowchart=LRS-15', true);
   await trip(phone, '#flowchart=LRS-15&step=order&from=lrs-o-hearing-trigger', true);
+  await drawings(phone, true);
+  await fitted(phone, true);
   assert.deepEqual(mobile.errors, []);
   await mobile.context.close();
   console.log(
