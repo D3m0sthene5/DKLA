@@ -129,20 +129,27 @@
     const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
     return m ? MONTHS[+m[2] - 1] + ' ' + +m[3] : '';
   };
-  const extra = new Map();
+  // Replaced whole when the records are collected again, so a reader never sees a half-filled list.
+  let extra = new Map();
+  // These blocks are in the page and never change, so each is parsed once (an empty or missing one is asked again).
+  const blocks = new Map();
   function block(id) {
+    if (blocks.has(id)) return blocks.get(id);
     try {
-      return JSON.parse(document.getElementById(id)?.textContent || 'null');
+      const value = JSON.parse(document.getElementById(id)?.textContent || 'null');
+      if (value) blocks.set(id, value);
+      return value;
     } catch {
       return null;
     }
   }
-  function record(x) {
-    x.parts = x.parts.map((p) => ({ place: 'elsewhere', ...p, text: prose(p.text) })).filter((p) => p.text);
-    extra.set(x.key, x);
-  }
-  function collectExtras() {
-    extra.clear();
+  // A generator, so the index can pause between records (each yield) and let the page respond.
+  function* collectExtras() {
+    const next = new Map();
+    const record = (x) => {
+      x.parts = x.parts.map((p) => ({ place: 'elsewhere', ...p, text: prose(p.text) })).filter((p) => p.text);
+      next.set(x.key, x);
+    };
     const title = (id) => nodesById.get(id)?.title || '';
     for (const chart of block('dklaFlowchartsData') || []) {
       const course = { K: 'contracts', CP: 'civil', LRS: 'lrs' }[chart.id.split('-')[0]] || null;
@@ -190,6 +197,7 @@
           { field: 'tags', label: 'Other subjects it touches', text: touched.join('; ') },
         ],
       });
+      yield;
     }
     for (const deck of block('dklaLecturesData') || []) {
       const course = COURSES[deck.course] ? deck.course : null;
@@ -216,6 +224,7 @@
           { field: 'tags', label: 'Course', text: COURSES[course].name },
         ],
       });
+      yield;
     }
     for (const c of block('dklaCanonsData') || []) {
       record({
@@ -237,6 +246,7 @@
           { field: 'tags', label: 'Topic', text: c.category },
         ],
       });
+      yield;
     }
     // LRS classes have no entry of their own on the map (Contracts assignments and Civil Procedure weeks do).
     const classes = (typeof data !== 'undefined' && data.lrsCorpus?.classes) || [];
@@ -267,67 +277,200 @@
           },
         ],
       });
+      yield;
     }
+    extra = next;
   }
 
-  let ms = null,
-    building = false,
-    pending = null,
-    idle = null,
-    generation = 0;
+  /* ---------- the index: built once, in short slices, then kept up to date ---------- */
+  // Until v3.2 every rebuildIndex() from a start-up script queued a whole build (half a second in one task, three
+  // or four times over). Now a change only marks the index stale. The first build starts when the atlas is shown
+  // and runs in slices of a few milliseconds that give way to typing, clicks and drawing; later changes replace
+  // only the documents whose text changed. A search never sees an unfinished or stale index: it finishes the
+  // remaining work first (ensure()).
+  const FIELDS = OPTS.fields;
+  const SLICE = 6; // milliseconds of indexing before giving the page a turn
+  let ms = null, // the finished index searches read
+    draft = null, // the first index while it is being filled
+    docs = new Map(), // id → the document the index holds for it
+    stale = true, // the content may have changed since the index was last brought up to date
+    job = null, // the work in progress (a generator), or null
+    queued = false,
+    started = false;
   // documents counts the map's entries; extras the flowcharts, lectures, canons and LRS classes beside them.
-  const stats = { ms: 0, documents: 0, extras: 0, builds: 0 };
-  function build() {
-    pending = null;
-    building = true;
-    const began = performance.now();
+  // builds counts whole builds (one per page, unless a check asks for another); updates counts the later passes
+  // that changed some documents; longestSlice is the longest single stretch of indexing, in milliseconds.
+  const stats = {
+    ms: 0,
+    documents: 0,
+    extras: 0,
+    builds: 0,
+    updates: 0,
+    changed: 0,
+    slices: 0,
+    longestSlice: 0,
+    finishedInOneGo: 0,
+    ready: false,
+  };
+  const sameDocument = (a, b) => FIELDS.every((f) => a[f] === b[f]);
+  // What the index should hold now: one document per entry, then one per flowchart, lecture, canon and class.
+  function* wanted(out) {
+    for (const n of data.nodes.slice()) {
+      out.set(n.id, searchDocument(n));
+      yield;
+    }
     try {
-      const m = new MiniSearch(OPTS);
-      m.addAll(data.nodes.map(searchDocument));
-      try {
-        collectExtras();
-      } catch (err) {
-        console.warn('search extras', err);
-        extra.clear();
+      yield* collectExtras();
+    } catch (err) {
+      console.warn('search extras', err);
+      extra = new Map();
+    }
+    for (const x of extra.values()) out.set(x.key, documentFrom(x.key, x.parts));
+  }
+  // The work, as steps: each yield is a point where it may pause. Run to the end it leaves `ms` matching the
+  // content. A change that arrives while it runs sets `stale` again and is picked up by another pass.
+  function* work() {
+    while (stale) {
+      stale = false;
+      const want = new Map();
+      yield* wanted(want);
+      yield;
+      if (!ms) {
+        // First build: documents go in, in the order the old one-task build used.
+        const m = (draft = new MiniSearch(OPTS)),
+          held = new Map();
+        for (const [id, doc] of want) {
+          m.add(doc);
+          held.set(id, doc);
+          yield;
+        }
+        draft = null;
+        ms = m;
+        docs = held;
+        stats.builds++;
+      } else {
+        // Later: only what changed. The old version is taken out whole (remove() is given the document the
+        // index holds, so no trace of it is left to skew the ranking) and the new one is added.
+        let changed = 0;
+        for (const [id, old] of [...docs])
+          if (!want.has(id)) {
+            ms.remove(old);
+            docs.delete(id);
+            changed++;
+            yield;
+          }
+        for (const [id, doc] of want) {
+          const old = docs.get(id);
+          if (old && sameDocument(old, doc)) continue;
+          if (old) ms.remove(old);
+          ms.add(doc);
+          docs.set(id, doc);
+          changed++;
+          yield;
+        }
+        if (changed) {
+          stats.updates++;
+          stats.changed += changed;
+        }
       }
-      m.addAll([...extra.values()].map((x) => documentFrom(x.key, x.parts)));
-      ms = m;
-      generation++;
       partsCache.clear();
-      stats.ms = Math.round(performance.now() - began);
       stats.documents = data.nodes.length;
       stats.extras = extra.size;
-      stats.builds++;
+    }
+  }
+  function failed(err) {
+    console.warn('search index', err);
+    // Start again from nothing at the next use; the plain scan answers meanwhile.
+    job = draft = ms = null;
+    docs = new Map();
+    stats.ready = false;
+  }
+  // Run the work for one slice (or, with `whole`, to its end). True when nothing is left to do.
+  function advance(whole) {
+    const began = performance.now();
+    try {
+      if (!job) job = work();
+      for (;;) {
+        if (job.next().done) {
+          job = null;
+          if (!stale) break;
+          job = work();
+        }
+        if (!whole && performance.now() - began >= SLICE) break;
+      }
     } catch (err) {
-      console.warn('search index', err);
-      ms = null;
+      failed(err);
+      stale = false; // do not spin on a failing build; the next change or search tries again
+      return true;
     }
-    building = false;
-  }
-  // One build, however many times the start-up scripts patch the content and call rebuildIndex: each call
-  // pushes the same deferred build back, instead of queuing another second of indexing on the main thread.
-  function schedule(delay) {
-    if (pending) clearTimeout(pending);
-    if (idle !== null && 'cancelIdleCallback' in window) {
-      cancelIdleCallback(idle);
-      idle = null;
+    const took = performance.now() - began;
+    stats.ms += took;
+    if (whole) stats.finishedInOneGo++;
+    else {
+      stats.slices++;
+      if (took > stats.longestSlice) stats.longestSlice = Math.round(took * 10) / 10;
     }
-    pending = setTimeout(build, delay);
+    if (!job) {
+      stats.ms = Math.round(stats.ms);
+      stats.ready = !!ms;
+    }
+    return !job;
   }
-  if ('requestIdleCallback' in window)
-    idle = requestIdleCallback(
-      () => {
-        idle = null;
-        if (!pending) build();
-      },
-      { timeout: 1500 },
-    );
-  else schedule(300);
+  // The next slice is an ordinary task: typing, clicks and drawing come before it, and it never waits for the
+  // page to fall idle (on a slow machine a busy page is never idle, and the index would not be ready when the
+  // search box is first used).
+  function later(fn) {
+    if (window.scheduler?.postTask) scheduler.postTask(fn, { priority: 'user-visible' }).catch(() => {});
+    else setTimeout(fn, 0);
+  }
+  function pump() {
+    if (queued || !started || (!stale && !job)) return;
+    queued = true;
+    later(() => {
+      queued = false;
+      if (!stale && !job) return;
+      if (!advance(false)) pump();
+    });
+  }
+  // Bring the index up to date now (a search is about to read it).
+  function ensure() {
+    if (stale || job || !ms) {
+      if (!ms && !job) stale = true;
+      advance(true);
+    }
+    return ms;
+  }
+  function begin() {
+    if (started) return;
+    started = true;
+    pump();
+  }
+  // Start-up scripts change the content until the atlas is shown, so the build waits for that moment
+  // (html.dkla-boot-ready). A page that never gets there still builds, a few seconds after it has loaded.
+  {
+    const root = document.documentElement;
+    if (root.classList.contains('dkla-boot-ready')) begin();
+    else {
+      const watch = new MutationObserver(() => {
+        if (!root.classList.contains('dkla-boot-ready')) return;
+        watch.disconnect();
+        begin();
+      });
+      watch.observe(root, { attributes: true, attributeFilter: ['class'] });
+      const fallback = () => setTimeout(begin, 8000);
+      if (document.readyState === 'complete') fallback();
+      else addEventListener('load', fallback, { once: true });
+    }
+  }
+  $('search')?.addEventListener('focus', begin);
+  $('search')?.addEventListener('pointerdown', begin);
   const priorRebuild = typeof rebuildIndex === 'function' ? rebuildIndex : null;
   if (priorRebuild)
     rebuildIndex = function (...a) {
       const r = priorRebuild.apply(this, a);
-      schedule(400);
+      stale = true;
+      stats.ready = false;
+      pump();
       return r;
     };
   const norm = (s) =>
@@ -742,6 +885,12 @@
     }
     return { hits, some };
   }
+  const hitsFor2 = (index, q) => {
+    const strict = index.search(q, searchOptions(q));
+    return strict.length || tokenize(q).length < 2
+      ? strict
+      : index.search(q, searchOptions(q, { combineWith: 'OR' }));
+  };
   function rowHTML(r) {
     const opens = r.type === 'node' || r.type === 'region' || r.type === 'district',
       keyed = r.type !== 'region' && r.type !== 'district';
@@ -762,7 +911,9 @@
       closeSearch();
       return;
     }
-    if (!ms) {
+    // The index is finished and brought up to date before it is read. Only if it cannot be built does the plain
+    // scan answer.
+    if (!ensure()) {
       prior();
       return;
     }
@@ -1254,7 +1405,7 @@
   const LATE = ['dklaGlossary'];
   function fetchLate() {
     const api = window.DKLAData;
-    if (api) for (const id of LATE) if (api.isLazy(id)) api.text(id).catch(() => {});
+    if (api) for (const id of LATE) if (api.isLazy(id)) (api.request || api.text)(id).catch(() => {});
   }
   // The modules that add rows to a list (dictionary, sources, briefs, timelines, authorities) each skip a list they
   // have already seen for the box's words. Forgetting those marks lets them add their rows to the redrawn list.
@@ -1279,7 +1430,7 @@
   window.DKLA = Object.assign(window.DKLA || {}, {
     // Draw the open results again for the same words (for a module whose rows have just become available).
     refreshSearch,
-    searchIndex: () => ms,
+    searchIndex: () => ensure(),
     // The course, number and remaining words a query names, or null ("LRS Class 22").
     searchCourseIntent: (q) => courseIntent(q),
     searchIndexStats: stats,
@@ -1287,14 +1438,32 @@
     // Where each indexed part of an entry is shown: {field, label, place}.
     searchParts: (id) => readable(id).map(({ field, label, place }) => ({ field, label, place })),
     searchExplain: (id, q) => {
+      const index = ensure();
       const hit =
-        ms?.search(q, searchOptions(q)).find((h) => h.id === id) ||
-        ms?.search(q, searchOptions(q, { combineWith: 'OR' })).find((h) => h.id === id);
+        index?.search(q, searchOptions(q)).find((h) => h.id === id) ||
+        index?.search(q, searchOptions(q, { combineWith: 'OR' })).find((h) => h.id === id);
       return hit ? explain(hit, q) : null;
     },
+    // For the checks. The ranked ids and scores of a query from the index in use, and from an index built the
+    // old way (every document added in one go) from the same content.
+    searchHits: (q) =>
+      hitsFor2(ensure(), q).map((h) => ({ id: h.id, score: h.score, terms: h.terms, match: h.match })),
+    searchReference: () => {
+      const m = new MiniSearch(OPTS);
+      const want = new Map();
+      for (const step of wanted(want)) void step;
+      m.addAll([...want.values()]);
+      return (q) => hitsFor2(m, q).map((h) => ({ id: h.id, score: h.score, terms: h.terms, match: h.match }));
+    },
+    // Throw the index away and build it again in one go; returns the milliseconds it took.
     rebuildSearchIndex: () => {
-      build();
-      return stats.ms;
+      const began = performance.now();
+      job = draft = ms = null;
+      docs = new Map();
+      stale = true;
+      started = true;
+      advance(true);
+      return Math.round(performance.now() - began);
     },
   });
 })();

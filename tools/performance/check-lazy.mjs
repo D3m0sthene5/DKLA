@@ -83,13 +83,19 @@ async function context(options = {}) {
 async function open(ctx) {
   const page = await ctx.newPage();
   page.on('pageerror', (error) => errors.push(error.message));
-  const dataRequests = [];
+  // v3.2: a large block is fetched by the loader's worker, whose requests are not in the page's own
+  // resource timings, so the time of each request is noted here, as this check sees it start.
+  const dataRequests = [],
+    dataRequestTimes = [];
   page.on('request', (request) => {
-    if (new URL(request.url()).pathname.includes('/assets/data/')) dataRequests.push(request.url());
+    if (new URL(request.url()).pathname.includes('/assets/data/')) {
+      dataRequests.push(request.url());
+      dataRequestTimes.push(Date.now());
+    }
   });
   await page.goto(address.href, { waitUntil: 'domcontentloaded', timeout: 120000 });
   await page.locator('html.dkla-boot-ready').waitFor({ timeout: 120000 });
-  return { page, dataRequests };
+  return { page, dataRequests, dataRequestTimes };
 }
 const allLoaded = (page) =>
   page.waitForFunction((ids) => ids.every((id) => DKLAData.loaded(id)), ids, { timeout: 60000 });
@@ -247,13 +253,11 @@ try {
   );
   const b = await open(second);
   await allLoaded(b.page);
-  const timing = await b.page.evaluate(() => ({
-    ready: window.__bootReadyAt,
-    starts: performance
-      .getEntriesByType('resource')
-      .filter((e) => e.name.includes('/assets/data/'))
-      .map((e) => e.startTime),
-  }));
+  const timing = {
+    // The moment the atlas was shown, on the wall clock, to compare with the request times noted above.
+    ready: await b.page.evaluate(() => performance.timeOrigin + window.__bootReadyAt),
+    starts: b.dataRequestTimes.slice(),
+  };
   assert.equal(b.dataRequests.length, 2 * ids.length, 'one failed and one successful request per block');
   const late = timing.starts.filter((t) => t >= timing.ready);
   assert.ok(

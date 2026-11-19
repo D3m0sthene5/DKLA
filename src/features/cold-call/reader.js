@@ -93,8 +93,10 @@
       })
       .map((html) => `<p>${html}</p>`)
       .join('');
-  function sectionHTML(s, i) {
-    const term = glossing?.section();
+  // `plain` draws the episode without definitions or markers (see show(): the later episodes of a long account
+  // are drawn plain first and marked a moment later).
+  function sectionHTML(s, i, plain = false) {
+    const term = plain ? null : glossing?.section();
     return `<section class="cc-section" id="cc-section-${esc(s.id)}" data-cc-section="${i}" aria-labelledby="cc-heading-${esc(s.id)}"><p class="cc-kicker">${String(i + 1).padStart(2, '0')} / ${current.sections.length}</p><h3 id="cc-heading-${esc(s.id)}" tabindex="-1">${esc(s.title)}</h3>${paragraphs(s, i, term)}${s.followUp ? `<details class="cc-followup"><summary>${esc(s.followUp.question)}</summary><p>${term ? term.text(s.followUp.answer, `${i}.followUp-answer`) : esc(s.followUp.answer)}</p>${citations(s.followUp.sources)}</details>` : ''}${citations(s.sources)}</section>`;
   }
   // Opened before the narratives or the definition tables have arrived: a calm loading state, then the account.
@@ -142,6 +144,23 @@
     if (!already) returnTo = remember(trigger);
     dialog.dataset.course = c.course;
     glossing = gloss?.begin(c.id, c.title) || null;
+    // v3.2: marking the defined words is the slow part of drawing an account. The first episode is marked
+    // now, and further ones for as long as that has taken under MARK_FIRST milliseconds; the rest are drawn
+    // as plain text, so the reader is on screen at once, and marked right after it (markRest), in order.
+    // (Where nothing can be put off, or a check asks through DKLAColdCall.markAtOnce, all are marked now.)
+    const later =
+      typeof performance === 'object' &&
+      typeof requestAnimationFrame === 'function' &&
+      !window.DKLAColdCall?.markAtOnce;
+    const began = later ? performance.now() : 0;
+    let unmarked = c.sections.length;
+    const episodes = c.sections
+      .map((s, i) => {
+        if (later && glossing && i && i < unmarked && performance.now() - began > MARK_FIRST) unmarked = i;
+        return sectionHTML(s, i, i >= unmarked);
+      })
+      .join('');
+    const ticket = ++marking;
     const brief =
       c.sources.find((s) => s.briefId === c.briefId && s.briefId) || c.sources.find((s) => s.briefId);
     dialog.innerHTML = `<header class="cc-header">
@@ -155,7 +174,7 @@
         </div></details>
       <div id="ccScroll" tabindex="0" role="region" aria-label="Cold call reading area">
         <article id="ccNarrative">${c.notice ? `<p class="cc-notice">${esc(c.notice)}</p>` : ''}
-          ${c.sections.map(sectionHTML).join('')}
+          ${episodes}
           <footer class="cc-end">${
             c.limits
               ? `<details class="cc-scope"><summary>Scope of this decision</summary>${lines(c.limits)
@@ -181,10 +200,70 @@
     else $('ccClose').focus();
     $('ccScroll').scrollTop = memory.get(id)?.top || 0;
     track();
+    if (unmarked < c.sections.length) {
+      dialog.dataset.ccMarked = 'pending';
+      markRest(c, unmarked, ticket);
+    } else markDone(ticket);
+  }
+  // The episodes still drawn as plain text get their definitions and markers, in reading order, a few
+  // milliseconds at a time; then the hidden descriptions the links point to are written again, complete.
+  // The finished account is the same as one marked in a single pass.
+  const MARK_FIRST = 8,
+    MARK_SLICE = 6;
+  let marking = 0,
+    markWaiters = [];
+  const soon = (fn) => {
+    if (window.scheduler?.postTask) scheduler.postTask(fn, { priority: 'user-visible' }).catch(() => {});
+    else setTimeout(fn, 0);
+  };
+  function markDone(ticket) {
+    if (ticket !== marking) return;
+    dialog.dataset.ccMarked = 'done';
+    for (const resolve of markWaiters.splice(0)) resolve();
+  }
+  function markRest(c, from, ticket) {
+    let i = from;
+    const step = () => {
+      if (ticket !== marking || current !== c || !dialog.open) return;
+      const startedAt = performance.now();
+      do {
+        const section = dialog.querySelector(`[data-cc-section="${i}"]`);
+        // A definition card open on this episode keeps its word: wait until it is closed.
+        if (section?.querySelector('[aria-expanded="true"]')) {
+          setTimeout(step, 200);
+          return;
+        }
+        if (section) {
+          const open = !!section.querySelector('details.cc-followup')?.open,
+            focused = section.contains(document.activeElement) ? document.activeElement.id : '';
+          section.outerHTML = sectionHTML(c.sections[i], i);
+          const fresh = dialog.querySelector(`[data-cc-section="${i}"]`),
+            followUp = fresh.querySelector('details.cc-followup');
+          if (open && followUp) followUp.open = true;
+          if (focused) document.getElementById(focused)?.focus({ preventScroll: true });
+        }
+        i++;
+      } while (i < c.sections.length && performance.now() - startedAt < MARK_SLICE);
+      if (i < c.sections.length) {
+        soon(step);
+        return;
+      }
+      const article = $('ccNarrative');
+      article
+        .querySelectorAll(':scope > .cc-gloss-descs, :scope > .cc-plain-descs')
+        .forEach((el) => el.remove());
+      article.insertAdjacentHTML('beforeend', glossing.descriptions());
+      markDone(ticket);
+    };
+    // After the reader's first frame has been drawn.
+    requestAnimationFrame(() => soon(step));
   }
   function close() {
     if (!dialog.open) return;
     gloss?.close();
+    marking++;
+    delete dialog.dataset.ccMarked;
+    for (const resolve of markWaiters.splice(0)) resolve();
     if (waiting) waiting = 0;
     else if (current) memory.set(current.id, { top: $('ccScroll').scrollTop });
     dialog.close();
@@ -353,6 +432,11 @@
     cases: () => [...cases.keys()],
     coverage: () => ({ ...dataset?.coverage }),
     loaded: () => !!dataset,
+    /** Resolves when every episode of the open account has its definitions (at once if none is open). */
+    marked: () =>
+      dialog.dataset.ccMarked === 'pending'
+        ? new Promise((resolve) => markWaiters.push(resolve))
+        : Promise.resolve(),
     /** Resolves when the narratives are in (fetching them if they are still to come). */
     whenLoaded: () => load().then(() => {}),
   };

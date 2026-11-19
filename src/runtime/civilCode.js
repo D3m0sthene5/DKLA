@@ -454,67 +454,169 @@ function r7GetStored() {
 }
 /* v2.7: the start-up layers (briefs, plain, audit, fit, rules, syllabus) each call saveCache after patching the
    graph. Copying and writing the whole graph once per caller cost seconds on the main thread, so a call now
-   schedules one snapshot a moment later and later calls fold into it. The copy is taken when the timer fires,
-   so it holds every change made up to then. */
-let r7SaveTimer = 0;
+   schedules one write a moment later and later calls fold into it. The graph is read when the write is made,
+   so it holds every change made up to then.
+   v3.2: three more things, because the write of the whole graph was the longest freeze after most actions.
+   - The graph is handed to IndexedDB as it is. IndexedDB makes its own copy as put() is called, so the extra
+     copy through JSON that used to precede it (half of the cost) is gone. A graph the browser cannot copy that
+     way is copied through JSON as before.
+   - After the quarter second, a write that is not an edit (the start-up corrections) waits for an idle moment
+     (two seconds at most); an edit is written at once, as before. Closing or hiding the tab, Refresh and
+     LegalAtlas.flush still write at once (r7FlushSave); the write is started inside that event, not after
+     it, and committed explicitly, so it survives the page going away.
+   - Moving the map, opening an entry or scrolling the reader changes only the view (studyMap.view), which is
+     never read back at start-up: the atlas always opens at Home. Those no longer write the graph at all; the
+     view stays current in memory and goes out with the next real save or export (r7ViewChanged below). */
+let r7SaveTimer = 0, // non-zero while a write is waiting (the checks and the unload guard read it)
+  r7SaveIdle = 0,
+  r7Wanted = false, // a save was asked for before storage was ready
+  r7Saved = null, // r7Print() of the graph as last handed to IndexedDB, or null when unknown
+  r7SavedRevision = data.revision, // its revision (the seed's until something is written or opened)
+  r7ConfirmedRevision = data.revision, // the revision of the newest write the browser has confirmed
+  r7ConfirmedSerial = 0;
+const r7SaveStats = { writes: 0, viewOnly: 0, jsonCopies: 0 };
+// A cheap description of everything that an action outside an edit could change: the revision and its date
+// (every edit, undo and import moves them), the counts, and the whole map layout except the view.
+function r7Print() {
+  try {
+    const m = data.studyMap || {};
+    return [
+      data.revision,
+      data.updatedAt,
+      data.nodes.length,
+      data.edges.length,
+      (data.history || []).length,
+      ...Object.keys(m).map((k) => (k === 'view' ? k : k + JSON.stringify(m[k]))),
+    ].join('\u0001');
+  } catch {
+    return null;
+  }
+}
+function r7Unschedule() {
+  if (r7SaveTimer) clearTimeout(r7SaveTimer);
+  if (r7SaveIdle) cancelIdleCallback(r7SaveIdle);
+  r7SaveTimer = r7SaveIdle = 0;
+}
 saveCache = function () {
   $('undoBtn').disabled = !undoStack.length;
-  if (!r7Ready) return;
+  if (!r7Ready) {
+    r7Wanted = true;
+    return;
+  }
   if (!r7DB) {
     $('saveStatus').textContent = 'Session only · use Save to keep edits';
     return;
   }
   $('saveStatus').textContent = 'Saving locally…';
-  if (r7SaveTimer) clearTimeout(r7SaveTimer);
-  r7SaveTimer = setTimeout(r7SaveNow, 250);
+  r7Unschedule();
+  r7SaveTimer = setTimeout(() => {
+    // An edit, undo or import (each moves the revision) is written now. Anything else (the start-up layers'
+    // corrections, which are applied again at every start) waits for an idle moment.
+    if (data.revision === r7SavedRevision && typeof requestIdleCallback === 'function')
+      r7SaveIdle = requestIdleCallback(r7SaveNow, { timeout: 2000 });
+    else r7SaveNow();
+  }, 250);
 };
 function r7SaveNow() {
-  r7SaveTimer = 0;
+  r7Unschedule();
   if (!r7DB) return;
   const serial = ++r7SaveSerial,
-    snapshot = clone(data);
-  r7SavePending = r7SavePending
-    .catch(() => {})
-    .then(
-      () =>
-        new Promise((resolve, reject) => {
-          let done = false,
-            tx = null;
-          const failed = (error) => {
-            if (done) return;
-            done = true;
-            cacheAvailable = false;
-            if (serial === r7SaveSerial)
-              $('saveStatus').textContent = 'Session only · export to keep your work';
-            warning('Local browser saving failed. Export master JSON or portable HTML before closing.');
-            reject(
-              (error instanceof Error && error) || tx?.error || Error('Local browser saving was aborted.'),
-            );
-          };
-          try {
-            tx = r7DB.transaction('graphs', 'readwrite');
-            tx.objectStore('graphs').put(snapshot, storageKey());
-          } catch (error) {
-            // The browser can refuse at once (a connection iOS dropped in the background, a value it
-            // cannot store): mark saving unavailable so the unload guard and Refresh know.
-            failed(error);
-            return;
-          }
-          tx.oncomplete = () => {
-            if (done) return;
-            done = true;
-            cacheAvailable = true;
-            if (serial === r7SaveSerial) $('saveStatus').textContent = 'Saved locally · export for backup';
-            resolve();
-          };
-          tx.onerror = () => failed();
-          // A write the browser refuses when it commits (no room left, for one) fires only 'abort'.
-          // Without this the save would never finish, and every later save waits on it forever.
-          tx.onabort = () => failed();
-        }),
-    );
+    print = r7Print(),
+    revision = data.revision;
+  const write = new Promise((resolve, reject) => {
+    let done = false,
+      tx = null;
+    const failed = (error) => {
+      if (done) return;
+      done = true;
+      cacheAvailable = false;
+      // Not saved: the next change of any kind, the view included, tries the whole graph again.
+      r7Saved = null;
+      if (serial === r7SaveSerial) $('saveStatus').textContent = 'Session only · export to keep your work';
+      warning('Local browser saving failed. Export master JSON or portable HTML before closing.');
+      reject((error instanceof Error && error) || tx?.error || Error('Local browser saving was aborted.'));
+    };
+    try {
+      tx = r7DB.transaction('graphs', 'readwrite');
+      const store = tx.objectStore('graphs');
+      try {
+        store.put(data, storageKey());
+      } catch (error) {
+        if (error?.name !== 'DataCloneError') throw error;
+        r7SaveStats.jsonCopies++;
+        store.put(clone(data), storageKey());
+      }
+      r7SaveStats.writes++;
+      r7Saved = print;
+      r7SavedRevision = data.revision;
+      // Ask the browser to commit now instead of when it next hears from this page. A write started as the
+      // tab closes or reloads is otherwise dropped: the page is gone before it can answer, and the browser
+      // abandons the transaction (an edit made in the last moment before a reload was lost that way).
+      try {
+        tx.commit?.();
+      } catch {
+        /* an older browser, or already committing: it commits by itself */
+      }
+    } catch (error) {
+      // The browser can refuse at once (a connection iOS dropped in the background, a value it
+      // cannot store): mark saving unavailable so the unload guard and Refresh know.
+      failed(error);
+      return;
+    }
+    tx.oncomplete = () => {
+      if (done) return;
+      done = true;
+      cacheAvailable = true;
+      if (serial > r7ConfirmedSerial) {
+        r7ConfirmedSerial = serial;
+        r7ConfirmedRevision = revision;
+      }
+      if (serial === r7SaveSerial) $('saveStatus').textContent = 'Saved locally · export for backup';
+      resolve();
+    };
+    tx.onerror = () => failed();
+    // A write the browser refuses when it commits (no room left, for one) fires only 'abort'.
+    // Without this the save would never finish, and every later save waits on it forever.
+    tx.onabort = () => failed();
+  });
+  write.catch(() => {});
+  // Writes to one store finish in the order they were started; the promise settles as the newest one does.
+  r7SavePending = r7SavePending.catch(() => {}).then(() => write);
   r7SavePending.catch(() => {});
 }
+// The view changed (camera, open entry, reader scroll, an opened drawer) and nothing else did: no write. If
+// anything in r7Print() differs from what was last written, or a write is already waiting or failed, this is
+// an ordinary save.
+function r7ViewChanged() {
+  if (!r7Ready || !r7DB || r7SaveTimer || r7Saved === null || r7Print() !== r7Saved) {
+    saveCache();
+    return;
+  }
+  r7SaveStats.viewOnly++;
+  $('undoBtn').disabled = !undoStack.length;
+}
+// studyCode.js calls deferPersist() after every camera move and selection; its timer stored the view and then
+// saved the whole graph. Same half second, same stored view, without the graph write.
+{
+  const original = deferPersist;
+  deferPersist = function () {
+    clearTimeout(persistTimer);
+    persistTimer = setTimeout(() => {
+      storeView();
+      r7ViewChanged();
+    }, 500);
+  };
+  // The reader's scroll listener was registered with the original function itself.
+  $('inspector').removeEventListener('scroll', original, { passive: true });
+  $('inspector').addEventListener('scroll', deferPersist, { passive: true });
+}
+// An edit (undo and import included) whose write the browser has not confirmed yet. A write started as the
+// tab goes usually lands, but not always on a slow device (the graph is several megabytes), so the unload guard
+// in appCode.js asks before leaving while this is true: a fraction of a second after an edit, no longer.
+function r7EditUnconfirmed() {
+  return !!r7DB && cacheAvailable && data.revision !== r7ConfirmedRevision;
+}
+window.DKLASaveStats = r7SaveStats;
 // Write a snapshot that is still waiting on its timer now, then wait for every write to finish. Refresh
 // (the update notice) and LegalAtlas.flush use it, so a reload never drops the last quarter second of edits.
 function r7FlushSave() {
@@ -649,6 +751,9 @@ schedule();
       rebuildIndex();
       home('Atlas', false, false);
       S.history = [];
+      // v3.2: what is open is what is stored, so it is not written straight back (see `finally`).
+      r7Saved = r7Print();
+      r7SavedRevision = r7ConfirmedRevision = data.revision;
     }
     cacheAvailable = true;
     $('storageWarning').hidden = true;
@@ -663,6 +768,9 @@ schedule();
     renderHeading();
     schedule();
     r7OpenHash();
-    saveCache();
+    // A first visit (or a graph that replaced the stored one) is written now. A stored graph that was just
+    // opened unchanged is not: each start-up layer that alters it asks for its own save.
+    if (r7Saved === null || r7Wanted) saveCache();
+    else $('saveStatus').textContent = 'Saved locally · export for backup';
   }
 })();

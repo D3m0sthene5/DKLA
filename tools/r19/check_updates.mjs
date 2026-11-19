@@ -199,6 +199,9 @@ try {
     const real = r7DB.transaction;
     r7DB.transaction = function (...args) {
       const tx = real.apply(this, args);
+      // v3.2: the save asks for its commit at once (tx.commit()). Here the browser is to abort the write as
+      // it commits, so that request is held back and the abort below is what ends the transaction.
+      tx.commit = () => {};
       const objectStore = tx.objectStore.bind(tx);
       tx.objectStore = (name) => {
         const store = objectStore(name);

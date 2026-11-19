@@ -67,6 +67,38 @@ first; the motion tokens are in `src/features/v31/tokens.css`.
   reader's way out starts only after the map has refitted (the refit blocks the page for a moment
   when the reader closes; that is map work); `pnpm views:update` on the owner's PC (dialog scrims are
   no longer blurred, so every picture with a dialog changes slightly).
+## Main-thread work (19 November 2026, branch v32-work, not merged or deployed)
+
+Read this with the v3.1 section below. Goal: no freeze at start-up or after an action, nothing a feature does
+changed. Measured with `tools/feel/measure.mjs`; checked by `tools/feel/check-work.mjs` ("no freezes" in
+`pnpm verify`), with breakages in `tools/verify/break.mjs`.
+
+- **Search index** (`src/runtime/dklaR13Search.js`): built once, after the atlas is shown, in slices of about
+  6 ms (`work()`, `advance()`, `pump()`); `rebuildIndex()` only marks it stale and the next pass replaces the
+  documents whose text changed (`remove` + `add`). A search finishes any remaining work first (`ensure()`).
+  `DKLA.searchIndexStats` says how it went; `DKLA.searchHits` and `DKLA.searchReference` are for the checks.
+- **Saving** (`src/runtime/civilCode.js`): the graph goes to IndexedDB as it is (no JSON copy first) and the
+  transaction is committed explicitly. Camera moves, opening an entry and reader scrolling no longer write
+  the graph (`deferPersist` is redefined there; `r7ViewChanged` falls back to a full save if `r7Print()` shows
+  anything but the view changed). An edit is written after 250 ms as before; start-up corrections wait for an
+  idle moment. While an edit's write is unconfirmed the unload guard asks before leaving
+  (`r7EditUnconfirmed`, used in `appCode.js`). Found on the way: before this, an edit made in the last
+  quarter second before a reload was lost every time (the write was never committed).
+- **Start-up**: the seed is parsed once (`saved-work.js` hands it to `appCode.js`).
+- **Cold Call** (`src/features/cold-call/`): the matcher compares plain forms as text instead of building a
+  pattern per form (same links on every narrative); the two tables compile in the background; the reader
+  marks the first episode at once and the rest right after it is shown (`markRest`); hover delay 120 ms.
+- **Dictionary** (`src/runtime/dklaR12Glossary.js`): terms and definitions are normalised once; a keystroke
+  redraws only the list, a pick only the article; one click listener for the dialog.
+- **Search box**: results 16 ms after a keystroke, not 75 (`studyCode.js`, the only change in that file).
+- **Lazy data** (`src/features/performance/data-loader.js`): large blocks are fetched, checked and stored by
+  a worker made from in-page code, decoded a megabyte at a time, parsed in the worker (`json()`), and their
+  text is held beside the element (reading `textContent` returns it) until the window is not in use, the Save
+  menu is used or Ctrl/Cmd+S is pressed. `DKLAData.request(id)` brings a block without reading it.
+- **Still there**: one write of the whole graph per visit (about 40 ms; 160 ms on a 4x slower machine),
+  because five start-up layers (fit, rules22, rlcc, plain, audit) report changes on every start even when the
+  stored graph already has them; the map draw path (not part of this work); the boot copy of the graph
+  (`data = clone(base)` in `appCode.js`).
 
 ## Latest (18 November 2026, v3.1)
 

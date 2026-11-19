@@ -11,6 +11,14 @@
   let graphId, contentBuild, seedLayout;
   try {
     const seed = JSON.parse(document.getElementById('seedData').textContent);
+    // v3.2: the app code that runs next needs the same parsed seed (7 MB). It takes this one, once, instead of
+    // parsing the text a second time; nothing here keeps or changes it.
+    let parsed = seed;
+    state.takeSeed = () => {
+      const value = parsed;
+      parsed = null;
+      return value;
+    };
     graphId = seed.graphId;
     contentBuild = seed.dklaRelease?.contentBuild;
     seedLayout = seed.studyMap?.layoutId;

@@ -24,6 +24,34 @@ const CASE = 'cp-garcia';
 const results = {};
 const card = '#coldCallDialog #ccGlossCard';
 const term = (key) => `#coldCallDialog .cc-term[data-cc-term="${key}"]`;
+// The hover delay (120 ms since v3.2), timed inside the page: from the pointer arriving on a defined word or
+// a plain-English marker to the card being added. (Timed from here, the trips to the browser and back were as
+// long as the delay itself on a busy machine.)
+const watchHover = (page) =>
+  page.evaluate(() => {
+    const seen = (window.__hover = { over: null, shown: null });
+    document.addEventListener(
+      'mouseover',
+      function over(event) {
+        if (!event.target.closest?.('.cc-term, .cc-plain')) return;
+        seen.over = performance.now();
+        document.removeEventListener('mouseover', over, true);
+      },
+      true,
+    );
+    const before = new Set(document.querySelectorAll('.cc-gloss-card'));
+    const watch = new MutationObserver(() => {
+      if (![...document.querySelectorAll('.cc-gloss-card')].some((c) => !before.has(c))) return;
+      seen.shown = performance.now();
+      watch.disconnect();
+    });
+    watch.observe(document.body, { childList: true, subtree: true });
+  });
+const hoverDelay = (page) =>
+  page.evaluate(() => {
+    const { over, shown } = window.__hover;
+    return over === null || shown === null ? -1 : Math.round(shown - over);
+  });
 
 async function openCase(context, id, ready) {
   const page = await context.newPage();
@@ -240,13 +268,11 @@ async function limits(page) {
       // Hover: nothing at once, a card after the short delay, with the definition and its sources.
       await page.mouse.move(5, 5);
       const box = await pointOn(compromised);
-      const began = Date.now();
+      await watchHover(page);
       await page.mouse.move(box.x, box.y, { steps: 2 });
-      await page.waitForTimeout(80);
-      assert.equal(await page.locator(card).count(), 0, 'the card opened without a delay');
       await page.locator(card).waitFor({ state: 'visible', timeout: 2000 });
-      const delay = Date.now() - began;
-      assert.ok(delay >= 200, `card opened after only ${delay} ms`);
+      const delay = await hoverDelay(page);
+      assert.ok(delay >= 100, `the card opened without a delay (${delay} ms after the pointer arrived)`);
       const cardText = await page.locator(card).innerText();
       assert.ok(cardText.includes(gloss), 'card lacks the compromise definition');
       assert.match(cardText, /^compromise/i, 'card headword');
@@ -637,13 +663,14 @@ async function limits(page) {
       await page.locator('#ccScroll').focus();
       await page.mouse.move(5, 5);
       const box = await m.boundingBox();
-      const began = Date.now();
+      await watchHover(page);
       await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2, { steps: 2 });
-      await page.waitForTimeout(80);
-      assert.equal(await page.locator(card).count(), 0, 'the plain card opened without a delay');
       const c = await plainCard(page, info.id, 'Erie hover');
-      const delay = Date.now() - began;
-      assert.ok(delay >= 200, `plain card opened after only ${delay} ms`);
+      const delay = await hoverDelay(page);
+      assert.ok(
+        delay >= 100,
+        `the plain card opened without a delay (${delay} ms after the pointer arrived)`,
+      );
       assert.equal(await c.locator('.cc-gloss-text').innerText(), info.plain, 'Erie: wrong plain text');
       assert.equal(await m.getAttribute('aria-expanded'), 'true');
       const hovered = await licensee(page);
