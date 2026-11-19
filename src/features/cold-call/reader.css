@@ -171,8 +171,8 @@
     20px 17px;
 }
 #coldCallDialog .cc-plate.cc-plate-small .cc-pict {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
 }
 #coldCallDialog .cc-bar-text {
   display: grid;
@@ -1187,31 +1187,30 @@
   padding: 0;
   list-style: none;
 }
+/* A name in the rail is said whole: it wraps onto a second line where it must. */
 #coldCallIndexDialog .cc-ix-jump button {
   display: flex;
   align-items: center;
   gap: var(--v32-s2);
   width: 100%;
-  height: var(--v32-h-row);
-  padding: 0 var(--v32-s3) 0 calc(var(--v32-s3) + var(--v32-s4));
+  min-height: var(--v32-h-row);
+  padding: var(--v32-s2) var(--v32-s3) var(--v32-s2) calc(var(--v32-s3) + var(--v32-s4));
   border: 0;
   border-radius: var(--v32-r-control);
   background: transparent;
   color: var(--v31-muted);
   font: var(--v31-ui);
   text-align: left;
+  text-wrap: balance;
   cursor: pointer;
 }
 #coldCallIndexDialog .cc-ix-jump button:hover {
   background: var(--v32-hover);
   color: var(--v31-text);
 }
-#coldCallIndexDialog .cc-ix-jump button > span:not(.cc-readout) {
+#coldCallIndexDialog .cc-ix-jump button > span {
   flex: 1;
   min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 #coldCallIndexDialog .cc-ix-jump-course button {
   padding-left: var(--v32-s3);
@@ -1328,10 +1327,12 @@
   display: grid;
   margin: 0 calc(-1 * var(--v32-s3));
 }
-/* A row: the glyph for its kind, the caption, the year, the episodes. One line, one height. */
+/* A row: what stands for the case, the caption, the year, the episodes. A case on the map is known by its
+   drawing, at 40 px in a taller row; a supporting case has a small page in the same column and a row of the
+   ordinary height. Rows are one height within a group. */
 #coldCallIndexDialog .cc-ix-row {
   display: grid;
-  grid-template-columns: 16px minmax(0, 1fr) 4ch 11ch;
+  grid-template-columns: 40px minmax(0, 1fr) 4ch 11ch;
   align-items: center;
   column-gap: var(--v32-s3);
   width: 100%;
@@ -1341,6 +1342,9 @@
   color: var(--v31-text);
   font: var(--v31-ui);
   cursor: pointer;
+}
+#coldCallIndexDialog .cc-ix-row-art {
+  height: 56px;
 }
 #coldCallIndexDialog .cc-ix-row:hover {
   background: var(--v32-hover);
@@ -1353,11 +1357,14 @@
   box-shadow: var(--v31-focus);
 }
 #coldCallIndexDialog .cc-ix-art {
+  justify-self: center;
   width: 16px;
   height: 16px;
   color: var(--v31-muted);
 }
 #coldCallIndexDialog .cc-ix-own {
+  width: 40px;
+  height: 40px;
   color: var(--cc-course);
 }
 #coldCallIndexDialog .cc-ix-name {
@@ -1545,9 +1552,14 @@
     width: 32px;
     height: 32px;
   }
+  /* A narrow bar says the caption on two lines rather than cutting it. */
   #coldCallDialog .cc-bar-name {
-    font-size: 17px;
-    line-height: 22px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-size: 16px;
+    line-height: 20px;
+    white-space: normal;
   }
   #coldCallDialog .cc-caption,
   #coldCallDialog[data-cc-mode='read'] .cc-title {
@@ -1565,7 +1577,7 @@
     line-height: 30px;
   }
   #coldCallIndexDialog .cc-ix-row {
-    grid-template-columns: 16px minmax(0, 1fr) 4ch;
+    grid-template-columns: 40px minmax(0, 1fr) 4ch;
   }
   #coldCallIndexDialog .cc-ix-count {
     display: none;

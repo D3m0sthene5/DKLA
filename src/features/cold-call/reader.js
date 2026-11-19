@@ -704,7 +704,17 @@
     if (mode === 'read') return null;
     if (step === 0) return { does: 'next', label: 'Start rehearsing' };
     if (!revealed.has(step - 1)) return null;
-    return { does: 'next', label: step === n ? 'What it does not decide' : 'Next question', space: true };
+    // (What comes next is called what it is: a question, or an episode told from a headline or a date.)
+    const next = current.sections[step];
+    return {
+      does: 'next',
+      label: !next
+        ? 'What it does not decide'
+        : cueKind(next.cue) === 'question'
+          ? 'Next question'
+          : 'Next episode',
+      space: true,
+    };
   }
   // The bar carries the case once the setup's head is out of sight, and at every step of a rehearsal but the setup.
   function dock() {
