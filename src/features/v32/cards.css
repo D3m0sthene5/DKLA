@@ -141,15 +141,22 @@ html #geoCanvas .v32-row.is-here text.v32-faint {
 }
 
 /* ---- a subject from far away: a tile ---- */
-/* One hairline in the course colour over a quiet tint of it. The fill is opaque (the tint mixed into the
-   ground), so the lines between subjects pass behind a tile, never through its name. */
+/* A panel with a whisper of the course colour: the tint mixed into the panel's fill (opaque, so the lines
+   between subjects pass behind a tile, never through its name), one hairline in the course colour at low
+   strength, and light on its top edge. */
 #geoCanvas .v32-tile-bg {
-  fill: #17222b;
-  fill: color-mix(in srgb, var(--tile) 15%, #101921);
+  fill: #19252f;
+  fill: color-mix(in srgb, var(--tile) 7%, var(--v31-panel));
   stroke: var(--tile);
-  stroke-opacity: 0.4;
+  stroke-opacity: 0.3;
   pointer-events: none;
   transition: stroke-opacity var(--v31-t-press) linear;
+}
+#geoCanvas .v32-tile-light {
+  fill: none;
+  stroke: #fff;
+  stroke-opacity: 0.1;
+  pointer-events: none;
 }
 #geoCanvas .v32-tile-hit {
   fill: #fff;
@@ -159,20 +166,24 @@ html #geoCanvas .v32-row.is-here text.v32-faint {
   transition: fill-opacity var(--v31-t-press) linear;
 }
 #geoCanvas .v32-tile:hover .v32-tile-hit {
-  fill-opacity: 0.06;
+  fill-opacity: 0.05;
 }
 #geoCanvas .v32-tile:hover .v32-tile-bg,
 #geoCanvas .v32-tile.is-lit .v32-tile-bg {
-  stroke-opacity: 0.95;
+  stroke-opacity: 0.9;
 }
 #geoCanvas .v32-tile.is-near .v32-tile-bg {
-  stroke-opacity: 0.75;
+  stroke-opacity: 0.6;
 }
 #geoCanvas:not(.panning) .v32-tile:active .v32-tile-hit {
   fill: #000;
   fill-opacity: 0.25;
 }
-/* A tile's name: Inter 500, no outline round the letters (nothing runs behind them any more). */
+/* A tile's name: Inter, 500 on Home and 600 on a course view, in the text colour, with no outline round
+   the letters (nothing runs behind them any more). */
+html #studyMain #geoCanvas text.region-title.is-course {
+  font-weight: 600;
+}
 html #studyMain #geoCanvas text.region-title {
   font-weight: 500;
   fill: var(--v31-text);
@@ -187,7 +198,7 @@ html #geoCanvas text.map-label[fill='#93a7b7'] {
 /* ---- the course view's furniture: its parts and the lines between subjects ---- */
 #geoCanvas .v32-zone {
   fill: #fff;
-  fill-opacity: 0.028;
+  fill-opacity: 0.02;
   pointer-events: none;
 }
 html #studyMain #geoCanvas text.zone-title {
@@ -195,23 +206,24 @@ html #studyMain #geoCanvas text.zone-title {
   letter-spacing: 0;
   stroke: none;
 }
-/* Lines are one pixel and low in contrast at rest; the ones that leave the tile under the pointer, or the
-   subject that is open, light up. */
+/* Lines are one pixel (set by the painter) and low in contrast at rest; the ones that leave the tile
+   under the pointer, or the subject that is open, light up. */
 #geoCanvas .v32-link {
   fill: none;
-  stroke-width: 1px;
-  vector-effect: non-scaling-stroke;
-  stroke-opacity: 0.3;
+  stroke-opacity: 0.2;
   pointer-events: none;
   transition: stroke-opacity var(--v31-t-press) linear;
 }
 #geoCanvas .v32-thread {
-  stroke-opacity: 0.16;
+  stroke-opacity: 0.1;
+}
+/* While a tile is under the pointer its own lines are lit and the rest step back. */
+#geoCanvas.has-lit .v32-link:not(.is-hover, .is-lit) {
+  stroke-opacity: 0.06;
 }
 #geoCanvas .v32-link.is-hover,
 #geoCanvas .v32-link.is-lit {
   stroke-opacity: 1;
-  stroke-width: 1.5px;
 }
 
 /* ---- "Supporting cases": a plain control with its count ---- */
@@ -278,7 +290,7 @@ html #geoCanvas .r19-tile.v32-control .v32-count {
 }
 #geoCanvas .authority-map-tile > .authority-cover-bg {
   fill: var(--v31-raised);
-  fill: color-mix(in srgb, var(--skin, #8597a6) 9%, var(--v31-raised));
+  fill: color-mix(in srgb, var(--skin, #8597a6) 13%, var(--v31-raised));
   stroke: var(--v32-hair-strong);
   stroke-opacity: 1;
 }
@@ -287,8 +299,13 @@ html #geoCanvas .r19-tile.v32-control .v32-count {
 }
 #geoCanvas .authority-map-tile > .authority-cover-bg + path {
   stroke: var(--skin, #8597a6);
-  stroke-opacity: 0.9;
+  stroke-opacity: 1;
   stroke-linecap: round;
+}
+/* a book's spine is 3 px on Home, whatever the size of the map */
+#geoCanvas .authority-map-entrance .authority-volume-cover > .authority-cover-bg + path {
+  stroke-width: 3px;
+  vector-effect: non-scaling-stroke;
 }
 #geoCanvas .authority-identity path {
   stroke: var(--v31-faint);
@@ -371,6 +388,129 @@ html #geoCanvas .dkla-court-pediment {
 html #geoCanvas .dkla-court-seat .dkla-seat-label {
   fill: var(--v31-text);
   font-weight: 500;
+}
+
+/* ---- the ground ---- */
+/* Light falls on the middle of the map and the edges fall away (the map's own background, so it costs
+   nothing while the map moves); a fine grid of dots is drawn with the map. */
+html #studyMain #geoCanvas {
+  background: radial-gradient(ellipse 80% 78% at 50% 42%, #14222c 0%, #0d171f 52%, #070d13 100%) !important;
+}
+#geoCanvas .v32-ground {
+  pointer-events: none;
+}
+#geoCanvas .v32-dot-ground {
+  fill: #cfe0ee;
+  fill-opacity: 0.11;
+}
+
+/* ---- the strip of sessions at the foot of a course view ---- */
+/* One hairline container; a session is a quiet card (its number as a label, its title, its pages as a
+   readout), with no outline of its own and no capitals-only text. */
+#studyMain #dklaSessions {
+  padding: var(--v32-s2);
+  color: var(--v31-text);
+  background: var(--v31-panel);
+  border: 1px solid var(--v32-hair-strong);
+  border-radius: var(--v32-r-surface);
+  box-shadow: var(--v32-e1);
+}
+#studyMain #dklaSessions[data-state='closed'] {
+  padding: var(--v32-s1);
+}
+#studyMain .dkla-sessions-head {
+  gap: var(--v32-s2);
+  min-height: 24px;
+}
+#studyMain .dkla-sessions-toggle {
+  min-height: 24px;
+  padding: 0 var(--v32-s2);
+  color: var(--v31-muted);
+  border: 0;
+  border-radius: var(--v32-r-control);
+}
+#studyMain .dkla-sessions-toggle:hover {
+  color: var(--v31-text);
+  background: #ffffff0f;
+}
+#studyMain .dkla-sessions-title,
+#studyMain .dkla-sessions-brief {
+  font: var(--v31-label);
+  letter-spacing: 0;
+  text-transform: none;
+}
+#studyMain .dkla-sessions-note {
+  color: var(--v31-faint);
+  font: var(--v31-label);
+}
+#studyMain .dkla-sessions-step {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 24px;
+  color: var(--v31-muted);
+  background: none;
+  border: 0;
+  border-radius: var(--v32-r-control);
+}
+#studyMain .dkla-sessions-step:hover {
+  color: var(--v31-text);
+  background: #ffffff0f;
+}
+#studyMain .dkla-sessions-list {
+  gap: var(--v32-s1);
+  margin-top: var(--v32-s1);
+}
+#studyMain .dkla-session-card {
+  gap: 0;
+  width: 208px;
+  height: 64px;
+  padding: var(--v32-s2) var(--v32-s3);
+  background: #ffffff08;
+  border: 0;
+  border-radius: var(--v32-r-control);
+  transition: background-color var(--v31-t-press) linear;
+}
+#studyMain .dkla-session-card:hover {
+  background: #ffffff14;
+}
+#studyMain .dkla-session-meta {
+  font: var(--v31-label);
+  line-height: 16px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+#studyMain .dkla-session-number {
+  color: var(--v31-muted);
+  font-weight: 500;
+}
+#studyMain .dkla-session-when {
+  color: var(--v31-faint);
+  font:
+    700 10.5px/16px 'DKLA JetBrains Mono',
+    'JetBrains Mono',
+    ui-monospace,
+    monospace;
+  font-variant-numeric: tabular-nums;
+}
+#studyMain .dkla-session-title {
+  color: var(--v31-text);
+  font:
+    500 13px/18px var(--dkla-interface, Inter),
+    sans-serif;
+}
+#studyMain .dkla-session-reading {
+  color: var(--v31-faint);
+  font:
+    700 10.5px/14px 'DKLA JetBrains Mono',
+    'JetBrains Mono',
+    ui-monospace,
+    monospace;
+  font-variant-numeric: tabular-nums;
+}
+#studyMain #dklaSessions button:focus-visible {
+  outline: 0;
+  box-shadow: var(--v31-focus);
 }
 
 /* ---- keyboard focus: the one ring, on the shape itself ---- */

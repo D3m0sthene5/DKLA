@@ -208,6 +208,17 @@ for (const id of subjects) {
       wrong,
       readout: [...el.querySelectorAll('text.v32-mono')].map((t) => t.textContent).join(' | '),
       title: el.querySelector('text.v32-title')?.textContent || '',
+      titleFace: getComputedStyle(el.querySelector('text.v32-title'))
+        .fontFamily.split(',')[0]
+        .replace(/"/g, ''),
+      headFaces: [
+        ...new Set(
+          groups.map((g) => {
+            const cs = getComputedStyle(g.querySelector('text.v32-head'));
+            return cs.fontFamily.split(',')[0].replace(/"/g, '') + ' ' + cs.fontWeight;
+          }),
+        ),
+      ],
       notes: notes.map((g) => ({
         count: g.querySelector('text.v32-mono')?.textContent,
         want: String(
@@ -246,6 +257,12 @@ for (const id of subjects) {
     `${id}: the header says what is inside (${card.readout})`,
   );
   assert.ok(card.title.length > 2, `${id}: the panel has its title`);
+  assert.match(card.titleFace, /Exo 2/, `${id}: the title is in the display face (${card.titleFace})`);
+  assert.deepEqual(
+    card.headFaces,
+    ['DKLA Inter 600'],
+    `${id}: group names are Inter 600 (${card.headFaces})`,
+  );
   for (const n of card.notes) assert.equal(n.count, n.want, `${id}: a notes row shows how many it holds`);
   assert.ok(card.fits, `${id}: the contents fit the place the subject has on the map`);
   assert.ok(
@@ -406,12 +423,53 @@ for (const course of ['Contracts', 'Civil Procedure', 'Legislation and the Regul
           g.querySelector('path[data-map-region]')?.getAttribute('d') ===
           regionPath(regionFor(g.dataset.tile)),
       ).length,
-      title: [...canvas.querySelectorAll('text.course-label')].map((t) => {
-        const b = box(t);
-        return b.top >= (document.querySelector('.study-header')?.getBoundingClientRect().bottom || 0) - 1;
-      }),
+      title: [...canvas.querySelectorAll('text.course-label')]
+        .filter((t) => t.dataset.studyScope === course)
+        .map((t) => {
+          const b = box(t);
+          return b.top >= (document.querySelector('.study-header')?.getBoundingClientRect().bottom || 0) - 1;
+        }),
       dashed: [...canvas.querySelectorAll('.v32-zone')].filter((e) => getComputedStyle(e).stroke !== 'none')
         .length,
+      // the band of controls at the foot of the map, and what the map draws there
+      under: (() => {
+        const hit = (a, b) =>
+            Math.min(a.right, b.right) - Math.max(a.left, b.left) > 1 &&
+            Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) > 1,
+          controls = [...document.querySelectorAll('#dklaSessions, #mapHint, .study-zoom')].filter(
+            (e) => !e.hidden && e.getClientRects().length,
+          ),
+          shown = (e) => {
+            for (let n = e; n && n !== canvas; n = n.parentNode)
+              if (Number(getComputedStyle(n).opacity) < 0.1) return false;
+            return true;
+          },
+          drawn = [
+            ...canvas.querySelectorAll(
+              '.v32-tile-bg, .r19-tile > rect, .authority-map-entrance > rect, .dictionary-spine-cover',
+            ),
+          ].filter(shown),
+          out = [];
+        for (const c of controls)
+          for (const d of drawn)
+            if (hit(box(c), box(d)))
+              out.push(
+                (c.id || c.className) +
+                  ' over ' +
+                  (d.parentNode.dataset.tile || d.getAttribute('class') || 'supporting cases'),
+              );
+        return out;
+      })(),
+      strip: !document.getElementById('dklaSessions').hidden,
+      capitals: [...document.querySelectorAll('#dklaSessions *')].filter(
+        (e) =>
+          e.children.length === 0 &&
+          e.textContent.trim() &&
+          getComputedStyle(e).textTransform === 'uppercase',
+      ).length,
+      boxedCards: [...document.querySelectorAll('#dklaSessions .dkla-session-card')].filter(
+        (e) => parseFloat(getComputedStyle(e).borderTopWidth) > 0,
+      ).length,
     };
   }, course);
   assert.ok(view.tiles >= 10, `${course}: its subjects are tiles (${view.tiles})`);
@@ -428,6 +486,10 @@ for (const course of ['Contracts', 'Civil Procedure', 'Legislation and the Regul
     `${course}: the course's name is not under the top bar`,
   );
   assert.equal(view.dashed, 0, `${course}: the course's parts have no outline`);
+  assert.ok(view.strip, `${course}: the strip of sessions is shown`);
+  assert.deepEqual(view.under, [], `${course}: nothing the map draws lies under the controls at its foot`);
+  assert.equal(view.capitals, 0, `${course}: the strip has no capitals-only label`);
+  assert.equal(view.boxedCards, 0, `${course}: a session card has no outline of its own inside the strip`);
   await legible(course);
   report.push(
     `${course}: ${view.tiles} tiles, ${view.counted} with counts, nothing under the note's controls`,

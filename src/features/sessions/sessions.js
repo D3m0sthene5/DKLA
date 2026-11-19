@@ -144,7 +144,7 @@
   panel.id = 'dklaSessions';
   panel.hidden = true;
   panel.innerHTML =
-    '<div class="dkla-sessions-head"><button type="button" class="dkla-sessions-toggle" aria-controls="dklaSessionsList"><span class="dkla-sessions-title"></span><span class="dkla-sessions-brief"></span><span class="dkla-sessions-chevron" aria-hidden="true"></span></button><span class="dkla-sessions-note"></span><a class="dkla-canons-link" data-canons-nav href="#canons">Canons of construction</a><button type="button" class="dkla-sessions-step" data-sessions-step="-1" aria-label="Show earlier sessions">‹</button><button type="button" class="dkla-sessions-step" data-sessions-step="1" aria-label="Show later sessions">›</button></div><ol id="dklaSessionsList" class="dkla-sessions-list"></ol>';
+    '<div class="dkla-sessions-head"><button type="button" class="dkla-sessions-toggle" aria-controls="dklaSessionsList"><span class="dkla-sessions-title"></span><span class="dkla-sessions-brief"></span><span class="dkla-sessions-chevron" aria-hidden="true"></span></button><span class="dkla-sessions-note"></span><a class="dkla-canons-link" data-canons-nav href="#canons">Canons of construction</a><button type="button" class="dkla-sessions-step" data-sessions-step="-1" aria-label="Show earlier sessions"><svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 5-5 5 5 5"/></svg></button><button type="button" class="dkla-sessions-step" data-sessions-step="1" aria-label="Show later sessions"><svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 5 5 5-5 5"/></svg></button></div><ol id="dklaSessionsList" class="dkla-sessions-list"></ol>';
   main.appendChild(panel);
   const list = panel.querySelector('.dkla-sessions-list'),
     toggle = panel.querySelector('.dkla-sessions-toggle');
@@ -239,6 +239,7 @@
       }
     }
     panel.hidden = !list.children.length;
+    measure();
   }
 
   // Bring a card into the strip by moving the strip sideways only. (scrollIntoView would also move the page.)
@@ -282,6 +283,9 @@
   panel.addEventListener('click', (e) => {
     if (e.target.closest('.dkla-sessions-toggle')) {
       setOpen(!open, true);
+      measure();
+      // the course is framed above the strip when it is open, and down to the hint when it is folded
+      window.R18?.refit?.();
       return;
     }
     const step = e.target.closest('[data-sessions-step]');
@@ -308,7 +312,22 @@
   // The October 1 Civil Procedure syllabus may be applied after the first cards were drawn.
   document.addEventListener('dkla-civil-syllabus', () => sync(true));
   sync();
+  // How much of the foot of the map the strip takes (px) when a course view shows it open: the camera
+  // frames a course above it (r19/r20.js safeArea). Asked before the strip itself is drawn, so the answer
+  // comes from the visitor's choice and the last height measured, not from the page.
+  let tall = 104;
+  const wideBand = window.matchMedia('(min-width: 1000px) and (min-height: 600px)');
+  function band() {
+    return wideBand.matches && (open === null ? preferred() : open) ? tall + 10 : 0;
+  }
+  // The strip's height is read once after it is shown or folded, never during a draw of the map.
+  function measure() {
+    requestAnimationFrame(() => {
+      if (!panel.hidden && open && panel.offsetHeight > 40) tall = panel.offsetHeight;
+    });
+  }
   window.DKLASessions = {
+    band,
     refresh: () => sync(true),
     // Scroll the strip to a session's card (it does not open it).
     show: (number) => {

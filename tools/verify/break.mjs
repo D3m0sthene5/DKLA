@@ -1333,8 +1333,8 @@ const breakages = [
     () =>
       edit(
         'src/features/v25/geography.js',
-        'main.forEach(([, h], i) => Object.assign(h, cell(i)));',
-        "main.forEach(([, h], i) => Object.assign(h, cell(i), side === 'R' ? { h: CARD.row * 1.5 } : null));",
+        'o.main.forEach(([, h], i) => Object.assign(h, cell(i)));',
+        'o.main.forEach(([, h], i) => Object.assign(h, cell(i), first ? { h: CARD.row * 1.5 } : null));',
       ),
   ],
   [

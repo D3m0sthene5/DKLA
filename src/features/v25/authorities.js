@@ -1736,7 +1736,11 @@
     const g = geometry(root, true),
       B = visibleBox();
     if (!intersects(g.box, B, 80)) return;
-    let out = `<g class="authority-map-entrance" data-map-region="${ROOT}" role="group" aria-label="Rules and authorities"><title>Constitution, federal rules, codes and Restatements</title>${frame(root, g, true)}<g class="authority-title-control" data-map-region="${ROOT}" role="button" tabindex="0" aria-label="Explore rules and authorities"><rect x="${(g.panels?.[0] || g.box).x + 26 * g.unit}" y="${g.box.y + 14 * g.unit}" width="${(g.panels?.[0] || g.box).w - 52 * g.unit}" height="${g.header - 24 * g.unit}" fill="transparent" pointer-events="all"/></g>`;
+    // v3.2: this block belongs to Home. It fades as a course takes over the view (r19/r20.js fadeOthers) and
+    // is not drawn at all once the course is alone, so it never shows under a course view's controls.
+    const fade = (typeof R18 !== 'undefined' && R18.courseFade) || 0;
+    if (fade >= 0.97) return;
+    let out = `<g class="authority-map-entrance" data-map-region="${ROOT}" role="group" aria-label="Rules and authorities"${fade > 0 ? ` opacity="${(1 - fade).toFixed(3)}"` : ''}><title>Constitution, federal rules, codes and Restatements</title>${frame(root, g, true)}<g class="authority-title-control" data-map-region="${ROOT}" role="button" tabindex="0" aria-label="Explore rules and authorities"><rect x="${(g.panels?.[0] || g.box).x + 26 * g.unit}" y="${g.box.y + 14 * g.unit}" width="${(g.panels?.[0] || g.box).w - 52 * g.unit}" height="${g.header - 24 * g.unit}" fill="transparent" pointer-events="all"/></g>`;
     for (const card of g.cards.values()) out += tile(card, true);
     out += dictionarySpine(g) + '</g>';
     // v3.2: turning this markup into elements was the largest single cost of a draw. While the markup is

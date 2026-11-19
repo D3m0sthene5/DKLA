@@ -18,6 +18,9 @@
     if (!svg || typeof galaxy !== 'function') return;
     const blocks = galaxy().blocks || {},
       mine = blocks[S.scope];
+    // v3.2: how far the view has gone from the atlas (0) to this course alone (1): the layers that paint
+    // after this one (Rules & authorities, the Court's figures) fade by the same amount
+    if (typeof R18 !== 'undefined') R18.courseFade = 0;
     if (!mine) return;
     // 0 at the atlas, 1 by the time this course fills the screen (courses differ in how far that zoom is)
     const zf = zoomFloor() * 1.12;
@@ -30,6 +33,7 @@
       /* default span */
     }
     const f = zc <= zf * 1.05 ? (S.z >= zc ? 1 : 0) : Math.max(0, Math.min(1, (S.z - zf) / (zc - zf)));
+    if (typeof R18 !== 'undefined') R18.courseFade = f;
     if (f <= 0) return;
     // this course's own frame: its block plus its own supporting-cases tile, with a small margin
     const pad = Math.max(mine.w, mine.h) * 0.03;
@@ -70,6 +74,17 @@
     const fade = [];
     const visit = (el, depth) => {
       if (el.tagName === 'defs' || el.tagName === 'title') return;
+      // v3.2: a subject of another course (or the notes tile, which stands inside a course's frame) and its
+      // name fade whatever the frame says; the ground belongs to every view
+      if (el.classList.contains('v32-ground')) return;
+      const other = depth === 0 && (el.dataset.tile || el.dataset.card || el.dataset.mapRegion);
+      if (other) {
+        const region = regionFor(other);
+        if (region && regionCourse(region) !== S.scope) {
+          fade.push(el);
+          return;
+        }
+      }
       let b;
       try {
         b = el.getBBox();
@@ -169,13 +184,13 @@
         short = ((typeof SHORT_NAMES !== 'undefined' && SHORT_NAMES[t.id]) || '').replace(/­/g, '');
       return short && short !== full ? [full, short] : [full];
     };
-    // v3.2: on a course view (tiles from 150 px wide) each subject of the course also says what is inside
+    // v3.2: on a course view (tiles from 130 px wide) each subject of the course also says what is inside
     // it, its cases and rules as a readout under its name; its name is fitted in the room that leaves.
     const cfs = 10.5 / z,
       part = (n, one) => (n ? n + ' ' + one + (n === 1 ? '' : 's') : '');
     for (const t of tiles) {
       t.line = '';
-      if (t.pw < 150 || !t.r.step || regionCourse(t.r) !== S.scope || typeof cardCounts !== 'function')
+      if (t.pw < 130 || !t.r.step || regionCourse(t.r) !== S.scope || typeof cardCounts !== 'function')
         continue;
       const c = cardCounts('r:' + t.id),
         line =
@@ -189,7 +204,7 @@
         maxW = (t.pw - (t.pw < 70 ? 6 : t.pw < 90 ? 8 : 14)) / z,
         maxLines = Math.max(1, Math.min(3, Math.floor((t.ph - 8 - (t.line ? 20 : 0)) / (px * 1.22))));
       for (const name of names(t)) {
-        const rows = wrapPlain(name, maxW, fs, 500); // v3.2: names are drawn at 500, so they are measured at 500
+        const rows = wrapPlain(name, maxW, fs, 600);
         if (rows && rows.length <= maxLines) return rows;
       }
       return null;
@@ -224,7 +239,7 @@
         old.remove();
       for (const badge of t.g.querySelectorAll(':scope > g')) badge.remove();
       parts.push(
-        `<text class="map-label region-title r20-tile" x="${cx}" y="${y0}" font-size="${fs}" font-weight="600" fill="#f7f5f0" text-anchor="middle" opacity="${t.g.getAttribute('opacity') || 1}" data-map-region="${esc(t.id)}" role="button" tabindex="0" style="cursor:pointer">${rows.map((row, i) => `<tspan x="${cx}" dy="${i ? lh : 0}">${esc(row)}</tspan>`).join('')}</text>`,
+        `<text class="map-label region-title r20-tile${t.pw >= 130 ? ' is-course' : ''}" x="${cx}" y="${y0}" font-size="${fs}" font-weight="600" fill="#f7f5f0" text-anchor="middle" opacity="${t.g.getAttribute('opacity') || 1}" data-map-region="${esc(t.id)}" role="button" tabindex="0" style="cursor:pointer">${rows.map((row, i) => `<tspan x="${cx}" dy="${i ? lh : 0}">${esc(row)}</tspan>`).join('')}</text>`,
       );
       if (counted)
         parts.push(
@@ -313,7 +328,11 @@
       ) {
         const top = 58,
           cut = a.y - top;
-        a = { x: a.x, y: top, w: a.w, h: a.h + cut + 34 };
+        // v3.2: on a course view the foot of the map is a band of controls (the zoom buttons, the hint and
+        // the strip of sessions). The course, with its supporting-cases control, stops above that band, so
+        // nothing on the map lies under a control. Home keeps the rows it had (v25/home-fit.js frames it).
+        const band = S.scope === 'Atlas' ? -34 : Math.max(0, (window.DKLASessions?.band?.() || 0) + 8 - 70);
+        a = { x: a.x, y: top, w: a.w, h: a.h + cut - band };
       }
       return a;
     };

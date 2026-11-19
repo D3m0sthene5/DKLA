@@ -1896,7 +1896,7 @@ const V32_GLYPHS = {
   // a balance: a case with no pictogram of its own
   case: '<path d="M8 2.5v11M5 13.5h6M3 5.5h10M3 5.5 1.6 9.2a1.9 1.9 0 0 0 2.8 0ZM13 5.5l-1.4 3.7a1.9 1.9 0 0 0 2.8 0Z"/>',
   // a section sign: a rule or a section of a statute
-  rule: '<path d="M10.4 4.5C10.2 3.3 9.3 2.6 8 2.6c-1.4 0-2.4.8-2.4 2 0 .9.6 1.5 1.6 2l2.4 1.3c.9.5 1.3 1.1 1.3 1.8 0 .8-.5 1.4-1.3 1.7M5.6 11.5c.2 1.2 1.1 1.9 2.4 1.9 1.4 0 2.4-.8 2.4-2 0-.9-.6-1.5-1.6-2L6.4 8.1C5.5 7.6 5.1 7 5.1 6.3c0-.8.5-1.4 1.3-1.7"/>',
+  rule: '<path d="M10.5 4.6C10.3 3.3 9.4 2.5 8 2.5c-1.5 0-2.5.9-2.5 2.1 0 .8.6 1.4 1.7 1.9l2.2.9c1.1.5 1.7 1.3 1.7 2.2 0 .9-.6 1.6-1.5 1.9M5.5 11.4c.2 1.3 1.1 2.1 2.5 2.1 1.5 0 2.5-.9 2.5-2.1 0-.8-.6-1.4-1.7-1.9l-2.2-.9c-1.1-.5-1.7-1.3-1.7-2.2 0-.9.6-1.6 1.5-1.9"/>',
   // an open book: a Restatement or code provision
   code: '<path d="M8 4.4C6.8 3.5 5 3 2.5 3v9c2.5 0 4.3.5 5.5 1.4 1.2-.9 3-1.4 5.5-1.4V3C11 3 9.2 3.5 8 4.4ZM8 4.4v9"/>',
   // a point with its orbit: a concept
@@ -1967,6 +1967,8 @@ function rowFact(n) {
     const m = name.match(
       /^((?:[A-Z][\w.’']*\.? ){0,4}(?:§§?|Rule|Article|Amendment)\s?[\w.()\-–]+(?:(?:, | and | to |–)[\w.()\-–]+)*)\s[—–:]\s(.+)$/,
     );
+    // (New York's General Obligations Law is cited as "N.Y. GOL", as the atlas's own notes do)
+    if (m) m[1] = m[1].replace(/^N\.Y\. General Obligations Law /, 'N.Y. GOL ');
     if (m && m[1].length <= 26) {
       meta = m[1].replace(/^Restatement /, 'Rest. ').replace(/^Federal Rule /, 'Rule ');
       label = m[2].charAt(0).toUpperCase() + m[2].slice(1);
@@ -2188,7 +2190,7 @@ function draw() {
         k: 'chrome',
       };
     });
-  const defs = `<defs><pattern id="mapDots" width="${26 / z}" height="${26 / z}" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="${0.7 / z}" fill="#879cab" opacity=".07"/></pattern><radialGradient id="galaxyCore"><stop offset="0" stop-color="#e8d9b8" stop-opacity=".5"/><stop offset=".35" stop-color="#7a6a4a" stop-opacity=".16"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient><marker id="arrowHead" viewBox="0 0 9 9" refX="8" refY="4.5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M1 1 L8 4.5 L1 8" fill="none" stroke="#b9bec0" stroke-width="1.3"/></marker></defs>`;
+  const defs = `<defs><pattern id="mapDots" width="${24 / z}" height="${24 / z}" patternUnits="userSpaceOnUse"><circle cx="${1 / z}" cy="${1 / z}" r="${0.7 / z}" class="v32-dot-ground"/></pattern><radialGradient id="galaxyCore"><stop offset="0" stop-color="#e8d9b8" stop-opacity=".5"/><stop offset=".35" stop-color="#7a6a4a" stop-opacity=".16"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient><marker id="arrowHead" viewBox="0 0 9 9" refX="8" refY="4.5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M1 1 L8 4.5 L1 8" fill="none" stroke="#b9bec0" stroke-width="1.3"/></marker></defs>`;
   if (t < 1) {
     parts.push(
       `<g opacity="${(1 - t).toFixed(3)}" pointer-events="none"><circle cx="${G.cx}" cy="${G.cy}" r="${G.R1 * 0.42}" fill="url(#galaxyCore)"/>`,
@@ -2207,6 +2209,10 @@ function draw() {
     }
     parts.push('</g>');
   }
+  // The ground: a fine grid of dots that belongs to the map (it moves and is carried with it), one shape.
+  parts.push(
+    `<rect class="v32-ground" x="${B.x}" y="${B.y}" width="${B.w}" height="${B.h}" fill="url(#mapDots)"/>`,
+  );
   const defs2 = Object.entries(G.blocks)
     .map(
       ([c]) =>
@@ -2406,7 +2412,7 @@ function draw() {
       rowRadius: px(6, 3, 8),
       rows: rowPx >= 16.5,
       focusRows: rowPx >= 13.5,
-      twoLines: rowPx >= 31 && rowPx < 54,
+      twoLines: rowPx >= 27.5 && rowPx < 54,
       summaryOn: rowPx >= 54,
       meta1: rowPx >= 22,
       groups: C.top * z >= 26,
@@ -2578,10 +2584,12 @@ function draw() {
             lh = K.label * 1.14,
             block = sum ? lh + sum.rows.length * K.summary * 1.3 : lab.rows.length * lh,
             y1 = c.y + (c.h - block) / 2 + K.label * 0.92,
-            gy = sum ? y1 - K.label * 0.92 + (lh - K.glyph) / 2 : c.y + (c.h - K.glyph) / 2;
+            // where the name takes more than one line, its glyph and its readout stand on the first
+            multi = !!sum || lab.rows.length > 1,
+            gy = multi ? y1 - K.label * 0.35 - K.glyph / 2 : c.y + (c.h - K.glyph) / 2;
           visible.add(n.id);
           rows.push(
-            `<g class="v32-row${chosen ? ' is-here' : ''}${isActive && !chosen ? ' is-linked' : ''}"${quiet ? ' opacity=".5"' : ''} data-map-node="${E(n.id)}" data-kind="${f.kind}" role="button" tabindex="0"${chosen ? ' aria-current="true"' : ''} aria-label="${E(n.title)}. ${E(roleLabel(n))}."><title>${E(n.title)}${n.summary ? ' — ' + E(n.summary) : ''}</title><rect class="v32-row-bg" x="${c.x}" y="${c.y + K.hair}" width="${c.w}" height="${c.h - K.hair * 2}" rx="${K.rowRadius}"/>${chosen ? `<rect class="v32-here" x="${c.x + 1 / z}" y="${c.y + c.h * 0.22}" width="${2.5 / z}" height="${c.h * 0.56}" rx="${1.25 / z}"/>` : ''}${rowGlyph(n, f.kind, c.x + gx, gy, K.glyph, K.summaryOn)}<text class="v32-label" x="${c.x + labelX}" y="${y1}" font-size="${K.label}">${(sum ? lab.rows.slice(0, 1) : lab.rows).map((row, i) => `<tspan x="${c.x + labelX}" dy="${i ? lh : 0}">${E(row)}</tspan>`).join('')}</text>${sum ? `<text class="v32-muted" x="${c.x + labelX}" y="${y1 + lh * 1.02}" font-size="${K.summary}">${sum.rows.map((row, i) => `<tspan x="${c.x + labelX}" dy="${i ? K.summary * 1.3 : 0}">${E(row)}</tspan>`).join('')}</text>` : ''}${showMeta ? `<text class="v32-mono v32-faint" x="${c.x + c.w - C.inset}" y="${sum ? y1 : c.y + c.h / 2 + K.meta * 0.36}" font-size="${K.meta}" text-anchor="end">${E(f.meta)}</text>` : ''}</g>`,
+            `<g class="v32-row${chosen ? ' is-here' : ''}${isActive && !chosen ? ' is-linked' : ''}"${quiet ? ' opacity=".5"' : ''} data-map-node="${E(n.id)}" data-kind="${f.kind}" role="button" tabindex="0"${chosen ? ' aria-current="true"' : ''} aria-label="${E(n.title)}. ${E(roleLabel(n))}."><title>${E(n.title)}${n.summary ? ' — ' + E(n.summary) : ''}</title><rect class="v32-row-bg" x="${c.x}" y="${c.y + K.hair}" width="${c.w}" height="${c.h - K.hair * 2}" rx="${K.rowRadius}"/>${chosen ? `<rect class="v32-here" x="${c.x + 1 / z}" y="${c.y + c.h * 0.22}" width="${2.5 / z}" height="${c.h * 0.56}" rx="${1.25 / z}"/>` : ''}${rowGlyph(n, f.kind, c.x + gx, gy, K.glyph, K.summaryOn)}<text class="v32-label" x="${c.x + labelX}" y="${y1}" font-size="${K.label}">${(sum ? lab.rows.slice(0, 1) : lab.rows).map((row, i) => `<tspan x="${c.x + labelX}" dy="${i ? lh : 0}">${E(row)}</tspan>`).join('')}</text>${sum ? `<text class="v32-muted" x="${c.x + labelX}" y="${y1 + lh * 1.02}" font-size="${K.summary}">${sum.rows.map((row, i) => `<tspan x="${c.x + labelX}" dy="${i ? K.summary * 1.3 : 0}">${E(row)}</tspan>`).join('')}</text>` : ''}${showMeta ? `<text class="v32-mono v32-faint" x="${c.x + c.w - C.inset}" y="${multi ? y1 - (K.label - K.meta) * 0.3 : c.y + c.h / 2 + K.meta * 0.36}" font-size="${K.meta}" text-anchor="end">${E(f.meta)}</text>` : ''}</g>`,
           );
         }
         const nc = members.notes.length ? homeFor(members.notes[0].id) : null;
@@ -2651,7 +2659,7 @@ function draw() {
     if (intersects(r, B, 80)) {
       const lit = activeRegions.has(r.id) || S.region === r.id;
       parts.push(
-        `<g class="map-region v32-tile${lit ? ' is-lit' : ''}" opacity="${dim.toFixed(3)}" data-tile="${E(r.id)}" style="--tile:${acc}"><rect class="v32-tile-bg" x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}" rx="${Math.min(6 / z, r.h / 2)}" stroke-width="${K.hair}"/><path d="${regionPath(r)}" data-map-region="${E(r.id)}" class="v32-tile-hit" role="button" tabindex="0" aria-label="Explore ${E(shortRegionTitle(r))}"><title>${E(shortRegionTitle(r))}</title></path>`,
+        `<g class="map-region v32-tile${lit ? ' is-lit' : ''}" opacity="${dim.toFixed(3)}" data-tile="${E(r.id)}" style="--tile:${acc}"><rect class="v32-tile-bg" x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}" rx="${Math.min(6 / z, r.h / 2)}" stroke-width="${K.hair}"/><path class="v32-tile-light" d="M${r.x + 5 / z} ${r.y + K.hair}H${r.x + r.w - 5 / z}" stroke-width="${K.hair}"/><path d="${regionPath(r)}" data-map-region="${E(r.id)}" class="v32-tile-hit" role="button" tabindex="0" aria-label="Explore ${E(shortRegionTitle(r))}"><title>${E(shortRegionTitle(r))}</title></path>`,
       );
       const titleSt = R11.labelState.get('rt:' + r.id);
       if (badgeOn && showTitle && titleRows.length && (!titleSt || titleSt.o > 0.3))
@@ -3744,6 +3752,7 @@ function lightTile(id, again = false) {
   for (const el of svg.querySelectorAll('.is-near, .v32-link.is-hover'))
     el.classList.remove('is-near', 'is-hover');
   litTile = id;
+  svg.classList.toggle('has-lit', !!id);
   if (!id) return;
   for (const line of svg.querySelectorAll('.v32-link')) {
     const [a, b] = line.dataset.link.split(' ');
