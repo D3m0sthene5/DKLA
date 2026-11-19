@@ -738,6 +738,336 @@
       ],
       "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
       "packet": "OP-CT-11"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/speakers-sport/2/plain",
+      "old": "Separately, Illinois \"promissory-fraud\" doctrine (fraud based on a broken promise about the future) required a \"fraudulent scheme\", a larger plan to cheat. Proof of more than the allegedly false promise itself was needed, and Speakers showed none.",
+      "new": "Separately, Illinois \"promissory-fraud\" doctrine (fraud based on a promise the promisor did not intend to keep when making it) required a \"fraudulent scheme\", a larger plan to cheat. Proof of more than the allegedly false promise itself was needed, and Speakers showed none.",
+      "reason": "Promissory fraud is a promise the promisor did not intend to perform when making it; a promise that is merely not performed is a simple breach (C&M 519). The scheme must be 'evidenced by more than the allegedly fraudulent promise itself' (C&M 523).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            519,
+            523
+          ],
+          "pdfPages": [
+            212,
+            216
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-12"
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "misrepresentation",
+      "stepKey": "speakers-sport",
+      "field": "note",
+      "old": "Aspirational sales talk is puffery, not fraud, and Illinois promissory fraud needs a scheme to defraud beyond one broken promise.",
+      "new": "Aspirational sales talk is puffery, not fraud, and Illinois promissory fraud needs a scheme to defraud evidenced by more than the allegedly fraudulent promise itself.",
+      "reason": "Promissory fraud is a promise the promisor did not intend to perform when making it; a promise that is merely not performed is a simple breach (C&M 519). The scheme must be 'evidenced by more than the allegedly fraudulent promise itself' (C&M 523).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            519,
+            523
+          ],
+          "pdfPages": [
+            212,
+            216
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-12"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/vokes/5/plain",
+      "old": "The related sports-agency dispute in Speakers of Sport v. ProServ shows how context matters. That court \"construed\" (interpreted) a forecast of endorsement deals as aspirational sales talk, and separately applied Illinois's special requirement for fraud claims based on a fraudulent scheme.",
+      "new": "The related sports-agency dispute in Speakers of Sport v. ProServ shows how context matters. That court \"construed\" (interpreted) a forecast of endorsement deals as aspirational sales talk, and separately applied Illinois's requirement that a claim of promissory fraud (a promise made without intent to keep it) show a scheme to defraud beyond the promise itself.",
+      "reason": "The scheme requirement applies to a promise said to be fraudulent, not to fraud claims generally.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            519,
+            523
+          ],
+          "pdfPages": [
+            212,
+            216
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-12"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/speakers-sport/1/plain",
+      "old": "The Seventh Circuit read ProServ's pitch as aspirational \"puffery\", the kind of sales hype no one takes literally. ProServ was saying it would try to get endorsements and was optimistic about the result, not guaranteeing it.",
+      "new": "The Seventh Circuit read ProServ's pitch as aspirational \"puffery\": a sales pitch that a reasonable person in Rodriguez's position would understand as an expression of hope rather than an enforceable commitment. ProServ was saying it would try to get endorsements and was optimistic about the result, not guaranteeing it.",
+      "reason": "Posner rejected the 'cascade of extravagant adjectives' sense of puffing: the test is a pitch the speaker intends, and a reasonable person in the promisee's position would understand, to be aspirational rather than enforceable.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            522
+          ],
+          "pdfPages": [
+            215
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-12"
+    },
+    {
+      "target": "takeaway",
+      "id": "speakers-sport",
+      "old": "Telling an athlete you will get him millions in endorsements is sales talk, not a promise, when third parties decide whether to sign him. Competing for a client who can leave at any time is allowed unless you use fraud or other unlawful means.",
+      "new": "Telling an athlete you will get him millions in endorsements was sales talk: a reasonable athlete would hear hope that the agent would try, not a guarantee, though a party can bind itself to a result others control. Competing for a client who can leave at any time is allowed unless you use fraud or other unlawful means.",
+      "reason": "The court said a party can make a binding promise of something it does not control (a warranty); the outcome turned on what the statement reasonably conveyed, with third-party control one reason for that reading.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            522,
+            523
+          ],
+          "pdfPages": [
+            215,
+            216
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-12"
+    },
+    {
+      "target": "takeaway",
+      "id": "swinton",
+      "old": "Under the Massachusetts rule applied in 1942, merely staying silent about termites did not support this tort claim. There had to be a misleading statement, concealment, or duty to disclose. Other jurisdictions and later statutes may require disclosure. This decision is not a universal current rule allowing sellers to hide home defects.",
+      "new": "Under the Massachusetts rule applied in 1942, merely staying silent about termites did not support this tort claim. There had to be a misleading statement, active concealment that prevented the buyer from learning the facts, or a duty to disclose. Other jurisdictions and later statutes may require disclosure. This decision is not a universal current rule allowing sellers to hide home defects.",
+      "reason": "Swinton pleaded concealment and lost: 'concealment in the simple sense of mere failure to reveal' is not enough; the court looked for conduct that prevented the buyer from acquiring information.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            510
+          ],
+          "pdfPages": [
+            203
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 160"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-12"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-037",
+      "field": "rule",
+      "old": "In an arm's-length sale of real estate, a seller's bare nondisclosure of a known hidden defect creates no liability absent a false statement, half-truth, active concealment, or a relationship imposing a duty to speak.",
+      "new": "Under Swinton's 1942 Massachusetts rule, a seller's bare nondisclosure of a known hidden defect in an arm's-length real-estate sale did not support a tort action absent a false statement, half-truth, conduct preventing discovery, a fiduciary relation or one of confidence or dependence, or another peculiar duty to speak.",
+      "reason": "Swinton decided a demurrer to a Massachusetts tort declaration in 1942; it named half-truths, conduct preventing the buyer from acquiring information, a fiduciary relation or relation of confidence or dependence, and any peculiar duty to speak; the notes report courts and a statute requiring disclosure.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            510,
+            511,
+            512,
+            514
+          ],
+          "pdfPages": [
+            203,
+            204,
+            205,
+            207
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-12"
+    },
+    {
+      "file": "tools/v28/case-chronologies.json",
+      "pointer": "/0/steps/112/note",
+      "old": "In an arm's-length sale of real estate, a seller's bare nondisclosure of a known hidden defect creates no liability absent a false statement, half-truth, active concealment, or a relationship imposing a duty to speak.",
+      "new": "Under Swinton's 1942 Massachusetts rule, a seller's bare nondisclosure of a known hidden defect in an arm's-length real-estate sale did not support a tort action absent a false statement, half-truth, conduct preventing discovery, a fiduciary relation or one of confidence or dependence, or another peculiar duty to speak.",
+      "reason": "Swinton decided a demurrer to a Massachusetts tort declaration in 1942; it named half-truths, conduct preventing the buyer from acquiring information, a fiduciary relation or relation of confidence or dependence, and any peculiar duty to speak; the notes report courts and a statute requiring disclosure.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            510,
+            511,
+            512,
+            514
+          ],
+          "pdfPages": [
+            203,
+            204,
+            205,
+            207
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-12"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/kannavos/3/plain",
+      "old": "Justice Cutter's opinion for the Supreme Judicial Court, Massachusetts's highest court, assumed that complete silence might have put the cases under Swinton. Swinton was a precedent holding that mere \"nondisclosure\" (failing to mention a fact) is not fraud.",
+      "new": "Justice Cutter's opinion for the Supreme Judicial Court, Massachusetts's highest court, assumed that complete silence might have put the cases under Swinton. Swinton was a precedent holding that a seller's bare \"nondisclosure\" (failing to mention a fact), in an arm's-length deal with no fiduciary relationship or other special duty to speak, did not support the buyer's tort claim.",
+      "reason": "Swinton reserved fiduciary relations, relations of confidence or dependence and any peculiar duty to speak; 'nondisclosure is not fraud' states the rule without them.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            510,
+            511,
+            514
+          ],
+          "pdfPages": [
+            203,
+            204,
+            207
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-12"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/vokes/3/plain",
+      "old": "\"Superior knowledge\" by the speaker, the listener's trust, unequal ability to judge the subject, and \"devices\" (tricks) making an opinion misleading could support \"relief.\" That was so even when the statements were framed as opinions.",
+      "new": "\"Superior knowledge\" by the speaker, a relationship of trust between the parties (the court named a fiduciary relationship), dealing that is not at arm's length, unequal ability to judge the subject, and \"devices\" (tricks) making an opinion misleading could support \"relief.\" That was so even when the statements were framed as opinions.",
+      "reason": "Vokes lists four qualifications to the fact-opinion rule: a fiduciary relationship, an artifice or trick, parties who do not deal at arm's length, and unequal opportunity to learn the truth; the trust must be a relationship, not the listener's state of mind.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            525
+          ],
+          "pdfPages": [
+            218
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 169(a)"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-12"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-040",
+      "field": "rule",
+      "old": "a relationship of trust exists, the parties are unequally able",
+      "new": "a fiduciary or other relationship of trust exists, the parties do not deal at arm's length, the parties are unequally able",
+      "reason": "Vokes lists four qualifications to the fact-opinion rule: a fiduciary relationship, an artifice or trick, parties who do not deal at arm's length, and unequal opportunity to learn the truth; the trust must be a relationship, not the listener's state of mind.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            525
+          ],
+          "pdfPages": [
+            218
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-12"
+    },
+    {
+      "file": "tools/v28/case-chronologies.json",
+      "pointer": "/0/steps/196/note",
+      "old": "Statements framed as opinions may be actionable misrepresentations where the speaker has superior knowledge, a relationship of trust exists, the parties are unequally able to evaluate the subject, or a device makes the opinion misleading.",
+      "new": "Statements framed as opinions may be actionable misrepresentations where the speaker has superior knowledge, a fiduciary or other relationship of trust exists, the parties do not deal at arm's length, the parties are unequally able to evaluate the subject, or a device makes the opinion misleading.",
+      "reason": "Vokes lists four qualifications to the fact-opinion rule: a fiduciary relationship, an artifice or trick, parties who do not deal at arm's length, and unequal opportunity to learn the truth; the trust must be a relationship, not the listener's state of mind.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            525
+          ],
+          "pdfPages": [
+            218
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-12"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/20/nodes/2/label",
+      "old": "Did expertise make the assurance misleading?",
+      "new": "Did superior knowledge, the relationship or a trick make the opinion actionable?",
+      "reason": "Vokes's qualifications are not limited to expertise: a fiduciary relationship, an artifice or trick, dealing not at arm's length and unequal opportunity to learn the truth also take an opinion out of the general rule.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            525
+          ],
+          "pdfPages": [
+            218
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-12"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/20/nodes/2/detail",
+      "old": "Vokes allowed a claim to proceed where expert instructors allegedly used superior knowledge to mislead about dancing progress. Sports agents’ optimistic prediction of endorsement results in Speakers of Sport did not establish the fraud asserted there.",
+      "new": "Vokes allowed a claim to proceed where expert instructors allegedly used superior knowledge to mislead about dancing progress; the opinion rule also yields to a fiduciary relationship, an artifice or trick, dealing not at arm's length, or unequal opportunity to learn the truth. Sports agents’ optimistic prediction of endorsement results in Speakers of Sport did not establish the fraud asserted there.",
+      "reason": "Same as the label: the four qualifications stated in Vokes.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 351-700.pdf",
+          "printedPages": [
+            525
+          ],
+          "pdfPages": [
+            218
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-12"
     }
   ]
 }
