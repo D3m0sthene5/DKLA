@@ -313,11 +313,20 @@ async function limits(page) {
       }
 
       // One card at a time: hovering another word replaces it.
+      // (Both words on screen first: a scroll made to reach the second would close the first word's card
+      // by itself, and could bring the second word under the resting pointer, which opens nothing.)
       const other = page.locator(term('motion-to-dismiss')).first();
+      await other.evaluate((e) => e.scrollIntoView({ block: 'end' }));
       let at = await pointOn(compromised);
       await page.mouse.move(at.x, at.y, { steps: 2 });
       await page.locator(card + '[data-cc-gloss-for="compromise"]').waitFor();
+      const scrolledTo = await page.locator('#ccScroll').evaluate((s) => s.scrollTop);
       at = await pointOn(other);
+      assert.equal(
+        await page.locator('#ccScroll').evaluate((s) => s.scrollTop),
+        scrolledTo,
+        'the two words are not on one screen',
+      );
       await page.mouse.move(at.x, at.y, { steps: 6 });
       await page.locator(card + '[data-cc-gloss-for="motion-to-dismiss"]').waitFor();
       assert.equal(await page.locator('#coldCallDialog .cc-gloss-card').count(), 1);
@@ -553,7 +562,17 @@ async function limits(page) {
       if (shots) await page.screenshot({ path: path.join(shots, 'phone-390-links.png') });
       const tapped = [];
       for (const key of ['compromise', 'removal', 'cause-of-action']) {
-        const at = await pointOn(page.locator(term(key)).first());
+        let at = await pointOn(page.locator(term(key)).first());
+        // A card opens below its word, so it can lie over the next word: a reader closes it first, by
+        // tapping its word again.
+        if (
+          await page.evaluate(({ x, y }) => !!document.elementFromPoint(x, y)?.closest('#ccGlossCard'), at)
+        ) {
+          const open = await pointOn(page.locator('#coldCallDialog .cc-term[aria-expanded="true"]'));
+          await page.touchscreen.tap(open.x, open.y);
+          await page.locator(card).waitFor({ state: 'detached', timeout: 1500 });
+          at = await pointOn(page.locator(term(key)).first());
+        }
         await page.touchscreen.tap(at.x, at.y);
         await page
           .locator(card + `[data-cc-gloss-for="${key}"]`)
@@ -765,6 +784,8 @@ async function limits(page) {
       assert.equal(await page.locator(card).count(), 1, 'a tap inside the plain card closed it');
       await page.locator('#ccNarrative .cc-section h3').first().tap();
       await page.locator(card).waitFor({ state: 'detached', timeout: 1500 });
+      // (The tap above may have scrolled the first prompt into view: bring the marker back.)
+      await m.evaluate((e) => e.scrollIntoView({ block: 'center' }));
       const again = await m.boundingBox();
       await page.touchscreen.tap(again.x + again.width / 2, again.y + again.height / 2);
       await plainCard(page, info.id, 'Erie second tap');
