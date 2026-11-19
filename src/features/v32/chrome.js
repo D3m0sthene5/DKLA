@@ -133,6 +133,10 @@
   cluster.setAttribute('aria-label', 'New York time, Ask Dottie credit and version');
   header.prepend(left);
   left.prepend(brand);
+  // Where the splash line hangs: a point just after the wordmark that takes no room of its own, so the
+  // line arriving or leaving never moves the breadcrumb beside it.
+  const hook = left.querySelector(':scope > .v32-splash-hook') || make('span', 'v32-splash-hook');
+  brand.after(hook);
   field.after(right);
   right.prepend(cluster);
   right.append(more);
@@ -175,7 +179,7 @@
         ask.querySelector('.ask-bar-label')?.before(face);
       }
     });
-    take(':scope > .dkla-splash', left, (el) => left.append(el));
+    take(':scope > .dkla-splash', hook, (el) => hook.append(el));
     return !!release;
   }
   (function adoptSoon(tries) {
@@ -193,7 +197,7 @@
   function placeNav() {
     if (!nav) return;
     if (roomy.matches) {
-      if (nav.parentElement !== left) brand.after(nav);
+      if (nav.parentElement !== left) hook.after(nav);
     } else if (nav.parentElement !== main) canvas.after(nav);
   }
   roomy.addEventListener?.('change', () => {
@@ -247,14 +251,18 @@
       !(typeof selected !== 'undefined' && selected);
     const z = window.DKLAHomeFit?.homeZoom?.() || 0;
     const off = !home || (z > 0 && S.z > z * 1.04);
-    if (root.classList.contains('dkla-off-home') !== off) root.classList.toggle('dkla-off-home', off);
+    if (root.classList.contains('dkla-off-home') !== off) {
+      root.classList.toggle('dkla-off-home', off);
+      // The trail has just come into the bar: its room is known only now.
+      if (off) fitTrail();
+    }
   }
   (function install(tries) {
     if (!window.R18?.afterDraw) {
       if (tries < 400) setTimeout(() => install(tries + 1), 80);
       return;
     }
-    R18.afterDraw.push(offHome);
+    R18.afterDraw.push(offHome, noteOpened);
     window.DKLACalm?.after(offHome);
     offHome();
   })(0);
@@ -362,7 +370,6 @@
     {
       id: 'lectures',
       label: 'Lecture notes',
-      note: 'From the class slides',
       glyph: 'lecture',
       attrs: 'data-v32-open="lectures"',
       count: () => blockCount('dklaLecturesData'),
@@ -386,7 +393,7 @@
     {
       id: 'authorities',
       label: 'Rules & authorities',
-      note: 'Constitution, rules and statutes',
+      note: 'Constitution, rules, codes',
       glyph: 'authority',
       attrs: 'data-authority-menu="1"',
       count: () => safe(() => window.DKLAAuthorities.data.entries.length),
@@ -415,7 +422,6 @@
     {
       id: 'textbook',
       label: 'Textbook',
-      note: 'The assigned pages',
       glyph: 'book',
       attrs: 'data-action="book"',
       count: () => safe(() => Number(graph().corpus?.sourcePageCount)),
@@ -489,7 +495,6 @@
     {
       id: 'save',
       label: 'Save and back up',
-      note: 'Export or import',
       glyph: 'save',
       attrs: 'data-action="save"',
     },
@@ -599,11 +604,13 @@
 
   const dialog = $('libraryDialog');
   if (dialog) {
-    // A row closes the Library before its feature opens (in the capture phase, ahead of the
-    // features' own listeners), so two dialogs are never stacked.
-    dialog.addEventListener(
+    // A row closes the Library before its feature opens, so two dialogs are never stacked. Listened for on
+    // the window, in the capture phase: ahead of every feature's own listener, some of which stop the click
+    // from travelling any further.
+    window.addEventListener(
       'click',
       (event) => {
+        if (!dialog.open || !dialog.contains(event.target)) return;
         if (event.target === dialog || event.target.closest('[data-library-close]')) {
           if (typeof dismissMenu === 'function') dismissMenu();
           return;
@@ -656,7 +663,7 @@
     recent = [id, ...recent.filter((other) => other !== id)].slice(0, 8);
     session.set(RECENT, JSON.stringify(recent));
   }
-  window.DKLACalm?.after(noteOpened);
+  // (Looked at after each map draw: opening an entry always draws. See the install above.)
   const NODE_GLYPH = { Case: 'case', Concept: 'concept', Rule: 'rule', Hypothetical: 'hypothetical' };
   const section = (name, rows, note = '') =>
     rows.length
@@ -859,11 +866,12 @@
   );
   // A palette row: the list closes and the keyboard leaves the box before the row's feature opens,
   // so a dialog that closes later does not hand the keyboard back to the box and reopen the list.
-  results.addEventListener(
+  // (On the window, in the capture phase, for the same reason as the Library's rows.)
+  window.addEventListener(
     'click',
     (event) => {
-      const row = event.target.closest('.v32-row');
-      if (!row || row.disabled) return;
+      const row = event.target.closest?.('.v32-row');
+      if (!row || row.disabled || !results.contains(row)) return;
       if (typeof closeSearch === 'function') closeSearch();
       if (document.activeElement === input || results.contains(document.activeElement))
         document.activeElement.blur();

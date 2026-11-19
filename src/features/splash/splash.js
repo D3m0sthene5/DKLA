@@ -4,7 +4,7 @@
  * One line per visit, chosen from window.DKLASplashLines by `choose` below (never the line just
  * shown, and very rarely one of the last 100); clicking or tapping it shows another.
  *
- * In the top bar it is an ordinary box in the bar's left group, placed and tilted by the stylesheets;
+ * In the top bar it is placed and tilted by the stylesheets (src/features/v32/chrome.css);
  * this file only decides whether it shows: on Home (the whole atlas at its resting size), with no
  * reader, dialog, Study or SCOTUS History open. It is looked at after each map draw and after anything
  * a visitor does, never on a timer.
@@ -273,8 +273,8 @@
     return why;
   }
   // In the top bar (v3.2 "Instrument") the line is attached to the wordmark, the way a title-screen
-  // splash is: an ordinary box in the bar's left group (src/features/v32/chrome.js puts it there, and
-  // chrome.css tilts it), so nothing is positioned or measured from here. This only decides whether it
+  // splash is: src/features/v32/chrome.js hangs it just after the wordmark and chrome.css places and
+  // tilts it, so nothing is positioned or measured from here. This only decides whether it
   // shows: on Home, with nothing open over the page (a reader, a dialog, Study, SCOTUS History). Where
   // the bar has too little room beside the wordmark the stylesheet leaves it out (chrome.css).
   function placeInBar() {

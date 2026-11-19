@@ -63,13 +63,10 @@
   }
 }
 /* In the top bar (v3.2 "Instrument"): attached to the DKLA wordmark on Home, the way a title-screen
-   splash is. An ordinary box in the bar's left group (src/features/v32/chrome.css tilts it), small,
-   its yellow its own; one row, or two balanced rows where the bar is narrower. It arrives and leaves
-   with a fade (`display` changes at the end of the way out, so the breadcrumb can take its place),
-   and pulses with a transform only. */
+   splash is (src/features/v32/chrome.css hangs it just after the wordmark and tilts it), small, its
+   yellow its own; one row, or two balanced rows where the bar is narrower. It arrives and leaves with
+   a fade (`display` changes at the end of the way out), and pulses with a transform only. */
 .dkla-splash.dkla-splash-brand {
-  position: static;
-  width: auto;
   white-space: normal;
   z-index: auto;
   transition:
