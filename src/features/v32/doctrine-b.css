@@ -548,6 +548,9 @@ html:root body #inspector .v32db-deck-name {
   font: 600 22px/24px var(--dkla-display, 'Exo 2'), sans-serif;
   color: var(--v31-text);
 }
+html:root body #inspector .v32db-deck-words {
+  flex: 1 1 auto;
+}
 html:root body #inspector .v32db-deck-fx {
   display: flex;
   align-items: center;
@@ -801,14 +804,11 @@ html:root body #inspector .v32db-near-name {
   color: var(--v31-text);
 }
 html:root body #inspector .v32db-near-note {
-  display: -webkit-box;
-  margin-top: 2px;
-  overflow: hidden;
+  max-width: 560px;
+  margin-top: 4px;
   font: 400 15px/22px var(--dkla-interface, Inter), sans-serif;
   text-wrap: pretty;
   color: var(--v31-body);
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
 }
 html:root body #inspector .v32db-near-later {
   margin-top: 2px;

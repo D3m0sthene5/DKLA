@@ -61,6 +61,27 @@
       ? `<time class="${cls}" datetime="${esc(s.date)}">${yearOf(s)}</time>`
       : `<span class="${cls}">${esc(yearOf(s))}</span>`;
 
+  // On the plate a label opens with its verb. Entries rewritten after a rule ended open with
+  // "Historically"; the plate says that with the span's dates and its end, so the word is left to the
+  // account and the list, where the stored text is shown whole.
+  const onPlate = (text) =>
+    String(text || '').replace(/^Historically,?\s+(\S)/, (all, first) => first.toUpperCase());
+  // The sentences of a stored note. A full stop ends one only before a capital, and not after an
+  // initial or an abbreviation of a case name.
+  function sentences(text) {
+    const out = [];
+    let from = 0;
+    const ends = /[.!?]["’”')]*\s+(?=["“‘(]?[A-Z§])/g;
+    for (let m; (m = ends.exec(text)); ) {
+      const before = text.slice(from, m.index + 1);
+      if (/(?:^|[\s(])(?:[A-Z]|v|vs|U\.S|Inc|Co|Corp|Ltd|No|Mr|Ms|Dr|St|e\.g|i\.e|cf|Cf|Bros|Ass’n|Ass'n)\.$/.test(before)) continue;
+      out.push(text.slice(from, m.index + m[0].length).trim());
+      from = m.index + m[0].length;
+    }
+    if (from < text.length) out.push(text.slice(from).trim());
+    return out.filter(Boolean);
+  }
+
   /* ---------- the twelve moves: four classes, a shape each ---------- */
   // What a move does to the rule decides its class, and its class its weight on the plate. The words
   // beside each shape are timelines.js's own (TURN), or the timeline's words for wider and narrower.
@@ -347,7 +368,7 @@
       : big && item.first.length === 2 && plain(item.first).length > 30
         ? `<span class="v32db-tag-name v32db-tag-caption"><span class="v32db-line">${esc(item.first[0])}</span><span class="v32db-line">v. ${esc(item.first[1])}</span></span>`
         : `<span class="v32db-tag-name" data-a="${esc(item.first[0])}"${item.first[1] ? ` data-b="${esc(item.first[1])}"` : ''}>${esc(plain(item.first))}</span>`;
-    return `<button type="button" class="v32db-tag v32db-c-${item.cls} v32db-f-${item.fam}${big ? ' v32db-big' : ''}${small ? ' v32db-small' : ''}${item.here ? ' v32db-is-here' : ''}${item.hung ? ' v32db-hung' : ''}" data-v32db-i="${item.i}" title="${esc(title)}"><span class="v32db-tag-top">${mark}${year}${name}${here}</span><span class="v32db-tag-fx">${esc(item.words)}</span></button>`;
+    return `<button type="button" class="v32db-tag v32db-c-${item.cls} v32db-f-${item.fam}${big ? ' v32db-big' : ''}${small ? ' v32db-small' : ''}${item.here ? ' v32db-is-here' : ''}${item.hung ? ' v32db-hung' : ''}" data-v32db-i="${item.i}" title="${esc(title)}"><span class="v32db-tag-top">${mark}${year}${name}${here}</span><span class="v32db-tag-fx">${esc(onPlate(item.words))}</span></button>`;
   }
   // A name too long for its label gives way party by party: the longer one first, never the "v.".
   function fitName(el) {
@@ -371,7 +392,7 @@
     const a = span.a,
       b = span.b;
     const title = `${a.full} (${yearOf(a.s)}). ${a.s.effect || ''}`;
-    return `<button type="button" class="v32db-deck v32db-f-${a.fam}${a.here ? ' v32db-is-here' : ''}" data-v32db-i="${a.i}" title="${esc(title)}">${art(a.artId)}<span class="v32db-deck-words"><span class="v32db-deck-top"><span class="v32db-deck-name">${esc(span.short)}</span><span class="v32db-yr">${esc(yearOf(a.s))}–${esc(yearOf(b.s))}</span>${a.here ? '<span class="v32db-here">You are here</span>' : ''}</span><span class="v32db-deck-fx">${glyph(a.turn, 12)}${esc(a.s.effect || a.kind)}</span></span></button>`;
+    return `<button type="button" class="v32db-deck v32db-f-${a.fam}${a.here ? ' v32db-is-here' : ''}" data-v32db-i="${a.i}" title="${esc(title)}">${art(a.artId)}<span class="v32db-deck-words"><span class="v32db-deck-top"><span class="v32db-deck-name">${esc(span.short)}</span><span class="v32db-yr">${esc(yearOf(a.s))}–${esc(yearOf(b.s))}</span>${a.here ? '<span class="v32db-here">You are here</span>' : ''}</span><span class="v32db-deck-fx">${glyph(a.turn, 12)}<span class="v32db-deck-said" data-rule="${esc(onPlate(sentences(a.s.note || '')[0] || ''))}" data-did="${esc(onPlate(a.s.effect || a.kind))}">${esc(onPlate(a.s.effect || a.kind))}</span></span></span></button>`;
   }
 
   // Each entry's place along the line. Time is true to scale inside a stretch; a gap longer than three
@@ -554,6 +575,10 @@
     const size = new Map(),
       forms = new Map();
     const box = (el) => ({ w: Math.ceil(el.getBoundingClientRect().width), h: el.offsetHeight });
+    for (const el of deckOf.values()) {
+      const said = el.querySelector('.v32db-deck-said');
+      if (said) said.textContent = said.dataset.did;
+    }
     for (const [i, el] of tagOf) {
       el.classList.remove('v32db-two', 'v32db-bare');
       size.set(i, box(el));
@@ -720,6 +745,12 @@
       el.style.top = one.y + 'px';
       el.style.width = one.w + 'px';
       el.style.height = one.h + 'px';
+      const said = el.querySelector('.v32db-deck-said');
+      if (said?.dataset.rule) {
+        said.textContent = said.dataset.rule;
+        const line = said.parentElement;
+        if (line.scrollWidth > line.clientWidth + 1) said.textContent = said.dataset.did;
+      }
     }
 
     // The ink: the line, its breaks and decade marks, the spans' piers, each label's stem, each mark.
@@ -807,8 +838,10 @@
   }
   // Does the plate already say, on this entry's label, what the entry did?
   function saidOnPlate(item) {
-    if (item.words !== item.s.effect) return false;
-    if (item.span) return true;
+    if (item.span) {
+      const said = root?.querySelector(`.v32db-deck[data-v32db-i="${item.i}"] .v32db-deck-said`);
+      return !!said && said.textContent === said.dataset.did;
+    }
     const said = root?.querySelector(`.v32db-tag[data-v32db-i="${item.i}"] > .v32db-tag-fx`);
     return !!said && said.getClientRects().length > 0;
   }
@@ -816,14 +849,13 @@
     const items = model.items,
       item = items[index];
     if (!item) return '';
-    // Its neighbours: the rule it ends or works within, the entries just before and after it on the
-    // line, the entry that ended it. Each is named once.
+    // Its neighbours: the entries just before and after it on the line and, for an entry that set a
+    // rule, the entry that ended it. (The rule an entry ends or works within is the span on the plate,
+    // which says what that rule was; it is not said again here.) Each is named once.
     const near = [];
     const add = (other, relation) => {
       if (other && other !== item && near.length < 3 && !near.some((n) => n[0] === other)) near.push([other, relation]);
     };
-    if (item.ends) add(item.ends.a, 'The earlier rule');
-    if (item.hung) add(item.hung.a, 'The rule in force');
     add(items[index - 1], 'Before it');
     add(items[index + 1], 'After it');
     if (item.span) add(item.span.b, 'Later');
