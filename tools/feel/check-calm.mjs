@@ -414,6 +414,9 @@ await press('#inspector .v31-rail [data-v31-place]', 'a rail row');
 await page.evaluate(() => window.DKLAReader.show('study'));
 await press('#inspector .r18-recall .r18-chip', 'a study chip');
 await page.evaluate(() => window.DKLAReader.show('flowchart'));
+// The flowchart steps are a part of Doctrine: showing them travels the page there for a quarter of a
+// second, and a press is measured only once the page is at rest.
+await sleep(400);
 await press('#inspector .v32-path a.v31-route-step', 'a flowchart step link');
 await press('#inspector .v31-chart .v31-open', 'a quiet control');
 await press('#closeInspector', 'the reader close button');

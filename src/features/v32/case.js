@@ -44,6 +44,7 @@
   const ICON = {
     close:
       '<svg viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9"/></svg>',
+    back: '<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3.5L5.5 8l4.5 4.5"/></svg>',
     crumb:
       '<svg class="v32-sep" viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 2.5L8 6l-3.5 3.5"/></svg>',
     reading:
@@ -273,14 +274,39 @@
     label.classList.add('v32-ident');
     const where = now?.node ? place(now.node) : null;
     if (where?.parts.length) {
-      // The same place every reader names: a course dot, then course, unit and subject.
+      // The same place every reader names: a course dot, then course, unit and subject. A narrow
+      // reader (a phone, where the top bar has no room for the path or its way back) does not squeeze
+      // the levels until their words are cut: it shows the way back and the course whole, and folds
+      // the levels after the course into one "…" control that opens the whole path (the frame's own
+      // menu, each level a way back to it). The two controls are in the strip at every width and
+      // shown only on a narrow one (case.css).
+      const sep = () => document.createRange().createContextualFragment(ICON.crumb).firstChild;
+      const back = element('button', 'v32-back');
+      back.type = 'button';
+      back.dataset.v32Back = '';
+      back.title = 'Back';
+      back.setAttribute('aria-label', 'Back');
+      back.innerHTML = ICON.back;
+      const more = element('button', 'v32-more', '…');
+      more.type = 'button';
+      more.dataset.v32More = '';
+      more.title = 'Show the whole path';
+      more.setAttribute('aria-haspopup', 'menu');
+      more.setAttribute('aria-label', 'Show the whole path: ' + where.parts.join(', '));
+      const pathMenu = document.getElementById('v32Path');
+      if (typeof pathMenu?.showPopover === 'function') more.setAttribute('popovertarget', 'v32Path');
+      else more.classList.add('v32-crumb-more'); // the frame's own handler opens it where there is no Popover API
+      const folded = sep();
+      folded.classList.add('v32-more-sep');
       label.title = where.parts.join(' › ');
       label.replaceChildren(
+        back,
         element('i', 'v32-dot'),
         ...where.parts.flatMap((part, i) => {
-          const text = element('span', i ? '' : 'v32-course', part);
-          return i ? [document.createRange().createContextualFragment(ICON.crumb), text] : [text];
+          const text = element('span', i ? 'v32-level' : 'v32-course', part);
+          return i ? [sep(), text] : [text];
         }),
+        ...(where.parts.length > 1 ? [folded, more] : []),
       );
       label.style.setProperty('--v32-dot', where.course?.[1] || 'var(--v31-faint)');
     }
@@ -642,29 +668,31 @@
     go.insertAdjacentHTML('beforeend', ARROW);
     return [part, go];
   }
+  // What this case changed on its doctrine's timeline, in the timeline's stored words, and one route
+  // into Doctrine. The chart itself has a home there: none of it is redrawn here.
   function sitTimeline(host) {
-    const lines = [
-      ...host.querySelectorAll(':scope > .v28-case-timelines > .dkla-timeline, :scope > .dkla-timeline'),
-    ];
-    const line = lines.find((one) => one.dataset.v32Place) || lines[0];
-    if (!line) return null;
-    const total = Number(line.dataset.v32Count) || 0,
-      at = Number(line.dataset.v32Place) || 0;
+    const id = entry()?.node?.id;
+    const T = window.DKLATimelines;
+    const lines = id && T?.parts ? T.list().filter((t) => t.steps.some((s) => s.id === id)) : [];
+    if (!lines.length || !host.querySelector(':scope > .v28-case-timelines, :scope > .dkla-timeline'))
+      return null;
+    const said = (text) => window.DKLADoctrineB?.held?.(text) ?? text;
+    const first = lines[0].steps.filter(T.parts.live);
+    const at = first.findIndex((s) => s.id === id) + 1;
     const [part, go] = sitPart(
-      'Timeline',
-      at ? `${ordinal(at)} of ${total}` : `${total} ${total === 1 ? 'entry' : 'entries'}`,
-      'timeline',
-      lines.length > 1 ? `All ${lines.length} timelines` : 'Every entry',
+      'Doctrine',
+      lines.length > 1 ? `${lines.length} timelines` : `${ordinal(at)} of ${first.length}`,
+      'doctrine',
+      lines.length > 1 ? `See its ${lines.length} doctrine charts` : 'See it on the doctrine chart',
     );
-    const question = line.querySelector('.v31-tl-q')?.textContent.trim() || line.getAttribute('aria-label');
-    if (question) part.appendChild(titled(question));
-    const axis = line.querySelector('.v31-axis');
-    if (axis) part.appendChild(axis.cloneNode(true));
-    const here = line.querySelector('.v31-tl-rows > li.v31-here');
-    const turn = here?.querySelector('.v31-tl-turn'),
-      note = here?.querySelector('.v31-tl-note');
-    if (turn?.textContent.trim()) part.appendChild(turn.cloneNode(true));
-    if (note?.textContent.trim()) part.appendChild(clamped(note.textContent.trim()));
+    part.classList.add('v32-sit-doctrine');
+    for (const t of lines.slice(0, 3)) {
+      const step = t.steps.find((s) => s.id === id);
+      const changed = element('div', 'v32-sit-changed', bound(said(T.parts.label(step, t) || '')));
+      part.appendChild(changed);
+      if (step.fate) part.appendChild(element('div', 'v32-sit-later', 'Later: ' + step.fate));
+      part.appendChild(titled(t.title));
+    }
     part.appendChild(go);
     return part;
   }
@@ -962,6 +990,23 @@
   );
 
   /* ---------- pointer and keyboard ---------- */
+  // The whole-path menu, opened from the strip's "…" (a narrow reader): placed under that control.
+  // (Heard on the way down: the menu is made by the frame, after this file runs, and its toggle
+  // does not bubble.)
+  document.addEventListener(
+    'toggle',
+    (event) => {
+      if (event.target.id !== 'v32Path' || event.newState !== 'open') return;
+      const more = [...inspector.querySelectorAll('[data-v32-more]')].find(
+        (one) => one.getClientRects().length,
+      );
+      if (!more) return;
+      const at = more.getBoundingClientRect();
+      event.target.style.left = '8px';
+      event.target.style.top = Math.round(at.bottom + 4) + 'px';
+    },
+    true,
+  );
   inspector.addEventListener('click', (event) => {
     const tab = event.target.closest('.v32-tab');
     if (tab) {
@@ -1060,10 +1105,17 @@
     }
     // "All connections" on the map's connection card.
     if (event.target.closest?.('[data-dkla-all-connections]')) show('connections');
+    // The way back in a narrow reader's strip is the app's own Back (the arrow the top bar carries
+    // on a wide screen); where there is nothing to go back to, it goes to the entry's subject.
+    if (event.target.closest?.('[data-v32-back]')) {
+      const appBack = document.getElementById('studyBack');
+      if (appBack && !appBack.disabled) appBack.click();
+      else document.querySelector('#geoBreadcrumb button:last-of-type')?.click();
+    }
   });
   // A link to one facet of an entry: #node=citoh&facet=timeline.
   function route() {
-    const found = decodeURIComponent(location.hash || '').match(/^#node=([^&]+)&facet=([a-z]+)$/);
+    const found = decodeURIComponent(location.hash || '').match(/^#node=([^&]+)&facet=([a-z]+)(?:&.*)?$/);
     if (!found) return;
     try {
       if (!nodesById.has(found[1])) return;

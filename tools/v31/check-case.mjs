@@ -195,9 +195,10 @@ assert.ok(
     Math.abs(layout.title.left - layout.rule.left) <= 1,
   'the name, the first tab and the rule share one left edge',
 );
+// (v3.2: Cold Call has one place on every view of a case, the far end of the tab bar.)
 assert.ok(
-  layout.coldCall.height === 36 && layout.coldCall.right < layout.title.left,
-  'the Cold Call button is 36 px high, in the margin beside the tabs',
+  layout.coldCall.height === 36 && layout.coldCall.left > layout.firstTab.left + 200,
+  'the Cold Call button is 36 px high, at the far end of the tab bar',
 );
 assert.ok(
   layout.close.width === 36 && layout.close.height === 36 && layout.close.right <= 24 && layout.closeIcon,
@@ -303,16 +304,20 @@ await page.evaluate(() => (document.getElementById('inspector').scrollTop = 0));
 // Doctrine holds, in full, what the sheet's side column summarises. The old names open their part.
 await show('timeline');
 assert.deepEqual(await shown(), { open: 'doctrine', facets: ['doctrine'] });
-const timeline = body.locator('.v31-tl');
-assert.equal(await timeline.locator('.v31-dot').count(), 6, 'all six timeline entries on the axis');
-assert.equal(await timeline.locator('.v31-dot.v31-here').count(), 1, 'this case marked on the axis');
-assert.equal(await timeline.locator('.v31-tl-rows > li').count(), 6, 'every entry is a row');
-assert.match(await timeline.locator('li[aria-current="step"]').innerText(), /C\. Itoh[\s\S]*You are here/);
-// The full timeline marks this case, and closing it comes back to the Timeline facet.
-await timeline.locator('[data-r21-open]').click();
-await page.locator('#r21Timelines[open] .r21-v > li.v31-here[aria-current="step"]').waitFor();
-await page.keyboard.press('Escape');
-await page.locator('#r21Timelines[open]').waitFor({ state: 'detached' });
+// v3.2: the doctrinal history itself is here, drawn (src/features/v32/doctrine-b.js; its own check is
+// tools/v32/check-doctrine.mjs). Every entry is on the drawing and in the list, this case is marked,
+// and nothing offers to open "the full timeline" somewhere else.
+const plate = body.locator('.v32db-plate');
+await plate.waitFor();
+assert.equal(await plate.locator('button[data-v32db-i]').count(), 6, 'all six timeline entries on the drawing');
+assert.equal(await plate.locator('.v32db-is-here .v32db-here').count(), 1, 'this case marked on the drawing');
+assert.equal(await body.locator('.v32db-list > li').count(), 6, 'every entry is in the list');
+assert.match(await body.locator('.v32db-list > li[aria-current="step"]').innerText(), /You are here[\s\S]*C\. Itoh/);
+assert.equal(
+  await body.locator('.v31-tl [data-r21-open]').first().isVisible(),
+  false,
+  'no "Open the full timeline" on the Doctrine view',
+);
 assert.equal((await shown()).open, 'doctrine');
 
 await show('flowchart');
@@ -491,6 +496,14 @@ assert.deepEqual(loper.facets, [
 ]);
 // The caption is composed from the title: one case to a line, the second smaller, the year in the
 // citation line and the strip; the heading's text is still the title.
+// (The court is read from the brief, which loads when the case opens: wait for it.)
+await page
+  .waitForFunction(
+    () => /·/.test(document.querySelector('#inspector .reader-top .v32-court')?.textContent || ''),
+    null,
+    { timeout: 10000 },
+  )
+  .catch(() => {});
 const caption = await page.evaluate(() => {
   const h = document.querySelector('#inspector .v32-head h2');
   const lines = [...h.querySelectorAll('.v32-case-line')];
@@ -528,12 +541,19 @@ const sits = await page.evaluate(() => {
     steps: aside.querySelectorAll('.v32-sit-steps > li').length,
     more: aside.querySelector('.v32-sit-more')?.textContent,
     links: aside.querySelectorAll('.v32-sit-links > li').length,
+    changed: aside.querySelector('.v32-sit-changed')?.textContent.replace(/\s+/g, ' ').trim(),
+    axis: aside.querySelectorAll('.v31-axis, .v31-dot').length,
+    route: aside.querySelector('[data-v32-go="doctrine"]')?.textContent.trim(),
     beside:
       aside.getBoundingClientRect().left >
       document.querySelector('#inspector .case-box').getBoundingClientRect().right,
   };
 });
-assert.deepEqual(sits.kinds, ['Timeline 10th of 10', 'Flowchart 14 steps in 4 charts', 'Connections 12']);
+assert.deepEqual(sits.kinds, ['Doctrine 10th of 10', 'Flowchart 14 steps in 4 charts', 'Connections 12']);
+// v3.2: the doctrine part says what this case changed and leads into Doctrine; no chart is redrawn here.
+assert.equal(sits.changed, 'Ends Chevron deference to statutory interpretations', 'what this case changed');
+assert.equal(sits.axis, 0, 'no miniature timeline beside the brief');
+assert.match(sits.route, /^See it on the doctrine chart/, 'one route into Doctrine');
 assert.equal(sits.steps, 3, 'at most three steps beside the brief');
 assert.match(sits.more, /^\+ 11 more steps in \d charts$/);
 assert.equal(sits.links, 3);

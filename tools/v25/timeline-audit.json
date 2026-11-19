@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "reviewedAt": "2026-11-17",
   "dataPath": "tools/r19/data/timelines.json",
-  "timelinesSha256": "09f1bf2abc69e163b4fd6aa1842c51dd711da977975232ffc84519b344db2eaa",
+  "timelinesSha256": "d3075142e0da4a71fd0561ba9b7e6186b1351a7413a46f962567cbfc6a3c87af",
   "baselineGitRevision": "347d2e9759a7b5429f24825c521a967ce2b14eb9",
   "scope": "All timeline memberships and navigation were inventoried against the canonical cases and original assigned-source locations. New lines and selected corrections were compared with original casebook passages and case-specific accounts. Prior complete-opinion limitations remain; this does not certify every proposition or all current law. November 17: all 685 timeline steps screened editorially; targeted primary-source corrections are recorded separately. This is not a complete primary-source audit of every step or brief.",
   "limitations": [
@@ -46928,6 +46928,90 @@
       "after": {
         "note": "A buyer of goods may obtain specific performance for unique goods or other proper circumstances. Inability to obtain substitutes can support relief beyond a uniqueness label; damages’ adequacy and equitable discretion still matter."
       }
+    },
+    {
+      "timelineId": "deference",
+      "step": 1,
+      "key": "lrs-i-gray-powell",
+      "fields": [
+        "effect"
+      ],
+      "before": {
+        "effect": "Historically accepts the agency’s statutory classification"
+      },
+      "after": {
+        "effect": "Accepted the agency’s statutory classification"
+      }
+    },
+    {
+      "timelineId": "deference",
+      "step": 2,
+      "key": "lrs-i-hearst",
+      "fields": [
+        "effect"
+      ],
+      "before": {
+        "effect": "Historically accepts the Board’s employee classification"
+      },
+      "after": {
+        "effect": "Accepted the Board’s employee classification"
+      }
+    },
+    {
+      "timelineId": "deference",
+      "step": 4,
+      "key": "lrs-i-chevron",
+      "fields": [
+        "effect"
+      ],
+      "before": {
+        "effect": "Historically requires Chevron deference"
+      },
+      "after": {
+        "effect": "Required Chevron deference"
+      }
+    },
+    {
+      "timelineId": "deference",
+      "step": 5,
+      "key": "lrs-i-mead-note",
+      "fields": [
+        "effect"
+      ],
+      "before": {
+        "effect": "Historically limits which acts receive Chevron deference"
+      },
+      "after": {
+        "effect": "Limited which acts received Chevron deference"
+      }
+    },
+    {
+      "timelineId": "deference",
+      "step": 6,
+      "key": "lrs-i-brand-x",
+      "fields": [
+        "effect"
+      ],
+      "before": {
+        "effect": "Historically lets an agency displace some judicial readings"
+      },
+      "after": {
+        "effect": "Let an agency displace some judicial readings"
+      }
+    },
+    {
+      "timelineId": "deference",
+      "step": 7,
+      "key": "LRS-CLOSURE-031",
+      "fields": [
+        "effect"
+      ],
+      "before": {
+        "effect": "Historically applies Chevron to agency authority"
+      },
+      "after": {
+        "effect": "Applied Chevron to agency authority"
+      }
     }
   ],
   "followupRuleAccountComparisons": [
@@ -47045,5 +47129,17 @@
     "allMapCasesHaveDoctrinalMembership": true,
     "courseChronologies": "tools/v28/case-chronologies.json",
     "originalSourceRegistry": "tools/v28/source-links.json"
+  },
+  "placementFields": {
+    "addedAt": "2026-11-19",
+    "timelines": [
+      "deference",
+      "forms",
+      "damages"
+    ],
+    "what": "Added `lines` to these three timelines and `bears` to each of their 21 steps (which named line the step bears on, as sets, under, ends or on the timeline's own line, with the supporting sentence and its source; on some steps `beside`, a distinction, consequence or comparison in the Atlas's own sentences under an editorial heading). On the damages line \"Lost enjoyment\", `term` records the brief's own term, loss of amenity. Apart from the six effect lines listed at the end of substantiveChanges, no existing field of any step or timeline was changed.",
+    "basis": "Each `basis` and each `beside.text` is made of verbatim sentences of the named Atlas source (a brief; for King v. Burwell's `beside`, the entry's stored connections; for UCC § 2-207, the step's own note; for Kisor's second sentence and the damages comparison, the timeline's own summary and guide), checked by script when written. Headings and the names of lines are editorial; the forms and damages line names are words of each timeline's stored guide or summary. This records where the Atlas's own accounts place each entry; it is not a fresh primary-source review, and the 2026-11-17 review above did not cover these fields.",
+    "usedBy": "src/features/v32/doctrine-b.js (the Doctrine view's chart)",
+    "effectLines": "2026-11-19, on the owner's instruction: the six effect lines of the deference timeline that opened \"Historically ...\" are stored in the past tense (\"Accepted the agency's statutory classification\"). Each original wording is kept on its step as `effectOriginal`. Each was read against its step's note for meaning; only the tense of the verb and the word \"Historically\" changed."
   }
 }

@@ -112,6 +112,83 @@
   flex: none;
   color: var(--v31-faint);
 }
+/* The way back and the "…" that opens the whole path: for a narrow reader only (below). */
+#inspector .v32-back,
+#inspector .v32-more,
+#inspector .v32-more-sep {
+  display: none;
+}
+/* A narrow reader (a phone): the levels are never squeezed until their words are cut. The strip shows
+   the way back and the course whole, and the levels after the course fold into "…", which opens the
+   whole path with each level a way back to it. */
+@media (max-width: 699px) {
+  #inspector :is(.v32-ident, .v32db-crumbs) > .v32-level,
+  #inspector :is(.v32-ident, .v32db-crumbs) > .v32-sep:not(.v32-more-sep) {
+    display: none;
+  }
+  #inspector :is(.v32-ident, .v32db-crumbs) > .v32-more-sep {
+    display: block;
+  }
+  #inspector :is(.v32-ident, .v32db-crumbs) > :is(.v32-back, .v32-more) {
+    all: unset;
+    box-sizing: border-box;
+    position: relative;
+    flex: none;
+    display: grid;
+    place-items: center;
+    height: 28px;
+    border-radius: 6px;
+    color: var(--v31-soft);
+    cursor: pointer;
+  }
+  #inspector :is(.v32-ident, .v32db-crumbs) > .v32-back {
+    width: 28px;
+    margin: 0 6px 0 -6px;
+  }
+  #inspector :is(.v32-ident, .v32db-crumbs) > .v32-more {
+    min-width: 32px;
+    padding: 0 8px;
+    background: var(--v32-hair);
+    font: var(--v32-ui-small);
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  /* A 44 px place to press round each. */
+  #inspector :is(.v32-ident, .v32db-crumbs) > :is(.v32-back, .v32-more)::after {
+    content: '';
+    position: absolute;
+    inset: -8px -6px;
+  }
+  #inspector :is(.v32-ident, .v32db-crumbs) > :is(.v32-back, .v32-more):active {
+    background: var(--v32-hair-strong, var(--v32-hair));
+    color: var(--v31-text);
+  }
+  #inspector :is(.v32-ident, .v32db-crumbs) > :is(.v32-back, .v32-more):focus-visible {
+    outline: 2px solid var(--v31-link);
+    outline-offset: 1px;
+  }
+  /* The dot no longer hangs left of the column: the way back is first on the line. */
+  #inspector .reader-top > .v32-ident {
+    margin-left: 0;
+    padding-left: 0;
+    overflow: visible;
+  }
+  #inspector .v32-ident > .v32-dot {
+    margin: 0 4px 0 0;
+  }
+  /* Once the title has scrolled under the strip its name stands here instead; the controls under
+     it are not there to be pressed. */
+  #inspector .reader-top.v32-titled > .v32-ident {
+    visibility: hidden;
+  }
+}
+/* The path is shown once. Where the top bar carries it (with the way back), the reader's strip does
+   not repeat it; under 1024 px the bar has no room for a path and the strip keeps it. */
+@media (min-width: 1024px) {
+  html.v32-chrome #inspector .reader-top > .v32-ident {
+    display: none;
+  }
+}
 #inspector .reader-top > .v32-now {
   font: var(--v32-ui-small);
   font-weight: 600;
@@ -573,14 +650,18 @@
 #inspector .v32.v32-single > .v32-bar > * {
   display: none;
 }
-/* The button is 36 px high; the 4 px above and below it pass a press on to it (case.js). */
+/* The button is 36 px high; the 4 px above and below it pass a press on to it (case.js). It has one
+   place on every view of a case: the far end of the tab bar. */
 #inspector .v32 .v32-cc {
   position: absolute;
-  left: var(--v32-gutter);
+  right: var(--v32-gutter);
   top: 8px;
   display: flex;
   padding: 4px 0;
   cursor: pointer;
+}
+#inspector .v32 > .v32-bar:has(.v32-cc:not(:empty)) .v32-tabs {
+  margin-right: 148px;
 }
 #inspector .v32 .v32-cc:empty {
   display: none;
@@ -734,13 +815,6 @@
 @media (max-width: 1023px) {
   #inspector .v32 > .v31-rail {
     display: none !important;
-  }
-  #inspector .v32 .v32-cc {
-    position: static;
-    flex: none;
-  }
-  #inspector .v32 .v32-cc:not(:empty) {
-    margin-right: 24px;
   }
 }
 
@@ -2067,6 +2141,33 @@
   font: var(--v31-ui);
   font-weight: 400;
   color: var(--v31-muted);
+}
+/* What the case changed on its doctrine's timeline: the one line this part is for. */
+#inspector .v32 .v32-sit-changed {
+  max-width: 320px;
+  margin-top: 4px;
+  font:
+    600 17px/24px var(--dkla-interface, Inter),
+    sans-serif;
+  text-wrap: balance;
+  color: var(--v31-text);
+}
+#inspector .v32 .v32-sit-later {
+  max-width: 320px;
+  margin-top: 4px;
+  font: var(--v32-ui-small);
+  font-weight: 400;
+  text-wrap: pretty;
+  color: var(--v31-soft);
+}
+#inspector .v32 .v32-sit-doctrine > .v32-sit-title {
+  margin-top: 4px;
+}
+#inspector .v32 .v32-sit-doctrine > .v32-sit-title + .v32-sit-changed {
+  margin-top: 16px;
+}
+#inspector .v32 .v32-sit-doctrine > .v32-sit-go {
+  margin-top: 8px;
 }
 #inspector .v32 .v32-sits .v31-axis {
   height: 48px;

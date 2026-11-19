@@ -1479,6 +1479,21 @@ const breakages = [
       ),
   ],
   [
+    'flowchart whole map: wires arrive beside the step they lead to, not on it',
+    'src/features/flowcharts/flowcharts.js',
+    () =>
+      edit(
+        'src/features/flowcharts/flowcharts.js',
+        'points.push([route.tx, to.y - (meets ? 12 : 3)]);',
+        'points.push([route.tx + 300, to.y - (meets ? 12 : 3)]);',
+      ),
+  ],
+  [
+    'flowchart: coming back from a cited case forgets the path that was walked',
+    'src/features/flowcharts/flowcharts.js',
+    () => edit('src/features/flowcharts/flowcharts.js', ' && active.opened !== opened)', ')'),
+  ],
+  [
     'flowchart walkthrough: branch choices disappear',
     'src/features/flowcharts/flowcharts.css',
     () =>
