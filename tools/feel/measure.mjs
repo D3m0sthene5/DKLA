@@ -43,9 +43,14 @@ const PROFILES = {
   ipad: { viewport: { width: 1180, height: 820 }, touch: true, cpu: 1 },
   'ipad-4x': { viewport: { width: 1180, height: 820 }, touch: true, cpu: 4 },
 };
-const profiles = (flag('--profiles', 'desktop,desktop-4x,ipad,ipad-4x') || '').split(',').filter((p) => PROFILES[p]);
+const profiles = (flag('--profiles', 'desktop,desktop-4x,ipad,ipad-4x') || '')
+  .split(',')
+  .filter((p) => PROFILES[p]);
 const attribute = argv.includes('--attribute');
-const outFile = path.resolve(root, flag('--out', 'work/feel/result' + (flag('--label') ? '-' + flag('--label') : '') + '.json'));
+const outFile = path.resolve(
+  root,
+  flag('--out', 'work/feel/result' + (flag('--label') ? '-' + flag('--label') : '') + '.json'),
+);
 const instrument = fs.readFileSync(path.join(here, 'instrument.js'), 'utf8');
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const log = (...a) => console.error('[feel]', ...a);
@@ -84,16 +89,20 @@ const blocks = []; // every inline <script>: {id, line (1-based, of its first ch
     const text = html.slice(start, end);
     const parts = []; // feature files inside the bundle
     const marker = /\/\* ===== (\S+) ===== \*\//g;
-    for (let k; (k = marker.exec(text)); ) parts.push({ file: k[1], line: lineOf(start + k.index), pos: k.index });
+    for (let k; (k = marker.exec(text)); )
+      parts.push({ file: k[1], line: lineOf(start + k.index), pos: k.index });
     blocks.push({ id, line: lineOf(start), endLine: lineOf(end), text, parts });
   }
 }
-const runtimeFile = (id) => (fs.existsSync(path.join(root, 'src/runtime', id + '.js')) ? 'src/runtime/' + id + '.js' : null);
+const runtimeFile = (id) =>
+  fs.existsSync(path.join(root, 'src/runtime', id + '.js')) ? 'src/runtime/' + id + '.js' : null;
 function fileOfLine(line, withLine = false) {
   const b = blocks.find((b) => line >= b.line && line <= b.endLine);
   if (!b) return 'page line ' + line;
   const part = [...b.parts].reverse().find((p) => line >= p.line);
-  const file = part ? part.file : runtimeFile(b.id) || (b.id ? '<script id=' + b.id + '>' : 'inline script at line ' + b.line);
+  const file = part
+    ? part.file
+    : runtimeFile(b.id) || (b.id ? '<script id=' + b.id + '>' : 'inline script at line ' + b.line);
   // The line in the source file (within a line or two: the build adds a marker line before each feature file).
   return withLine ? file + ':~' + (part ? line - part.line : line - b.line + 1) : file;
 }
@@ -106,7 +115,8 @@ function locate(fn, pos) {
     if (pos >= b.text.length) continue;
     const at = b.text.slice(Math.max(0, pos - 80), pos + 60);
     const head = b.text.slice(pos, pos + 40);
-    const named = fn && new RegExp('(function\\s+|\\b)' + fn.replace(/[^\w$]/g, '') + '\\s*(=|\\(|:)').test(at);
+    const named =
+      fn && new RegExp('(function\\s+|\\b)' + fn.replace(/[^\w$]/g, '') + '\\s*(=|\\(|:)').test(at);
     const starts = /^(async\s+)?(function\b|\(|[\w$]+\s*=>|[\w$]+\s*\()/.test(head);
     if (fn ? named && starts : starts) {
       const part = [...b.parts].reverse().find((p) => pos >= p.pos);
@@ -123,7 +133,8 @@ const nameScript = (s) => ({
   function: s.fn || '(anonymous)',
   file: s.inline ? locate(s.fn, s.pos) || 'unresolved' : s.url,
 });
-const round = (n, p = 1) => (typeof n === 'number' && Number.isFinite(n) ? Math.round(n * 10 ** p) / 10 ** p : n);
+const round = (n, p = 1) =>
+  typeof n === 'number' && Number.isFinite(n) ? Math.round(n * 10 ** p) / 10 ** p : n;
 
 /* ---------- browser ---------- */
 const browser = await chromium.launch();
@@ -159,11 +170,17 @@ async function open(profile, { sw = false, wrap = false, hash = '' } = {}) {
 async function ready(S, { data = true } = {}) {
   const { page } = S;
   await page.locator('html.dkla-boot-ready').waitFor({ timeout: 180_000 });
-  await page.waitForFunction(() => window.LegalAtlas?.ready && window.DKLAColdCall && window.DKLAStudy, null, {
-    timeout: 120_000,
-  });
+  await page.waitForFunction(
+    () => window.LegalAtlas?.ready && window.DKLAColdCall && window.DKLAStudy,
+    null,
+    {
+      timeout: 120_000,
+    },
+  );
   if (data) {
-    await page.waitForFunction(() => __feel.marks.dataDone && __feel.marks.searchIndex, null, { timeout: 240_000 });
+    await page.waitForFunction(() => __feel.marks.dataDone && __feel.marks.searchIndex, null, {
+      timeout: 240_000,
+    });
     await quiet(S, 1500);
   }
   await page.evaluate(() => document.fonts.ready.then(() => __feel.wrapDraw()));
@@ -180,7 +197,17 @@ async function quiet(S, ms = 600) {
   );
   await S.page.evaluate(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))));
 }
-const METRICS = ['LayoutCount', 'RecalcStyleCount', 'LayoutDuration', 'RecalcStyleDuration', 'ScriptDuration', 'TaskDuration', 'Nodes', 'JSEventListeners', 'JSHeapUsedSize'];
+const METRICS = [
+  'LayoutCount',
+  'RecalcStyleCount',
+  'LayoutDuration',
+  'RecalcStyleDuration',
+  'ScriptDuration',
+  'TaskDuration',
+  'Nodes',
+  'JSEventListeners',
+  'JSHeapUsedSize',
+];
 async function metrics(S) {
   const { metrics } = await S.cdp.send('Performance.getMetrics');
   return Object.fromEntries(metrics.filter((m) => METRICS.includes(m.name)).map((m) => [m.name, m.value]));
@@ -212,7 +239,11 @@ async function profiled(S, fn) {
     if (!f.url) return { fn: f.functionName || '(native)', file: f.functionName ? '(browser)' : '' };
     const isPage = f.url.split('#')[0] === target.href.split('#')[0];
     const file = isPage ? fileOfLine(f.lineNumber + 1) : f.url.replace(target.origin + '/', '');
-    return { fn: f.functionName || '(anonymous)', file, at: isPage ? fileOfLine(f.lineNumber + 1, true) : file };
+    return {
+      fn: f.functionName || '(anonymous)',
+      file,
+      at: isPage ? fileOfLine(f.lineNumber + 1, true) : file,
+    };
   };
   const self = new Map(),
     total = new Map(),
@@ -228,7 +259,13 @@ async function profiled(S, fn) {
     let owner = n;
     while (owner && !owner.callFrame.url && owner.parent) owner = byId.get(owner.parent);
     const o = owner ? label(owner) : top;
-    add(self, top.file === '(browser)' || !top.file ? `${top.fn} [native, called from ${o.fn} in ${o.file}]` : `${top.fn} [${top.at}]`, ms);
+    add(
+      self,
+      top.file === '(browser)' || !top.file
+        ? `${top.fn} [native, called from ${o.fn} in ${o.file}]`
+        : `${top.fn} [${top.at}]`,
+      ms,
+    );
     add(files, o.file || '(browser)', ms);
     const seen = new Set();
     for (; n; n = byId.get(n.parent)) {
@@ -262,7 +299,10 @@ async function interact(S, name, { act, until, mutations, sample, after = 700, e
     const began = Date.now();
     await act();
     actMs = Date.now() - began;
-    if (until) await page.waitForFunction(() => __feel.cur.done, null, { timeout: 60_000, polling: 50 }).catch(() => {});
+    if (until)
+      await page
+        .waitForFunction(() => __feel.cur.done, null, { timeout: 60_000, polling: 50 })
+        .catch(() => {});
     await sleep(after);
   });
   const m1 = await metrics(S);
@@ -371,19 +411,34 @@ async function startupNumbers(S) {
     fcp = raw.paint.find((p) => p.name === 'first-contentful-paint')?.t ?? null;
   const boot = raw.marks.bootReady,
     done = Math.max(raw.marks.dataDone || 0, raw.marks.searchIndex || 0);
-  const tbt = (from, to) => raw.longtask.filter((t) => t.t >= from && t.t < to).reduce((s, t) => s + Math.max(0, t.d - 50), 0);
+  const tbt = (from, to) =>
+    raw.longtask.filter((t) => t.t >= from && t.t < to).reduce((s, t) => s + Math.max(0, t.d - 50), 0);
   const lastTask = raw.longtask.at(-1);
-  const idOf = (len) => Object.entries(raw.lens).find(([, n]) => n === len)?.[0] || `(${(len / 1e6).toFixed(2)} MB of text, not a page block)`;
+  const idOf = (len) =>
+    Object.entries(raw.lens).find(([, n]) => n === len)?.[0] ||
+    `(${(len / 1e6).toFixed(2)} MB of text, not a page block)`;
   const during = (t, d) => raw.longtask.filter((x) => x.t < t + d && x.t + x.d > t).map((x) => round(x.d, 0));
-  const parses = raw.json.map((j) => ({ block: idOf(j.len), at: round(j.t, 0), ms: round(j.d), mb: round(j.len / 1e6, 2), phase: j.t < boot ? 'before the atlas is shown' : 'after' }));
-  const loafTop = [...raw.loaf].sort((a, b) => b.d - a.d).slice(0, 10).map((l) => ({
-    at: round(l.t, 0),
-    ms: round(l.d, 0),
-    blockingMs: round(l.block, 0),
-    renderMs: round(l.render, 0),
-    phase: l.t < boot ? 'before shown' : 'after shown',
-    scripts: l.scripts.sort((a, b) => b.d - a.d).slice(0, 3).map(nameScript),
+  const parses = raw.json.map((j) => ({
+    block: idOf(j.len),
+    at: round(j.t, 0),
+    ms: round(j.d),
+    mb: round(j.len / 1e6, 2),
+    phase: j.t < boot ? 'before the atlas is shown' : 'after',
   }));
+  const loafTop = [...raw.loaf]
+    .sort((a, b) => b.d - a.d)
+    .slice(0, 10)
+    .map((l) => ({
+      at: round(l.t, 0),
+      ms: round(l.d, 0),
+      blockingMs: round(l.block, 0),
+      renderMs: round(l.render, 0),
+      phase: l.t < boot ? 'before shown' : 'after shown',
+      scripts: l.scripts
+        .sort((a, b) => b.d - a.d)
+        .slice(0, 3)
+        .map(nameScript),
+    }));
   return {
     responseEnd: raw.nav.responseEnd,
     domInteractive: raw.nav.domInteractive,
@@ -409,7 +464,11 @@ async function startupNumbers(S) {
       pageBytes: raw.nav.decoded,
       jsonParses: parses.sort((a, b) => b.ms - a.ms).slice(0, 30),
       longestFrames: loafTop,
-      longTasks: raw.longtask.map((t) => ({ at: round(t.t, 0), ms: round(t.d, 0), phase: t.t < boot ? 'before shown' : 'after shown' })),
+      longTasks: raw.longtask.map((t) => ({
+        at: round(t.t, 0),
+        ms: round(t.d, 0),
+        phase: t.t < boot ? 'before shown' : 'after shown',
+      })),
       background: raw.dataEvents.map((e) => {
         const f = raw.fetches.filter((x) => x.t <= e.t).at(-1);
         const g = raw.digests.filter((x) => x.t <= e.t).at(-1);
@@ -420,7 +479,7 @@ async function startupNumbers(S) {
           arrivedAt: round(e.t, 0),
           fetchToArrivedMs: f ? round(e.t - f.t, 0) : null,
           sha256Ms: g ? round(g.d) : null,
-          parseMs: p ? p.ms ?? round(p.d) : null,
+          parseMs: p ? (p.ms ?? round(p.d)) : null,
           longTasksWhileLoading: f ? during(f.t, e.t - f.t + 400) : [],
         };
       }),
@@ -447,7 +506,9 @@ async function startupProfiled(profile) {
   const [, cpu] = await profiled(S, async () => {
     await page.goto(target.href, { waitUntil: 'commit', timeout: 180_000 });
     await page.locator('html.dkla-boot-ready').waitFor({ timeout: 180_000 });
-    await page.waitForFunction(() => __feel.marks.dataDone && __feel.marks.searchIndex, null, { timeout: 240_000 });
+    await page.waitForFunction(() => __feel.marks.dataDone && __feel.marks.searchIndex, null, {
+      timeout: 240_000,
+    });
     await sleep(1500);
   });
   await context.close();
@@ -459,7 +520,10 @@ async function warm(profile, label) {
   S.label = label;
   await ready(S);
   const got = await S.page.evaluate(() =>
-    Promise.race([navigator.serviceWorker.ready.then(() => true), new Promise((r) => setTimeout(() => r(false), 60000))]),
+    Promise.race([
+      navigator.serviceWorker.ready.then(() => true),
+      new Promise((r) => setTimeout(() => r(false), 60000)),
+    ]),
   );
   await sleep(4000);
   const runs = [];
@@ -468,7 +532,16 @@ async function warm(profile, label) {
     await ready(S);
     const r = await startupNumbers(S);
     runs.push(r);
-    log(label, 'warm reload', i + 1, 'shown at', round(r.atlasShown, 0), 'worker', r.servedByWorker, got ? '' : '(worker never became ready)');
+    log(
+      label,
+      'warm reload',
+      i + 1,
+      'shown at',
+      round(r.atlasShown, 0),
+      'worker',
+      r.servedByWorker,
+      got ? '' : '(worker never became ready)',
+    );
   }
   await S.context.close();
   return runs;
@@ -482,7 +555,14 @@ async function wheel(S, { dy, ms, every = 50, x, y, key }) {
   await page.mouse.move(x, y);
   const end = Date.now() + ms;
   while (Date.now() < end) {
-    await cdp.send('Input.dispatchMouseEvent', { type: 'mouseWheel', x, y, deltaX: 0, deltaY: dy, modifiers: mod });
+    await cdp.send('Input.dispatchMouseEvent', {
+      type: 'mouseWheel',
+      x,
+      y,
+      deltaX: 0,
+      deltaY: dy,
+      modifiers: mod,
+    });
     await sleep(every);
   }
   if (key) await page.keyboard.up(key);
@@ -502,7 +582,9 @@ async function drag(S, from, to, ms = 1500) {
   const at = (f) => ({ x: from.x + (to.x - from.x) * f, y: from.y + (to.y - from.y) * f });
   if (profile.touch) {
     await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ ...from, id: 1 }] });
-    await paced(ms, (f) => cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ ...at(f), id: 1 }] }));
+    await paced(ms, (f) =>
+      cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ ...at(f), id: 1 }] }),
+    );
     await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
     return;
   }
@@ -518,10 +600,13 @@ async function pinch(S, centre, from, to, ms = 1200) {
     { x: centre.x + d / 2, y: centre.y, id: 2 },
   ];
   await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: pts(from) });
-  await paced(ms, (f) => cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: pts(from + (to - from) * f) }));
+  await paced(ms, (f) =>
+    cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: pts(from + (to - from) * f) }),
+  );
   await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
 }
-const mapNodes = (page) => page.evaluate(() => document.getElementById('geoCanvas').getElementsByTagName('*').length);
+const mapNodes = (page) =>
+  page.evaluate(() => document.getElementById('geoCanvas').getElementsByTagName('*').length);
 async function mapScenario(S) {
   const { page } = S;
   await goHome(S);
@@ -529,18 +614,48 @@ async function mapScenario(S) {
   const c = { x: box.x + box.w * 0.3, y: box.y + box.h * 0.4 };
   const sizes = { home: await mapNodes(page) };
   // The camera (the page's own S: zoom, x, y) on every frame, to see whether it moves smoothly or in jumps.
-  const camera = fn('function(){ return typeof S === "object" && S ? [Math.round(S.z*1e4)/1e4, Math.round(S.x), Math.round(S.y)] : null }');
+  const camera = fn(
+    'function(){ return typeof S === "object" && S ? [Math.round(S.z*1e4)/1e4, Math.round(S.x), Math.round(S.y)] : null }',
+  );
   const G = (extra) => ({ mutations: '#geoCanvas', sample: camera, ...extra });
 
-  await interact(S, 'map: wheel in, 2 s', G({ act: () => wheel(S, { dy: -100, ms: 2000, ...c }), after: 900, events: [] }));
+  await interact(
+    S,
+    'map: wheel in, 2 s',
+    G({ act: () => wheel(S, { dy: -100, ms: 2000, ...c }), after: 900, events: [] }),
+  );
   sizes.afterWheelIn = await mapNodes(page);
-  await interact(S, 'map: wheel out, 2 s', G({ act: () => wheel(S, { dy: 100, ms: 2000, ...c }), after: 900, events: [] }));
+  await interact(
+    S,
+    'map: wheel out, 2 s',
+    G({ act: () => wheel(S, { dy: 100, ms: 2000, ...c }), after: 900, events: [] }),
+  );
   await goHome(S);
-  await interact(S, 'map: Alt+wheel in (continuous), 2 s', G({ act: () => wheel(S, { dy: -40, ms: 2000, every: 16, key: 'Alt', ...c }), after: 500, events: [] }));
-  await interact(S, 'map: Alt+wheel out (continuous), 2 s', G({ act: () => wheel(S, { dy: 40, ms: 2000, every: 16, key: 'Alt', ...c }), after: 500, events: [] }));
+  await interact(
+    S,
+    'map: Alt+wheel in (continuous), 2 s',
+    G({ act: () => wheel(S, { dy: -40, ms: 2000, every: 16, key: 'Alt', ...c }), after: 500, events: [] }),
+  );
+  await interact(
+    S,
+    'map: Alt+wheel out (continuous), 2 s',
+    G({ act: () => wheel(S, { dy: 40, ms: 2000, every: 16, key: 'Alt', ...c }), after: 500, events: [] }),
+  );
   await goHome(S);
-  await interact(S, 'map: pinch (Ctrl+wheel) in, 1.5 s', G({ act: () => wheel(S, { dy: -12, ms: 1500, every: 16, key: 'Control', ...c }), after: 900, events: [] }));
-  await interact(S, 'map: pinch (Ctrl+wheel) out, 1.5 s', G({ act: () => wheel(S, { dy: 12, ms: 1500, every: 16, key: 'Control', ...c }), after: 900, events: [] }));
+  await interact(
+    S,
+    'map: pinch (Ctrl+wheel) in, 1.5 s',
+    G({
+      act: () => wheel(S, { dy: -12, ms: 1500, every: 16, key: 'Control', ...c }),
+      after: 900,
+      events: [],
+    }),
+  );
+  await interact(
+    S,
+    'map: pinch (Ctrl+wheel) out, 1.5 s',
+    G({ act: () => wheel(S, { dy: 12, ms: 1500, every: 16, key: 'Control', ...c }), after: 900, events: [] }),
+  );
   // Pan at the course level, where the map has the most to draw.
   await page.evaluate(() => home('Contracts', false, false));
   await sleep(900);
@@ -550,8 +665,24 @@ async function mapScenario(S) {
   await interact(S, 'map: drag-pan a course, 1.5 s', G({ act: () => drag(S, a, b), after: 400, events: [] }));
   await interact(S, 'map: drag-pan back, 1.5 s', G({ act: () => drag(S, b, a), after: 400, events: [] }));
   if (S.profile.touch) {
-    await interact(S, 'map: two-finger pinch out (touch)', G({ act: () => pinch(S, { x: box.x + box.w / 2, y: box.y + box.h / 2 }, 120, 420), after: 900, events: [] }));
-    await interact(S, 'map: two-finger pinch in (touch)', G({ act: () => pinch(S, { x: box.x + box.w / 2, y: box.y + box.h / 2 }, 420, 120), after: 900, events: [] }));
+    await interact(
+      S,
+      'map: two-finger pinch out (touch)',
+      G({
+        act: () => pinch(S, { x: box.x + box.w / 2, y: box.y + box.h / 2 }, 120, 420),
+        after: 900,
+        events: [],
+      }),
+    );
+    await interact(
+      S,
+      'map: two-finger pinch in (touch)',
+      G({
+        act: () => pinch(S, { x: box.x + box.w / 2, y: box.y + box.h / 2 }, 420, 120),
+        after: 900,
+        events: [],
+      }),
+    );
   }
   await goHome(S);
   for (const [name, id] of [
@@ -559,20 +690,56 @@ async function mapScenario(S) {
     ['zoom-out button', '#studyZoomOut'],
     ['fit button', '#studyFit'],
   ])
-    await interact(S, 'map: ' + name, G({ act: () => page.click(id), after: 1300, events: ['pointerdown', 'pointerup', 'click', 'mousedown', 'mouseup'] }));
+    await interact(
+      S,
+      'map: ' + name,
+      G({
+        act: () => page.click(id),
+        after: 1300,
+        events: ['pointerdown', 'pointerup', 'click', 'mousedown', 'mouseup'],
+      }),
+    );
   await goHome(S);
-  await interact(S, 'map: double-click', G({ act: () => page.mouse.dblclick(c.x, c.y), after: 1300, events: ['pointerdown', 'pointerup', 'click', 'dblclick'] }));
+  await interact(
+    S,
+    'map: double-click',
+    G({
+      act: () => page.mouse.dblclick(c.x, c.y),
+      after: 1300,
+      events: ['pointerdown', 'pointerup', 'click', 'dblclick'],
+    }),
+  );
   await goHome(S);
   // Click a subject tile on Home (the camera flies to it).
-  const tile = await mapPoint(page, () => [...document.querySelectorAll('#geoCanvas [data-map-region]')].find((g) => g.dataset.mapRegion === 'consideration') || document.querySelector('#geoCanvas g.map-region[data-map-region]'));
-  await interact(S, 'map: click a subject tile', G({ act: () => page.mouse.click(tile.x, tile.y), after: 1500, events: ['pointerdown', 'pointerup', 'click'] }));
+  const tile = await mapPoint(
+    page,
+    () =>
+      [...document.querySelectorAll('#geoCanvas [data-map-region]')].find(
+        (g) => g.dataset.mapRegion === 'consideration',
+      ) || document.querySelector('#geoCanvas g.map-region[data-map-region]'),
+  );
+  await interact(
+    S,
+    'map: click a subject tile',
+    G({
+      act: () => page.mouse.click(tile.x, tile.y),
+      after: 1500,
+      events: ['pointerdown', 'pointerup', 'click'],
+    }),
+  );
   sizes.subject = await mapNodes(page);
-  S.results['map: element counts'] = { home: sizes.home, course: sizes.course, subject: sizes.subject, afterWheelIn: sizes.afterWheelIn };
+  S.results['map: element counts'] = {
+    home: sizes.home,
+    course: sizes.course,
+    subject: sizes.subject,
+    afterWheelIn: sizes.afterWheelIn,
+  };
 }
 
 /* ---------- 3. opening a case ---------- */
 const READER = '#inspector .reader-body';
-const readerShows = (title) => `function(){ const h = document.querySelector('#inspector .reader-body h2'); const i = document.getElementById('inspector'); return !!h && !i.hidden && i.getBoundingClientRect().width > 100 && h.textContent.includes(${JSON.stringify(title)}) }`;
+const readerShows = (title) =>
+  `function(){ const h = document.querySelector('#inspector .reader-body h2'); const i = document.getElementById('inspector'); return !!h && !i.hidden && i.getBoundingClientRect().width > 100 && h.textContent.includes(${JSON.stringify(title)}) }`;
 const fn = (source) => ({ toString: () => source });
 async function caseScenario(S) {
   const { page } = S;
@@ -580,34 +747,59 @@ async function caseScenario(S) {
   await page.evaluate(() => LegalAtlas.navigate('region', 'consideration'));
   await sleep(1500);
   await quiet(S);
-  const card = await mapPoint(page, () => [...document.querySelectorAll('#geoCanvas .node-card')].find((c) => (c.dataset.mapNode || c.closest('[data-map-node]')?.dataset.mapNode) === 'adequacy-consideration') || document.querySelector('#geoCanvas .node-card'));
+  const card = await mapPoint(
+    page,
+    () =>
+      [...document.querySelectorAll('#geoCanvas .node-card')].find(
+        (c) =>
+          (c.dataset.mapNode || c.closest('[data-map-node]')?.dataset.mapNode) === 'adequacy-consideration',
+      ) || document.querySelector('#geoCanvas .node-card'),
+  );
   const open = { mutations: '#inspector', after: 4000 };
   await interact(S, 'case: open from the map (click a card)', {
     ...open,
     act: () => page.mouse.click(card.x, card.y),
-    until: fn(`function(){ const i = document.getElementById('inspector'); return !i.hidden && !!i.querySelector('.reader-body h2') && i.getBoundingClientRect().width > 100 }`),
+    until: fn(
+      `function(){ const i = document.getElementById('inspector'); return !i.hidden && !!i.querySelector('.reader-body h2') && i.getBoundingClientRect().width > 100 }`,
+    ),
     events: ['pointerdown', 'pointerup', 'click'],
   });
   await interact(S, 'case: close (× button)', {
     act: () => page.click('#closeInspector'),
-    until: fn(`function(){ const i = document.getElementById('inspector'); return i.hidden || i.getBoundingClientRect().width < 5 || !i.querySelector('.reader-body') }`),
+    until: fn(
+      `function(){ const i = document.getElementById('inspector'); return i.hidden || i.getBoundingClientRect().width < 5 || !i.querySelector('.reader-body') }`,
+    ),
     mutations: '#inspector',
     after: 1200,
     events: ['pointerdown', 'pointerup', 'click'],
   });
   await goHome(S);
-  await interact(S, 'case: open by route (#node=citoh)', { ...open, act: () => route(page, 'node=citoh'), until: fn(readerShows('Itoh')) });
+  await interact(S, 'case: open by route (#node=citoh)', {
+    ...open,
+    act: () => route(page, 'node=citoh'),
+    until: fn(readerShows('Itoh')),
+  });
   S.caseNodes = await page.evaluate(() => ({
     total: document.getElementsByTagName('*').length,
     reader: document.getElementById('inspector').getElementsByTagName('*').length,
     map: document.getElementById('geoCanvas').getElementsByTagName('*').length,
     readerHeight: document.getElementById('inspector').scrollHeight,
   }));
-  await interact(S, 'case: open another (#node=cp-pennoyer)', { ...open, act: () => route(page, 'node=cp-pennoyer'), until: fn(readerShows('Pennoyer')) });
-  await interact(S, 'case: back to the first (#node=citoh)', { ...open, act: () => route(page, 'node=citoh'), until: fn(readerShows('Itoh')) });
+  await interact(S, 'case: open another (#node=cp-pennoyer)', {
+    ...open,
+    act: () => route(page, 'node=cp-pennoyer'),
+    until: fn(readerShows('Pennoyer')),
+  });
+  await interact(S, 'case: back to the first (#node=citoh)', {
+    ...open,
+    act: () => route(page, 'node=citoh'),
+    until: fn(readerShows('Itoh')),
+  });
   await interact(S, 'case: open the full brief', {
     act: () => page.locator('#inspector [data-v25-full-brief]').click(),
-    until: fn(`function(){ const f = document.querySelector('#inspector .r19-brief .r19-full:not(.r19-auditbox)'); return !!f && f.open && f.innerText.length > 1500 }`),
+    until: fn(
+      `function(){ const f = document.querySelector('#inspector .r19-brief .r19-full:not(.r19-auditbox)'); return !!f && f.open && f.innerText.length > 1500 }`,
+    ),
     mutations: '#inspector',
     after: 1500,
     events: ['pointerdown', 'pointerup', 'click'],
@@ -631,7 +823,13 @@ async function readerScenario(S) {
     act: async () => {
       const end = Date.now() + 3000;
       while (Date.now() < end) {
-        await cdp.send('Input.dispatchMouseEvent', { type: 'mouseWheel', x: box.x, y: box.y, deltaX: 0, deltaY: 60 });
+        await cdp.send('Input.dispatchMouseEvent', {
+          type: 'mouseWheel',
+          x: box.x,
+          y: box.y,
+          deltaX: 0,
+          deltaY: 60,
+        });
         await sleep(16);
       }
     },
@@ -644,7 +842,13 @@ async function readerScenario(S) {
     act: async () => {
       const end = Date.now() + 3000;
       while (Date.now() < end) {
-        await cdp.send('Input.dispatchMouseEvent', { type: 'mouseWheel', x: box.x, y: box.y, deltaX: 0, deltaY: -60 });
+        await cdp.send('Input.dispatchMouseEvent', {
+          type: 'mouseWheel',
+          x: box.x,
+          y: box.y,
+          deltaX: 0,
+          deltaY: -60,
+        });
         await sleep(16);
       }
     },
@@ -664,7 +868,9 @@ async function readerScenario(S) {
   await page.evaluate(() => (document.getElementById('inspector').scrollTop = 0));
   await interact(S, 'reader: open the timeline', {
     act: () => page.locator('#inspector .v31-tl [data-r21-open]').click(),
-    until: fn('function(){ const d = document.getElementById("r21Timelines"); return d.open && d.querySelectorAll(".r21-v > li").length > 0 }'),
+    until: fn(
+      'function(){ const d = document.getElementById("r21Timelines"); return d.open && d.querySelectorAll(".r21-v > li").length > 0 }',
+    ),
     mutations: '#r21Timelines',
     after: 900,
     events: click,
@@ -677,14 +883,18 @@ async function readerScenario(S) {
   });
   await interact(S, 'reader: open the flowchart at a step', {
     act: () => page.locator('#inspector .v31-chart .v31-open').first().click(),
-    until: fn('function(){ const d = document.getElementById("dklaFlowcharts"); return d.open && !!d.querySelector("#flowchartDetail h3") }'),
+    until: fn(
+      'function(){ const d = document.getElementById("dklaFlowcharts"); return d.open && !!d.querySelector("#flowchartDetail h3") }',
+    ),
     mutations: '#dklaFlowcharts',
     after: 900,
     events: click,
   });
   await interact(S, 'reader: flowchart, take a branch', {
     act: () => page.locator('#dklaFlowcharts [data-flowchart-branch]').first().click(),
-    until: fn('function(){ window.__fcH = window.__fcH || document.querySelector("#flowchartDetail h3").textContent; return document.querySelectorAll(".fc-trail li").length >= 4 || document.querySelector("#flowchartDetail h3")?.textContent !== window.__fcH }'),
+    until: fn(
+      'function(){ window.__fcH = window.__fcH || document.querySelector("#flowchartDetail h3").textContent; return document.querySelectorAll(".fc-trail li").length >= 4 || document.querySelector("#flowchartDetail h3")?.textContent !== window.__fcH }',
+    ),
     mutations: '#dklaFlowcharts',
     after: 800,
     events: click,
@@ -714,7 +924,9 @@ async function readerScenario(S) {
   await page.locator('#inspector .reader-body.v31-case').waitFor();
   await interact(S, 'reader: open Cold Call', {
     act: () => page.locator('#inspector [data-cold-call]').first().click(),
-    until: fn('function(){ const d = document.getElementById("coldCallDialog"); return d.open && d.querySelectorAll("#ccNarrative .cc-section > p:not(.cc-kicker)").length > 3 }'),
+    until: fn(
+      'function(){ const d = document.getElementById("coldCallDialog"); return d.open && d.querySelectorAll("#ccNarrative .cc-section > p:not(.cc-kicker)").length > 3 }',
+    ),
     mutations: '#coldCallDialog',
     after: 1500,
     events: click,
@@ -739,7 +951,9 @@ async function readerScenario(S) {
   });
   await interact(S, 'reader: click a dictionary chip (opens the dictionary)', {
     act: () => page.locator('#inspector .dkla-term-chips [data-dkla-term]').first().click(),
-    until: fn('function(){ const d = document.getElementById("glossaryDialog"); return d.open && !!d.querySelector(".gl-detail h2") }'),
+    until: fn(
+      'function(){ const d = document.getElementById("glossaryDialog"); return d.open && !!d.querySelector(".gl-detail h2") }',
+    ),
     mutations: '#glossaryDialog',
     after: 1200,
     events: click,
@@ -785,13 +999,17 @@ async function searchScenario(S) {
   });
   await interact(S, 'search: type 10 characters (150 ms apart)', {
     act: () => page.keyboard.type(QUERY, { delay: 150 }),
-    until: fn(`function(){ return typeof query !== 'undefined' && query === ${JSON.stringify(QUERY)} && document.querySelectorAll('#searchResults [data-search-key]').length > 0 }`),
+    until: fn(
+      `function(){ return typeof query !== 'undefined' && query === ${JSON.stringify(QUERY)} && document.querySelectorAll('#searchResults [data-search-key]').length > 0 }`,
+    ),
     after: 1500,
     events: ['keydown', 'keypress', 'input', 'keyup'],
     mutations: '#searchResults',
   });
   const keys = await page.evaluate(() => __feel.keys);
-  const events = await page.evaluate(() => __feel.event.filter((e) => e.t >= __feel.cur.t0 && /key|input/.test(e.name)));
+  const events = await page.evaluate(() =>
+    __feel.event.filter((e) => e.t >= __feel.cur.t0 && /key|input/.test(e.name)),
+  );
   const r = S.results['search: type 10 characters (150 ms apart)'];
   const first = keys.map((k) => k.first).filter((v) => v != null),
     last = keys.map((k) => k.last).filter((v) => v != null);
@@ -805,10 +1023,19 @@ async function searchScenario(S) {
     keyEventToPaintMax: events.length ? Math.max(...events.map((e) => e.d)) : null,
     resultsRedrawnPerKey: med(keys.map((k) => k.n)),
   });
-  r.detail.perKey = keys.map((k) => ({ text: k.value, firstUpdateMs: round(k.first, 0), lastUpdateMs: round(k.last, 0), listChanges: k.n, rows: k.rows, top: k.top }));
+  r.detail.perKey = keys.map((k) => ({
+    text: k.value,
+    firstUpdateMs: round(k.first, 0),
+    lastUpdateMs: round(k.last, 0),
+    listChanges: k.n,
+    rows: k.rows,
+    top: k.top,
+  }));
   await interact(S, 'search: Enter opens the first result', {
     act: () => page.keyboard.press('Enter'),
-    until: fn(`function(){ const r = document.getElementById('searchResults'); const i = document.getElementById('inspector'); return (r.hidden || !r.children.length) && (!i.hidden || !!document.querySelector('dialog[open]') || location.hash.length > 1) }`),
+    until: fn(
+      `function(){ const r = document.getElementById('searchResults'); const i = document.getElementById('inspector'); return (r.hidden || !r.children.length) && (!i.hidden || !!document.querySelector('dialog[open]') || location.hash.length > 1) }`,
+    ),
     mutations: '#inspector',
     after: 2500,
     events: ['keydown', 'keyup', 'keypress'],
@@ -817,7 +1044,9 @@ async function searchScenario(S) {
   await goHome(S);
   await interact(S, 'dictionary: open by route (#term=consideration)', {
     act: () => route(page, 'term=consideration'),
-    until: fn('function(){ const d = document.getElementById("glossaryDialog"); return d.open && d.querySelectorAll(".gl-list li").length > 0 }'),
+    until: fn(
+      'function(){ const d = document.getElementById("glossaryDialog"); return d.open && d.querySelectorAll(".gl-list li").length > 0 }',
+    ),
     mutations: '#glossaryDialog',
     after: 1200,
   });
@@ -830,7 +1059,9 @@ async function searchScenario(S) {
   });
   await interact(S, 'dictionary: pick a term', {
     act: () => page.locator('#glossaryDialog .gl-list [data-term][aria-pressed="false"]').first().click(),
-    until: fn('function(){ const h = document.querySelector(".gl-detail h2")?.textContent || ""; window.__glH = window.__glH ?? h; return h !== window.__glH }'),
+    until: fn(
+      'function(){ const h = document.querySelector(".gl-detail h2")?.textContent || ""; window.__glH = window.__glH ?? h; return h !== window.__glH }',
+    ),
     mutations: '#glossaryDialog',
     after: 800,
     events: ['pointerdown', 'pointerup', 'click'],
@@ -850,7 +1081,9 @@ async function dialogScenario(S) {
   await goHome(S);
   await interact(S, 'menu: open', {
     act: () => page.click('#moreBtn'),
-    until: fn('function(){ const m = document.getElementById("moreMenu"); return !m.hidden && m.getBoundingClientRect().height > 50 }'),
+    until: fn(
+      'function(){ const m = document.getElementById("moreMenu"); return !m.hidden && m.getBoundingClientRect().height > 50 }',
+    ),
     after: 700,
     events: click,
   });
@@ -864,7 +1097,13 @@ async function dialogScenario(S) {
     await page.click('#moreBtn');
     await page.locator('#moreMenu ' + item).waitFor();
     await sleep(250);
-    await interact(S, name + ': open from the menu', { act: () => page.locator('#moreMenu ' + item).click(), until: fn(until), after: 1200, events: click, ...extra });
+    await interact(S, name + ': open from the menu', {
+      act: () => page.locator('#moreMenu ' + item).click(),
+      until: fn(until),
+      after: 1200,
+      events: click,
+      ...extra,
+    });
     if (closer) await closer();
   };
   const escClose = (name, id) => () =>
@@ -874,29 +1113,67 @@ async function dialogScenario(S) {
       after: 600,
       events: ['keydown', 'keyup'],
     });
-  await viaMenu('Doctrine timelines', '[data-r21-menu]', 'function(){ const d = document.getElementById("r21Timelines"); return d.open && d.innerText.length > 100 }', escClose('Doctrine timelines', 'r21Timelines'), { mutations: '#r21Timelines' });
-  await viaMenu('Flowcharts', '[data-flowcharts-menu]', 'function(){ const d = document.getElementById("dklaFlowcharts"); return d.open && d.innerText.length > 100 }', escClose('Flowcharts', 'dklaFlowcharts'), { mutations: '#dklaFlowcharts' });
-  await viaMenu('Canons', '[data-canons-menu]', 'function(){ const d = document.getElementById("dklaCanons"); return d.open && d.innerText.length > 100 }', escClose('Canons', 'dklaCanons'), { mutations: '#dklaCanons' });
-  await viaMenu('Recall drill', '[data-r18-open="drill"]', 'function(){ const d = document.getElementById("r18Dialog"); return d.open && d.innerText.length > 50 }', async () => {
-    await page.evaluate(() => DKLAStudy.close());
-  }, { mutations: '#r18Dialog' });
-  await viaMenu('SCOTUS History', '[data-sh-open]', 'function(){ return SCOTUSHistory.state().open && /The Court on this date/.test(document.body.innerText) }', async () => {
-    await page.evaluate(() => SCOTUSHistory.close());
-    await sleep(600);
-  });
+  await viaMenu(
+    'Doctrine timelines',
+    '[data-r21-menu]',
+    'function(){ const d = document.getElementById("r21Timelines"); return d.open && d.innerText.length > 100 }',
+    escClose('Doctrine timelines', 'r21Timelines'),
+    { mutations: '#r21Timelines' },
+  );
+  await viaMenu(
+    'Flowcharts',
+    '[data-flowcharts-menu]',
+    'function(){ const d = document.getElementById("dklaFlowcharts"); return d.open && d.innerText.length > 100 }',
+    escClose('Flowcharts', 'dklaFlowcharts'),
+    { mutations: '#dklaFlowcharts' },
+  );
+  await viaMenu(
+    'Canons',
+    '[data-canons-menu]',
+    'function(){ const d = document.getElementById("dklaCanons"); return d.open && d.innerText.length > 100 }',
+    escClose('Canons', 'dklaCanons'),
+    { mutations: '#dklaCanons' },
+  );
+  await viaMenu(
+    'Recall drill',
+    '[data-r18-open="drill"]',
+    'function(){ const d = document.getElementById("r18Dialog"); return d.open && d.innerText.length > 50 }',
+    async () => {
+      await page.evaluate(() => DKLAStudy.close());
+    },
+    { mutations: '#r18Dialog' },
+  );
+  await viaMenu(
+    'SCOTUS History',
+    '[data-sh-open]',
+    'function(){ return SCOTUSHistory.state().open && /The Court on this date/.test(document.body.innerText) }',
+    async () => {
+      await page.evaluate(() => SCOTUSHistory.close());
+      await sleep(600);
+    },
+  );
   await goHome(S);
-  await viaMenu('Rules & authorities', '[data-authority-menu]', 'function(){ return /Rules & authorities/.test(document.getElementById("geoBreadcrumb").textContent) && /United States Code/.test(document.getElementById("geoCanvas").textContent) }', null, { mutations: '#geoCanvas', after: 1500 });
+  await viaMenu(
+    'Rules & authorities',
+    '[data-authority-menu]',
+    'function(){ return /Rules & authorities/.test(document.getElementById("geoBreadcrumb").textContent) && /United States Code/.test(document.getElementById("geoCanvas").textContent) }',
+    null,
+    { mutations: '#geoCanvas', after: 1500 },
+  );
   const mapText = (text) =>
     mapPoint(
       page,
       (text) => {
-        const all = [...document.querySelectorAll('#geoCanvas [data-map-region], #geoCanvas [data-map-jump]')].filter((g) => g.textContent.replace(/\s+/g, ' ').includes(text));
+        const all = [
+          ...document.querySelectorAll('#geoCanvas [data-map-region], #geoCanvas [data-map-jump]'),
+        ].filter((g) => g.textContent.replace(/\s+/g, ' ').includes(text));
         return all.sort((a, b) => a.textContent.length - b.textContent.length)[0];
       },
       text,
     );
   let p = await mapText('Judiciary and Judicial Procedure');
-  const crumb = (text) => `function(){ return document.getElementById("geoBreadcrumb").textContent.includes(${JSON.stringify(text)}) }`;
+  const crumb = (text) =>
+    `function(){ return document.getElementById("geoBreadcrumb").textContent.includes(${JSON.stringify(text)}) }`;
   await interact(S, 'Rules & authorities: open a U.S. Code title (Title 28)', {
     act: () => page.mouse.click(p.x, p.y),
     until: fn(crumb('Title 28')),
@@ -910,7 +1187,9 @@ async function dialogScenario(S) {
   };
   await interact(S, 'Rules & authorities: open a rule (FRCP 4) by API', {
     act: () => call(page, 'DKLAAuthorities.open("frcp-4")'),
-    until: fn('function(){ const i = document.getElementById("inspector"); return !i.hidden && /Summons/.test(i.textContent) }'),
+    until: fn(
+      'function(){ const i = document.getElementById("inspector"); return !i.hidden && /Summons/.test(i.textContent) }',
+    ),
     mutations: '#inspector',
     after: 2500,
   });
@@ -989,13 +1268,29 @@ async function idleWindow(S, name, ms = 5000) {
         .slice(0, 14)
         .map((s) => {
           const [line] = s.where.split(':').map(Number);
-          return { kind: s.kind, file: fileOfLine(line), at: s.where, perSecond: round(s.calls * per), msPerSecond: round(s.ms * per, 2) };
+          return {
+            kind: s.kind,
+            file: fileOfLine(line),
+            at: s.where,
+            perSecond: round(s.calls * per),
+            msPerSecond: round(s.ms * per, 2),
+          };
         }),
       animations: r.running.slice(0, 20),
     },
   };
   S.results[name] = out;
-  log(S.label, name.padEnd(34), 'script', round(out.scriptMsPerSecond), 'ms/s  draws', round(out.mapDrawsPerSecond), '/s  callbacks', round(out.callbacksPerSecond), '/s');
+  log(
+    S.label,
+    name.padEnd(34),
+    'script',
+    round(out.scriptMsPerSecond),
+    'ms/s  draws',
+    round(out.mapDrawsPerSecond),
+    '/s  callbacks',
+    round(out.callbacksPerSecond),
+    '/s',
+  );
 }
 async function idleScenario(profile, label) {
   const S = await open(profile, { wrap: true });
@@ -1016,8 +1311,20 @@ async function idleScenario(profile, label) {
   await sleep(1500);
   await idleWindow(S, 'idle: search results showing');
   const census = await S.page.evaluate(() => ({
-    mo: __feel.mo.map((m) => ({ where: m.where, targets: m.targets, live: !!m.live, calls: m.calls, records: m.records, ms: m.ms })),
-    intervals: __feel.intervals.map((i) => ({ where: i.where, delay: i.delay, calls: i.calls, cleared: !!i.cleared })),
+    mo: __feel.mo.map((m) => ({
+      where: m.where,
+      targets: m.targets,
+      live: !!m.live,
+      calls: m.calls,
+      records: m.records,
+      ms: m.ms,
+    })),
+    intervals: __feel.intervals.map((i) => ({
+      where: i.where,
+      delay: i.delay,
+      calls: i.calls,
+      cleared: !!i.cleared,
+    })),
     ro: __feel.ro,
     io: __feel.io,
   }));
@@ -1025,13 +1332,25 @@ async function idleScenario(profile, label) {
   S.results['observers and timers'] = {
     mutationObserversCreated: census.mo.length,
     mutationObserversLive: census.mo.filter((m) => m.live).length,
-    mutationObserversOnWholeDocument: census.mo.filter((m) => m.live && m.targets.some((t) => /^(body|html|document)\b.*subtree/.test(t))).length,
+    mutationObserversOnWholeDocument: census.mo.filter(
+      (m) => m.live && m.targets.some((t) => /^(body|html|document)\b.*subtree/.test(t)),
+    ).length,
     resizeObservers: census.ro,
     intersectionObservers: census.io,
     intervalsRunning: census.intervals.filter((i) => !i.cleared).length,
     detail: {
-      mutationObservers: census.mo.filter((m) => m.live).map(named).map((m) => ({ file: m.file, watches: [...new Set(m.targets)].slice(0, 3), callbacksSoFar: m.calls, msSoFar: round(m.ms) })),
-      intervals: census.intervals.map(named).map((i) => ({ file: i.file, everyMs: i.delay, callsSoFar: i.calls, cleared: i.cleared })),
+      mutationObservers: census.mo
+        .filter((m) => m.live)
+        .map(named)
+        .map((m) => ({
+          file: m.file,
+          watches: [...new Set(m.targets)].slice(0, 3),
+          callbacksSoFar: m.calls,
+          msSoFar: round(m.ms),
+        })),
+      intervals: census.intervals
+        .map(named)
+        .map((i) => ({ file: i.file, everyMs: i.delay, callsSoFar: i.calls, cleared: i.cleared })),
     },
   };
   const r = S.results;
@@ -1047,11 +1366,39 @@ async function styleScenario(profile) {
   await goHome(S);
   const { page } = S;
   const sheet = await page.evaluate(() => {
-    const LAYOUT = /^(width|height|min-|max-|top|left|right|bottom|inset|margin|padding|grid|flex|gap|font-size|line-height|border-width|border$)/;
+    const LAYOUT =
+      /^(width|height|min-|max-|top|left|right|bottom|inset|margin|padding|grid|flex|gap|font-size|line-height|border-width|border$)/;
     const COMPOSITED = /^(transform|opacity|translate|scale|rotate)$/;
-    const PAINT = /^(color|background|border-color|box-shadow|filter|backdrop-filter|outline|fill|stroke|text-shadow|visibility|border-radius|clip-path|mask)/;
-    const kind = (p) => (p === 'all' ? 'all' : COMPOSITED.test(p) ? 'composited' : LAYOUT.test(p) ? 'layout' : PAINT.test(p) ? 'paint' : 'other');
-    const out = { bytes: 0, sheets: 0, rules: 0, transitions: [], animations: [], keyframes: {}, willChange: [], backdrop: [], filters: [], bigShadows: [], hover: 0, active: 0, focusVisible: 0, cursorPointer: 0, reducedMotion: [], reducedMotionRules: 0 };
+    const PAINT =
+      /^(color|background|border-color|box-shadow|filter|backdrop-filter|outline|fill|stroke|text-shadow|visibility|border-radius|clip-path|mask)/;
+    const kind = (p) =>
+      p === 'all'
+        ? 'all'
+        : COMPOSITED.test(p)
+          ? 'composited'
+          : LAYOUT.test(p)
+            ? 'layout'
+            : PAINT.test(p)
+              ? 'paint'
+              : 'other';
+    const out = {
+      bytes: 0,
+      sheets: 0,
+      rules: 0,
+      transitions: [],
+      animations: [],
+      keyframes: {},
+      willChange: [],
+      backdrop: [],
+      filters: [],
+      bigShadows: [],
+      hover: 0,
+      active: 0,
+      focusVisible: 0,
+      cursorPointer: 0,
+      reducedMotion: [],
+      reducedMotionRules: 0,
+    };
     for (const s of document.querySelectorAll('style')) out.bytes += s.textContent.length;
     const walk = (rules, media) => {
       for (const r of rules) {
@@ -1063,7 +1410,8 @@ async function styleScenario(profile) {
         }
         if (r.cssRules && !(r instanceof CSSStyleRule)) {
           const m = r.conditionText || r.media?.mediaText || '';
-          if (/prefers-reduced-motion/.test(m)) out.reducedMotion.push(m + ' (' + r.cssRules.length + ' rules)');
+          if (/prefers-reduced-motion/.test(m))
+            out.reducedMotion.push(m + ' (' + r.cssRules.length + ' rules)');
           walk(r.cssRules, (media ? media + ' and ' : '') + m);
           continue;
         }
@@ -1078,15 +1426,36 @@ async function styleScenario(profile) {
         if (st.cursor === 'pointer') out.cursorPointer++;
         const dur = st.transitionDuration;
         if (st.transitionProperty && dur && !/^0s(, 0s)*$/.test(dur) && st.transition !== 'none')
-          out.transitions.push({ selector: sel.slice(0, 90), properties: st.transitionProperty, duration: dur, easing: st.transitionTimingFunction, kinds: [...new Set(st.transitionProperty.split(',').map((p) => kind(p.trim())))], media: media || '' });
+          out.transitions.push({
+            selector: sel.slice(0, 90),
+            properties: st.transitionProperty,
+            duration: dur,
+            easing: st.transitionTimingFunction,
+            kinds: [...new Set(st.transitionProperty.split(',').map((p) => kind(p.trim())))],
+            media: media || '',
+          });
         if (st.animationName && st.animationName !== 'none')
-          out.animations.push({ selector: sel.slice(0, 90), name: st.animationName, duration: st.animationDuration, easing: st.animationTimingFunction, iterations: st.animationIterationCount, media: media || '' });
-        if (st.willChange && st.willChange !== 'auto') out.willChange.push({ selector: sel.slice(0, 90), value: st.willChange });
+          out.animations.push({
+            selector: sel.slice(0, 90),
+            name: st.animationName,
+            duration: st.animationDuration,
+            easing: st.animationTimingFunction,
+            iterations: st.animationIterationCount,
+            media: media || '',
+          });
+        if (st.willChange && st.willChange !== 'auto')
+          out.willChange.push({ selector: sel.slice(0, 90), value: st.willChange });
         const bf = st.backdropFilter || st.webkitBackdropFilter;
         if (bf && bf !== 'none') out.backdrop.push({ selector: sel.slice(0, 90), value: bf });
-        if (st.filter && st.filter !== 'none') out.filters.push({ selector: sel.slice(0, 90), value: st.filter.slice(0, 60) });
+        if (st.filter && st.filter !== 'none')
+          out.filters.push({ selector: sel.slice(0, 90), value: st.filter.slice(0, 60) });
         if (st.boxShadow && st.boxShadow !== 'none') {
-          const blur = Math.max(0, ...[...st.boxShadow.matchAll(/(-?[\d.]+)px\s+(-?[\d.]+)px\s+([\d.]+)px/g)].map((m) => Number(m[3])));
+          const blur = Math.max(
+            0,
+            ...[...st.boxShadow.matchAll(/(-?[\d.]+)px\s+(-?[\d.]+)px\s+([\d.]+)px/g)].map((m) =>
+              Number(m[3]),
+            ),
+          );
           if (blur >= 24) out.bigShadows.push({ selector: sel.slice(0, 90), blurPx: blur });
         }
       }
@@ -1112,7 +1481,12 @@ async function styleScenario(profile) {
       const walk = (list) => {
         for (const r of list) {
           if (r.cssRules && !(r instanceof CSSStyleRule)) {
-            if (!/prefers-reduced-motion|print|max-width|hover: none/.test(r.conditionText || r.media?.mediaText || '')) walk(r.cssRules);
+            if (
+              !/prefers-reduced-motion|print|max-width|hover: none/.test(
+                r.conditionText || r.media?.mediaText || '',
+              )
+            )
+              walk(r.cssRules);
             continue;
           }
           if (!(r instanceof CSSStyleRule)) continue;
@@ -1124,8 +1498,14 @@ async function styleScenario(profile) {
             ])
               if (sel.includes(pseudo)) {
                 // The element the pseudo-class sits on, with the pseudo-class removed.
-                const cut = sel.slice(0, sel.indexOf(pseudo) + pseudo.length).replaceAll(pseudo, '').trim();
-                const rest = sel.slice(sel.indexOf(pseudo) + pseudo.length).replace(/:{1,2}[\w-]+(\([^)]*\))?/g, '').trim();
+                const cut = sel
+                  .slice(0, sel.indexOf(pseudo) + pseudo.length)
+                  .replaceAll(pseudo, '')
+                  .trim();
+                const rest = sel
+                  .slice(sel.indexOf(pseudo) + pseudo.length)
+                  .replace(/:{1,2}[\w-]+(\([^)]*\))?/g, '')
+                  .trim();
                 if (cut && !rest) rules[key].push(cut.replace(/:(not\(\s*\)|where\(\s*\))/g, ''));
               }
           }
@@ -1147,15 +1527,37 @@ async function styleScenario(profile) {
         });
       const visible = (el) => {
         const b = el.getBoundingClientRect();
-        return b.width > 4 && b.height > 4 && b.bottom > 0 && b.top < innerHeight && getComputedStyle(el).visibility !== 'hidden';
+        return (
+          b.width > 4 &&
+          b.height > 4 &&
+          b.bottom > 0 &&
+          b.top < innerHeight &&
+          getComputedStyle(el).visibility !== 'hidden'
+        );
       };
-      const controls = [...document.querySelectorAll('button, a[href], [role="button"], [role="menuitem"], [role="tab"], summary, [data-map-node], [data-map-region], [data-map-jump], input, select')].filter(visible);
+      const controls = [
+        ...document.querySelectorAll(
+          'button, a[href], [role="button"], [role="menuitem"], [role="tab"], summary, [data-map-node], [data-map-region], [data-map-jump], input, select',
+        ),
+      ].filter(visible);
       const rows = controls.map((el) => {
         const cs = getComputedStyle(el);
         const svg = !!el.closest('#geoCanvas');
         return {
-          what: __feel.describe(el) + ' "' + (el.getAttribute('aria-label') || el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 28) + '"',
-          where: svg ? 'map' : el.closest('dialog') ? 'dialog' : el.closest('#inspector') ? 'reader' : el.closest('#moreMenu') ? 'menu' : 'chrome',
+          what:
+            __feel.describe(el) +
+            ' "' +
+            (el.getAttribute('aria-label') || el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 28) +
+            '"',
+          where: svg
+            ? 'map'
+            : el.closest('dialog')
+              ? 'dialog'
+              : el.closest('#inspector')
+                ? 'reader'
+                : el.closest('#moreMenu')
+                  ? 'menu'
+                  : 'chrome',
           hover: matches(el, rules.hover),
           active: matches(el, rules.active),
           focus: matches(el, rules.focus),
@@ -1167,7 +1569,16 @@ async function styleScenario(profile) {
       const groups = {};
       for (const r of rows) {
         if (r.disabled) continue;
-        const g = (groups[r.where] = groups[r.where] || { controls: 0, hover: 0, active: 0, focusVisible: 0, pointerCursor: 0, transition: 0, noHover: [], noActive: [] });
+        const g = (groups[r.where] = groups[r.where] || {
+          controls: 0,
+          hover: 0,
+          active: 0,
+          focusVisible: 0,
+          pointerCursor: 0,
+          transition: 0,
+          noHover: [],
+          noActive: [],
+        });
         g.controls++;
         g.hover += r.hover;
         g.active += r.active;
@@ -1199,14 +1610,26 @@ async function styleScenario(profile) {
       .map((el) => {
         const cs = getComputedStyle(el),
           b = el.getBoundingClientRect();
-        const area = Math.max(0, Math.min(b.right, innerWidth) - Math.max(b.left, 0)) * Math.max(0, Math.min(b.bottom, innerHeight) - Math.max(b.top, 0));
+        const area =
+          Math.max(0, Math.min(b.right, innerWidth) - Math.max(b.left, 0)) *
+          Math.max(0, Math.min(b.bottom, innerHeight) - Math.max(b.top, 0));
         const flags = [];
-        if (cs.backdropFilter && cs.backdropFilter !== 'none') flags.push('backdrop-filter ' + cs.backdropFilter);
+        if (cs.backdropFilter && cs.backdropFilter !== 'none')
+          flags.push('backdrop-filter ' + cs.backdropFilter);
         if (cs.filter && cs.filter !== 'none') flags.push('filter ' + cs.filter.slice(0, 40));
-        const blur = Math.max(0, ...[...cs.boxShadow.matchAll(/(-?[\d.]+)px\s+(-?[\d.]+)px\s+([\d.]+)px/g)].map((m) => Number(m[3])));
+        const blur = Math.max(
+          0,
+          ...[...cs.boxShadow.matchAll(/(-?[\d.]+)px\s+(-?[\d.]+)px\s+([\d.]+)px/g)].map((m) => Number(m[3])),
+        );
         if (blur >= 24) flags.push('box-shadow blur ' + blur + 'px');
         if (cs.willChange !== 'auto') flags.push('will-change ' + cs.willChange);
-        return flags.length && area > 20000 ? { on: __feel.describe(el), screenShare: Math.round((area / (innerWidth * innerHeight)) * 100) + '%', flags } : null;
+        return flags.length && area > 20000
+          ? {
+              on: __feel.describe(el),
+              screenShare: Math.round((area / (innerWidth * innerHeight)) * 100) + '%',
+              flags,
+            }
+          : null;
       })
       .filter(Boolean)
       .slice(0, 25),
@@ -1221,7 +1644,8 @@ async function styleScenario(profile) {
     transitionRulesAll: count(sheet.transitions, 'all'),
     transitionRulesLayout: count(sheet.transitions, 'layout'),
     transitionRulesPaint: count(sheet.transitions, 'paint'),
-    transitionRulesCompositedOnly: sheet.transitions.filter((t) => t.kinds.every((k) => k === 'composited')).length,
+    transitionRulesCompositedOnly: sheet.transitions.filter((t) => t.kinds.every((k) => k === 'composited'))
+      .length,
     animationRules: sheet.animations.length,
     endlessAnimationRules: sheet.animations.filter((a) => /infinite/.test(a.iterations)).length,
     keyframeSets: Object.keys(sheet.keyframes).length,
@@ -1259,7 +1683,8 @@ function combine(runs) {
       else if (list.every((x) => typeof x[key] === 'number' || x[key] == null)) {
         m[key] = round(median(list.map((x) => x[key])), 3);
         const nums = list.map((x) => x[key]).filter((x) => typeof x === 'number');
-        if (nums.length > 1) (m.range = m.range || {})[key] = [round(Math.min(...nums), 1), round(Math.max(...nums), 1)];
+        if (nums.length > 1)
+          (m.range = m.range || {})[key] = [round(Math.min(...nums), 1), round(Math.max(...nums), 1)];
       } else m[key] = list[0][key];
     }
     m.runs = list.length;
@@ -1271,7 +1696,11 @@ const result = {
   page: target.href,
   when: new Date().toISOString(),
   runs: RUNS,
-  machine: { cores: (await import('node:os')).cpus().length, chromium: browser.version(), note: 'headless Chromium with software drawing (no graphics card): script, style and layout times transfer to other machines in proportion, drawing costs do not' },
+  machine: {
+    cores: (await import('node:os')).cpus().length,
+    chromium: browser.version(),
+    note: 'headless Chromium with software drawing (no graphics card): script, style and layout times transfer to other machines in proportion, drawing costs do not',
+  },
   pageBytes: html.length,
   profiles: {},
 };
@@ -1288,14 +1717,29 @@ try {
       const runs = [];
       for (let i = 0; i < RUNS; i++) {
         const r = await startup(profile, name);
-        log(name, 'cold start', i + 1, 'first paint', round(r.firstPaint, 0), 'shown', round(r.atlasShown, 0), 'data done', round(r.backgroundDataDone, 0), 'blocking before/after', round(r.blockingBeforeShown, 0), round(r.blockingAfterShown, 0));
+        log(
+          name,
+          'cold start',
+          i + 1,
+          'first paint',
+          round(r.firstPaint, 0),
+          'shown',
+          round(r.atlasShown, 0),
+          'data done',
+          round(r.backgroundDataDone, 0),
+          'blocking before/after',
+          round(r.blockingBeforeShown, 0),
+          round(r.blockingAfterShown, 0),
+        );
         runs.push({ 'start-up: first visit': r });
       }
       Object.assign(P, combine(runs));
       save();
     }
     if (wanted('warm')) {
-      const runs = (await warm(profile, name)).map((r) => ({ 'start-up: repeat visit (offline worker and caches warm)': r }));
+      const runs = (await warm(profile, name)).map((r) => ({
+        'start-up: repeat visit (offline worker and caches warm)': r,
+      }));
       Object.assign(P, combine(runs));
       save();
     }
@@ -1373,18 +1817,27 @@ try {
 const ms = (v) => (v == null ? '   –' : String(Math.round(v)).padStart(4));
 const pct = (v) => (v == null ? '  –' : String(Math.round(v * 100)).padStart(3) + '%');
 const names = Object.keys(result.profiles);
-console.log(`\nDKLA feel benchmark  ${result.page}  ${result.runs} runs, medians  →  ${path.relative(root, outFile)}`);
+console.log(
+  `\nDKLA feel benchmark  ${result.page}  ${result.runs} runs, medians  →  ${path.relative(root, outFile)}`,
+);
 for (const name of names) {
   const P = result.profiles[name];
   console.log(`\n== ${name} ==`);
   for (const key of Object.keys(P).filter((k) => k.startsWith('start-up'))) {
     const s = P[key];
-    console.log(`${key}: first paint ${ms(s.firstPaint)} ms · atlas shown ${ms(s.atlasShown)} ms · search ready ${ms(s.searchIndexReady)} ms · background data done ${ms(s.backgroundDataDone)} ms`);
-    console.log(`   blocking time before shown ${ms(s.blockingBeforeShown)} ms (longest task ${ms(s.longestTaskBeforeShown)}) · after shown ${ms(s.blockingAfterShown)} ms in ${s.longTasksAfterShown} long tasks (longest ${ms(s.longestTaskAfterShown)})`);
+    console.log(
+      `${key}: first paint ${ms(s.firstPaint)} ms · atlas shown ${ms(s.atlasShown)} ms · search ready ${ms(s.searchIndexReady)} ms · background data done ${ms(s.backgroundDataDone)} ms`,
+    );
+    console.log(
+      `   blocking time before shown ${ms(s.blockingBeforeShown)} ms (longest task ${ms(s.longestTaskBeforeShown)}) · after shown ${ms(s.blockingAfterShown)} ms in ${s.longTasksAfterShown} long tasks (longest ${ms(s.longestTaskAfterShown)})`,
+    );
   }
   const rows = Object.entries(P).filter(([, r]) => 'frameMax' in r && !('scriptMsPerSecond' in r));
   if (rows.length) {
-    console.log('interaction'.padEnd(54) + ' evt→paint  result  1stMove  maxFrame  >20ms  >50ms  upd/s  script  layouts  forced  shift   settle');
+    console.log(
+      'interaction'.padEnd(54) +
+        ' evt→paint  result  1stMove  maxFrame  >20ms  >50ms  upd/s  script  layouts  forced  shift   settle',
+    );
     for (const [key, r] of rows)
       console.log(
         key.slice(0, 53).padEnd(54) +
@@ -1393,13 +1846,23 @@ for (const name of names) {
   }
   const idle = Object.entries(P).filter(([, r]) => 'scriptMsPerSecond' in r);
   if (idle.length) {
-    console.log('idle (per second)'.padEnd(54) + ' script ms  task ms  map draws  nodes replaced  callbacks  layouts  endless animations');
+    console.log(
+      'idle (per second)'.padEnd(54) +
+        ' script ms  task ms  map draws  nodes replaced  callbacks  layouts  endless animations',
+    );
     for (const [key, r] of idle)
-      console.log(key.padEnd(54) + `   ${String(round(r.scriptMsPerSecond)).padStart(6)}  ${String(round(r.taskMsPerSecond)).padStart(7)}  ${String(round(r.mapDrawsPerSecond)).padStart(9)}  ${String(round(r.mapNodesReplacedPerSecond, 0)).padStart(14)}  ${String(round(r.callbacksPerSecond)).padStart(9)}  ${String(round(r.layoutsPerSecond)).padStart(7)}  ${String(r.endlessAnimations).padStart(8)}`);
+      console.log(
+        key.padEnd(54) +
+          `   ${String(round(r.scriptMsPerSecond)).padStart(6)}  ${String(round(r.taskMsPerSecond)).padStart(7)}  ${String(round(r.mapDrawsPerSecond)).padStart(9)}  ${String(round(r.mapNodesReplacedPerSecond, 0)).padStart(14)}  ${String(round(r.callbacksPerSecond)).padStart(9)}  ${String(round(r.layoutsPerSecond)).padStart(7)}  ${String(r.endlessAnimations).padStart(8)}`,
+      );
   }
 }
 if (result.styles) {
   const s = result.styles;
-  console.log(`\n== styling ==\nCSS ${(s.cssBytes / 1e6).toFixed(2)} MB in ${s.styleSheets} sheets, ${s.cssRules} rules · ${s.transitionRules} transition rules (${s.transitionRulesAll} "all", ${s.transitionRulesLayout} layout, ${s.transitionRulesCompositedOnly} transform/opacity only) · ${s.animationRules} animation rules (${s.endlessAnimationRules} endless) · will-change ${s.willChangeRules} · backdrop-filter ${s.backdropFilterRules} · big shadows ${s.bigShadowRules} · reduced-motion blocks ${s.reducedMotionBlocks}`);
-  console.log(`DOM elements: case open ${s.domNodesCaseOpen} (reader ${s.domNodesReader}, map ${s.domNodesMapBehindCase})`);
+  console.log(
+    `\n== styling ==\nCSS ${(s.cssBytes / 1e6).toFixed(2)} MB in ${s.styleSheets} sheets, ${s.cssRules} rules · ${s.transitionRules} transition rules (${s.transitionRulesAll} "all", ${s.transitionRulesLayout} layout, ${s.transitionRulesCompositedOnly} transform/opacity only) · ${s.animationRules} animation rules (${s.endlessAnimationRules} endless) · will-change ${s.willChangeRules} · backdrop-filter ${s.backdropFilterRules} · big shadows ${s.bigShadowRules} · reduced-motion blocks ${s.reducedMotionBlocks}`,
+  );
+  console.log(
+    `DOM elements: case open ${s.domNodesCaseOpen} (reader ${s.domNodesReader}, map ${s.domNodesMapBehindCase})`,
+  );
 }

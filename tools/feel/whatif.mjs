@@ -26,20 +26,30 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const VARIANTS = {
   'as built': '',
-  'no backdrop blur': '*,*::before,*::after,::backdrop{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}',
-  'no blur, no filters': '*,*::before,*::after,::backdrop{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;filter:none!important}',
-  'no blur, filters or shadows': '*,*::before,*::after,::backdrop{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;filter:none!important;box-shadow:none!important;text-shadow:none!important}',
+  'no backdrop blur':
+    '*,*::before,*::after,::backdrop{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}',
+  'no blur, no filters':
+    '*,*::before,*::after,::backdrop{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;filter:none!important}',
+  'no blur, filters or shadows':
+    '*,*::before,*::after,::backdrop{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;filter:none!important;box-shadow:none!important;text-shadow:none!important}',
   'no CSS animations': '*,*::before,*::after{animation:none!important}',
   'no splash pulse': '.dkla-splash-text{animation:none!important}',
-  'no version-badge sweep': '.dkla-release,.dkla-release::before,.dkla-release::after{animation:none!important}',
+  'no version-badge sweep':
+    '.dkla-release,.dkla-release::before,.dkla-release::after{animation:none!important}',
   'no Cold Call vapour (button hidden)': 'button[data-cold-call]{display:none!important}',
 };
 
 const browser = await chromium.launch();
-const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block', colorScheme: 'dark' });
+const context = await browser.newContext({
+  viewport: { width: 1440, height: 900 },
+  serviceWorkers: 'block',
+  colorScheme: 'dark',
+});
 await context.route('**/*', (route) => {
   const u = new URL(route.request().url());
-  return u.origin !== target.origin || u.pathname.startsWith('/api/') ? route.fulfill({ status: 204, body: '' }) : route.continue();
+  return u.origin !== target.origin || u.pathname.startsWith('/api/')
+    ? route.fulfill({ status: 204, body: '' })
+    : route.continue();
 });
 await context.addInitScript(`(${instrument})({})`);
 const page = await context.newPage();
@@ -48,12 +58,15 @@ const cdp = await context.newCDPSession(page);
 await cdp.send('Performance.enable');
 await page.goto(target.href, { waitUntil: 'commit', timeout: 180_000 });
 await page.locator('html.dkla-boot-ready').waitFor({ timeout: 180_000 });
-await page.waitForFunction(() => __feel.marks.dataDone && __feel.marks.searchIndex, null, { timeout: 240_000 });
+await page.waitForFunction(() => __feel.marks.dataDone && __feel.marks.searchIndex, null, {
+  timeout: 240_000,
+});
 await sleep(2500);
 await page.evaluate(() => __feel.wrapDraw());
 if (cpu > 1) await cdp.send('Emulation.setCPUThrottlingRate', { rate: cpu });
 
-const metrics = async () => Object.fromEntries((await cdp.send('Performance.getMetrics')).metrics.map((m) => [m.name, m.value]));
+const metrics = async () =>
+  Object.fromEntries((await cdp.send('Performance.getMetrics')).metrics.map((m) => [m.name, m.value]));
 async function still(ms = 3000) {
   await sleep(600);
   await page.evaluate(() => __feel.begin(null, null, null));
@@ -118,8 +131,18 @@ async function variant(css) {
   await sleep(400);
 }
 const VIEWS = [
-  ['Home, nothing happening', async () => page.evaluate(() => home('Atlas', false, false)), still, ['as built', 'no CSS animations', 'no splash pulse', 'no version-badge sweep', 'no backdrop blur']],
-  ['Home: dragging the Contracts map', async () => page.evaluate(() => home('Contracts', false, false)), pan, ['as built', 'no backdrop blur', 'no blur, filters or shadows', 'no CSS animations']],
+  [
+    'Home, nothing happening',
+    async () => page.evaluate(() => home('Atlas', false, false)),
+    still,
+    ['as built', 'no CSS animations', 'no splash pulse', 'no version-badge sweep', 'no backdrop blur'],
+  ],
+  [
+    'Home: dragging the Contracts map',
+    async () => page.evaluate(() => home('Contracts', false, false)),
+    pan,
+    ['as built', 'no backdrop blur', 'no blur, filters or shadows', 'no CSS animations'],
+  ],
   [
     'a case open, nothing happening',
     async () => {
@@ -128,9 +151,26 @@ const VIEWS = [
       await sleep(3000);
     },
     still,
-    ['as built', 'no Cold Call vapour (button hidden)', 'no CSS animations', 'no backdrop blur', 'no blur, filters or shadows'],
+    [
+      'as built',
+      'no Cold Call vapour (button hidden)',
+      'no CSS animations',
+      'no backdrop blur',
+      'no blur, filters or shadows',
+    ],
   ],
-  ['Doctrine timelines dialog open, nothing happening', async () => page.evaluate(() => DKLATimelines.open(DKLATimelines.list()[0].id)), still, ['as built', 'no backdrop blur', 'no blur, no filters', 'no blur, filters or shadows', 'no CSS animations']],
+  [
+    'Doctrine timelines dialog open, nothing happening',
+    async () => page.evaluate(() => DKLATimelines.open(DKLATimelines.list()[0].id)),
+    still,
+    [
+      'as built',
+      'no backdrop blur',
+      'no blur, no filters',
+      'no blur, filters or shadows',
+      'no CSS animations',
+    ],
+  ],
   [
     'dictionary dialog open, nothing happening',
     async () => {

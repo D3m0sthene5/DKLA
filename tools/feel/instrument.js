@@ -84,7 +84,9 @@
 
   function describe(el) {
     if (!el || el.nodeType !== 1) return el === document ? 'document' : String(el && el.nodeName);
-    const cls = String(el.className && el.className.baseVal !== undefined ? el.className.baseVal : el.className || '')
+    const cls = String(
+      el.className && el.className.baseVal !== undefined ? el.className.baseVal : el.className || '',
+    )
       .trim()
       .split(/\s+/)
       .filter(Boolean)
@@ -100,9 +102,15 @@
       F.marks.bootReady = now();
       o.disconnect();
       const poll = () => {
-        if (!F.marks.searchIndex && window.DKLA && window.DKLA.searchIndexStats && window.DKLA.searchIndexStats.extras > 0)
+        if (
+          !F.marks.searchIndex &&
+          window.DKLA &&
+          window.DKLA.searchIndexStats &&
+          window.DKLA.searchIndexStats.extras > 0
+        )
           F.marks.searchIndex = now();
-        if (!F.marks.dataDone && window.DKLAData && !window.DKLAData.state().lazy.length) F.marks.dataDone = now();
+        if (!F.marks.dataDone && window.DKLAData && !window.DKLAData.state().lazy.length)
+          F.marks.dataDone = now();
         if (!F.marks.searchIndex || !F.marks.dataDone) setTimeout(poll, 50);
       };
       poll();
@@ -129,7 +137,9 @@
   const fetch0 = window.fetch;
   window.fetch = function (input, init) {
     const url = String((input && input.url) || input);
-    const rec = /assets\/(data|briefs)\//.test(url) ? { url: url.split('/').slice(-2).join('/'), t: now() } : null;
+    const rec = /assets\/(data|briefs)\//.test(url)
+      ? { url: url.split('/').slice(-2).join('/'), t: now() }
+      : null;
     const p = fetch0.apply(this, arguments);
     if (rec) {
       F.fetches.push(rec);
@@ -307,7 +317,11 @@
           what: e.propertyName || e.animationName,
           on: describe(el) + (e.pseudoElement || ''),
           dur: cs ? (type === 'transitionrun' ? cs.transitionDuration : cs.animationDuration) : '',
-          ease: cs ? (type === 'transitionrun' ? cs.transitionTimingFunction : cs.animationTimingFunction) : '',
+          ease: cs
+            ? type === 'transitionrun'
+              ? cs.transitionTimingFunction
+              : cs.animationTimingFunction
+            : '',
           count: cs && type !== 'transitionrun' ? cs.animationIterationCount : '',
         });
       },
@@ -452,4 +466,4 @@
       },
     };
   };
-}
+};

@@ -7,10 +7,16 @@ import { chromium } from '@playwright/test';
 const target = new URL(process.argv[2] || 'http://127.0.0.1:8791/DKLA-v3.1.html');
 assert.ok(['127.0.0.1', 'localhost'].includes(target.hostname), 'local preview only');
 const browser = await chromium.launch();
-const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, serviceWorkers: 'block', colorScheme: 'dark' });
+const context = await browser.newContext({
+  viewport: { width: 1440, height: 900 },
+  serviceWorkers: 'block',
+  colorScheme: 'dark',
+});
 await context.route('**/*', (route) => {
   const u = new URL(route.request().url());
-  return u.origin !== target.origin || u.pathname.startsWith('/api/') ? route.fulfill({ status: 204, body: '' }) : route.continue();
+  return u.origin !== target.origin || u.pathname.startsWith('/api/')
+    ? route.fulfill({ status: 204, body: '' })
+    : route.continue();
 });
 await context.addInitScript(() => localStorage.setItem('dkla.guide.v1', 'seen'));
 const page = await context.newPage();
@@ -20,7 +26,8 @@ await page.goto(target.href, { waitUntil: 'commit', timeout: 180_000 });
 await page.locator('html.dkla-boot-ready').waitFor({ timeout: 180_000 });
 await page.waitForFunction(() => !DKLAData.state().lazy.length, null, { timeout: 240_000 });
 await page.waitForTimeout(4000);
-const metrics = async () => Object.fromEntries((await cdp.send('Performance.getMetrics')).metrics.map((m) => [m.name, m.value]));
+const metrics = async () =>
+  Object.fromEntries((await cdp.send('Performance.getMetrics')).metrics.map((m) => [m.name, m.value]));
 async function count(ms = 3000) {
   await page.waitForTimeout(500);
   const a = await metrics();
@@ -38,12 +45,22 @@ async function count(ms = 3000) {
 const info = await page.evaluate(() => ({
   smil: document.querySelectorAll('animate,animateTransform,animateMotion,set').length,
   canvases: document.querySelectorAll('canvas').length,
-  animations: document.getAnimations().map((a) => (a.animationName || a.transitionProperty) + ' on ' + (a.effect?.target?.className?.baseVal ?? a.effect?.target?.className) + ' ' + a.playState),
+  animations: document
+    .getAnimations()
+    .map(
+      (a) =>
+        (a.animationName || a.transitionProperty) +
+        ' on ' +
+        (a.effect?.target?.className?.baseVal ?? a.effect?.target?.className) +
+        ' ' +
+        a.playState,
+    ),
 }));
 console.log(info);
 const VARIANTS = {
   'as built': '',
-  'CSS animations and transitions off': '*,*::before,*::after{animation:none!important;transition:none!important}',
+  'CSS animations and transitions off':
+    '*,*::before,*::after{animation:none!important;transition:none!important}',
   'splash line hidden': '.dkla-splash{display:none!important}',
   'clock hidden': '.ny-clock,[class*="ny-"]{display:none!important}',
   'version badge hidden': '.dkla-release{display:none!important}',
