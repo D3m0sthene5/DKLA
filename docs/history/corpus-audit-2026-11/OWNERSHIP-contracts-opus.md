@@ -32,13 +32,17 @@ Street and Ricketts). Findings already in those registers are not re-reported.
 
 ## Packets
 
+Rows in `source-worklist.tsv` covered by each packet are `K-<class>-CM-*`, `K-<class>-SUPP-*`,
+`K-<class>-ITEM-*` and `K-<class>-DECK-*`. Astra's K-A reader holds assignment 1; this
+file does not claim it.
+
 | Packet | Session | Status | Sources on file |
 |---|---|---|---|
 | OP-CT-11 | Class 11, Contract modifications (C&M 470–484, 487–492; Supp. 9; Rest. §§ 89, 175, 176; UCC § 2-209; RLCC § 3; N.Y. G.O.L. § 5-1103) | **in progress** | casebook, supplement, selections, slides |
 | OP-CT-12 | Class 12, Fraud and misrepresentation (C&M 508–526; Supp. 22–36) | queued next | casebook, supplement, slides |
 | OP-CT-13 | Class 13, Parol evidence rule (C&M 527–530, 535–547; Supp. 37–45) | queued | casebook, supplement, slides |
 | OP-CT-14 | Class 14, Plain meaning and extrinsic evidence (C&M 548–569, 574–575; Supp. 46–52) | queued | casebook, supplement, slides |
-| OP-CT-15 | Class 15, Extrinsic evidence of past dealings (C&M 575–599) | queued | casebook, selections; slides not in `added-sources/` |
+| OP-CT-15 | Class 15, Extrinsic evidence of past dealings (C&M 575–599) | queued | casebook, selections; deck K-15-DECK-01 absent from `added-sources/` |
 
 After OP-CT-15 this session continues with Classes 16 to 26, then 1 to 10, claiming each
 here before starting. Astra may assign any Contracts session not marked in progress or done,
