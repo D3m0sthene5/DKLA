@@ -348,14 +348,70 @@ const breakages = [
     () => edit('src/features/ask/ask.js', 'openers[source.type]?.(source.id);', 'void source;'),
   ],
   [
-    'v3.1 case page: the old rule pulls the timelines back under the summary and the order never settles',
+    'v3.2 reader: every facet is on the page at once (the one long scroll is back)',
+    'src/features/v32/case.css',
+    () =>
+      edit(
+        'src/features/v32/case.css',
+        "#inspector .v32[data-v32-show='study'] > [data-v32-facet]:not([data-v32-facet='study']) {\n  display: none !important;",
+        "#inspector .v32[data-v32-show='study'] > [data-v32-facet]:not([data-v32-facet='study']) {\n  display: block;",
+      ),
+  ],
+  [
+    'v3.2 reader: the facet bar shows no counts',
+    'src/features/v32/case.js',
+    () => edit('src/features/v32/case.js', "count: n === 0 ? '' : String(n),", "count: '',"),
+  ],
+  [
+    'v3.2 reader: the facet bar scrolls away with the header',
+    'src/features/v32/case.css',
+    () =>
+      edit(
+        'src/features/v32/case.css',
+        '#inspector .v32 > .v32-bar {\n  position: sticky;',
+        '#inspector .v32 > .v32-bar {\n  position: static;',
+      ),
+  ],
+  [
+    'v3.2 reader: a facet that arrives late is not announced (no dkla:facet event)',
+    'src/features/v32/case.js',
+    () => edit('src/features/v32/case.js', 'if (opened || signature !== state.signature) {', 'if (opened) {'),
+  ],
+  [
+    'v3.2 reader: a block that arrives late gets no tab (the tabs are drawn once)',
+    'src/features/v32/case.js',
+    () =>
+      edit(
+        'src/features/v32/case.js',
+        'if (tabs.dataset.v32Tabs !== signature) {',
+        'if (!tabs.dataset.v32Tabs) {',
+      ),
+  ],
+  [
+    "v3.2 reader: the year is drawn in a case's name again (it belongs to the citation line)",
     'src/features/v25/reading.js',
     () =>
       edit(
         'src/features/v25/reading.js',
-        '    // caseOrder() places the timelines under "Where this case sits".\n',
-        "    if (group && body.querySelector(':scope > .takeaway')?.nextElementSibling !== group) body.querySelector(':scope > .takeaway')?.after(group);\n",
+        'if (year) out.push(hidden(year));',
+        "if (year) out.push(element('span', '', year));",
       ),
+  ],
+  [
+    'v3.2 reader: the sheet no longer says where the case sits (no column beside the brief)',
+    'src/features/v32/case.js',
+    () =>
+      edit(
+        'src/features/v32/case.js',
+        '? [sitTimeline(host), sitChart(host), sitLinks(host)].filter(Boolean)',
+        '? []',
+      ),
+  ],
+  [
+    'v3.2 reader: a canon is a bare name again (what it does is not said)',
+    'src/features/canons/canons.js',
+    () =>
+      edit('src/features/canons/canons.js', '<div class="v32-entry-does">${esc(entry.definition)}</div>', ''),
   ],
   [
     'Calm: the splash line pulses its size, so the page is laid out on every frame',
@@ -374,8 +430,132 @@ const breakages = [
   ],
   [
     'Calm: a timer that looks five times a second comes back to the top bar',
-    'src/features/topbar/topbar.js',
-    () => append('src/features/topbar/topbar.js', '\nsetInterval(() => {}, 200);\n'),
+    'src/features/v32/chrome.js',
+    () => append('src/features/v32/chrome.js', '\nsetInterval(() => {}, 200);\n'),
+  ],
+  [
+    'The frame: the top bar grows past 56 px',
+    'src/features/v32/chrome.css',
+    () => edit('src/features/v32/chrome.css', '--top: 56px;', '--top: 64px;'),
+  ],
+  [
+    'The frame: the command field is no longer centred on the window',
+    'src/features/v32/chrome.css',
+    () =>
+      edit('src/features/v32/chrome.css', '    minmax(var(--v32c-side), 1fr);', '    minmax(100px, 1fr);'),
+  ],
+  [
+    'The frame: a path too long for its room is clipped by the browser instead of folded',
+    'src/features/v32/chrome.js',
+    () =>
+      edit('src/features/v32/chrome.js', '      if (over() <= 0) return push(0);', '      return push(0);'),
+  ],
+  [
+    'The frame: the command field gives a long path no room, so its last level is cut',
+    'src/features/v32/chrome.js',
+    () => edit('src/features/v32/chrome.js', 'const FIELD_LEAST = 240;', 'const FIELD_LEAST = 5200;'),
+  ],
+  [
+    'The frame: after a glide Home in a resized window the frame never learns it is Home',
+    'src/features/v32/chrome.js',
+    () =>
+      edit('src/features/v32/chrome.js', '    if (off && !late) again = setTimeout(lateLook, 1000);\n', ''),
+  ],
+  [
+    'The frame: an empty command field keeps room for a clear button, and its words are cut beside a long path',
+    'src/features/v32/chrome.css',
+    () =>
+      edit(
+        'src/features/v32/chrome.css',
+        '#search:placeholder-shown::-webkit-search-cancel-button {\n  display: none;',
+        '#search:placeholder-shown::-webkit-search-cancel-button {\n  display: block;',
+      ),
+  ],
+  [
+    'The frame: the version readout stands outside the instrument, beside it',
+    'src/features/v32/chrome.css',
+    () =>
+      edit(
+        'src/features/v32/chrome.css',
+        '      grid-area: 1 / 1 / 2 / -1;\n      display: grid;',
+        '      grid-area: 1 / 1 / 2 / 2;\n      display: grid;',
+      ),
+  ],
+  [
+    'The frame: the Library says the map holds no cases',
+    'src/features/v32/chrome.js',
+    () =>
+      edit('src/features/v32/chrome.js', "    ['Case', 'case', 'cases'],", "    ['Cases', 'case', 'cases'],"),
+  ],
+  [
+    'The frame: a Library row has no leader from its name to its count',
+    'src/features/v32/chrome.js',
+    () =>
+      edit(
+        'src/features/v32/chrome.js',
+        '      LEADER +\n      `<span class="v32-row-meta">${metaHTML(row)}</span></button>`',
+        '      `<span class="v32-row-meta">${metaHTML(row)}</span></button>`',
+      ),
+  ],
+  [
+    "The frame: a search result's name is cut short to make room for its place",
+    'src/features/v32/chrome.css',
+    () => edit('src/features/v32/chrome.css', '  max-width: calc(100% - 132px);', '  max-width: 40%;'),
+  ],
+  [
+    'The frame: the words before a marked word are cut inside a word',
+    'src/runtime/dklaR13Search.js',
+    () =>
+      edit(
+        'src/runtime/dklaR13Search.js',
+        "cut = lead.length > KEEP ? lead.indexOf(' ', lead.length - KEEP - 1) + 1 : 0;",
+        'cut = lead.length > KEEP ? lead.length - KEEP + 2 : 0;',
+      ),
+  ],
+  [
+    'The frame: a count in the Library is a bare number again, with nothing to say what it counts',
+    'src/features/v32/chrome.js',
+    () => edit('src/features/v32/chrome.js', '`${count(n)} ${n === 1 ? one : many}`', 'count(n)'),
+  ],
+  [
+    'The frame: the Flowcharts row of the Library opens the canons',
+    'src/features/v32/chrome.js',
+    () => edit('src/features/v32/chrome.js', "attrs: 'data-flowcharts-menu',", "attrs: 'data-canons-menu',"),
+  ],
+  [
+    'The frame: the instrument cluster stays lit beside a reader',
+    'src/features/v32/chrome.js',
+    () =>
+      edit(
+        'src/features/v32/chrome.js',
+        'const reading = !!S.panelOpen || court ||',
+        'const reading = false && !!S.panelOpen || false && court || false &&',
+      ),
+  ],
+  [
+    'The frame: the clock keeps flipping beside a reader',
+    'src/features/clock/clock.js',
+    () =>
+      edit(
+        'src/features/clock/clock.js',
+        "    document.documentElement.classList.contains('v32-reading') ||\n",
+        '',
+      ),
+  ],
+  [
+    'The frame: the zoom-out button has no name for a screen reader',
+    'src/markup/13.html',
+    () => edit('src/markup/13.html', 'title="Zoom out" aria-label="Zoom out"', 'title="Zoom out"'),
+  ],
+  [
+    "The frame: a phone's Library keeps the second count, which no longer fits beside a row's name",
+    'src/features/v32/chrome.css',
+    () =>
+      edit(
+        'src/features/v32/chrome.css',
+        '  .v32-library .v32-row-more {\n    display: none;',
+        '  .v32-library .v32-row-more-kept {\n    display: none;',
+      ),
   ],
   [
     'Calm: ambient motion keeps running under an open dialog',
@@ -978,9 +1158,14 @@ const breakages = [
       edit('lib/ask/web.js', " && by !== 'headword' && !except.includes(id));", " && by !== 'headword');"),
   ],
   [
-    'case timelines: pushed below the detailed account',
+    'case timelines: no longer part of Doctrine (they trail the brief)',
     'src/features/v25/reading.js',
-    () => edit('src/features/v25/reading.js', 'summary.after(group);', 'void group;'),
+    () =>
+      edit(
+        'src/features/v25/reading.js',
+        "['v28-case-timelines', 'doctrine', 0],",
+        "['v28-case-timelines', 'brief', 7],",
+      ),
   ],
   [
     'brief navigation: queued close erases a newly opened case',
@@ -1355,6 +1540,31 @@ const breakages = [
         'src/features/v25/geography.js',
         'o.main.forEach(([, h], i) => Object.assign(h, cell(i)));',
         'o.main.forEach(([, h], i) => Object.assign(h, cell(i), first ? { h: CARD.row * 1.5 } : null));',
+      ),
+  ],
+  [
+    'the course territories lose their colour: a subject tile is a grey panel again',
+    'src/runtime/studyCode.js',
+    () => edit('src/runtime/studyCode.js', 'subject = !!r.step && isCourse,', 'subject = false,'),
+  ],
+  [
+    'a tree line runs straight behind a third subject again',
+    'src/runtime/studyCode.js',
+    () =>
+      edit(
+        'src/runtime/studyCode.js',
+        'round = blocked(route[0], route[1], others),',
+        'round = false && blocked(route[0], route[1], others),',
+      ),
+  ],
+  [
+    'the tree lines go back to a faint hairline at rest',
+    'src/features/v32/cards.css',
+    () =>
+      edit(
+        'src/features/v32/cards.css',
+        '  fill: none;\n  stroke-opacity: 0.9;\n  stroke-linecap: round;',
+        '  fill: none;\n  stroke-opacity: 0.2;\n  stroke-linecap: round;',
       ),
   ],
   [

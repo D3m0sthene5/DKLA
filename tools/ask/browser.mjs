@@ -7,6 +7,10 @@ import { questionParts } from '../../lib/ask/web.js';
 const url = new URL(process.argv[2]);
 const contextOnly = process.argv.includes('--context-only');
 assert.ok(['127.0.0.1', 'localhost'].includes(url.hostname));
+// Ask Dottie's row in the search list. On a desktop it reads "Ask Dottie  Get an AI answer with Atlas and web
+// sources"; on a phone it is her name alone (src/features/v32/chrome.css), so it is found by its place and
+// the start of its name.
+const askRow = (page) => page.locator('#searchResults').getByRole('button', { name: /^Ask Dottie/ });
 const browser = await chromium.launch();
 const question = 'How did International Shoe change Pennoyer?';
 const rankingQuestion = 'Is Iqbal one of the five most cited cases ever?';
@@ -308,7 +312,7 @@ try {
 
     await enterSearch(question);
     await expect(page.locator('#searchResults .ask-search .ask-launch-face svg')).toHaveCount(1);
-    await page.getByRole('button', { name: /Ask Dottie.*AI answer/ }).click();
+    await askRow(page).click();
     const dialog = page.getByRole('dialog', { name: 'Ask Dottie' });
     const answerArea = dialog.locator('.ask-answer');
     const input = dialog.locator('textarea');
@@ -336,7 +340,7 @@ try {
 
     // Reopening returns to the conversation; New question starts afresh.
     await enterSearch('');
-    await page.getByRole('button', { name: /Ask Dottie.*AI answer/ }).click();
+    await askRow(page).click();
     await expect(answerArea).toContainText('minimum contacts');
     await expect(input).toBeFocused();
     await dialog.getByRole('button', { name: 'New question' }).click();
@@ -537,7 +541,7 @@ try {
     await expect(dialog).toBeHidden();
     await expect(page.locator('#inspector')).toContainText('Iqbal');
     await enterSearch('');
-    await page.getByRole('button', { name: /Ask Dottie.*AI answer/ }).click();
+    await askRow(page).click();
     await expect(answerArea).toContainText('minimum contacts');
     await input.press('Escape');
     await expect(dialog).toBeHidden();
@@ -933,7 +937,7 @@ async function savedAnswersFlow(viewport) {
   await search.focus();
   await page.keyboard.press('ControlOrMeta+A');
   await page.keyboard.press('Backspace');
-  await page.getByRole('button', { name: /Ask Dottie.*AI answer/ }).click();
+  await askRow(page).click();
   await askNew('how did international shoe change pennoyer');
   await expect(dialog.getByRole('status')).toHaveText('Answer from your saved answers.');
   await expect(answerArea.locator('.ask-from')).toContainText(/From your saved answers .*· Ask again/);
@@ -999,7 +1003,7 @@ async function savedAnswersFlow(viewport) {
     await search.focus();
     await page.keyboard.press('ControlOrMeta+A');
     await page.keyboard.press('Backspace');
-    await page.getByRole('button', { name: /Ask Dottie.*AI answer/ }).click();
+    await askRow(page).click();
     await expect(dialog).toBeVisible();
   };
   await page.reload({ waitUntil: 'domcontentloaded', timeout: 90_000 });

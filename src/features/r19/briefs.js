@@ -247,7 +247,7 @@
     box.dataset.state = state;
     const others = D.related[n.id] || [];
     box.innerHTML = `${sourceLinks(codexId)}<div class="r19-line">${chip(e)}${skipped.has(n.id) ? '<span>You have edited this entry, so your text is kept.</span>' : ''}${skipped.has(n.id) ? `<button type="button" data-r19-apply="${esc(n.id)}">Use the audited brief</button>` : ''}</div>
-      <details class="r19-full"><summary>Full brief</summary><div class="r19-text" data-r19-fill="${esc(codexId)}"></div></details>
+      <div class="r19-full v32-full"><div class="r19-text" data-r19-fill="${esc(codexId)}"></div></div>
       ${auditHTML(codexId)}
       ${
         others.length
@@ -319,7 +319,7 @@
       main = e.main && nodesById.get(e.main);
     el('r19Title').innerHTML =
       `<span class="r18-kicker">${esc(COURSES[e.course])} · ${e.main ? 'ON THE MAP' : 'SUPPORTING CASE'}</span><h2>${esc(e.title)}</h2>`;
-    return `<div class="r19-line">${window.DKLAColdCall?.has(e.main || 'brief-' + e.id) ? `<button type="button" data-cold-call="${esc(e.main || 'brief-' + e.id)}" aria-haspopup="dialog">Cold call</button>` : ''}${e.main ? '' : '<button type="button" data-r19-back>← Supporting cases</button>'}${chip(e)}${main ? `<button type="button" data-r19-node="${esc(main.id)}">Open on the map</button>` : ''}${D.pdf && D.pages[e.id] ? `<button type="button" data-dkla-file="${esc(D.pdf + '#page=' + D.pages[e.id][0])}" title="Archived compilation; use Full brief or Cold call for current corrections">Archived briefs PDF, p. ${D.pages[e.id][0]} ↗</button>` : ''}</div>
+    return `<div class="r19-line">${window.DKLAColdCall?.has(e.main || 'brief-' + e.id) ? `<button type="button" data-cold-call="${esc(e.main || 'brief-' + e.id)}" aria-haspopup="dialog">Cold Call</button>` : ''}${e.main ? '' : '<button type="button" data-r19-back>← Supporting cases</button>'}${chip(e)}${main ? `<button type="button" data-r19-node="${esc(main.id)}">Open on the map</button>` : ''}${D.pdf && D.pages[e.id] ? `<button type="button" data-dkla-file="${esc(D.pdf + '#page=' + D.pages[e.id][0])}" title="Archived compilation; use Full brief or Cold call for current corrections">Archived briefs PDF, p. ${D.pages[e.id][0]} ↗</button>` : ''}</div>
       ${sourceLinks(e.id)}${window.DKLATimelines?.linksFor(e.main || e.id) || ''}${
         conv
           ? `<div class="r19-rule"><span>Rule in one line</span><p>${esc(conv.rule)}</p></div>${KEYS.map(

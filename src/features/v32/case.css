@@ -1,0 +1,2430 @@
+/* The reader (v3.2 "Instrument": docs/DESIGN.md; tokens in src/features/v31/tokens.css).
+
+   One entry, one facet at a time. From the top: a 44 px strip (where the entry sits, the close button), the
+   header (name, citation line, the line under its picture), the facet bar (Cold Call in the margin, then
+   the tabs with their counts), and the blocks of the open facet. src/features/v25/reading.js marks each
+   block with its facet and src/features/v32/case.js says which facet is open (data-v32-show on the body).
+
+   Two columns, each with one left edge: the margin (the Cold Call button, the rail of the brief) and the
+   reading column (the strip's line, the name, the tabs, every facet). Spacing 4 8 12 16 24 32 48 64; radii
+   6 and 12; text in three greys; weights 400, 500, 600; controls 36 px high; nothing boxed inside a box. */
+#inspector {
+  --v32-gutter: 24px;
+  --v32-margin: 132px;
+  --v32-left: calc(var(--v32-gutter) + var(--v32-margin) + 24px);
+  --v32-col: 720px;
+  /* About 70 characters of the reading size, and about 62 of the rule's. */
+  --v32-measure: 560px;
+  --v32-hero: 656px;
+  /* The case sheet: the brief's column, and beside it the column that says where the case sits. */
+  --v32-brief: 544px;
+  --v32-side: 292px;
+  --v32-wide: calc(var(--v32-brief) + 40px + var(--v32-side));
+  --v32-mono: 500 13px/18px 'DKLA JetBrains Mono', 'JetBrains Mono', ui-monospace, monospace;
+  background: var(--v31-panel);
+  border-left: 0;
+  box-shadow: var(--v32-e1);
+  scrollbar-color: var(--v31-line-strong) transparent;
+}
+@media (max-width: 1439px) {
+  #inspector {
+    --v32-gutter: 16px;
+    --v32-margin: 104px;
+    --v32-left: calc(var(--v32-gutter) + var(--v32-margin) + 16px);
+    --v32-side: 264px;
+  }
+}
+@media (max-width: 1023px) {
+  #inspector {
+    --v32-gutter: 24px;
+    --v32-left: var(--v32-gutter);
+  }
+}
+
+/* ---------- the top strip ---------- */
+#inspector .reader-top {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 0 12px;
+  height: 44px;
+  padding: 0 16px 0 var(--v32-left);
+  border-bottom: 1px solid transparent;
+  background: var(--v31-panel);
+  transition: border-color var(--v31-t-pop) var(--v31-ease);
+}
+#inspector .reader-top.v32-scrolled {
+  border-bottom-color: var(--v32-hair);
+}
+#inspector .reader-top > span,
+#inspector .reader-top > .v32-now {
+  grid-area: 1 / 1;
+  min-width: 0;
+  overflow: hidden;
+  font: var(--v32-ui-small);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--v31-muted);
+  transition:
+    opacity var(--v31-t-pop) var(--v31-ease),
+    transform var(--v31-t-pop) var(--v31-ease);
+}
+/* The court and the year, as a readout at the strip's right. */
+#inspector .reader-top > .v32-court {
+  grid-area: 1 / 2;
+  font: var(--v32-mono);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--v31-muted);
+}
+#inspector .reader-top > #closeInspector {
+  grid-area: 1 / 3;
+}
+#inspector .reader-top > .v32-ident {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  /* Room for the dot that hangs left of the column's edge. */
+  margin-left: -16px;
+  padding-left: 16px;
+}
+#inspector .v32-ident > span {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#inspector .v32-ident > .v32-course {
+  flex: none;
+}
+#inspector .v32-ident > .v32-dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  margin: 0 4px 0 -16px;
+  border-radius: 999px;
+  background: var(--v32-dot, var(--v31-faint));
+}
+#inspector .v32-ident > .v32-sep {
+  flex: none;
+  color: var(--v31-faint);
+}
+#inspector .reader-top > .v32-now {
+  font: var(--v32-ui-small);
+  font-weight: 600;
+  color: var(--v31-text);
+  opacity: 0;
+  transform: translateY(4px);
+}
+#inspector .reader-top.v32-titled > .v32-now {
+  opacity: 1;
+  transform: none;
+}
+#inspector .reader-top.v32-titled > .v32-ident {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+#inspector #closeInspector {
+  all: unset;
+  box-sizing: border-box;
+  position: relative;
+  grid-area: 1 / 2;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  color: var(--v31-muted);
+  cursor: pointer;
+}
+/* A 44 px place to press round the 36 px button. */
+#inspector #closeInspector::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+}
+#inspector #closeInspector:hover {
+  background: var(--v31-raised);
+  color: var(--v31-text);
+}
+
+/* ---------- the page ---------- */
+#inspector .reader-body.v32,
+#inspector .reader-body.v32-plain {
+  position: relative;
+  box-sizing: border-box;
+  max-width: none;
+  margin: 0;
+  padding: 8px var(--v32-gutter) 96px var(--v32-left);
+  font: var(--v31-body-type);
+  color: var(--v31-text);
+}
+/* Blocks arrive together, once (case.js fades a facet in); the staggered rise of each block is gone. */
+#inspector .reader-body.v32 > *,
+#inspector .reader-body.v32-plain > * {
+  animation: none;
+}
+#inspector .reader-body.v32 > * {
+  max-width: var(--v32-col);
+}
+/* One facet at a time: the blocks of every other facet are out of the page. */
+#inspector .v32[data-v32-show='brief'] > [data-v32-facet]:not([data-v32-facet='brief']),
+#inspector .v32[data-v32-show='doctrine'] > [data-v32-facet]:not([data-v32-facet='doctrine']),
+#inspector .v32[data-v32-show='cases'] > [data-v32-facet]:not([data-v32-facet='cases']),
+#inspector .v32[data-v32-show='canons'] > [data-v32-facet]:not([data-v32-facet='canons']),
+#inspector .v32[data-v32-show='lecture'] > [data-v32-facet]:not([data-v32-facet='lecture']),
+#inspector .v32[data-v32-show='court'] > [data-v32-facet]:not([data-v32-facet='court']),
+#inspector .v32[data-v32-show='sources'] > [data-v32-facet]:not([data-v32-facet='sources']),
+#inspector .v32[data-v32-show='study'] > [data-v32-facet]:not([data-v32-facet='study']) {
+  display: none !important;
+}
+/* A change of facet fades the new blocks in. The two keyframes are the same; case.js alternates them so
+   each change starts afresh. Before the first change the blocks are simply there. */
+#inspector .v32[data-v32-tick='0'] > [data-v32-facet] {
+  animation: v32-in-a var(--v31-t-pop) var(--v31-ease) both;
+}
+#inspector .v32[data-v32-tick='1'] > [data-v32-facet] {
+  animation: v32-in-b var(--v31-t-pop) var(--v31-ease) both;
+}
+@keyframes v32-in-a {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@keyframes v32-in-b {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #inspector .v32 > [data-v32-facet] {
+    animation: none !important;
+  }
+  #inspector .reader-top > span,
+  #inspector .reader-top > .v32-now,
+  #inspector .v32-tab::after {
+    transition: none;
+  }
+}
+/* The headings that name each facet belong to the printed page. */
+#inspector .reader-body.v32 > h3.v32-fh,
+#inspector .reader-body.v32 > .brief-jump,
+#inspector .v32[data-v32-show] > details.v25-source-details,
+#inspector .v32[data-v32-show] > .authority-context,
+#inspector .v32[data-v32-show] > .dkla-file-chips,
+#inspector .v32[data-v32-show] > .source-strip,
+#inspector .v32[data-v32-show] > .r19-chiprow,
+#inspector .v32[data-v32-show] > .civil-source-scope:not(.source-caution),
+#inspector .v32 > .r19-brief > .r28-original-sources {
+  display: none;
+}
+
+/* ---------- shared pieces ---------- */
+#inspector .v32 .v32-label,
+#inspector .v32-plain .v32-label {
+  margin: 0 0 8px;
+  padding: 0;
+  border: 0;
+  font: var(--v32-ui-small);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-muted);
+}
+#inspector :is(.v32, .v32-plain) .v32-count {
+  font: var(--v32-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  color: var(--v31-muted);
+}
+#inspector :is(.v32, .v32-plain) .v32-label > .v32-count {
+  margin-left: 4px;
+}
+/* Rows: 36 px, a 16 px mark, the name, a trailing readout. The fill on hover reaches 8 px past the text. */
+#inspector .v32 .v32-rows {
+  margin: 0 -8px;
+  padding: 0;
+  list-style: none;
+}
+#inspector .v32 .v32-rows > li {
+  margin: 0;
+  padding: 0;
+}
+#inspector .v32 .v32-row {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  height: 36px;
+  padding: 0 8px;
+  border-radius: 6px;
+  font: var(--v31-ui);
+  color: var(--v31-text);
+  cursor: pointer;
+}
+#inspector .v32 .v32-row > svg {
+  flex: none;
+  color: var(--v31-faint);
+}
+#inspector .v32 .v32-row-label {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#inspector .v32 .v32-row-meta {
+  flex: none;
+  font: var(--v32-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-muted);
+}
+#inspector .v32 .v32-row:hover {
+  background: var(--v31-raised);
+}
+/* A two- or three-way switch: one hairline round it, the chosen part one fill step up. */
+#inspector .v32 .v32-seg {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  border-radius: 6px;
+}
+#inspector .v32 .v32-seg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px var(--v32-hair-strong);
+  pointer-events: none;
+}
+#inspector .v32 .v32-seg > button {
+  all: unset;
+  box-sizing: border-box;
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 64px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 6px;
+  font: var(--v31-ui);
+  color: var(--v31-muted);
+  cursor: pointer;
+}
+/* The part is 36 px high; a press 4 px above or below it still counts (the 44 px hit area). */
+#inspector .v32 .v32-seg > button::before {
+  content: '';
+  position: absolute;
+  inset: -4px 0;
+}
+#inspector .v32 .v32-seg > button:hover {
+  color: var(--v31-text);
+}
+#inspector .v32 .v32-seg > button[aria-pressed='true'] {
+  background: var(--v31-raised);
+  color: var(--v31-text);
+}
+/* A quiet control: words in the link blue, 36 px high. */
+#inspector .v32 .v31-open,
+#inspector .v32 #showNeighborhood,
+#inspector .v32 .dkla-term-more,
+#inspector .v32 .text-button {
+  all: unset;
+  box-sizing: border-box;
+  position: relative;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 36px;
+  font: var(--v31-ui);
+  color: var(--v31-link);
+  cursor: pointer;
+}
+/* Quiet and default controls are 36 px high and take a press 4 px above and below (44 px hit area). */
+#inspector .v32 .v31-open::before,
+#inspector .v32 #showNeighborhood::before,
+#inspector .v32 .dkla-term-more::before,
+#inspector .v32 .text-button::before,
+#inspector .v32 .reading-actions button::before,
+#inspector .v32 .r19-line button::before,
+#inspector .v32 .r19-related button::before {
+  content: '';
+  position: absolute;
+  inset: -4px 0;
+}
+#inspector .v32 .v31-open:hover,
+#inspector .v32 #showNeighborhood:hover,
+#inspector .v32 .dkla-term-more:hover,
+#inspector .v32 .text-button:hover {
+  color: var(--v31-link-hover);
+}
+#inspector .v32 .text-button.danger {
+  color: var(--v31-muted);
+}
+/* A default control: one hairline, 36 px high. */
+#inspector .v32 .reading-actions button,
+#inspector .v32 .r19-line button,
+#inspector .v32 .r19-related button {
+  all: unset;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px var(--v32-hair-strong);
+  font: var(--v31-ui);
+  color: var(--v31-text);
+  cursor: pointer;
+}
+#inspector .v32 .reading-actions button:hover,
+#inspector .v32 .r19-line button:hover,
+#inspector .v32 .r19-related button:hover {
+  background: var(--v31-raised);
+}
+/* Links inside the reader: one colour. */
+#inspector .v32 a,
+#inspector .v32 .cite-link,
+#inspector .v32-plain a {
+  color: var(--v31-link);
+  text-decoration: none;
+}
+#inspector .v32 a:hover,
+#inspector .v32-plain a:hover {
+  color: var(--v31-link-hover);
+}
+/* The head of a block inside a facet: what it is and its count, its name, one way out. */
+#inspector .v32 .v31-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+#inspector .v32 .v31-card-head h3 {
+  margin: 4px 0 0;
+  font: var(--v31-heading);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-text);
+}
+#inspector .v32 .v31-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0;
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
+}
+
+/* ---------- the header ---------- */
+#inspector .v32 > .v32-head {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* A name is wider than prose: up to the whole sheet's width, and no wider than its own lines. */
+  width: fit-content;
+  max-width: var(--v32-wide);
+  margin: 0 0 16px;
+  padding: 0;
+  border: 0;
+}
+#inspector .v32 .v32-head > .dkla-record-title {
+  position: relative;
+  display: block;
+  /* As wide as the name's own lines. */
+  width: fit-content;
+  max-width: 100%;
+  gap: 0;
+  margin: 0;
+}
+/* The question the entry's subject asks, before the name. */
+#inspector .v32 .v32-head > .v32-ask {
+  max-width: var(--v32-hero);
+  margin: 0 0 12px;
+  font: var(--v31-ui);
+  font-weight: 400;
+  text-wrap: balance;
+  color: var(--v31-muted);
+}
+/* A case's picture: an illustration in the margin, level with the first line of the name. */
+#inspector .v32 .v32-head .v32-art {
+  position: absolute;
+  left: -72px;
+  /* 48 px beside a 40 px line: centred on it. */
+  top: -4px;
+  width: 48px;
+  height: 48px;
+  color: var(--v32-course, var(--v31-text));
+}
+#inspector .v32 .v32-art > svg {
+  display: block;
+  width: 48px;
+  height: 48px;
+  overflow: visible;
+  stroke-width: 1.5px;
+}
+/* One stroke weight whatever size the drawing was made at. */
+#inspector .v32 .v32-art > svg * {
+  vector-effect: non-scaling-stroke;
+}
+/* A caption (reading.js composes it): a party is one unit, "v." keeps its first word. */
+#inspector .v32 .v32-head h2 .v32-case-line {
+  display: block;
+}
+#inspector .v32 .v32-head h2 .v32-party {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: top;
+  text-wrap: wrap;
+}
+#inspector .v32 .v32-head h2 .v32-nb {
+  white-space: nowrap;
+}
+/* A second case decided with the first: its own line, one step down. */
+#inspector .v32 .v32-head h2 .v32-case-also {
+  margin-top: 4px;
+  font-size: 22px;
+  line-height: 32px;
+  color: var(--v31-muted);
+}
+#inspector .v32 .v32-head .v32-case-note {
+  margin: 4px 0 0;
+  font: var(--v31-body-type);
+  line-height: 24px;
+  color: var(--v31-muted);
+}
+/* Words kept in the text but not drawn (the heading's aria-label says them). */
+#inspector :is(.v32, .v32-plain) .v32-vh {
+  display: none;
+}
+#inspector .v32 .v32-head h2 {
+  margin: 0;
+  font: var(--v31-title);
+  /* !important: src/features/v26/typography.css puts the interface face on every heading in the reader. */
+  font-family: var(--dkla-display, 'Exo 2'), sans-serif !important;
+  letter-spacing: 0;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+  color: var(--v31-text);
+}
+#inspector .v32 .v32-head > .v32-meta {
+  min-height: 16px;
+  margin: 8px 0 0;
+  font: var(--v32-mono);
+  font-variant-numeric: tabular-nums;
+  white-space: normal;
+  color: var(--v31-muted);
+}
+#inspector .v32 .v32-head > .v32-tag {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 12px 0 0;
+  font: var(--v31-body-type);
+  color: var(--v31-muted);
+}
+#inspector .v32 .v32-tag > svg {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  /* On the first line's centre: (27 - 20) / 2, rounded to the grid. */
+  margin: 4px 0 0;
+  color: var(--v32-course, var(--v31-muted));
+}
+#inspector .v32 .v32-tag > .dkla-icon-caption,
+#inspector .v32 .v32-tag > .v32-kind {
+  margin: 0;
+  max-width: none;
+  font: inherit;
+  font-style: normal;
+  letter-spacing: 0;
+  color: inherit;
+}
+#inspector .v32 > .dkla-course-tabs {
+  margin: 0 0 16px;
+}
+
+/* ---------- the facet bar ---------- */
+#inspector .v32 > .v32-bar {
+  position: sticky;
+  top: 44px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  max-width: none;
+  height: 60px;
+  margin: 0 calc(-1 * var(--v32-gutter)) 0 calc(-1 * var(--v32-left));
+  padding: 0 var(--v32-gutter) 0 var(--v32-left);
+  border-bottom: 1px solid var(--v32-hair);
+  background: var(--v31-panel);
+}
+/* An entry with one facet has no bar, only the line that closes its header. */
+#inspector .v32.v32-single > .v32-bar {
+  height: 0;
+}
+#inspector .v32.v32-single > .v32-bar > * {
+  display: none;
+}
+/* The button is 36 px high; the 4 px above and below it pass a press on to it (case.js). */
+#inspector .v32 .v32-cc {
+  position: absolute;
+  left: var(--v32-gutter);
+  top: 8px;
+  display: flex;
+  padding: 4px 0;
+  cursor: pointer;
+}
+#inspector .v32 .v32-cc:empty {
+  display: none;
+}
+#inspector .v32 .v32-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  height: 60px;
+  /* The first tab's words start on the column's edge. */
+  margin: 0 -12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+#inspector .v32 .v32-tabs::-webkit-scrollbar {
+  display: none;
+}
+/* More tabs than fit: the side that holds more fades out (case.js says which). */
+#inspector .v32 .v32-tabs[data-v32-more='end'] {
+  mask-image: linear-gradient(to left, transparent, #000 48px);
+}
+#inspector .v32 .v32-tabs[data-v32-more='start'] {
+  mask-image: linear-gradient(to right, transparent, #000 48px);
+}
+#inspector .v32 .v32-tabs[data-v32-more='start end'] {
+  mask-image: linear-gradient(to right, transparent, #000 48px, #000 calc(100% - 48px), transparent);
+}
+/* A narrower reader: the tabs sit closer. */
+@media (max-width: 1319px) {
+  #inspector .v32 .v32-tabs {
+    gap: 0;
+    margin: 0 -8px;
+  }
+  #inspector .v32 .v32-tab {
+    padding: 0 8px;
+  }
+  #inspector .v32 .v32-tab::after {
+    left: 8px;
+    right: 8px;
+  }
+}
+#inspector .v32 .v32-tab {
+  all: unset;
+  box-sizing: border-box;
+  position: relative;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 6px;
+  font: var(--v31-ui);
+  white-space: nowrap;
+  color: var(--v31-muted);
+  cursor: pointer;
+}
+#inspector .v32 .v32-tab:hover {
+  background: var(--v31-raised);
+  color: var(--v31-text);
+}
+#inspector .v32 .v32-tab[aria-selected='true'] {
+  color: var(--v31-text);
+}
+#inspector .v32 .v32-tab[aria-selected='true'] > .v32-count {
+  color: var(--v31-muted);
+}
+#inspector .v32 .v32-tab > .v32-count:empty {
+  display: none;
+}
+/* A tab is 36 px high and takes a press anywhere in the bar's height. */
+#inspector .v32 .v32-tab::before {
+  content: '';
+  position: absolute;
+  inset: -12px 0;
+}
+/* The open tab's mark sits on the bar's hairline. */
+#inspector .v32 .v32-tab::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: -12px;
+  height: 2px;
+  background: var(--v31-text);
+  opacity: 0;
+  transform: scaleX(0.6);
+  transition:
+    opacity var(--v31-t-pop) var(--v31-ease),
+    transform var(--v31-t-pop) var(--v31-ease);
+}
+#inspector .v32 .v32-tab[aria-selected='true']::after {
+  opacity: 1;
+  transform: none;
+}
+/* The space between the bar and the facet (the element a screen reader is told is the open tab's panel). */
+#inspector .v32 > .v32-panel {
+  height: 32px;
+}
+
+/* ---------- the rail: the rule and the six parts, in the margin beside the short brief ---------- */
+#inspector .v32 > .v31-rail {
+  display: none;
+  position: sticky;
+  top: 104px;
+  z-index: 1;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+#inspector .v32[data-v32-show='brief'][data-v32-mode='short'] > .v31-rail {
+  display: block;
+}
+#inspector .v32 .v31-rail-inner {
+  position: absolute;
+  top: 0;
+  left: calc(var(--v32-gutter) - var(--v32-left));
+  display: flex;
+  flex-direction: column;
+  width: var(--v32-margin);
+}
+#inspector .v32 .v31-rail button {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  height: 36px;
+  margin: 0 -8px;
+  padding: 0 8px;
+  border-radius: 6px;
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
+  cursor: pointer;
+}
+#inspector .v32 .v31-rail button > .v32-n {
+  flex: none;
+  width: 16px;
+  font: var(--v32-mono);
+  font-variant-numeric: tabular-nums;
+}
+#inspector .v32 .v31-rail button:hover {
+  color: var(--v31-text);
+}
+#inspector .v32 .v31-rail button[aria-current] {
+  color: var(--v31-text);
+}
+@media (max-width: 1023px) {
+  #inspector .v32 > .v31-rail {
+    display: none !important;
+  }
+  #inspector .v32 .v32-cc {
+    position: static;
+    flex: none;
+  }
+  #inspector .v32 .v32-cc:not(:empty) {
+    margin-right: 24px;
+  }
+}
+
+/* ---------- Brief ---------- */
+#inspector .v32 > .v32-brief-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 36px;
+  margin: 0 0 8px;
+}
+#inspector .v32 .v32-brief-head > .v32-label {
+  margin: 0;
+}
+#inspector .v32[data-v32-mode='full'] > .v32-brief-head > .v32-label {
+  visibility: hidden;
+}
+/* The rule in plain English: the hero. No box. */
+#inspector .v32 > .takeaway {
+  max-width: var(--v32-hero);
+  margin: 0 0 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  font:
+    400 22px/32px var(--dkla-interface, Inter),
+    sans-serif;
+  letter-spacing: 0;
+  color: var(--v31-text);
+}
+#inspector .v32 > .takeaway.takeaway {
+  display: block;
+  gap: 0;
+}
+#inspector .v32 > .takeaway::before {
+  content: none;
+}
+#inspector .v32 > .takeaway.takeaway > * {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+#inspector .v32[data-v32-mode='full'] > .takeaway,
+#inspector .v32[data-v32-mode='full'] > .case-box,
+#inspector .v32[data-v32-mode='short'] > .r19-brief > .v32-full {
+  display: none;
+}
+#inspector .v32 > .source-caution {
+  max-width: var(--v32-measure);
+  margin: 0 0 24px;
+  padding: 0 0 0 16px;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: inset 2px 0 0 var(--v31-here);
+  font: var(--v31-ui);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+#inspector .v32 > .source-caution p {
+  margin: 4px 0 0;
+  font: inherit;
+  color: inherit;
+}
+#inspector .v32 > .jump-note {
+  margin: 0 0 24px;
+  font: var(--v31-ui);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+/* The six parts: a large faint numeral, the part's name, then the text at 17/28. */
+#inspector .v32 > .case-box {
+  counter-reset: v32-part;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  margin: 0 0 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+#inspector .v32 > .case-box > section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  scroll-margin-top: 128px;
+}
+#inspector .v32 > .case-box > section > h3 {
+  counter-increment: v32-part;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0 0 12px;
+  font: var(--v31-heading);
+  line-height: 32px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-text);
+}
+#inspector .v32 > .case-box > section > h3::before {
+  content: counter(v32-part);
+  font:
+    400 30px/32px var(--dkla-display, 'Exo 2'),
+    sans-serif;
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-faint);
+}
+#inspector .v32 :is(.case-box, .entry-sections, .note-text, .r19-text, .v32-loose) p,
+#inspector .v32 > section:not([class]) p {
+  max-width: var(--v32-measure);
+  margin: 0 0 16px;
+  font: var(--v32-reading);
+  letter-spacing: 0;
+  white-space: normal;
+  color: var(--v31-text);
+}
+#inspector .v32 :is(.case-box section, .entry-sections section, .note-text, .r19-text) > p:last-child {
+  margin-bottom: 0;
+}
+/* The readings a part of an LRS brief rests on: a quiet line under the part. */
+#inspector .v32 .case-box .source-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 16px;
+  margin: 8px 0 0;
+  padding: 0;
+  border: 0;
+}
+#inspector .v32 .case-box .source-strip :is(a, button) {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  font: var(--v32-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-muted);
+  cursor: pointer;
+}
+#inspector .v32 .case-box .source-strip :is(a, button):hover {
+  color: var(--v31-link-hover);
+}
+/* Headings of the looser parts of a brief (separate opinions, the sections of a concept). */
+#inspector .v32 > section:not([class]) > h3,
+#inspector .v32 > h3:not([class]),
+#inspector .v32 > .entry-sections h3,
+#inspector .v32 .r19-text h3,
+#inspector .v32 > .study-roadmap > h3,
+#inspector .v32 > .v32-notes > h3 {
+  margin: 0 0 12px;
+  padding: 0;
+  border: 0;
+  font: var(--v31-heading);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-text);
+}
+#inspector .v32 > section:not([class]),
+#inspector .v32 > .entry-sections,
+#inspector .v32 > .note-text {
+  margin: 0 0 48px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+#inspector .v32 > .entry-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+#inspector .v32 > .entry-sections > section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+/* The full brief (the Short | Full switch), and what the audit says of it. */
+#inspector .v32 > .r19-brief {
+  margin: 0 0 48px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+#inspector .v32 > .r19-brief:not(:has(.r19-line > *, .r19-auditbox, .r19-related)) {
+  margin: 0;
+}
+#inspector .v32[data-v32-mode='full'] > .r19-brief > .v32-full {
+  margin: 0 0 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+#inspector .v32 .r19-text {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+/* Emphasis inside the reading text is one step up, never the heaviest weight. */
+#inspector
+  .v32
+  :is(.case-box, .entry-sections, .note-text, .r19-text, .takeaway, .lecture-note)
+  :is(strong, b) {
+  font-weight: 600;
+}
+#inspector .v32 .r19-text h3:not(:first-child) {
+  margin-top: 48px;
+}
+#inspector .v32 .r19-text h4 {
+  margin: 32px 0 8px;
+  font: var(--v31-body-type);
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-text);
+}
+#inspector .v32 .r19-text :is(ul, ol) {
+  max-width: var(--v32-measure);
+  margin: 0 0 16px;
+  padding: 0 0 0 24px;
+  font: var(--v32-reading);
+  color: var(--v31-text);
+}
+#inspector .v32 .r19-text li {
+  margin: 0 0 8px;
+  font: inherit;
+  color: inherit;
+}
+#inspector .v32 .r19-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin: 0;
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
+}
+#inspector .v32 .r19-line:empty {
+  display: none;
+}
+#inspector .v32 .r19-status {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: var(--v32-ui-small);
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: normal;
+  color: var(--v31-muted);
+}
+#inspector .v32 .r19-related {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0 0;
+}
+#inspector .v32 .r19-related > span {
+  flex: 1 0 100%;
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
+}
+/* The text of a provision, in a rule's overview: a drawer that is open when the text is short. */
+#inspector .v32 > .r19-prov {
+  margin: 0 0 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+#inspector .v32 > .r19-prov > details {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+#inspector .v32 > .r19-prov summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
+  cursor: pointer;
+}
+#inspector .v32 > .r19-prov summary::-webkit-details-marker {
+  display: none;
+}
+#inspector .v32 > .r19-prov summary small {
+  margin: 0;
+  font: var(--v32-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  color: var(--v31-muted);
+}
+#inspector .v32 > .r19-prov .r19-prov-text {
+  padding: 0;
+  font: var(--v32-reading);
+}
+#inspector .v32 > .r19-prov .r19-prov-text p,
+#inspector .v32-plain .authority-text p {
+  max-width: var(--v32-measure);
+  margin: 0 0 12px calc(var(--v32-indent, var(--authority-indent, 0)) * 24px);
+  font: var(--v32-reading);
+  white-space: normal;
+  color: var(--v31-text);
+}
+#inspector .v32 > .r19-prov .r19-prov-src {
+  max-width: var(--v32-measure);
+  margin: 8px 0 0;
+  padding: 0;
+  border: 0;
+  font: var(--v32-ui-small);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+#inspector .v32 > .r19-prov .r19-prov-src :is(a, button) {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  margin-left: 8px;
+  font: var(--v32-ui-small);
+  color: var(--v31-link);
+  cursor: pointer;
+}
+/* Terms in this entry: three columns of rows. */
+#inspector .v32 > .dkla-terms {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+#inspector .v32 > .dkla-terms > h3 {
+  margin: 0 0 8px;
+  font: var(--v32-ui-small);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-muted);
+}
+#inspector .v32 > .dkla-terms > h3 > span {
+  margin-left: 4px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  font: var(--v32-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-muted);
+}
+#inspector .v32 .dkla-term-chips {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 24px;
+  margin: 0 -8px;
+}
+#inspector .v32 .dkla-term-chips > button:not(.dkla-term-more) {
+  all: unset;
+  box-sizing: border-box;
+  display: block;
+  height: 36px;
+  padding: 0 8px;
+  overflow: hidden;
+  border-radius: 6px;
+  font: var(--v31-ui);
+  line-height: 36px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--v31-text);
+  cursor: pointer;
+}
+#inspector .v32 .dkla-term-chips > button[hidden] {
+  display: none;
+}
+#inspector .v32 .dkla-term-chips > button:not(.dkla-term-more):hover {
+  background: var(--v31-raised);
+}
+#inspector .v32 .dkla-term-chips > .dkla-term-more {
+  padding: 0 8px;
+}
+
+/* ---------- Timeline ---------- */
+#inspector .v32 > .v28-case-timelines {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  margin: 0;
+}
+#inspector .v32 .v31-tl {
+  margin: 0 0 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+#inspector .v32 > .v28-case-timelines > .v31-tl {
+  margin: 0;
+}
+#inspector .v32 > .r21-also {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 16px;
+  margin: 0;
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
+}
+#inspector .v32 > .r21-also > button {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  font: var(--v31-ui);
+  color: var(--v31-link);
+  cursor: pointer;
+}
+/* A case on more than one timeline: one at a time. */
+#inspector .v32 .v32-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 100%;
+}
+#inspector .v32 .v32-switch.v32-seg > button {
+  max-width: 320px;
+  display: block;
+  overflow: hidden;
+  line-height: 36px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ---------- Flowchart ---------- */
+#inspector .v32 > .v31-chart-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  margin: 0;
+}
+#inspector .v32 .v31-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+#inspector .v32 .v31-chart > .v32-label {
+  margin: 16px 0 -8px;
+}
+#inspector .v32 .v32-path {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#inspector .v32 .v32-step {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+#inspector .v32 .v32-step {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  gap: 0 16px;
+  align-items: baseline;
+  margin: 0;
+  padding: 8px 0;
+}
+#inspector .v32 .v32-step-q {
+  font: var(--v31-ui);
+  font-weight: 400;
+  line-height: 24px;
+  text-wrap: balance;
+}
+#inspector .v32 .v32-step-q > a {
+  color: var(--v31-muted);
+}
+#inspector .v32 .v32-step-q > a:hover {
+  color: var(--v31-link-hover);
+}
+#inspector .v32 .v32-step-n {
+  flex: none;
+  width: 16px;
+  font: var(--v32-mono);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  color: var(--v31-muted);
+}
+/* The same amber mark beside the count of the steps this entry decides. */
+#inspector .v32 .v31-chart .v31-meta > .v32-count::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  border-radius: 999px;
+  background: var(--v31-here);
+}
+/* The steps this entry decides: amber, in full. */
+#inspector .v32 .v32-step.v31-own .v32-step-q {
+  font: var(--v31-body-type);
+  font-weight: 600;
+  line-height: 24px;
+}
+#inspector .v32 .v32-step.v31-own .v32-step-q > a {
+  color: var(--v31-link);
+}
+#inspector .v32 .v32-step.v31-own .v32-step-q > a:hover {
+  color: var(--v31-link-hover);
+}
+/* Why the entry is at this step, in words. */
+#inspector .v32 .v32-step-why {
+  font: var(--v32-ui-small);
+  line-height: 24px;
+  color: var(--v31-here);
+}
+#inspector .v32 .v32-step.v31-own .v32-step-n {
+  color: var(--v31-here);
+}
+#inspector .v32 .v32-step-detail {
+  max-width: var(--v32-measure);
+  margin: 0;
+  font: var(--v31-ui);
+  font-weight: 400;
+  line-height: 24px;
+  white-space: normal;
+  color: var(--v31-muted);
+}
+/* The branch taken between two steps: a line down the numbers' column and the branch's words. */
+#inspector .v32 .v32-branch {
+  display: flex;
+  align-items: center;
+  min-height: 24px;
+  margin: 0;
+  padding: 0 0 0 32px;
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
+  background: linear-gradient(var(--v31-line-strong), var(--v31-line-strong)) 11px 0 / 1px 100% no-repeat;
+}
+
+/* ---------- Canons: each canon, what it does, and what this entry has to do with it ---------- */
+#inspector .v32 .v32-entries {
+  max-width: var(--v32-measure);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#inspector .v32 .v32-entry {
+  margin: 0;
+  padding: 12px 0 16px;
+  border-top: 1px solid var(--v32-hair);
+}
+#inspector .v32 .v32-entry > .v32-entry-name {
+  font: var(--v31-body-type);
+  font-weight: 600;
+  line-height: 24px;
+  text-wrap: balance;
+}
+#inspector .v32 .v32-entry-does {
+  margin-top: 4px;
+  font: var(--v31-ui);
+  font-weight: 400;
+  line-height: 24px;
+  text-wrap: balance;
+  color: var(--v31-muted);
+}
+#inspector .v32 .v32-entry-here {
+  margin-top: 4px;
+  font: var(--v32-ui-small);
+  line-height: 24px;
+  text-wrap: balance;
+  color: var(--v31-text);
+}
+
+/* ---------- Sources and other lists of rows ---------- */
+#inspector .v32 > .canons-related,
+#inspector .v32 > .v32-sources {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+#inspector .v32 > .v32-sources > .v32-rows + .v32-label {
+  margin-top: 32px;
+}
+/* Record details: one quiet drawer at the end of Sources. */
+#inspector .v32 > details.quiet-details {
+  margin: 32px 0 0;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid var(--v32-hair);
+  border-radius: 0;
+  background: none;
+}
+#inspector .v32 > details.quiet-details > summary {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font: var(--v31-ui);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-muted);
+  cursor: pointer;
+}
+#inspector .v32 > details.quiet-details > summary::-webkit-details-marker {
+  display: none;
+}
+#inspector .v32 > details.quiet-details > summary::before,
+#inspector :is(.v32, .v32-plain) .case-group > summary::before,
+#inspector .v32 #originalMetadata > summary::before,
+#inspector .v32 > .sh-case-panel .sh-vote-details > summary::before {
+  content: '';
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  background: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7.5 4.5L13 10l-5.5 5.5'/%3E%3C/svg%3E")
+    center / 20px no-repeat;
+  transition: transform var(--v31-t-press) var(--v31-ease);
+}
+#inspector .v32 > details.quiet-details[open] > summary::before,
+#inspector :is(.v32, .v32-plain) .case-group[open] > summary::before,
+#inspector .v32 #originalMetadata[open] > summary::before,
+#inspector .v32 > .sh-case-panel .sh-vote-details[open] > summary::before {
+  transform: rotate(90deg);
+}
+#inspector .v32 > details.quiet-details > summary:hover {
+  color: var(--v31-text);
+}
+#inspector .v32 > details.quiet-details :is(h4, a.source-link, a.source-link + p:empty) {
+  display: none;
+}
+#inspector .v32 > details.quiet-details p {
+  max-width: var(--v32-measure);
+  margin: 0 0 16px;
+  font: var(--v31-ui);
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--v31-muted);
+}
+#inspector .v32 .metadata-grid {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 8px 24px;
+  margin: 0 0 16px;
+  font: var(--v31-ui);
+  font-weight: 400;
+}
+#inspector .v32 .metadata-grid dt {
+  margin: 0;
+  font: inherit;
+  color: var(--v31-muted);
+}
+#inspector .v32 .metadata-grid dd {
+  margin: 0;
+  font: inherit;
+  overflow-wrap: anywhere;
+  color: var(--v31-text);
+}
+#inspector .v32 #originalMetadata {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+/* A drawer inside the drawer: the same chevron and quiet words. */
+#inspector .v32 #originalMetadata > summary {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font: var(--v31-ui);
+  color: var(--v31-muted);
+  cursor: pointer;
+}
+#inspector .v32 #originalMetadata > summary:hover {
+  color: var(--v31-text);
+}
+#inspector .v32 #originalMetadata > summary::-webkit-details-marker {
+  display: none;
+}
+#inspector .v32 #originalMetadata pre a.cite-link {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+#inspector .v32 #originalMetadata pre {
+  margin: 8px 0 16px;
+  padding: 16px;
+  overflow: auto;
+  border: 0;
+  border-radius: 6px;
+  background: var(--v31-ground);
+  font: var(--v32-mono);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+#inspector .v32 > details.quiet-details > button.text-button {
+  margin-right: 24px;
+}
+
+/* ---------- Lecture ---------- */
+#inspector .v32 > .lecture-related {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+#inspector .v32 .lecture-note {
+  max-width: var(--v32-measure);
+  margin: 0;
+  padding: 8px 0 24px;
+  border: 0;
+  background: none;
+}
+#inspector .v32 .lecture-note + .lecture-note {
+  border-top: 1px solid var(--v32-hair);
+}
+#inspector .v32 .lecture-note h4 {
+  margin: 0;
+  font: var(--v31-body-type);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+#inspector .v32 .lecture-note h4 > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  line-height: 24px;
+}
+#inspector .v32 .lecture-note p {
+  margin: 0 0 8px;
+  font: var(--v31-body-type);
+  white-space: normal;
+  color: var(--v31-text);
+}
+#inspector .v32 .lecture-pinpoint {
+  font: var(--v32-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-muted);
+}
+
+/* ---------- Connections ---------- */
+#inspector .v32 > .r6-connections {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+#inspector .v32 > .r6-connections > .related-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 36px;
+  margin: 0;
+  padding: 0;
+}
+#inspector .v32 > .r6-connections > .related-heading > .v32-label {
+  margin: 0;
+}
+#inspector :is(.v32, .v32-plain) .case-count {
+  margin-left: 4px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  vertical-align: baseline;
+}
+#inspector .v32 .study-connection,
+#inspector :is(.v32, .v32-plain) .indexed-case {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0 24px;
+  max-width: none;
+  margin: 0;
+  padding: 8px 0 16px;
+  border: 0;
+  border-top: 1px solid var(--v32-hair);
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+#inspector :is(.v32, .v32-plain) :is(.study-connection, .indexed-case) > .v32-entry-name {
+  box-sizing: border-box;
+  grid-column: 1;
+  display: block;
+  /* 36 px for a name on one line; a name on two lines keeps the same space under it. */
+  min-height: 36px;
+  padding: 8px 0 4px;
+  font: var(--v31-body-type);
+  font-weight: 600;
+  line-height: 24px;
+  text-wrap: balance;
+}
+#inspector :is(.v32, .v32-plain) .v32-entry-name > a,
+#inspector .v32 .v32-sit-q > a {
+  font: inherit;
+  color: var(--v31-link);
+  text-decoration: none;
+  cursor: pointer;
+}
+#inspector :is(.v32, .v32-plain) .v32-entry-name > a:hover,
+#inspector .v32 .v32-sit-q > a:hover {
+  color: var(--v31-link-hover);
+}
+/* A name in a line of text keeps its place in the line and takes a press well above and below it. */
+#inspector :is(.v32, .v32-plain) :is(.v32-entry-name, .v32-sit-q, .v32-step-q, .v31-tl-name) > a {
+  padding: 12px 0;
+}
+#inspector
+  :is(.v32, .v32-plain)
+  :is(.v32-entry-name, .v32-sit-q, .v32-step-q, .v31-tl-name)
+  > a:focus-visible {
+  border-radius: 2px;
+  box-shadow: var(--v31-focus);
+  outline: 0;
+}
+#inspector .v32 .study-connection .dkla-location,
+#inspector :is(.v32, .v32-plain) .indexed-case > .dkla-index-kind {
+  grid-column: 1;
+  margin: 0 0 8px;
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
+}
+#inspector .v32 .study-connection > p,
+#inspector :is(.v32, .v32-plain) .indexed-case > p {
+  grid-column: 1;
+  max-width: var(--v32-measure);
+  margin: 0;
+  font: var(--v31-ui);
+  font-weight: 400;
+  line-height: 24px;
+  white-space: normal;
+  color: var(--v31-muted);
+}
+/* The row's second action is the same quiet control as every other (words in the link blue), one size down. */
+#inspector .v32 .study-connection > .text-button,
+#inspector :is(.v32, .v32-plain) .indexed-case > .text-button {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  align-self: start;
+  /* Its words sit on the name's first line. */
+  margin-top: 2px;
+  font: var(--v32-ui-small);
+}
+/* "Questions this case helps answer": rows. */
+#inspector .v32 > .case-topics {
+  display: flex;
+  flex-direction: column;
+  margin: 32px 0 0;
+  padding: 0;
+  border: 0;
+}
+#inspector .v32 > .case-topics > h3 {
+  margin: 0 0 8px;
+  font: var(--v32-ui-small);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-muted);
+}
+#inspector .v32 > .case-topics > p {
+  display: none;
+}
+#inspector .v32 > .case-topics > button {
+  all: unset;
+  box-sizing: border-box;
+  display: block;
+  height: 36px;
+  margin: 0 -8px;
+  padding: 0 8px;
+  overflow: hidden;
+  border-radius: 6px;
+  font: var(--v31-ui);
+  line-height: 36px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--v31-text);
+  cursor: pointer;
+}
+#inspector .v32 > .case-topics > button:hover {
+  background: var(--v31-raised);
+}
+
+/* ---------- Study ---------- */
+#inspector .v32 > .r18-recall {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  margin: 0 0 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+#inspector .v32 > .r18-recall::before {
+  content: none;
+}
+#inspector .v32 > .r18-recall > .v32-label::after {
+  content: ' · how well do you know it?';
+}
+#inspector .v32 .r18-recall .r18-chip {
+  border: 0;
+}
+#inspector .v32 > .v32-notes {
+  margin: 0 0 48px;
+}
+#inspector .v32 > .v32-notes > h3 {
+  margin: 0 0 8px;
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
+}
+#inspector .v32 > .reading-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+#inspector .v32 > .reading-actions::before {
+  content: 'This entry';
+  flex: 1 0 100%;
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
+}
+
+/* ---------- Court: the Supreme Court's vote ---------- */
+/* The record is drawn by the Supreme Court history layer, which paints it the same way in its own view
+   with !important; inside the reader it takes the reader's type, loses its box, and the nine sit in one
+   row. A justice who dissented is shown in grey, one who took no part faded: no colour carries it. */
+#inspector .v32 > .sh-case-panel {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--v31-text);
+}
+#inspector .v32 > .sh-case-panel .sh-kicker {
+  margin: 0 0 8px;
+  font: var(--v32-ui-small);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-muted);
+}
+#inspector .v32 > .sh-case-panel > h3 {
+  margin: 0;
+  font: var(--v31-heading) !important;
+  letter-spacing: 0;
+  color: var(--v31-text);
+}
+/* The tally ("6–2") is the facet's large numeral. */
+#inspector .v32 > .sh-case-panel:not(.r17-scotus-alias) > h3 {
+  font:
+    600 30px/32px var(--dkla-display, 'Exo 2'),
+    sans-serif !important;
+  font-family: var(--dkla-display, 'Exo 2'), sans-serif !important;
+  font-variant-numeric: tabular-nums;
+}
+#inspector .v32 > .sh-case-panel .sh-case-meta {
+  margin: 4px 0 16px;
+  font: var(--v32-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-muted);
+}
+#inspector .v32 > .sh-case-panel .sh-question,
+#inspector .v32 > .sh-case-panel .r17-alias-tally,
+#inspector .v32 > .sh-case-panel .sh-note {
+  max-width: var(--v32-measure);
+  margin: 0 0 4px;
+  font: var(--v31-body-type) !important;
+  color: var(--v31-muted);
+}
+#inspector .v32 > .sh-case-panel .sh-question:first-of-type {
+  color: var(--v31-text);
+}
+#inspector .v32 > .sh-case-panel select {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--v32-measure);
+  height: 36px;
+  margin: 12px 0 0;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px var(--v32-hair-strong);
+  background: none;
+  font: var(--v31-ui);
+  color: var(--v31-text);
+}
+/* The order of the bench: one switch. */
+#inspector .v32 > .sh-case-panel .sh-sort {
+  position: relative;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: 0;
+  margin: 16px 0;
+  border-radius: 6px;
+}
+#inspector .v32 > .sh-case-panel .sh-sort::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px var(--v32-hair-strong);
+  pointer-events: none;
+}
+#inspector .v32 > .sh-case-panel .sh-sort > span {
+  display: none;
+}
+#inspector .v32 > .sh-case-panel .sh-sort > button {
+  all: unset;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 6px;
+  font: var(--v31-ui);
+  color: var(--v31-muted);
+  cursor: pointer;
+}
+#inspector .v32 > .sh-case-panel .sh-sort > button:hover {
+  color: var(--v31-text);
+}
+/* (!important: the SCOTUS History styles tint the pressed part with !important, for its own dialog too.) */
+#inspector .v32 > .sh-case-panel .sh-sort > button[aria-pressed='true'] {
+  background: var(--v31-raised) !important;
+  color: var(--v31-text) !important;
+}
+#inspector .v32 > .sh-case-panel .sh-votes {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0 0 24px;
+}
+#inspector .v32 > .sh-case-panel .sh-vote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 8px;
+  border: 0 !important;
+  border-radius: 6px;
+  background: none !important;
+  color: var(--v31-text) !important;
+}
+#inspector .v32 > .sh-case-panel .sh-vote:hover {
+  background: var(--v31-raised) !important;
+}
+#inspector .v32 > .sh-case-panel .sh-vote::after {
+  content: none;
+}
+#inspector .v32 > .sh-case-panel .sh-vote strong {
+  margin: 8px 0 0;
+  font: var(--v32-ui-small);
+  color: var(--v31-text);
+}
+#inspector .v32 > .sh-case-panel .sh-vote[data-opinion='majority'] strong,
+#inspector .v32 > .sh-case-panel .sh-vote[data-opinion='plurality'] strong {
+  font-weight: 600;
+}
+#inspector .v32 > .sh-case-panel .sh-vote small {
+  min-height: 32px;
+  margin: 0;
+  font: var(--v32-ui-small);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+#inspector .v32 > .sh-case-panel .sh-vote[data-align='dissent'] .sh-portrait {
+  filter: grayscale(1) brightness(0.8);
+}
+#inspector .v32 > .sh-case-panel .sh-vote[data-align='dissent'] small {
+  color: var(--v31-text);
+}
+#inspector .v32 > .sh-case-panel .sh-vote[data-align='nonparticipation'] {
+  opacity: 1;
+}
+#inspector .v32 > .sh-case-panel .sh-vote[data-align='nonparticipation'] .sh-portrait {
+  filter: grayscale(1);
+  opacity: 0.4;
+}
+/* A case whose vote is recorded under another entry: the same record as rows. */
+#inspector .v32 > .sh-case-panel .r17-alias-votes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 24px;
+  margin: 8px 0 24px;
+}
+#inspector .v32 > .sh-case-panel .r17-alias-vote {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  opacity: 1;
+}
+#inspector .v32 > .sh-case-panel .r17-alias-vote strong {
+  font: var(--v31-ui);
+  color: var(--v31-text);
+}
+#inspector .v32 > .sh-case-panel .r17-alias-vote span {
+  font: var(--v32-ui-small);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+#inspector .v32 > .sh-case-panel .r17-alias-vote[data-align='dissent'] span {
+  color: var(--v31-text);
+}
+#inspector .v32 > .sh-case-panel .sh-panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 24px;
+  margin: 0;
+}
+#inspector .v32 > .sh-case-panel .sh-panel-actions button {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 36px;
+  font: var(--v31-ui);
+  color: var(--v31-link) !important;
+  background: none !important;
+  border: 0 !important;
+  cursor: pointer;
+}
+#inspector .v32 > .sh-case-panel .sh-panel-actions button:hover {
+  color: var(--v31-link-hover) !important;
+}
+#inspector .v32 > .sh-case-panel .sh-vote-details {
+  margin: 16px 0 0;
+  font: var(--v31-ui);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+/* The same drawer as "Record details": a chevron that turns, quiet words. */
+#inspector .v32 > .sh-case-panel .sh-vote-details > summary {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  padding: 0;
+  list-style: none;
+  font: var(--v31-ui);
+  color: var(--v31-muted);
+  cursor: pointer;
+}
+#inspector .v32 > .sh-case-panel .sh-vote-details > summary::-webkit-details-marker {
+  display: none;
+}
+#inspector .v32 > .sh-case-panel .sh-vote-details > summary:hover {
+  color: var(--v31-text);
+}
+#inspector .v32 > .sh-case-panel .sh-vote-details p {
+  margin: 0 0 8px !important;
+  font: var(--v31-ui) !important;
+  font-weight: 400 !important;
+  line-height: 24px !important;
+  color: var(--v31-muted);
+}
+#inspector .v32 > .sh-case-panel .sh-legend {
+  display: none;
+}
+#inspector .v32 > .sh-case-panel .sh-source {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 24px;
+  margin: 8px 0 0;
+  padding: 0;
+  border: 0;
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
+}
+#inspector .v32 > .sh-case-panel .sh-source a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 36px;
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
+}
+#inspector .v32 > .sh-case-panel .sh-source a:hover {
+  color: var(--v31-text);
+}
+
+/* ---------- Cases (a concept's or a rule's cases across the course) ---------- */
+/* The same rows as Connections: the case, how it bears on this entry, one quiet action. A group of
+   cases that reach this entry through another one is a drawer under the cases filed here. */
+#inspector :is(.v32, .v32-plain) > .course-case-index {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+#inspector :is(.v32, .v32-plain) > .course-case-index > h3.v32-label {
+  display: flex;
+  align-items: center;
+  min-height: 36px;
+  margin: 0;
+}
+#inspector :is(.v32, .v32-plain) > .course-case-index .dkla-index-scope {
+  display: none;
+}
+#inspector :is(.v32, .v32-plain) .case-group {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid var(--v32-hair);
+  border-radius: 0;
+  background: none;
+}
+#inspector :is(.v32, .v32-plain) .case-group > summary {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font: var(--v31-ui);
+  color: var(--v31-muted);
+  cursor: pointer;
+}
+#inspector :is(.v32, .v32-plain) .case-group > summary:hover {
+  color: var(--v31-text);
+}
+#inspector :is(.v32, .v32-plain) .case-group > summary::-webkit-details-marker {
+  display: none;
+}
+#inspector :is(.v32, .v32-plain) .case-group > summary > .v32-count {
+  margin-left: 8px;
+}
+/* One group, already open, under a heading that says the same: its line is not needed. */
+#inspector :is(.v32, .v32-plain) > .course-case-index > .case-group[open]:only-of-type {
+  border-top: 0;
+}
+#inspector :is(.v32, .v32-plain) > .course-case-index > .case-group[open]:only-of-type > summary {
+  display: none;
+}
+#inspector :is(.v32, .v32-plain) .indexed-case > .context-text,
+#inspector :is(.v32, .v32-plain) .case-group > .context-text {
+  margin: 0 0 8px;
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
+}
+#inspector :is(.v32, .v32-plain) .indexed-case > .dkla-source-evidence {
+  grid-column: 1;
+  margin: 8px 0 0;
+}
+
+/* Doctrine opens with the subject the entry is filed under, where that line is not before the name. */
+#inspector .v32 > .v32-intro {
+  max-width: var(--v32-measure);
+  margin: 0 0 32px;
+}
+#inspector .v32 > .v32-intro > p {
+  margin: 0;
+  font: var(--v31-body-type);
+  color: var(--v31-muted);
+}
+
+/* ---------- the case sheet: the brief, and beside it where the case sits ---------- */
+/* Headings and short lines never strand a word; prose avoids a last line of one word. */
+#inspector :is(.v32, .v32-plain) :is(h2, h3, h4, .v32-label, .dkla-icon-caption, .v32-sit-q) {
+  text-wrap: balance;
+}
+/* (Two rules: inside :is() the class would lend its weight to the bare p, li and dd.) */
+#inspector :is(.v32, .v32-plain) :is(p, li, dd) {
+  text-wrap: pretty;
+}
+#inspector .v32 .v32-sit-text {
+  text-wrap: pretty;
+}
+#inspector :is(.v32, .v32-plain) .v32-count {
+  white-space: nowrap;
+}
+#inspector .v32-case > .v32-brief-head {
+  max-width: var(--v32-wide);
+}
+#inspector .v32-case > .v32-sits {
+  box-sizing: border-box;
+  margin: 0 0 48px;
+}
+#inspector .v32 > .v32-sits > .v32-label {
+  margin: 0 0 8px;
+}
+#inspector .v32 .v32-sit {
+  min-width: 0;
+  padding: 4px 0 12px;
+  border-top: 1px solid var(--v32-hair);
+}
+/* A part's first line: what it is and the count with its unit. */
+#inspector .v32 .v32-sit-kind {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 8px;
+  min-height: 36px;
+  padding-top: 8px;
+  box-sizing: border-box;
+  font: var(--v31-ui);
+  font-weight: 600;
+  color: var(--v31-text);
+}
+/* A question: a short measure, so its lines fill and its last line is never a scrap. */
+#inspector .v32 .v32-sit-title {
+  max-width: 320px;
+  font: var(--v31-ui);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+#inspector .v32 .v32-sits .v31-axis {
+  height: 48px;
+  margin: 12px 8px 0;
+}
+#inspector .v32 .v32-sits .v31-tl-turn {
+  margin: 4px 0 0;
+}
+/* A short axis has room for three years: the first, this case's, the last (and for two when this
+   case sits at an end). */
+#inspector .v32 .v32-sits .v31-dot > span {
+  display: none;
+}
+#inspector .v32 .v32-sits .v31-dot:is(.v31-here, :first-child, :last-child) > span {
+  display: block;
+}
+#inspector .v32 .v32-sits .v31-dot.v31-here.v31-axis-end ~ .v31-dot:last-child > span,
+#inspector .v32 .v32-sits .v31-dot:first-child:has(~ .v31-here.v31-axis-start) > span {
+  display: none;
+}
+#inspector .v32 .v32-sit-text {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  font: var(--v32-ui-small);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+#inspector .v32 :is(.v32-sit-steps, .v32-sit-links) {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+#inspector .v32 .v32-sit-steps > li {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  gap: 0 12px;
+  align-items: baseline;
+  margin: 0;
+  padding: 4px 0;
+}
+#inspector .v32 .v32-sit-steps .v32-step-n {
+  color: var(--v31-here);
+}
+#inspector .v32 .v32-sit-links > li {
+  margin: 0;
+  padding: 4px 0;
+}
+#inspector .v32 .v32-sit-q {
+  font: var(--v31-ui);
+}
+/* The answer that leads on from a step: an elbow, then the answer's words. */
+#inspector .v32 .v32-sit-branch {
+  font: var(--v32-ui-small);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+#inspector .v32 .v32-sit-branch::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 0 8px 2px 1px;
+  border-left: 1px solid var(--v31-line-strong);
+  border-bottom: 1px solid var(--v31-line-strong);
+}
+#inspector .v32 .v32-sit-more {
+  margin: 4px 0 0 28px;
+  font: var(--v32-ui-small);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+#inspector .v32 .v32-sit-go {
+  margin-top: 4px;
+  font: var(--v32-ui-small);
+  white-space: nowrap;
+}
+#inspector .v32 .v32-sit-go > svg {
+  width: 16px;
+  height: 16px;
+}
+/* Wide enough for two columns: the column floats beside the brief and stays in view under the bar
+   (case.js sets where it sticks, so a column taller than the reader stays by its foot). */
+@media (min-width: 1340px) {
+  #inspector .v32-case > .v32-sits {
+    float: right;
+    position: sticky;
+    top: var(--v32-sit-top, 128px);
+    width: var(--v32-side);
+    margin: 0 max(0px, calc(100% - var(--v32-wide))) 32px 32px;
+  }
+  #inspector .v32-case:has(> .v32-sits) > [data-v32-facet='brief']:not(.v32-brief-head, .v32-sits) {
+    max-width: min(var(--v32-brief), calc(100% - var(--v32-side) - 32px));
+  }
+}
+/* Narrower: a band between the rule and the brief, its parts side by side. */
+@media (max-width: 1339px) {
+  #inspector .v32-case > .v32-sits {
+    display: grid;
+    /* As many parts side by side as have room to be read. */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0 24px;
+    max-width: var(--v32-col);
+  }
+  /* A band is short: what each part is and its question; the explanations are one press away. */
+  #inspector .v32-case > .v32-sits :is(.v32-sit-text, .v32-sit-more, .v32-sit-links),
+  #inspector .v32-case > .v32-sits .v32-sit-steps > li:nth-child(n + 3) {
+    display: none;
+  }
+  #inspector .v32-case > .v32-sits > .v32-label {
+    grid-column: 1 / -1;
+  }
+}
+/* The name's size follows the room: a party should fit on a line. */
+@media (max-width: 1023px) {
+  #inspector .v32 .v32-head h2 {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}
+@media (max-width: 599px) {
+  #inspector .v32 .v32-head h2 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+  #inspector .v32 .v32-head h2 .v32-case-also {
+    font-size: 19px;
+    line-height: 26px;
+  }
+}
+@media (max-width: 1023px) {
+  /* No margin column: the picture sits above the name. */
+  #inspector .v32 .v32-head .v32-art {
+    position: static;
+    margin: 0 0 12px;
+  }
+}
+
+/* ---------- print: every facet, in order, each under its name ---------- */
+/* (The older print rules hide every button, so the sources print from the record's own list of links.) */
+@media print {
+  #inspector
+    .reader-body.v32[data-v32-show]
+    > [data-v32-facet]:not(
+      .brief-jump,
+      .v32-sources,
+      .v25-source-details,
+      .authority-context,
+      .dkla-file-chips,
+      .source-strip,
+      .r19-chiprow
+    ) {
+    display: block !important;
+    animation: none !important;
+  }
+  #inspector .reader-body.v32 > h3.v32-fh {
+    display: block !important;
+    margin: 24pt 0 8pt;
+    font:
+      600 14pt/1.3 Georgia,
+      serif;
+    break-after: avoid;
+  }
+  #inspector .v32 > .v32-bar,
+  #inspector .v32 > .v32-sits,
+  #inspector .v32 > .v31-rail,
+  #inspector .v32 > .v32-sources,
+  #inspector .v32 > .v32-brief-head .v32-seg,
+  #inspector .reader-top {
+    display: none !important;
+  }
+  #inspector .v32 > details.quiet-details :is(h4, a.source-link) {
+    display: block !important;
+  }
+  #inspector .reader-body.v32 {
+    min-height: 0 !important;
+    padding: 0 !important;
+  }
+  #inspector .v32[data-v32-mode] > .takeaway,
+  #inspector .v32[data-v32-mode] > .case-box {
+    display: block !important;
+  }
+}
+
+/* A citation inside prose keeps its place in the line and gets a 36 px place to press. */
+#inspector .v32 a.cite-link {
+  display: inline-block;
+  margin: -8px 0;
+  padding: 8px 0;
+  text-decoration: none;
+}
+
+/* ---------- readers with one facet: a rule or authority page, a connection, a subject ---------- */
+/* The same strip, the same left edge, the same title; no bar. */
+#inspector .v32-plain > *,
+#inspector .v32-plain .authority-reading > * {
+  max-width: var(--v32-col);
+}
+#inspector .v32-plain h2 {
+  margin: 0 0 16px;
+  font: var(--v31-title);
+  /* !important: src/features/v26/typography.css puts the interface face on every heading in the reader. */
+  font-family: var(--dkla-display, 'Exo 2'), sans-serif !important;
+  letter-spacing: 0;
+  text-wrap: balance;
+  color: var(--v31-text);
+}
+#inspector .v32-plain .authority-reading h2 span {
+  display: block;
+  margin: 8px 0 0;
+  font: var(--v31-heading);
+  color: var(--v31-muted);
+}
+#inspector .v32-plain .authority-reading > header {
+  margin: 0 0 24px;
+}
+#inspector .v32-plain .authority-reading :is(.authority-status, .authority-note) {
+  max-width: var(--v32-measure);
+  margin: 8px 0 0;
+  font: var(--v31-ui);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+#inspector .v32-plain .authority-subsections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 24px;
+}
+#inspector .v32-plain .authority-subsections button,
+#inspector .v32-plain .authority-next button,
+#inspector .v32-plain .authority-reading > button,
+#inspector .v32-plain .authority-related button,
+#inspector .v32-plain .reading-actions button {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px var(--v32-hair-strong);
+  font: var(--v31-ui);
+  color: var(--v31-text);
+  cursor: pointer;
+}
+#inspector .v32-plain .authority-reading button:hover:not(:disabled) {
+  background: var(--v31-raised);
+}
+#inspector .v32-plain .authority-next button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+#inspector .v32-plain .authority-text {
+  margin: 0 0 48px;
+}
+#inspector .v32-plain .authority-text h3,
+#inspector .v32-plain .authority-reading h3,
+#inspector .v32-plain > h3 {
+  margin: 32px 0 12px;
+  font: var(--v31-heading);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-text);
+}
+#inspector .v32-plain :is(.authority-case-links, .authority-related, .authority-provenance) {
+  margin: 0 0 32px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+#inspector .v32-plain .authority-related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+#inspector .v32-plain .authority-related > h3 {
+  flex: 1 0 100%;
+  margin: 0;
+}
+#inspector .v32-plain .authority-case-links .related-heading h3 {
+  margin: 0 0 8px;
+}
+#inspector .v32-plain .authority-case-links ul {
+  margin: 0 -8px;
+  padding: 0;
+  list-style: none;
+}
+#inspector .v32-plain .authority-case-links li {
+  margin: 0;
+}
+#inspector .v32-plain .authority-case-links li button {
+  all: unset;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 36px;
+  padding: 0 8px;
+  overflow: hidden;
+  border-radius: 6px;
+  font: var(--v31-ui);
+  line-height: 36px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--v31-text);
+  cursor: pointer;
+}
+#inspector .v32-plain :is(.authority-case-links, .authority-provenance) summary,
+#inspector .v32-plain details > summary {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  font: var(--v31-ui);
+  color: var(--v31-link);
+  cursor: pointer;
+}
+#inspector .v32-plain .authority-provenance :is(p, h4) {
+  max-width: var(--v32-measure);
+  margin: 0 0 8px;
+  font: var(--v31-ui);
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-muted);
+}
+#inspector .v32-plain .authority-next {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 48px 0 0;
+  padding: 24px 0 0;
+  border-top: 1px solid var(--v32-hair);
+}
+/* A connection or a subject: the summary, then the entries it leads to. */
+#inspector .v32-plain > .takeaway {
+  max-width: var(--v32-hero);
+  margin: 0 0 32px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font:
+    400 22px/32px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-text);
+}
+#inspector .v32-plain > :is(p, .context-text) {
+  max-width: var(--v32-measure);
+  font: var(--v31-body-type);
+  color: var(--v31-muted);
+}
+#inspector .v32-plain .reading-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 32px;
+}

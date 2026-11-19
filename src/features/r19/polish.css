@@ -260,50 +260,7 @@
 /* DKLA tune-up · reading panel, upper part (area: reader-top)
    Everything is scoped to #inspector. CSS only; nothing hidden, moved or renamed. */
 
-/* 1. Header strip: its text sat 8px left of the body column. Match the body's
-      side padding at each breakpoint (32 / 40 wide / 24; the phone value, 18, is set in the phone area) so the strip
-      and the title share one edge. */
-#inspector .reader-top {
-  padding-left: 32px;
-  padding-right: 32px;
-}
-@media (min-width: 1700px) {
-  #inspector .reader-top {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-}
-@media (max-width: 1200px) {
-  #inspector .reader-top {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-}
-
-/* 2. Close button: a bare glyph with no hit area or states. Give it a square
-      32px target, the control radius, and hover / focus feedback. The negative
-      margin keeps the glyph itself on the body's right edge. Its resting colour
-      is left as it was (already the brightest thing in the strip). */
-#inspector .reader-top #closeInspector {
-  width: 32px;
-  height: 32px;
-  flex: 0 0 32px;
-  padding: 0;
-  margin: -2px -9px -2px 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 7px;
-  line-height: 1;
-  transition: background-color 0.14s ease;
-}
-#inspector .reader-top #closeInspector:hover {
-  background: #26333f;
-}
-#inspector .reader-top #closeInspector:focus-visible {
-  outline: 2px solid #d6b78e;
-  outline-offset: 2px;
-}
+/* 1 and 2 (the header strip's padding and the close button) are now src/features/v32/case.css. */
 
 /* 3. Small-caps labels: "Rule in one line" was 10px (under the 11px floor) at
       .12em while "Recall" was 11px at .1em. Same size and tracking for both;
@@ -380,54 +337,12 @@
 #inspector .dkla-file-chips button:focus-visible,
 #inspector .r18-recall .r18-chip:focus-visible,
 #inspector .source-strip a:focus-visible,
-#inspector .source-strip button:focus-visible,
-#inspector .r19-prov-src a:focus-visible {
+#inspector .source-strip button:focus-visible {
   outline: 2px solid #d6b78e;
   outline-offset: 2px;
 }
 
-/* 6. "Text of the provision". The generic `#inspector p` rule (higher
-      specificity) was overriding this block's own type: the source note
-      rendered at body size (larger than the provision it annotates; now its
-      intended 12.5px, colour unchanged) and the paragraphs carried stray outer
-      margins. The section number beside the heading was 10px; now 12px.
-      The global `details{margin:15px 0}` also leaked in, leaving 15px of dead
-      space inside the card above the heading and below the note. */
-#inspector .r19-prov details {
-  margin: 0;
-}
-#inspector .r19-prov summary {
-  padding: 12px 16px;
-  font-size: 14px;
-  line-height: 1.4;
-}
-#inspector .r19-prov summary small {
-  font-size: 12px;
-  letter-spacing: 0.02em;
-}
-#inspector .r19-prov .r19-prov-text {
-  padding: 2px 16px 6px;
-}
-#inspector .r19-prov .r19-prov-text p {
-  margin-top: 0;
-  margin-bottom: 10px;
-  line-height: 1.6;
-  color: #dfe7ee;
-}
-#inspector .r19-prov .r19-prov-src {
-  margin: 0;
-  padding: 10px 16px 12px;
-  font-size: 12.5px;
-  line-height: 1.55;
-}
-#inspector .r19-prov .r19-prov-src a {
-  white-space: nowrap;
-  text-underline-offset: 2px;
-  text-decoration-thickness: 1px;
-}
-#inspector .r19-prov .r19-prov-src a:hover {
-  color: #ecd3ac;
-}
+/* 6 ("Text of the provision") is now src/features/v32/case.css. */
 
 /* 7. Scope line: its fallback grey (#989baa) leaned purple; use the atlas's
       muted tone, which is also slightly brighter. */
@@ -436,7 +351,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #inspector .reader-top #closeInspector,
   #inspector .dkla-file-chips button,
   #inspector .r18-recall .r18-chip,
   #inspector .source-strip a,
@@ -472,38 +386,12 @@
   font-size: 11px;
   letter-spacing: 0.12em;
 }
-/* !important: an earlier `#inspector h2,#inspector h3{letter-spacing:-.015em}` layer and a 14px h3 rule
-   squash this uppercase label into tight 14px capitals. */
-#inspector .reader-body .dkla-terms h3 {
-  font-size: 11px !important;
-  letter-spacing: 0.12em !important;
-  margin: 0 0 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-#inspector .reader-body .dkla-terms h3 span {
-  font-size: 11px;
-  letter-spacing: 0;
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-  padding: 3px 7px;
-  margin: 0;
-  border-radius: 999px;
-  background: #26323d;
-  color: #c3ced8;
-}
+/* (The "Terms in this entry" label is drawn by src/features/v32/case.css now.) */
 #inspector .reader-body .why h3 {
   font-size: 11px !important;
   letter-spacing: 0.12em !important;
   text-transform: uppercase;
   margin: 0 0 7px;
-}
-#inspector .reader-body .case-count {
-  font-variant-numeric: tabular-nums;
-  border-radius: 999px;
-  background: #26323d;
-  color: #c3ced8;
 }
 
 /* ---------- 3. Doctrine timeline rail ---------- */
@@ -588,20 +476,7 @@
   margin-bottom: 2px !important;
 } /* beats `.case-box p{margin:0 0 18px!important}` */
 
-/* ---------- 6. Cases across the course ---------- */
-#inspector .reader-body .course-case-index {
-  padding-top: 4px;
-}
-#inspector .reader-body .course-case-index .case-group {
-  border-color: #3a4856;
-  border-radius: 9px;
-}
-#inspector .reader-body .course-case-index .case-group > summary {
-  transition: color 0.14s ease;
-}
-#inspector .reader-body .course-case-index .case-group > summary:hover {
-  color: #e6edf3;
-}
+/* ---------- 6. Cases across the course: src/features/v32/case.css ---------- */
 
 /* ---------- 7. Connections ---------- */
 #inspector .reader-body .study-connection {

@@ -24,7 +24,6 @@ html body,
     -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif;
 }
 html .course-options strong,
-html #inspector h2,
 html #mapWelcome h1,
 html #modalTitle,
 html #glossaryDialog .gl-detail h2 {
@@ -33,15 +32,11 @@ html #glossaryDialog .gl-detail h2 {
   font-weight: 600;
   letter-spacing: -0.012em;
 }
-html #inspector .takeaway.dkla-rule,
 html #glossaryDialog .gl-detail,
 html #fileDialog .file-text,
 html #fileDialog .file-pagetext {
   font-family:
     -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif;
-}
-html #inspector .takeaway.dkla-rule {
-  font-weight: 500;
 }
 :root {
   --dkla-civil: #67acf7;

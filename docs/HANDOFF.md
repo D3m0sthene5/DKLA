@@ -3,6 +3,48 @@
 Written at the end of a session so the next one can pick up cleanly.
 Update or replace this file when the state changes.
 
+## The territories (19 November 2026, branch `v32-home`, merged into `v32-design`, not deployed)
+
+The owner's verdict on the quiet Home: the saturated course territories were easier to tell apart, the
+quiet one had fewer crossing lines, and he wants both (docs/DESIGN.md rule 15). What Home and the course
+views draw now, all of it in `draw()` (`src/runtime/studyCode.js`) and `src/features/v32/cards.css`:
+
+- **A subject's tile is filled in its course's colour.** One fill a course (`TILE_FILL` in
+  `studyCode.js`: `#1f4872`, `#6b3c06`, `#1a4b2b`, each at the course's own hue so nothing is a brown or
+  grey made by mixing), one hairline in the course's accent at 0.8, light on the top edge. The fill is
+  opaque. The map's text colour is 7.5:1 or better on every fill; a tile's count on a course view is in
+  the text colour too (`.v32-on-tile`). A tile that is not a subject (reading records, Notes) stays a
+  plain panel, so the doctrine is what has the colour. Tokens for the three fills were not added
+  (`tokens.css` was out of bounds for that pass): ask for them.
+- **The tree is drawn to be followed.** Each course's `spine` in the course's colour: "leads to" (kind
+  `flow`) solid, 1.75 px, ending in an arrowhead drawn in the same path; "or instead" (`contrast`)
+  dashed and "depends on" (`depends`) dotted, 1.5 px, lighter. `treeLines()` routes a course's tree as a
+  whole and remembers it: a line is straight unless it would pass behind a third subject, and then takes
+  the shortest way round along lines of sight between the corners of the subjects in its way, 190 map
+  units out, paying to cross another line (2,000 units) or the name of a part (3,000). On Home: 32
+  lines, 6 of them routed, none behind a subject by more than 3 px (7 lines were, at 8 places, 5 of
+  them for 22 to 77 px), 2 crossings (the second is between two lines that used to be hidden behind
+  tiles). The curves of association still appear only for the tile under the pointer or the open
+  subject, with the other lines stepped back to 0.22.
+- **Where a course begins.** Its first subject (`step` 1) carries a numbered dot on its corner
+  (`.v32-start`), the same mark that stands before an open subject's name. `r20.js` leaves it in place.
+- **The land.** Under each course the ground is stippled in the course's colour (a 12 px grid of 0.75
+  px dots, pattern `land-k/cp/lrs`, one path a course). Its outline is the course's own parts
+  (`courseDesign.zones`) and every subject's place, snapped to the grid so no dot is cut; it has no
+  edge and no fill. It replaces the three radial gradients. On a course view the parts are a flat wash
+  of the course's deepest step (`--wash`) over it. A wide part now keeps its name and ground ("The life
+  of the suit" was left out on a 1440 px course view because its name asked for more room than the band
+  has).
+- **Beside the reader** a tile that steps back is drawn over a solid piece of ground
+  (`.v32-tile-under`), so the open subject's lines pass behind it and never through its name.
+- **Checks**: `tools/v32/check-cards.mjs` holds the fills, the 7:1, the line weights, the arrowheads, "no
+  line behind a third subject", at most two crossings, the land, the start marks and the strip; three
+  breakages in `tools/verify/break.mjs`.
+- **For the owner's PC**: every picture of Home and of a course view changes (`pnpm views:update`).
+- **Open**: an open subject is still a neutral panel whose only course mark is its numbered dot; the
+  curves of association shown on hover still run straight behind tiles; the books in Rules &
+  authorities are now the quietest thing on Home.
+
 ## Cold Call as a rehearsal (19 November 2026, branch `v32-coldcall`, not merged, not deployed)
 
 - **What it is now.** An account opens on a setup that answers "tell us about this case": the case's
@@ -98,6 +140,75 @@ Update or replace this file when the state changes.
 - **Known**: the mono face embedded in the page is JetBrains Mono Bold only, so readouts are bold; a
   500 weight would sit better. With the reader open the map is a strip some 360 px wide and a group's
   rows are 18 px there.
+## The reader, one facet at a time (19 November 2026, branch `v32-case`, not merged, not deployed)
+
+Read `docs/DESIGN.md` first. The case page was one scroll of 5,483 px (6.7 screens, 96 controls); an entry is
+now read one facet at a time.
+
+- **Structure.** From the top: a 44 px strip (a course dot, then course, unit and subject; the entry's name
+  once the title has scrolled away; one 36 px close button), the header (name, citation line, the line under
+  its picture), the facet bar (the Cold Call button in the margin, then a tab per facet with its count), and
+  the blocks of the open facet. Facets: Brief (Overview on a concept or rule), Timeline, Flowchart, Canons,
+  Lecture, Court (the Supreme Court's vote), Cases, Connections, Sources, Study. A facet with nothing in it has
+  no tab. An entry with one facet (a rule or authority page, a connection, a subject) has no bar.
+- **Who owns what.** `src/features/v25/reading.js` marks every direct child of `.reader-body` with its facet
+  (`data-v32-facet`; the table is `RULES`, and a block no rule names joins the Brief) and keeps the children in
+  one order, moving only those out of place. The blocks stay direct children on purpose: the layers that draw
+  them look for them there. `src/features/v32/case.js` runs the bar, the open facet, Short | Full, the strip,
+  the citation line, the one list of sources and the timeline switch. `src/features/v32/case.css` is the look.
+  A layer that adds a block only has to draw it once into `.reader-body`; to give it a facet, add a line to
+  `RULES` and, if it has a count, to `count()` in case.js.
+- **`window.DKLAReader`**: `facets()` → `[{id, label, count}]`, `show(id)`, `current()`, `mode()`,
+  `setMode('short' | 'full')`, `reveal(element)` (opens the facet an element is in and scrolls to it). The
+  event `dkla:facet` on `document` (`detail: {entry, facet, facets, reason: 'open' | 'change' | 'update'}`).
+  A link can name a facet: `#node=citoh&facet=timeline`. Keys: arrows, Home and End on the tabs; 1 to 9
+  anywhere in the reader when no field has the keyboard and no dialog is open.
+- **Scrolling.** The bar is sticky under the strip. The body's `min-height` is kept long enough for the bar to
+  stay stuck whatever facet is open (`keepHeight`), a facet remembers where it was read to, and the same entry
+  drawn again (an edit, a rating, coming back from a flowchart or a source) keeps its facet.
+- **Sources** are one list built from the controls the older layers draw (which stay in the page, not shown):
+  the reading the brief was written from first (`data-v32-original`, what "Original source" opened), other
+  files, then the authorities cited; the record's own details are one drawer under it. A reading is listed
+  once however many layers name it.
+- **The citation line** is the first reporter citation in the full brief's opening lines, shown in the brief's
+  own words (`CITE` in case.js; 382 of the 391 mapped briefs have one); until the brief arrives, or when it
+  has none, the line shows what the entry's notes say of the court, or nothing. Opening a case now fetches its
+  full brief (one small file, cached), which also makes Short | Full immediate.
+- **Old rules removed where they lived** (reader-only rules with `!important`): the panel colour in
+  `dklaR16HistoryStyle.css`, the title and rule fonts in `dklaR11Styles.css`, the caption in `r20.css` and
+  `dklaR10bStyles.css`, the brief's headings and paragraphs in `studyStyle.css` and `dklaStyles.css`, the close
+  button and the provision text in `polish.css`, `briefs.css` and `authorities.css`, the launch button in
+  `cold-call/reader.css`, and the whole v3.1 case section of `reading.css`. Still there: the generic paragraph
+  and heading rules of `v26/typography.css` (case.css outranks them by naming `.v32` and one more class; the
+  title's face needs `!important`), and the Supreme Court record's `!important` paint, which case.css
+  overrides inside the reader only.
+- **Checks**: `tools/v31/check-case.mjs` (the facets, counts, one facet at a time, header, close button, rail,
+  sticky bar, keyboard, a late block, a link to a facet, Loper Bright, a concept and a rule page),
+  `tools/v25/reading_check.cjs` (the order and facets in a stand-in DOM), five breakages in
+  `tools/verify/break.mjs`. `tools/v32/conformance.mjs` measures a facet against the scales.
+- **Not done**: the supporting-case brief's dialog and the connection and subject readers have the new strip,
+  left edge and title but keep their older insides; the pictures in `tools/verify/views` must be recorded
+  again on the owner's PC (`pnpm views:update`): every picture with the reader in it changes.
+
+**Later the same day: the case sheet (docs/DESIGN.md rules 13 and 14, the editorial standard).** The
+owner's critique and the research changed the plan above: what is read together is on one screen, and
+tabs are for what is consulted alone. A case now opens on a sheet (the Brief tab): the subject's
+question, the pictogram as a 48 px illustration beside the name, the name set as a caption
+(`compose()` in `src/features/v25/reading.js`: one party to a unit, the line turns before "v.",
+consolidated cases one to a line, the year moved to the citation line and the strip), the rule, the
+six-part brief, and beside it a column "Where this case sits" (`sits()` in `src/features/v32/case.js`,
+built from the Doctrine tab's own blocks: place on the timeline and how the case moved the rule, the
+flowchart steps it is a source for with the answer that leads on, the nearest three connections).
+Below a 1340 px window the column is a band between the rule and the brief. Tabs: Brief, Doctrine
+(timelines, flowchart steps, connections), Cases (concepts and rules), Canons, Class notes, Court,
+Sources, Notes. `DKLAReader.show('timeline' | 'flowchart' | 'connections')` and
+`#node=…&facet=timeline` still work: they open Doctrine at that part. Rows (timeline entries, flowchart
+steps, connections, cases, canons) are text with a link in it, not buttons, so a long name wraps as
+text. A canon's row says what the canon does and, from the canon's own record, whether the case
+applies or discusses it and where. Open: the Court tab's bench (nine portrait buttons with centred
+two-line labels) still fails `tools/v32/composition.mjs`; the lint also calls "v. Murphy" on its own
+line a widow, which the caption rule requires. No "recall first" cover was built; the hook is that the
+rule is `.reader-body > .takeaway` and the Holding is the fifth `.case-box > section`.
 
 ## The map in motion (19 November 2026, branch `v32-map`, not merged, not deployed)
 

@@ -16,7 +16,7 @@
     });
 
   function available() {
-    const release = document.querySelector('#atlasHome .dkla-release');
+    const release = document.querySelector('.study-header .dkla-release');
     return (
       parsed &&
       window.LegalAtlas?.ready &&
@@ -128,7 +128,7 @@
       root.classList.contains('geography-locked'),
       !!window.DKLAHomeFit?.ready,
       !!window.DKLANativeHome?.ready,
-      document.querySelector('#atlasHome .dkla-release')?.textContent === window.DKLABriefs?.data.version,
+      document.querySelector('.study-header .dkla-release')?.textContent === window.DKLABriefs?.data.version,
       typeof draw === 'function',
     ].filter(Boolean).length;
   }

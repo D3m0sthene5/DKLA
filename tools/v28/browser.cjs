@@ -12,26 +12,43 @@ const darkFraction = async (page) =>
       if (pixels[i] < 120 && pixels[i + 1] < 120 && pixels[i + 2] < 120) dark++;
     return dark / (pixels.length / 16);
   });
-const timelinesFirst = async (page) => {
-  const placement = await page.locator('#inspector .reader-body').evaluate((body) => {
-    const summary = body.querySelector(':scope > .takeaway');
+// v3.2: a case's timelines are part of the Doctrine tab (the sheet's side column says where the case
+// sits on the first of them); they are drawn when that tab is opened.
+const timelinesFacet = async (page) => {
+  await page.locator('#inspector .v32-tabs [data-v32-tab="doctrine"]').waitFor();
+  const placement = await page.evaluate(() => {
+    const body = document.querySelector('#inspector .reader-body');
     const timelines = body.querySelector(':scope > .v28-case-timelines');
-    const account = body.querySelector(':scope > .case-box');
+    const lines = [...(timelines?.querySelectorAll('.dkla-timeline') || [])];
     return {
-      // v3.1: the short summary, then the "Where this case sits" heading, then the timelines.
-      immediatelyAfterSummary:
-        !!summary &&
-        (summary.nextElementSibling === timelines ||
-          (summary.nextElementSibling?.matches('h3.v31-h[data-v31-h="where"]') &&
-            summary.nextElementSibling.nextElementSibling === timelines)),
-      beforeDetailedBrief:
-        !!timelines && !!(timelines.compareDocumentPosition(account) & Node.DOCUMENT_POSITION_FOLLOWING),
-      count: timelines?.querySelectorAll('.dkla-timeline').length || 0,
+      facet: timelines?.dataset.v32Facet,
+      tab: document.querySelector('#inspector .v32-tabs [data-v32-tab="doctrine"]').textContent.trim(),
+      place: document
+        .querySelector('#inspector .v32-sits .v32-sit-kind')
+        ?.textContent.replace(/\s+/g, ' ')
+        .trim(),
+      entries: lines.reduce((n, line) => n + Number(line.dataset.v32Count), 0),
+      count: lines.length,
+      open: window.DKLAReader.current(),
     };
   });
-  assert.ok(placement.immediatelyAfterSummary, 'Timelines must immediately follow the short summary');
-  assert.ok(placement.beforeDetailedBrief, 'Timelines must precede the detailed brief');
-  assert.ok(placement.count > 0, 'The case timelines must remain visible');
+  assert.equal(placement.facet, 'doctrine', 'The case timelines are part of the Doctrine tab');
+  assert.equal(placement.open, 'brief', 'A case opens on its brief');
+  assert.ok(placement.count > 0, 'The case timelines must remain');
+  assert.equal(placement.tab.replace(/\s+/g, ' '), 'Doctrine');
+  assert.match(
+    placement.place || '',
+    /^Timeline \d+(st|nd|rd|th) of \d+$/,
+    'The sheet says where the case sits on its timeline',
+  );
+  await page.evaluate(() => window.DKLAReader.show('timeline'));
+  assert.ok(await page.locator('#inspector .v28-case-timelines .dkla-timeline:visible').count());
+  await page.evaluate(() => window.DKLAReader.show('brief'));
+};
+// The reading a brief was written from leads the one list of sources.
+const openOriginalSource = async (page) => {
+  await page.evaluate(() => window.DKLAReader.show('sources'));
+  await page.locator('#inspector .v32-sources [data-v32-original]').click();
 };
 (async () => {
   const browser = await chromium.launch({
@@ -61,14 +78,21 @@ const timelinesFirst = async (page) => {
       await page.goto(url + '#node=cp-walker', { waitUntil: 'domcontentloaded', timeout: 90000 });
       console.log('LOADED ' + viewport.width);
       await page.locator('html.dkla-boot-ready').waitFor({ timeout: 90000 });
-      await timelinesFirst(page);
-      for (const id of ['erie', 'erie-rules']) {
+      await timelinesFacet(page);
+      // Walker is on two timelines: one is shown at a time, and a switch chooses.
+      await page.evaluate(() => window.DKLAReader.show('timeline'));
+      const lines = page.locator('#inspector .v28-case-timelines .v32-switch [data-v32-line]');
+      assert.equal(await lines.count(), 2);
+      for (const [i, id] of ['erie', 'erie-rules'].entries()) {
         const region = page.locator(`#inspector .dkla-timeline[data-r21="${id}"]`);
+        await lines.nth(i).click();
+        await region.waitFor();
+        assert.equal(await page.locator('#inspector .v28-case-timelines .dkla-timeline:visible').count(), 1);
         assert.match(await region.locator('[aria-current="step"]').innerText(), /Walker/);
         assert.ok((await region.locator('.v31-tl-rows > li').count()) >= 2);
       }
       console.log('OPEN source ' + viewport.width);
-      await page.getByRole('button', { name: 'Original source', exact: true }).click();
+      await openOriginalSource(page);
       await page.locator('#fileDialog [data-pdf-rendered="260"]').waitFor({ timeout: 60000 });
       assert.equal(await page.locator('#fileDialog canvas').count(), 1);
       assert.doesNotMatch(await page.locator('#fileDialog').innerText(), /not beside|not on this computer/i);
@@ -95,9 +119,9 @@ const timelinesFirst = async (page) => {
           location.hash = 'node=' + id;
         }, id);
         await page.waitForFunction((id) => selected?.id === id, id);
-        await timelinesFirst(page);
+        await timelinesFacet(page);
         console.log('OPEN source ' + viewport.width);
-        await page.getByRole('button', { name: 'Original source', exact: true }).click();
+        await openOriginalSource(page);
         await page.locator('#fileDialog [data-pdf-rendered]').waitFor({ timeout: 60000 });
         const pageNumber = await page.locator('#fileDialog .file-pdf-page').getAttribute('data-pdf-rendered');
         assert.ok(Number(pageNumber) > 0, expected);
@@ -159,7 +183,7 @@ const timelinesFirst = async (page) => {
         location.hash = 'node=peacock';
       });
       await page.getByRole('heading', { name: /Peacock Construction/, level: 2 }).waitFor();
-      await timelinesFirst(page);
+      await timelinesFacet(page);
       const contents = await page.evaluate(() => {
         const data = DKLABriefs.data;
         const sections = data.sections[data.map.peacock].sections;
@@ -175,7 +199,7 @@ const timelinesFirst = async (page) => {
           section.expected.replace(/\s+/g, ' ').trim(),
           'Plain-English presentation must retain the complete ' + section.name,
         );
-      await page.getByRole('button', { name: 'Original source', exact: true }).click();
+      await openOriginalSource(page);
       await page.locator('#fileDialog [data-pdf-rendered="158"]').waitFor({ timeout: 60000 });
       assert.ok((await darkFraction(page)) > 0.003, 'Peacock source must contain its scanned text');
       await page.getByRole('spinbutton', { name: 'Page', exact: true }).fill('148');

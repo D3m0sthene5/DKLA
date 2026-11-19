@@ -1,39 +1,28 @@
-/* New York split-flap clock in the top bar (clock.js). The time sits on the
-   top row in big cards; the weekday, month and day sit below in small cards,
-   then a static NYC. The typeface is JetBrains
-   Mono Bold (clock-font.css): open shapes, a zero unlike the letter O and
-   equal-width digits, so it reads at a glance. */
+/* New York split-flap clock in the top bar's instrument cluster (clock.js; v3.2 "Instrument").
+   One row on the bar's centre line: the time, then (where the bar has room, --v32c-date in
+   src/features/v32/chrome.css) the weekday, month and day and a static NYC. Monochrome: the
+   cards are two faint fill steps, the digits the text colour, everything else faint. The only
+   colour is the fuel gauge that runs round the frame (src/features/fuel). The typeface is
+   JetBrains Mono Bold (clock-font.css): open shapes, a zero unlike the letter O and equal-width
+   digits, so it reads at a glance. */
 .study-header .ny-clock {
-  --card-ink: #fbf6ea;
-  --card-top: linear-gradient(180deg, #2c363f, #232c34);
-  --card-bottom: linear-gradient(180deg, #1d252c, #171e24);
-  --brass: #e8cba0;
+  --card-ink: var(--v31-text);
+  --card-top: #ffffff14;
+  --card-bottom: #ffffff0d;
   display: none;
   flex: none;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 3px;
-  height: 52px;
+  gap: var(--v32-s3);
+  height: var(--v32-h-control);
   box-sizing: border-box;
-  padding: 0 9px;
-  border: 1px solid #2f3c49;
-  border-radius: 8px;
-  background: linear-gradient(180deg, #121c24, #0c141a);
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 4%),
-    inset 0 -1px 0 rgb(0 0 0 / 35%);
+  padding: 0 var(--v32-s3);
+  /* The frame is the fuel gauge's track (fuel.css); the border only gives it its shape. */
+  border: 1px solid var(--v32-hair-strong);
+  border-radius: var(--v32-r-pill);
   font-family: 'DKLA JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-  font-weight: 700;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
   user-select: none;
-}
-/* Only where the bar has room beside the search box: from 1360 px the search
-   box keeps about 245 px (at 1300 it was squeezed to 186 px, input 108 px). */
-@media (min-width: 1360px) {
-  .study-header .ny-clock {
-    display: flex;
-  }
 }
 .ny-clock .ny-time,
 .ny-clock .ny-date,
@@ -42,41 +31,36 @@
   display: flex;
   align-items: center;
 }
-.ny-clock .ny-time {
-  gap: 2px;
-}
-.ny-clock .ny-date {
-  gap: 5px;
-}
+.ny-clock .ny-time,
 .ny-clock .ny-word,
 .ny-clock .ny-seconds {
   gap: 1px;
 }
+.ny-clock .ny-date {
+  display: none;
+  gap: var(--v32-s2);
+}
 
 /* One split-flap card. */
 .ny-clock .flip {
-  --h: 26px;
+  --h: 24px;
   --flip: 460ms;
   position: relative;
   display: block;
-  width: 18px;
+  width: 12px;
   height: var(--h);
   perspective: 80px;
   color: var(--card-ink);
-  font-size: 20px;
+  font-size: 16px;
   line-height: var(--h);
   text-align: center;
-  text-shadow: 0 1px 0 rgb(0 0 0 / 55%);
 }
-.ny-clock .flip.small,
 .ny-clock .flip.tiny {
-  --h: 15px;
-  width: 11px;
-  font-size: 11px;
-  perspective: 50px;
-}
-.ny-clock .flip.small {
-  --h: 14px;
+  --h: 18px;
+  width: 9px;
+  font-size: 12px;
+  perspective: 60px;
+  color: var(--v31-muted);
 }
 .ny-clock .half {
   position: absolute;
@@ -99,22 +83,11 @@
 }
 .ny-clock .half.top {
   top: 0;
-  border-radius: 3px 3px 0 0;
   background: var(--card-top);
 }
 .ny-clock .half.bottom {
   bottom: 0;
-  border-radius: 0 0 3px 3px;
   background: var(--card-bottom);
-  box-shadow: 0 1px 1px rgb(0 0 0 / 50%);
-}
-.ny-clock .flip.tiny .half.top,
-.ny-clock .flip.small .half.top {
-  border-radius: 2px 2px 0 0;
-}
-.ny-clock .flip.tiny .half.bottom,
-.ny-clock .flip.small .half.bottom {
-  border-radius: 0 0 2px 2px;
 }
 .ny-clock .half.bottom > span {
   margin-top: calc(var(--h) / -2);
@@ -127,10 +100,12 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: rgb(4 8 11 / 90%);
+  background: var(--v31-ground);
+  opacity: 0.6;
   z-index: 3;
 }
-/* The falling leaf: the old top half on its front, the new bottom on its back. */
+/* The falling leaf: the old top half on its front, the new bottom on its back. It is opaque
+   (the bar's own colour under the card's tint), so the digit behind never shows through. */
 .ny-clock .leaf {
   position: absolute;
   inset: 0 0 50%;
@@ -144,6 +119,12 @@
   inset: 0;
   height: 100%;
   backface-visibility: hidden;
+}
+.ny-clock .leaf .half.top {
+  background: linear-gradient(var(--card-top), var(--card-top)), var(--v31-ground);
+}
+.ny-clock .leaf .half.bottom {
+  background: linear-gradient(var(--card-bottom), var(--card-bottom)), var(--v31-ground);
 }
 .ny-clock .leaf .back {
   transform: rotateX(180deg);
@@ -278,18 +259,18 @@
 
 .ny-clock .ny-colon {
   position: relative;
-  width: 7px;
-  height: 26px;
+  width: 5px;
+  height: 24px;
 }
 .ny-clock .ny-colon::before,
 .ny-clock .ny-colon::after {
   content: '';
   position: absolute;
-  left: 2px;
-  width: 3px;
-  height: 3px;
+  left: 1.5px;
+  width: 2px;
+  height: 2px;
   border-radius: 50%;
-  background: var(--brass);
+  background: var(--v31-faint);
 }
 .ny-clock .ny-colon::before {
   top: 8px;
@@ -297,30 +278,15 @@
 .ny-clock .ny-colon::after {
   bottom: 8px;
 }
-.ny-clock .ny-side {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1px;
-  margin-left: 3px;
+/* AM or PM, and NYC: readouts, the only capitals in the bar. */
+.ny-clock .ny-meridiem,
+.ny-clock .ny-place {
+  color: var(--v31-faint);
+  font-size: 12px;
+  line-height: 16px;
 }
 .ny-clock .ny-meridiem {
-  color: var(--brass);
-  font-size: 9px;
-  letter-spacing: 0.06em;
-  line-height: 10px;
-}
-
-/* NYC, static (the owner removed the indicator light on 12 November 2026). */
-.ny-clock .ny-place {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  margin-left: 1px;
-  color: #c9d6de;
-  font-size: 9.5px;
-  letter-spacing: 0.1em;
-  line-height: 15px;
+  margin-left: var(--v32-s1);
 }
 
 @media (prefers-reduced-motion: reduce) {

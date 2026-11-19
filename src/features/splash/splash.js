@@ -1,19 +1,19 @@
-/* Minecraft-style splash text on the Home map: a short line in warm yellow,
- * tilted on the upper-right corner of the big DKLA logo, gently pulsing.
+/* Minecraft-style splash text: a short line in warm yellow, tilted and gently pulsing, attached to the
+ * DKLA wordmark in the top bar on Home (v3.2; before the Home prototypes it sat on the corner of the big
+ * logo on the map, and that placement is kept below for a Home that still draws the logo).
  * One line per visit, chosen from window.DKLASplashLines by `choose` below (never the line just
  * shown, and very rarely one of the last 100); clicking or tapping it shows another.
  *
- * The map redraws by replacing its contents, so the splash is not drawn into
- * the map. It is one element laid over the map (after #geoCanvas in
- * #studyMain) and placed from the logo's on-screen box after each map draw,
- * on resize and on a slow timer. It writes only when the logo has moved.
+ * In the top bar it is placed and tilted by the stylesheets (src/features/v32/chrome.css);
+ * this file only decides whether it shows: on Home (the whole atlas at its resting size), with no
+ * reader, dialog, Study or SCOTUS History open. It is looked at after each map draw and after anything
+ * a visitor does, never on a timer.
  *
- * In the top bar it shows in its own slot wherever the map is, hidden only when something covers the bar.
- * Without that slot: it shows only on the Home map with the logo on screen, large enough and
- * not covered (a reading panel, Study, SCOTUS History or a dialog hides it),
- * and only where it touches no tile, course name or control (drawn a little
- * smaller, down to 12 px, 11 on a phone, where that clears one). Decorative:
- * hidden from screen readers. Reduced motion: no pulse, no pop. */
+ * On the map (no top-bar placement): it is one element laid over the map (after #geoCanvas in
+ * #studyMain) and placed from the logo's on-screen box after each map draw; it shows only on the Home
+ * map with the logo on screen, large enough and not covered, and only where it touches no tile, course
+ * name or control (drawn a little smaller, down to 12 px, 11 on a phone, where that clears one).
+ * Decorative: hidden from screen readers. Reduced motion: no pulse, no pop. */
 (() => {
   'use strict';
 
@@ -272,139 +272,25 @@
     placed = '';
     return why;
   }
-  const BAR_CLEAR =
-    '.study-header button:not(.study-brand), .study-header a, .study-header input, .ask-bar-dottie, .map-nav, #mapWelcome';
+  // In the top bar (v3.2 "Instrument") the line is attached to the wordmark, the way a title-screen
+  // splash is: src/features/v32/chrome.js hangs it just after the wordmark and chrome.css places and
+  // tilts it, so nothing is positioned or measured from here. This only decides whether it
+  // shows: on Home, with nothing open over the page (a reader, a dialog, Study, SCOTUS History). Where
+  // the bar has too little room beside the wordmark the stylesheet leaves it out (chrome.css).
   function placeInBar() {
     if (index < 0 && !show(pick())) return off('no lines');
-    // The calm top bar (src/features/topbar/) gives the line its own slot beside the clock. There it stays
-    // wherever the map is, zoomed into a course or a case too (owner, 12 November 2026: the empty slot looked
-    // odd); only something drawn over the slot itself hides it.
-    const slotEl = header.querySelector('.dkla-splash-slot');
-    if (slotEl && slotEl.getClientRects().length) {
-      if (!document.documentElement.classList.contains('dkla-boot-ready') || document.hidden)
-        return off('not ready');
-      const r = slotEl.getBoundingClientRect();
-      const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
-      if (!hit || !(header.contains(hit) || root.contains(hit))) return off('covered');
-      return placeInSlot(slotEl);
-    }
-    if (!onHome()) return off('not home');
-    const word = header.querySelector('.study-brand .dkla-wordmark');
-    if (!word || !word.getClientRects().length) return off('no logo');
-    // The big DKLA letters, not the small line under them.
-    const letters = [...word.childNodes].find((n) => n.nodeType === 3 && n.textContent.trim());
-    let q = word.getBoundingClientRect();
-    if (letters) {
-      const range = document.createRange();
-      range.selectNodeContents(letters);
-      const r = range.getBoundingClientRect();
-      if (r.width) q = r;
-    }
-    if (!perEm) {
-      text.style.fontSize = '20px';
-      perEm = text.offsetWidth / 20;
-      perH = text.offsetHeight / 20;
-      font = 0;
-      if (!perEm) return off('unmeasured');
-    }
-    const bar = header.getBoundingClientRect();
-    const at = (size) => {
-      const w = perEm * size,
-        h = perH * size,
-        ey = (PULSE * (w * Math.abs(SIN) + h * COS)) / 2 + SHADOW * size;
-      // A quarter of the line lies over the wordmark; the rest rises to the right of it.
-      const cx = q.right + w * 0.25 * COS,
-        cy = Math.max(q.top + q.height * 0.3, bar.top + 3 + ey);
-      return { size, w, h, cx, cy };
-    };
-    const blocked = (g) => {
-      const a = (g.w * PULSE) / 2 + SHADOW * g.size,
-        b = (g.h * PULSE) / 2 + SHADOW * g.size;
-      if (g.cx - a * COS < 2) return 'edge';
-      for (const el of document.querySelectorAll(BAR_CLEAR)) {
-        const r = el.getBoundingClientRect();
-        if (
-          r.width &&
-          r.height &&
-          getComputedStyle(el).visibility !== 'hidden' &&
-          touches(g.cx, g.cy, a, b, r)
-        )
-          return 'control';
-      }
-      return '';
-    };
-    let size = Math.min(13, Math.max(10, 170 / perEm)),
-      why = '';
-    for (;;) {
-      why = blocked(at(size));
-      if (!why || size <= 9) break;
-      size = Math.max(9, size - 0.5);
-    }
-    const g = at(size),
-      where = `${g.cx.toFixed(1)},${g.cy.toFixed(1)},${size}`;
-    if (where !== placed) {
-      placed = where;
-      if (size !== font) {
-        font = size;
-        text.style.fontSize = size.toFixed(2) + 'px';
-      }
-      const x = g.cx - bar.left - g.w / 2,
-        y = g.cy - bar.top - g.h / 2;
-      root.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) rotate(${TILT}deg)`;
-    }
-    return why;
-  }
-  // Centred in the top bar's slot, as large as fits (11-16px), tilted and pulsing as on the map.
-  function placeInSlot(slotEl) {
-    if (!perEm) {
-      text.style.fontSize = '20px';
-      perEm = text.offsetWidth / 20;
-      perH = text.offsetHeight / 20;
-      font = 0;
-      if (!perEm) return off('unmeasured');
-    }
-    const bar = header.getBoundingClientRect(),
-      q = slotEl.getBoundingClientRect(),
-      // Level in the bar, sized to fit its slot (owner, 12 November 2026: the tilted line looked askew
-      // and leaned out of its space). The map's own splash keeps its Minecraft tilt.
-      tilt = 0,
-      c = Math.cos((tilt * Math.PI) / 180),
-      sn = Math.abs(Math.sin((tilt * Math.PI) / 180));
-    // The tilted, pulsing line must stay inside the slot's width and the bar's height.
-    const fits = (size) => {
-      const w = perEm * size,
-        h = perH * size,
-        across = PULSE * (w * c + h * sn) + 2 * SHADOW * size,
-        up = PULSE * (w * sn + h * c) + 2 * SHADOW * size;
-      return across <= q.width - 8 && up <= bar.height - 6;
-    };
-    let size = 16;
-    while (size > 11 && !fits(size)) size -= 0.5;
-    if (!fits(size)) return off('edge');
-    const w = perEm * size,
-      h = perH * size,
-      cx = q.left + q.width / 2,
-      cy = bar.top + bar.height / 2,
-      where = `${cx.toFixed(1)},${cy.toFixed(1)},${size}`;
-    // Compare with the size actually set, not a cache: measuring sets 20px for a moment.
-    const px = size.toFixed(2) + 'px';
-    if (text.style.fontSize !== px) {
-      text.style.fontSize = px;
-      font = size;
-      placed = '';
-    }
-    if (where !== placed) {
-      placed = where;
-      const x = cx - bar.left - w / 2;
-      let y = cy - bar.top - h / 2;
-      root.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) rotate(${tilt}deg)`;
-      // Centre the letters themselves: the line box is taller than the glyphs and sits them low.
-      const g = text.getBoundingClientRect();
-      if (g.height) {
-        y += cy - (g.top + g.height / 2);
-        root.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) rotate(${tilt}deg)`;
-      }
-    }
+    const page = document.documentElement;
+    if (!page.classList.contains('dkla-boot-ready') || document.hidden) return off('not ready');
+    if (!onHome() || page.classList.contains('dkla-off-home')) return off('not home');
+    if (window.DKLACalm?.state().dialogs) return off('dialog');
+    const word = header.querySelector('.study-brand'),
+      q = word?.getBoundingClientRect();
+    if (!q || !q.width) return off('no logo');
+    // Anything drawn over the bar covers the wordmark the line is attached to.
+    const hit = document.elementFromPoint(q.left + q.width / 2, q.top + q.height / 2);
+    if (!hit || !header.contains(hit)) return off('covered');
+    if (text.style.fontSize) text.style.fontSize = '';
+    if (root.style.transform) root.style.transform = '';
     return '';
   }
   function place() {

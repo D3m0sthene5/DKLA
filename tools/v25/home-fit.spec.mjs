@@ -42,7 +42,9 @@ for (const [width, height] of sizes)
     await page.locator('html.dkla-boot-ready').waitFor();
     const guide = page.getByRole('button', { name: 'Not now', exact: true });
     if (await guide.isVisible()) await guide.click();
-    await page.locator('#geoBreadcrumb [data-study-scope="Atlas"]').click();
+    // The wordmark is the way Home (v3.2: on Home the breadcrumb steps aside in the bar, so there is no
+    // Atlas crumb to press there).
+    await page.locator('#atlasHome').click();
     await expect
       .poll(
         async () => JSON.parse(await page.locator('#geoCanvas').getAttribute('data-dkla-home-view')).scope,
