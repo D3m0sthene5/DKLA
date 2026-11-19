@@ -61,14 +61,19 @@ then make what remains perfect.
 12. **Say what happens.** A label names the result of pressing it. "+ 3 more" is a control or it is
     not there. Truncated text ends in an ellipsis and carries the full text as a title.
 
-13. **Together what must be combined.** The default view of an entry holds what a student reads
-    together (for a case: rule, brief, where it sits). Tabs are for material consulted alone, at
-    most seven, and core content is never in a tab that is not the default.
+13. **Pieces of one idea together; room for what is being studied.** A milestone shows its date,
+    its authority and what it changed in one place. Whole features need not share a viewport: they
+    may follow one another down the page. The view the reader chose leads and gets the space (on a
+    Doctrine view the history dominates and the case header compacts); a view never offers "open
+    the full version" of the thing the reader just opened. Remove a competing region before muting
+    what is inside the one that stays.
 14. **Quiet beside the reading.** Whenever a reader or dialog is open nothing moves or glows
     unprompted: the instrument cluster is still and unlit, the splash line and hanging Dottie are
     Home only. Charm goes on the content: a case's pictogram is shown as an illustration.
-15. **The map's lines appear on demand.** At rest only the course trees; a tile's cross-links show
-    for the hovered or selected tile. No vignette. Positions never move.
+15. **The map's lines appear on demand, and its territories stay vivid.** At rest only the course
+    trees, drawn so the principal paths read; a tile's cross-links show for the hovered or selected
+    tile. The three course territories keep recognisable, saturated colour. No vignette. Positions
+    never move.
 
 ## Editorial standard (the owner's, 19 November 2026)
 

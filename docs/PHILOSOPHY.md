@@ -69,16 +69,25 @@ timeline, canons, lecture notes, sources, settings.
 2. **Context first, outcome marked.** A case opens with where it sits, court and year, and the
    doctrine question it answers; the rule is the one marked line. (Lundeberg 1987 via Oates 1997;
    Schneider et al. 2018.)
-3. **Together what must be combined, apart what is consulted alone.** The case sheet holds rule,
-   brief and "where this case sits" side by side; tabs only for material read alone, at most seven.
-   (Schroeder and Cenkci 2018, g = 0.63; Jang et al. 2012; Baymard; NN/g.)
+3. **Keep the pieces of one idea together, and give the thing being studied the room.** A date,
+   the authority and what it changed belong in one place; a step, its question and why a case sits
+   there belong in one place. That is what the integration evidence supports (Schroeder and Cenkci
+   2018, g = 0.63; Jang et al. 2012). It does not mean the brief, the outline, the map, the timeline
+   and the flowchart share one viewport: whole features may follow one another down a page. When
+   principles conflict, the material the reader has chosen to study gets enough room to be
+   understood at a glance, and secondary tools move, collapse or follow below. (Owner's correction,
+   19 November 2026, after the first case sheet squeezed a ten-decision timeline into 280 px.)
 4. **Every relationship explains itself where it is shown.** A count carries its unit; a link to a
    chart shows the chart's question, the step's question and why this case is there. (Owner's
    editorial standard; Nievelstein et al. 2010.)
 5. **Recall before reveal.** Cold Call as rehearsal (question, answer from memory, narration as
    feedback); a studied case can cover its rule and holding. (Adesope et al. 2017, g = 0.51;
    St. Hilaire et al. 2024; Karpicke et al. 2009.) The default is the owner's decision.
-6. **Calm is measurable, and novelty is paid for with order.** Low visual complexity and
+6. **Calm comes from removing what competes, not from fading what matters.** Take away a competing
+   region before muting anything inside the one that stays; a vivid, readable timeline is the
+   calmest thing on a page it has to itself. Importance follows the reader's choice: on Brief the
+   rule leads, on Doctrine the history leads and the case title becomes a compact reminder. Colour,
+   artwork and visible paths that carry meaning keep their energy. Low visual complexity and
    familiarity win first impressions; an unfamiliar "spaceship" look needs extra simplicity.
    (Lindgaard et al. 2006; Tuch et al. 2009, 2012; Reinecke et al. 2013; Moshagen and Thielsch 2010.)
 7. **Group with a boundary and space; emphasise once.** One hairline or fill per group, twice the
@@ -108,4 +117,6 @@ Tabs versus long pages were tested on shopping sites; no controlled study of com
 timeline evidence is from primary schools; no controlled study of flowcharts in legal education;
 aesthetic studies used strangers judging websites; about half the sources were read as abstracts.
 Automated layout metrics explained at most 49% of rated appeal (Miniukovich and De Angeli 2015):
-the measurements are an entry ticket, and the editorial test in DESIGN.md decides.
+the measurements are an entry ticket, and the editorial test in DESIGN.md decides. The checks catch
+defects; they cannot choose the better composition (fading every link on a map can improve a
+complexity score while making it worse at being a map).
