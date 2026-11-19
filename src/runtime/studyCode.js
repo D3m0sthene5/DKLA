@@ -1520,62 +1520,88 @@ function spanInBox(p, q, r) {
   }
   return (t1 - t0) * Math.hypot(dx, dy);
 }
-// A tree line from subject a to subject b, as points. It is straight unless it would pass behind a third
-// subject (and so read as a line to that subject) or over the name of a part of the course: then it is
-// the shortest way round, turning a little way out from the corners of what is in its way. `lane` sets a
-// second such line from the same subject beside the first, not on it. A route is worked out once.
+// A course's tree lines, as points. A line from subject a to subject b is straight unless it would pass
+// behind a third subject (and so read as a line to that subject): then it is the shortest way round,
+// turning a little way out from the corners of what is in its way, and it would sooner go a longer way
+// than cross another line of the tree or run over the name of a part of the course. A second such line
+// from the same subject runs beside the first, not on it. Worked out once for a course and its boxes.
+//   lines: [{ ida, idb, a: box, b: box }]   tiles: [{ id, box }]   names: [box]
 const treeRoutes = new Map();
-function treeRoute(a, b, others, lane = 0, names = []) {
+function treeLines(lines, tiles, names) {
+  const spot = (r) => `${r.x},${r.y},${r.w},${r.h}`,
+    key =
+      lines.map((l) => spot(l.a) + '>' + spot(l.b)).join('|') + '#' + tiles.map((t) => spot(t.box)).join('|');
+  if (treeRoutes.has(key)) return treeRoutes.get(key);
+  if (treeRoutes.size > 24) treeRoutes.clear();
   const at = (pt) => ({ x: pt.x, y: pt.y, w: 0, h: 0 }),
     slack = 90, // a corner clipped by less than this (3 px on Home) is left alone
     blocked = (p, q, boxes) => boxes.some((r) => spanInBox(p, q, r) > slack),
-    straight = [edgePoint(a, b), edgePoint(b, a)];
-  if (!blocked(straight[0], straight[1], others)) return straight;
-  const key = [a, b, ...others].map((r) => `${r.x},${r.y},${r.w},${r.h}`).join('|') + '|' + lane;
-  if (treeRoutes.has(key)) return treeRoutes.get(key);
-  if (treeRoutes.size > 400) treeRoutes.clear();
-  const gap = 150 + lane * 110,
-    boxes = [...others, ...names],
-    A = { x: a.x + a.w / 2, y: a.y + a.h / 2 },
-    Z = { x: b.x + b.w / 2, y: b.y + b.h / 2 },
-    nodes = [A, Z];
-  for (const r of boxes)
-    nodes.push(
-      { x: r.x - gap, y: r.y - gap },
-      { x: r.x + r.w + gap, y: r.y - gap },
-      { x: r.x + r.w + gap, y: r.y + r.h + gap },
-      { x: r.x - gap, y: r.y + r.h + gap },
-    );
-  // the shortest way from A to Z along lines of sight (Dijkstra over the corners)
-  const dist = nodes.map(() => Infinity),
-    prev = nodes.map(() => -1),
-    done = nodes.map(() => false);
-  dist[0] = 0;
-  for (;;) {
-    let u = -1;
-    for (let i = 0; i < nodes.length; i++) if (!done[i] && (u < 0 || dist[i] < dist[u])) u = i;
-    if (u < 0 || dist[u] === Infinity || u === 1) break;
-    done[u] = true;
-    for (let v = 0; v < nodes.length; v++) {
-      if (done[v]) continue;
-      // a turn costs a little; running over the name of a part costs a long way round, and is never free
-      const d = dist[u] + Math.hypot(nodes[v].x - nodes[u].x, nodes[v].y - nodes[u].y) + 400;
-      if (d >= dist[v] || blocked(nodes[u], nodes[v], others)) continue;
-      const over = d + (names.some((r) => spanInBox(nodes[u], nodes[v], r) > 0) ? 3000 : 0);
-      if (over < dist[v]) {
-        dist[v] = over;
-        prev[v] = u;
+    turn = (p, q, r) => (r.y - p.y) * (q.x - p.x) > (q.y - p.y) * (r.x - p.x),
+    cross = (p, q, m, n) => turn(p, m, n) !== turn(q, m, n) && turn(p, q, m) !== turn(p, q, n),
+    lanes = new Map(),
+    all = lines.map((l) => {
+      const others = tiles.filter((t) => t.id !== l.ida && t.id !== l.idb).map((t) => t.box),
+        route = [edgePoint(l.a, l.b), edgePoint(l.b, l.a)],
+        round = blocked(route[0], route[1], others),
+        lane = round ? lanes.get(l.ida) || 0 : 0;
+      if (round) lanes.set(l.ida, lane + 1);
+      return { l, others, route, round, lane };
+    });
+  const wayRound = (o) => {
+    const { l, others, lane } = o,
+      gap = 150 + lane * 110,
+      // the other lines of the tree, as drawn so far (two straight lines that share a subject meet there:
+      // no crossing; two that both go round something are kept from crossing even so)
+      drawn = all
+        .filter((x) => x !== o && (x.round || ![x.l.ida, x.l.idb].some((id) => id === l.ida || id === l.idb)))
+        .flatMap((x) => x.route.slice(1).map((q, i) => [x.route[i], q])),
+      nodes = [
+        { x: l.a.x + l.a.w / 2, y: l.a.y + l.a.h / 2 },
+        { x: l.b.x + l.b.w / 2, y: l.b.y + l.b.h / 2 },
+      ];
+    for (const r of [...others, ...names])
+      nodes.push(
+        { x: r.x - gap, y: r.y - gap },
+        { x: r.x + r.w + gap, y: r.y - gap },
+        { x: r.x + r.w + gap, y: r.y + r.h + gap },
+        { x: r.x - gap, y: r.y + r.h + gap },
+      );
+    // the shortest way from a to b along lines of sight (Dijkstra over the corners)
+    const dist = nodes.map(() => Infinity),
+      prev = nodes.map(() => -1),
+      done = nodes.map(() => false);
+    dist[0] = 0;
+    for (;;) {
+      let u = -1;
+      for (let i = 0; i < nodes.length; i++) if (!done[i] && (u < 0 || dist[i] < dist[u])) u = i;
+      if (u < 0 || dist[u] === Infinity || u === 1) break;
+      done[u] = true;
+      for (let v = 0; v < nodes.length; v++) {
+        if (done[v]) continue;
+        const p = nodes[u],
+          q = nodes[v];
+        let d = dist[u] + Math.hypot(q.x - p.x, q.y - p.y) + 400; // a turn costs a little
+        if (d >= dist[v] || blocked(p, q, others)) continue;
+        if (names.some((r) => spanInBox(p, q, r) > 0)) d += 3000;
+        for (const [m, n] of drawn) if (cross(p, q, m, n)) d += 2000;
+        if (d < dist[v]) {
+          dist[v] = d;
+          prev[v] = u;
+        }
       }
     }
-  }
-  let route = straight;
-  if (dist[1] < Infinity) {
+    if (dist[1] === Infinity) return;
     const via = [];
     for (let i = prev[1]; i > 0; i = prev[i]) via.unshift(nodes[i]);
-    if (via.length) route = [edgePoint(a, at(via[0])), ...via, edgePoint(b, at(via.at(-1)))];
-  }
-  treeRoutes.set(key, route);
-  return route;
+    o.route = via.length
+      ? [edgePoint(l.a, at(via[0])), ...via, edgePoint(l.b, at(via.at(-1)))]
+      : [edgePoint(l.a, l.b), edgePoint(l.b, l.a)];
+  };
+  // twice: the second time each line knows the way the others went
+  for (let pass = 0; pass < 2; pass++) for (const o of all) if (o.round) wayRound(o);
+  const routes = all.map((o) => o.route);
+  treeRoutes.set(key, routes);
+  return routes;
 }
 // The morph band: below z0 the scene is the galaxy, above z1 it is the map. z0 fits the galaxy; z1 fits the smallest course block.
 function morphBand() {
@@ -2375,8 +2401,10 @@ function draw() {
     // the land is at its strongest on Home, where it is the only ground a territory has; closer in, the
     // course's parts and then the open subject stand on it and it steps back
     landOp = Math.min(1, Math.max(0.45, 1.3 - z * 10));
-  for (const [c, b] of Object.entries(G.blocks)) {
-    const dimc = S.scope !== 'Atlas' && S.scope !== c ? 0.5 : 1;
+  const regionById = new Map(regions.map((r) => [r.id, r]));
+  for (const c of Object.keys(G.blocks)) {
+    const dimc = S.scope !== 'Atlas' && S.scope !== c ? 0.5 : 1,
+      courseTiles = regions.filter((r) => regionCourse(r) === c);
     {
       let d = '';
       const lot = (r, pad) => {
@@ -2389,7 +2417,7 @@ function draw() {
           d += `M${x0.toFixed(1)},${y0.toFixed(1)}H${x1.toFixed(1)}V${y1.toFixed(1)}H${x0.toFixed(1)}Z`;
       };
       for (const zn of G.design[c]?.zones || []) lot(zn, 0);
-      for (const r of regions) if (regionCourse(r) === c) lot(r, 250);
+      for (const r of courseTiles) lot(r, 250);
       if (d)
         parts.push(
           `<path class="v32-land" data-land="${E(c)}" d="${d}" fill="url(#land-${courseKey12(c)})" opacity="${(dimc * landOp).toFixed(3)}"/>`,
@@ -2449,34 +2477,32 @@ function draw() {
     }
     // The course's tree: the few lines its design draws between subjects. They are what the map shows at
     // rest, on Home and on a course view; the curves of association appear for one tile at a time.
-    const courseTiles = regions.filter((r) => regionCourse(r) === c),
-      laneOf = new Map(),
-      // where a part's name stands on a course view (map units, so a route is the same at every zoom)
-      zoneNames = (dz.zones || []).map((zn) => ({
-        x: zn.x + 540,
-        y: zn.y + 150,
-        w: Math.min(zn.w - 540, zn.title.length * 115),
-        h: 410,
-      }));
-    for (const sp of dz.spine || []) {
-      const ra = regionFor(sp.a),
-        rb = regionFor(sp.b);
-      if (!ra || !rb) continue;
-      // an open subject is drawn at the height of its contents: a line ends where the panel does
-      const ba = ra.w * z >= V32.tileMin ? cardBox(ra) : ra,
-        bb = rb.w * z >= V32.tileMin ? cardBox(rb) : rb;
-      if (zoneOp <= 0) continue;
+    // An open subject is drawn at the height of its contents: a line ends where the panel does.
+    const drawnBox = (r) => (r.w * z >= V32.tileMin ? cardBox(r) : r),
+      spine = zoneOp > 0 ? (dz.spine || []).filter((sp) => regionById.has(sp.a) && regionById.has(sp.b)) : [],
+      routes = spine.length
+        ? treeLines(
+            spine.map((sp) => ({
+              ida: sp.a,
+              idb: sp.b,
+              a: drawnBox(regionById.get(sp.a)),
+              b: drawnBox(regionById.get(sp.b)),
+            })),
+            courseTiles.map((r) => ({ id: r.id, box: r })),
+            // where a part's name stands on a course view (map units, so a route is the same at every zoom)
+            (dz.zones || []).map((zn) => ({
+              x: zn.x + 540,
+              y: zn.y + 150,
+              w: Math.min(zn.w - 540, zn.title.length * 115),
+              h: 410,
+            })),
+          )
+        : [];
+    for (const [index, sp] of spine.entries()) {
       // The principal paths (rule 15) are drawn to be followed at rest. "Leads to" is a solid line that
       // ends in an arrowhead on the subject it leads to; "or instead" is dashed and "depends on" dotted,
       // both lighter. One element a line, so a hover dims or lights the whole of it.
-      const lane = laneOf.get(sp.a) || 0,
-        route = treeRoute(
-          ba,
-          bb,
-          courseTiles.filter((r) => r !== ra && r !== rb),
-          lane,
-          zoneNames,
-        ).slice(),
+      const route = routes[index].slice(),
         p = route[0],
         q = route.at(-1),
         from = route.at(-2),
@@ -2495,7 +2521,6 @@ function draw() {
             : sp.kind === 'depends'
               ? ` stroke-dasharray="${0.1 / z} ${4.5 / z}"`
               : '';
-      if (route.length > 2) laneOf.set(sp.a, lane + 1);
       if (flow) route[route.length - 1] = tip;
       // a way round a subject turns on a small curve
       let d = `M${p.x.toFixed(1)},${p.y.toFixed(1)}`;
@@ -2861,7 +2886,7 @@ function draw() {
         // where a course begins: its first subject carries its number, as the open subject does
         start =
           subject && r.step === 1 && pw >= 60
-            ? `<g class="v32-start"><circle cx="${r.x + 1 / z}" cy="${r.y + 1 / z}" r="${startR / z}"/><text x="${r.x + 1 / z}" y="${r.y + (1 + startR * 0.47) / z}" font-size="${(startR * 1.3) / z}" text-anchor="middle">1</text></g>`
+            ? `<g class="v32-start"><circle cx="${r.x + 1 / z}" cy="${r.y + 1 / z}" r="${startR / z}" stroke-width="${1.5 / z}"/><text x="${r.x + 1 / z}" y="${r.y + (1 + startR * 0.47) / z}" font-size="${(startR * 1.3) / z}" text-anchor="middle">1</text></g>`
             : '';
       parts.push(
         `${under}<g class="map-region v32-tile${subject ? ' is-subject' : ''}${lit ? ' is-lit' : ''}" opacity="${dim.toFixed(3)}" data-tile="${E(r.id)}" style="--tile:${acc}${subject ? ';--fill:' + TILE_FILL[regionCourse(r)] : ''}"><rect class="v32-tile-bg" x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}" rx="${rx}" stroke-width="${K.hair}"/><path class="v32-tile-light" d="M${r.x + 5 / z} ${r.y + K.hair * 1.5}H${r.x + r.w - 5 / z}" stroke-width="${K.hair}"/><path d="${regionPath(r)}" data-map-region="${E(r.id)}" class="v32-tile-hit" role="button" tabindex="0" aria-label="Explore ${E(shortRegionTitle(r))}"><title>${E(shortRegionTitle(r))}</title></path>${start}`,

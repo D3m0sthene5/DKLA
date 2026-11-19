@@ -188,16 +188,13 @@ html #geoCanvas .v32-row.is-here text.v32-faint {
 }
 #geoCanvas .v32-tile:hover .v32-tile-hit,
 #geoCanvas .v32-tile.is-over .v32-tile-hit {
-  fill-opacity: 0.09;
+  fill-opacity: 0.06;
 }
 #geoCanvas .v32-tile:hover .v32-tile-bg,
 #geoCanvas .v32-tile.is-over .v32-tile-bg,
 #geoCanvas .v32-tile.is-lit .v32-tile-bg,
 #geoCanvas .v32-tile.is-near .v32-tile-bg {
   stroke-opacity: 1;
-}
-#geoCanvas .v32-tile.is-near .v32-tile-hit {
-  fill-opacity: 0.04;
 }
 #geoCanvas:not(.panning) .v32-tile:active .v32-tile-hit {
   fill: #000;
@@ -211,8 +208,6 @@ html #geoCanvas .v32-row.is-here text.v32-faint {
 #geoCanvas .v32-start circle {
   fill: var(--tile);
   stroke: var(--v31-ground);
-  stroke-width: 1.5px;
-  vector-effect: non-scaling-stroke;
 }
 html #geoCanvas .v32-start text {
   font-family: 'DKLA JetBrains Mono', 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
