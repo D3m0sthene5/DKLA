@@ -1367,10 +1367,13 @@ try {
   assert.equal(index.focus, 'ccIxFind', 'typing searches at once');
   // Typing filters; headings count what is showing; Enter opens the first match over the list.
   await page.keyboard.type('erie railroad');
-  // (The list is filtered a frame after the last key: wait for what was typed to have been applied.)
-  await page.waitForFunction(() =>
-    /^[1-9] of 742 cases$/.test(document.getElementById('ccIxTotal').textContent),
-  );
+  // (The list is filtered a frame after the last key: wait until what shows is what the whole of what was
+  // typed leaves, not what its first letters left.)
+  await page.waitForFunction(() => {
+    const rows = [...document.querySelectorAll('#coldCallIndexDialog .cc-ix-row')],
+      want = rows.filter((r) => ['erie', 'railroad'].every((w) => r.dataset.ccKey.includes(w))).length;
+    return want > 0 && rows.filter((r) => !r.hidden).length === want;
+  });
   const filtered = await page.evaluate(() => {
     const d = document.getElementById('coldCallIndexDialog'),
       vis = [...d.querySelectorAll('.cc-ix-row')].filter((r) => r.getClientRects().length);
