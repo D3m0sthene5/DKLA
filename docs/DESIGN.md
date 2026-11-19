@@ -11,7 +11,7 @@ at most). `src/features/v31/tokens.css` holds every value named here.
 
 DKLA is one precision instrument. Content is lit and chrome recedes. Every view has one hero and
 one primary action. The app shows its depth with counts and small readouts, not by showing
-everything at once. The "woah" comes from precision: nothing misaligned, nothing redundant, one
+everything at once. `docs/PHILOSOPHY.md` gives the research behind these rules. The "woah" comes from precision: nothing misaligned, nothing redundant, one
 light source, and a few small instruments drawn with care. Reduce until only the necessary remains,
 then make what remains perfect.
 
@@ -21,9 +21,10 @@ then make what remains perfect.
    menu, the palette). A plane is told from the one below by one fill step (`--v31-ground`,
    `--v31-panel`, `--v31-raised`) and its elevation (`--v32-e0/e1/e2`: a top-edge highlight and a
    shadow below). Never by a thick or coloured border.
-2. **No boxes inside boxes.** A container gets one hairline (`--v32-hair`) or one fill step. What
-   sits inside it is separated by space from the scale, and at most a hairline rule between groups.
-   A row is never bordered. If you are about to draw a border, try spacing first.
+2. **One boundary per group, never a box in a box in a box.** A boundary is the strongest grouping
+   cue (Bae and Watson 2014), so every group that must read as a unit gets one hairline
+   (`--v32-hair`) or one fill step, and at least twice the gap outside it that it has inside.
+   Enclosures nest at most two deep. A row is never bordered.
 3. **Each colour has one job** (the v3.1 rules, plus these). Blue (`--v31-link`) is anything you can
    click. A course colour is an identity mark only: a 3 px spine or a dot, the course's title, the
    Home tile tint. It is never the text colour of headings inside a card and never a border round
@@ -45,9 +46,10 @@ then make what remains perfect.
 7. **Lists are rows, not pills.** A row is 36 px: a 16 px glyph that says what kind of thing it is
    (case, rule, concept, note), the label, and trailing meta in faint mono (a citation, a count).
    Hover raises the fill one step. Rows share one left edge and one height within a list.
-8. **Counts show depth.** Wherever something leads to more (timeline entries, flowchart steps,
-   canons, terms, sources, supporting cases), show the number beside the label in mono. This is how
-   the app shows its power without showing everything.
+8. **Counts show depth, and say what they count.** Wherever something leads to more (timeline
+   entries, flowchart steps, canons, terms, sources, supporting cases), show the number with its
+   unit ("2 steps", "5 cases · 4 rules"), in mono at 13 px or more in the muted colour, 4.5:1 or
+   better. Never a bare number, never faint 12 px.
 9. **One primary action per view.** On a case it is Cold Call. Everything else is one predictable
    step away and in the same place on every entry.
 10. **Motion** follows the calm tokens (`--v31-t-press/pop/panel`, `--v31-ease`). Nothing new
@@ -58,6 +60,42 @@ then make what remains perfect.
     on the text's baseline, numerals line up in columns, a glyph's visual centre is centred.
 12. **Say what happens.** A label names the result of pressing it. "+ 3 more" is a control or it is
     not there. Truncated text ends in an ellipsis and carries the full text as a title.
+
+13. **Together what must be combined.** The default view of an entry holds what a student reads
+    together (for a case: rule, brief, where it sits). Tabs are for material consulted alone, at
+    most seven, and core content is never in a tab that is not the default.
+14. **Quiet beside the reading.** Whenever a reader or dialog is open nothing moves or glows
+    unprompted: the instrument cluster is still and unlit, the splash line and hanging Dottie are
+    Home only. Charm goes on the content: a case's pictogram is shown as an illustration.
+15. **The map's lines appear on demand.** At rest only the course trees; a tile's cross-links show
+    for the hovered or selected tile. No vignette. Positions never move.
+
+## Editorial standard (the owner's, 19 November 2026)
+
+The rules above can all pass while the screen still fails. The owner's test for every screen: "If
+a designer had been handed this exact content and this exact amount of space, would they have
+chosen to put the breaks, emphasis, and artwork where they ended up?" If the honest answer is that
+the template put them there, keep working.
+
+- **Compose the lines.** A case caption breaks between parties (before "v."), never inside a party
+  name the measure can hold, never leaving "v." at a line end; consolidated cases sit one per line
+  with the second subordinate. Headings and short text never strand a word (`text-wrap: balance`);
+  prose uses `text-wrap: pretty`. A breadcrumb separator stays attached to its destination. Build
+  this from the data, never with hard-coded breaks, and it must hold from wide desktop to phone.
+- **Size artwork by what the eye can recognise.** A case's pictogram is recognisable before its
+  caption is read: 44 to 48 px in a header, with contrast and room; check the drawing fills its
+  box. Utility glyphs stay small. A repeated icon that carries no information is removed.
+- **Spend space where the content needs it.** A title may be wider than prose. A dense chart gets
+  room for its branches; a short list occupies a compact, intentional area. When one element wraps
+  awkwardly beside unused space, change the layout before shrinking the type.
+- **Make each relationship intelligible where it is shown.** Say what a count counts, what
+  question a chart or step asks, and why this entry appears there; show enough of the surrounding
+  path to place it. Two tidy cards linking to the same chart still miss the point.
+- **Review at 100% scale through a continuous resize**, starting from the ugliest real content
+  (the longest caption, the most intricate pictogram, the longest breadcrumb, the sparsest tab).
+  For each shared fix keep the failure and the corrected screen at the same viewport and zoom, and
+  say exactly what changed. `tools/v32/composition.mjs` finds the mechanical failures; your eyes
+  find the rest.
 
 ## Look at your own work before you commit
 
