@@ -412,12 +412,11 @@
   display: grid;
   grid-template-columns: 24px minmax(0, 1fr);
   column-gap: var(--v32-s2);
-  min-height: 56px;
+  /* As tall as its words need (one to three lines), its number level with their middle. */
+  align-items: center;
+  min-height: var(--v32-h-row);
   padding: var(--v32-s2) var(--v32-s3) var(--v32-s2) var(--v32-s4);
   color: var(--v31-muted);
-}
-#coldCallDialog .cc-nav-plain {
-  min-height: var(--v32-h-row);
 }
 #coldCallDialog .cc-nav-go {
   position: absolute;
@@ -446,7 +445,7 @@
 #coldCallDialog .cc-nav-go::before {
   content: '';
   position: absolute;
-  top: 10px;
+  top: calc(50% - 8px);
   left: 4px;
   width: 3px;
   height: 16px;

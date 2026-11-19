@@ -805,7 +805,8 @@
     button.dataset.coldCall = id;
     button.textContent = 'Cold call';
     button.setAttribute('aria-haspopup', 'dialog');
-    button.title = 'Read the case as a chronological narrative';
+    button.title =
+      'The case as you would tell it when called on: read it, or rehearse it question by question';
     const actions = panel.querySelector('.v25-record-actions');
     if (actions) actions.appendChild(button);
     else heading.after(button);

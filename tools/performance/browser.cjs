@@ -62,7 +62,7 @@ const report = { checks: [], errors: [], briefRequests: [] };
       report.checks.push('Supporting case without sections loads its full brief');
     }
     await page.evaluate((id) => DKLAColdCall.open(id), fixture.main[0]);
-    await page.locator('#coldCallDialog .cc-actions [data-cc-source-brief]').click();
+    await page.locator('#coldCallDialog [data-cc-source-brief]').first().click();
     await page.locator('#ccBriefDialog .cc-brief-body[data-done="1"]').waitFor();
     await page.locator('#ccBriefClose').click();
     assert.ok(await page.locator('#coldCallDialog').isVisible());
