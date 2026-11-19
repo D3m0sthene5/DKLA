@@ -233,6 +233,7 @@ const CAM = {
   labels: '', // which labels the last draw at rest left out
   again: 0,
   draws: 0,
+  snaps: 0, // how many pinches have been settled on a level (for the checks)
 };
 const CAM_NONE = Object.freeze({ l: 0, t: 0, r: 0, b: 0 });
 function measured(fn) {
@@ -754,6 +755,7 @@ function camSnap() {
   const pinch = CAM.pinch;
   CAM.pinch = null;
   CAM.snapAt = 0;
+  CAM.snaps++;
   if (!pinch || !R11.continuous()) return;
   const t = R11.level(pinch.world),
     moved = Math.log(S.z / pinch.from.z);
@@ -942,6 +944,7 @@ window.DKLAMapMotion = {
     flying: !!CAM.spring,
     gliding: !!CAM.glide,
     draws: CAM.draws,
+    snaps: CAM.snaps,
     dirty: CAM.dirty,
     drawn: CAM.drawn ? { ...CAM.drawn } : null,
     camera: { x: S.x, y: S.y, z: S.z },
