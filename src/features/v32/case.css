@@ -112,6 +112,76 @@
   flex: none;
   color: var(--v31-faint);
 }
+/* The way back and the "…" that opens the whole path: for a narrow reader only (below). */
+#inspector .v32-back,
+#inspector .v32-more,
+#inspector .v32-more-sep {
+  display: none;
+}
+/* A narrow reader (a phone): the levels are never squeezed until their words are cut. The strip shows
+   the way back and the course whole, and the levels after the course fold into "…", which opens the
+   whole path with each level a way back to it. */
+@media (max-width: 699px) {
+  #inspector :is(.v32-ident, .v32db-crumbs) > .v32-level,
+  #inspector :is(.v32-ident, .v32db-crumbs) > .v32-sep:not(.v32-more-sep) {
+    display: none;
+  }
+  #inspector :is(.v32-ident, .v32db-crumbs) > .v32-more-sep {
+    display: block;
+  }
+  #inspector :is(.v32-ident, .v32db-crumbs) > :is(.v32-back, .v32-more) {
+    all: unset;
+    box-sizing: border-box;
+    position: relative;
+    flex: none;
+    display: grid;
+    place-items: center;
+    height: 28px;
+    border-radius: 6px;
+    color: var(--v31-soft);
+    cursor: pointer;
+  }
+  #inspector :is(.v32-ident, .v32db-crumbs) > .v32-back {
+    width: 28px;
+    margin: 0 6px 0 -6px;
+  }
+  #inspector :is(.v32-ident, .v32db-crumbs) > .v32-more {
+    min-width: 32px;
+    padding: 0 8px;
+    background: var(--v32-hair);
+    font: var(--v32-ui-small);
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  /* A 44 px place to press round each. */
+  #inspector :is(.v32-ident, .v32db-crumbs) > :is(.v32-back, .v32-more)::after {
+    content: '';
+    position: absolute;
+    inset: -8px -6px;
+  }
+  #inspector :is(.v32-ident, .v32db-crumbs) > :is(.v32-back, .v32-more):active {
+    background: var(--v32-hair-strong, var(--v32-hair));
+    color: var(--v31-text);
+  }
+  #inspector :is(.v32-ident, .v32db-crumbs) > :is(.v32-back, .v32-more):focus-visible {
+    outline: 2px solid var(--v31-link);
+    outline-offset: 1px;
+  }
+  /* The dot no longer hangs left of the column: the way back is first on the line. */
+  #inspector .reader-top > .v32-ident {
+    margin-left: 0;
+    padding-left: 0;
+    overflow: visible;
+  }
+  #inspector .v32-ident > .v32-dot {
+    margin: 0 4px 0 0;
+  }
+  /* Once the title has scrolled under the strip its name stands here instead; the controls under
+     it are not there to be pressed. */
+  #inspector .reader-top.v32-titled > .v32-ident {
+    visibility: hidden;
+  }
+}
 /* The path is shown once. Where the top bar carries it (with the way back), the reader's strip does
    not repeat it; under 1024 px the bar has no room for a path and the strip keeps it. */
 @media (min-width: 1024px) {
