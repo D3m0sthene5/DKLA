@@ -389,6 +389,10 @@
       }
       timelines.forEach((timeline) => move(timeline, group));
     }
+    // A layer that places its block "after the timeline" (the terms of an entry, when the dictionary
+    // arrives late) finds the timeline inside its group: the block belongs to the page, not the group.
+    for (const stray of body.querySelectorAll(':scope > .v28-case-timelines > .dkla-terms'))
+      body.appendChild(stray);
     // Every source row an earlier layer drew stays in one place; case.js lists them once.
     if (isCase) {
       const sourceRows = [

@@ -137,7 +137,8 @@
           tab.dataset.v32Tab = f.id;
           tab.setAttribute('role', 'tab');
           tab.setAttribute('aria-controls', 'v32Panel');
-          tab.append(element('span', 'v32-tab-label'), element('span', 'v32-count'));
+          // A space between the two, so the tab reads "Timeline 6".
+          tab.append(element('span', 'v32-tab-label'), ' ', element('span', 'v32-count'));
         }
         const [label, number] = tab.children;
         if (label.textContent !== f.label) label.textContent = f.label;
@@ -458,7 +459,9 @@
       list?.remove();
       return;
     }
-    const signature = rows.map((r) => [r.key, r.label, r.meta || '', r.original ? 1 : 0].join('|')).join('\n');
+    const signature = rows
+      .map((r) => [r.key, r.label, r.meta || '', r.original ? 1 : 0].join('|'))
+      .join('\n');
     if (
       list &&
       list.dataset.v32Rows === signature &&
