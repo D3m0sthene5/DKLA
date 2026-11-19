@@ -311,45 +311,54 @@
   clip-path: inset(50%);
   white-space: nowrap;
 }
-/* Large enough to read the three opossums (56 px; 48 px on a phone). The spinner, the words
-   and Cancel share the same 8 px top margin, so the words stay centred on the spinner, on one
-   line, and the spinner clears the question box. */
+/* Large enough to carry a run: 96 px (80 px on a phone), an opossum about 24 px tall. The spinner
+   is 1 em square, so its font-size is its size. The spinner, the words and Cancel share the same
+   8 px top margin, so the words stay centred on the spinner, on one line, and the spinner clears
+   the question box. */
 #dklaAskDialog .ask-progress .ask-dottie[data-pose='spinner'] {
-  width: 56px;
-  height: 56px;
+  width: 96px;
+  height: 96px;
   margin: 8px 0 0;
+  font-size: 96px;
 }
-/* The opossums trot: each is drawn in 8 frames (dottie.js, TROT) and shows one at a time, 90 ms
-   each; dottie.js gives every frame its own animation-delay. The ring turns once in 7 strides
-   (7 x 720 ms), the speed at which a planted foot stays put on the ground. */
-#dklaAskDialog .dottie-spinner .dottie-ring {
-  transform-box: view-box;
-  transform-origin: 24px 24px;
-  animation: dottie-spin 5.04s linear infinite;
+/* The spinner (dottie.js spinner()): a ring that turns, an opossum every third of it, and each
+   opossum 18 small pictures, one per part of the rig, every one placed by a transform alone.
+   dottie.js animates those transforms (Web Animations, on the compositor); nothing here moves.
+   Without the animations each part keeps the transform written on it: she stands. */
+.dottie-spinner {
+  display: block;
+  position: relative;
+  width: 1em;
+  height: 1em;
+  contain: layout style;
 }
-@keyframes dottie-spin {
+.dottie-spinner .dottie-ring,
+.dottie-spinner .dottie-runner,
+.dottie-spinner svg.dottie-mark,
+.dottie-spinner svg.dottie-part {
+  display: block;
+  position: absolute;
+}
+.dottie-spinner .dottie-ring,
+.dottie-spinner .dottie-runner,
+#dklaAskDialog .dottie-spinner svg.dottie-mark {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.dottie-spinner svg.dottie-part {
+  overflow: visible;
+}
+/* With reduced motion nothing runs (dottie.js starts no animation): the three stand in their
+   ring and the whole spinner breathes, opacity only, so it still says "working". */
+@keyframes dottie-pulse {
   to {
-    transform: rotate(360deg);
+    opacity: 0.5;
   }
 }
-#dklaAskDialog .dottie-spinner .dottie-trot {
-  animation: dottie-trot 0.72s step-end infinite;
-}
-@keyframes dottie-trot {
-  0% {
-    opacity: 1;
-  }
-  12.5%,
-  100% {
-    opacity: 0;
-  }
-}
-/* With reduced motion the ring stands still and each opossum holds one frame (the rule for all
-   of Dottie further down does the same; this keeps the spinner still if that rule changes). */
 @media (prefers-reduced-motion: reduce) {
-  #dklaAskDialog .dottie-spinner .dottie-ring,
-  #dklaAskDialog .dottie-spinner .dottie-trot {
-    animation: none;
+  #dklaAskDialog .ask-dottie .dottie-spinner {
+    animation: dottie-pulse 1.6s ease-in-out infinite alternate !important;
   }
 }
 #dklaAskDialog .ask-dottie .dottie-glass {
@@ -476,8 +485,9 @@
     width: 67px;
   }
   #dklaAskDialog .ask-progress .ask-dottie[data-pose='spinner'] {
-    width: 48px;
-    height: 48px;
+    width: 80px;
+    height: 80px;
+    font-size: 80px;
   }
   #dklaAskDialog .ask-progress.is-working .ask-working {
     font-size: 14px;
