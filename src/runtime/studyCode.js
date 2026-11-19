@@ -4033,6 +4033,10 @@ function activateMap(t) {
     if (t.dataset.mapNotes) openGroupNotes();
   } else if (t.dataset.mapRegion) goRegion(t.dataset.mapRegion);
   else if (t.dataset.mapEdge) goEdge(t.dataset.mapEdge, false);
+  // A course's name on the map is a button (it has the role, the pointer and a place in the tab order) and
+  // did nothing when pressed: the old menu's "Choose a course" was the only named way to a course view.
+  // With that menu item gone (the owner's Q20) the name does what it says.
+  else if (t.dataset.studyScope) home(t.dataset.studyScope);
 }
 svg.addEventListener('keydown', (e) => {
   const t = e.target.closest('[role=button]');
@@ -4074,7 +4078,7 @@ function onMapPointerDown(e) {
   CAM.pinch = null;
   CAM.snapAt = 0;
   const t = e.target.closest?.(
-    '[data-map-node],[data-map-district],[data-map-region],[data-map-edge],[data-map-jump]',
+    '[data-map-node],[data-map-district],[data-map-region],[data-map-edge],[data-map-jump],[data-study-scope]',
   );
   S.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY, trail: [[e.timeStamp, e.clientX, e.clientY]] });
   S.drag = {
