@@ -7,7 +7,7 @@
       version), Ask Dottie and the Library. Only Exo 2, Inter and the mono face are used in it.
    2. The breadcrumb is in the bar, on one line, and right at each level. A path longer than its room is
       shortened by design: a level is shown whole or folded into a "…" control that opens the whole path;
-      the command field gives the last level room (down to 256 px, its right edge fixed); only then is the
+      the command field gives the last level room (down to 240 px, its right edge fixed); only then is the
       last level cut, at a word, with its whole text as its title. Held through a resize with the longest
       path in the data. A crumb and Back both navigate; the wordmark is the way Home, where the breadcrumb
       steps aside. Under 1024 px the path sits on the map.
@@ -630,7 +630,7 @@ try {
       assert.equal(t.text, 'Atlas › … › ' + LONGEST_LAST);
       assert.deepEqual(t.clipped, []);
       assert.equal(t.lines, 1);
-      assert.ok(t.field.w < rest.w && t.field.w >= 256, `the field gave room: ${rest.w} to ${t.field.w}`);
+      assert.ok(t.field.w < rest.w && t.field.w >= 240, `the field gave room: ${rest.w} to ${t.field.w}`);
       assert.ok(Math.abs(t.field.right - rest.right) < 0.5, "the field's right edge has not moved");
       assert.ok(t.right <= t.field.x - 8, 'the path ends before the field starts');
       await snap(page, 'chrome-3b-long-path');
@@ -664,7 +664,7 @@ try {
         const o = await trail(page);
         assert.equal(o.last.text, OWNERS, `${width}px: [${o.text}] beside a field ${o.field.w}px wide`);
         assert.deepEqual(o.clipped, [], width + 'px');
-        assert.ok(o.field.w >= 256, `${width}px: the field is ${o.field.w}px wide`);
+        assert.ok(o.field.w >= 240, `${width}px: the field is ${o.field.w}px wide`);
         assert.ok(o.right <= o.field.x - 8, width + 'px: the path ends before the field starts');
       }
       await page.setViewportSize({ width: 1440, height: 900 });
@@ -709,7 +709,7 @@ try {
           if (/\b(and|of|the)$/.test(kept)) say('the cut ends on a loose word');
           if (t.last.title !== LONGEST_LAST || t.last.label !== LONGEST_LAST)
             say('a cut level does not carry its whole text');
-          if (t.inBar && t.field.w > 257) say(`cut while the field is still ${t.field.w}px wide`);
+          if (t.inBar && t.field.w > 241) say(`cut while the field is still ${t.field.w}px wide`);
         }
         if (t.inBar && t.right > t.field.x - 8) say('the path runs into the field');
         if (!t.inBar && t.right > width - 23) say('the path runs past the map');
@@ -718,6 +718,38 @@ try {
       await goHome(page);
       assert.deepEqual(wrong, []);
       assert.ok(seen.size >= 3, 'the path took several shapes on the way: ' + [...seen].join(' | '));
+    },
+  );
+
+  await check(
+    'Home is known as Home once the map has landed, in a window resized since it was last there',
+    async () => {
+      // Home's resting size is recorded for the window it was fitted in. Leave Home, make the window larger,
+      // press the wordmark: the map glides to a larger size than the one on record, and the record is brought
+      // up to date only after the last draw. The frame must still come to know it is Home (the breadcrumb
+      // steps aside, the splash line returns) without waiting for another press.
+      await page.setViewportSize({ width: 1024, height: 768 });
+      await goHome(page);
+      await page.evaluate(() => home('Contracts'));
+      await page.waitForFunction(() => document.documentElement.classList.contains('dkla-off-home'));
+      await page.setViewportSize({ width: 1680, height: 900 });
+      await page.locator('#atlasHome').click();
+      await page.waitForFunction(() => S.scope === 'Atlas' && !S.region);
+      try {
+        await page.waitForFunction(
+          () => !document.documentElement.classList.contains('dkla-off-home'),
+          null,
+          {
+            timeout: 6000,
+          },
+        );
+      } catch {
+        assert.fail(
+          'six seconds after the wordmark was pressed the frame still shows the breadcrumb of somewhere else',
+        );
+      }
+      await page.setViewportSize({ width: 1440, height: 900 });
+      await goHome(page);
     },
   );
 

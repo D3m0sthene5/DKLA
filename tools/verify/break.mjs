@@ -397,7 +397,54 @@ const breakages = [
   [
     'The frame: the command field gives a long path no room, so its last level is cut',
     'src/features/v32/chrome.js',
-    () => edit('src/features/v32/chrome.js', 'const FIELD_LEAST = 256;', 'const FIELD_LEAST = 5200;'),
+    () => edit('src/features/v32/chrome.js', 'const FIELD_LEAST = 240;', 'const FIELD_LEAST = 5200;'),
+  ],
+  [
+    'The frame: after a glide Home in a resized window the frame never learns it is Home',
+    'src/features/v32/chrome.js',
+    () =>
+      edit('src/features/v32/chrome.js', '    if (off && !late) again = setTimeout(lateLook, 1000);\n', ''),
+  ],
+  [
+    'The frame: the version readout stands outside the instrument, beside it',
+    'src/features/v32/chrome.css',
+    () =>
+      edit(
+        'src/features/v32/chrome.css',
+        '      grid-area: 1 / 1 / 2 / -1;\n      display: grid;',
+        '      grid-area: 1 / 1 / 2 / 2;\n      display: grid;',
+      ),
+  ],
+  [
+    'The frame: the Library says the map holds no cases',
+    'src/features/v32/chrome.js',
+    () =>
+      edit('src/features/v32/chrome.js', "    ['Case', 'case', 'cases'],", "    ['Cases', 'case', 'cases'],"),
+  ],
+  [
+    'The frame: a Library row has no leader from its name to its count',
+    'src/features/v32/chrome.js',
+    () =>
+      edit(
+        'src/features/v32/chrome.js',
+        '      LEADER +\n      `<span class="v32-row-meta">${metaHTML(row)}</span></button>`',
+        '      `<span class="v32-row-meta">${metaHTML(row)}</span></button>`',
+      ),
+  ],
+  [
+    "The frame: a search result's name is cut short to make room for its place",
+    'src/features/v32/chrome.css',
+    () => edit('src/features/v32/chrome.css', '  max-width: calc(100% - 132px);', '  max-width: 40%;'),
+  ],
+  [
+    'The frame: the words before a marked word are cut inside a word',
+    'src/runtime/dklaR13Search.js',
+    () =>
+      edit(
+        'src/runtime/dklaR13Search.js',
+        "cut = lead.length > KEEP ? lead.indexOf(' ', lead.length - KEEP - 1) + 1 : 0;",
+        'cut = lead.length > KEEP ? lead.length - KEEP + 2 : 0;',
+      ),
   ],
   [
     'The frame: a count in the Library is a bare number again, with nothing to say what it counts',
