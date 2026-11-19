@@ -1270,3 +1270,16 @@ dialog::backdrop {
 #bookDialog:not(.page-tools) #bookLocation {
   display: none;
 }
+/* v3.2: while the camera moves, the drawn map is carried by one transform on the canvas (studyCode.js, "the
+   camera in motion"). The surroundings drawn beyond the window may show, the browser keeps the picture as
+   one layer, and the canvas's background sits on its parent so it does not move with the map. */
+#geoCanvas.is-moving {
+  overflow: visible;
+  will-change: transform;
+  transform-origin: 50% 50%;
+  background: none !important;
+}
+/* A Home splash anchored to the map's logo is placed after each draw: it steps aside while the map moves. */
+html.dkla-map-moving #studyMain > .dkla-splash {
+  visibility: hidden !important;
+}

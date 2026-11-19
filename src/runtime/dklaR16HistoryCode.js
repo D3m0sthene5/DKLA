@@ -491,6 +491,8 @@
       if (H.open) return;
       return oldClamp(active);
     };
+    // v3.2: a gesture clamps the camera without calling clampCamera; it asks this instead.
+    R11.clampOff = () => H.open;
     const oldAuto = autoScope;
     autoScope = function () {
       if (H.open || H.trace) return;

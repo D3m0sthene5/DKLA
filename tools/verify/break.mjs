@@ -1098,6 +1098,26 @@ const breakages = [
     () => edit('src/features/cold-call/reader.js', 'install(data);\n        arrived();', 'install(data);'),
   ],
   [
+    'the map is drawn again on every frame of a drag',
+    'src/runtime/studyCode.js',
+    () =>
+      edit(
+        'src/runtime/studyCode.js',
+        '      } else camShift();\n',
+        '      } else camDraw(null, null, true);\n',
+      ),
+  ],
+  [
+    'a released drag glides although the reader asked for reduced motion',
+    'src/runtime/studyCode.js',
+    () =>
+      edit(
+        'src/runtime/studyCode.js',
+        "e.type === 'pointerup' && !reducedMotion && !S.pinch",
+        "e.type === 'pointerup' && !S.pinch",
+      ),
+  ],
+  [
     'Lazy data blocks are no longer verified before use',
     'src/features/performance/data-loader.js',
     () =>

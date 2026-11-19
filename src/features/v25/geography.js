@@ -378,9 +378,21 @@
       applying = false;
     }
   }
+  // v3.2: bounds() is asked for dozens of times inside one draw (the rules-and-authorities block is placed
+  // from it), and each call compared every home with the fixed geography. A call that follows a verification
+  // by under a tenth of a second, on the same graph and window shape, uses that one. Drawing, saving,
+  // storing a view and opening an entry still verify every time.
+  let verified = { graph: null, mode: '', at: 0 };
+  function applyOnce() {
+    if (typeof data === 'undefined') return false;
+    if (verified.graph === data && verified.mode === arrangement() && performance.now() - verified.at < 100)
+      return false;
+    return apply();
+  }
   function apply() {
     if (typeof data === 'undefined') return false;
     const changed = applyTo(data);
+    verified = { graph: data, mode: arrangement(), at: performance.now() };
     if (typeof S !== 'undefined') fixView(S);
     return changed;
   }
@@ -517,7 +529,7 @@
     locked: true,
     apply,
     bounds() {
-      apply();
+      applyOnce();
       const rs = typeof data !== 'undefined' ? data.studyMap.regions : [];
       if (!rs.length) return { x: 0, y: 0, w: 0, h: 0 };
       const x = Math.min(...rs.map((r) => r.x)),

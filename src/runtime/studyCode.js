@@ -200,29 +200,129 @@ function bounds(items) {
     y = Math.min(...a.map((b) => b.y));
   return { x, y, w: Math.max(...a.map((b) => b.x + b.w)) - x, h: Math.max(...a.map((b) => b.y + b.h)) - y };
 }
-function rect() {
-  const r = svg.getBoundingClientRect();
-  return { x: r.x, y: r.y, w: Math.max(1, r.width), h: Math.max(1, r.height) };
+// ---- v3.2: one reading of the page per pass, and the camera engine's state.
+// Reading an element's box after the map has been rewritten makes the browser lay the page out again, so
+// everything inside measured() shares one reading of the canvas, the reader and the welcome note.
+const LAY = { hold: 0, v: null, memo: new Map() };
+// The picture on the page was drawn for the camera CAM.drawn. While the camera moves, the picture is carried
+// along by one transform on the canvas (see "the camera in motion" below); a real draw happens when it rests.
+const CAM = {
+  drawn: null, // {x, y, z, over}: the camera and overscan of the picture now on the page
+  shifted: false, // the canvas carries a transform
+  moving: false, // the canvas is in its moving state (class, background on the parent)
+  dirty: true, // something other than the camera changed: draw again
+  over: null, // overscan of the draw being made: px beyond each edge {l, t, r, b} (null at rest)
+  vel: { x: 0, y: 0, u: 0 }, // how fast the camera is moving: screen px per ms, and log-zoom per ms
+  instant: false, // the draw being made finishes fades at once (the camera is moving)
+  noClamp: false, // the draw being made is a frame of a flight: do not pull the camera back
+  spring: null, // a flight: {x, y, z} is the destination; vx, vy, vu the velocity
+  glide: null, // momentum after a drag: {vx, vy} in screen px per ms
+  wheel: null, // wheel input waiting for the next frame
+  zooming: 0, // until when a wheel zoom counts as in progress
+  snapAt: 0, // when a pinch that has fallen silent settles on a level
+  pinch: null, // a wheel pinch in progress: {from, world, level}
+  lastDraw: 0,
+  drawBegan: 0, // when the draw being timed started
+  cost: 30, // ms the last draw took, to the start of the frame after it
+  lastMove: 0,
+  lastFrame: 0,
+  rested: true, // no frame is pending: the next one starts a motion
+  booting: true, // the atlas has not been shown yet
+  active: new Set(),
+  held: null, // what the clamp needs between draws (see camHeld)
+  labels: '', // which labels the last draw at rest left out
+  again: 0,
+  draws: 0,
+};
+const CAM_NONE = Object.freeze({ l: 0, t: 0, r: 0, b: 0 });
+function measured(fn) {
+  if (LAY.hold++ === 0) {
+    LAY.memo.clear();
+    if (!CAM.shifted) LAY.v = null;
+  }
+  try {
+    return fn();
+  } finally {
+    LAY.hold--;
+  }
 }
+function layRead(key, read) {
+  if (!LAY.hold) return read();
+  if (!LAY.memo.has(key)) LAY.memo.set(key, read());
+  return LAY.memo.get(key);
+}
+function rect() {
+  // A moved canvas reports its moved box: use the box it was drawn in.
+  if (LAY.v && (LAY.hold || CAM.shifted)) return { ...LAY.v };
+  if (CAM.shifted) camUnshift();
+  const r = svg.getBoundingClientRect();
+  LAY.v = { x: r.x, y: r.y, w: Math.max(1, r.width), h: Math.max(1, r.height) };
+  return { ...LAY.v };
+}
+// What a draw paints: the window, plus the overscan while the camera is moving.
 function visibleBox() {
+  const v = rect(),
+    o = CAM.over || CAM_NONE;
+  return {
+    x: S.x - (v.w / 2 + o.l) / S.z,
+    y: S.y - (v.h / 2 + o.t) / S.z,
+    w: (v.w + o.l + o.r) / S.z,
+    h: (v.h + o.t + o.b) / S.z,
+  };
+}
+// The canvas as the label engine sees it during a draw (the same overscan, in screen px).
+function paintRect() {
+  const v = rect(),
+    o = CAM.over || CAM_NONE;
+  return { x: v.x - o.l, y: v.y - o.t, w: v.w + o.l + o.r, h: v.h + o.t + o.b };
+}
+// The viewBox is always the window itself, so lengths measured on the page are true during an overscan draw.
+function setViewBox() {
   const v = rect();
-  return { x: S.x - v.w / (2 * S.z), y: S.y - v.h / (2 * S.z), w: v.w / S.z, h: v.h / S.z };
+  svg.setAttribute('viewBox', `${S.x - v.w / (2 * S.z)} ${S.y - v.h / (2 * S.z)} ${v.w / S.z} ${v.h / S.z}`);
 }
 function readerWidth() {
-  return S.panelOpen && !$('inspector').hidden ? $('inspector').getBoundingClientRect().width : 0;
+  return S.panelOpen && !$('inspector').hidden
+    ? layRead('reader', () => settledBox($('inspector')).width)
+    : 0;
+}
+// Where an element of the page will be once any entrance animation on it has finished: its box in the
+// layout. (An element that is not animating is measured as drawn, to the fraction of a pixel.) The map used
+// to end a few pixels differently, and keep or drop a label, depending on which frame of the welcome note's
+// or the reader's entrance the last draw happened to see.
+function settledBox(el) {
+  const p = el.offsetParent;
+  if (!p || !el.getAnimations || !el.getAnimations().length) {
+    const b = el.getBoundingClientRect();
+    return { left: b.left, top: b.top, right: b.right, bottom: b.bottom, width: b.width, height: b.height };
+  }
+  const at = p.getBoundingClientRect(),
+    left = at.left + p.clientLeft + el.offsetLeft,
+    top = at.top + p.clientTop + el.offsetTop;
+  return {
+    left,
+    top,
+    right: left + el.offsetWidth,
+    bottom: top + el.offsetHeight,
+    width: el.offsetWidth,
+    height: el.offsetHeight,
+  };
+}
+// The welcome note's box (null while it is hidden).
+function welcomeBox() {
+  const w = $('mapWelcome');
+  if (!w || w.hidden) return null;
+  return layRead('welcome', () => settledBox(w));
 }
 function safeArea() {
   const v = rect(),
-    w = $('mapWelcome');
+    b = welcomeBox();
   let top = 78,
     left = 35;
-  if (w && !w.hidden) {
-    const b = w.getBoundingClientRect();
-    if (b.height) {
-      if (v.w < 760) top = Math.max(78, Math.round(b.bottom - v.y) + 14);
-      else if (b.width < v.w * 0.35) left = Math.max(35, Math.round(b.right - v.x) + 24);
-      else top = Math.max(78, Math.round(b.bottom - v.y) + 14);
-    }
+  if (b && b.height) {
+    if (v.w < 760) top = Math.max(78, Math.round(b.bottom - v.y) + 14);
+    else if (b.width < v.w * 0.35) left = Math.max(35, Math.round(b.right - v.x) + 24);
+    else top = Math.max(78, Math.round(b.bottom - v.y) + 14);
   }
   return {
     x: left,
@@ -313,6 +413,12 @@ let appearSeq = 0,
 function entrance(key, cx, cy, now) {
   seenNow.add(key);
   if (reducedMotion) return { o: 1, tr: '' };
+  // Drawn while the camera moves: in place at once, and not animated again when the camera rests.
+  if (CAM.instant) {
+    if (!appear.has(key)) appear.set(key, now - 1e6);
+    else if (appear.get(key) > now - 280) appear.set(key, now - 1e6);
+    return { o: 1, tr: '' };
+  }
   let t0 = appear.get(key);
   if (t0 === undefined) {
     t0 = now + Math.min(200, appearSeq++ * 12);
@@ -350,6 +456,12 @@ function storeView() {
 function deferPersist() {
   clearTimeout(persistTimer);
   persistTimer = setTimeout(() => {
+    // v3.2: saving writes the whole notebook, which holds the page still for a moment. Never in the middle
+    // of a gesture or a flight: wait for the camera to rest.
+    if (camMoving(performance.now())) {
+      deferPersist();
+      return;
+    }
     storeView();
     saveCache();
   }, 500);
@@ -360,68 +472,482 @@ function remember() {
   if (S.history.length > 70) S.history.shift();
   $('studyBack').disabled = false;
 }
+// ---- v3.2: the camera in motion.
+// Until v3.1 every frame of a drag, a zoom or a flight drew the whole map again (30 ms a frame, more on a
+// slow machine), so the map trailed the pointer. Now a frame of motion only moves the picture already on the
+// page: one transform on the canvas, set once per animation frame from the newest input. The map is drawn
+// again when the camera rests, and during a long motion only when the picture has drifted too far to stand
+// in for the real one (blank edges coming into view, or a scale past what its level of detail suits), at most
+// a few times a second. A flight draws its destination shortly before it arrives and eases onto it, so the
+// landing does not jump. The feel follows Apple's fluid-interface notes: the map stays under the pointer,
+// keeps the pointer's speed when released, and any new touch or wheel takes over at once from where it is.
+const CAM_OVERSCAN = 320, // px drawn beyond each edge while moving
+  CAM_STIFF = 16, // spring rate of a flight, per second (critically damped)
+  CAM_DECAY = 0.998, // share of the glide speed kept each ms (UIScrollView's normal rate)
+  CAM_ZMAX = 1.25;
+function camMoving(now) {
+  return !!(CAM.spring || CAM.glide || CAM.wheel || now < CAM.zooming || CAM.snapAt || S.pointers.size);
+}
+function camUnshift() {
+  if (!CAM.shifted) return;
+  svg.style.transform = '';
+  CAM.shifted = false;
+}
+// The canvas's own background moves with it, so while it moves the same background sits on its parent.
+function camState(moving) {
+  if (CAM.moving === moving) return;
+  CAM.moving = moving;
+  const main = svg.parentElement;
+  if (moving) {
+    main.style.background = getComputedStyle(svg).background;
+    svg.classList.add('is-moving');
+    document.documentElement.classList.add('dkla-map-moving');
+  } else {
+    svg.classList.remove('is-moving');
+    document.documentElement.classList.remove('dkla-map-moving');
+    main.style.background = '';
+  }
+}
+// Called by whatever paints the map (draw, and the rules-and-authorities view): the picture now shows S.
+function camDrawBegin() {
+  camUnshift();
+}
+function camDrawn() {
+  CAM.held = null;
+  CAM.drawn = { x: S.x, y: S.y, z: S.z, over: CAM.over || CAM_NONE };
+  CAM.lastDraw = performance.now();
+  CAM.draws++;
+}
+// Carry the drawn picture to where the camera is now.
+function camShift() {
+  const D = CAM.drawn;
+  if (!D) return;
+  const k = S.z / D.z,
+    tx = (D.x - S.x) * S.z,
+    ty = (D.y - S.y) * S.z;
+  if (Math.abs(k - 1) < 1e-6 && Math.abs(tx) < 0.01 && Math.abs(ty) < 0.01) {
+    camUnshift();
+    return;
+  }
+  svg.style.transform = `translate(${tx.toFixed(2)}px,${ty.toFixed(2)}px) scale(${k.toFixed(5)})`;
+  CAM.shifted = true;
+}
+// How far the picture falls short of the window on each side, in px (negative: that much to spare).
+function camShort(v) {
+  const D = CAM.drawn,
+    k = S.z / D.z,
+    tx = (D.x - S.x) * S.z,
+    ty = (D.y - S.y) * S.z;
+  return {
+    l: v.w / 2 + tx - (v.w / 2 + D.over.l) * k,
+    r: v.w / 2 - tx - (v.w / 2 + D.over.r) * k,
+    t: v.h / 2 + ty - (v.h / 2 + D.over.t) * k,
+    b: v.h / 2 - ty - (v.h / 2 + D.over.b) * k,
+  };
+}
+// Draw the map for the camera `at` (default: where it is) and leave the camera where it was.
+function camDraw(at, over, instant, resting = false) {
+  const keep = at ? { x: S.x, y: S.y, z: S.z } : null;
+  if (at) Object.assign(S, { x: at.x, y: at.y, z: at.z });
+  CAM.over = over && (over.l || over.t || over.r || over.b) ? over : null;
+  CAM.instant = instant;
+  // A frame of a flight, or of a drag held past the map's edge, is drawn where the camera is.
+  CAM.noClamp = (!!CAM.spring || S.pointers.size > 0) && !at;
+  CAM.dirty = false;
+  // What a draw costs, including the browser's own layout and painting of the new picture: the time to
+  // the start of the frame after it.
+  if (!CAM.drawBegan) {
+    CAM.drawBegan = performance.now();
+    requestAnimationFrame(() => {
+      CAM.cost = Math.min(1500, performance.now() - CAM.drawBegan);
+      CAM.drawBegan = 0;
+    });
+  }
+  camDrawBegin();
+  try {
+    draw();
+  } finally {
+    CAM.over = null;
+    CAM.instant = false;
+    CAM.noClamp = false;
+    // Input that waited behind this draw has not been seen yet: a zoom is not over because of the wait.
+    const end = performance.now();
+    if (CAM.zooming) CAM.zooming = Math.max(CAM.zooming, end + 140);
+    if (CAM.snapAt) CAM.snapAt = Math.max(CAM.snapAt, end + 140);
+  }
+  // A layer may return without painting (SCOTUS History covers the map): the picture stands for this camera.
+  if (!CAM.drawn || CAM.drawn.x !== S.x || CAM.drawn.y !== S.y || CAM.drawn.z !== S.z) {
+    CAM.drawn = { x: S.x, y: S.y, z: S.z, over: over || CAM_NONE };
+    CAM.lastDraw = performance.now();
+  }
+  // Which labels give way to which depends a little on what was showing before (a label already up keeps its
+  // place). When every frame was a draw that settled unseen; now the draw at rest is repeated until the
+  // labels agree with themselves, so the picture at rest does not depend on the road taken to it.
+  // The same goes for the camera's own limits: a draw can show or hide the welcome note, which changes the
+  // area the map is centred in, and the draw after it then moves the camera a few pixels.
+  if (resting) {
+    const labels = [...(R11.blockedBy || new Map()).keys()].join('|'),
+      x = S.x,
+      y = S.y,
+      z = S.z;
+    LAY.memo.clear(); // the page as the draw left it, not as the draw found it
+    clampCamera(CAM.active);
+    if ((labels !== CAM.labels || S.x !== x || S.y !== y || S.z !== z) && CAM.again < 3) {
+      CAM.again++;
+      CAM.dirty = true;
+    } else CAM.again = 0;
+    CAM.labels = labels;
+  }
+  if (at) {
+    // The draw may have moved the camera it was given back inside the map: that is where the flight ends.
+    if (CAM.spring) Object.assign(CAM.spring, { x: S.x, y: S.y, z: S.z });
+    Object.assign(S, keep);
+    camShift();
+  }
+}
+// The clamp's camera-independent half, kept from one draw to the next.
+function camHeld() {
+  return CAM.held || (CAM.held = clampFrame(CAM.active));
+}
+// `soft`: under a finger the map can be pulled past its edge, less and less the further it goes (the rubber
+// band of a scroll view: 0.55 of the pull at first); it springs back on release.
+function camClamp(soft) {
+  const x = S.x,
+    y = S.y;
+  if (R11.clampOff()) return { x: false, y: false };
+  const F = camHeld();
+  clampWith(F);
+  if (soft) {
+    const band = (pulled, size) => (pulled * 0.55 * size) / (size + 0.55 * Math.abs(pulled));
+    S.x += band((x - S.x) * S.z, F.v.w) / S.z;
+    S.y += band((y - S.y) * S.z, F.v.h) / S.z;
+    return { x: false, y: false };
+  }
+  return { x: S.x !== x, y: S.y !== y };
+}
+// After a finger lifts: back inside the map if it was pulled past the edge.
+function camRelease() {
+  if (R11.clampOff()) return;
+  const keep = { x: S.x, y: S.y, z: S.z };
+  clampWith(camHeld());
+  const to = { x: S.x, y: S.y, z: S.z };
+  Object.assign(S, keep);
+  if (Math.hypot(to.x - keep.x, to.y - keep.y) * S.z > 0.5 || to.z !== keep.z) {
+    CAM.glide = null;
+    setCamera(to.x, to.y, to.z);
+  }
+}
+// One step of a flight: a critically damped spring on the position and on the logarithm of the zoom, so it has
+// no overshoot and a new destination simply replaces the old one while the speed carries over. A destination
+// several screens away is approached from further out (the zoom's own target drops while the distance is
+// large), so a long flight still zooms out, crosses and zooms back in.
+function camSpringStep(dt, a) {
+  const sp = CAM.spring,
+    w = CAM_STIFF,
+    e = Math.exp(-w * dt),
+    one = (pos, vel, to) => {
+      const d = pos - to,
+        c = vel + w * d;
+      return [to + (d + c * dt) * e, (vel - w * c * dt) * e];
+    };
+  const far = (Math.hypot(S.x - sp.x, S.y - sp.y) * sp.z) / (1.2 * Math.max(1, a.w));
+  const uTo = Math.max(Math.log(camHeld().z0), Math.log(sp.z) - (far > 1 ? 0.9 * Math.log(far) : 0));
+  let u;
+  [S.x, sp.vx] = one(S.x, sp.vx, sp.x);
+  [S.y, sp.vy] = one(S.y, sp.vy, sp.y);
+  [u, sp.vu] = one(Math.log(S.z), sp.vu, uTo);
+  S.z = Math.exp(u);
+  sp.t += dt;
+  const px = Math.hypot(S.x - sp.x, S.y - sp.y) * sp.z,
+    speed = Math.hypot(sp.vx, sp.vy) * sp.z;
+  // Within half a pixel and a third of a percent of the destination: there (the picture is already its own).
+  if (
+    (px < 0.5 && Math.abs(u - Math.log(sp.z)) < 0.003 && speed < 40 && Math.abs(sp.vu) < 0.08) ||
+    sp.t > 1.6
+  ) {
+    Object.assign(S, { x: sp.x, y: sp.y, z: sp.z });
+    CAM.spring = null;
+    R11.anim = false;
+    deferPersist();
+  }
+}
+// Stop a flight or a glide where it is. Returns true when a glide was stopped (the press that stopped it is
+// not also a click). A flight that has all but arrived is put on its destination.
+function camStop() {
+  const sp = CAM.spring,
+    gliding = !!CAM.glide;
+  if (sp && Math.hypot(S.x - sp.x, S.y - sp.y) * sp.z < 4 && Math.abs(Math.log(S.z / sp.z)) < 0.01)
+    Object.assign(S, { x: sp.x, y: sp.y, z: sp.z });
+  if (sp || gliding) deferPersist();
+  CAM.spring = null;
+  CAM.glide = null;
+  R11.anim = false;
+  return gliding;
+}
+function camKick() {
+  if (!S.frame) S.frame = requestAnimationFrame(camFrame);
+}
+// Pointer input is only recorded by the handlers; the camera follows it here, once per frame.
+function camPointers(now, v) {
+  const d = S.drag;
+  if (!d || !S.pointers.size) return;
+  if (S.pointers.size >= 2 && S.pinch) {
+    if (S.pinch.level === null) return; // stepped by the handler
+    const [a, b] = [...S.pointers.values()],
+      dist = Math.max(1, Math.hypot(a.x - b.x, a.y - b.y)),
+      z = Math.min(CAM_ZMAX, Math.max(camHeld().z0, (S.pinch.z * dist) / S.pinch.distance));
+    if (!d.hasMoved && Math.abs(Math.log(dist / S.pinch.distance)) > 0.02) {
+      remember();
+      d.hasMoved = true;
+    }
+    if (!d.hasMoved) return;
+    S.z = z;
+    S.x = S.pinch.world.x - ((a.x + b.x) / 2 - v.x - v.w / 2) / z;
+    S.y = S.pinch.world.y - ((a.y + b.y) / 2 - v.y - v.h / 2) / z;
+    camClamp(true);
+    return;
+  }
+  const p = S.pointers.values().next().value,
+    dx = p.x - d.x,
+    dy = p.y - d.y;
+  if (!d.hasMoved && Math.hypot(dx, dy) > 5) {
+    remember();
+    d.hasMoved = true;
+    svg.classList.add('panning');
+  }
+  if (!d.hasMoved) return;
+  if (d.node) {
+    d.preview = { ...d.home, x: d.home.x + dx / d.z, y: d.home.y + dy / d.z };
+    CAM.dirty = true;
+    return;
+  }
+  S.x = d.cx - dx / d.z;
+  S.y = d.cy - dy / d.z;
+  camClamp(true);
+}
+// Wheel zoom (a trackpad pinch arrives as Ctrl + wheel; Alt + wheel is the free zoom): the point under the
+// pointer stays under it.
+function camWheel(now, v) {
+  const wl = CAM.wheel;
+  if (!wl) return;
+  CAM.wheel = null;
+  if (now - (CAM.wheelAt || 0) > 500) remember();
+  CAM.wheelAt = now;
+  const p = screenToWorld(wl.x, wl.y);
+  if (wl.snap && !CAM.pinch) CAM.pinch = { from: { x: S.x, y: S.y, z: S.z }, level: R11.level(p).lvl };
+  const z = Math.min(CAM_ZMAX, Math.max(camHeld().z0, S.z * Math.exp(wl.dz)));
+  S.zoomAnchor = p;
+  S.x = p.x - (wl.x - v.x - v.w / 2) / z;
+  S.y = p.y - (wl.y - v.y - v.h / 2) / z;
+  S.z = z;
+  camClamp();
+  CAM.zooming = now + 140;
+  if (CAM.pinch) {
+    CAM.pinch.world = p;
+    CAM.snapAt = now + 140;
+  }
+  deferPersist();
+}
+// A pinch ends on one of the four levels the map is designed for: the nearest, or the next one in the
+// direction pinched when the fingers moved clearly but not far enough to be nearer to it.
+function camSnap() {
+  const pinch = CAM.pinch;
+  CAM.pinch = null;
+  CAM.snapAt = 0;
+  if (!pinch || !R11.continuous()) return;
+  const t = R11.level(pinch.world),
+    moved = Math.log(S.z / pinch.from.z);
+  let target = t.lvl;
+  if (target === pinch.level && Math.abs(moved) > 0.16)
+    target = Math.max(0, Math.min(3, pinch.level + (moved > 0 ? 1 : -1)));
+  // The pinch saved the view it began from; arriving at a level must not add the half-way view to Back.
+  const kept = S.history.length;
+  if (target === pinch.level || !R11.go(target, t)) setCamera(pinch.from.x, pinch.from.y, pinch.from.z);
+  if (S.history.length > kept) S.history.length = kept;
+}
+function camFrame(now) {
+  S.frame = 0;
+  // The first frame of a motion is one ordinary frame long; a frame held up (by a draw, or a busy machine)
+  // counts for at most 120 ms.
+  const dt = CAM.rested ? 0.016 : Math.min(120, Math.max(1, now - CAM.lastFrame)) / 1000;
+  CAM.rested = false;
+  CAM.lastFrame = now;
+  if (!data.studyMap) return;
+  measured(() => {
+    const v = rect(),
+      x0 = S.x,
+      y0 = S.y,
+      z0 = S.z;
+    camPointers(now, v);
+    camWheel(now, v);
+    if (CAM.snapAt && now >= CAM.snapAt && !S.pointers.size) camSnap();
+    if (CAM.glide) {
+      const g = CAM.glide,
+        k = Math.pow(CAM_DECAY, dt * 1000);
+      // The distance covered in dt at a speed that decays by CAM_DECAY each ms.
+      const reach = (k - 1) / Math.log(CAM_DECAY);
+      S.x -= (g.vx * reach) / S.z;
+      S.y -= (g.vy * reach) / S.z;
+      g.vx *= k;
+      g.vy *= k;
+      const hit = camClamp();
+      if (hit.x) g.vx = 0;
+      if (hit.y) g.vy = 0;
+      if (Math.hypot(g.vx, g.vy) < 0.02) {
+        CAM.glide = null;
+        deferPersist();
+      }
+    }
+    if (CAM.spring) camSpringStep(dt, camHeld().a);
+    // The camera's own speed, smoothed: it says which way the picture will run out.
+    const ms = dt * 1000,
+      vel = CAM.vel;
+    vel.x += 0.35 * (((S.x - x0) * S.z) / ms - vel.x);
+    vel.y += 0.35 * (((S.y - y0) * S.z) / ms - vel.y);
+    vel.u += 0.35 * (Math.log(S.z / z0) / ms - vel.u);
+    if (S.x !== x0 || S.y !== y0 || S.z !== z0) CAM.lastMove = now;
+    if (CAM.zooming && now >= CAM.zooming) CAM.zooming = 0;
+    const D = CAM.drawn,
+      moving = camMoving(now),
+      same = D && D.x === S.x && D.y === S.y && D.z === S.z;
+    if (!moving) {
+      // While the atlas is still behind its loading curtain, the layers that start up one after another
+      // each ask for a draw nobody can see: those are made at most five times a second. (The page draws
+      // once itself, directly, just before it lifts the curtain: v25/boot.js.)
+      if (CAM.booting) {
+        if (document.documentElement.classList.contains('dkla-boot-ready') || now > 20000)
+          CAM.booting = false;
+        else if (D && now - CAM.lastDraw < 200) {
+          camKick();
+          return;
+        }
+      }
+      // At rest: the real picture, exactly as a fresh draw makes it. Coming out of a motion it is complete
+      // at once (the motion was the animation); a change made at rest still fades in as it always has.
+      if (CAM.dirty || !same || D.over !== CAM_NONE) camDraw(null, null, CAM.moving, true);
+      else {
+        camUnshift();
+        if (CAM.moving) {
+          // A flight that drew its destination needs no draw on arrival, unless that draw changed the area
+          // the map is centred in (see camDraw): then the camera takes its place now.
+          clampCamera(CAM.active);
+          if (S.x !== D.x || S.y !== D.y || S.z !== D.z) camDraw(null, null, true, true);
+        }
+      }
+      camState(false);
+      vel.x = vel.y = vel.u = 0;
+    } else if (!D) camDraw(null, null, true);
+    else {
+      if (!same) camState(true);
+      // A draw in the middle of a motion holds the map still for as long as it takes, so draws are spaced
+      // to leave at least four fifths of the time to the motion (and never closer than 180 ms).
+      const since = now - CAM.lastDraw,
+        gap = Math.max(180, 4 * CAM.cost),
+        idle = now - Math.max(CAM.lastMove, CAM.lastDraw) > 140,
+        k = S.z / D.z,
+        short = camShort(v),
+        sp = CAM.spring;
+      // Zooming out brings every edge inwards at this speed (px per ms).
+      const inX = Math.max(0, -vel.u) * (v.w / 2),
+        inY = Math.max(0, -vel.u) * (v.h / 2),
+        toward = { l: inX - vel.x, r: inX + vel.x, t: inY - vel.y, b: inY + vel.y };
+      // Blank map is in view, or will be within a draw's time, on some side.
+      let blank = false;
+      for (const side of ['l', 't', 'r', 'b'])
+        if (short[side] + Math.max(0, toward[side]) * Math.max(120, CAM.cost) > 40) blank = true;
+      // Near its end a flight draws its destination and rides onto it. `need`: how far the present view
+      // reaches beyond the destination's own window on each side, in the destination's px.
+      let arriving = false,
+        need = null;
+      if (sp) {
+        const cx = (S.x - sp.x) * sp.z,
+          cy = (S.y - sp.y) * sp.z,
+          hw = (v.w / 2) * (sp.z / S.z),
+          hh = (v.h / 2) * (sp.z / S.z),
+          pad = (n) => (n > 0.5 ? Math.ceil(n) + 24 : 0);
+        need = {
+          l: pad(hw - cx - v.w / 2),
+          r: pad(hw + cx - v.w / 2),
+          t: pad(hh - cy - v.h / 2),
+          b: pad(hh + cy - v.h / 2),
+        };
+        // Flying outwards, the destination's picture already covers everything in view, so it can be drawn
+        // at once (magnified at first, exact on arrival). Flying inwards it is drawn once the view is
+        // nearly its size, when the surroundings still in view fit in the overscan.
+        const most = Math.max(need.l, need.r, need.t, need.b);
+        arriving =
+          most === 0 ? S.z / sp.z < 4 : Math.abs(Math.log(S.z / sp.z)) < 0.26 && most <= CAM_OVERSCAN + 24;
+      }
+      const landed = sp && D.x === sp.x && D.y === sp.y && D.z === sp.z;
+      if (arriving && (!landed || (CAM.dirty && since >= gap)))
+        camDraw({ x: sp.x, y: sp.y, z: sp.z }, need, true);
+      else if (landed && !CAM.dirty) camShift();
+      else if (
+        // (A flight shows whatever changed when it draws its destination; only a long one draws before.)
+        (CAM.dirty && since >= gap && (!sp || sp.t > 0.3)) ||
+        // The fingers rest in the middle of a pinch: show the real picture at this scale. (A pan needs
+        // nothing: the picture carried along is the real one.)
+        (Math.abs(k - 1) > 0.02 && S.pointers.size && idle && since >= 250) ||
+        // The picture no longer stands in for the real one: blank map is coming into view, or the scale
+        // has left the range its level of detail suits.
+        (!same && since >= gap && (blank || (!sp && (k > 1.3 || k < 0.77))))
+      ) {
+        // Draw the surroundings only where the camera is heading: about a second of travel, at most
+        // CAM_OVERSCAN. Everything drawn beyond the window costs every later frame a little.
+        const lead = (speed) =>
+          speed > 0.02 ? Math.min(CAM_OVERSCAN, Math.max(96, Math.round(speed * 900))) : 0;
+        camDraw(null, { l: lead(toward.l), t: lead(toward.t), r: lead(toward.r), b: lead(toward.b) }, true);
+      } else camShift();
+    }
+    const at = CAM.drawn,
+      left = at && S.pointers.size ? camShort(v) : null;
+    if (
+      CAM.spring ||
+      CAM.glide ||
+      CAM.wheel ||
+      CAM.dirty ||
+      CAM.snapAt ||
+      CAM.zooming ||
+      // A finger rests on a picture that needs replacing (a paused pinch, or blank map showing).
+      (left && (Math.abs(S.z / at.z - 1) > 0.02 || Math.max(left.l, left.t, left.r, left.b) > 40))
+    )
+      camKick();
+    else CAM.rested = true;
+  });
+}
 function setCamera(x, y, z, animate = true) {
-  cancelAnimationFrame(S.animation);
-  z = Math.min(1.25, Math.max(zoomFloor(), z));
-  const from = { x: S.x, y: S.y, z: S.z },
-    start = performance.now();
+  z = Math.min(CAM_ZMAX, Math.max(zoomFloor(), z));
+  CAM.glide = null;
+  CAM.pinch = null;
+  CAM.snapAt = 0;
   if (!animate || reducedMotion) {
+    CAM.spring = null;
     R11.anim = false;
     Object.assign(S, { x, y, z });
     schedule();
     deferPersist();
     return;
   }
-  // r11: van Wijk and Nuij (2003) smooth zoom-and-pan: one path through (position, width) space, rho = 1.42, so a long flight zooms out, crosses, and zooms back in instead of sliding.
-  const rho = 1.42,
-    rho2 = rho * rho,
-    W = Math.max(1, safeArea().w),
-    w0 = W / from.z,
-    w1 = W / z,
-    dx = x - from.x,
-    dy = y - from.y,
-    d = Math.hypot(dx, dy);
-  let Sp, at;
-  if (d < 1e-6) {
-    Sp = Math.abs(Math.log(w1 / w0)) / rho;
-    const k = w1 > w0 ? 1 : -1;
-    at = (s) => ({ x: from.x, y: from.y, w: w0 * Math.exp(k * rho * s) });
-  } else {
-    const b0 = (w1 * w1 - w0 * w0 + rho2 * rho2 * d * d) / (2 * w0 * rho2 * d),
-      b1 = (w1 * w1 - w0 * w0 - rho2 * rho2 * d * d) / (2 * w1 * rho2 * d),
-      r0 = Math.log(Math.sqrt(b0 * b0 + 1) - b0),
-      r1 = Math.log(Math.sqrt(b1 * b1 + 1) - b1);
-    Sp = (r1 - r0) / rho;
-    const ch0 = Math.cosh(r0),
-      sh0 = Math.sinh(r0);
-    at = (s) => {
-      const u = (w0 / (rho2 * d)) * (ch0 * Math.tanh(rho * s + r0) - sh0);
-      return { x: from.x + u * dx, y: from.y + u * dy, w: (w0 * ch0) / Math.cosh(rho * s + r0) };
-    };
-  }
-  const dur = Math.min(1200, Math.max(340, Math.abs(Sp) * 260));
-  function step(t) {
-    const f = Math.min(1, (t - start) / dur),
-      u = f < 0.5 ? 2 * f * f : 1 - Math.pow(-2 * f + 2, 2) / 2;
-    if (f < 1) {
-      const p = at(Sp * u);
-      if (Number.isFinite(p.x) && Number.isFinite(p.w) && p.w > 0) {
-        S.x = p.x;
-        S.y = p.y;
-        S.z = Math.min(1.25, Math.max(zoomFloor(), W / p.w));
-      }
-      schedule();
-      S.animation = requestAnimationFrame(step);
-    } else {
-      Object.assign(S, { x, y, z });
-      schedule();
-      R11.anim = false;
-      deferPersist();
-    }
-  }
+  // A flight already under way is redirected: its speed carries over to the new destination.
+  CAM.spring = { vx: 0, vy: 0, vu: 0, ...CAM.spring, x, y, z, t: 0 };
   R11.anim = true;
-  S.animation = requestAnimationFrame(step);
+  CAM.dirty = true;
+  camKick();
 }
+// For the checks (tools/feel/check-map.mjs) and for anyone looking at the page: what the camera is doing.
+window.DKLAMapMotion = {
+  state: () => ({
+    moving: CAM.moving,
+    shifted: CAM.shifted,
+    flying: !!CAM.spring,
+    gliding: !!CAM.glide,
+    draws: CAM.draws,
+    dirty: CAM.dirty,
+    drawn: CAM.drawn ? { ...CAM.drawn } : null,
+    camera: { x: S.x, y: S.y, z: S.z },
+    reducedMotion,
+  }),
+};
 function fitBox(b, animate = true, pad = 16, maxZoom = 1.4) {
   const v = rect(),
     a = safeArea(),
@@ -575,8 +1101,7 @@ function back() {
   }
   const v = S.history.pop();
   if (!v) return;
-  cancelAnimationFrame(S.animation);
-  R11.anim = false;
+  camStop();
   R11.lastT = null;
   restoreView(v);
   $('studyBack').disabled = !S.history.length;
@@ -705,12 +1230,10 @@ function regionPath(r) {
   const c = 56;
   return `M ${r.x + c} ${r.y} H ${r.x + r.w - c * 1.4} Q ${r.x + r.w} ${r.y} ${r.x + r.w} ${r.y + c * 1.4} V ${r.y + r.h - c} Q ${r.x + r.w} ${r.y + r.h} ${r.x + r.w - c} ${r.y + r.h} H ${r.x + c} Q ${r.x} ${r.y + r.h} ${r.x} ${r.y + r.h - c} V ${r.y + c} Q ${r.x} ${r.y} ${r.x + c} ${r.y} Z`;
 }
+// Something on the map changed: draw it again in the next frame (see camFrame).
 function schedule() {
-  if (S.frame) return;
-  S.frame = requestAnimationFrame(() => {
-    S.frame = 0;
-    draw();
-  });
+  CAM.dirty = true;
+  camKick();
 }
 function nearestRegion(x, y) {
   return mapData().regions.filter((r) => x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h)[0];
@@ -1059,18 +1582,25 @@ function autoScope() {
 function zoomFloor() {
   return morphBand().z0;
 }
-function clampCamera(active) {
-  if (!data.studyMap) return;
-  const band = morphBand();
-  if (S.z < band.z0) S.z = band.z0;
-  const t = morphT(S.z, band);
-  const a = safeArea(),
+// What the clamp needs that does not depend on where the camera is: the zoom floor, the safe area, the canvas
+// and the box the view must stay over. Gathered once and used for every frame of a gesture (v3.2).
+function clampFrame(active) {
+  const band = morphBand(),
+    a = safeArea(),
+    v = rect(),
+    b =
+      morphT(S.z, band) < 1 || S.scope === 'Atlas'
+        ? galaxy().box
+        : bounds([scopeBox(), ...scopeRegions(), ...[...(active || [])].map((id) => homeFor(id))]);
+  return { z0: band.z0, a, v, b };
+}
+function clampWith(F) {
+  if (S.z < F.z0) S.z = F.z0;
+  const { a, v, b } = F,
     aw = a.w / S.z,
     ah = a.h / S.z,
-    c = mapCenterVisible();
-  let b;
-  if (t < 1 || S.scope === 'Atlas') b = galaxy().box;
-  else b = bounds([scopeBox(), ...scopeRegions(), ...[...(active || [])].map((id) => homeFor(id))]);
+    // the centre of the safe area, in map units (mapCenterVisible)
+    c = { x: S.x + (a.x + a.w / 2 - v.w / 2) / S.z, y: S.y + (a.y + a.h / 2 - v.h / 2) / S.z };
   let lo = b.x + aw / 2 - aw * 0.3,
     hi = b.x + b.w - aw / 2 + aw * 0.3;
   const cx = lo > hi ? b.x + b.w / 2 : Math.min(hi, Math.max(lo, c.x));
@@ -1080,6 +1610,16 @@ function clampCamera(active) {
   S.x += cx - c.x;
   S.y += cy - c.y;
 }
+function clampCamera(active) {
+  if (!data.studyMap || CAM.noClamp) return;
+  const band = morphBand();
+  if (S.z < band.z0) S.z = band.z0;
+  clampWith(clampFrame(active));
+}
+// A layer that covers the map (SCOTUS History) turns the clamp off while it is open.
+R11.clampOff = function () {
+  return false;
+};
 // ---- Measured text. Widths come from a canvas at 100 px and scale linearly, so wrapping never overflows its box.
 function fam(cls) {
   return R11_FONT;
@@ -1227,7 +1767,10 @@ function resolveLabels(V) {
       st.html = null;
       continue;
     }
-    const blk = l.nocollide ? false : hit(l.box, st.o > 0.5 ? 0 : 2);
+    // A label already showing keeps its place unless something touches it; one not yet showing needs 2 px
+    // of room. A draw made for a moving camera gives every label the 2 px test, so the picture the camera
+    // comes to rest on is the one a jump straight to that view gives (v3.2).
+    const blk = l.nocollide ? false : hit(l.box, st.o > 0.5 && !CAM.instant ? 0 : 2);
     let ok = !blk;
     if (blk) R11.blockedBy.set(l.key, blk);
     if (ok && l.avoidBoxes) {
@@ -1265,9 +1808,10 @@ function resolveLabels(V) {
       continue;
     }
     st.o = Math.max(0, st.o - dt / 300);
-    settling = true;
-    if (st.o > 0.004) out.push(`<g opacity="${st.o.toFixed(3)}" pointer-events="none">${st.html}</g>`);
-    else R11.labelState.delete(k);
+    if (st.o > 0.004) {
+      settling = true;
+      out.push(`<g opacity="${st.o.toFixed(3)}" pointer-events="none">${st.html}</g>`);
+    } else R11.labelState.delete(k);
   }
   frameLabels = [];
   return out.join('');
@@ -1283,7 +1827,7 @@ function fadeIn(key, html, sticky = true) {
   st.html = sticky ? html : null;
   if (st.o < 1) {
     st.o = Math.min(1, st.o + R11.dt / 300);
-    settling = true;
+    if (st.o < 1) settling = true;
   }
   return { o: st.o, html: st.o < 1 ? `<g opacity="${st.o.toFixed(3)}">${html}</g>` : html };
 }
@@ -1322,9 +1866,15 @@ function nearestStar(clientX, clientY, maxPx = 9) {
 }
 function draw() {
   if (!data.studyMap) return;
+  // One reading of the page for this draw and for the layers that decorate it (they run in this same task).
+  camDrawBegin();
+  LAY.memo.clear();
+  LAY.v = null;
+  LAY.hold++;
+  queueMicrotask(() => LAY.hold--);
   applyPalette(mapData());
   const now = performance.now();
-  R11.dt = reducedMotion ? 1e9 : Math.min(100, Math.max(1, now - (R11.lastFrame || now - 16)));
+  R11.dt = reducedMotion || CAM.instant ? 1e9 : Math.min(100, Math.max(1, now - (R11.lastFrame || now - 16)));
   R11.lastFrame = now;
   R11.frame++;
   const activeEdges = shownEdges(),
@@ -1339,12 +1889,14 @@ function draw() {
   const t = 1;
   autoScope();
   clampCamera(active);
+  CAM.active = active;
+  camDrawn();
   const B = visibleBox(),
     z = S.z,
-    V = rect();
+    V = paintRect();
   frameB = B;
   frameZ = z;
-  svg.setAttribute('viewBox', `${B.x} ${B.y} ${B.w} ${B.h}`);
+  setViewBox();
   settling = false;
   appearSeq = 0;
   seenNow = new Set();
@@ -1370,7 +1922,7 @@ function draw() {
   ]
     .filter((el) => !el.hidden && el.offsetParent !== null)
     .map((el) => {
-      const b = el.getBoundingClientRect();
+      const b = settledBox(el);
       return {
         x: b.left - (V.x || 0) - 6,
         y: b.top - (V.y || 0) - 6,
@@ -2012,7 +2564,7 @@ function draw() {
           pulseAt = now;
         }
         const pf = Math.min(1, (now - pulseAt) / 720);
-        if (pf < 1 && !reducedMotion) {
+        if (pf < 1 && !reducedMotion && !CAM.instant) {
           settling = true;
           const gf = 1 + pf * 0.16,
             cx = c.x + c.w / 2,
@@ -2143,6 +2695,7 @@ function draw() {
       t0 = now + painted.length * 70;
       edgeAppear.set(e.id, t0);
     }
+    if (CAM.instant && t0 > now - 480) edgeAppear.set(e.id, (t0 = now - 1e6));
     const ep = reducedMotion ? 1 : Math.min(1, Math.max(0, (now - t0) / 480));
     if (ep < 1) settling = true;
     const eu = 1 - Math.pow(1 - ep, 3);
@@ -2286,10 +2839,12 @@ function levelTargets(p) {
 }
 R11.level = function (p) {
   const t = levelTargets(p || mapCenterVisible());
+  // During a flight the level is the one the camera is flying to, so a second step continues from there.
+  const zNow = CAM.spring ? CAM.spring.z : S.z;
   let lvl = 0,
     bd = Infinity;
   t.z.forEach((z, i) => {
-    const d = Math.abs(Math.log(S.z / z));
+    const d = Math.abs(Math.log(zNow / z));
     if (d < bd) {
       bd = d;
       lvl = i;
@@ -2297,22 +2852,32 @@ R11.level = function (p) {
   });
   return { lvl, ...t };
 };
+// Go to one of the four levels around the point the targets `t` were worked out for (see R11.level).
+R11.go = function (target, t) {
+  if (target === 0) home('Atlas');
+  else if (target === 1) home(t.course.c);
+  else if (target === 2 && t.subject) goRegion(t.subject.id);
+  else if (target === 3 && t.district) goDistrict(t.district.id);
+  else if (target === 3 && t.subject) goRegion(t.subject.id);
+  else return false;
+  return true;
+};
+// Whether the view in front zooms continuously under a pinch (the rules-and-authorities view steps instead).
+R11.continuous = function () {
+  return true;
+};
 R11.step = function (dir, p) {
   if (R11.stepping) return false;
   p = p || mapCenterVisible();
   const t = R11.level(p),
     target = Math.max(0, Math.min(3, t.lvl + dir));
   if (target === t.lvl) return false;
+  // A flight can be redirected, so the lock only keeps one press or one wheel notch from counting twice.
   R11.stepping = true;
   setTimeout(() => {
     R11.stepping = false;
-  }, 650);
-  if (target === 0) home('Atlas');
-  else if (target === 1) home(t.course.c);
-  else if (target === 2 && t.subject) goRegion(t.subject.id);
-  else if (target === 3 && t.district) goDistrict(t.district.id);
-  else if (target === 3 && t.subject) goRegion(t.subject.id);
-  else {
+  }, 300);
+  if (!R11.go(target, t)) {
     R11.stepping = false;
     return false;
   }
@@ -3093,123 +3658,157 @@ svg.addEventListener('keydown', (e) => {
     activateMap(t);
   }
 });
-let lastWheel = 0,
-  floorHits = 0;
-svg.addEventListener(
-  'wheel',
-  (e) => {
-    e.preventDefault();
-    if (!e.altKey) {
-      R11.wheel(e);
-      return;
-    }
-    if (Date.now() - lastWheel > 500) remember();
-    lastWheel = Date.now();
-    cancelAnimationFrame(S.animation);
-    R11.anim = false;
-    const p = screenToWorld(e.clientX, e.clientY),
-      v = rect(),
-      z = Math.max(
-        zoomFloor(),
-        Math.min(1.25, S.z * Math.exp(-Math.max(-120, Math.min(120, e.deltaY)) * 0.003)),
-      );
-    S.zoomAnchor = p;
-    S.x = p.x - (e.clientX - v.x - v.w / 2) / z;
-    S.y = p.y - (e.clientY - v.y - v.h / 2) / z;
-    S.z = z;
-    schedule();
-    deferPersist();
-  },
-  { passive: false },
-);
-svg.addEventListener('pointerdown', (e) => {
+// The handlers below only record what the pointer did; the camera follows in the next frame (camFrame), so
+// a burst of events costs one camera update and nothing here reads the page's layout.
+function onMapWheel(e) {
+  e.preventDefault();
+  // A trackpad pinch arrives as Ctrl + wheel: it zooms continuously about the pointer and settles on a
+  // level when the fingers lift. Alt + wheel is the free zoom. A plain wheel steps one level.
+  const pinch = e.ctrlKey && !e.altKey && R11.continuous();
+  if (!e.altKey && !pinch) {
+    R11.wheel(e);
+    return;
+  }
+  camStop();
+  const dy = e.deltaMode === 1 ? e.deltaY * 40 : e.deltaMode === 2 ? e.deltaY * 400 : e.deltaY,
+    dz = pinch ? -Math.max(-60, Math.min(60, dy)) * 0.01 : -Math.max(-120, Math.min(120, dy)) * 0.003;
+  const w = CAM.wheel || (CAM.wheel = { dz: 0, x: 0, y: 0, snap: false });
+  w.dz += dz;
+  w.x = e.clientX;
+  w.y = e.clientY;
+  w.snap = pinch;
+  if (!pinch) {
+    CAM.pinch = null;
+    CAM.snapAt = 0;
+  }
+  camKick();
+}
+svg.addEventListener('wheel', onMapWheel, { passive: false });
+function onMapPointerDown(e) {
   if (e.button !== 0 && e.pointerType === 'mouse') return;
-  cancelAnimationFrame(S.animation);
-  R11.anim = false;
-  const t = e.target.closest(
+  // A new touch takes over at once: a flight or a glide stops where it is.
+  CAM.stopped = camStop();
+  CAM.pinch = null;
+  CAM.snapAt = 0;
+  const t = e.target.closest?.(
     '[data-map-node],[data-map-district],[data-map-region],[data-map-edge],[data-map-jump]',
   );
-  S.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  S.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY, trail: [[e.timeStamp, e.clientX, e.clientY]] });
   S.drag = {
     x: e.clientX,
     y: e.clientY,
     cx: S.x,
     cy: S.y,
     z: S.z,
-    target: t,
+    target: t || null,
     hasMoved: false,
     node: t?.dataset.mapNode || null,
     home: t?.dataset.mapNode ? clone(homeFor(t.dataset.mapNode)) : null,
   };
   if (S.pointers.size === 2) {
     const [a, b] = [...S.pointers.values()];
-    const mid = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
-    S.pinch = { distance: Math.hypot(a.x - b.x, a.y - b.y), z: S.z, world: screenToWorld(mid.x, mid.y) };
+    const mid = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 },
+      world = screenToWorld(mid.x, mid.y);
+    S.pinch = {
+      distance: Math.max(1, Math.hypot(a.x - b.x, a.y - b.y)),
+      z: S.z,
+      world,
+      from: { x: S.x, y: S.y, z: S.z },
+      level: R11.continuous() ? R11.level(world).lvl : null,
+    };
   }
   svg.setPointerCapture(e.pointerId);
-});
-svg.addEventListener('pointermove', (e) => {
-  if (!S.pointers.has(e.pointerId)) return;
-  S.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
-  if (S.pointers.size >= 2 && S.pinch) {
-    const [a, b] = [...S.pointers.values()],
-      v = rect(),
-      dist = Math.hypot(a.x - b.x, a.y - b.y),
-      ratio = dist / S.pinch.distance;
-    if (ratio > 1.3 || ratio < 1 / 1.3) {
-      S.pinch.distance = dist;
-      S.drag.hasMoved = true;
-      R11.step(ratio > 1 ? 1 : -1, S.pinch.world);
+  camKick();
+}
+svg.addEventListener('pointerdown', onMapPointerDown, { passive: true });
+svg.addEventListener(
+  'pointermove',
+  (e) => {
+    const p = S.pointers.get(e.pointerId);
+    if (!p) return;
+    p.x = e.clientX;
+    p.y = e.clientY;
+    // The last tenth of a second of the path gives the speed at release.
+    p.trail.push([e.timeStamp, e.clientX, e.clientY]);
+    while (p.trail.length > 2 && e.timeStamp - p.trail[0][0] > 100) p.trail.shift();
+    // The rules-and-authorities view steps between its own levels under a two-finger pinch.
+    if (S.pointers.size >= 2 && S.pinch && S.pinch.level === null) {
+      const [a, b] = [...S.pointers.values()],
+        dist = Math.hypot(a.x - b.x, a.y - b.y),
+        ratio = dist / S.pinch.distance;
+      if (ratio > 1.3 || ratio < 1 / 1.3) {
+        S.pinch.distance = dist;
+        S.drag.hasMoved = true;
+        R11.step(ratio > 1 ? 1 : -1, S.pinch.world);
+      }
       return;
     }
-    S.x = S.pinch.world.x - ((a.x + b.x) / 2 - v.x - v.w / 2) / S.z;
-    S.y = S.pinch.world.y - ((a.y + b.y) / 2 - v.y - v.h / 2) / S.z;
-    S.drag.hasMoved = true;
-    schedule();
-    return;
-  }
-  const d = S.drag;
-  if (!d) return;
-  const dx = e.clientX - d.x,
-    dy = e.clientY - d.y;
-  if (Math.hypot(dx, dy) > 5) {
-    if (!d.hasMoved) remember();
-    d.hasMoved = true;
-  }
-  if (!d.hasMoved) return;
-  svg.classList.add('panning');
-  if (d.node) {
-    d.preview = { ...d.home, x: d.home.x + dx / d.z, y: d.home.y + dy / d.z };
-  } else {
-    S.x = d.cx - dx / d.z;
-    S.y = d.cy - dy / d.z;
-  }
-  schedule();
-});
+    camKick();
+  },
+  { passive: true },
+);
 function pointerEnd(e) {
   const d = S.drag,
-    t = d?.target;
+    t = d?.target,
+    p = S.pointers.get(e.pointerId);
+  if (!p) return;
   R11.dragMoved = !!d?.hasMoved;
   if (S.pointers.size === 1 && d) {
     if (d.hasMoved && d.node && e.type === 'pointerup') {
       const moved = d.preview || d.home;
       S.drag = null;
       commitMove(d.node, moved.x, moved.y);
-    } else if (!d.hasMoved && e.type === 'pointerup' && t) {
+    } else if (!d.hasMoved && e.type === 'pointerup' && t && !CAM.stopped) {
       activateMap(t);
     } else if (d.node && e.type === 'pointercancel') {
       S.drag = null;
       schedule();
+    } else if (d.hasMoved && !d.node && e.type === 'pointerup' && !reducedMotion && !S.pinch) {
+      // Momentum: the map keeps the speed it was released at and slows to a stop.
+      const first = p.trail[0],
+        span = e.timeStamp - first[0];
+      if (span > 10 && e.timeStamp - p.trail[p.trail.length - 1][0] < 60) {
+        const vx = (e.clientX - first[1]) / span,
+          vy = (e.clientY - first[2]) / span;
+        if (Math.hypot(vx, vy) > 0.06) CAM.glide = { vx, vy };
+      }
     }
   }
   S.pointers.delete(e.pointerId);
-  if (S.pointers.size < 2) S.pinch = null;
+  if (S.pointers.size < 2 && S.pinch) {
+    // The pinch is over: it settles on a level once the last finger lifts.
+    if (S.pinch.level !== null && d?.hasMoved) {
+      CAM.pinch = { from: S.pinch.from, level: S.pinch.level, world: S.pinch.world };
+      CAM.snapAt = performance.now();
+    }
+    S.pinch = null;
+    const rest = S.pointers.values().next().value;
+    // The finger that stays keeps dragging from where the pinch left the map.
+    if (rest && S.drag) S.drag = { ...S.drag, x: rest.x, y: rest.y, cx: S.x, cy: S.y, z: S.z };
+  }
   if (!S.pointers.size) {
     S.drag = null;
     svg.classList.remove('panning');
+    if (!CAM.snapAt && !CAM.spring) camRelease();
     deferPersist();
   }
+  camKick();
 }
+// While the canvas is carried by a transform, a strip of its parent can show at an edge: input there is the map's.
+svg.parentElement.addEventListener(
+  'wheel',
+  (e) => {
+    if (e.target === svg.parentElement && CAM.moving) onMapWheel(e);
+  },
+  { passive: false },
+);
+svg.parentElement.addEventListener(
+  'pointerdown',
+  (e) => {
+    if (e.target === svg.parentElement && CAM.moving) onMapPointerDown(e);
+  },
+  { passive: true },
+);
 svg.addEventListener('pointerup', pointerEnd);
 svg.addEventListener('pointercancel', pointerEnd);
 document.addEventListener('keydown', (e) => {

@@ -65,6 +65,9 @@
       }
     }
     const keep = String(1 - f);
+    // v3.2: every box is read first and the fading is written afterwards. Writing between the readings made
+    // the browser work the page out again for each element.
+    const fade = [];
     const visit = (el, depth) => {
       if (el.tagName === 'defs' || el.tagName === 'title') return;
       let b;
@@ -76,8 +79,7 @@
       if (!b || (!b.width && !b.height)) return;
       const out = b.x > box.x1 || b.x + b.width < box.x0 || b.y > box.y1 || b.y + b.height < box.y0;
       if (out) {
-        el.style.opacity = keep;
-        if (f > 0.97) el.style.pointerEvents = 'none';
+        fade.push(el);
         return;
       }
       const inside = b.x >= box.x0 && b.x + b.width <= box.x1 && b.y >= box.y0 && b.y + b.height <= box.y1;
@@ -94,13 +96,14 @@
         // straddling the frame: it belongs to whichever side its centre is on
         const cx = b.x + b.width / 2,
           cy = b.y + b.height / 2;
-        if (cx < box.x0 || cx > box.x1 || cy < box.y0 || cy > box.y1) {
-          el.style.opacity = keep;
-          if (f > 0.97) el.style.pointerEvents = 'none';
-        }
+        if (cx < box.x0 || cx > box.x1 || cy < box.y0 || cy > box.y1) fade.push(el);
       }
     };
     for (const el of svg.children) visit(el, 0);
+    for (const el of fade) {
+      el.style.opacity = keep;
+      if (f > 0.97) el.style.pointerEvents = 'none';
+    }
   }
 
   /* ---------- 2. no unreadably small text ----------
@@ -566,11 +569,12 @@
     const safe0 = safeArea;
     safeArea = function () {
       let a = safe0.apply(this, arguments);
-      const w = document.getElementById('mapWelcome'),
-        v = rect();
-      if (w && !w.hidden && a.x > 36 && v.w >= 760) {
-        const b = w.getBoundingClientRect();
-        if (b.height && b.height <= 190) a = { x: 35, y: a.y, w: Math.max(230, a.w + (a.x - 35)), h: a.h };
+      const v = rect();
+      if (a.x > 36 && v.w >= 760) {
+        // the same reading of the note that the base safeArea used (v3.2: one reading per draw)
+        const b = welcomeBox();
+        if (b && b.height && b.height <= 190)
+          a = { x: 35, y: a.y, w: Math.max(230, a.w + (a.x - 35)), h: a.h };
       }
       // On a wide, short window the map is limited by height. The breadcrumb and the zoom box sit in the
       // corners, clear of a centred course or subject, so the map may use the rows they are in.

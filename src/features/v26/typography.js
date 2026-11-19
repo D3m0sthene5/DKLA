@@ -177,6 +177,17 @@
   // columns, the west steps with their two statues, and nine sitting justices,
   // seven between the columns and one outside each end. Outer bounds stay
   // those of the block.
+  // The portrait sheet's address is set once on the page (dklaR16HistoryCode.js). Asking the browser for it on
+  // every draw made it work out the page's styles again in the middle of the draw (v3.2).
+  let spriteCache = '';
+  function spriteAddress() {
+    if (!spriteCache)
+      spriteCache = getComputedStyle(document.documentElement)
+        .getPropertyValue('--sh-sprite')
+        .trim()
+        .replace(/^url\(["']?|["']?\)$/g, '');
+    return spriteCache;
+  }
   function court(canvas) {
     const data = window.SCOTUSHistory?.data,
       root = canvas.querySelector('[data-sh-open]'),
@@ -404,10 +415,7 @@
     );
     const bw = pitch - cw,
       gap = bw * 0.07,
-      sprite = getComputedStyle(document.documentElement)
-        .getPropertyValue('--sh-sprite')
-        .trim()
-        .replace(/^url\(["']?|["']?\)$/g, '');
+      sprite = spriteAddress();
     const fs = Math.min(...names.flat().map((row) => fitted(row, bw * 0.185, bw - 2 * gap, false))),
       lead = fs * 1.16,
       lines = Math.max(...names.map((rows) => rows.length));

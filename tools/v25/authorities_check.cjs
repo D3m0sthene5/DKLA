@@ -46,7 +46,9 @@ class Element {
     return [];
   }
   appendChild(e) {
-    this.children.set(e.id || String(this.children.size), e);
+    // v3.2: the Home entrance is built aside and a copy of it is appended (see entrance()).
+    if (typeof e.markup === 'string') this.innerHTML += e.markup;
+    else this.children.set(e.id || String(this.children.size), e);
   }
   insertAdjacentHTML(_, s) {
     this.innerHTML += s;
@@ -80,6 +82,14 @@ const document = {
   createElement(tag) {
     created.push(tag);
     return new Element();
+  },
+  // A holder whose markup becomes one element; a copy of that element carries the same markup.
+  createElementNS() {
+    const holder = { innerHTML: '' };
+    Object.defineProperty(holder, 'firstElementChild', {
+      get: () => ({ cloneNode: () => ({ markup: holder.innerHTML }) }),
+    });
+    return holder;
   },
   querySelectorAll() {
     return [];
@@ -129,6 +139,9 @@ const context = {
     },
     step() {
       return false;
+    },
+    continuous() {
+      return true;
     },
   },
   MutationObserver: class {
@@ -239,6 +252,17 @@ const context = {
       w: Math.max(...items.map((b) => b.x + b.w)) - x,
       h: Math.max(...items.map((b) => b.y + b.h)) - y,
     };
+  },
+  // v3.2: the view tells the camera engine it painted, and sets the viewBox through the base map's helper.
+  camDrawBegin() {},
+  camDrawn() {},
+  setViewBox() {
+    ids
+      .get('geoCanvas')
+      .setAttribute(
+        'viewBox',
+        `${S.x - viewport.w / (2 * S.z)} ${S.y - viewport.h / (2 * S.z)} ${viewport.w / S.z} ${viewport.h / S.z}`,
+      );
   },
   visibleBox() {
     return {
