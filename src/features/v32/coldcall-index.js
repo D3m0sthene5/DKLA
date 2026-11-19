@@ -158,7 +158,7 @@
       built = `<div class="cc-layout"><nav class="cc-ix-rail" aria-label="Courses and subjects"><ol>${rail}</ol></nav><div class="cc-main"><div class="cc-ix-scroll" id="ccIxScroll" tabindex="-1"><div class="cc-ix-head"><label class="cc-ix-find">${FIND}<span class="cc-sr">Search the Cold Calls</span><input type="search" id="ccIxFind" placeholder="Search by case name or citation" autocomplete="off" spellcheck="false" aria-controls="ccIxList" /></label></div><div id="ccIxList">${list}</div><p class="cc-ix-none" id="ccIxNone" role="status" hidden></p></div></div></div>`;
     }
     dialog.innerHTML = bar + built;
-    $('ccIxTotal').textContent = plural(total, 'account');
+    $('ccIxTotal').textContent = plural(total, 'case');
     $('ccIxClose').onclick = close;
     $('ccIxFind').addEventListener('input', () => {
       if (frame) return;
@@ -228,8 +228,8 @@
       shown += inCourse;
     }
     $('ccIxTotal').textContent = words.length
-      ? `${shown.toLocaleString('en-US')} of ${plural(total, 'account')}`
-      : plural(total, 'account');
+      ? `${shown.toLocaleString('en-US')} of ${plural(total, 'case')}`
+      : plural(total, 'case');
     const none = $('ccIxNone');
     none.hidden = shown > 0;
     none.textContent = shown ? '' : `No Cold Call matches “${$('ccIxFind').value.trim()}”.`;

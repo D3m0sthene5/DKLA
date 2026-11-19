@@ -1737,6 +1737,16 @@ const breakages = [
       ),
   ],
   [
+    'the Library offers the Cold Calls collection but its row opens nothing',
+    'src/features/v32/coldcall-index.js',
+    () =>
+      edit(
+        'src/features/v32/coldcall-index.js',
+        'window.DKLAColdCallIndex = { count, open, close };',
+        'window.DKLAColdCallIndex = { count, show: open, close };',
+      ),
+  ],
+  [
     'a composed caption drops the second of two consolidated cases',
     'src/features/v32/caption.js',
     () => edit('src/features/v32/caption.js', '      cases.push(split(head));\n', ''),

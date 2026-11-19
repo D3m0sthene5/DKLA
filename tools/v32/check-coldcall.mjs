@@ -315,7 +315,7 @@ try {
   await page.evaluate(() => (document.getElementById('ccScroll').scrollTop = 0));
   await page.waitForFunction(() => window.DKLAColdCall.state().step === 0);
   passed.push(
-    'Read, one click: caption, drawing, lead, cast and numbered steps, then the story on the same page with no button before it',
+    'Read, one click: the first episode under its own title with the case in the bar, its defined words and a plain-English marker, a way back in words and no button before it; the setup (caption, drawing, lead, cast, numbered steps) one scroll back and named in the list',
   );
 
   // The story leads: an episode's own title is the headline; the question is a quiet note, not a heading.
@@ -1268,12 +1268,23 @@ try {
     `captions: none of the ${TOTAL} ends a line in "v." at ${captionWidths.length} widths; the longest captions, headline and prompt pass the composition lint from 1680 to 390`,
   );
 
-  /* ---------- the index ---------- */
-  await page.evaluate(() =>
-    window.DKLAColdCallIndex.open(document.querySelector('#inspector button[data-cold-call]')),
+  /* ---------- the collection: from the Library's row into every Cold Call ---------- */
+  // The Library (the joined build's index of the atlas) lists the collection; its row opens it.
+  await page.locator('#moreBtn').click();
+  await page.locator('#libraryDialog[open]').waitFor();
+  const libraryRow = page.locator('#libraryDialog [data-v32-open="coldcalls"]');
+  assert.match(
+    (await libraryRow.innerText()).replace(/\s+/g, ' '),
+    /^Cold Calls .*742 cases$/,
+    'the Library lists the Cold Calls collection, with how many',
   );
+  await libraryRow.click();
   const ix = page.locator('#coldCallIndexDialog[open]');
   await ix.locator('.cc-ix-row').first().waitFor();
+  assert.ok(
+    !(await page.evaluate(() => document.getElementById('libraryDialog').open)),
+    'the Library makes way for the collection (two dialogs are never stacked)',
+  );
   const index = await page.evaluate(() => {
     const d = document.getElementById('coldCallIndexDialog'),
       rows = [...d.querySelectorAll('.cc-ix-row')],
@@ -1327,7 +1338,7 @@ try {
   });
   assert.equal(index.rows, TOTAL, 'the index lists every account');
   assert.equal(index.ids, TOTAL, 'each once');
-  assert.equal(index.total, '742 accounts');
+  assert.equal(index.total, '742 cases');
   assert.deepEqual(
     index.courses.map(([name]) => name),
     ['Contracts', 'Civil Procedure', 'Legislation and the Regulatory State'],
@@ -1356,7 +1367,7 @@ try {
   assert.equal(index.focus, 'ccIxFind', 'typing searches at once');
   // Typing filters; headings count what is showing; Enter opens the first match over the list.
   await page.keyboard.type('erie railroad');
-  await page.waitForFunction(() => /of 742 accounts/.test(document.getElementById('ccIxTotal').textContent));
+  await page.waitForFunction(() => /of 742 cases/.test(document.getElementById('ccIxTotal').textContent));
   const filtered = await page.evaluate(() => {
     const d = document.getElementById('coldCallIndexDialog'),
       vis = [...d.querySelectorAll('.cc-ix-row')].filter((r) => r.getClientRects().length);
@@ -1374,7 +1385,7 @@ try {
     filtered.shown.every((name) => /erie/i.test(name) && /railroad/i.test(name)),
     'to what was typed',
   );
-  assert.equal(filtered.total, `${filtered.shown.length} of 742 accounts`);
+  assert.equal(filtered.total, `${filtered.shown.length} of 742 cases`);
   assert.ok(
     filtered.headings.every((h) => /^\d+ of \d+ cases?$/.test(h)),
     'a heading counts what is showing',
@@ -1404,16 +1415,16 @@ try {
   // Escape empties the search, then closes; focus goes back where it came from.
   await page.keyboard.press('Escape');
   assert.equal(await page.locator('#ccIxFind').inputValue(), '');
-  assert.equal(await page.locator('#ccIxTotal').innerText(), '742 accounts');
+  assert.equal(await page.locator('#ccIxTotal').innerText(), '742 cases');
   await page.keyboard.press('Escape');
   await page.waitForFunction(() => !document.getElementById('coldCallIndexDialog').open);
   assert.equal(
-    await page.evaluate(() => document.activeElement?.dataset?.coldCall),
-    TYPICAL,
-    'focus returns',
+    await page.evaluate(() => document.activeElement?.id),
+    'moreBtn',
+    'closing the collection returns to the Library button',
   );
   passed.push(
-    'the library: 742 accounts by course and subject, each map case with its drawing at 40 px, names in the rail whole, supporting cases apart, typing filters, a row opens its account and closing comes back',
+    'the collection, from the Library: 742 Cold Calls by course and subject, each map case with its drawing at 40 px, names in the rail whole, supporting cases apart, typing filters, a row opens its account and closing comes back',
   );
 
   assert.deepEqual(errors, [], 'page errors');
