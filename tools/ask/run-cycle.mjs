@@ -147,6 +147,7 @@ const TAIL_ROOT = [-13.2, 1.8];
 const HEAD_TILT = 3; // degrees nose down against the ground under the head
 const HEAD_NOD = 1.5; // degrees the head tips to keep the nose level as the body bobs
 const EAR = [4.86, -7.29]; // where the near ear joins the head
+const EAR_FLOP = 14; // degrees the ear swings, a quarter of a beat behind the body
 const TAIL_DROOP = 14; // degrees the tail leaves the rump pointing down
 const TAIL = [
   // Each piece is a tapering arc: its length, the bend drawn into it (+ = down, towards the
@@ -289,7 +290,7 @@ export function pose(p) {
   // Ear: hinged on the head, flopping a quarter of a beat behind the body.
   parts.ear = {
     at: add(neck, rot(headTurn, [S * EAR[0], S * EAR[1]])),
-    turn: headTurn + (standing ? 0 : 11 * bob(h - 0.27)),
+    turn: headTurn + (standing ? 0 : EAR_FLOP * bob(h - 0.27)),
   };
 
   // Tail: three pieces, each swinging later and wider than the one before.
