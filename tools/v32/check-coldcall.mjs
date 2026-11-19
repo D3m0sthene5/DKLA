@@ -156,6 +156,11 @@ try {
     [TYPICAL, 'read', 1, 'case'],
     'a first visit: one click lands on the first episode, to be read',
   );
+  assert.equal(
+    await page.evaluate((k) => localStorage.getItem(k), 'dkla.coldCallMode.v1'),
+    null,
+    'on first use Read is simply the default: no choice has been stored',
+  );
   const account = await page.evaluate(async (id) => {
     const data = await window.DKLAData.json('dklaColdCallData');
     return data.cases.find((c) => c.id === id);
@@ -574,6 +579,7 @@ try {
         cover: vis(cover),
         // The control that shows the narration: where the reader is looking, just under the prompt.
         reveal: vis(reveal) ? reveal.innerText.replace(/\s+/g, ' ').trim() : '',
+        hint: vis(cover) ? cover.querySelector('.cc-cover-hint').textContent.trim() : '',
         revealBelowCue: vis(reveal) ? Math.round(top(reveal) - cue.getBoundingClientRect().bottom) : null,
         revealAligned: vis(reveal)
           ? Math.round(reveal.getBoundingClientRect().left - cue.getBoundingClientRect().left)
@@ -583,6 +589,11 @@ try {
         coverHeight: vis(cover) ? Math.round(cover.getBoundingClientRect().height) : 0,
         coverAnimates: cover ? cover.getAnimations({ subtree: true }).length : 0,
         direct: vis(direct) ? [...direct.querySelectorAll('.cc-direct-say')].map((p) => p.textContent) : null,
+        directLabel: vis(direct) ? direct.querySelector('.cc-direct-label').textContent : '',
+        directKind: direct?.dataset.ccAnswerKind || '',
+        passageLink: vis(direct?.querySelector('.cc-passage-link'))
+          ? direct.querySelector('.cc-passage-link').textContent.trim()
+          : '',
         directSize: vis(direct)
           ? parseFloat(getComputedStyle(direct.querySelector('.cc-direct-say')).fontSize)
           : 0,
@@ -626,6 +637,7 @@ try {
     'Rehearse: the narration, its title and the answer are not shown',
   );
   assert.match(r.reveal, /^Show the answer/, 'a labelled control shows the answer');
+  assert.equal(r.hint, 'Answer aloud from memory first.');
   assert.ok(
     r.revealBelowCue >= 0 && r.revealBelowCue <= 40 && r.revealAligned === 0,
     'and it sits beside the prompt',
@@ -638,17 +650,25 @@ try {
   assert.deepEqual(r.tooltips, cues, 'Rehearse: a row pointed at does not give its title away');
   assert.equal(r.focus, 'cc-cue', 'focus is on the prompt');
   assert.ok(r.barCase && r.barArt >= 36, 'the case is in sight: its drawing and caption in the bar');
-  // Space shows it. The stored answer comes first: this episode's own sentences, word for word.
+  // Space shows it. The stored answer comes first. These eleven are tightened wording (the owner's decision
+  // 13), so each is labelled "Answer", never as the episode's own words, and each rests on sentences that
+  // are in the episode, in the paragraph it names.
   await page.keyboard.press('Space');
   await page.waitForFunction(() => window.DKLAColdCall.state().revealed.length === 1);
   r = await rehearsal();
-  const episodeText = (i) => account.sections[i].paragraphs.join(' ').replace(/\s+/g, ' ');
-  assert.deepEqual(r.direct, stored[account.sections[0].id], 'the reveal leads with the stored answer');
-  for (const sentence of r.direct)
+  const squashed = (t) => t.replace(/\s+/g, ' ').trim();
+  const first = stored[account.sections[0].id];
+  assert.deepEqual(r.direct, first.say, 'the reveal leads with the stored answer');
+  assert.equal(first.kind, 'paraphrase');
+  assert.equal(r.directKind, 'paraphrase');
+  assert.equal(r.directLabel, 'Answer', 'a paraphrased answer is labelled "Answer"');
+  assert.ok(first.from.length >= 1, 'and it is linked to its passage');
+  for (const link of first.from)
     assert.ok(
-      episodeText(0).includes(sentence),
-      `"${sentence.slice(0, 40)}…" is in the episode, word for word`,
+      squashed(account.sections[0].paragraphs[link.p]).includes(link.text),
+      `"${link.text.slice(0, 40)}…" is in paragraph ${link.p} of the episode, word for word`,
     );
+  assert.equal(r.passageLink, 'Where the episode says this', 'the answer leads to its passage');
   assert.ok(r.directSize >= 19, 'at a size that leads');
   assert.ok(r.answer && r.title && !r.cover, 'then the episode as it is told');
   assert.deepEqual(
@@ -662,11 +682,56 @@ try {
   assert.deepEqual(r.ticks, [true, false, false, false, false], 'the row gains a tick and nothing else');
   assert.match(r.act, /^Next question/);
   assert.equal(r.focus, 'cc-direct', 'focus is on the answer');
-  // Enter moves on; the control beside the prompt shows the next.
+  // From the answer to its passage: Tab reaches the link, Enter follows it. The linked sentences are tinted
+  // where they stand in the narration, the first is in view, a screen reader is read them, and the narration
+  // itself (its text, its defined words, its plain-English markers) is exactly as it was.
+  const passage = () =>
+    page.evaluate(() => {
+      const d = document.getElementById('coldCallDialog'),
+        box = d.querySelector('#ccScroll').getBoundingClientRect(),
+        tint = CSS.highlights.get('cc-passage'),
+        ranges = tint ? [...tint] : [];
+      return {
+        texts: ranges.map((range) => range.toString().replace(/\s+/g, ' ').trim()),
+        inNarration: ranges.every((range) =>
+          range.startContainer.parentElement.closest('.cc-section[data-cc-current] .cc-answer'),
+        ),
+        firstInView:
+          !!ranges.length &&
+          ranges[0].getBoundingClientRect().top >= box.top &&
+          ranges[0].getBoundingClientRect().bottom <= box.bottom,
+        narration: d.querySelector('.cc-section[data-cc-current] .cc-answer').innerHTML,
+        tools: d.querySelectorAll('.cc-section[data-cc-current] .cc-answer :is(.cc-term, .cc-plain)').length,
+        live: d.querySelector('#ccLive').textContent,
+        step: window.DKLAColdCall.state().step,
+        focus: document.activeElement?.className || '',
+      };
+    });
+  const before = await passage();
+  assert.deepEqual(before.texts, [], 'nothing is tinted until the link is followed');
+  assert.ok(before.tools >= 2, 'the narration has its defined words and its plain-English marker');
+  await page.keyboard.press('Tab');
+  assert.equal((await passage()).focus, 'cc-passage-link', 'Tab from the answer reaches the link');
   await page.keyboard.press('Enter');
+  await page.waitForFunction(() => CSS.highlights.has('cc-passage'));
+  await page.waitForTimeout(400);
+  let linked = await passage();
+  assert.deepEqual(
+    linked.texts,
+    first.from.map((link) => link.text),
+    'the tinted sentences are the linked ones',
+  );
+  assert.ok(linked.inNarration && linked.firstInView, 'in the narration below, the first in view');
+  assert.equal(linked.narration, before.narration, 'the narration and its tools are untouched');
+  assert.equal(linked.step, 1, 'following the link does not move on');
+  assert.equal(linked.live, `The passage: ${first.from.map((link) => link.text).join(' ')}`);
+  // Moving on (the arrow key: focus is on the link, which Enter would follow again) clears the tint; the
+  // control beside the prompt shows the next.
+  await page.keyboard.press('ArrowRight');
   await page.waitForFunction(() => window.DKLAColdCall.state().step === 2);
   r = await rehearsal();
   assert.ok(r.cover && !r.answer && !r.direct, 'the next narration is not shown');
+  assert.deepEqual((await passage()).texts, [], 'the tint does not outlast its step');
   await page.locator('#coldCallDialog .cc-section[data-cc-current] .cc-reveal').click();
   await page.waitForFunction(() => window.DKLAColdCall.state().revealed.length === 2);
   await page.locator('#ccAct').click();
@@ -681,43 +746,107 @@ try {
   await page.waitForFunction(() => window.DKLAColdCall.state().step === 4);
   r = await rehearsal();
   assert.ok(r.cover && !r.answer, 'Right moves on without showing the narration');
-  // Every stored answer in the page is in its own episode; one that is not (a narrative revised since) is
-  // not shown, and an episode with none shows the narration and nothing more.
+  // Every stored answer in the page: its kind is recorded, its label fits its kind, its linked sentences are
+  // in the paragraph of its own episode that it names, and following its link tints exactly those sentences.
   const storedCheck = await page.evaluate(async () => {
     const data = await window.DKLAData.json('dklaColdCallData'),
       squash = (t) => t.replace(/\s+/g, ' ').trim(),
-      bad = [];
+      bad = [],
+      kinds = {};
     let n = 0;
     for (const [id, episodes] of Object.entries(window.DKLAColdCallAnswers.answers)) {
       const c = data.cases.find((c) => c.id === id);
-      for (const [section, say] of Object.entries(episodes)) {
+      window.DKLAColdCall.close();
+      window.DKLAColdCall.open(id);
+      window.DKLAColdCall.setMode('rehearse');
+      await window.DKLAColdCall.marked();
+      for (const [section, answer] of Object.entries(episodes)) {
         const s = c?.sections.find((s) => s.id === section),
-          text = s ? squash(s.paragraphs.join(' ')) : '';
+          where = `${id} ${section}`,
+          shown = document.querySelector(`#coldCallDialog #cc-direct-${section}`);
         n++;
-        if (!s || !/\?/.test(s.cue) || !say.length || !say.every((q) => text.includes(squash(q))))
-          bad.push(`${id} ${section}`);
+        kinds[answer.kind] = (kinds[answer.kind] || 0) + 1;
+        if (!s || !/\?/.test(s.cue)) bad.push(`${where}: no such question`);
+        else if (!['verbatim', 'paraphrase'].includes(answer.kind)) bad.push(`${where}: kind`);
+        else if (
+          !answer.from?.length ||
+          !answer.from.every((link) => squash(s.paragraphs[link.p] || '').includes(link.text))
+        )
+          bad.push(`${where}: a linked sentence is not in its paragraph`);
+        else if (
+          answer.kind === 'verbatim' &&
+          !answer.say.every((q) => squash(s.paragraphs.join(' ')).includes(squash(q)))
+        )
+          bad.push(`${where}: a verbatim answer is not in its episode`);
+        else if (!shown) bad.push(`${where}: not drawn`);
+        else if (
+          shown.querySelector('.cc-direct-label').textContent !==
+          (answer.kind === 'verbatim' ? 'The answer, in this episode’s own words' : 'Answer')
+        )
+          bad.push(`${where}: its label does not fit its kind`);
+        else {
+          CSS.highlights.delete('cc-passage');
+          shown.querySelector('.cc-passage-link').click();
+          const tint = CSS.highlights.get('cc-passage'),
+            texts = tint ? [...tint].map((range) => squash(range.toString())) : [];
+          if (JSON.stringify(texts) !== JSON.stringify(answer.from.map((link) => link.text)))
+            bad.push(`${where}: its link does not lead to its sentences`);
+        }
       }
     }
-    return { n, bad };
+    window.DKLAColdCall.close();
+    return { n, bad, kinds, tintLeft: CSS.highlights.has('cc-passage') };
   });
-  assert.ok(storedCheck.n >= 11, `${storedCheck.n} answers are stored`);
-  assert.deepEqual(storedCheck.bad, [], 'a stored answer is not in its episode');
+  assert.equal(storedCheck.n, 11, `${storedCheck.n} answers are stored: the pilot is eleven`);
+  assert.deepEqual(storedCheck.bad, []);
+  assert.deepEqual(storedCheck.kinds, { paraphrase: 11 }, 'each answer records its kind');
+  assert.ok(!storedCheck.tintLeft, 'closing the reader clears the tint');
+  // Tampering. A link to a sentence that is not in the episode: the answer is not shown. The same wording
+  // recorded as verbatim (which it is not): not shown, so the word-for-word label can never sit on a
+  // paraphrase. A true verbatim answer: shown, under the word-for-word label.
   const tampered = await page.evaluate((id) => {
     const answers = window.DKLAColdCallAnswers.answers[id],
-      kept = answers['episode-1'];
-    answers['episode-1'] = ['Jordan conditioned its acceptance on payment in gold.'];
-    window.DKLAColdCall.close();
-    window.DKLAColdCall.open(id);
-    const shown = !!document.querySelector('#coldCallDialog #cc-direct-episode-1');
-    window.DKLAColdCall.close();
+      kept = answers['episode-1'],
+      drawn = (entry) => {
+        answers['episode-1'] = entry;
+        window.DKLAColdCall.close();
+        window.DKLAColdCall.open(id);
+        const direct = document.querySelector('#coldCallDialog #cc-direct-episode-1'),
+          label = direct ? direct.querySelector('.cc-direct-label').textContent : null;
+        window.DKLAColdCall.close();
+        return label;
+      };
+    const result = {
+      brokenLink: drawn({
+        ...kept,
+        from: [{ p: 0, text: 'Jordan conditioned its acceptance on payment in gold.' }],
+      }),
+      wrongParagraph: drawn({ ...kept, from: kept.from.map((link) => ({ ...link, p: 1 })) }),
+      falselyVerbatim: drawn({ ...kept, kind: 'verbatim' }),
+      noKind: drawn({ say: kept.say, from: kept.from }),
+      oldShape: drawn(kept.say),
+      trulyVerbatim: drawn({ kind: 'verbatim', say: [kept.from[0].text], from: [kept.from[0]] }),
+    };
     answers['episode-1'] = kept;
-    return shown;
+    return result;
   }, TYPICAL);
-  assert.ok(!tampered, 'a sentence that is not in the episode is never shown as its answer');
+  assert.deepEqual(
+    tampered,
+    {
+      brokenLink: null,
+      wrongParagraph: null,
+      falselyVerbatim: null,
+      noKind: null,
+      oldShape: null,
+      trulyVerbatim: 'The answer, in this episode’s own words',
+    },
+    'an answer whose passage is not in the episode is never shown, and only word-for-word answers carry that label',
+  );
   await open(NO_ANSWERS, 'rehearse');
   await page.evaluate(() => document.querySelector('#coldCallDialog [data-cc-go="1"]').click());
   r = await rehearsal();
   assert.match(r.reveal, /^Show the episode/, 'a prompt that is not a question says what its control shows');
+  assert.equal(r.hint, 'Tell this part from memory first.', 'and asks for the part to be told from memory');
   await page.keyboard.press('Space');
   await page.waitForFunction(() => window.DKLAColdCall.state().revealed.length === 1);
   r = await rehearsal();
@@ -726,6 +855,39 @@ try {
     'no stored answer: the narration, and nothing invented',
   );
   assert.match(r.live, /^The episode: /);
+  // An account that mixes questions with prompts that are not questions: rehearsing walks every episode in
+  // the narrative's own order, none skipped or moved, each with the control and the hint its prompt earns.
+  const mixed = await page.evaluate(async () => {
+    const data = await window.DKLAData.json('dklaColdCallData'),
+      asks = (s) => /\?["”’')\]]*\s*$/.test(s.cue || '');
+    const c = data.cases.find(
+      (c) =>
+        c.sections.length >= 4 &&
+        c.sections.length <= 8 &&
+        c.sections.some(asks) &&
+        c.sections.some((s) => s.cue && !asks(s)) &&
+        !asks(c.sections[1]),
+    );
+    return { id: c.id, cues: c.sections.map((s) => s.cue), asked: c.sections.map(asks) };
+  });
+  await open(mixed.id, 'rehearse');
+  const walked = [];
+  for (let k = 1; k <= mixed.cues.length; k++) {
+    await page.keyboard.press('ArrowRight');
+    await page.waitForFunction((k) => window.DKLAColdCall.state().step === k, k);
+    r = await rehearsal();
+    walked.push([r.cue, r.reveal.replace(/\s*Space$/, ''), r.hint]);
+  }
+  assert.deepEqual(
+    walked,
+    mixed.cues.map((cue, i) =>
+      mixed.asked[i]
+        ? [cue, 'Show the answer', 'Answer aloud from memory first.']
+        : [cue, 'Show the episode', 'Tell this part from memory first.'],
+    ),
+    `${mixed.id}: every episode in narrative order, questions and other prompts alike`,
+  );
+  assert.deepEqual(r.nav, mixed.cues, 'and the list at the side keeps that order');
   // Narrations marked a slice at a time, then revealed, equal those marked at once.
   const marked = await page.evaluate(async (id) => {
     const d = document.getElementById('coldCallDialog'),
@@ -747,7 +909,7 @@ try {
   }, 'lrs-n-massachusetts-epa');
   assert.ok(marked.same && marked.n === 11, 'revealed narrations marked later equal those marked at once');
   passed.push(
-    'Rehearse: one prompt with its control beside it and no imitation text; the reveal leads with the stored answer, found word for word in the episode; the list keeps its questions; the case stays in the bar',
+    'Rehearse: one prompt with its control beside it and no imitation text; the reveal leads with the stored answer, labelled "Answer" because it is tightened wording, and its link tints the sentences of the narration it rests on without touching them; episodes that are not questions stay in the narrative’s order with "Tell this part from memory" and "Show the episode"; the list keeps its questions; the case stays in the bar',
   );
 
   // Remembered across a reload; nothing else in storage changed; then back to the default.
@@ -935,7 +1097,9 @@ try {
           for (let i = 0; i < 40; i++) {
             await p.keyboard.press('Tab');
             if (await target.evaluate((e) => e === document.activeElement)) break;
-            await p.keyboard.press('Escape'); // a card opened on a word passed on the way
+            // A card opened on a word passed on the way is closed; a control passed on the way (the link from
+            // an answer to its passage) opens none, and Escape there would close the reader.
+            if (await p.locator(CARD).count()) await p.keyboard.press('Escape');
             if (!(await p.evaluate(() => document.getElementById('coldCallDialog').open))) break;
           }
           assert.ok(await target.evaluate((e) => e === document.activeElement), `${name}: Tab reaches it`);

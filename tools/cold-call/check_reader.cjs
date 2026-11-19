@@ -233,18 +233,41 @@ for (const account of data.cases) {
         `${account.id}: episode ${i + 1} is not headed by its title, then its prompt`,
       );
       setup.cues++;
-      // A stored direct answer is shown, each sentence whole and in the episode; no other episode has one.
+      // A stored direct answer is shown under the label its kind earns ("Answer" for tightened wording; the
+      // word-for-word label only on the episode's own sentences), with the link to its passage, and every
+      // sentence it is linked to is in the paragraph of this episode that it names; no other episode has one.
       const stored = answers[account.id]?.[section.id],
         at = html.indexOf(`<div class="cc-direct" id="cc-direct-${escape(section.id)}"`),
         block = at < 0 ? null : html.slice(at, html.indexOf('</div>', at));
       if (stored) {
         assert.ok(block, `${account.id} ${section.id}: its stored answer is not shown`);
-        const text = words(section.paragraphs.join(' '));
-        for (const sentence of stored) {
+        assert.ok(
+          ['verbatim', 'paraphrase'].includes(stored.kind),
+          `${account.id} ${section.id}: the answer does not record whether it is verbatim or paraphrased`,
+        );
+        assert.ok(
+          block.includes(
+            `<p class="cc-direct-label">${stored.kind === 'verbatim' ? 'The answer, in this episode’s own words' : 'Answer'}</p>`,
+          ),
+          `${account.id} ${section.id}: the answer's label does not fit its kind`,
+        );
+        assert.ok(stored.from?.length, `${account.id} ${section.id}: the answer is linked to no passage`);
+        for (const link of stored.from)
           assert.ok(
-            text.includes(words(sentence)),
-            `${account.id} ${section.id}: a stored sentence is not in the episode`,
+            words(section.paragraphs[link.p] || '').includes(words(link.text)),
+            `${account.id} ${section.id}: a linked sentence is not in paragraph ${link.p} of the episode`,
           );
+        assert.ok(
+          block.includes(`data-cc-passage="${i}">Where the episode says this</button>`),
+          `${account.id} ${section.id}: the answer has no link to its passage`,
+        );
+        const text = words(section.paragraphs.join(' '));
+        for (const sentence of stored.say) {
+          if (stored.kind === 'verbatim')
+            assert.ok(
+              text.includes(words(sentence)),
+              `${account.id} ${section.id}: a verbatim sentence is not in the episode`,
+            );
           assert.ok(
             block.includes(`<p class="cc-direct-say">${escape(words(sentence))}</p>`),
             `${account.id} ${section.id}: a stored sentence is not shown`,

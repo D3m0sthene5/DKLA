@@ -1703,23 +1703,63 @@ const breakages = [
       ),
   ],
   [
-    'a stored Cold Call answer is shown although it is not in its episode',
+    'a stored Cold Call answer is shown although the passage it rests on is not in its episode',
     'src/features/cold-call/reader.js',
     () =>
       edit(
         'src/features/cold-call/reader.js',
-        'return stored.every((sentence) => sentence && text.includes(squash(sentence))) ? stored : null;',
-        'return stored;',
+        "!from.every((link) => link?.text && squash(s.paragraphs[link.p] ?? '').includes(squash(link.text)))",
+        'false',
       ),
   ],
   [
-    'a stored Cold Call answer says something its episode does not',
+    'a stored Cold Call answer is linked to a sentence its episode does not contain',
     'tools/cold-call/answers.json',
     () =>
       edit(
         'tools/cold-call/answers.json',
         'A reverse-side provision required arbitration.',
         'A reverse-side provision required mediation.',
+      ),
+  ],
+  [
+    'a paraphrased Cold Call answer is labelled as the episode’s own words',
+    'src/features/cold-call/reader.js',
+    () =>
+      edit(
+        'src/features/cold-call/reader.js',
+        "direct.kind === 'verbatim' ? 'The answer, in this episode’s own words' : 'Answer'",
+        "'The answer, in this episode’s own words'",
+      ),
+  ],
+  [
+    'the link from a Cold Call answer to its passage does nothing',
+    'src/features/cold-call/reader.js',
+    () =>
+      edit(
+        'src/features/cold-call/reader.js',
+        '    else if (d.ccPassage !== undefined) showPassage(+d.ccPassage);\n',
+        '',
+      ),
+  ],
+  [
+    'a paraphrased Cold Call answer cites a section number that is not in its linked passage',
+    'tools/cold-call/answers.json',
+    () =>
+      edit(
+        'tools/cold-call/answers.json',
+        'Section 3 of the Federal Arbitration Act mandated',
+        'Section 4 of the Federal Arbitration Act mandated',
+      ),
+  ],
+  [
+    'a paraphrased Cold Call answer gains a word ("only") that nobody recorded or read',
+    'tools/cold-call/answers.json',
+    () =>
+      edit(
+        'tools/cold-call/answers.json',
+        'not to decide the fishery rule’s merits in the first instance."',
+        'only to decide the fishery rule’s merits in the first instance."',
       ),
   ],
   [
