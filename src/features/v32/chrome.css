@@ -478,6 +478,9 @@ html.v32-chrome .study-header .study-search:focus-within #searchKey {
       display: grid;
       grid-template-columns: auto auto;
       gap: 0;
+      /* 12 px from the frame to Ask Dottie (with the group's own 8): the frame is 4 px wider than the
+         clock and the version were side by side, and the bar's sides keep their width */
+      margin-right: var(--v32-s1);
     }
     html.v32-chrome .study-header .v32-cluster .ny-clock {
       grid-area: 1 / 1 / 2 / -1;
@@ -491,21 +494,22 @@ html.v32-chrome .study-header .study-search:focus-within #searchKey {
     .v32-cluster .ny-clock .ny-meridiem {
       translate: 0 1px;
     }
-    /* the hairline between the time and the version: 10 px of air each side */
+    /* the hairline between the time and the version: 12 px of air each side, as at the frame's ends */
     .v32-cluster .ny-clock::after {
       content: '';
       grid-area: 1 / -2 / 2 / -1;
       justify-self: start;
       width: 1px;
       height: var(--v32-s4);
-      margin-left: 10px;
+      margin-left: var(--v32-s3);
       background: var(--v32-hair-strong);
     }
     /* (above the gauge's line and its bright band, which are the clock's own layers 4 and 5) */
     html.v32-chrome .study-header .v32-cluster .dkla-release {
       grid-area: 1 / -2 / 2 / -1;
       z-index: 6;
-      margin: 0 var(--v32-s2) 0 17px;
+      /* 12 px, the hairline, 12 px; the readout's own 4 px of padding is part of each 12 */
+      margin: 0 var(--v32-s2) 0 calc(var(--v32-s3) + 1px + var(--v32-s2));
       translate: 0 1px;
     }
   }
