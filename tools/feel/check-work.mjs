@@ -23,10 +23,12 @@ import { chromium } from '@playwright/test';
 
 const address = new URL(process.argv[2]);
 assert.ok(['127.0.0.1', 'localhost'].includes(address.hostname), 'local preview only');
-// Milliseconds. Generous for a busy machine: a slice is about 6 ms of work (one large document can take 20),
-// and the old build was one task of 500 ms.
-const SLICE_BUDGET = 150,
-  TASK_BUDGET = 350;
+// Milliseconds, by the wall clock, so another program taking the processor shows up in them. A slice is about
+// 6 ms of work (one large document can take 20) and the old build was one task of 500 ms: the average slice
+// must be short, and no single slice or task may come near the old build.
+const SLICE_AVERAGE = 40,
+  SLICE_BUDGET = 400,
+  TASK_BUDGET = 450;
 const QUERIES = [
   'pennoyer',
   'consideration',
@@ -165,6 +167,10 @@ await check('the search index is built exactly once, in slices under the budget'
   assert.equal(stats.search.documents, stats.nodes);
   assert.ok(stats.search.extras > 0, 'flowcharts, lectures, canons and classes are in it');
   assert.ok(stats.search.slices > 20, 'built in many slices: ' + stats.search.slices);
+  assert.ok(
+    stats.search.ms / stats.search.slices < SLICE_AVERAGE,
+    `average slice ${Math.round(stats.search.ms / stats.search.slices)} ms`,
+  );
   assert.ok(
     stats.search.longestSlice < SLICE_BUDGET,
     `longest slice ${stats.search.longestSlice} ms, budget ${SLICE_BUDGET}`,

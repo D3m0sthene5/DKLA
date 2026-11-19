@@ -505,3 +505,64 @@ test("a one-word name in the account's own title never links there", () => {
   const other = gl.begin('cp-other', 'National League of Cities v. Usery');
   assert.match(other.section().text('Garcia later overruled it.', '0.0'), /data-cc-term="garcia"/);
 });
+
+// v3.2: plain forms and except phrases are compared as text where the paragraph has plain spacing, instead
+// of through a pattern built for each; the answers must be the pattern's.
+test('text comparison: a form or an except phrase must end at the end of a word', () => {
+  const g = compile(
+    table([
+      term('motion', ['motion']),
+      term('motion-to-dismiss', ['motion to dismiss']),
+      term('claim', ['claim', 'claims'], { except: ['claim preclusion', 'state a claim'] }),
+      term('made', ['claims-made policy']),
+    ]),
+  );
+  assert.deepEqual(words(g, 'The motion to dismissal failed.'), ['motion'], 'not the start of a longer word');
+  assert.deepEqual(
+    words(g, 'The motion to dismiss-like filing failed.'),
+    ['motion'],
+    'a hyphen continues a word',
+  );
+  assert.deepEqual(words(g, 'The motion to dismiss, again.'), ['motion to dismiss']);
+  assert.deepEqual(words(g, 'The motion to dismiss'), ['motion to dismiss'], 'at the very end');
+  assert.deepEqual(
+    words(g, 'The motion to dismissé failed.'),
+    ['motion'],
+    'an accented letter continues a word',
+  );
+  assert.deepEqual(words(g, 'It raised claim preclusion there.'), [], 'inside an except phrase');
+  assert.deepEqual(words(g, 'It raised CLAIM PRECLUSION there. Then one claim failed.'), ['claim']);
+  assert.deepEqual(words(g, 'It raised a claim preclusionary point.'), ['claim'], 'the phrase must be whole');
+  assert.deepEqual(words(g, 'A counterclaim preclusion and this claim preclusion.'), []);
+  assert.deepEqual(words(g, 'He failed to state a claim here.'), [], 'the phrase may end with the term');
+  assert.deepEqual(words(g, 'He failed to restate a claim here.'), ['claim'], 'and must start at a word');
+  assert.deepEqual(words(g, 'A claims-made policy applied.'), ['claims-made policy'], 'the longest form');
+  // The same sentences with spacing the text comparison does not handle take the pattern path: same answers.
+  assert.deepEqual(words(g, 'The motion to  dismissal failed.'), ['motion']);
+  assert.deepEqual(words(g, 'It raised claim\npreclusion there.'), []);
+  assert.deepEqual(words(g, 'It raised a claim  preclusionary point.'), ['claim']);
+});
+
+test('titleTerms: the capitalised one-word names that are words of the title', () => {
+  const { titleTerms } = context.DKLAColdCallGloss;
+  const g = compile(
+    table([
+      term('garcia', ['garcia'], { caps: true }),
+      term('erie', ['erie'], { caps: true }),
+      term('hilton', ['hilton'], { caps: true }),
+      term('york', ['new york'], { caps: true }),
+      term('muller', ['müller'], { caps: true }),
+      term('obrien', ["o'brien"], { caps: true }),
+      term('remand', ['remand']),
+    ]),
+  );
+  const own = (title) => Array.from(titleTerms(g, title)).sort();
+  assert.deepEqual(own('Garcia v. Hilton'), ['garcia', 'hilton']);
+  assert.deepEqual(own('GARCIA-like v. Erieville'), [], 'whole words only');
+  assert.deepEqual(own('Erie Railroad Co. v. Tompkins'), ['erie']);
+  assert.deepEqual(own('Müller v. Oregon'), ['muller']);
+  assert.deepEqual(own('United States v. O’Brien'), ['obrien']);
+  assert.deepEqual(own("United States v. O'Brien"), ['obrien']);
+  assert.deepEqual(own('New York v. Remand'), [], 'one-word capitalised names only');
+  assert.deepEqual(own(''), []);
+});
