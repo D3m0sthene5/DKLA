@@ -266,6 +266,9 @@
         here: !!s.id && s.id === current,
         // The move in the fewest stored words: "Overrules Chevron", "Less deference", "Starting point".
         kind: P.label({ ...s, effect: '' }, t) || P.TURN[s.turn] || '',
+        // What its label says under the name: the entry's own stored words for what it did (its
+        // shape on the line already says which kind of move that is).
+        words: '',
         short: '',
         artId: s.id || s.link || null,
         span: null,
@@ -313,6 +316,7 @@
       // A long caption takes the name the timeline's own prose calls the case by ("Brand X").
       if (!item.short && plain(item.first).length > 34) item.short = calledBy(item, prose(t, items, item, subject));
     }
+    for (const item of items) item.words = item.s.effect || item.kind;
     return { t, items, spans, here: items.findIndex((item) => item.here) };
   }
 
@@ -321,9 +325,11 @@
     X0 = 20, // the first entry's place from the plate's left edge
     DECK = 50, // a span's height
     STEM = 12, // from the line (or a span's edge) to the nearest label
-    TIER = 6, // between two labels of a stack
+    TIER = 10, // between two labels of a stack
+    HGAP = 18, // between two labels side by side
+    SGAP = 8, // between a label and another entry's stem
     MINGAP = 16, // the least distance between two marks
-    BREAK = 136; // the width of a marked break
+    BREAK = 136; // the least width of a marked break
 
   // The label of an entry: its year and kind of move, then its name. Applications and comparisons are one
   // line; an entry on a span carries its shape (it has no mark on the line).
@@ -334,15 +340,14 @@
     const year = timeHTML(item.s, 'v32db-yr');
     const mark = item.hung ? glyph(item.turn, 12) : '';
     const title = `${item.full} (${yearOf(item.s)}). ${item.kind}. ${item.s.effect || ''}`;
-    // A turn of the rule is named as a caption, a party to a line; every other name is one line, and
-    // gives way party by party where it is too long (layout()).
+    // A turn of the rule with a long caption is named a party to a line; every other name is one line,
+    // and gives way party by party where it is too long (fitName).
     const name = item.short
       ? `<span class="v32db-tag-name">${esc(item.short)}</span>`
       : big && item.first.length === 2 && plain(item.first).length > 30
         ? `<span class="v32db-tag-name v32db-tag-caption"><span class="v32db-line">${esc(item.first[0])}</span><span class="v32db-line">v. ${esc(item.first[1])}</span></span>`
         : `<span class="v32db-tag-name" data-a="${esc(item.first[0])}"${item.first[1] ? ` data-b="${esc(item.first[1])}"` : ''}>${esc(plain(item.first))}</span>`;
-    const picture = item.here ? art(item.artId, 'v32db-art-tag') : '';
-    return `<button type="button" class="v32db-tag v32db-c-${item.cls} v32db-f-${item.fam}${big ? ' v32db-big' : ''}${small ? ' v32db-small' : ''}${item.here ? ' v32db-is-here' : ''}${item.hung ? ' v32db-hung' : ''}" data-v32db-i="${item.i}" title="${esc(title)}">${picture}<span class="v32db-tag-words"><span class="v32db-tag-top">${mark}${year}${name}${small ? here : ''}</span>${small ? '' : `<span class="v32db-tag-kind">${esc(item.kind)}${here}</span>`}</span></button>`;
+    return `<button type="button" class="v32db-tag v32db-c-${item.cls} v32db-f-${item.fam}${big ? ' v32db-big' : ''}${small ? ' v32db-small' : ''}${item.here ? ' v32db-is-here' : ''}${item.hung ? ' v32db-hung' : ''}" data-v32db-i="${item.i}" title="${esc(title)}"><span class="v32db-tag-top">${mark}${year}${name}${here}</span><span class="v32db-tag-fx">${esc(item.words)}</span></button>`;
   }
   // A name too long for its label gives way party by party: the longer one first, never the "v.".
   function fitName(el) {
@@ -366,12 +371,12 @@
     const a = span.a,
       b = span.b;
     const title = `${a.full} (${yearOf(a.s)}). ${a.s.effect || ''}`;
-    return `<button type="button" class="v32db-deck v32db-f-${a.fam}${a.here ? ' v32db-is-here' : ''}" data-v32db-i="${a.i}" title="${esc(title)}">${art(a.artId)}<span class="v32db-deck-words"><span class="v32db-deck-top"><span class="v32db-deck-name">${esc(span.short)}</span><span class="v32db-yr">${esc(yearOf(a.s))}–${esc(yearOf(b.s))}</span>${a.here ? '<span class="v32db-here">You are here</span>' : ''}</span><span class="v32db-deck-fx">${glyph(a.turn, 12)}${esc(a.s.effect || a.kind)}</span></span>${a.s.fate ? `<span class="v32db-deck-end">${esc(a.s.fate)}</span>` : ''}</button>`;
+    return `<button type="button" class="v32db-deck v32db-f-${a.fam}${a.here ? ' v32db-is-here' : ''}" data-v32db-i="${a.i}" title="${esc(title)}">${art(a.artId)}<span class="v32db-deck-words"><span class="v32db-deck-top"><span class="v32db-deck-name">${esc(span.short)}</span><span class="v32db-yr">${esc(yearOf(a.s))}–${esc(yearOf(b.s))}</span>${a.here ? '<span class="v32db-here">You are here</span>' : ''}</span><span class="v32db-deck-fx">${glyph(a.turn, 12)}${esc(a.s.effect || a.kind)}</span></span></button>`;
   }
 
   // Each entry's place along the line. Time is true to scale inside a stretch; a gap longer than three
   // tenths of the whole (and fifteen years) is a break of fixed width; two marks never touch.
-  function placeX(model, x0, x1, deckNeed) {
+  function placeX(model, x0, x1, deckNeed, gap = BREAK) {
     const items = model.items,
       n = items.length;
     const ts = items.map((item) => item.t);
@@ -389,8 +394,8 @@
     const isBreak = (i) => n >= 4 && ts[i] - ts[i - 1] > 0.3 * whole && ts[i] - ts[i - 1] >= 15;
     const widthOf = (i) =>
       model.spans.some((span) => span.a.i <= i - 1 && span.b.i >= i)
-        ? Math.max(BREAK, Math.min(deckNeed + 48, (x1 - x0) * 0.36))
-        : BREAK;
+        ? Math.max(gap, Math.min(deckNeed + 48, (x1 - x0) * 0.36))
+        : gap;
     let room = x1 - x0;
     let xs = [];
     for (let pass = 0; pass < 4; pass++) {
@@ -431,206 +436,235 @@
   const hits = (a, b, gap = 0) =>
     a.x < b.x + b.w + gap && b.x < a.x + a.w + gap && a.y < b.y + b.h + gap && b.y < a.y + a.h + gap;
 
-  function layout(root, model) {
-    const plate = root.querySelector('.v32db-plate');
-    if (!plate) return;
-    const W = plate.clientWidth;
-    if (!W) return;
+  // Labels round a baseline. Each starts at its entry's stem and runs right, or ends at it and runs
+  // left, as near the baseline as it can sit without covering another entry's stem or label. The
+  // entries at the edges of a cluster are placed first, so a cluster opens like a fan: the outer
+  // labels nearest the baseline, the inner ones stepping away from it.
+  //   list: the entries; x(item), size(item) -> {w, h}; prefers(item) -> 'up' | 'down' | '';
+  //   only(item) -> a side it must take, or ''; ok(side, left, sz, level, item) -> may it sit there;
+  //   first: entries labelled before the rest, to the right of their stems; min, max: the room.
+  function fan(list, opt) {
+    const sides = { up: [], down: [] };
+    const out = new Map();
+    let upMost = 0,
+      downMost = 0,
+      missed = 0;
+    const left = new Set(list);
+    const put = (item, side, flip, from, level, sz, x) => {
+      left.delete(item);
+      sides[side].push({ left: from, w: sz.w, level, h: sz.h, x });
+      out.set(item.i, { side, flip, left: from, level, w: sz.w, h: sz.h, x });
+      if (side === 'up') upMost = Math.max(upMost, level + sz.h);
+      else downMost = Math.max(downMost, level + sz.h);
+    };
+    for (const item of opt.first || []) {
+      if (!left.has(item)) continue;
+      const sz = opt.size(item),
+        x = opt.x(item);
+      if (x + sz.w > opt.max) continue;
+      put(item, opt.ok('up', x, sz, 0, item) ? 'up' : 'down', false, x, 0, sz, x);
+    }
+    while (left.size) {
+      let pick = null;
+      // strict: not over the stem of an entry that has no label yet. loose: its own stem may run
+      // through a label (the last resort; nothing is left without a place).
+      const consider = (strict, loose) => {
+        for (const item of left) {
+         const forms = opt.forms?.(item) || [opt.size(item)];
+         for (const [form, sz] of forms.entries()) {
+          const x = opt.x(item);
+          const prefers = opt.prefers(item),
+            only = opt.only(item);
+          for (const flip of [false, true]) {
+            const from = flip ? x - sz.w : x;
+            if (!loose && (from < opt.min || from + sz.w > opt.max)) continue;
+            if (loose && flip && from < 0) continue;
+            if (flip && opt.noFlip?.(item) && !loose) continue;
+            if (
+              strict &&
+              [...left].some((o) => o !== item && opt.x(o) > from - SGAP && opt.x(o) < from + sz.w + SGAP)
+            )
+              continue;
+            for (const side of only ? [only] : ['up', 'down']) {
+              let level = 0;
+              for (const o of sides[side]) {
+                const over = o.left < from + sz.w + HGAP && from < o.left + o.w + HGAP;
+                const stem = o.x > from - SGAP && o.x < from + sz.w + SGAP;
+                if ((over || stem) && o.level + o.h + TIER > level) level = o.level + o.h + TIER;
+              }
+              // Its own stem must not run through a label already there.
+              if (
+                !loose &&
+                sides[side].some(
+                  (o) => o.x !== x && x > o.left - SGAP && x < o.left + o.w + SGAP && level + sz.h + TIER > o.level,
+                )
+              )
+                continue;
+              if (!opt.ok(side, from, sz, level, item)) continue;
+              const miss = prefers && side !== prefers ? 1 : 0;
+              const cost = level + miss * 34 + (flip ? 3 : 0) + (side === 'up' ? 1 : 0) + form * (opt.formCost?.(item) ?? 8);
+              // The cheapest place first; between entries whose places cost about the same, the later one.
+              const better = !pick
+                ? true
+                : pick.item === item
+                  ? cost < pick.cost - 0.01
+                  : Math.abs(cost - pick.cost) <= 4
+                    ? item.i > pick.item.i
+                    : cost < pick.cost;
+              if (better) pick = { item, side, flip, from, level, sz, cost, x, miss, form };
+            }
+          }
+         }
+        }
+      };
+      consider(true, false);
+      if (!pick) consider(false, false);
+      if (!pick) consider(false, true);
+      if (!pick) break;
+      missed += pick.miss;
+      put(pick.item, pick.side, pick.flip, pick.from, pick.level, pick.sz, pick.x);
+      out.get(pick.item.i).form = pick.form;
+    }
+    return { out, upMost, downMost, missed };
+  }
+
+  // One arrangement of the plate at a level of detail: 3, every label says what its entry did; 2, the
+  // applications and comparisons are named only; 1, only the turns of the rule and the open case say more.
+  function arrange(plate, model, level, W) {
     const items = model.items;
     const tagOf = new Map([...plate.querySelectorAll('.v32db-tag')].map((el) => [Number(el.dataset.v32dbI), el]));
     const deckOf = new Map([...plate.querySelectorAll('.v32db-deck')].map((el) => [Number(el.dataset.v32dbI), el]));
-    for (const el of [...tagOf.values(), ...deckOf.values()]) el.style.cssText = '';
-    // A long timeline keeps each label to one line (its shape on the line says its kind of move).
-    plate.classList.toggle('v32db-dense', items.length > 12);
-    for (const el of plate.querySelectorAll('.v32db-tag-name[data-a]')) fitName(el);
-    const size = new Map();
-    for (const [i, el] of tagOf) size.set(i, { w: Math.ceil(el.getBoundingClientRect().width), h: el.offsetHeight });
-    let deckNeed = 0;
-    for (const el of deckOf.values()) {
-      const end = el.querySelector('.v32db-deck-end');
-      if (end) end.hidden = true;
-      el.v32dbNeed = Math.ceil(el.getBoundingClientRect().width);
-      deckNeed = Math.max(deckNeed, el.v32dbNeed);
-      if (end) {
-        end.hidden = false;
-        el.v32dbEnd = Math.ceil(end.getBoundingClientRect().width);
-      }
+    for (const el of [...tagOf.values(), ...deckOf.values()]) {
+      el.style.left = '';
+      el.style.top = '';
+      el.style.width = '';
+      el.style.height = '';
+      el.classList.remove('v32db-flip');
     }
+    plate.dataset.v32dbLevel = String(level);
+    for (const el of plate.querySelectorAll('.v32db-tag-name[data-a]')) fitName(el);
+    // What an entry did is set to the width of its date and name (and no narrower than a short line).
+    for (const el of tagOf.values()) {
+      const said = el.querySelector('.v32db-tag-fx');
+      if (!said || el.classList.contains('v32db-small')) continue;
+      said.style.maxWidth = '';
+      const row = el.querySelector('.v32db-tag-top').getBoundingClientRect().width;
+      said.style.maxWidth = Math.round(Math.min(300, Math.max(row, 196))) + 'px';
+    }
+    const size = new Map(),
+      forms = new Map();
+    const box = (el) => ({ w: Math.ceil(el.getBoundingClientRect().width), h: el.offsetHeight });
+    for (const [i, el] of tagOf) {
+      el.classList.remove('v32db-two', 'v32db-bare');
+      size.set(i, box(el));
+      // An application's label is one line, or, where that line would be in the way, its words go under its name.
+      const said = el.querySelector('.v32db-tag-fx');
+      if (!said || !said.getClientRects().length) continue;
+      // Any other label gives up its words (they are in the account and the list) where, with them,
+      // it would have to stand far from the line.
+      const other = el.classList.contains('v32db-small') ? 'v32db-two' : 'v32db-bare';
+      el.classList.add(other);
+      forms.set(i, [size.get(i), box(el)]);
+      el.classList.remove(other);
+    }
+    let deckNeed = 0;
+    for (const el of deckOf.values()) deckNeed = Math.max(deckNeed, Math.ceil(el.getBoundingClientRect().width));
+    const sizeOf = (item) => size.get(item.i);
+    const formsOf = (item) => forms.get(item.i) || null;
+    // Words under a name cost little; going without them costs two rows.
+    const formCost = (item) => ((item.cls === 'steady' || item.cls === 'aside') && !item.here ? 8 : 56);
 
-    // The line ends where the last labels still fit to the right of their marks.
+    // The line ends where the last entry's label still fits to the right of its mark.
+    const gap = Math.round(Math.min(190, Math.max(BREAK, W * 0.13)));
     let x1 = W - 24;
-    let geo = placeX(model, X0, x1, deckNeed);
+    let geo = placeX(model, X0, x1, deckNeed, gap);
     for (let pass = 0; pass < 4; pass++) {
       const last = items[items.length - 1];
       const sz = size.get(last.i);
       const over = sz ? geo.xs[last.i] + sz.w + 4 - W : 0;
       if (over <= 0.5) break;
       x1 = Math.max(X0 + (items.length - 1) * MINGAP, x1 - over);
-      geo = placeX(model, X0, x1, deckNeed);
+      geo = placeX(model, X0, x1, deckNeed, gap);
     }
     const xs = geo.xs.map((x) => Math.round(x));
+    const xOf = (item) => xs[item.i];
 
-    // Spans, in lanes from the top; on each, the entries drawn on it: a widening stands above the beam,
-    // anything else hangs below, each stack stepping away from the beam toward the earlier entry.
+    // Spans, in lanes from the top. On each, the entries drawn on it: a widening stands on the beam,
+    // anything else hangs under it.
     const lanes = [];
-    const spans = model.spans.map((span) => ({ span, x: xs[span.a.i], w: Math.max(40, xs[span.b.i] - xs[span.a.i]) }));
-    const rects = []; // everything placed so far that a label must not touch
-    const piers = [];
-    const placed = new Map(); // entry -> its label's box and where its stem starts
-    function stack(list, x0lim, x1lim) {
-      // Right to left: a label sits at its mark; one whose reach covers later marks steps past their labels.
-      let height = 0;
-      const done = [];
-      for (const item of [...list].sort((p, q) => q.i - p.i)) {
-        const sz = size.get(item.i);
-        const x = Math.min(xs[item.i], x1lim - sz.w);
-        let level = 0;
-        for (const other of done)
-          if (other.x0 < x + sz.w + 8 && other.level + other.h + TIER > level) level = other.level + other.h + TIER;
-        done.push({ item, x: Math.max(x0lim, x), x0: xs[item.i], w: sz.w, h: sz.h, level });
-        height = Math.max(height, level + sz.h);
-      }
-      return { done, height };
-    }
+    const rects = []; // everything placed so far that a label on the line must not touch
+    const placed = new Map(); // entry -> its label's box, where its stem starts, which way it runs
     let top = PAD;
-    for (const one of spans) {
-      const up = stack(
-          one.span.hung.filter((item) => item.fam === 'wide'),
-          one.x,
-          W - 4,
-        ),
-        down = stack(
-          one.span.hung.filter((item) => item.fam !== 'wide'),
-          one.x,
-          W - 4,
-        );
-      const upRoom = up.height ? up.height + STEM : 0;
+    for (const span of model.spans) {
+      const one = { span, x: xs[span.a.i], w: Math.max(40, xs[span.b.i] - xs[span.a.i]), h: DECK };
+      const on = fan(span.hung, {
+        x: xOf,
+        size: sizeOf,
+        prefers: () => '',
+        only: (item) => (item.fam === 'wide' ? 'up' : 'down'),
+        forms: formsOf,
+        formCost,
+        ok: (side, left, sz) => side === 'up' || left + sz.w <= one.x + one.w - 10,
+        min: one.x + 6,
+        max: W - 4,
+      });
+      const upRoom = on.upMost ? on.upMost + STEM : 0;
       one.y = top + upRoom;
-      one.h = DECK;
-      for (const d of up.done) {
-        const box = { x: d.x, y: one.y - STEM - d.level - d.h, w: d.w, h: d.h };
-        placed.set(d.item.i, { box, from: one.y, side: 'up', stemX: d.x0 });
+      for (const [i, at] of on.out) {
+        const box = {
+          x: at.left,
+          y: at.side === 'up' ? one.y - STEM - at.level - at.h : one.y + one.h + STEM + at.level,
+          w: at.w,
+          h: at.h,
+        };
+        placed.set(i, { box, from: at.side === 'up' ? one.y : one.y + one.h, side: at.side, stemX: at.x, flip: at.flip, form: at.form });
         rects.push(box);
       }
-      for (const d of down.done) {
-        const box = { x: d.x, y: one.y + one.h + STEM + d.level, w: d.w, h: d.h };
-        placed.set(d.item.i, { box, from: one.y + one.h, side: 'down', stemX: d.x0 });
-        rects.push(box);
-      }
-      rects.push({ x: one.x, y: one.y - upRoom, w: one.w, h: upRoom + one.h, ends: one.span.b.i });
-      piers.push(one);
-      one.bottom = one.y + one.h + (down.height ? down.height + STEM : 0);
+      rects.push({ x: one.x, y: one.y - upRoom, w: one.w, h: upRoom + one.h, ends: span.b.i });
+      one.bottom = one.y + one.h + (on.downMost ? on.downMost + STEM : 0);
       top = one.bottom + 12;
       lanes.push(one);
     }
     const lanesBottom = lanes.length ? Math.max(...lanes.map((one) => one.bottom)) : 0;
     // A span's piers run down to the line: no label crosses one.
-    for (const one of piers) {
+    for (const one of lanes) {
       rects.push({ x: one.x - 1, y: one.y, w: 2, h: 10000 });
       rects.push({ x: one.x + one.w - 2, y: one.y, w: 4, h: 10000, ends: one.span.b.i, pier: true });
     }
 
-    // Entries on the line. A label starts at its entry's stem and runs right, or ends at it and runs
-    // left; it sits as near the line as it can without covering another entry's stem or label. The
-    // entries at the edges of a cluster are placed first, so a cluster opens like a fan: the outer
-    // labels nearest the line, the inner ones stepping away from it. A widening and a turn of the rule
-    // would sooner stand above the line, a narrowing below it.
+    // Entries on the line. A widening and a turn of the rule would sooner stand above it, a narrowing
+    // hang below; the entry that ends a span is labelled first, past the span's end.
     const free = items.filter((item) => !item.span && !item.hung);
-    function onLine(spineY) {
-      const sides = { up: [], down: [] };
-      const out = new Map();
-      let upMost = 0,
-        downMost = 0,
-        missed = 0;
-      const left = new Set(free);
-      const boxOn = (side, x, sz, level) => ({
-        x,
-        y: side === 'up' ? spineY - STEM - level - sz.h : spineY + STEM + level,
-        w: sz.w,
-        h: sz.h,
+    const onLine = (spineY) =>
+      fan(free, {
+        x: xOf,
+        size: sizeOf,
+        prefers: (item) => (item.fam === 'narrow' ? 'down' : item.cls === 'rule' || item.fam === 'wide' ? 'up' : ''),
+        only: (item) => (lanes.some((one) => xs[item.i] > one.x && xs[item.i] < one.x + one.w) ? 'down' : ''),
+        forms: formsOf,
+        formCost,
+        noFlip: (item) => !!item.ends,
+        first: free.filter((item) => item.ends),
+        min: 0,
+        max: W,
+        ok(side, left, sz, lvl, item) {
+          if (side !== 'up') return true;
+          const box = { x: left, y: spineY - STEM - lvl - sz.h, w: sz.w, h: sz.h };
+          return (
+            box.y >= PAD - 0.5 &&
+            !rects.some((r) => r.y < spineY && hits(box, r, r.ends === item.i ? (r.pier ? -100 : -2) : 12))
+          );
+        },
       });
-      const clear = (box, item) =>
-        box.y >= PAD - 0.5 &&
-        !rects.some((r) => r.y < spineY && hits(box, r, r.ends === item.i ? (r.pier ? -100 : -2) : 6));
-      // The entry that ends a span is labelled first, past the span's end and above the line if it can be.
-      for (const item of free) {
-        if (!item.ends) continue;
-        const sz = size.get(item.i);
-        const x = xs[item.i];
-        if (x + sz.w > W) continue;
-        const up = boxOn('up', x, sz, 0);
-        const side = clear(up, item) ? 'up' : 'down';
-        left.delete(item);
-        sides[side].push({ left: x, w: sz.w, level: 0, h: sz.h, x });
-        out.set(item.i, { box: boxOn(side, x, sz, 0), from: spineY, side, stemX: x, flip: false });
-        if (side === 'up') upMost = Math.max(upMost, sz.h);
-        else downMost = Math.max(downMost, sz.h);
-      }
-      while (left.size) {
-        let pick = null;
-        // strict: not over the stem of an entry that has no label yet. loose: its own stem may run
-        // through a label (the last resort; nothing is left without a place).
-        const consider = (strict, loose) => {
-          for (const item of left) {
-            const sz = size.get(item.i);
-            const x = xs[item.i];
-            const prefers =
-              item.fam === 'narrow' ? 'down' : item.cls === 'rule' || item.fam === 'wide' ? 'up' : '';
-            for (const flip of [false, true]) {
-              const from = flip ? x - sz.w : x;
-              if (from < 0 || (from + sz.w > W && !loose)) continue;
-              // The entry that ends a span is labelled past the span's end, not under its beam.
-              if (flip && item.ends && !loose) continue;
-              if (strict && [...left].some((o) => o !== item && xs[o.i] > from - 6 && xs[o.i] < from + sz.w + 6))
-                continue;
-              for (const side of ['up', 'down']) {
-                let level = 0;
-                for (const o of sides[side]) {
-                  const over = o.left < from + sz.w + 8 && from < o.left + o.w + 8;
-                  const stem = o.x > from - 6 && o.x < from + sz.w + 6;
-                  if ((over || stem) && o.level + o.h + TIER > level) level = o.level + o.h + TIER;
-                }
-                if (
-                  !loose &&
-                  sides[side].some(
-                    (o) => o.x !== x && x > o.left - 6 && x < o.left + o.w + 6 && level + sz.h + TIER > o.level,
-                  )
-                )
-                  continue;
-                const box = boxOn(side, from, sz, level);
-                if (side === 'up' && !clear(box, item)) continue;
-                const miss = prefers && side !== prefers ? 1 : 0;
-                const cost = level + miss * 34 + (flip ? 3 : 0) + (side === 'up' ? 1 : 0);
-                // The cheapest place first; between equals, the later entry.
-                if (!pick || cost < pick.cost - 0.01 || (Math.abs(cost - pick.cost) <= 0.01 && item.i > pick.item.i))
-                  pick = { item, side, flip, from, level, box, sz, cost, x, miss };
-              }
-            }
-          }
-        };
-        consider(true, false);
-        if (!pick) consider(false, false);
-        if (!pick) consider(false, true);
-        if (!pick) break;
-        missed += pick.miss;
-        left.delete(pick.item);
-        sides[pick.side].push({ left: pick.from, w: pick.sz.w, level: pick.level, h: pick.sz.h, x: pick.x });
-        out.set(pick.item.i, { box: pick.box, from: spineY, side: pick.side, stemX: pick.x, flip: pick.flip });
-        if (pick.side === 'up') upMost = Math.max(upMost, pick.level + pick.sz.h);
-        else downMost = Math.max(downMost, pick.level + pick.sz.h);
-      }
-      return { out, upMost, downMost, missed };
-    }
     // Where the line sits: under the spans, and as far under them as makes the whole plate shortest
-    // (room above the line lets labels stand there that would otherwise stack below it).
+    // (room above the line lets labels stand there that would otherwise stack below it), give or
+    // take a row for each label kept off the side its move prefers.
     const least = lanes.length ? lanesBottom + 20 : PAD + 12;
     let spineY = least,
       line = null,
       best = Infinity;
-    for (let y = least; y <= least + 240; y += 12) {
+    for (let y = least; y <= least + 264; y += 12) {
       const tried = onLine(y);
-      if (tried.upMost && y < PAD + tried.upMost + STEM) continue;
-      // The shortest plate, give or take a row for each label kept off the side its move prefers.
       const total = y + (tried.downMost ? STEM + tried.downMost : 16) + tried.missed * 26;
       if (total < best - 0.5) {
         best = total;
@@ -638,13 +672,35 @@
         line = tried;
       }
     }
-    if (!line) {
-      line = onLine(10000);
-      spineY = Math.max(least, PAD + line.upMost + STEM);
-      line = onLine(spineY);
+    for (const [i, at] of line.out) {
+      const box = {
+        x: at.left,
+        y: at.side === 'up' ? spineY - STEM - at.level - at.h : spineY + STEM + at.level,
+        w: at.w,
+        h: at.h,
+      };
+      placed.set(i, { box, from: spineY, side: at.side, stemX: at.x, flip: at.flip, form: at.form });
     }
-    for (const [i, at] of line.out) placed.set(i, at);
     const height = Math.round(spineY + (line.downMost ? STEM + line.downMost : 16) + PAD);
+    return { level, W, height, xs, geo, lanes, placed, spineY, tagOf, deckOf };
+  }
+
+  function layout(root, model) {
+    const plate = root.querySelector('.v32db-plate');
+    if (!plate) return;
+    const W = plate.clientWidth;
+    if (!W) return;
+    const items = model.items;
+    // As much as the plate can say while the account under it still opens in view.
+    const above =
+      plate.getBoundingClientRect().top - inspector.getBoundingClientRect().top + inspector.scrollTop;
+    const budget = Math.max(260, inspector.clientHeight - above - 240);
+    let plan = null;
+    for (const level of [3, 2, 1]) {
+      plan = arrange(plate, model, level, W);
+      if (plan.height <= budget) break;
+    }
+    const { height, xs, geo, lanes, placed, spineY, tagOf, deckOf } = plan;
 
     // Put everything where it goes.
     plate.style.height = height + 'px';
@@ -654,6 +710,9 @@
       el.style.top = Math.round(at.box.y) + 'px';
       el.dataset.v32dbSide = at.side;
       el.classList.toggle('v32db-flip', !!at.flip);
+      const small = el.classList.contains('v32db-small');
+      el.classList.toggle('v32db-two', !!at.form && small);
+      el.classList.toggle('v32db-bare', !!at.form && !small);
     }
     for (const one of lanes) {
       const el = deckOf.get(one.span.a.i);
@@ -661,9 +720,6 @@
       el.style.top = one.y + 'px';
       el.style.width = one.w + 'px';
       el.style.height = one.h + 'px';
-      // The later development is lettered at the beam's far end where the beam is long enough for it.
-      const end = el.querySelector('.v32db-deck-end');
-      if (end) end.hidden = one.w < el.v32dbNeed + el.v32dbEnd + 40;
     }
 
     // The ink: the line, its breaks and decade marks, the spans' piers, each label's stem, each mark.
@@ -701,15 +757,10 @@
     for (const [i, at] of placed) {
       const item = items[i];
       const x = at.stemX + 0.5;
-      const end = at.side === 'up' ? at.box.y + at.box.h : at.box.y;
       const far = at.side === 'up' ? at.box.y : at.box.y + at.box.h;
       // The stem runs from the line (or the beam) along the label's edge.
-      const bent = !at.flip && Math.abs(at.box.x - at.stemX) > 1;
-      const d = bent
-        ? `M${x} ${at.from}V${(at.from + end) / 2}H${at.box.x + 0.5}V${far}`
-        : `M${x} ${at.from}V${far}`;
       ink.push(
-        `<path class="v32db-stem v32db-f-${item.fam}${item.here ? ' v32db-is-here' : ''}${item.hung ? ' v32db-hung' : ''}" data-v32db-i="${i}" d="${d}"/>`,
+        `<path class="v32db-stem v32db-f-${item.fam}${item.here ? ' v32db-is-here' : ''}${item.hung ? ' v32db-hung' : ''}" data-v32db-i="${i}" d="M${x} ${at.from}V${far}"/>`,
       );
       if (item.hung)
         ink.push(
@@ -728,7 +779,10 @@
     svg.setAttribute('height', height);
     svg.innerHTML = ink.join('');
     plate.dataset.v32dbLaid = String(W);
-    mark(root);
+    // The account does not say again what the selected entry's label says: it follows the plate's detail.
+    state.shown = plan.level;
+    if (state.sel >= 0 && root.querySelector('.v32db-account')?.firstElementChild) select(state.sel);
+    else mark(root);
   }
 
   /* ---------- the account of the selected entry ---------- */
@@ -747,34 +801,41 @@
     const inner = `<span class="v32db-caption">${captionHTML(item.first)}</span>`;
     return `<${tag} class="${cls}">${to ? `<a class="v32db-open" role="link" tabindex="0" ${to} title="Open this entry">${inner}</a>` : inner}${also}</${tag}>`;
   }
+  // A neighbour: when, who, and its stored account (what its label on the plate has no room for).
   function nearHTML(item, relation) {
-    return `<button type="button" class="v32db-near v32db-f-${item.fam}${item.here ? ' v32db-is-here' : ''}" data-v32db-i="${item.i}" title="Show this entry"><span class="v32db-near-rel">${esc(relation)}</span><span class="v32db-near-top">${glyph(item.turn, 12)}${timeHTML(item.s, 'v32db-yr')}<span class="v32db-near-name"><span class="v32db-caption">${captionHTML(item.first)}</span></span>${item.here ? '<span class="v32db-here">You are here</span>' : ''}</span><span class="v32db-near-fx">${esc(item.s.effect || item.kind)}</span>${item.s.fate ? `<span class="v32db-near-later"><b>Later development</b>${esc(item.s.fate)}</span>` : ''}</button>`;
+    return `<button type="button" class="v32db-near v32db-f-${item.fam}${item.here ? ' v32db-is-here' : ''}" data-v32db-i="${item.i}" title="Show this entry"><span class="v32db-near-rel">${esc(relation)}</span><span class="v32db-near-top">${glyph(item.turn, 12)}${timeHTML(item.s, 'v32db-yr')}<span class="v32db-near-name"><span class="v32db-caption">${captionHTML(item.first)}</span></span>${item.here ? '<span class="v32db-here">You are here</span>' : ''}</span><span class="v32db-near-note" title="${esc(item.s.note || '')}">${esc(item.s.note || item.s.effect || '')}</span></button>`;
+  }
+  // Does the plate already say, on this entry's label, what the entry did?
+  function saidOnPlate(item) {
+    if (item.words !== item.s.effect) return false;
+    if (item.span) return true;
+    const said = root?.querySelector(`.v32db-tag[data-v32db-i="${item.i}"] > .v32db-tag-fx`);
+    return !!said && said.getClientRects().length > 0;
   }
   function accountHTML(model, index) {
     const items = model.items,
       item = items[index];
     if (!item) return '';
-    // Its neighbours: the entry it overrules or replaces, the rule it is drawn on, the entry that ended
-    // it; then the entries just before and after it on the line. Each is named once.
+    // Its neighbours: the rule it ends or works within, the entries just before and after it on the
+    // line, the entry that ended it. Each is named once.
     const near = [];
     const add = (other, relation) => {
-      if (other && other !== item && !near.some((n) => n[0] === other)) near.push([other, relation]);
+      if (other && other !== item && near.length < 3 && !near.some((n) => n[0] === other)) near.push([other, relation]);
     };
-    if (item.ends) add(item.ends.a, P.TURN[item.turn] === 'Replaces' ? 'It replaces' : 'It overrules');
-    if (item.hung) add(item.hung.a, 'Drawn on the span of');
+    if (item.ends) add(item.ends.a, 'The earlier rule');
+    if (item.hung) add(item.hung.a, 'The rule in force');
     add(items[index - 1], 'Before it');
     add(items[index + 1], 'After it');
-    if (item.span) add(item.span.b, P.TURN[item.span.b.turn] === 'Replaces' ? 'Replaced by' : 'Overruled by');
-    if (item.hung) add(item.hung.b, 'That span ends with');
+    if (item.span) add(item.span.b, 'Later');
     const picture = art(item.artId, 'v32db-art-lg');
-    const note = artCaption(item.artId);
     return `<article class="v32db-sel v32db-f-${item.fam}${item.here ? ' v32db-is-here' : ''}" data-v32db-i="${item.i}">
-        <div class="v32db-sel-art">${picture}${note ? `<p class="v32db-art-note">${esc(note)}</p>` : ''}</div>
+        <div class="v32db-sel-art">${picture}</div>
         <div class="v32db-sel-main">
-          <p class="v32db-sel-top">${dateLine(item)}${kindLine(item).replace(/^<p /, '<span ').replace(/<\/p>$/, '</span>')}${item.here ? '<span class="v32db-here">You are here</span>' : ''}<span class="v32db-step"><button type="button" data-v32db-go="${index - 1}" aria-label="The entry before" title="The entry before (Left)"${index ? '' : ' disabled'}>${CHEVRON.replace('<svg', '<svg class="v32db-back"')}</button><span class="v32db-place">${index + 1} of ${items.length}</span><button type="button" data-v32db-go="${index + 1}" aria-label="The entry after" title="The entry after (Right)"${index < items.length - 1 ? '' : ' disabled'}>${CHEVRON}</button></span></p>
+          <p class="v32db-sel-top">${dateLine(item)}${item.here ? '<span class="v32db-here">You are here</span>' : ''}<span class="v32db-step"><button type="button" data-v32db-go="${index - 1}" aria-label="The entry before" title="The entry before (Left)"${index ? '' : ' disabled'}>${CHEVRON.replace('<svg', '<svg class="v32db-back"')}</button><span class="v32db-place">${index + 1} of ${items.length}</span><button type="button" data-v32db-go="${index + 1}" aria-label="The entry after" title="The entry after (Right)"${index < items.length - 1 ? '' : ' disabled'}>${CHEVRON}</button></span></p>
           ${nameHTML(item, 'h3', 'v32db-sel-name', true)}
-          <p class="v32db-sel-fx">${esc(item.s.effect || '')}</p>
+          ${saidOnPlate(item) ? '' : `<p class="v32db-sel-fx">${esc(item.s.effect || '')}</p>`}
           <p class="v32db-sel-note">${esc(item.s.note || '')}</p>
+          ${item.s.context ? `<p class="v32db-sel-context">${esc(item.s.context)}</p>` : ''}
           ${item.s.fate ? `<p class="v32db-later"><b>Later development</b>${esc(item.s.fate)}</p>` : ''}
         </div>
       </article>
@@ -814,7 +875,7 @@
   }
 
   /* ---------- drawing ---------- */
-  const state = { entry: null, line: 0, sel: -1, model: null, key: '' };
+  const state = { entry: null, line: 0, sel: -1, model: null, key: '', shown: 0 };
   let root = null;
   const host = () => inspector.querySelector('.reader-body.v32.v32-case');
   const current = () => {
@@ -854,7 +915,6 @@
     return `${pick}
       <header class="v32db-head">
         <h3 class="v32db-title">${esc(t.title)}</h3>
-        <p class="v32db-q">${esc(t.question)}</p>
       </header>
       <div class="v32db-plate" role="group" aria-label="${esc(t.title)}: the timeline, drawn" tabindex="0" aria-describedby="v32dbHint">
         <svg class="v32db-ink" aria-hidden="true"></svg>
@@ -872,6 +932,7 @@
       <section class="v32db-all" aria-label="Every entry, in order">
         <header class="v32db-all-head">
           <h3>Every entry, in order</h3>
+          ${t.question ? `<p class="v32db-guide"><b>The question</b>${esc(t.question)}</p>` : ''}
           ${t.guide ? `<p class="v32db-guide"><b>How these entries connect</b>${esc(t.guide)}</p>` : ''}
         </header>
         <ol class="v32db-list">${model.items.map((item) => unitHTML(item, model)).join('')}</ol>
@@ -976,8 +1037,9 @@
       fitArt(root);
       if (state.sel < 0 || state.sel >= state.model.items.length)
         state.sel = state.model.here >= 0 ? state.model.here : state.model.items.length - 1;
-      select(state.sel);
+      state.shown = 0;
       layout(root, state.model);
+      select(state.sel);
       sizes?.disconnect();
       if (typeof ResizeObserver === 'function') {
         sizes = new ResizeObserver(() => {
