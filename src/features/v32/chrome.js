@@ -54,15 +54,19 @@
     topic:
       '<path d="M10 17s5-4.4 5-8.3a5 5 0 00-10 0C5 12.6 10 17 10 17z"/><circle cx="10" cy="8.7" r="1.7"/>',
     flowchart: '<path d="M7 3.5h6v4H7zM3.5 12.5h5v4h-5zM11.5 12.5h5v4h-5zM10 7.5V10M6 12.5V10h8v2.5"/>',
+    // a timeline as the atlas draws one: a line, the founding decision a diamond, a later one a dot
     timeline:
-      '<path d="M3 10h1.5M7.5 10h1M11.5 10h1M15.5 10H17"/><circle cx="6" cy="10" r="1.5"/><circle cx="10" cy="10" r="1.5"/><circle cx="14" cy="10" r="1.5"/>',
+      '<path d="M2 10h1.5M8.5 10h3M16.5 10H18M6 7.5L8.5 10 6 12.5 3.5 10z"/><circle cx="14" cy="10" r="2.5"/>',
     canon:
       '<path d="M10 5.5c-1.6-1-3.6-1.4-6-1.3v10.6c2.4-.1 4.4.3 6 1.3 1.6-1 3.6-1.4 6-1.3V4.2c-2.4-.1-4.4.3-6 1.3zM10 5.5v10.6"/>',
     dictionary:
       '<path d="M5 3.5h10v13H6.2A1.2 1.2 0 015 15.3zM5 14.2c0-.7.5-1.2 1.2-1.2H15M8.3 10.2L10 6l1.7 4.2M8.8 9h2.4"/>',
     lecture: '<path d="M3.5 4.5h13V13h-13zM10 13v3.5M7 16.5h6"/>',
     session: '<path d="M4 5.5h12v11H4zM4 8.5h12M7 3.5v3M13 3.5v3"/>',
-    authority: '<path d="M3.5 7.5L10 3.5l6.5 4zM5.5 7.5v7M10 7.5v7M14.5 7.5v7M3.5 16.5h13M4.5 14.5h11"/>',
+    // rules and authorities are provisions: the section sign (a second colonnade beside SCOTUS History's
+    // said nothing)
+    authority:
+      '<path d="M13 6c0-1.4-1.3-2.5-3-2.5S7 4.6 7 6c0 3 6 2.6 6 5.6 0 1.3-1.1 2.4-2.7 2.4M7 14c0 1.4 1.3 2.5 3 2.5s3-1.1 3-2.5c0-3-6-2.6-6-5.6 0-1.3 1.1-2.4 2.7-2.4"/>',
     scotus: '<path d="M3 16.5h14M4.5 16.5v-6M8 16.5v-6M12 16.5v-6M15.5 16.5v-6M3 10.5h14L10 4z"/>',
     book: '<path d="M5 3.5h10v13H6.2A1.2 1.2 0 015 15.3zM5 14.2c0-.7.5-1.2 1.2-1.2H15"/>',
     cold: '<path d="M10 3v14M4 6.5l12 7M16 6.5l-12 7M8 4l2 1.6L12 4M8 16l2-1.6 2 1.6"/>',
