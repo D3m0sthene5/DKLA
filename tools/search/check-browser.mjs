@@ -22,11 +22,13 @@ const shotsAt = process.argv.indexOf('--shots'),
   shots = shotsAt > 0 ? process.argv[shotsAt + 1] : null;
 if (shots) await mkdir(shots, { recursive: true });
 // The command field in the v3.2 bar (19 November 2026): box and input, left edge and width. The bar is three
-// groups with equal sides, so the box is centred on the window: 488 + 464 / 2 = 720 and 340 + 344 / 2 = 512.
+// groups with equal sides, so the box is centred on the window: 488 + 464 / 2 = 720 and 284 + 456 / 2 = 512.
+// At 1024 px the sides hold only Ask Dottie and the Library (the version readout joins from 1100 px, so that
+// a path has room beside the field), which leaves the box 456 px.
 // (Before v3.2 the box sat left of centre between the Ask Dottie button and the clock: 436 + 430 and 288 + 410.)
 const DESKTOP = {
   1440: { box: [488, 464], input: [528, 361] },
-  1024: { box: [340, 344], input: [380, 241] },
+  1024: { box: [284, 456], input: [324, 353] },
 };
 
 const browser = await chromium.launch();

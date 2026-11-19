@@ -95,7 +95,8 @@ try {
   const collections = page.getByRole('group', { name: 'Collections' });
   const menuItem = page.locator('#moreMenu [data-flowcharts-menu]');
   await expect(menuItem.locator('.v32-row-label')).toHaveText('Flowcharts');
-  await expect(menuItem.locator('.v32-row-meta')).toHaveText(/^\d+$/);
+  // the count says what it counts (docs/DESIGN.md rule 8): "115 flowcharts · 975 steps"
+  await expect(menuItem.locator('.v32-row-meta')).toHaveText(/^\d+ flowcharts · [\d,]+ steps$/);
   assert.equal(
     await collections.locator('[data-flowcharts-menu]').count(),
     1,

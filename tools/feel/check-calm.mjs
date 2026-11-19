@@ -502,12 +502,23 @@ report.push('reader, Library and search arrive and leave');
 await page.evaluate(() => window.DKLATimelines.open(window.DKLATimelines.list()[0].id));
 await page.locator('#r21Timelines[open]').waitFor();
 assert.ok(await page.evaluate(() => document.documentElement.classList.contains('dkla-ambient-off')));
+// Since v3.2 the instrument cluster is unlit behind a dialog or beside a reader (docs/DESIGN.md rule 14):
+// the bright bands that cross the fuel line and the version are not drawn at all, and the splash line
+// has stepped out. So there is less to pause than before; whatever ambient animation is left is paused.
 running = await ambient(page);
-assert.ok(running.length >= 4, `the ambient animations are still there (${running.map((a) => a.name)})`);
 assert.deepEqual(
   running.filter((a) => a.state !== 'paused').map((a) => a.name),
   [],
   'nothing ambient runs while a dialog is open',
+);
+assert.deepEqual(
+  await page.evaluate(() =>
+    ['.ny-clock .ny-fuel-shine', '.study-header .dkla-release-shine'].map(
+      (selector) => getComputedStyle(document.querySelector(selector)).display,
+    ),
+  ),
+  ['none', 'none'],
+  'behind a dialog the cluster is unlit: its bright bands are not drawn',
 );
 assert.equal(
   await page.evaluate(() => document.querySelectorAll('.ny-clock .flip.flipping').length),
@@ -515,8 +526,13 @@ assert.equal(
   'the clock does not flip under a dialog',
 );
 await page.keyboard.press('Escape');
-await page.waitForFunction(() => !document.documentElement.classList.contains('dkla-ambient-off'));
+await page.waitForFunction(
+  () =>
+    !document.documentElement.classList.contains('dkla-ambient-off') &&
+    !document.documentElement.classList.contains('v32-reading'),
+);
 running = await ambient(page);
+assert.ok(running.length >= 4, `the ambient animations are back (${running.map((a) => a.name)})`);
 assert.deepEqual(
   running.filter((a) => a.state !== 'running').map((a) => a.name),
   [],

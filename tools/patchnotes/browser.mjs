@@ -55,7 +55,7 @@ try {
       drills: m.querySelectorAll('[data-r18-open="drill"]').length,
     };
   });
-  assert.deepEqual(panel.columns, ['Collections', 'Study', 'Yours']);
+  assert.deepEqual(panel.columns, ['Collections', 'Classes', 'Study', 'Yours']);
   assert.ok(panel.fits, 'the Library fits the window without scrolling');
   assert.equal(panel.saves, 1, 'one save entry');
   assert.equal(panel.drills, 1, 'one drill entry');
