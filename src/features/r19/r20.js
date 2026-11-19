@@ -261,13 +261,13 @@
         y0 = t.r.y + t.r.h / 2 - ((rows.length - 1) * lh) / 2 + fs * 0.35 - up;
       for (const old of svg.querySelectorAll('text.region-title[data-map-region="' + t.id + '"]'))
         old.remove();
-      for (const badge of t.g.querySelectorAll(':scope > g')) badge.remove();
+      for (const badge of t.g.querySelectorAll(':scope > g:not(.v32-start)')) badge.remove();
       parts.push(
         `<text class="map-label region-title r20-tile${t.pw >= 130 ? ' is-course' : ''}" x="${cx}" y="${y0}" font-size="${fs}" font-weight="600" fill="#f7f5f0" text-anchor="middle" opacity="${t.g.getAttribute('opacity') || 1}" data-map-region="${esc(t.id)}" role="button" tabindex="0" style="cursor:pointer">${rows.map((row, i) => `<tspan x="${cx}" dy="${i ? lh : 0}">${esc(row)}</tspan>`).join('')}</text>`,
       );
       if (counted)
         parts.push(
-          `<text class="v32-count" x="${cx}" y="${y0 + (rows.length - 1) * lh + 21 / z}" font-size="${cfs}" text-anchor="middle" opacity="${t.g.getAttribute('opacity') || 1}">${countSpans(t.line)}</text>`,
+          `<text class="v32-count v32-on-tile" x="${cx}" y="${y0 + (rows.length - 1) * lh + 21 / z}" font-size="${cfs}" text-anchor="middle" opacity="${t.g.getAttribute('opacity') || 1}">${countSpans(t.line)}</text>`,
         );
     }
     if (parts.length) svg.insertAdjacentHTML('beforeend', parts.join(''));

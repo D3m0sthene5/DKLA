@@ -154,21 +154,29 @@ html #geoCanvas .v32-row.is-here text.v32-faint {
 }
 
 /* ---- a subject from far away: a tile ---- */
-/* A panel with a whisper of the course colour: the tint mixed into the panel's fill (opaque, so the lines
-   between subjects pass behind a tile, never through its name), one hairline in the course colour at low
-   strength, and light on its top edge. */
+/* A subject is filled in its course's colour (rule 15: the territories stay vivid): one step of the
+   course's own scale (set by the painter as --fill, so the hue is the course's and never a brown or grey
+   made by mixing), one hairline in the course's accent, and light on its top edge. The fill is opaque:
+   a line passes behind a tile, never through its name. Names in the text colour are 8:1 or better on
+   every fill. A tile of records or notes is not a subject: it stays a plain panel with the hairline. */
 #geoCanvas .v32-tile-bg {
-  fill: #19252f;
-  fill: color-mix(in srgb, var(--tile) 7%, var(--v31-panel));
+  fill: var(--fill, var(--v31-panel));
   stroke: var(--tile);
-  stroke-opacity: 0.3;
+  stroke-opacity: 0.8;
   pointer-events: none;
   transition: stroke-opacity var(--v31-t-press) linear;
+}
+#geoCanvas .v32-tile:not(.is-subject) .v32-tile-bg {
+  stroke-opacity: 0.34;
+}
+#geoCanvas .v32-tile-under {
+  fill: var(--v31-ground);
+  pointer-events: none;
 }
 #geoCanvas .v32-tile-light {
   fill: none;
   stroke: #fff;
-  stroke-opacity: 0.1;
+  stroke-opacity: 0.14;
   pointer-events: none;
 }
 #geoCanvas .v32-tile-hit {
@@ -180,19 +188,35 @@ html #geoCanvas .v32-row.is-here text.v32-faint {
 }
 #geoCanvas .v32-tile:hover .v32-tile-hit,
 #geoCanvas .v32-tile.is-over .v32-tile-hit {
-  fill-opacity: 0.05;
+  fill-opacity: 0.06;
 }
 #geoCanvas .v32-tile:hover .v32-tile-bg,
 #geoCanvas .v32-tile.is-over .v32-tile-bg,
-#geoCanvas .v32-tile.is-lit .v32-tile-bg {
-  stroke-opacity: 0.9;
-}
+#geoCanvas .v32-tile.is-lit .v32-tile-bg,
 #geoCanvas .v32-tile.is-near .v32-tile-bg {
-  stroke-opacity: 0.6;
+  stroke-opacity: 1;
 }
 #geoCanvas:not(.panning) .v32-tile:active .v32-tile-hit {
   fill: #000;
   fill-opacity: 0.25;
+}
+/* Where a course begins: its first subject carries its number in the course's colour, the same mark
+   that stands before an open subject's name. */
+#geoCanvas .v32-start {
+  pointer-events: none;
+}
+#geoCanvas .v32-start circle {
+  fill: var(--tile);
+  stroke: var(--v31-ground);
+}
+html #geoCanvas .v32-start text {
+  font-family: 'DKLA JetBrains Mono', 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  font-weight: 700;
+  fill: var(--v31-on-link);
+}
+/* What a tile holds, on a course view: on the course's fill the count is in the text colour (7:1 or better). */
+html #geoCanvas text.v32-count.v32-on-tile {
+  fill: var(--v31-text);
 }
 /* A tile's name: Inter, 500 on Home and 600 on a course view, in the text colour, with no outline round
    the letters (nothing runs behind them any more). */
@@ -211,9 +235,10 @@ html #geoCanvas text.map-label[fill='#93a7b7'] {
 }
 
 /* ---- the course view's furniture: its parts and the lines between subjects ---- */
+/* A part of a course is a flat step of the course's colour over its land. */
 #geoCanvas .v32-zone {
-  fill: #fff;
-  fill-opacity: 0.02;
+  fill: var(--wash, #fff);
+  fill-opacity: 0.26;
   pointer-events: none;
 }
 html #studyMain #geoCanvas text.zone-title {
@@ -221,13 +246,27 @@ html #studyMain #geoCanvas text.zone-title {
   letter-spacing: 0;
   stroke: none;
 }
-/* Lines are one pixel (set by the painter) and low in contrast at rest; the ones that leave the tile
-   under the pointer, or the subject that is open, light up. */
+/* The land under a course: the ground's dots in the course's colour (drawn once with the map). */
+#geoCanvas .v32-land {
+  pointer-events: none;
+}
+#geoCanvas .v32-land-dot {
+  fill-opacity: 0.6;
+}
+/* The principal paths: each course's tree, in the course's colour, drawn to be followed at rest. "Leads
+   to" is the strongest; "or instead" (dashed) and "depends on" (dotted) are lighter. The lines that leave
+   the tile under the pointer, or the subject that is open, light up and the rest step back. */
 #geoCanvas .v32-link {
   fill: none;
-  stroke-opacity: 0.2;
+  stroke-opacity: 0.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
   pointer-events: none;
   transition: stroke-opacity var(--v31-t-press) linear;
+}
+#geoCanvas .v32-link.v32-contrast,
+#geoCanvas .v32-link.v32-depends {
+  stroke-opacity: 0.7;
 }
 /* At rest the map shows only each course's tree. The curves of association between subjects are there
    for one tile at a time: the one under the pointer or the one that is open (rule 15). */
@@ -236,7 +275,7 @@ html #studyMain #geoCanvas text.zone-title {
 }
 /* While a tile is under the pointer its own lines are lit and the rest step back. */
 #geoCanvas.has-lit .v32-link:not(.is-hover, .is-lit, .v32-thread) {
-  stroke-opacity: 0.06;
+  stroke-opacity: 0.22;
 }
 #geoCanvas .v32-link.is-hover,
 #geoCanvas .v32-link.is-lit {

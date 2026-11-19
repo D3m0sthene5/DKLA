@@ -1304,6 +1304,13 @@ const COURSE_SCALE = {
   'Dictionary': ['#312a3a', '#473d54', '#594c69', '#6a5c7b', '#7b6d8c', '#b5a0cf', '#e7e1f0'],
 };
 const TILE_STEPS = [3, 2, 4];
+// v3.2: a subject's tile on Home and on a course view. One fill a course, at the course's own hue and as
+// light as it can be while the map's text colour (#e3e8ed) stays above 7:1 on it (7.4, 7.6 and 7.5 to 1).
+const TILE_FILL = {
+  'Contracts': '#6b3c06',
+  'Civil Procedure': '#1f4872',
+  'Legislation and the Regulatory State': '#1a4b2b',
+};
 function courseScale(c) {
   return COURSE_SCALE[c] || COURSE_SCALE['Study notes'];
 }
@@ -1485,6 +1492,116 @@ function edgePoint(a, b) {
     Math.abs(dy) > 0.001 ? a.h / 2 / Math.abs(dy) : Infinity,
   );
   return { x: ax + dx * s, y: ay + dy * s };
+}
+// How much of the segment p→q lies inside the box r (map units).
+function spanInBox(p, q, r) {
+  let t0 = 0,
+    t1 = 1;
+  const dx = q.x - p.x,
+    dy = q.y - p.y;
+  for (const [d, room] of [
+    [-dx, p.x - r.x],
+    [dx, r.x + r.w - p.x],
+    [-dy, p.y - r.y],
+    [dy, r.y + r.h - p.y],
+  ]) {
+    if (d === 0) {
+      if (room < 0) return 0;
+      continue;
+    }
+    const t = room / d;
+    if (d < 0) {
+      if (t > t1) return 0;
+      if (t > t0) t0 = t;
+    } else {
+      if (t < t0) return 0;
+      if (t < t1) t1 = t;
+    }
+  }
+  return (t1 - t0) * Math.hypot(dx, dy);
+}
+// A course's tree lines, as points. A line from subject a to subject b is straight unless it would pass
+// behind a third subject (and so read as a line to that subject): then it is the shortest way round,
+// turning a little way out from the corners of what is in its way, and it would sooner go a longer way
+// than cross another line of the tree or run over the name of a part of the course. A second such line
+// from the same subject runs beside the first, not on it. Worked out once for a course and its boxes.
+//   lines: [{ ida, idb, a: box, b: box }]   tiles: [{ id, box }]   names: [box]
+const treeRoutes = new Map();
+function treeLines(lines, tiles, names) {
+  const spot = (r) => `${r.x},${r.y},${r.w},${r.h}`,
+    key =
+      lines.map((l) => spot(l.a) + '>' + spot(l.b)).join('|') + '#' + tiles.map((t) => spot(t.box)).join('|');
+  if (treeRoutes.has(key)) return treeRoutes.get(key);
+  if (treeRoutes.size > 24) treeRoutes.clear();
+  const at = (pt) => ({ x: pt.x, y: pt.y, w: 0, h: 0 }),
+    slack = 90, // a corner clipped by less than this (3 px on Home) is left alone
+    blocked = (p, q, boxes) => boxes.some((r) => spanInBox(p, q, r) > slack),
+    turn = (p, q, r) => (r.y - p.y) * (q.x - p.x) > (q.y - p.y) * (r.x - p.x),
+    cross = (p, q, m, n) => turn(p, m, n) !== turn(q, m, n) && turn(p, q, m) !== turn(p, q, n),
+    lanes = new Map(),
+    all = lines.map((l) => {
+      const others = tiles.filter((t) => t.id !== l.ida && t.id !== l.idb).map((t) => t.box),
+        route = [edgePoint(l.a, l.b), edgePoint(l.b, l.a)],
+        round = blocked(route[0], route[1], others),
+        lane = round ? lanes.get(l.ida) || 0 : 0;
+      if (round) lanes.set(l.ida, lane + 1);
+      return { l, others, route, round, lane };
+    });
+  const wayRound = (o) => {
+    const { l, others, lane } = o,
+      gap = 190 + lane * 110,
+      // the other lines of the tree, as drawn so far (two straight lines that share a subject meet there:
+      // no crossing; two that both go round something are kept from crossing even so)
+      drawn = all
+        .filter((x) => x !== o && (x.round || ![x.l.ida, x.l.idb].some((id) => id === l.ida || id === l.idb)))
+        .flatMap((x) => x.route.slice(1).map((q, i) => [x.route[i], q])),
+      nodes = [
+        { x: l.a.x + l.a.w / 2, y: l.a.y + l.a.h / 2 },
+        { x: l.b.x + l.b.w / 2, y: l.b.y + l.b.h / 2 },
+      ];
+    for (const r of [...others, ...names])
+      nodes.push(
+        { x: r.x - gap, y: r.y - gap },
+        { x: r.x + r.w + gap, y: r.y - gap },
+        { x: r.x + r.w + gap, y: r.y + r.h + gap },
+        { x: r.x - gap, y: r.y + r.h + gap },
+      );
+    // the shortest way from a to b along lines of sight (Dijkstra over the corners)
+    const dist = nodes.map(() => Infinity),
+      prev = nodes.map(() => -1),
+      done = nodes.map(() => false);
+    dist[0] = 0;
+    for (;;) {
+      let u = -1;
+      for (let i = 0; i < nodes.length; i++) if (!done[i] && (u < 0 || dist[i] < dist[u])) u = i;
+      if (u < 0 || dist[u] === Infinity || u === 1) break;
+      done[u] = true;
+      for (let v = 0; v < nodes.length; v++) {
+        if (done[v]) continue;
+        const p = nodes[u],
+          q = nodes[v];
+        let d = dist[u] + Math.hypot(q.x - p.x, q.y - p.y) + 400; // a turn costs a little
+        if (d >= dist[v] || blocked(p, q, others)) continue;
+        if (names.some((r) => spanInBox(p, q, r) > 0)) d += 3000;
+        for (const [m, n] of drawn) if (cross(p, q, m, n)) d += 2000;
+        if (d < dist[v]) {
+          dist[v] = d;
+          prev[v] = u;
+        }
+      }
+    }
+    if (dist[1] === Infinity) return;
+    const via = [];
+    for (let i = prev[1]; i > 0; i = prev[i]) via.unshift(nodes[i]);
+    o.route = via.length
+      ? [edgePoint(l.a, at(via[0])), ...via, edgePoint(l.b, at(via.at(-1)))]
+      : [edgePoint(l.a, l.b), edgePoint(l.b, l.a)];
+  };
+  // twice: the second time each line knows the way the others went
+  for (let pass = 0; pass < 2; pass++) for (const o of all) if (o.round) wayRound(o);
+  const routes = all.map((o) => o.route);
+  treeRoutes.set(key, routes);
+  return routes;
 }
 // The morph band: below z0 the scene is the galaxy, above z1 it is the map. z0 fits the galaxy; z1 fits the smallest course block.
 function morphBand() {
@@ -2263,36 +2380,65 @@ function draw() {
   parts.push(
     `<rect class="v32-ground" x="${B.x}" y="${B.y}" width="${B.w}" height="${B.h}" fill="url(#mapDots)"/>`,
   );
-  const defs2 = Object.entries(G.blocks)
-    .map(
-      ([c]) =>
-        `<radialGradient id="glow-${courseKey12(c)}"><stop offset="0" stop-color="${ARM_COLORS[c] || '#9fb3c4'}" stop-opacity=".16"/><stop offset=".55" stop-color="${ARM_COLORS[c] || '#9fb3c4'}" stop-opacity=".05"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>`,
-    )
-    .join('');
-  parts.push(`<defs>${defs2}</defs>`);
-  const glowOp = Math.min(1, Math.max(0, (band.z1 * 4 - z) / (band.z1 * 3))),
-    // the course view's furniture (its parts and the lines between subjects) fades as a subject opens
-    zoneOp = Math.min(1, Math.max(0, (0.3 - z) / 0.14));
-  for (const [c, b] of Object.entries(G.blocks)) {
-    const dimc = S.scope !== 'Atlas' && S.scope !== c ? 0.5 : 1;
-    if (glowOp > 0)
-      parts.push(
-        `<ellipse cx="${b.x + b.w / 2}" cy="${b.y + b.h / 2}" rx="${b.w * 0.75}" ry="${b.h * 0.85}" fill="url(#glow-${courseKey12(c)})" opacity="${(glowOp * dimc).toFixed(3)}" pointer-events="none"/>`,
-      );
+  // The land (rule 15): under each course the ground is stippled in the course's colour, a finer grid of
+  // dots than the ground's own. Its outline is the course's own organisation: the parts the course is
+  // divided into (their names appear on a course view) and every subject's place. It has no edge and no
+  // fill, so it boxes nothing in; one pattern and one shape a course, drawn with the map.
+  const landP = 12 / z,
+    // an edge of the land falls midway between two dots, so no dot is cut
+    landSnap = (v, up) =>
+      (up ? Math.ceil((v - 1 / z) / landP) + 0.5 : Math.floor((v - 1 / z) / landP) - 0.5) * landP + 1 / z;
+  parts.push(
+    `<defs>${Object.keys(G.blocks)
+      .map(
+        (c) =>
+          `<pattern id="land-${courseKey12(c)}" width="${landP}" height="${landP}" patternUnits="userSpaceOnUse"><circle cx="${1 / z}" cy="${1 / z}" r="${0.75 / z}" class="v32-land-dot" fill="${ARM_COLORS[c] || '#9fb3c4'}"/></pattern>`,
+      )
+      .join('')}</defs>`,
+  );
+  // the course view's furniture (its parts and the lines between subjects) fades as a subject opens
+  const zoneOp = Math.min(1, Math.max(0, (0.3 - z) / 0.14)),
+    // the land is at its strongest on Home, where it is the only ground a territory has; on a course view
+    // the course's parts stand on it and it steps back; round an open subject it is the ground again
+    landOp = Math.max(0.7 + 0.2 * (1 - zoneOp), Math.min(1, 1.3 - z * 10));
+  const regionById = new Map(regions.map((r) => [r.id, r]));
+  for (const c of Object.keys(G.blocks)) {
+    const dimc = S.scope !== 'Atlas' && S.scope !== c ? 0.5 : 1,
+      courseTiles = regions.filter((r) => regionCourse(r) === c);
+    {
+      let d = '';
+      const lot = (r, pad) => {
+        if (!intersects(r, B, 600)) return;
+        const x0 = landSnap(Math.max(r.x - pad, B.x - landP), false),
+          y0 = landSnap(Math.max(r.y - pad, B.y - landP), false),
+          x1 = landSnap(Math.min(r.x + r.w + pad, B.x + B.w + landP), true),
+          y1 = landSnap(Math.min(r.y + r.h + pad, B.y + B.h + landP), true);
+        if (x1 > x0 && y1 > y0)
+          d += `M${x0.toFixed(1)},${y0.toFixed(1)}H${x1.toFixed(1)}V${y1.toFixed(1)}H${x0.toFixed(1)}Z`;
+      };
+      for (const zn of G.design[c]?.zones || []) lot(zn, 0);
+      for (const r of courseTiles) lot(r, 250);
+      if (d)
+        parts.push(
+          `<path class="v32-land" data-land="${E(c)}" d="${d}" fill="url(#land-${courseKey12(c)})" opacity="${(dimc * landOp).toFixed(3)}"/>`,
+        );
+    }
     const dz = G.design[c];
     if (!dz) continue;
     const col = ARM_COLORS[c] || '#9fb3c4';
     for (const zn of dz.zones || []) {
       if (!intersects(zn, B, 200) || zn.w * z <= 150) continue;
+      // a part's name is set as large as the band above its subjects allows (a wide part asked for 15 px
+      // in a 22 px band and was left out, name and ground, while its narrower neighbours were drawn)
       const head = 360 * z,
-        zfs = Math.min(15, Math.max(11, zn.w * z * 0.018)) / z,
-        zpx = zfs * z;
-      if (head < zpx * 1.6) continue;
+        zpx = Math.min(15, Math.max(11, zn.w * z * 0.018), head / 1.6),
+        zfs = zpx / z;
+      if (zpx < 11) continue;
       // A part of the course: one quiet fill step, no outline. It belongs to the course view and is gone
       // by the time a subject is open.
       if (zoneOp <= 0) continue;
       parts.push(
-        `<rect class="v32-zone" x="${zn.x}" y="${zn.y}" width="${zn.w}" height="${zn.h}" rx="${Math.min(400, Math.max(120, 12 / z))}" opacity="${(zoneOp * dimc).toFixed(3)}"/>`,
+        `<rect class="v32-zone" style="--wash:${courseScale(c)[0]}" x="${zn.x}" y="${zn.y}" width="${zn.w}" height="${zn.h}" rx="${Math.min(400, Math.max(120, 12 / z))}" opacity="${(zoneOp * dimc).toFixed(3)}"/>`,
       );
       const rows = wrapM(zn.title, zn.w - 68 / z, zfs, 600, head >= zpx * 2.6 ? 2 : 1, 'zone-title'),
         x0 = zn.x + 34 / z,
@@ -2333,24 +2479,65 @@ function draw() {
     }
     // The course's tree: the few lines its design draws between subjects. They are what the map shows at
     // rest, on Home and on a course view; the curves of association appear for one tile at a time.
-    for (const sp of dz.spine || []) {
-      const ra = regionFor(sp.a),
-        rb = regionFor(sp.b);
-      if (!ra || !rb) continue;
-      // an open subject is drawn at the height of its contents: a line ends where the panel does
-      const ba = ra.w * z >= V32.tileMin ? cardBox(ra) : ra,
-        bb = rb.w * z >= V32.tileMin ? cardBox(rb) : rb;
-      const p = edgePoint(ba, bb),
-        q = edgePoint(bb, ba);
-      const dash =
-        sp.kind === 'contrast'
-          ? ` stroke-dasharray="${8 / z} ${8 / z}"`
-          : sp.kind === 'depends'
-            ? ` stroke-dasharray="${2 / z} ${7 / z}" stroke-linecap="round"`
-            : '';
-      if (zoneOp <= 0) continue;
+    // An open subject is drawn at the height of its contents: a line ends where the panel does.
+    const drawnBox = (r) => (r.w * z >= V32.tileMin ? cardBox(r) : r),
+      spine = zoneOp > 0 ? (dz.spine || []).filter((sp) => regionById.has(sp.a) && regionById.has(sp.b)) : [],
+      routes = spine.length
+        ? treeLines(
+            spine.map((sp) => ({
+              ida: sp.a,
+              idb: sp.b,
+              a: drawnBox(regionById.get(sp.a)),
+              b: drawnBox(regionById.get(sp.b)),
+            })),
+            courseTiles.map((r) => ({ id: r.id, box: r })),
+            // where a part's name stands on a course view (map units, so a route is the same at every zoom)
+            (dz.zones || []).map((zn) => ({
+              x: zn.x + 540,
+              y: zn.y + 150,
+              w: Math.min(zn.w - 540, zn.title.length * 115),
+              h: 410,
+            })),
+          )
+        : [];
+    for (const [index, sp] of spine.entries()) {
+      // The principal paths (rule 15) are drawn to be followed at rest. "Leads to" is a solid line that
+      // ends in an arrowhead on the subject it leads to; "or instead" is dashed and "depends on" dotted,
+      // both lighter. One element a line, so a hover dims or lights the whole of it.
+      const route = routes[index].slice(),
+        p = route[0],
+        q = route.at(-1),
+        from = route.at(-2),
+        flow = sp.kind !== 'contrast' && sp.kind !== 'depends',
+        len = Math.hypot(q.x - from.x, q.y - from.y) || 1,
+        ux = (q.x - from.x) / len,
+        uy = (q.y - from.y) / len,
+        tip = { x: q.x - (ux * 1.5) / z, y: q.y - (uy * 1.5) / z },
+        arm = Math.min(Math.min(8, 4.5 + 50 * z) / z, len * 0.45),
+        head = flow
+          ? ` M${(tip.x - (ux * 0.85 - uy * 0.53) * arm).toFixed(1)},${(tip.y - (uy * 0.85 + ux * 0.53) * arm).toFixed(1)} L${tip.x.toFixed(1)},${tip.y.toFixed(1)} L${(tip.x - (ux * 0.85 + uy * 0.53) * arm).toFixed(1)},${(tip.y - (uy * 0.85 - ux * 0.53) * arm).toFixed(1)}`
+          : '',
+        dash =
+          sp.kind === 'contrast'
+            ? ` stroke-dasharray="${5 / z} ${4 / z}"`
+            : sp.kind === 'depends'
+              ? ` stroke-dasharray="${0.1 / z} ${4.5 / z}"`
+              : '';
+      if (flow) route[route.length - 1] = tip;
+      // a way round a subject turns on a small curve
+      let d = `M${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+      for (let i = 1; i < route.length - 1; i++) {
+        const w = route[i],
+          cut = (o) => {
+            const l = Math.hypot(o.x - w.x, o.y - w.y) || 1,
+              k = Math.min(260, l / 2) / l;
+            return `${(w.x + (o.x - w.x) * k).toFixed(1)},${(w.y + (o.y - w.y) * k).toFixed(1)}`;
+          };
+        d += ` L${cut(route[i - 1])} Q${w.x.toFixed(1)},${w.y.toFixed(1)} ${cut(route[i + 1])}`;
+      }
+      d += ` L${route.at(-1).x.toFixed(1)},${route.at(-1).y.toFixed(1)}`;
       parts.push(
-        `<line class="v32-link${S.region && (sp.a === S.region || sp.b === S.region) ? ' is-lit' : ''}" data-link="${E(sp.a)} ${E(sp.b)}" x1="${p.x}" y1="${p.y}" x2="${q.x}" y2="${q.y}" stroke="${col}" opacity="${(zoneOp * dimc).toFixed(3)}" stroke-width="${1 / z}"${dash}/>`,
+        `<path class="v32-link v32-${flow ? 'flow' : sp.kind}${S.region && (sp.a === S.region || sp.b === S.region) ? ' is-lit' : ''}" data-link="${E(sp.a)} ${E(sp.b)}"${route.length > 2 ? ' data-round="1"' : ''} d="${d}${head}" stroke="${col}" opacity="${(zoneOp * dimc).toFixed(3)}" stroke-width="${(flow ? 1.75 : 1.5) / z}"${dash}/>`,
       );
       if (sp.label && Math.hypot(q.x - p.x, q.y - p.y) * z > 260 && z > band.z1 * 2.5)
         putLabel({
@@ -2688,9 +2875,23 @@ function draw() {
     }
     const showTitle = floor ? pw >= 36 : pw >= 72;
     if (intersects(r, B, 80)) {
-      const lit = activeRegions.has(r.id) || S.region === r.id;
+      const lit = activeRegions.has(r.id) || S.region === r.id,
+        startR = Math.min(10, 5.8 + 62 * z), // 7.7 px on Home, 9.7 px on a course view
+        // a subject of a course is filled in its course's colour; a tile of records or notes is a plain panel
+        subject = !!r.step && isCourse,
+        rx = Math.min(6 / z, r.h / 2),
+        // a tile that steps back keeps a solid ground under it: a line that passes behind it stays behind
+        under =
+          dim < 1
+            ? `<rect class="v32-tile-under" x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}" rx="${rx}"/>`
+            : '',
+        // where a course begins: its first subject carries its number, as the open subject does
+        start =
+          subject && r.step === 1 && pw >= 60
+            ? `<g class="v32-start"><circle cx="${r.x + 1 / z}" cy="${r.y + 1 / z}" r="${startR / z}" stroke-width="${1.5 / z}"/><text x="${r.x + 1 / z}" y="${r.y + (1 + startR * 0.47) / z}" font-size="${(startR * 1.3) / z}" text-anchor="middle">1</text></g>`
+            : '';
       parts.push(
-        `<g class="map-region v32-tile${lit ? ' is-lit' : ''}" opacity="${dim.toFixed(3)}" data-tile="${E(r.id)}" style="--tile:${acc}"><rect class="v32-tile-bg" x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}" rx="${Math.min(6 / z, r.h / 2)}" stroke-width="${K.hair}"/><path class="v32-tile-light" d="M${r.x + 5 / z} ${r.y + K.hair}H${r.x + r.w - 5 / z}" stroke-width="${K.hair}"/><path d="${regionPath(r)}" data-map-region="${E(r.id)}" class="v32-tile-hit" role="button" tabindex="0" aria-label="Explore ${E(shortRegionTitle(r))}"><title>${E(shortRegionTitle(r))}</title></path>`,
+        `${under}<g class="map-region v32-tile${subject ? ' is-subject' : ''}${lit ? ' is-lit' : ''}" opacity="${dim.toFixed(3)}" data-tile="${E(r.id)}" style="--tile:${acc}${subject ? ';--fill:' + TILE_FILL[regionCourse(r)] : ''}"><rect class="v32-tile-bg" x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}" rx="${rx}" stroke-width="${K.hair}"/><path class="v32-tile-light" d="M${r.x + 5 / z} ${r.y + K.hair * 1.5}H${r.x + r.w - 5 / z}" stroke-width="${K.hair}"/><path d="${regionPath(r)}" data-map-region="${E(r.id)}" class="v32-tile-hit" role="button" tabindex="0" aria-label="Explore ${E(shortRegionTitle(r))}"><title>${E(shortRegionTitle(r))}</title></path>${start}`,
       );
       const titleSt = R11.labelState.get('rt:' + r.id);
       if (badgeOn && showTitle && titleRows.length && (!titleSt || titleSt.o > 0.3))

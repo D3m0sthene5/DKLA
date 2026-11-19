@@ -1419,6 +1419,31 @@ const breakages = [
       ),
   ],
   [
+    'the course territories lose their colour: a subject tile is a grey panel again',
+    'src/runtime/studyCode.js',
+    () => edit('src/runtime/studyCode.js', 'subject = !!r.step && isCourse,', 'subject = false,'),
+  ],
+  [
+    'a tree line runs straight behind a third subject again',
+    'src/runtime/studyCode.js',
+    () =>
+      edit(
+        'src/runtime/studyCode.js',
+        'round = blocked(route[0], route[1], others),',
+        'round = false && blocked(route[0], route[1], others),',
+      ),
+  ],
+  [
+    'the tree lines go back to a faint hairline at rest',
+    'src/features/v32/cards.css',
+    () =>
+      edit(
+        'src/features/v32/cards.css',
+        '  fill: none;\n  stroke-opacity: 0.9;\n  stroke-linecap: round;',
+        '  fill: none;\n  stroke-opacity: 0.2;\n  stroke-linecap: round;',
+      ),
+  ],
+  [
     'the course view offers its list of sessions twice, over a tile',
     'src/features/v32/cards.css',
     () =>
