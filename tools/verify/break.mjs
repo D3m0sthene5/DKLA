@@ -374,8 +374,8 @@ const breakages = [
   ],
   [
     'Calm: a timer that looks five times a second comes back to the top bar',
-    'src/features/topbar/topbar.js',
-    () => append('src/features/topbar/topbar.js', '\nsetInterval(() => {}, 200);\n'),
+    'src/features/v32/chrome.js',
+    () => append('src/features/v32/chrome.js', '\nsetInterval(() => {}, 200);\n'),
   ],
   [
     'Calm: ambient motion keeps running under an open dialog',
