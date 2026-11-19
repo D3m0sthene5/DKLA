@@ -688,12 +688,12 @@
   transform: translateX(-50%);
   white-space: nowrap;
   font:
-    500 12px/16px 'DKLA JetBrains Mono',
+    500 13px/18px 'DKLA JetBrains Mono',
     'JetBrains Mono',
     ui-monospace,
     monospace;
   font-variant-numeric: tabular-nums;
-  color: var(--v31-faint);
+  color: var(--v31-muted);
 }
 .v31-dot.v31-axis-start > span {
   left: 0;
@@ -749,36 +749,32 @@
   padding: 0;
   list-style: none;
 }
-.v31-tl-rows > li {
-  margin: 0;
-  padding: 0;
-}
+/* A row is text: the date, the entry's name (a link), its note, and how it moved the rule. */
 .v31-tl-step {
-  all: unset;
-  box-sizing: border-box;
   display: grid;
-  grid-template-columns: 64px minmax(0, 1fr) 168px;
-  gap: 16px;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 0 16px;
   align-items: baseline;
-  width: 100%;
+  margin: 0;
   padding: 12px 8px;
   border-radius: 6px;
-  cursor: pointer;
 }
-button.v31-tl-step:hover {
-  background: var(--v31-raised);
+.v31-tl-main,
+.v31-tl-step > .v31-tl-turn {
+  max-width: 560px;
+}
+/* How the entry moved the rule: under its note, in the text's column. */
+.v31-tl-step > .v31-tl-turn {
+  grid-column: 2;
+  margin-top: 8px;
 }
 /* You are here. */
-div.v31-tl-step {
-  cursor: default;
+.v31-tl-step.v31-here {
   background: var(--v31-here-bg);
-}
-button.v31-tl-step:focus-visible {
-  box-shadow: var(--v31-focus);
 }
 .v31-tl-year {
   font:
-    500 12px/24px 'DKLA JetBrains Mono',
+    500 13px/24px 'DKLA JetBrains Mono',
     'JetBrains Mono',
     ui-monospace,
     monospace;
@@ -787,48 +783,59 @@ button.v31-tl-step:focus-visible {
 }
 .v31-tl-year small {
   display: block;
-  font: var(--v31-label);
-  color: var(--v31-faint);
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
 }
-div.v31-tl-step .v31-tl-year {
+.v31-tl-step.v31-here .v31-tl-year {
   color: var(--v31-here);
 }
 .v31-tl-main {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
   min-width: 0;
 }
-.v31-tl-main strong {
+.v31-tl-name {
   font:
     600 16px/24px var(--dkla-interface, Inter),
     sans-serif;
-  color: var(--v31-link);
-}
-div.v31-tl-step .v31-tl-main strong {
+  text-wrap: balance;
   color: var(--v31-text);
 }
-.v31-tl-main strong small {
-  margin-left: 8px;
-  font: var(--v31-label);
-  white-space: nowrap;
+.v31-tl-name strong {
+  font: inherit;
+}
+a.v31-tl-link {
+  color: var(--v31-link);
+  text-decoration: none;
+  cursor: pointer;
+}
+a.v31-tl-link:hover {
+  color: var(--v31-link-hover);
+}
+a.v31-tl-link:focus-visible {
+  border-radius: 2px;
+  box-shadow: var(--v31-focus);
+  outline: 0;
+}
+.v31-here-label {
+  font: var(--v32-ui-small);
   color: var(--v31-here);
 }
 .v31-tl-note {
+  margin-top: 4px;
   font:
     400 14px/20px var(--dkla-interface, Inter),
     sans-serif;
+  text-wrap: pretty;
   color: var(--v31-muted);
 }
-div.v31-tl-step .v31-tl-note {
+.v31-tl-step.v31-here .v31-tl-note {
   color: var(--v31-text);
 }
 /* Movement families in the facet: a drawn shape, the word, the colour. */
 .v31-tl-turn {
   position: relative;
   padding-left: 16px;
-  font: var(--v31-label);
-  line-height: 24px;
+  text-wrap: balance;
+  font: var(--v32-ui-small);
   color: var(--v31-steady);
 }
 .v31-tl-turn:empty {
@@ -838,7 +845,7 @@ div.v31-tl-step .v31-tl-note {
   content: '';
   position: absolute;
   left: 0;
-  top: 8px;
+  top: 5px;
   width: 8px;
   height: 8px;
   border-radius: 999px;

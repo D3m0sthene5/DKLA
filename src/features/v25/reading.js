@@ -104,30 +104,19 @@
   }
 
   /* ---------- the facets ---------- */
+  const wide = typeof matchMedia === 'function' ? matchMedia('(min-width: 1340px)') : { matches: true };
+  wide.addEventListener?.('change', () => paint());
   // The order of the facet bar and of the page when it is printed.
-  const FACETS = [
-    'brief',
-    'timeline',
-    'flowchart',
-    'canons',
-    'lecture',
-    'court',
-    'cases',
-    'connections',
-    'sources',
-    'study',
-  ];
+  const FACETS = ['brief', 'doctrine', 'cases', 'canons', 'lecture', 'court', 'sources', 'study'];
   // What each facet is called when the whole entry is printed (case.css shows these only in print).
   const PRINT = {
-    timeline: 'Timeline',
-    flowchart: 'Flowchart',
-    canons: 'Canons',
-    lecture: 'Lecture',
-    court: 'The Court',
+    doctrine: 'Doctrine',
     cases: 'Cases',
-    connections: 'Connections',
+    canons: 'Canons',
+    lecture: 'Class notes',
+    court: 'The Court',
     sources: 'Sources',
-    study: 'Study',
+    study: 'Notes',
   };
   // Parts of the page that belong to no facet: the rail, the header and the facet bar.
   const HEAD = ['v32-head', 'dkla-course-tabs', 'v32-bar', 'v32-panel', 'v31-rail'];
@@ -144,16 +133,18 @@
     ['case-box', 'brief', 5],
     ['r19-brief', 'brief', 8],
     ['dkla-terms', 'brief', 9],
-    ['v28-case-timelines', 'timeline', 0],
-    ['dkla-timeline', 'timeline', 0],
-    ['r21-also', 'timeline', 1],
-    ['v31-chart-steps', 'flowchart', 0],
-    ['fc-entry-links', 'flowchart', 0],
+    // Doctrine: where the entry sits. Its timelines, the flowchart steps that cite it, its connections.
+    ['v32-intro', 'doctrine', -0.5],
+    ['v28-case-timelines', 'doctrine', 0],
+    ['dkla-timeline', 'doctrine', 0],
+    ['r21-also', 'doctrine', 1],
+    ['v31-chart-steps', 'doctrine', 2],
+    ['fc-entry-links', 'doctrine', 2],
+    ['r6-connections', 'doctrine', 4],
     ['canons-related', 'canons', 0],
     ['lecture-related', 'lecture', 0],
     ['sh-case-panel', 'court', 0],
     ['course-case-index', 'cases', 0],
-    ['r6-connections', 'connections', 0],
     ['v32-sources', 'sources', 0],
     ['v25-source-details', 'sources', 2],
     ['dkla-file-chips', 'sources', 2],
@@ -169,9 +160,12 @@
     const classes = el.classList;
     if (HEAD.some((name) => classes.contains(name))) return null;
     if (classes.contains('v32-fh')) return [el.dataset.v32Facet, -1];
+    // Where the case sits: a column beside the rule and the brief when the reader is wide, and
+    // otherwise a band between the rule and the brief.
+    if (classes.contains('v32-sits')) return ['brief', wide.matches ? 1.5 : 2.5];
     // "Questions this case helps answer" belongs with a case's connections; on a concept the same block
     // lists the further subjects, which belong with its cases.
-    if (classes.contains('case-topics')) return [isCase ? 'connections' : 'cases', 1];
+    if (classes.contains('case-topics')) return [isCase ? 'doctrine' : 'cases', 5];
     if (classes.contains('quiet-details'))
       return el.querySelector('.metadata-grid') ? ['sources', 4] : ['study', 2];
     // The warning that a source is missing or partial stays at the top of the brief.
@@ -234,8 +228,99 @@
       );
     }
   }
-  // The header of every entry that is a record of the map: its name, then (case.js) the citation line,
-  // then the line that says what its picture shows. The rule and concept readers share it with cases.
+  /* A case's name, set as a caption (docs/DESIGN.md, "Compose the lines"). From the title's own words:
+     each party is one unit that does not break while the line can hold it, so the line turns before
+     "v." and never inside a name; "v." stays with the first word after it; consolidated cases sit one
+     to a line, the second smaller; the year in parentheses moves to the citation line (it stays in the
+     heading for a screen reader and for a search of the page); a note after the year is a line of its
+     own. Nothing is hard-coded and the heading's text is still the title, character for character. */
+  function compose(heading) {
+    const title = heading.textContent;
+    if (heading.dataset.v32Title === title && heading.querySelector('.v32-case-line')) return;
+    const found = title.match(/^(.*?)(\s*\((?:1[5-9]|20)\d{2}\))(.*)$/);
+    const caption = found ? found[1] : title,
+      year = found ? found[2] : '',
+      tail = found ? found[3] : '';
+    const split = caption.split('; ');
+    const cases = split.length > 1 && split.every((one) => / v\. /.test(one)) ? split : [caption];
+    if (!year && cases.length === 1 && !/ v\. /.test(caption)) {
+      heading.dataset.v32Title = title;
+      return;
+    }
+    const hidden = (text) => element('span', 'v32-vh', text);
+    // A party's name is one unit. Inside it "v." keeps the word after it, and a long name keeps its
+    // last three words together, so a name too long for the line never ends on a stray word.
+    const party = (text, versus) => {
+      const unit = element('span', 'v32-party');
+      const words = text.split(' ');
+      if (versus) unit.appendChild(element('span', 'v32-nb', 'v. ' + words.shift()));
+      const tail = words.length >= (versus ? 4 : 5) ? words.splice(-3) : [];
+      if (words.length) unit.appendChild(document.createTextNode((versus ? ' ' : '') + words.join(' ')));
+      if (tail.length) {
+        unit.appendChild(document.createTextNode(' '));
+        unit.appendChild(element('span', 'v32-nb', tail.join(' ')));
+      }
+      return unit;
+    };
+    const lines = cases.map((one, i) => {
+      const line = element('span', 'v32-case-line' + (i ? ' v32-case-also' : ''));
+      const at = one.indexOf(' v. ');
+      if (at < 0) line.appendChild(party(one, false));
+      else {
+        line.appendChild(party(one.slice(0, at), false));
+        line.appendChild(document.createTextNode(' '));
+        line.appendChild(party(one.slice(at + 4), true));
+      }
+      return line;
+    });
+    const out = [];
+    lines.forEach((line, i) => {
+      if (i) out.push(hidden('; '));
+      out.push(line);
+    });
+    if (year) out.push(hidden(year));
+    let note = null;
+    if (tail.trim()) {
+      // ", including the Second Circuit account" or " (the Benzene Case)": the words, without the
+      // punctuation that joined them to the name.
+      // They stay in the heading's text, undrawn, and are drawn as a line of their own under it.
+      const said = tail.match(/^(\s*[,(]?\s*)(.*?)(\)?\s*)$/);
+      out.push(hidden(tail));
+      note = element('p', 'v32-case-note', said[2]);
+      note.setAttribute('aria-hidden', 'true');
+    }
+    heading.parentElement.querySelector(':scope > .v32-case-note')?.remove();
+    if (note) heading.after(note);
+    heading.replaceChildren(...out);
+    // The words that are not drawn (the year, the joining punctuation) are still the heading's name.
+    heading.setAttribute('aria-label', title);
+    heading.dataset.v32Title = title;
+    heading.classList.add('v32-caption');
+  }
+  // A case's picture is its illustration: the drawing is fitted to its box (pictures are drawn at
+  // different sizes inside the same square), so each one fills the 48 px it is shown at.
+  function fit(svg) {
+    if (svg.dataset.v32Fit || typeof svg.getBBox !== 'function') return;
+    let box;
+    try {
+      box = svg.getBBox();
+    } catch {
+      return;
+    }
+    if (!box.width || !box.height) return;
+    const side = Math.max(box.width, box.height) + 2;
+    svg.setAttribute(
+      'viewBox',
+      [box.x + box.width / 2 - side / 2, box.y + box.height / 2 - side / 2, side, side]
+        .map((n) => Math.round(n * 100) / 100)
+        .join(' '),
+    );
+    svg.dataset.v32Fit = '1';
+  }
+  // The header of every entry that is a record of the map: its picture, its name, then (case.js) the
+  // citation line, then the line that says what the picture shows. A case's picture is an illustration
+  // beside the name; an entry whose picture only says what kind of entry it is (a concept, a rule)
+  // keeps it small, with that word beside it. The rule and concept readers share the header with cases.
   function header(body) {
     const title = body.querySelector('.dkla-record-title');
     if (!title) return null;
@@ -245,10 +330,12 @@
       title.before(head);
     }
     move(title, head);
+    const heading = title.querySelector('h2');
+    if (heading) compose(heading);
     if (!head.querySelector(':scope > .v32-meta')) head.appendChild(element('p', 'v32-meta'));
-    // The entry's picture and the line that says what it shows are one row. An entry whose picture
-    // only says what kind of entry it is (a concept, a rule) gets that word beside it.
-    const symbol = title.querySelector(':scope > svg') || head.querySelector(':scope > .v32-tag > svg');
+    const symbol =
+      title.querySelector(':scope > svg') ||
+      head.querySelector(':scope > .v32-tag > svg, :scope > .dkla-record-title > .v32-art > svg');
     const caption = body.querySelector('.dkla-icon-caption');
     let tag = head.querySelector(':scope > .v32-tag');
     if (symbol || caption) {
@@ -256,8 +343,18 @@
         tag = element('div', 'v32-tag');
         head.appendChild(tag);
       }
-      if (symbol && symbol.parentElement !== tag) tag.prepend(symbol);
       if (caption && caption.parentElement !== tag) tag.appendChild(caption);
+      if (symbol && caption) {
+        let art = title.querySelector(':scope > .v32-art');
+        if (!art) {
+          art = element('div', 'v32-art');
+          art.dataset.art = 'pictogram';
+          art.setAttribute('aria-hidden', 'true');
+          title.prepend(art);
+        }
+        if (symbol.parentElement !== art) art.replaceChildren(symbol);
+        fit(symbol);
+      } else if (symbol && symbol.parentElement !== tag) tag.prepend(symbol);
       const kind = tag.querySelector(':scope > .v32-kind');
       const word = caption ? '' : kindWord();
       if (word && !kind) tag.appendChild(element('span', 'v32-kind', word));
@@ -306,7 +403,7 @@
     }
     if (!row) {
       row = element('div', 'v32-brief-head');
-      row.appendChild(element('p', 'v32-label', 'The rule in plain English'));
+      row.appendChild(element('p', 'v32-label', 'The rule'));
       body.appendChild(row);
     }
     let pick = row.querySelector('.v32-seg');
@@ -315,8 +412,8 @@
       pick.setAttribute('role', 'group');
       pick.setAttribute('aria-label', 'Which brief to read');
       for (const [mode, text, title] of [
-        ['short', 'Short', 'The rule and the six parts'],
-        ['full', 'Full', 'The complete audited brief'],
+        ['short', 'Brief', 'The rule and the six parts'],
+        ['full', 'Full brief', 'The complete audited brief'],
       ]) {
         const button = element('button', '', text);
         button.type = 'button';

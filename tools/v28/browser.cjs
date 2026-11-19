@@ -12,29 +12,34 @@ const darkFraction = async (page) =>
       if (pixels[i] < 120 && pixels[i + 1] < 120 && pixels[i + 2] < 120) dark++;
     return dark / (pixels.length / 16);
   });
-// v3.2: a case's timelines are a facet of their own, with a tab that counts their entries; they are drawn
-// when that facet is opened.
+// v3.2: a case's timelines are part of the Doctrine tab (the sheet's side column says where the case
+// sits on the first of them); they are drawn when that tab is opened.
 const timelinesFacet = async (page) => {
-  await page.locator('#inspector .v32-tabs [data-v32-tab="timeline"]').waitFor();
+  await page.locator('#inspector .v32-tabs [data-v32-tab="doctrine"]').waitFor();
   const placement = await page.evaluate(() => {
     const body = document.querySelector('#inspector .reader-body');
     const timelines = body.querySelector(':scope > .v28-case-timelines');
     const lines = [...(timelines?.querySelectorAll('.dkla-timeline') || [])];
     return {
       facet: timelines?.dataset.v32Facet,
-      tab: document.querySelector('#inspector .v32-tabs [data-v32-tab="timeline"]').textContent.trim(),
+      tab: document.querySelector('#inspector .v32-tabs [data-v32-tab="doctrine"]').textContent.trim(),
+      place: document
+        .querySelector('#inspector .v32-sits .v32-sit-kind')
+        ?.textContent.replace(/\s+/g, ' ')
+        .trim(),
       entries: lines.reduce((n, line) => n + Number(line.dataset.v32Count), 0),
       count: lines.length,
       open: window.DKLAReader.current(),
     };
   });
-  assert.equal(placement.facet, 'timeline', 'The case timelines are the Timeline facet');
+  assert.equal(placement.facet, 'doctrine', 'The case timelines are part of the Doctrine tab');
   assert.equal(placement.open, 'brief', 'A case opens on its brief');
   assert.ok(placement.count > 0, 'The case timelines must remain');
-  assert.equal(
-    placement.tab.replace(/\s+/g, ' '),
-    'Timeline ' + placement.entries,
-    'The tab counts the entries',
+  assert.equal(placement.tab.replace(/\s+/g, ' '), 'Doctrine');
+  assert.match(
+    placement.place || '',
+    /^Timeline \d+(st|nd|rd|th) of \d+$/,
+    'The sheet says where the case sits on its timeline',
   );
   await page.evaluate(() => window.DKLAReader.show('timeline'));
   assert.ok(await page.locator('#inspector .v28-case-timelines .dkla-timeline:visible').count());

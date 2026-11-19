@@ -99,14 +99,15 @@ try {
       location.hash = 'node=hamer';
     });
     const preview = page.locator('#inspector .dkla-timeline[data-r21="consideration"]');
-    // v3.2: the timeline is a facet of the case page. Its tab counts the entries; opening it shows an
+    // v3.2: the timeline is part of the case page's Doctrine tab (the sheet's side column says where the
+    // case sits on it, with the count); opening the tab shows an
     // axis of every entry, then the entries as rows (all of them when they fit, else this entry and its
     // neighbours, with the count on the way to the full timeline).
     const entries = Number(await preview.getAttribute('data-v32-count'));
-    await expect(page.locator('#inspector .v32-tabs [data-v32-tab="timeline"]')).toHaveText(
-      new RegExp('^Timeline\\s*' + entries + '$'),
+    await expect(page.locator('#inspector .v32-sits .v32-sit-kind').first()).toHaveText(
+      new RegExp('^Timeline\\s*\\d+(st|nd|rd|th) of ' + entries + '$'),
     );
-    await page.locator('#inspector .v32-tabs [data-v32-tab="timeline"]').click();
+    await page.locator('#inspector .v32-tabs [data-v32-tab="doctrine"]').click();
     await preview.waitFor();
     await expect(preview.locator('.v31-axis .v31-dot')).toHaveCount(entries);
     await expect(preview.locator('.v31-axis .v31-dot.v31-here')).toHaveCount(1);

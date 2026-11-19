@@ -150,7 +150,7 @@
       // v3.2: the sources are one list in the Sources facet; this drawer is the record itself.
       return h
         .replace('<p></p>', '')
-        .replace('<summary>Sources & record details</summary>', '<summary>Record details</summary>');
+        .replace('<summary>Sources & record details</summary>', '<summary>Record</summary>');
     };
   }
   if (typeof toast === 'function') {

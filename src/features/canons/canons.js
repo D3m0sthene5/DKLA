@@ -243,23 +243,33 @@
   });
 
   const inspector = document.getElementById('inspector');
-  // The mark of a canon in a list of rows: scales, 16 px.
-  const GLYPH =
-    '<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5v11M5 13.5h6M3 4.5h10M3 4.5L1.5 8.5a1.8 1.8 0 0 0 3 0zM13 4.5l-1.5 4a1.8 1.8 0 0 0 3 0z"/></svg>';
+  // What the canon's own record says of an entry: whether the entry applies the canon or discusses
+  // it, and where. Nothing is said when the record says nothing.
+  function bearing(entry, id) {
+    const mine = entry.sources.filter((one) => one.id === id);
+    if (!mine.length) return '';
+    const what = nodesById.get(id)?.kind === 'Case' ? 'case' : 'entry';
+    const how = mine.some((one) => one.kind === 'application')
+      ? `Applied in this ${what}`
+      : `Discussed in this ${what}`;
+    const where = [...new Set(mine.map((one) => one.pinpoint).filter(Boolean))].join('; ');
+    return `<div class="v32-entry-here">${how}${where ? ` · ${esc(where)}` : ''}</div>`;
+  }
   const priorInspector = renderInspector;
   renderInspector = function (...args) {
     const result = priorInspector.apply(this, args);
     const related = selected?.type === 'node' && bySource.get(selected.id);
     const reading = related && inspector?.querySelector('.reader-body');
-    // The Canons facet of an entry (v3.2): one row a canon, each opening the canon index at that canon.
+    // The Canons facet of an entry (v3.2): one row a canon. Its name opens the canon; under it, what the
+    // canon does and, where the canon's record says so, what this entry has to do with it.
     if (reading && !reading.querySelector('.canons-related')) {
       reading.insertAdjacentHTML(
         'beforeend',
         `<nav class="canons-related" aria-label="Canons of construction">
-        <h3 class="v32-label">Canons and interpretive tools <span class="v32-count">${related.length}</span></h3><ul class="v32-rows">${related
+        <h3 class="v32-label">Canons and interpretive tools <span class="v32-count">${related.length}</span></h3><ul class="v32-entries">${related
           .map(
             (entry) =>
-              `<li><a class="v32-row" data-canons-nav href="${canonHash(entry.id)}" title="${esc(entry.name)}">${GLYPH}<span class="v32-row-label">${esc(entry.name)}</span></a></li>`,
+              `<li class="v32-entry"><div class="v32-entry-name"><a data-canons-nav href="${canonHash(entry.id)}">${esc(entry.name)}</a></div><div class="v32-entry-does">${esc(entry.definition)}</div>${bearing(entry, selected.id)}</li>`,
           )
           .join('')}</ul></nav>`,
       );

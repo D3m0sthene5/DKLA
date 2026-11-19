@@ -14,19 +14,24 @@
   --v32-left: calc(var(--v32-gutter) + var(--v32-margin) + 24px);
   --v32-col: 720px;
   /* About 70 characters of the reading size, and about 62 of the rule's. */
-  --v32-measure: 576px;
+  --v32-measure: 560px;
   --v32-hero: 656px;
-  --v32-mono: 500 12px/16px 'DKLA JetBrains Mono', 'JetBrains Mono', ui-monospace, monospace;
+  /* The case sheet: the brief's column, and beside it the column that says where the case sits. */
+  --v32-brief: 544px;
+  --v32-side: 292px;
+  --v32-wide: calc(var(--v32-brief) + 40px + var(--v32-side));
+  --v32-mono: 500 13px/18px 'DKLA JetBrains Mono', 'JetBrains Mono', ui-monospace, monospace;
   background: var(--v31-panel);
   border-left: 0;
   box-shadow: var(--v32-e1);
   scrollbar-color: var(--v31-line-strong) transparent;
 }
-@media (max-width: 1319px) {
+@media (max-width: 1439px) {
   #inspector {
     --v32-gutter: 16px;
     --v32-margin: 104px;
     --v32-left: calc(var(--v32-gutter) + var(--v32-margin) + 16px);
+    --v32-side: 264px;
   }
 }
 @media (max-width: 1023px) {
@@ -42,7 +47,7 @@
   top: 0;
   z-index: 4;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto auto;
   align-items: center;
   gap: 0 12px;
   height: 44px;
@@ -59,13 +64,24 @@
   grid-area: 1 / 1;
   min-width: 0;
   overflow: hidden;
-  font: var(--v31-label);
+  font: var(--v32-ui-small);
   white-space: nowrap;
   text-overflow: ellipsis;
   color: var(--v31-muted);
   transition:
     opacity var(--v31-t-pop) var(--v31-ease),
     transform var(--v31-t-pop) var(--v31-ease);
+}
+/* The court and the year, as a readout at the strip's right. */
+#inspector .reader-top > .v32-court {
+  grid-area: 1 / 2;
+  font: var(--v32-mono);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--v31-muted);
+}
+#inspector .reader-top > #closeInspector {
+  grid-area: 1 / 3;
 }
 #inspector .reader-top > .v32-ident {
   display: flex;
@@ -156,13 +172,11 @@
 }
 /* One facet at a time: the blocks of every other facet are out of the page. */
 #inspector .v32[data-v32-show='brief'] > [data-v32-facet]:not([data-v32-facet='brief']),
-#inspector .v32[data-v32-show='timeline'] > [data-v32-facet]:not([data-v32-facet='timeline']),
-#inspector .v32[data-v32-show='flowchart'] > [data-v32-facet]:not([data-v32-facet='flowchart']),
+#inspector .v32[data-v32-show='doctrine'] > [data-v32-facet]:not([data-v32-facet='doctrine']),
+#inspector .v32[data-v32-show='cases'] > [data-v32-facet]:not([data-v32-facet='cases']),
 #inspector .v32[data-v32-show='canons'] > [data-v32-facet]:not([data-v32-facet='canons']),
 #inspector .v32[data-v32-show='lecture'] > [data-v32-facet]:not([data-v32-facet='lecture']),
 #inspector .v32[data-v32-show='court'] > [data-v32-facet]:not([data-v32-facet='court']),
-#inspector .v32[data-v32-show='cases'] > [data-v32-facet]:not([data-v32-facet='cases']),
-#inspector .v32[data-v32-show='connections'] > [data-v32-facet]:not([data-v32-facet='connections']),
 #inspector .v32[data-v32-show='sources'] > [data-v32-facet]:not([data-v32-facet='sources']),
 #inspector .v32[data-v32-show='study'] > [data-v32-facet]:not([data-v32-facet='study']) {
   display: none !important;
@@ -216,7 +230,7 @@
   margin: 0 0 8px;
   padding: 0;
   border: 0;
-  font: var(--v31-label);
+  font: var(--v32-ui-small);
   letter-spacing: 0;
   text-transform: none;
   color: var(--v31-muted);
@@ -225,7 +239,7 @@
   font: var(--v32-mono);
   font-variant-numeric: tabular-nums;
   letter-spacing: 0;
-  color: var(--v31-faint);
+  color: var(--v31-muted);
 }
 #inspector :is(.v32, .v32-plain) .v32-label > .v32-count {
   margin-left: 4px;
@@ -269,7 +283,7 @@
   flex: none;
   font: var(--v32-mono);
   font-variant-numeric: tabular-nums;
-  color: var(--v31-faint);
+  color: var(--v31-muted);
 }
 #inspector .v32 .v32-row:hover {
   background: var(--v31-raised);
@@ -406,22 +420,90 @@
   align-items: baseline;
   gap: 8px;
   margin: 0;
-  font: var(--v31-label);
+  font: var(--v32-ui-small);
   color: var(--v31-muted);
 }
 
 /* ---------- the header ---------- */
 #inspector .v32 > .v32-head {
+  position: relative;
   display: flex;
   flex-direction: column;
+  /* A name is wider than prose: up to the whole sheet's width, and no wider than its own lines. */
+  width: fit-content;
+  max-width: var(--v32-wide);
   margin: 0 0 16px;
   padding: 0;
   border: 0;
 }
 #inspector .v32 .v32-head > .dkla-record-title {
+  position: relative;
   display: block;
+  /* As wide as the name's own lines. */
+  width: fit-content;
+  max-width: 100%;
   gap: 0;
   margin: 0;
+}
+/* The question the entry's subject asks, before the name. */
+#inspector .v32 .v32-head > .v32-ask {
+  max-width: var(--v32-hero);
+  margin: 0 0 12px;
+  font: var(--v31-ui);
+  font-weight: 400;
+  text-wrap: balance;
+  color: var(--v31-muted);
+}
+/* A case's picture: an illustration in the margin, level with the first line of the name. */
+#inspector .v32 .v32-head .v32-art {
+  position: absolute;
+  left: -72px;
+  /* 48 px beside a 40 px line: centred on it. */
+  top: -4px;
+  width: 48px;
+  height: 48px;
+  color: var(--v32-course, var(--v31-text));
+}
+#inspector .v32 .v32-art > svg {
+  display: block;
+  width: 48px;
+  height: 48px;
+  overflow: visible;
+  stroke-width: 1.5px;
+}
+/* One stroke weight whatever size the drawing was made at. */
+#inspector .v32 .v32-art > svg * {
+  vector-effect: non-scaling-stroke;
+}
+/* A caption (reading.js composes it): a party is one unit, "v." keeps its first word. */
+#inspector .v32 .v32-head h2 .v32-case-line {
+  display: block;
+}
+#inspector .v32 .v32-head h2 .v32-party {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: top;
+  text-wrap: wrap;
+}
+#inspector .v32 .v32-head h2 .v32-nb {
+  white-space: nowrap;
+}
+/* A second case decided with the first: its own line, one step down. */
+#inspector .v32 .v32-head h2 .v32-case-also {
+  margin-top: 4px;
+  font-size: 22px;
+  line-height: 32px;
+  color: var(--v31-muted);
+}
+#inspector .v32 .v32-head .v32-case-note {
+  margin: 4px 0 0;
+  font: var(--v31-body-type);
+  line-height: 24px;
+  color: var(--v31-muted);
+}
+/* Words kept in the text but not drawn (the heading's aria-label says them). */
+#inspector :is(.v32, .v32-plain) .v32-vh {
+  display: none;
 }
 #inspector .v32 .v32-head h2 {
   margin: 0;
@@ -439,7 +521,7 @@
   font: var(--v32-mono);
   font-variant-numeric: tabular-nums;
   white-space: normal;
-  color: var(--v31-faint);
+  color: var(--v31-muted);
 }
 #inspector .v32 .v32-head > .v32-tag {
   display: flex;
@@ -633,8 +715,8 @@
   margin: 0 -8px;
   padding: 0 8px;
   border-radius: 6px;
-  font: var(--v31-label);
-  color: var(--v31-faint);
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
   cursor: pointer;
 }
 #inspector .v32 .v31-rail button > .v32-n {
@@ -653,10 +735,11 @@
   #inspector .v32 > .v31-rail {
     display: none !important;
   }
-  #inspector .v32-cc {
+  #inspector .v32 .v32-cc {
     position: static;
+    flex: none;
   }
-  #inspector .v32-cc:not(:empty) {
+  #inspector .v32 .v32-cc:not(:empty) {
     margin-right: 24px;
   }
 }
@@ -798,7 +881,7 @@
   height: 36px;
   font: var(--v32-mono);
   font-variant-numeric: tabular-nums;
-  color: var(--v31-faint);
+  color: var(--v31-muted);
   cursor: pointer;
 }
 #inspector .v32 .case-box .source-strip :is(a, button):hover {
@@ -895,7 +978,7 @@
   align-items: center;
   gap: 8px 16px;
   margin: 0;
-  font: var(--v31-label);
+  font: var(--v32-ui-small);
   color: var(--v31-muted);
 }
 #inspector .v32 .r19-line:empty {
@@ -905,7 +988,7 @@
   padding: 0;
   border: 0;
   background: none;
-  font: var(--v31-label);
+  font: var(--v32-ui-small);
   letter-spacing: 0;
   text-transform: none;
   white-space: normal;
@@ -920,7 +1003,7 @@
 }
 #inspector .v32 .r19-related > span {
   flex: 1 0 100%;
-  font: var(--v31-label);
+  font: var(--v32-ui-small);
   color: var(--v31-muted);
 }
 /* The text of a provision, in a rule's overview: a drawer that is open when the text is short. */
@@ -944,7 +1027,7 @@
   margin: 0 0 8px;
   padding: 0;
   list-style: none;
-  font: var(--v31-label);
+  font: var(--v32-ui-small);
   color: var(--v31-muted);
   cursor: pointer;
 }
@@ -956,7 +1039,7 @@
   font: var(--v32-mono);
   font-variant-numeric: tabular-nums;
   letter-spacing: 0;
-  color: var(--v31-faint);
+  color: var(--v31-muted);
 }
 #inspector .v32 > .r19-prov .r19-prov-text {
   padding: 0;
@@ -975,9 +1058,9 @@
   margin: 8px 0 0;
   padding: 0;
   border: 0;
-  font: var(--v31-label);
+  font: var(--v32-ui-small);
   font-weight: 400;
-  color: var(--v31-faint);
+  color: var(--v31-muted);
 }
 #inspector .v32 > .r19-prov .r19-prov-src :is(a, button) {
   all: unset;
@@ -985,7 +1068,7 @@
   align-items: center;
   height: 36px;
   margin-left: 8px;
-  font: var(--v31-label);
+  font: var(--v32-ui-small);
   color: var(--v31-link);
   cursor: pointer;
 }
@@ -998,7 +1081,7 @@
 }
 #inspector .v32 > .dkla-terms > h3 {
   margin: 0 0 8px;
-  font: var(--v31-label);
+  font: var(--v32-ui-small);
   letter-spacing: 0;
   text-transform: none;
   color: var(--v31-muted);
@@ -1011,7 +1094,7 @@
   background: none;
   font: var(--v32-mono);
   font-variant-numeric: tabular-nums;
-  color: var(--v31-faint);
+  color: var(--v31-muted);
 }
 #inspector .v32 .dkla-term-chips {
   display: grid;
@@ -1068,7 +1151,7 @@
   align-items: center;
   gap: 0 16px;
   margin: 0;
-  font: var(--v31-label);
+  font: var(--v32-ui-small);
   color: var(--v31-muted);
 }
 #inspector .v32 > .r21-also > button {
@@ -1125,22 +1208,25 @@
   margin: 0;
   padding: 0;
 }
-#inspector .v32 .v32-step > a {
-  display: flex;
+#inspector .v32 .v32-step {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  gap: 0 16px;
   align-items: baseline;
-  gap: 16px;
-  min-height: 36px;
-  margin: 0 -8px;
-  padding: 8px;
-  box-sizing: border-box;
-  border-radius: 6px;
+  margin: 0;
+  padding: 8px 0;
+}
+#inspector .v32 .v32-step-q {
   font: var(--v31-ui);
   font-weight: 400;
+  line-height: 24px;
+  text-wrap: balance;
+}
+#inspector .v32 .v32-step-q > a {
   color: var(--v31-muted);
 }
-#inspector .v32 .v32-step > a:hover {
-  background: var(--v31-raised);
-  color: var(--v31-text);
+#inspector .v32 .v32-step-q > a:hover {
+  color: var(--v31-link-hover);
 }
 #inspector .v32 .v32-step-n {
   flex: none;
@@ -1148,16 +1234,7 @@
   font: var(--v32-mono);
   font-variant-numeric: tabular-nums;
   text-align: right;
-  color: var(--v31-faint);
-}
-#inspector .v32 .v32-step-q small {
-  position: absolute;
-  font: inherit;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
+  color: var(--v31-muted);
 }
 /* The same amber mark beside the count of the steps this entry decides. */
 #inspector .v32 .v31-chart .v31-meta > .v32-count::before {
@@ -1170,16 +1247,29 @@
   background: var(--v31-here);
 }
 /* The steps this entry decides: amber, in full. */
-#inspector .v32 .v32-step.v31-own > a {
+#inspector .v32 .v32-step.v31-own .v32-step-q {
+  font: var(--v31-body-type);
   font-weight: 600;
-  color: var(--v31-text);
+  line-height: 24px;
+}
+#inspector .v32 .v32-step.v31-own .v32-step-q > a {
+  color: var(--v31-link);
+}
+#inspector .v32 .v32-step.v31-own .v32-step-q > a:hover {
+  color: var(--v31-link-hover);
+}
+/* Why the entry is at this step, in words. */
+#inspector .v32 .v32-step-why {
+  font: var(--v32-ui-small);
+  line-height: 24px;
+  color: var(--v31-here);
 }
 #inspector .v32 .v32-step.v31-own .v32-step-n {
   color: var(--v31-here);
 }
 #inspector .v32 .v32-step-detail {
-  max-width: 608px;
-  margin: 0 0 8px 32px;
+  max-width: var(--v32-measure);
+  margin: 0;
   font: var(--v31-ui);
   font-weight: 400;
   line-height: 24px;
@@ -1193,12 +1283,45 @@
   min-height: 24px;
   margin: 0;
   padding: 0 0 0 32px;
-  font: var(--v31-label);
-  color: var(--v31-faint);
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
   background: linear-gradient(var(--v31-line-strong), var(--v31-line-strong)) 11px 0 / 1px 100% no-repeat;
 }
 
-/* ---------- Canons, Sources and other lists of rows ---------- */
+/* ---------- Canons: each canon, what it does, and what this entry has to do with it ---------- */
+#inspector .v32 .v32-entries {
+  max-width: var(--v32-measure);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#inspector .v32 .v32-entry {
+  margin: 0;
+  padding: 12px 0 16px;
+  border-top: 1px solid var(--v32-hair);
+}
+#inspector .v32 .v32-entry > .v32-entry-name {
+  font: var(--v31-body-type);
+  font-weight: 600;
+  line-height: 24px;
+  text-wrap: balance;
+}
+#inspector .v32 .v32-entry-does {
+  margin-top: 4px;
+  font: var(--v31-ui);
+  font-weight: 400;
+  line-height: 24px;
+  text-wrap: pretty;
+  color: var(--v31-muted);
+}
+#inspector .v32 .v32-entry-here {
+  margin-top: 4px;
+  font: var(--v32-ui-small);
+  line-height: 24px;
+  color: var(--v31-text);
+}
+
+/* ---------- Sources and other lists of rows ---------- */
 #inspector .v32 > .canons-related,
 #inspector .v32 > .v32-sources {
   margin: 0;
@@ -1371,7 +1494,7 @@
 #inspector .v32 .lecture-pinpoint {
   font: var(--v32-mono);
   font-variant-numeric: tabular-nums;
-  color: var(--v31-faint);
+  color: var(--v31-muted);
 }
 
 /* ---------- Connections ---------- */
@@ -1413,9 +1536,7 @@
   background: none;
   box-shadow: none;
 }
-#inspector .v32 .study-connection .connection-destination,
-#inspector :is(.v32, .v32-plain) .indexed-case > button[data-study-node] {
-  all: unset;
+#inspector :is(.v32, .v32-plain) :is(.study-connection, .indexed-case) > .v32-entry-name {
   box-sizing: border-box;
   grid-column: 1;
   display: block;
@@ -1425,19 +1546,37 @@
   font: var(--v31-body-type);
   font-weight: 600;
   line-height: 24px;
+  text-wrap: balance;
+}
+#inspector :is(.v32, .v32-plain) .v32-entry-name > a,
+#inspector .v32 .v32-sit-q > a {
+  font: inherit;
   color: var(--v31-link);
+  text-decoration: none;
   cursor: pointer;
 }
-#inspector .v32 .study-connection .connection-destination:hover,
-#inspector :is(.v32, .v32-plain) .indexed-case > button[data-study-node]:hover {
+#inspector :is(.v32, .v32-plain) .v32-entry-name > a:hover,
+#inspector .v32 .v32-sit-q > a:hover {
   color: var(--v31-link-hover);
+}
+/* A name in a line of text keeps its place in the line and takes a press well above and below it. */
+#inspector :is(.v32, .v32-plain) :is(.v32-entry-name, .v32-sit-q, .v32-step-q, .v31-tl-name) > a {
+  padding: 12px 0;
+}
+#inspector
+  :is(.v32, .v32-plain)
+  :is(.v32-entry-name, .v32-sit-q, .v32-step-q, .v31-tl-name)
+  > a:focus-visible {
+  border-radius: 2px;
+  box-shadow: var(--v31-focus);
+  outline: 0;
 }
 #inspector .v32 .study-connection .dkla-location,
 #inspector :is(.v32, .v32-plain) .indexed-case > .dkla-index-kind {
   grid-column: 1;
   margin: 0 0 8px;
-  font: var(--v31-label);
-  color: var(--v31-faint);
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
 }
 #inspector .v32 .study-connection > p,
 #inspector :is(.v32, .v32-plain) .indexed-case > p {
@@ -1470,7 +1609,7 @@
 }
 #inspector .v32 > .case-topics > h3 {
   margin: 0 0 8px;
-  font: var(--v31-label);
+  font: var(--v32-ui-small);
   letter-spacing: 0;
   text-transform: none;
   color: var(--v31-muted);
@@ -1524,7 +1663,7 @@
 }
 #inspector .v32 > .v32-notes > h3 {
   margin: 0 0 8px;
-  font: var(--v31-label);
+  font: var(--v32-ui-small);
   color: var(--v31-muted);
 }
 #inspector .v32 > .reading-actions {
@@ -1537,7 +1676,7 @@
 #inspector .v32 > .reading-actions::before {
   content: 'This entry';
   flex: 1 0 100%;
-  font: var(--v31-label);
+  font: var(--v32-ui-small);
   color: var(--v31-muted);
 }
 
@@ -1555,7 +1694,7 @@
 }
 #inspector .v32 > .sh-case-panel .sh-kicker {
   margin: 0 0 8px;
-  font: var(--v31-label);
+  font: var(--v32-ui-small);
   letter-spacing: 0;
   text-transform: none;
   color: var(--v31-muted);
@@ -1578,7 +1717,7 @@
   margin: 4px 0 16px;
   font: var(--v32-mono);
   font-variant-numeric: tabular-nums;
-  color: var(--v31-faint);
+  color: var(--v31-muted);
 }
 #inspector .v32 > .sh-case-panel .sh-question,
 #inspector .v32 > .sh-case-panel .r17-alias-tally,
@@ -1669,7 +1808,7 @@
 }
 #inspector .v32 > .sh-case-panel .sh-vote strong {
   margin: 8px 0 0;
-  font: var(--v31-label);
+  font: var(--v32-ui-small);
   color: var(--v31-text);
 }
 #inspector .v32 > .sh-case-panel .sh-vote[data-opinion='majority'] strong,
@@ -1679,9 +1818,9 @@
 #inspector .v32 > .sh-case-panel .sh-vote small {
   min-height: 32px;
   margin: 0;
-  font: var(--v31-label);
+  font: var(--v32-ui-small);
   font-weight: 400;
-  color: var(--v31-faint);
+  color: var(--v31-muted);
 }
 #inspector .v32 > .sh-case-panel .sh-vote[data-align='dissent'] .sh-portrait {
   filter: grayscale(1) brightness(0.8);
@@ -1719,9 +1858,9 @@
   color: var(--v31-text);
 }
 #inspector .v32 > .sh-case-panel .r17-alias-vote span {
-  font: var(--v31-label);
+  font: var(--v32-ui-small);
   font-weight: 400;
-  color: var(--v31-faint);
+  color: var(--v31-muted);
 }
 #inspector .v32 > .sh-case-panel .r17-alias-vote[data-align='dissent'] span {
   color: var(--v31-text);
@@ -1788,15 +1927,15 @@
   margin: 8px 0 0;
   padding: 0;
   border: 0;
-  font: var(--v31-label);
-  color: var(--v31-faint);
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
 }
 #inspector .v32 > .sh-case-panel .sh-source a {
   display: inline-flex;
   align-items: center;
   gap: 4px;
   height: 36px;
-  font: var(--v31-label);
+  font: var(--v32-ui-small);
   color: var(--v31-muted);
 }
 #inspector .v32 > .sh-case-panel .sh-source a:hover {
@@ -1856,19 +1995,210 @@
 #inspector :is(.v32, .v32-plain) > .course-case-index > .case-group[open]:only-of-type > summary {
   display: none;
 }
-#inspector :is(.v32, .v32-plain) .indexed-case > button[data-study-node] > strong {
-  font: inherit;
-  color: inherit;
-}
 #inspector :is(.v32, .v32-plain) .indexed-case > .context-text,
 #inspector :is(.v32, .v32-plain) .case-group > .context-text {
   margin: 0 0 8px;
-  font: var(--v31-label);
-  color: var(--v31-faint);
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
 }
 #inspector :is(.v32, .v32-plain) .indexed-case > .dkla-source-evidence {
   grid-column: 1;
   margin: 8px 0 0;
+}
+
+/* Doctrine opens with the subject the entry is filed under, where that line is not before the name. */
+#inspector .v32 > .v32-intro {
+  max-width: var(--v32-measure);
+  margin: 0 0 32px;
+}
+#inspector .v32 > .v32-intro > p {
+  margin: 0;
+  font: var(--v31-body-type);
+  color: var(--v31-muted);
+}
+
+/* ---------- the case sheet: the brief, and beside it where the case sits ---------- */
+/* Headings and short lines never strand a word; prose avoids a last line of one word. */
+#inspector :is(.v32, .v32-plain) :is(h2, h3, h4, .v32-label, .dkla-icon-caption, .v32-sit-q) {
+  text-wrap: balance;
+}
+#inspector :is(.v32, .v32-plain) :is(p, li, dd, .v32-sit-text) {
+  text-wrap: pretty;
+}
+#inspector :is(.v32, .v32-plain) .v32-count {
+  white-space: nowrap;
+}
+#inspector .v32-case > .v32-brief-head {
+  max-width: var(--v32-wide);
+}
+#inspector .v32-case > .v32-sits {
+  box-sizing: border-box;
+  margin: 0 0 48px;
+}
+#inspector .v32 > .v32-sits > .v32-label {
+  margin: 0 0 8px;
+}
+#inspector .v32 .v32-sit {
+  min-width: 0;
+  padding: 4px 0 12px;
+  border-top: 1px solid var(--v32-hair);
+}
+/* A part's first line: what it is and the count with its unit. */
+#inspector .v32 .v32-sit-kind {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 8px;
+  min-height: 36px;
+  padding-top: 8px;
+  box-sizing: border-box;
+  font: var(--v31-ui);
+  font-weight: 600;
+  color: var(--v31-text);
+}
+/* A question: a short measure, so its lines fill and its last line is never a scrap. */
+#inspector .v32 .v32-sit-title {
+  max-width: 320px;
+  font: var(--v31-ui);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+#inspector .v32 .v32-sits .v31-axis {
+  height: 48px;
+  margin: 12px 8px 0;
+}
+#inspector .v32 .v32-sits .v31-tl-turn {
+  margin: 4px 0 0;
+}
+/* A short axis has room for three years: the first, this case's, the last (and for two when this
+   case sits at an end). */
+#inspector .v32 .v32-sits .v31-dot > span {
+  display: none;
+}
+#inspector .v32 .v32-sits .v31-dot:is(.v31-here, :first-child, :last-child) > span {
+  display: block;
+}
+#inspector .v32 .v32-sits .v31-dot.v31-here.v31-axis-end ~ .v31-dot:last-child > span,
+#inspector .v32 .v32-sits .v31-dot:first-child:has(~ .v31-here.v31-axis-start) > span {
+  display: none;
+}
+#inspector .v32 .v32-sit-text {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  font: var(--v32-ui-small);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+#inspector .v32 :is(.v32-sit-steps, .v32-sit-links) {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+#inspector .v32 .v32-sit-steps > li {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  gap: 0 12px;
+  align-items: baseline;
+  margin: 0;
+  padding: 4px 0;
+}
+#inspector .v32 .v32-sit-steps .v32-step-n {
+  color: var(--v31-here);
+}
+#inspector .v32 .v32-sit-links > li {
+  margin: 0;
+  padding: 4px 0;
+}
+#inspector .v32 .v32-sit-q {
+  font: var(--v31-ui);
+}
+/* The answer that leads on from a step: an elbow, then the answer's words. */
+#inspector .v32 .v32-sit-branch {
+  font: var(--v32-ui-small);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+#inspector .v32 .v32-sit-branch::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 0 8px 2px 1px;
+  border-left: 1px solid var(--v31-line-strong);
+  border-bottom: 1px solid var(--v31-line-strong);
+}
+#inspector .v32 .v32-sit-more {
+  margin: 4px 0 0 28px;
+  font: var(--v32-ui-small);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+#inspector .v32 .v32-sit-go {
+  margin-top: 4px;
+  font: var(--v32-ui-small);
+  white-space: nowrap;
+}
+#inspector .v32 .v32-sit-go > svg {
+  width: 16px;
+  height: 16px;
+}
+/* Wide enough for two columns: the column floats beside the brief and stays in view under the bar
+   (case.js sets where it sticks, so a column taller than the reader stays by its foot). */
+@media (min-width: 1340px) {
+  #inspector .v32-case > .v32-sits {
+    float: right;
+    position: sticky;
+    top: var(--v32-sit-top, 128px);
+    width: var(--v32-side);
+    margin: 0 max(0px, calc(100% - var(--v32-wide))) 32px 32px;
+  }
+  #inspector .v32-case:has(> .v32-sits) > [data-v32-facet='brief']:not(.v32-brief-head, .v32-sits) {
+    max-width: min(var(--v32-brief), calc(100% - var(--v32-side) - 32px));
+  }
+}
+/* Narrower: a band between the rule and the brief, its parts side by side. */
+@media (max-width: 1339px) {
+  #inspector .v32-case > .v32-sits {
+    display: grid;
+    /* As many parts side by side as have room to be read. */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0 24px;
+    max-width: var(--v32-col);
+  }
+  /* A band is short: what each part is and its question; the explanations are one press away. */
+  #inspector .v32-case > .v32-sits :is(.v32-sit-text, .v32-sit-more, .v32-sit-links),
+  #inspector .v32-case > .v32-sits .v32-sit-steps > li:nth-child(n + 3) {
+    display: none;
+  }
+  #inspector .v32-case > .v32-sits > .v32-label {
+    grid-column: 1 / -1;
+  }
+}
+/* The name's size follows the room: a party should fit on a line. */
+@media (max-width: 1023px) {
+  #inspector .v32 .v32-head h2 {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}
+@media (max-width: 599px) {
+  #inspector .v32 .v32-head h2 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+  #inspector .v32 .v32-head h2 .v32-case-also {
+    font-size: 19px;
+    line-height: 26px;
+  }
+}
+@media (max-width: 1023px) {
+  /* No margin column: the picture sits above the name. */
+  #inspector .v32 .v32-head .v32-art {
+    position: static;
+    margin: 0 0 12px;
+  }
 }
 
 /* ---------- print: every facet, in order, each under its name ---------- */
@@ -1897,6 +2227,7 @@
     break-after: avoid;
   }
   #inspector .v32 > .v32-bar,
+  #inspector .v32 > .v32-sits,
   #inspector .v32 > .v31-rail,
   #inspector .v32 > .v32-sources,
   #inspector .v32 > .v32-brief-head .v32-seg,

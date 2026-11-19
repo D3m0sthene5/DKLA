@@ -700,18 +700,22 @@
     '<svg viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 10h11M11 5.5l4.5 4.5-4.5 4.5"/></svg>';
   function chartStepsHTML(id) {
     const all = stepsCiting(id);
+    const entry = nodesById.get(id);
+    const short = entry?.shortTitle || entry?.title || 'This entry';
     const card = ({ chart, number, cited, path }) => {
       const decided = new Set(cited.map((node) => node.id));
       const byId = new Map(chart.nodes.map((node) => [node.id, node]));
+      // A step: its number, the question it asks (a link that opens the chart there) and, where this
+      // entry is one of the step's sources, that fact in words and the step's own explanation.
       const step = (node) => {
         const own = decided.has(node.id);
-        return `<li class="v32-step${own ? ' v31-own' : ''}"><a class="v31-route-step${own ? ' v31-own' : ''}" href="${stepURL(chart.id, node.id, id)}" data-flowchart-id="${esc(chart.id)}"><span class="v32-step-n">${number.get(node.id)}</span><span class="v32-step-q">${esc(node.label)}${own ? ' <small>(this entry decides this step)</small>' : ''}</span></a>${own && node.detail ? `<p class="v32-step-detail">${esc(node.detail)}</p>` : ''}</li>`;
+        return `<li class="v32-step${own ? ' v31-own' : ''}"><span class="v32-step-n">${number.get(node.id)}</span><div class="v32-step-body"><div class="v32-step-q"><a class="v31-route-step${own ? ' v31-own' : ''}" href="${stepURL(chart.id, node.id, id)}" data-flowchart-id="${esc(chart.id)}">${esc(node.label)}</a></div>${own ? `<div class="v32-step-why">${esc(short)} is a source for this step</div>` : ''}${own && node.detail ? `<p class="v32-step-detail">${esc(node.detail)}</p>` : ''}</div></li>`;
       };
       const walked = new Set(path.map((at) => at.id));
       const route = path
         .map(
           (at, i) =>
-            `${i > 0 && at.label ? `<li class="v32-branch"><span>${esc(at.label)}</span></li>` : ''}${step(byId.get(at.id))}`,
+            `${i > 0 && at.label ? `<li class="v32-branch"><span class="v32-vh">The answer that leads on: </span><span>${esc(at.label)}</span></li>` : ''}${step(byId.get(at.id))}`,
         )
         .join('');
       const others = cited.filter((node) => !walked.has(node.id));
@@ -720,7 +724,7 @@
         <div class="v31-card-head"><div><p class="v31-meta">Flowchart ${esc(chart.id)} <span class="v32-count">${cited.length === 1 ? 'step' : 'steps'} ${cited.map((n) => number.get(n.id)).join(', ')} of ${chart.nodes.length}</span></p><h3>${esc(chart.title)}</h3></div>
         <a class="v31-open" href="${stepURL(chart.id, first.id, id)}" data-flowchart-id="${esc(chart.id)}">Open the chart at step ${number.get(first.id)}${ARROW}</a></div>
         <ol class="v32-path" aria-label="The path to this entry's step">${route}</ol>
-        ${others.length ? `<p class="v32-label">Other steps that cite this entry</p><ol class="v32-path v32-path-loose">${others.map(step).join('')}</ol>` : ''}
+        ${others.length ? `<p class="v32-label">Other steps this entry is a source for</p><ol class="v32-path v32-path-loose">${others.map(step).join('')}</ol>` : ''}
       </article>`;
     };
     return `<section class="v31-chart-steps" aria-label="Flowchart steps">${all.map(card).join('')}</section>`;

@@ -146,8 +146,9 @@ const layout = await page.evaluate(() => {
     },
     closeIcon: !!reader.querySelector('#closeInspector svg'),
     briefs: host.querySelectorAll('[data-r19-fill]').length,
-    looseNotes: [...host.querySelectorAll(':scope > h3')].filter((h) => /^Notes$/.test(h.textContent.trim()))
-      .length,
+    looseNotes: [...host.querySelectorAll(':scope > h3:not(.v32-fh)')].filter((h) =>
+      /^Notes$/.test(h.textContent.trim()),
+    ).length,
     fonts: [
       ...new Set(
         [...host.querySelectorAll('h2,h3,p,strong,button')]
@@ -163,25 +164,15 @@ assert.ok(
   `wider reader with a map strip (${layout.width} at ${layout.left})`,
 );
 assert.equal(layout.tablist, 'tablist');
-assert.deepEqual(layout.tabs, [
-  'Brief',
-  'Timeline 6',
-  'Flowchart 2',
-  'Lecture 1',
-  'Connections 9',
-  'Sources 7',
-  'Study',
-]);
+assert.deepEqual(layout.tabs, ['Brief', 'Doctrine', 'Class notes 1', 'Sources 7', 'Notes']);
 assert.deepEqual(
   layout.api.map((f) => [f.id, f.label, f.count]),
   [
     ['brief', 'Brief', ''],
-    ['timeline', 'Timeline', '6'],
-    ['flowchart', 'Flowchart', '2'],
-    ['lecture', 'Lecture', '1'],
-    ['connections', 'Connections', '9'],
+    ['doctrine', 'Doctrine', ''],
+    ['lecture', 'Class notes', '1'],
     ['sources', 'Sources', '7'],
-    ['study', 'Study', ''],
+    ['study', 'Notes', ''],
   ],
   'window.DKLAReader.facets() lists the same facets',
 );
@@ -309,8 +300,9 @@ assert.equal((await bar()).scroll, readTo, 'the brief is where it was read to');
 
 /* ---------- every facet shows its own content ---------- */
 await page.evaluate(() => (document.getElementById('inspector').scrollTop = 0));
+// Doctrine holds, in full, what the sheet's side column summarises. The old names open their part.
 await show('timeline');
-assert.deepEqual(await shown(), { open: 'timeline', facets: ['timeline'] });
+assert.deepEqual(await shown(), { open: 'doctrine', facets: ['doctrine'] });
 const timeline = body.locator('.v31-tl');
 assert.equal(await timeline.locator('.v31-dot').count(), 6, 'all six timeline entries on the axis');
 assert.equal(await timeline.locator('.v31-dot.v31-here').count(), 1, 'this case marked on the axis');
@@ -321,10 +313,10 @@ await timeline.locator('[data-r21-open]').click();
 await page.locator('#r21Timelines[open] .r21-v > li.v31-here[aria-current="step"]').waitFor();
 await page.keyboard.press('Escape');
 await page.locator('#r21Timelines[open]').waitFor({ state: 'detached' });
-assert.equal((await shown()).open, 'timeline');
+assert.equal((await shown()).open, 'doctrine');
 
 await show('flowchart');
-assert.deepEqual(await shown(), { open: 'flowchart', facets: ['flowchart'] });
+assert.deepEqual(await shown(), { open: 'doctrine', facets: ['doctrine'] });
 const chart = body.locator('.v31-chart').first();
 assert.match(await chart.locator('.v31-meta').innerText(), /K-16\s+steps 3, 8 of 13/);
 assert.deepEqual(
@@ -333,6 +325,15 @@ assert.deepEqual(
   'the path to the steps this case decides',
 );
 assert.equal(await chart.locator('.v32-step.v31-own').count(), 2, 'its two steps are marked');
+assert.deepEqual(
+  await chart.locator('.v32-step.v31-own .v32-step-why').allTextContents(),
+  [
+    'C. Itoh (America) v. Jordan is a source for this step',
+    'C. Itoh (America) v. Jordan is a source for this step',
+  ],
+  'each of its steps says why the case is there',
+);
+assert.equal(await chart.locator('.v32-step.v31-own .v32-step-detail').count(), 2, 'with the explanation');
 // The flowchart opens at step 3 with the path walked, and its way back lands on the Flowchart facet.
 await chart.locator('.v31-open').click();
 await page.locator('dialog#dklaFlowcharts[open]').waitFor();
@@ -345,14 +346,14 @@ assert.match(await page.locator('.fc-side .fc-sources').innerText(), /Case\s*C\.
 await page.locator('.fc-back-entry').click();
 await page.locator('dialog#dklaFlowcharts[open]').waitFor({ state: 'detached' });
 await body.locator('.v31-chart-steps').waitFor();
-assert.equal((await shown()).open, 'flowchart', 'back from the chart, the Flowchart facet is still open');
+assert.equal((await shown()).open, 'doctrine', 'back from the chart, Doctrine is still open');
 
 await show('lecture');
 assert.deepEqual(await shown(), { open: 'lecture', facets: ['lecture'] });
 assert.equal(await body.locator('.lecture-related .lecture-note').count(), 1);
 
 await show('connections');
-assert.deepEqual(await shown(), { open: 'connections', facets: ['connections'] });
+assert.deepEqual(await shown(), { open: 'doctrine', facets: ['doctrine'] });
 assert.equal(
   await body.locator('.r6-connections .study-connection:visible').count(),
   9,
@@ -381,7 +382,7 @@ assert.equal(new Set(sources.targets).size, 7, `no source is listed twice (${sou
 assert.equal(sources.original, 0, 'the original source leads the list');
 assert.equal(sources.small, 0, 'rows are 36 px');
 assert.equal(sources.chips, 0, 'the old source chips are not shown beside the list');
-assert.equal(sources.record, 'Record details');
+assert.equal(sources.record, 'Record');
 
 await show('study');
 assert.deepEqual(await shown(), { open: 'study', facets: ['study'] });
@@ -405,23 +406,23 @@ assert.ok(await body.locator(':scope > .case-box').isVisible());
 /* ---------- keyboard ---------- */
 await tab('brief').focus();
 await page.keyboard.press('ArrowRight');
-assert.equal((await shown()).open, 'timeline', 'Arrow Right opens the next facet');
-assert.equal(await page.evaluate(() => document.activeElement.dataset.v32Tab), 'timeline');
+assert.equal((await shown()).open, 'doctrine', 'Arrow Right opens the next facet');
+assert.equal(await page.evaluate(() => document.activeElement.dataset.v32Tab), 'doctrine');
 await page.keyboard.press('End');
 assert.equal((await shown()).open, 'study');
 await page.keyboard.press('Home');
 assert.equal((await shown()).open, 'brief');
 await page.evaluate(() => document.activeElement.blur());
 await page.keyboard.press('3');
-assert.equal((await shown()).open, 'flowchart', '3 opens the third facet');
+assert.equal((await shown()).open, 'lecture', '3 opens the third facet');
 await page.locator('#search').focus();
 await page.keyboard.press('2');
-assert.equal((await shown()).open, 'flowchart', 'a number typed into a field is not a shortcut');
+assert.equal((await shown()).open, 'lecture', 'a number typed into a field is not a shortcut');
 await page.locator('#search').fill('');
 await page.evaluate(() => document.activeElement.blur());
 await page.keyboard.press('Escape');
 assert.ok(
-  await page.evaluate(() => window.facetEvents.some((e) => e.reason === 'change' && e.facet === 'flowchart')),
+  await page.evaluate(() => window.facetEvents.some((e) => e.reason === 'change' && e.facet === 'lecture')),
   'a change of facet is announced',
 );
 
@@ -455,19 +456,19 @@ const late = await page.evaluate(async () => {
 });
 assert.deepEqual(
   late.tabs.slice(0, 4),
-  ['Brief', 'Timeline 6', 'Flowchart 2', 'Canons 2'],
+  ['Brief', 'Doctrine', 'Canons 2', 'Class notes 1'],
   'the late block has its tab and count',
 );
 assert.equal(late.open, 'brief');
 assert.ok(Math.abs(late.moved) < 0.5, `what is being read does not move (${late.moved} px)`);
 assert.equal(late.drawn, 0, 'a late block of another facet is not drawn into the open one');
 assert.equal(late.told, 'update');
-assert.equal(late.after, 7, 'and its tab goes when it goes');
+assert.equal(late.after, 5, 'and its tab goes when it goes');
 
 /* ---------- a link to a facet ---------- */
 await open('node=citoh&facet=timeline');
-await page.waitForFunction(() => window.DKLAReader.current() === 'timeline');
-assert.deepEqual(await shown(), { open: 'timeline', facets: ['timeline'] });
+await page.waitForFunction(() => window.DKLAReader.current() === 'doctrine');
+assert.deepEqual(await shown(), { open: 'doctrine', facets: ['doctrine'] });
 
 /* ---------- Loper Bright: canons, lecture notes and the Court's vote ---------- */
 await open('node=lrs-i-loper-bright');
@@ -481,18 +482,77 @@ const loper = await page.evaluate(() => ({
 assert.equal(loper.open, 'brief', 'another entry opens on its brief');
 assert.deepEqual(loper.facets, [
   'Brief',
-  'Timeline 10',
-  'Flowchart 14',
+  'Doctrine',
   'Canons 11',
-  'Lecture 4',
+  'Class notes 4',
   'Court 6–2',
-  'Connections 12',
   'Sources 5',
-  'Study',
+  'Notes',
 ]);
+// The caption is composed from the title: one case to a line, the second smaller, the year in the
+// citation line and the strip; the heading's text is still the title.
+const caption = await page.evaluate(() => {
+  const h = document.querySelector('#inspector .v32-head h2');
+  const lines = [...h.querySelectorAll('.v32-case-line')];
+  return {
+    text: h.textContent,
+    lines: lines.map((l) => l.textContent),
+    tops: lines.map((l) => Math.round(l.getBoundingClientRect().top)),
+    sizes: lines.map((l) => getComputedStyle(l).fontSize),
+    yearDrawn: [...h.querySelectorAll('.v32-vh')].some((el) => el.getClientRects().length),
+    court: document.querySelector('#inspector .reader-top .v32-court')?.textContent,
+    art: (() => {
+      const a = document.querySelector('#inspector .v32-head .v32-art').getBoundingClientRect();
+      return [Math.round(a.width), Math.round(a.height)];
+    })(),
+  };
+});
+assert.equal(
+  caption.text,
+  'Loper Bright Enterprises v. Raimondo; Relentless, Inc. v. Department of Commerce (2024)',
+);
+assert.deepEqual(caption.lines, [
+  'Loper Bright Enterprises v. Raimondo',
+  'Relentless, Inc. v. Department of Commerce',
+]);
+assert.ok(caption.tops[1] > caption.tops[0], 'the second case is on its own line');
+assert.deepEqual(caption.sizes, ['34px', '22px'], 'and one step down');
+assert.equal(caption.yearDrawn, false, 'the year is not drawn in the name');
+assert.equal(caption.court, 'Supreme Court · 2024');
+assert.deepEqual(caption.art, [48, 48], 'the pictogram is an illustration');
+// Where this case sits, beside the brief: its place on the timeline, its flowchart steps, connections.
+const sits = await page.evaluate(() => {
+  const aside = document.querySelector('#inspector .v32-sits');
+  return {
+    kinds: [...aside.querySelectorAll('.v32-sit-kind')].map((k) => k.textContent.replace(/\s+/g, ' ').trim()),
+    steps: aside.querySelectorAll('.v32-sit-steps > li').length,
+    more: aside.querySelector('.v32-sit-more')?.textContent,
+    links: aside.querySelectorAll('.v32-sit-links > li').length,
+    beside:
+      aside.getBoundingClientRect().left >
+      document.querySelector('#inspector .case-box').getBoundingClientRect().right,
+  };
+});
+assert.deepEqual(sits.kinds, ['Timeline 10th of 10', 'Flowchart 14 steps in 4 charts', 'Connections 12']);
+assert.equal(sits.steps, 3, 'at most three steps beside the brief');
+assert.match(sits.more, /^\+ 11 more steps in \d charts$/);
+assert.equal(sits.links, 3);
+assert.ok(sits.beside, 'the column sits beside the brief');
+await body.locator('.v32-sits [data-v32-go="flowchart"]').click();
+assert.deepEqual(await shown(), { open: 'doctrine', facets: ['doctrine'] }, 'each part opens Doctrine');
 await show('canons');
 assert.deepEqual(await shown(), { open: 'canons', facets: ['canons'] });
-assert.equal(await body.locator('.canons-related a.v32-row:visible').count(), 11, 'canons are rows');
+assert.equal(await body.locator('.canons-related .v32-entry:visible').count(), 11, 'one row a canon');
+assert.equal(
+  await body.locator('.canons-related .v32-entry-does:visible').count(),
+  11,
+  'each says what the canon does',
+);
+assert.match(
+  await body.locator('.canons-related .v32-entry-here').first().innerText(),
+  /^(Applied|Discussed) in this case/,
+  'and what the record says this case has to do with it',
+);
 await show('court');
 assert.equal(await body.locator('.sh-case-panel .sh-vote:visible').count(), 9, 'the nine justices');
 const loperClose = await page.evaluate(() => {

@@ -22,17 +22,23 @@
   if (window.DKLAReader) return;
   const inspector = document.getElementById('inspector');
   if (!inspector) return;
+  // The tabs (docs/DESIGN.md rule 13): the default one holds what is read together; the others are for
+  // material consulted alone.
   const LABEL = {
     brief: 'Brief',
-    timeline: 'Timeline',
-    flowchart: 'Flowchart',
-    canons: 'Canons',
-    lecture: 'Lecture',
-    court: 'Court',
+    doctrine: 'Doctrine',
     cases: 'Cases',
-    connections: 'Connections',
+    canons: 'Canons',
+    lecture: 'Class notes',
+    court: 'Court',
     sources: 'Sources',
-    study: 'Study',
+    study: 'Notes',
+  };
+  // Timeline, Flowchart and Connections are parts of Doctrine; each name still opens its part.
+  const PART = {
+    timeline: ':scope > .v28-case-timelines, :scope > .dkla-timeline',
+    flowchart: ':scope > .v31-chart-steps',
+    connections: ':scope > .r6-connections',
   };
   const ORDER = Object.keys(LABEL);
   const ICON = {
@@ -83,17 +89,10 @@
   /* ---------- what each facet holds ---------- */
   const blocks = (host, facet) =>
     [...host.children].filter((el) => el.dataset.v32Facet === facet && !el.classList.contains('v32-fh'));
-  const sum = (host, selector) =>
-    [...host.querySelectorAll(selector)].reduce((n, el) => n + (Number(el.dataset.v32Count) || 0), 0);
   function count(host, facet) {
-    if (facet === 'timeline')
-      return sum(host, ':scope > .v28-case-timelines .dkla-timeline, :scope > .dkla-timeline');
-    if (facet === 'flowchart') return sum(host, ':scope > .v31-chart-steps .v31-chart');
     if (facet === 'canons') return host.querySelectorAll(':scope > .canons-related li').length;
     if (facet === 'lecture') return host.querySelectorAll(':scope > .lecture-related .lecture-note').length;
     if (facet === 'cases') return host.querySelectorAll(':scope > .course-case-index .indexed-case').length;
-    if (facet === 'connections')
-      return host.querySelectorAll(':scope > .r6-connections .study-connection').length;
     if (facet === 'sources') return host.querySelectorAll(':scope > .v32-sources [data-v32-source]').length;
     if (facet === 'court') {
       // The vote, where the record gives one ("6–2").
@@ -226,7 +225,14 @@
     );
   }
   // The page is always long enough for the bar to stay stuck, however short the open facet is.
+  function stick(host) {
+    const aside = host.querySelector(':scope > .v32-sits');
+    if (!aside) return;
+    const top = Math.min(128, inspector.clientHeight - aside.offsetHeight - 24) + 'px';
+    if (host.style.getPropertyValue('--v32-sit-top') !== top) host.style.setProperty('--v32-sit-top', top);
+  }
   function keepHeight(host) {
+    stick(host);
     const top =
       host.getBoundingClientRect().top - inspector.getBoundingClientRect().top + inspector.scrollTop;
     const min = Math.ceil(stuckAt(host) + inspector.clientHeight - top) + 'px';
@@ -235,7 +241,7 @@
 
   /* ---------- the top strip ---------- */
   function place(node) {
-    const out = { course: null, parts: [] };
+    const out = { course: null, parts: [], question: '' };
     try {
       const p = geoPlacement(node.id),
         region = regionFor(p.region),
@@ -247,6 +253,7 @@
       else if (node.courses?.[0]) out.parts.push(node.courses[0]);
       if (region && shortRegionTitle(region) !== out.parts[0]) out.parts.push(shortRegionTitle(region));
       if (district?.title && !out.parts.includes(district.title)) out.parts.push(district.title);
+      out.question = district?.question || '';
     } catch {
       /* the strip keeps the label the entry was drawn with */
     }
@@ -317,7 +324,7 @@
   );
   const cited = new Map();
   function knownYear(node) {
-    const title = node.title?.match(/\((\d{4})\)\s*$/),
+    const title = node.title?.match(/\(((?:1[5-9]|20)\d{2})\)/),
       court = node.notes?.match(/^Court: [^\n]+?\((\d{4})\)/);
     return Number(title?.[1] || court?.[1]) || null;
   }
@@ -326,7 +333,80 @@
     const said = notes.match(/(?:^|\n)Citation: ([^\n]+?)\.?(?:\n|$)/);
     if (said) return said[1];
     const court = notes.match(/^Court: ([^\n]+?)\s*\((\d{4})\)/);
-    return court ? court[1] + ' · ' + court[2] : '';
+    if (court) return court[1] + ' · ' + court[2];
+    // The year the title carries is shown here, since the heading no longer shows it.
+    const year = knownYear(node);
+    return year ? String(year) : '';
+  }
+  // The court and the year, for the strip: the record's own "Court:" line; or the court named in the
+  // citation's parenthesis; or, for a citation to the United States Reports or the Supreme Court
+  // Reporter (which report one court), the Supreme Court; or the year alone.
+  function courtAndYear(node) {
+    if (!node || node.kind !== 'Case') return '';
+    const said = (node.notes || '').match(/^Court: ([^\n]+?)\s*\((\d{4})\)/);
+    if (said) return said[1] + ' · ' + said[2];
+    const found = String(cited.get(node.id) || '').match(/^(.*) \(([^()]*?)((?:1[6-9]|20)\d{2})\)$/);
+    if (found) {
+      // "(Minn. Apr. 1874)": the month, or the day and month, is not part of the court's name.
+      const named = found[2]
+        .replace(
+          /\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\.?\s*(?:\d{1,2},?)?\s*$/,
+          '',
+        )
+        .trim();
+      const court = named || (/\d (?:U\.S\.|S\. ?Ct\.) \d/.test(found[1]) ? 'Supreme Court' : '');
+      return (court ? court + ' · ' : '') + found[3];
+    }
+    const year = knownYear(node);
+    return year ? String(year) : '';
+  }
+  function court(now) {
+    const top = inspector.querySelector('.reader-top');
+    const close = top?.querySelector('#closeInspector');
+    if (!close) return;
+    const text = courtAndYear(now?.node);
+    let line = top.querySelector(':scope > .v32-court');
+    if (!text) {
+      line?.remove();
+      return;
+    }
+    if (!line) {
+      line = element('div', 'v32-court');
+      close.before(line);
+    }
+    if (line.textContent !== text) line.textContent = text;
+  }
+  // The question the entry's subject asks (the one its tile on the map shows), before the name.
+  function ask(host, now) {
+    const head = host.querySelector(':scope > .v32-head');
+    if (!head) return;
+    let line = head.querySelector(':scope > .v32-ask');
+    const where = now?.node && host.classList.contains('v32-case') ? place(now.node) : null;
+    // Before the name only if it is a question a reader takes in at a glance. A subject's longer line
+    // (an instruction, a description) opens the Doctrine tab instead, under the subject's name.
+    const said = where?.question?.trim() || '';
+    const short = /\?$/.test(said) && said.length <= 110;
+    if (!said || !short) line?.remove();
+    else {
+      if (!line) {
+        line = element('p', 'v32-ask');
+        head.insertBefore(line, head.firstChild);
+      }
+      if (line.textContent !== said) line.textContent = said;
+    }
+    let intro = host.querySelector(':scope > .v32-intro');
+    if (!said || short) {
+      intro?.remove();
+      return;
+    }
+    const subject = where.parts[where.parts.length - 1] || '';
+    if (!intro) {
+      intro = element('section', 'v32-intro');
+      intro.append(element('h3', 'v32-label'), element('p'));
+      host.appendChild(intro);
+    }
+    if (intro.firstChild.textContent !== subject) intro.firstChild.textContent = subject;
+    if (intro.lastChild.textContent !== said) intro.lastChild.textContent = said;
   }
   function fromBrief(text, node) {
     const found = String(text || '')
@@ -335,7 +415,7 @@
     if (!found) return '';
     const year = knownYear(node);
     // A brief that opens on another decision's citation is not this case's line.
-    if (year && Math.abs(year - Number(found[3])) > 1) return '';
+    if (year && year !== Number(found[3])) return '';
     return `${found[1]} (${found[2]}${found[3]})`;
   }
   function citation(host, now) {
@@ -370,6 +450,7 @@
         if (open && entry()?.id === node.id && cited.get(node.id)) {
           const here = open.querySelector(':scope > .v32-head > .v32-meta');
           if (here) here.textContent = cited.get(node.id);
+          court(entry());
         }
       });
   }
@@ -513,16 +594,192 @@
       head.append(title + ' ', element('span', 'v32-count', String(items.length)));
       return [head, ul];
     };
+    // One name each: the opinion itself where a source is one, the assigned reading, the authorities.
+    const opinion = (r) => r.kind !== 'rule' && /\bopinion\b/i.test(r.label);
     list.replaceChildren(
+      ...group('Opinion', rows.filter(opinion)),
       ...group(
-        'Reading',
-        rows.filter((r) => r.kind !== 'rule'),
+        'Assigned reading',
+        rows.filter((r) => r.kind !== 'rule' && !opinion(r)),
       ),
       ...group(
         'Authorities cited',
         rows.filter((r) => r.kind === 'rule'),
       ),
     );
+  }
+
+  /* ---------- where this case sits: beside the brief, what Doctrine holds in full ---------- */
+  // Built from the blocks of the Doctrine tab as they are drawn, so it says nothing they do not: the
+  // case's place on its timeline and how it moved the rule; the flowchart steps it is a source for,
+  // with the question each asks and the answer that leads on; its nearest connections with the stored
+  // explanation. Each part opens its full view.
+  const ordinal = (n) => n + (n % 100 > 10 && n % 100 < 14 ? 'th' : ['th', 'st', 'nd', 'rd'][n % 10] || 'th');
+  const ARROW =
+    '<svg viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 10h11M11 5.5l4.5 4.5-4.5 4.5"/></svg>';
+  // A short line of text keeps its last three words together, so its last line is never a stray word.
+  const bound = (text) =>
+    text.split(/\s+/).length < 6 ? text : text.replace(/\s+(\S+)\s+(\S+)\s*$/, '\u00a0$1\u00a0$2');
+  // A few lines of a longer text; the whole text is its title (and is in full in Doctrine).
+  const clamped = (text) => {
+    const el = element('div', 'v32-sit-text', text);
+    el.title = text;
+    return el;
+  };
+  const titled = (text) => {
+    const el = element('div', 'v32-sit-title', bound(text));
+    el.title = text;
+    return el;
+  };
+  function sitPart(name, readout, to, words) {
+    const part = element('section', 'v32-sit');
+    const kind = element('div', 'v32-sit-kind');
+    kind.append(element('span', '', name), ' ', element('span', 'v32-count', readout));
+    part.appendChild(kind);
+    const go = element('button', 'v31-open v32-sit-go', words);
+    go.type = 'button';
+    go.dataset.v32Go = to;
+    go.insertAdjacentHTML('beforeend', ARROW);
+    return [part, go];
+  }
+  function sitTimeline(host) {
+    const lines = [
+      ...host.querySelectorAll(':scope > .v28-case-timelines > .dkla-timeline, :scope > .dkla-timeline'),
+    ];
+    const line = lines.find((one) => one.dataset.v32Place) || lines[0];
+    if (!line) return null;
+    const total = Number(line.dataset.v32Count) || 0,
+      at = Number(line.dataset.v32Place) || 0;
+    const [part, go] = sitPart(
+      'Timeline',
+      at ? `${ordinal(at)} of ${total}` : `${total} ${total === 1 ? 'entry' : 'entries'}`,
+      'timeline',
+      lines.length > 1 ? `All ${lines.length} timelines` : 'Every entry',
+    );
+    const question = line.querySelector('.v31-tl-q')?.textContent.trim() || line.getAttribute('aria-label');
+    if (question) part.appendChild(titled(question));
+    const axis = line.querySelector('.v31-axis');
+    if (axis) part.appendChild(axis.cloneNode(true));
+    const here = line.querySelector('.v31-tl-rows > li.v31-here');
+    const turn = here?.querySelector('.v31-tl-turn'),
+      note = here?.querySelector('.v31-tl-note');
+    if (turn?.textContent.trim()) part.appendChild(turn.cloneNode(true));
+    if (note?.textContent.trim()) part.appendChild(clamped(note.textContent.trim()));
+    part.appendChild(go);
+    return part;
+  }
+  function sitChart(host) {
+    const charts = [...host.querySelectorAll(':scope > .v31-chart-steps .v31-chart')];
+    if (!charts.length) return null;
+    const total = charts.reduce((n, chart) => n + (Number(chart.dataset.v32Count) || 0), 0);
+    const [part, go] = sitPart(
+      'Flowchart',
+      `${total} ${total === 1 ? 'step' : 'steps'}${charts.length > 1 ? ` in ${charts.length} charts` : ''}`,
+      'flowchart',
+      'The path, step by step',
+    );
+    const first = charts[0];
+    const title = first.querySelector('h3')?.textContent.trim();
+    if (title) part.appendChild(titled(title));
+    const own = [...first.querySelectorAll('li.v32-step.v31-own')].slice(0, 3);
+    const list = element('ol', 'v32-sit-steps');
+    for (const step of own) {
+      const item = element('li');
+      item.appendChild(element('span', 'v32-step-n', step.querySelector('.v32-step-n')?.textContent || ''));
+      const words = element('div', 'v32-sit-step');
+      const link = step.querySelector('a.v31-route-step');
+      if (link) {
+        const q = element('div', 'v32-sit-q');
+        q.appendChild(link.cloneNode(true));
+        words.appendChild(q);
+      }
+      // The answer that leads on from this step along the path, where the path goes on.
+      const next = step.nextElementSibling;
+      const answer = next?.classList.contains('v32-branch') && next.lastElementChild?.textContent.trim();
+      if (answer) words.appendChild(element('div', 'v32-sit-branch', answer));
+      item.appendChild(words);
+      list.appendChild(item);
+    }
+    if (own.length) part.appendChild(list);
+    const rest = total - own.length;
+    if (rest > 0) {
+      const inCharts = charts.filter(
+        (chart, i) => (Number(chart.dataset.v32Count) || 0) > (i === 0 ? own.length : 0),
+      ).length;
+      part.appendChild(
+        element(
+          'div',
+          'v32-sit-more',
+          `+ ${rest} more ${rest === 1 ? 'step' : 'steps'} in ${inCharts} ${inCharts === 1 ? 'chart' : 'charts'}`,
+        ),
+      );
+    }
+    part.appendChild(go);
+    return part;
+  }
+  function sitLinks(host) {
+    const rows = [...host.querySelectorAll(':scope > .r6-connections .study-connection')];
+    if (!rows.length) return null;
+    const [part, go] = sitPart(
+      'Connections',
+      String(rows.length),
+      'connections',
+      rows.length > 3 ? `All ${rows.length} connections` : 'With sources',
+    );
+    const list = element('ul', 'v32-sit-links');
+    for (const row of rows.slice(0, 3)) {
+      const item = element('li');
+      const link = row.querySelector('.connection-destination');
+      if (link) {
+        const name = element('div', 'v32-sit-q');
+        name.appendChild(link.cloneNode(true));
+        item.appendChild(name);
+      }
+      const why = row.querySelector(':scope > p')?.textContent.trim();
+      if (why) item.appendChild(clamped(why));
+      list.appendChild(item);
+    }
+    part.appendChild(list);
+    part.appendChild(go);
+    return part;
+  }
+  function sits(host) {
+    let aside = host.querySelector(':scope > .v32-sits');
+    const parts = host.classList.contains('v32-case')
+      ? [sitTimeline(host), sitChart(host), sitLinks(host)].filter(Boolean)
+      : [];
+    if (!parts.length) {
+      aside?.remove();
+      return;
+    }
+    const signature = parts.map((part) => part.innerHTML).join('\n');
+    if (aside && aside.v32Signature === signature) return;
+    if (!aside) {
+      aside = element('aside', 'v32-sits');
+      aside.setAttribute('aria-label', 'Where this case sits');
+      host.appendChild(aside);
+    }
+    aside.v32Signature = signature;
+    aside.dataset.v32Parts = String(parts.length);
+    aside.replaceChildren(element('h3', 'v32-label', 'Where this case sits'), ...parts);
+  }
+  // "Questions this case helps answer" lists entries the connections already list on most cases. One
+  // that is also a connection is not shown twice; the block goes when nothing is left in it.
+  function fold(host) {
+    const block = host.classList.contains('v32-case') && host.querySelector(':scope > .case-topics');
+    if (!block) return;
+    const linked = new Set(
+      [...host.querySelectorAll(':scope > .r6-connections .connection-destination')].map(
+        (link) => link.dataset.studyNode,
+      ),
+    );
+    let left = 0;
+    for (const button of block.querySelectorAll(':scope > button[data-study-node]')) {
+      const twice = linked.has(button.dataset.studyNode);
+      if (button.hidden !== twice) button.hidden = twice;
+      if (!twice) left += 1;
+    }
+    if (block.hidden !== !left) block.hidden = !left;
   }
 
   /* ---------- a case on more than one timeline: one at a time ---------- */
@@ -576,6 +833,10 @@
     }
     sources(host);
     citation(host, now);
+    court(now);
+    ask(host, now);
+    fold(host);
+    sits(host);
     if (state.key !== (now?.key || null)) state.line = 0;
     timelines(host);
     const course = now?.node && place(now.node).course;
@@ -590,14 +851,21 @@
       state.scroll = new Map();
       state.signature = '';
     }
-    if (wanted && wanted.id === now?.id && list.some((f) => f.id === wanted.facet)) {
-      state.facet = wanted.facet;
-      wanted = null;
+    let part = null;
+    if (wanted && wanted.id === now?.id) {
+      const to = PART[wanted.facet] ? 'doctrine' : wanted.facet;
+      if (list.some((f) => f.id === to)) {
+        state.facet = to;
+        part = PART[wanted.facet] || null;
+        wanted = null;
+      }
     }
     if (!list.some((f) => f.id === state.facet)) state.facet = list[0]?.id || 'brief';
     apply(host, list);
     keepHeight(host);
     watchSize(host);
+    const target = part && host.querySelector(part);
+    if (target) requestAnimationFrame(() => window.DKLAReading?.scrollToBlock?.(target, -1));
     const signature = list.map((f) => f.id + ':' + f.count).join('|');
     if (opened || signature !== state.signature) {
       state.signature = signature;
@@ -620,6 +888,12 @@
   function show(id, options = {}) {
     const host = body();
     if (!host) return false;
+    if (PART[id]) {
+      const target = host.querySelector(PART[id]);
+      if (!target || !show('doctrine', { ...options, top: true })) return false;
+      requestAnimationFrame(() => window.DKLAReading?.scrollToBlock?.(target, -1));
+      return true;
+    }
     const list = model(host);
     if (!list.some((f) => f.id === id)) return false;
     if (id === state.facet) return true;
@@ -700,6 +974,11 @@
       event.target.querySelector('[data-cold-call]:not(:disabled)')?.click();
       return;
     }
+    const go = event.target.closest('[data-v32-go]');
+    if (go) {
+      show(go.dataset.v32Go);
+      return;
+    }
     const mode = event.target.closest('.v32-brief-head [data-v32-mode]');
     if (mode) {
       setMode(mode.dataset.v32Mode);
@@ -717,6 +996,12 @@
   });
   // Arrow keys move along the tabs and open the one they land on; Home and End go to the ends.
   inspector.addEventListener('keydown', (event) => {
+    // A name in a row is a link without an address (the page opens the entry): Enter presses it.
+    if (event.key === 'Enter' && event.target.matches?.('a[role="link"]:not([href])')) {
+      event.preventDefault();
+      event.target.click();
+      return;
+    }
     const tab = event.target.closest?.('.v32-tab');
     if (!tab || event.altKey || event.ctrlKey || event.metaKey) return;
     const tabs = [...tab.parentElement.children];

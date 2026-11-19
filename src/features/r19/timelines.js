@@ -235,14 +235,30 @@
     const start = sequence.length <= ROWS ? 0 : Math.max(0, Math.min(index - 3, sequence.length - 7)),
       shown = sequence.length <= ROWS ? sequence : sequence.slice(start, start + 7),
       rest = sequence.length - shown.length;
+    // A row: the date, the entry's name (a link, unless it is the open entry or a change with no entry of
+    // its own), the note, and in words how it moved the rule. Names are captions: "v." never ends a line.
+    const caption = (text) => esc(text).replace(/ v\. /g, ' v.&nbsp;');
+    const linked = (s, inner) => {
+      const to =
+        s.event && s.link
+          ? `data-study-node="${esc(s.link)}" title="Opens the rule entry"`
+          : s.event
+            ? ''
+            : s.sup
+              ? `data-r19-open="${esc(s.sup)}" title="Supporting case: opens the brief"`
+              : `data-study-node="${esc(s.id)}"`;
+      return to
+        ? `<a class="v31-tl-link" role="link" tabindex="0" ${to}>${inner}</a>`
+        : `<span class="v31-tl-link r21-static">${inner}</span>`;
+    };
     const steps = shown
       .map((s) => {
         const selected = s.id && s.id === current;
-        const row = `<span class="v31-tl-year">${dateLabel(s)}</span><span class="v31-tl-main"><strong>${esc(name(s))}${selected ? ' <small>You are here</small>' : ''}</strong><span class="v31-tl-note">${esc(s.note || '')}</span></span><span class="v31-tl-turn v31-fam-${family(s)}">${s.turn ? esc(label(s, t)) : ''}</span>`;
-        return `<li${selected ? ' aria-current="step"' : ''}>${selected ? `<div class="v31-tl-step">${row}</div>` : opener(s, row, 'v31-tl-step')}</li>`;
+        return `<li class="v31-tl-step${selected ? ' v31-here' : ''}"${selected ? ' aria-current="step"' : ''}><span class="v31-tl-year">${dateLabel(s)}</span><div class="v31-tl-main"><div class="v31-tl-name">${selected ? `<strong>${caption(name(s))}</strong>` : linked(s, caption(name(s)))}</div>${selected ? '<div class="v31-here-label">You are here</div>' : ''}${s.note ? `<div class="v31-tl-note">${esc(s.note)}</div>` : ''}</div><div class="v31-tl-turn v31-fam-${family(s)}">${s.turn ? esc(label(s, t)) : ''}</div></li>`;
       })
       .join('');
-    return `<section class="dkla-timeline v31-tl" data-r21="${esc(t.id)}" data-v32-count="${sequence.length}" aria-label="${esc(t.title)}"><div class="v31-card-head"><div><p class="v31-meta">Doctrine timeline <span class="v32-count">${sequence.length} entries</span></p><h3>${esc(t.title)}</h3></div><button type="button" class="r21-all v31-open" data-r21-open="${esc(t.id)}">${rest ? `Open all ${sequence.length} entries` : 'Open the full timeline'}${ARROW}</button></div><p class="v31-tl-q">${esc(t.question)}</p>${axisHTML(sequence, current)}<ol class="v31-tl-rows">${steps}</ol></section>`;
+    const place = index >= 0 ? ` data-v32-place="${index + 1}"` : '';
+    return `<section class="dkla-timeline v31-tl" data-r21="${esc(t.id)}" data-v32-count="${sequence.length}"${place} aria-label="${esc(t.title)}"><div class="v31-card-head"><div><p class="v31-meta">Doctrine timeline <span class="v32-count">${sequence.length} entries</span></p><h3>${esc(t.title)}</h3></div><button type="button" class="r21-all v31-open" data-r21-open="${esc(t.id)}">${rest ? `Open all ${sequence.length} entries` : 'Open the full timeline'}${ARROW}</button></div><p class="v31-tl-q">${esc(t.question)}</p>${axisHTML(sequence, current)}<ol class="v31-tl-rows">${steps}</ol></section>`;
   }
   // how many of a timeline's steps are linked to a concept (the test the panel uses to show it on that concept)
   function uses(t, concept) {

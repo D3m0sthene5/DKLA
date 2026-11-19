@@ -211,7 +211,7 @@ el('summary', '', 'Your notes and editing', editingDrawer);
 const votes = el('section', 'sh-case-panel', 'The Court voted.', editingDrawer);
 const actions = el('div', 'reading-actions', 'Edit entry', editingDrawer);
 const record = el('details', 'quiet-details', '', body);
-el('summary', '', 'Record details', record);
+el('summary', '', 'Record', record);
 el('dl', 'metadata-grid', 'Record ID', record);
 const brief = el('section', 'r19-brief', '', body);
 const full = el('details', 'r19-full', '', brief);
@@ -236,6 +236,8 @@ const supportFull = el('details', 'r19-full', 'Full supporting brief', supportin
 const document = {
   getElementById: (id) => ({ inspector, r19Body: supporting })[id] || null,
   createElement: (tag) => el(tag),
+  // (The stand-in page has no text nodes: a run of text is an element that holds it.)
+  createTextNode: (text) => el('span', '', text),
   addEventListener() {},
 };
 const window = {};
@@ -279,8 +281,8 @@ assert.deepEqual(facets, [
   ['case-box', 'brief'],
   ['r19-brief', 'brief'],
   ['dkla-terms', 'brief'],
-  ['v32-fh', 'timeline'],
-  ['v28-case-timelines', 'timeline'],
+  ['v32-fh', 'doctrine'],
+  ['v28-case-timelines', 'doctrine'],
   ['v32-fh', 'court'],
   ['sh-case-panel', 'court'],
   ['v32-fh', 'sources'],
@@ -387,8 +389,8 @@ console.log(
   JSON.stringify({
     dedupe: 'exact opening paragraphs only; unique context and source text preserved',
     intro: 'one unlabeled explanation',
-    timeline: 'its own facet, untouched',
-    facets: 'brief, timeline, court, sources, study in one order',
+    timeline: 'part of Doctrine, untouched',
+    facets: 'brief, doctrine, court, sources, study in one order',
     caseAnalysis: 'preserved',
     supportingAnalysis: 'preserved',
     sourceAndStudyControls: 'preserved',

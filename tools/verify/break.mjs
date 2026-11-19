@@ -988,12 +988,12 @@ const breakages = [
       edit('lib/ask/web.js', " && by !== 'headword' && !except.includes(id));", " && by !== 'headword');"),
   ],
   [
-    'case timelines: no longer a facet of their own (they trail the brief)',
+    'case timelines: no longer part of Doctrine (they trail the brief)',
     'src/features/v25/reading.js',
     () =>
       edit(
         'src/features/v25/reading.js',
-        "['v28-case-timelines', 'timeline', 0],",
+        "['v28-case-timelines', 'doctrine', 0],",
         "['v28-case-timelines', 'brief', 7],",
       ),
   ],
