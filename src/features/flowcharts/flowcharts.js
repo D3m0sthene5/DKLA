@@ -1037,6 +1037,15 @@
     body.scrollTop = 0;
     body.focus({ preventScroll: true });
     if (active?.view === 'map') paintStep({ center: true });
+    // Back from a cited source to the step it was opened from: the page and the map are where
+    // they were left.
+    const left = active?.left;
+    if (left && left.opened === active.opened && left.step === active.trail.at(-1).id) {
+      body.scrollTop = left.top;
+      const scroll = dialog.querySelector('.fc-map-scroll');
+      if (scroll && left.map) [scroll.scrollLeft, scroll.scrollTop] = left.map;
+    }
+    if (active) active.left = null;
   }
 
   function go(hash) {
@@ -1064,6 +1073,20 @@
     paintStep({ focus: true, center: true });
   }
 
+  dialog.addEventListener(
+    'click',
+    (event) => {
+      if (!active || !event.target.closest?.('a[data-flowchart-source]')) return;
+      const scroll = dialog.querySelector('.fc-map-scroll');
+      active.left = {
+        opened: active.opened,
+        step: active.trail.at(-1).id,
+        top: body.scrollTop,
+        map: active.view === 'map' && scroll ? [scroll.scrollLeft, scroll.scrollTop] : null,
+      };
+    },
+    true,
+  );
   dialog.addEventListener('input', (event) => {
     if (!event.target.matches('[data-flowcharts-search]')) return;
     library.query = event.target.value;
