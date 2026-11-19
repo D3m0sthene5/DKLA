@@ -2386,25 +2386,10 @@ function draw() {
     }
   }
   // constellation threads: the subjects that share the most cases, faint and curved, fading out once cards are readable
+  // The curves of association between subjects are drawn on demand (rule 15): for the open subject here,
+  // and for the tile under the pointer by lightTile(), into the group left for them. At rest there are none.
   const thOp = Math.min(1, Math.max(0, (0.42 - z) / 0.18));
-  if (thOp > 0)
-    for (const th of G.threads) {
-      if (!intersects(bounds([th.a, th.b]), B, 100)) continue;
-      const p = edgePoint(th.a, th.b),
-        q = edgePoint(th.b, th.a),
-        mx = (p.x + q.x) / 2,
-        my = (p.y + q.y) / 2,
-        nx = -(q.y - p.y),
-        ny = q.x - p.x,
-        len = Math.hypot(nx, ny) || 1,
-        bow = Math.min(500, Math.hypot(q.x - p.x, q.y - p.y) * 0.07);
-      const col = th.cross ? '#c9d3dc' : ARM_COLORS[regionCourse(th.a)] || '#9fb3c4';
-      const sc =
-        S.scope !== 'Atlas' && (S.scope !== regionCourse(th.a) || S.scope !== regionCourse(th.b)) ? 0.45 : 1;
-      parts.push(
-        `<path class="v32-link v32-thread${S.region && (th.a.id === S.region || th.b.id === S.region) ? ' is-lit' : ''}" data-link="${E(th.a.id)} ${E(th.b.id)}" d="M${p.x.toFixed(0)},${p.y.toFixed(0)} Q${(mx + (nx / len) * bow).toFixed(0)},${(my + (ny / len) * bow).toFixed(0)} ${q.x.toFixed(0)},${q.y.toFixed(0)}" stroke="${col}" opacity="${(Math.min(1, 0.45 + th.n * 0.06) * thOp * sc).toFixed(3)}" stroke-width="${1 / z}"/>`,
-      );
-    }
+  parts.push(`<g id="v32Threads">${thOp > 0 && S.region ? threadPaths(S.region, z, 'is-lit') : ''}</g>`);
   for (const cl of G.courseLabels) {
     const b = G.blocks[cl.course],
       col = ARM_COLORS[cl.course] || '#dce4eb';
@@ -3790,17 +3775,44 @@ $('studyZoomIn').onclick = () => zoom(1.35);
 $('studyZoomOut').onclick = () => zoom(1 / 1.35);
 $('studyFit').onclick = fit;
 $('inspector').addEventListener('scroll', deferPersist, { passive: true });
+// The curves that join one subject to the subjects it shares the most cases with, as markup.
+function threadPaths(id, z, state) {
+  const out = [],
+    thOp = Math.min(1, Math.max(0, (0.42 - z) / 0.18));
+  if (thOp <= 0) return '';
+  for (const th of galaxy().threads) {
+    if (th.a.id !== id && th.b.id !== id) continue;
+    const p = edgePoint(th.a, th.b),
+      q = edgePoint(th.b, th.a),
+      mx = (p.x + q.x) / 2,
+      my = (p.y + q.y) / 2,
+      nx = -(q.y - p.y),
+      ny = q.x - p.x,
+      len = Math.hypot(nx, ny) || 1,
+      bow = Math.min(500, Math.hypot(q.x - p.x, q.y - p.y) * 0.07),
+      col = th.cross ? '#c9d3dc' : ARM_COLORS[regionCourse(th.a)] || '#9fb3c4';
+    out.push(
+      `<path class="v32-link v32-thread ${state}" data-link="${E(th.a.id)} ${E(th.b.id)}" d="M${p.x.toFixed(0)},${p.y.toFixed(0)} Q${(mx + (nx / len) * bow).toFixed(0)},${(my + (ny / len) * bow).toFixed(0)} ${q.x.toFixed(0)},${q.y.toFixed(0)}" stroke="${col}" opacity="${(Math.min(1, 0.45 + th.n * 0.06) * thOp).toFixed(3)}" stroke-width="${1 / z}"/>`,
+    );
+  }
+  return out.join('');
+}
 // A tile under the pointer lights the lines that leave it and the tiles at their other ends. Only classes
 // change: nothing is drawn again, and a draw puts the classes back (the map's elements are new each time).
 let litTile = null;
 function lightTile(id, again = false) {
   if (id === litTile && !again) return;
+  for (const el of svg.querySelectorAll('.v32-thread.is-called')) el.remove();
   for (const el of svg.querySelectorAll('.is-near, .is-over, .v32-link.is-hover'))
     el.classList.remove('is-near', 'is-over', 'is-hover');
   litTile = id;
   svg.classList.toggle('has-lit', !!id);
   if (!id) return;
   svg.querySelector(`.v32-tile[data-tile="${CSS.escape(id)}"]`)?.classList.add('is-over');
+  // its curves of association are drawn now, for as long as the pointer stays (the open subject's are already there)
+  const holder = svg.querySelector('#v32Threads');
+  if (holder && id !== S.region)
+    holder.insertAdjacentHTML('beforeend', threadPaths(id, S.z, 'is-hover is-called'));
   for (const line of svg.querySelectorAll('.v32-link')) {
     const [a, b] = line.dataset.link.split(' ');
     if (a !== id && b !== id) continue;

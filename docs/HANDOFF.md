@@ -36,7 +36,8 @@ Update or replace this file when the state changes.
 - **Lines.** At rest the map shows only each course's tree (`courseDesign.spine`: 13, 10 and 9 lines
   drawn; three in the dataset name subjects no longer on the map and are left out when the design is
   copied in `geography.js`). The curves of association between subjects (`galaxy().threads`, 97) are
-  in the picture with no stroke and appear for the tile under the pointer or the open subject.
+  not in the picture at rest: `threadPaths()` draws the open subject's, and `lightTile()` adds the
+  ones of the tile under the pointer and takes them away again.
 - **Composition.** `fitText()` in `studyCode.js` breaks every name on the map: "v." stays with the
   party after it, and two lines are split where they come out nearest in length. Counts carry their
   unit (`countSpans()`), 13 px at reading zoom in the muted colour. A case's pictogram is drawn in a
