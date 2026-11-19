@@ -61,9 +61,9 @@ the opinion of the Court (five Justices) and the first lines of Part III.
 
 Footnote 5 (578–79) is the counterexample. It is the one place in 573–80 where
 the agency's reading is, in substance, a reading of statutory words, and there
-Kisor says Auer deference does not apply. If the step answered the timeline's
-question, the agency's reading in that situation would get Kisor's conditional
-controlling weight; Kisor says it gets none under Auer. The answer to that
+Kisor says the reading gets no Auer deference. If the step answered the
+timeline's question, the agency's reading in that situation would get Kisor's
+conditional controlling weight; Kisor says it gets no Auer deference. The answer to that
 situation in 2019 came from the statutory line (Chevron, limited by Mead), which
 the timeline already carries as separate steps.
 
@@ -72,7 +72,12 @@ and calls the inquiries "similar" and "analogous though not identical." That
 shows Kisor sits beside the statutory line; it does not make Kisor an answer to
 the statutory question.
 
-## Options for the owner (not applied)
+## Owner's decision and the options considered
+
+The owner chose option 2 on 19 November 2026: keep the statutory question and
+identify Kisor as the regulatory counterpart. Any note describing footnote 5
+should say the parroting regulation gets "no Auer deference." Astra owns
+checking the affected consumers and the Fable integration.
 
 The rule in the owner's brief is that placement follows the sourced
 relationship. The sourced relationships between Kisor and this timeline are
@@ -86,7 +91,7 @@ fixes would match them:
 2. Keep the statutory question and show Kisor as a side marker labelled as the
    regulatory counterpart, off the main sequence.
 
-Any change to the timeline is a content edit under AGENTS.md rule 2 and needs
+A change to the timeline is a content edit under AGENTS.md rule 2 and needs
 the owner's say-so; I made none.
 
 ## Side observation
