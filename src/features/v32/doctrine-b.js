@@ -338,33 +338,28 @@
     // gives way party by party where it is too long (layout()).
     const name = item.short
       ? `<span class="v32db-tag-name">${esc(item.short)}</span>`
-      : big && item.first.length === 2
+      : big && item.first.length === 2 && plain(item.first).length > 30
         ? `<span class="v32db-tag-name v32db-tag-caption"><span class="v32db-line">${esc(item.first[0])}</span><span class="v32db-line">v. ${esc(item.first[1])}</span></span>`
         : `<span class="v32db-tag-name" data-a="${esc(item.first[0])}"${item.first[1] ? ` data-b="${esc(item.first[1])}"` : ''}>${esc(plain(item.first))}</span>`;
-    const picture = big ? art(item.artId, 'v32db-art-tag') : '';
+    const picture = item.here ? art(item.artId, 'v32db-art-tag') : '';
     return `<button type="button" class="v32db-tag v32db-c-${item.cls} v32db-f-${item.fam}${big ? ' v32db-big' : ''}${small ? ' v32db-small' : ''}${item.here ? ' v32db-is-here' : ''}${item.hung ? ' v32db-hung' : ''}" data-v32db-i="${item.i}" title="${esc(title)}">${picture}<span class="v32db-tag-words"><span class="v32db-tag-top">${mark}${year}${name}${small ? here : ''}</span>${small ? '' : `<span class="v32db-tag-kind">${esc(item.kind)}${here}</span>`}</span></button>`;
   }
   // A name too long for its label gives way party by party: the longer one first, never the "v.".
-  let pen = null;
   function fitName(el) {
     if (!el.dataset.a) return;
     el.textContent = el.dataset.b ? `${el.dataset.a} v. ${el.dataset.b}` : el.dataset.a;
     if (!el.dataset.b || el.scrollWidth <= el.clientWidth + 1) return;
-    pen ||= document.createElement('canvas').getContext('2d');
-    const cs = getComputedStyle(el);
-    pen.font = `${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
-    const w = (text) => pen.measureText(text).width;
-    const cut = (text, room) => {
-      if (w(text) <= room) return text;
-      let out = text;
-      while (out.length > 3 && w(out + '…') > room) out = out.slice(0, -1);
-      return out.replace(/[\s,.&(-]+$/, '') + '…';
-    };
-    const room = el.clientWidth - w(' v. ') - 2;
-    const a = w(el.dataset.a),
-      b = w(el.dataset.b);
-    const forA = a <= room / 2 ? a : b <= room / 2 ? room - b : room / 2;
-    el.textContent = `${cut(el.dataset.a, forA)} v. ${cut(el.dataset.b, room - Math.min(a, forA))}`;
+    let a = el.dataset.a,
+      b = el.dataset.b;
+    // By whole words while there are words to give; then by letters.
+    const trim = (text) =>
+      (/\s/.test(text.trim()) ? text.replace(/\s+\S*$/, '') : text.slice(0, -1)).replace(/[\s,.&(-]+$/, '');
+    for (let n = 0; n < 80 && el.scrollWidth > el.clientWidth + 1; n++) {
+      if (a.length >= b.length && a.length > 6) a = trim(a);
+      else if (b.length > 6) b = trim(b);
+      else break;
+      el.textContent = `${a}${a === el.dataset.a ? '' : '…'} v. ${b}${b === el.dataset.b ? '' : '…'}`;
+    }
   }
   // A span: the rule's name as the lettering of a beam, the years it ran, and what the entry that set it did.
   function deckHTML(span) {
@@ -466,11 +461,9 @@
     let x1 = W - 24;
     let geo = placeX(model, X0, x1, deckNeed);
     for (let pass = 0; pass < 4; pass++) {
-      let over = 0;
-      for (const item of items) {
-        const sz = size.get(item.i);
-        if (sz) over = Math.max(over, geo.xs[item.i] + sz.w + 4 - W);
-      }
+      const last = items[items.length - 1];
+      const sz = size.get(last.i);
+      const over = sz ? geo.xs[last.i] + sz.w + 4 - W : 0;
       if (over <= 0.5) break;
       x1 = Math.max(X0 + (items.length - 1) * MINGAP, x1 - over);
       geo = placeX(model, X0, x1, deckNeed);
@@ -534,63 +527,99 @@
     // A span's piers run down to the line: no label crosses one.
     for (const one of piers) {
       rects.push({ x: one.x - 1, y: one.y, w: 2, h: 10000 });
-      rects.push({ x: one.x + one.w - 2, y: one.y, w: 4, h: 10000, ends: one.span.b.i });
+      rects.push({ x: one.x + one.w - 2, y: one.y, w: 4, h: 10000, ends: one.span.b.i, pier: true });
     }
 
-    // Entries on the line. Right to left, each takes the side its move prefers (a widening and a turn
-    // of the rule above, a narrowing below, the rest wherever its label sits nearer the line), in a
-    // stack that steps away from the line toward the earlier entry.
-    const free = items.filter((item) => !item.span && !item.hung).sort((p, q) => q.i - p.i);
+    // Entries on the line. A label starts at its entry's stem and runs right, or ends at it and runs
+    // left; it sits as near the line as it can without covering another entry's stem or label. The
+    // entries at the edges of a cluster are placed first, so a cluster opens like a fan: the outer
+    // labels nearest the line, the inner ones stepping away from it. A widening and a turn of the rule
+    // would sooner stand above the line, a narrowing below it.
+    const free = items.filter((item) => !item.span && !item.hung);
     function onLine(spineY) {
       const sides = { up: [], down: [] };
       const out = new Map();
       let upMost = 0,
-        downMost = 0;
-      // The lowest level at which a label from `left` to `left + w` clears every label already there.
-      const levelOn = (side, left, w) => {
-        let level = 0;
-        for (const other of sides[side])
-          if (other.left < left + w + 8 && left < other.left + other.w + 8 && other.level + other.h + TIER > level)
-            level = other.level + other.h + TIER;
-        return level;
-      };
-      const boxOn = (side, left, sz, level) => ({
-        x: left,
+        downMost = 0,
+        missed = 0;
+      const left = new Set(free);
+      const boxOn = (side, x, sz, level) => ({
+        x,
         y: side === 'up' ? spineY - STEM - level - sz.h : spineY + STEM + level,
         w: sz.w,
         h: sz.h,
       });
       const clear = (box, item) =>
-        box.y >= PAD - 0.5 && !rects.some((r) => r.y < spineY && r.ends !== item.i && hits(box, r, 6));
-      free.forEach((item, at) => {
+        box.y >= PAD - 0.5 &&
+        !rects.some((r) => r.y < spineY && hits(box, r, r.ends === item.i ? (r.pier ? -100 : -2) : 6));
+      // The entry that ends a span is labelled first, past the span's end and above the line if it can be.
+      for (const item of free) {
+        if (!item.ends) continue;
         const sz = size.get(item.i);
         const x = xs[item.i];
-        // To the left of its stem only where no earlier entry's stem would have to cross the label.
-        const leftOk =
-          x - sz.w >= 0 && !free.slice(at + 1).some((earlier) => xs[earlier.i] > x - sz.w - 10);
-        const tries = [];
-        for (const side of ['up', 'down']) {
-          for (const flip of leftOk ? [false, true] : [false]) {
-            const left = flip ? x - sz.w : x;
-            const level = levelOn(side, left, sz.w);
-            const box = boxOn(side, left, sz, level);
-            if (side === 'up' && !clear(box, item)) continue;
-            tries.push({ side, flip, left, level, box });
+        if (x + sz.w > W) continue;
+        const up = boxOn('up', x, sz, 0);
+        const side = clear(up, item) ? 'up' : 'down';
+        left.delete(item);
+        sides[side].push({ left: x, w: sz.w, level: 0, h: sz.h, x });
+        out.set(item.i, { box: boxOn(side, x, sz, 0), from: spineY, side, stemX: x, flip: false });
+        if (side === 'up') upMost = Math.max(upMost, sz.h);
+        else downMost = Math.max(downMost, sz.h);
+      }
+      while (left.size) {
+        let pick = null;
+        // strict: not over the stem of an entry that has no label yet. loose: its own stem may run
+        // through a label (the last resort; nothing is left without a place).
+        const consider = (strict, loose) => {
+          for (const item of left) {
+            const sz = size.get(item.i);
+            const x = xs[item.i];
+            const prefers =
+              item.fam === 'narrow' ? 'down' : item.cls === 'rule' || item.fam === 'wide' ? 'up' : '';
+            for (const flip of [false, true]) {
+              const from = flip ? x - sz.w : x;
+              if (from < 0 || (from + sz.w > W && !loose)) continue;
+              // The entry that ends a span is labelled past the span's end, not under its beam.
+              if (flip && item.ends && !loose) continue;
+              if (strict && [...left].some((o) => o !== item && xs[o.i] > from - 6 && xs[o.i] < from + sz.w + 6))
+                continue;
+              for (const side of ['up', 'down']) {
+                let level = 0;
+                for (const o of sides[side]) {
+                  const over = o.left < from + sz.w + 8 && from < o.left + o.w + 8;
+                  const stem = o.x > from - 6 && o.x < from + sz.w + 6;
+                  if ((over || stem) && o.level + o.h + TIER > level) level = o.level + o.h + TIER;
+                }
+                if (
+                  !loose &&
+                  sides[side].some(
+                    (o) => o.x !== x && x > o.left - 6 && x < o.left + o.w + 6 && level + sz.h + TIER > o.level,
+                  )
+                )
+                  continue;
+                const box = boxOn(side, from, sz, level);
+                if (side === 'up' && !clear(box, item)) continue;
+                const miss = prefers && side !== prefers ? 1 : 0;
+                const cost = level + miss * 34 + (flip ? 3 : 0) + (side === 'up' ? 1 : 0);
+                // The cheapest place first; between equals, the later entry.
+                if (!pick || cost < pick.cost - 0.01 || (Math.abs(cost - pick.cost) <= 0.01 && item.i > pick.item.i))
+                  pick = { item, side, flip, from, level, box, sz, cost, x, miss };
+              }
+            }
           }
-        }
-        const prefers = item.fam === 'narrow' ? 'down' : item.cls === 'rule' || item.fam === 'wide' ? 'up' : '';
-        // Nearest the line; a widening and a turn of the rule would sooner stand above it and a
-        // narrowing hang below (worth one row); then to the right of its stem; then below.
-        const cost = (one) =>
-          one.level + (prefers && one.side !== prefers ? 34 : 0) + (one.flip ? 3 : 0) + (one.side === 'up' ? 1 : 0);
-        tries.sort((p, q) => cost(p) - cost(q));
-        const pick = tries[0];
-        sides[pick.side].push({ left: pick.left, w: sz.w, level: pick.level, h: sz.h });
-        out.set(item.i, { box: pick.box, from: spineY, side: pick.side, stemX: x, flip: pick.flip });
-        if (pick.side === 'up') upMost = Math.max(upMost, pick.level + sz.h);
-        else downMost = Math.max(downMost, pick.level + sz.h);
-      });
-      return { out, upMost, downMost };
+        };
+        consider(true, false);
+        if (!pick) consider(false, false);
+        if (!pick) consider(false, true);
+        if (!pick) break;
+        missed += pick.miss;
+        left.delete(pick.item);
+        sides[pick.side].push({ left: pick.from, w: pick.sz.w, level: pick.level, h: pick.sz.h, x: pick.x });
+        out.set(pick.item.i, { box: pick.box, from: spineY, side: pick.side, stemX: pick.x, flip: pick.flip });
+        if (pick.side === 'up') upMost = Math.max(upMost, pick.level + pick.sz.h);
+        else downMost = Math.max(downMost, pick.level + pick.sz.h);
+      }
+      return { out, upMost, downMost, missed };
     }
     // Where the line sits: under the spans, and as far under them as makes the whole plate shortest
     // (room above the line lets labels stand there that would otherwise stack below it).
@@ -601,7 +630,8 @@
     for (let y = least; y <= least + 240; y += 12) {
       const tried = onLine(y);
       if (tried.upMost && y < PAD + tried.upMost + STEM) continue;
-      const total = y + (tried.downMost ? STEM + tried.downMost : 16);
+      // The shortest plate, give or take a row for each label kept off the side its move prefers.
+      const total = y + (tried.downMost ? STEM + tried.downMost : 16) + tried.missed * 26;
       if (total < best - 0.5) {
         best = total;
         spineY = y;

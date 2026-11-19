@@ -386,6 +386,9 @@ html:root body #inspector .v32db-tag.v32db-small {
 html:root body #inspector .v32db-tag.v32db-big {
   max-width: 400px;
 }
+html:root body #inspector .v32db-tag.v32db-is-here {
+  max-width: 480px;
+}
 html:root body #inspector .v32db-tag:hover {
   background: var(--v32-hover);
 }
