@@ -40,19 +40,32 @@
     total = 0,
     frame = 0;
   const count = () => (reader.loaded() ? reader.cases().length : null);
-  // A map case's own drawing, at glyph size, where it still reads there (the map's own test).
+  /* The glyph that says what kind of thing a row is (docs/DESIGN.md rule 7). A case on the map: its own
+     drawing where that still reads at 16 px (the map's own test), otherwise the scales the map uses for a
+     case. A supporting case, which has no place on the map and no drawing: a page. */
+  const art = (box, inner, extra = '') =>
+    `<svg class="cc-ix-art${extra}" viewBox="0 0 ${box} ${box}" fill="none" stroke="currentColor" stroke-width="${box === 24 ? 1.5 : 1.25}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${inner}</svg>`;
+  const SCALES = art(
+      16,
+      '<path d="M8 2.5v11M5 13.5h6M3 5.5h10M3 5.5 1.6 9.2a1.9 1.9 0 0 0 2.8 0ZM13 5.5l-1.4 3.7a1.9 1.9 0 0 0 2.8 0Z"/>',
+    ),
+    PAGE = art(
+      16,
+      '<path d="M4.5 2.5h5l2.5 2.5v8.500h-7.500zM9.500 2.500v2.500h2.500M6.500 8.500h3M6.500 11h3"/>',
+      ' cc-ix-page',
+    );
   let icons = null;
-  function glyph(id) {
+  function glyph(id, onMap) {
+    if (!onMap) return PAGE;
     try {
       icons ||= JSON.parse(document.getElementById('dklaIcons')?.textContent || 'null') || {};
       const record = icons.records?.[id],
-        art = record && icons.paths?.[record.motif];
-      if (art && pictReads(record.motif, art))
-        return `<svg class="cc-ix-art" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${art}</svg>`;
+        drawing = record && icons.paths?.[record.motif];
+      if (drawing && pictReads(record.motif, drawing)) return art(24, drawing, ' cc-ix-own');
     } catch {
       /* no drawings in this page */
     }
-    return '';
+    return SCALES;
   }
   // Courses, each with its subjects in the map's order and then its supporting cases.
   function arrange() {
@@ -69,7 +82,8 @@
     for (const id of reader.cases()) {
       const account = reader.account(id);
       let course = courses.find((c) => c.name === account.course);
-      if (!course) courses.push((course = { name: account.course, subjects: new Map(), supporting: [], n: 0 }));
+      if (!course)
+        courses.push((course = { name: account.course, subjects: new Map(), supporting: [], n: 0 }));
       course.n++;
       const home = homes[id],
         region = home && regions[place.get(home.region)];
@@ -85,7 +99,10 @@
         } catch {
           /* the map's own short names are not in this page */
         }
-        course.subjects.set(region.id, (subject = { id: region.id, title, at: place.get(region.id), items: [] }));
+        course.subjects.set(
+          region.id,
+          (subject = { id: region.id, title, at: place.get(region.id), items: [] }),
+        );
       }
       // Within a subject: its groups in order, then the place in the group, as the map draws them.
       const group = (region.districtIds || []).indexOf(home.district);
@@ -101,9 +118,12 @@
     }
     return courses.filter((c) => c.n);
   }
+  /* A row opens its account through the reader's own listener for [data-cold-call] (which is also what the
+     analytics layer counts as a Cold Call opened). It is not a <button>: the frosted style of frost.css
+     belongs to button[data-cold-call], the one control on a case page, and 742 frosted rows would be noise. */
   const rowHTML = (a, art) => {
     const year = yearOf(a.citation);
-    return `<button type="button" class="cc-ix-row" data-cold-call="${esc(a.id)}" data-cc-key="${esc(fold(a.title + ' ' + a.citation))}" title="${esc(a.title + (a.citation ? ' · ' + a.citation : ''))}">${art}<span class="cc-ix-name">${captionLine(a.title)}</span><span class="cc-ix-year">${esc(year)}</span><span class="cc-ix-count">${plural(a.episodes, 'episode')}</span></button>`;
+    return `<div role="button" tabindex="0" class="cc-ix-row" data-cold-call="${esc(a.id)}" data-cc-key="${esc(fold(a.title + ' ' + a.citation))}" title="${esc(a.title + (a.citation ? ' · ' + a.citation : ''))}">${art}<span class="cc-ix-name">${captionLine(a.title)}</span><span class="cc-ix-year">${esc(year)}</span><span class="cc-ix-count">${plural(a.episodes, 'episode')}</span></div>`;
   };
   function build() {
     const courses = arrange();
@@ -115,13 +135,15 @@
         groups = course.subjects.map((s) => ({ title: s.title, items: s.items, map: true }));
       if (course.supporting.length)
         groups.push({ title: 'Supporting cases', items: course.supporting, map: false });
-      rail += `<li class="cc-ix-jump cc-ix-jump-course" data-course="${esc(course.name)}"><button type="button" data-cc-ix-go="${key}"><i class="cc-dot" aria-hidden="true"></i><span>${esc(course.name)}</span><span class="cc-readout" data-cc-ix-n="${key}">${course.n}</span></button></li>`;
-      list += `<section class="cc-ix-course" id="${key}" data-course="${esc(course.name)}" aria-labelledby="${key}Title"><h3 class="cc-ix-course-title" id="${key}Title" tabindex="-1"><span>${esc(course.name)}</span><span class="cc-readout">${plural(course.n, 'Cold Call')}</span></h3>`;
+      // The rail is for getting about: a name and nothing else. What each holds is said, with its unit,
+      // beside the heading it leads to.
+      rail += `<li class="cc-ix-jump cc-ix-jump-course" data-course="${esc(course.name)}" data-cc-ix-for="${key}"><button type="button" data-cc-ix-go="${key}" title="${esc(course.name)}"><i class="cc-dot" aria-hidden="true"></i><span>${esc(course.name)}</span></button></li>`;
+      list += `<section class="cc-ix-course" id="${key}" data-course="${esc(course.name)}" aria-labelledby="${key}Title"><h3 class="cc-ix-course-title" id="${key}Title" tabindex="-1"><span>${esc(course.name)}</span><span class="cc-readout" data-cc-ix-n="${course.n}" data-cc-ix-unit="Cold Call">${plural(course.n, 'Cold Call')}</span></h3>`;
       groups.forEach((group, gi) => {
         const id = `${key}g${gi}`;
-        rail += `<li class="cc-ix-jump"><button type="button" data-cc-ix-go="${id}"><span>${esc(group.title)}</span><span class="cc-readout" data-cc-ix-n="${id}">${group.items.length}</span></button></li>`;
-        list += `<section class="cc-ix-group" id="${id}" aria-labelledby="${id}Title"><h4 class="cc-ix-group-title" id="${id}Title" tabindex="-1"><span>${esc(group.title)}</span><span class="cc-readout">${plural(group.items.length, 'case')}</span></h4><div class="cc-ix-rows">${group.items
-          .map((a) => rowHTML(a, group.map ? glyph(a.id) : ''))
+        rail += `<li class="cc-ix-jump" data-cc-ix-for="${id}"><button type="button" data-cc-ix-go="${id}" title="${esc(group.title)}"><span>${esc(group.title)}</span></button></li>`;
+        list += `<section class="cc-ix-group" id="${id}"${group.map ? '' : ' data-cc-ix-supporting'} aria-labelledby="${id}Title"><h4 class="cc-ix-group-title" id="${id}Title" tabindex="-1"><span>${esc(group.title)}</span><span class="cc-readout" data-cc-ix-n="${group.items.length}" data-cc-ix-unit="case">${plural(group.items.length, 'case')}</span></h4><div class="cc-ix-rows">${group.items
+          .map((a) => rowHTML(a, glyph(a.id, group.map)))
           .join('')}</div></section>`;
       });
       list += '</section>';
@@ -132,7 +154,7 @@
   function draw() {
     if (!built) {
       const { rail, list } = build();
-      built = `<div class="cc-layout"><nav class="cc-ix-rail" aria-label="Courses and subjects"><ol>${rail}</ol></nav><div class="cc-main"><label class="cc-ix-find">${FIND}<span class="cc-sr">Search the Cold Calls</span><input type="search" id="ccIxFind" placeholder="Search by case name or citation" autocomplete="off" spellcheck="false" aria-controls="ccIxList" /></label><div class="cc-ix-scroll" id="ccIxScroll" tabindex="-1"><div id="ccIxList">${list}</div><p class="cc-ix-none" id="ccIxNone" role="status" hidden></p></div></div></div>`;
+      built = `<div class="cc-layout"><nav class="cc-ix-rail" aria-label="Courses and subjects"><ol>${rail}</ol></nav><div class="cc-main"><div class="cc-ix-scroll" id="ccIxScroll" tabindex="-1"><div class="cc-ix-head"><label class="cc-ix-find">${FIND}<span class="cc-sr">Search the Cold Calls</span><input type="search" id="ccIxFind" placeholder="Search by case name or citation" autocomplete="off" spellcheck="false" aria-controls="ccIxList" /></label></div><div id="ccIxList">${list}</div><p class="cc-ix-none" id="ccIxNone" role="status" hidden></p></div></div></div>`;
     }
     dialog.innerHTML = bar + built;
     $('ccIxTotal').textContent = plural(total, 'account');
@@ -177,25 +199,32 @@
   function filter() {
     const words = fold($('ccIxFind').value).split(/\s+/).filter(Boolean);
     let shown = 0;
-    for (const group of dialog.querySelectorAll('.cc-ix-group')) {
-      let n = 0;
-      for (const row of group.querySelectorAll('.cc-ix-row')) {
-        const hit = words.every((w) => row.dataset.ccKey.includes(w));
-        row.hidden = !hit;
-        if (hit) n++;
-      }
-      group.hidden = !n;
-      shown += n;
-      const readout = dialog.querySelector(`[data-cc-ix-n="${group.id}"]`);
-      readout.textContent = n;
-      readout.closest('li').toggleAttribute('data-cc-empty', !n);
-    }
+    // A heading says how many of its cases are showing: "5 cases", or "2 of 5 cases" while searching.
+    const say = (section, n) => {
+      const readout = section.querySelector(':scope > * > [data-cc-ix-n]'),
+        all = +readout.dataset.ccIxN,
+        text =
+          n === all
+            ? plural(all, readout.dataset.ccIxUnit)
+            : `${n} of ${plural(all, readout.dataset.ccIxUnit)}`;
+      if (readout.textContent !== text) readout.textContent = text;
+      section.hidden = !n;
+      dialog.querySelector(`[data-cc-ix-for="${section.id}"]`).toggleAttribute('data-cc-empty', !n);
+    };
     for (const course of dialog.querySelectorAll('.cc-ix-course')) {
-      const n = course.querySelectorAll('.cc-ix-row:not([hidden])').length;
-      course.hidden = !n;
-      const readout = dialog.querySelector(`[data-cc-ix-n="${course.id}"]`);
-      readout.textContent = n;
-      readout.closest('li').toggleAttribute('data-cc-empty', !n);
+      let inCourse = 0;
+      for (const group of course.querySelectorAll('.cc-ix-group')) {
+        let n = 0;
+        for (const row of group.querySelectorAll('.cc-ix-row')) {
+          const hit = words.every((w) => row.dataset.ccKey.includes(w));
+          row.hidden = !hit;
+          if (hit) n++;
+        }
+        say(group, n);
+        inCourse += n;
+      }
+      say(course, inCourse);
+      shown += inCourse;
     }
     $('ccIxTotal').textContent = words.length
       ? `${shown.toLocaleString('en-US')} of ${plural(total, 'account')}`
@@ -212,7 +241,12 @@
     const target = $(go.dataset.ccIxGo),
       box = $('ccIxScroll');
     if (!target || target.hidden) return;
-    const top = box.scrollTop + target.getBoundingClientRect().top - box.getBoundingClientRect().top;
+    // Below the search field, which stays at the head of the list.
+    const top =
+      box.scrollTop +
+      target.getBoundingClientRect().top -
+      box.getBoundingClientRect().top -
+      (box.querySelector('.cc-ix-head')?.offsetHeight || 0);
     if (window.DKLACalm?.scrollTo) DKLACalm.scrollTo(box, top);
     else box.scrollTop = top;
     target.querySelector('h3, h4')?.focus({ preventScroll: true });
@@ -236,6 +270,9 @@
     } else if (event.key === 'Enter' && event.target === find) {
       event.preventDefault();
       rows()[0]?.click();
+    } else if (row && (event.key === 'Enter' || event.key === ' ')) {
+      event.preventDefault();
+      row.click();
     } else if (event.key.length === 1 && event.key !== ' ' && event.target !== find) {
       find.focus();
     }

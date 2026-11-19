@@ -29,6 +29,18 @@
   --cc-gutter: var(--v32-s7);
   --cc-measure: 568px;
   --cc-wide: 680px;
+  /* Clear ice (the palette of frost.css, the button that opens a Cold Call): used for the plate behind a
+     case's drawing and for the pane over a narration not yet asked for, and nowhere else. */
+  --cc-ice-top: #25455a;
+  --cc-ice-deep: #183448;
+  --cc-ice-rim: #ebfbff3d;
+  --cc-ice-edge: #bedfe82b;
+  --cc-ice-glint: #d6f4ff30;
+  --cc-ice-sheen: #b9e5f51f;
+  --cc-ice-line: #e8f4fa17;
+  --cc-ice-text: #e8f4fa;
+  --cc-ice-crack: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 36' fill='none' stroke-linecap='round'%3E%3Cpath d='M30 0 23 5l-2.5 4.5L11 13.5l-3 6L0 25M20.5 9.5l6.5 3 5 1M11 13.5 5 10.5l-4 1M8 19.5l4 4 1.2 7' stroke='%23041c2d' stroke-opacity='.3' stroke-width='1.6' transform='translate(.8 .8)'/%3E%3Cpath d='M30 0 23 5l-2.5 4.5L11 13.5l-3 6L0 25M20.5 9.5l6.5 3 5 1M11 13.5 5 10.5l-4 1M8 19.5l4 4 1.2 7' stroke='%23f1fcff' stroke-opacity='.5' stroke-width='.7'/%3E%3C/svg%3E");
+  --cc-ice-crack-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 34' fill='none' stroke-linecap='round'%3E%3Cpath d='M40 9 33 14.5l-2 7.5-8 4.5L20 34M31 22l5.5 2.2 2.5 4M33 14.5l-4.5-2.2-1-4' stroke='%23041c2d' stroke-opacity='.3' stroke-width='1.6' transform='translate(.8 .8)'/%3E%3Cpath d='M40 9 33 14.5l-2 7.5-8 4.5L20 34M31 22l5.5 2.2 2.5 4M33 14.5l-4.5-2.2-1-4' stroke='%23f1fcff' stroke-opacity='.45' stroke-width='.7'/%3E%3C/svg%3E");
   box-sizing: border-box;
   width: min(1180px, 100vw - 48px);
   max-width: none;
@@ -114,6 +126,10 @@
   outline: none;
 }
 
+/* On the setup the caption is the hero just below, so the bar does not say it twice. */
+#coldCallDialog[data-cc-at='setup']:not([data-cc-scrolled]) .cc-bar-case {
+  visibility: hidden;
+}
 /* The bar: title area at the left, the one close button at the right. Its hairline shows only once
    something has scrolled beneath it. */
 .cc-shell .cc-bar {
@@ -147,7 +163,9 @@
 .cc-shell .cc-bar-kind {
   flex: none;
   margin: 0;
-  font: 600 22px/28px var(--dkla-display, 'Exo 2'), sans-serif;
+  font:
+    600 22px/28px var(--dkla-display, 'Exo 2'),
+    sans-serif;
   font-family: var(--dkla-display, 'Exo 2'), sans-serif !important;
   letter-spacing: 0;
   color: var(--v31-text);
@@ -190,6 +208,9 @@
   content: '';
   position: absolute;
   inset: -4px;
+}
+.cc-shell .cc-seg::before {
+  inset: -6px 0;
 }
 .cc-shell .cc-x:hover {
   background: var(--v32-hover);
@@ -445,7 +466,8 @@
   grid-column: 2;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  /* A title or a question is said whole wherever three lines hold it (all but a handful do). */
+  -webkit-line-clamp: 3;
   overflow: hidden;
   font: var(--v31-ui);
   text-wrap: pretty;
@@ -468,29 +490,74 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* One screen: the first episode begins below it. */
-  min-height: calc(100cqb - var(--v32-s5) - var(--v32-s7));
+  /* One screen: the first episode begins below it (100cqb is the scroller less its own padding). */
+  min-height: calc(100cqb + var(--v32-s7));
 }
-#coldCallDialog .cc-art {
-  display: flex;
-  align-items: center;
-  gap: var(--v32-s4);
-  margin: 0 0 var(--v32-s4);
+#coldCallDialog .cc-setup[data-cc-bare] {
+  min-height: 0;
+}
+/* The head: the case's drawing on a plate of clear ice, and beside it the hook, the caption, the citation. */
+#coldCallDialog .cc-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+}
+#coldCallDialog .cc-head[data-cc-art] {
+  grid-template-columns: 96px minmax(0, 1fr);
+  column-gap: var(--v32-s5);
+  align-items: start;
+}
+#coldCallDialog .cc-plate {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 96px;
+  margin: 0;
+  border-radius: var(--v32-r-surface);
   color: var(--cc-course);
+  background:
+    radial-gradient(ellipse at 4% 0%, var(--cc-ice-glint), transparent 58%),
+    radial-gradient(ellipse at 100% 100%, var(--cc-ice-sheen), transparent 52%),
+    linear-gradient(180deg, var(--cc-ice-top), var(--cc-ice-deep));
+  box-shadow:
+    inset 0 1px 0 var(--cc-ice-rim),
+    inset 0 0 0 1px var(--cc-ice-edge),
+    inset 0 -3px 6px #071d3338;
+}
+/* Fissures at two corners, still (the same clear ice as the button that opens a Cold Call). */
+#coldCallDialog .cc-plate::before,
+#coldCallDialog .cc-cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    var(--cc-ice-crack) left top / 44px 36px no-repeat,
+    var(--cc-ice-crack-2) right bottom / 40px 34px no-repeat;
 }
 #coldCallDialog .cc-pict {
-  width: 56px;
-  height: 56px;
+  position: relative;
+  width: 64px;
+  height: 64px;
   flex: none;
   overflow: visible;
 }
 #coldCallDialog .cc-pict-badge {
-  fill: var(--v31-raised);
+  fill: var(--cc-ice-deep);
   stroke: none;
 }
-#coldCallDialog .cc-art figcaption {
-  max-width: 320px;
-  font: 400 14px/20px var(--dkla-interface, Inter), sans-serif;
+#coldCallDialog .cc-head-text {
+  min-width: 0;
+  /* The caption's first line sits level with the plate's upper third, whether or not there is a hook. */
+  align-self: center;
+}
+#coldCallDialog .cc-hook {
+  margin: 0 0 var(--v32-s1);
+  font:
+    400 14px/20px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-muted);
   text-wrap: balance;
 }
@@ -503,18 +570,23 @@
   color: var(--v31-text);
   overflow-wrap: break-word;
 }
+#coldCallDialog .cc-caption[data-cc-long] {
+  font-size: 30px;
+  line-height: 36px;
+}
 #coldCallDialog .cc-facts {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: var(--v32-s1) var(--v32-s4);
-  margin: var(--v32-s3) 0 0;
+  margin: var(--v32-s2) 0 0;
 }
 #coldCallDialog .cc-cite {
   font: var(--v32-readout);
   font-variant-numeric: tabular-nums;
   color: var(--v31-muted);
   overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 #coldCallDialog .cc-course {
   display: inline-flex;
@@ -527,7 +599,9 @@
 #coldCallDialog .cc-lead {
   max-width: var(--cc-wide);
   margin: var(--v32-s5) 0 0;
-  font: 400 22px/32px var(--dkla-interface, Inter), sans-serif;
+  font:
+    400 22px/32px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-text);
   text-wrap: pretty;
 }
@@ -554,7 +628,9 @@
   margin: 0;
 }
 #coldCallDialog .cc-cast dt {
-  font: 600 16px/24px var(--dkla-interface, Inter), sans-serif;
+  font:
+    600 16px/24px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-text);
   text-wrap: balance;
 }
@@ -562,7 +638,9 @@
 #coldCallDialog .cc-path li,
 #coldCallDialog .cc-path-one {
   margin: 0;
-  font: 400 16px/24px var(--dkla-interface, Inter), sans-serif;
+  font:
+    400 16px/24px var(--dkla-interface, Inter),
+    sans-serif;
   text-wrap: pretty;
 }
 #coldCallDialog .cc-cast dd {
@@ -592,22 +670,6 @@
 #coldCallDialog .cc-path-one {
   color: var(--v31-body);
 }
-/* The way in, at the foot of the first screen: the same place in every account. */
-#coldCallDialog .cc-begin {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--v32-s3);
-  width: 100%;
-  margin-top: auto;
-  padding-top: var(--v32-s6);
-}
-#coldCallDialog .cc-begin-note {
-  flex-basis: 100%;
-  margin: 0;
-  font: 400 14px/20px var(--dkla-interface, Inter), sans-serif;
-  color: var(--v31-muted);
-}
 
 /* ---------- an episode: the prompt, then its narration ---------- */
 #coldCallDialog .cc-section {
@@ -622,7 +684,9 @@
 #coldCallDialog .cc-cue {
   max-width: var(--cc-wide);
   margin: 0;
-  font: 500 22px/30px var(--dkla-interface, Inter), sans-serif;
+  font:
+    500 22px/30px var(--dkla-interface, Inter),
+    sans-serif;
   letter-spacing: 0;
   color: var(--v31-text);
   text-wrap: balance;
@@ -633,7 +697,9 @@
 }
 #coldCallDialog .cc-title {
   margin: 0 0 var(--v32-s2);
-  font: 600 17px/28px var(--dkla-interface, Inter), sans-serif;
+  font:
+    600 17px/28px var(--dkla-interface, Inter),
+    sans-serif;
   letter-spacing: 0;
   color: var(--v31-text);
   text-wrap: balance;
@@ -658,6 +724,7 @@
 }
 #coldCallDialog .cc-pin {
   min-width: 0;
+  text-wrap: balance;
   font: var(--v32-readout);
   font-variant-numeric: tabular-nums;
   color: var(--v31-muted);
@@ -666,7 +733,9 @@
 #coldCallDialog .cc-notice {
   max-width: var(--cc-measure);
   margin: 0 0 var(--v32-s5);
-  font: 400 14px/20px var(--dkla-interface, Inter), sans-serif;
+  font:
+    400 14px/20px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-muted);
 }
 #coldCallDialog .cc-followup {
@@ -689,9 +758,8 @@
 }
 
 /* Covered and shown. Read: every narration is open. Rehearse: one step at a time, and an episode's
-   narration stays covered until it is asked for. */
-#coldCallDialog .cc-cover,
-#coldCallDialog .cc-onward {
+   narration lies under a pane of frost until it is asked for. */
+#coldCallDialog .cc-cover {
   display: none;
 }
 #coldCallDialog[data-cc-mode='rehearse'] [data-cc-step]:not([data-cc-current]) {
@@ -703,21 +771,41 @@
 #coldCallDialog[data-cc-mode='rehearse'] .cc-section:not([data-cc-revealed]) .cc-answer {
   display: none;
 }
+/* While rehearsing the question is all there is to read: it takes the title's size. */
+#coldCallDialog[data-cc-mode='rehearse'] .cc-cue {
+  font-size: 30px;
+  line-height: 38px;
+}
+/* The frost: clear ice with a pale rim over the lines of a narration not yet read. It is still. Pressing
+   it, the action at the foot, Space and Enter all show the narration. */
 #coldCallDialog[data-cc-mode='rehearse'] .cc-section:not([data-cc-revealed]) .cc-cover {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--v32-s4);
+  align-items: flex-end;
+  max-width: var(--cc-measure);
+  height: 232px;
   margin-top: var(--v32-s5);
+  padding: var(--v32-s5);
+  border-radius: var(--v32-r-surface);
+  background:
+    linear-gradient(var(--cc-ice-line), var(--cc-ice-line)) 24px 28px / 34% 8px no-repeat,
+    linear-gradient(var(--cc-ice-line), var(--cc-ice-line)) 24px 64px / 86% 6px no-repeat,
+    linear-gradient(var(--cc-ice-line), var(--cc-ice-line)) 24px 92px / 79% 6px no-repeat,
+    linear-gradient(var(--cc-ice-line), var(--cc-ice-line)) 24px 120px / 83% 6px no-repeat,
+    linear-gradient(var(--cc-ice-line), var(--cc-ice-line)) 24px 148px / 52% 6px no-repeat,
+    radial-gradient(ellipse at 4% 0%, var(--cc-ice-glint), transparent 46%),
+    radial-gradient(ellipse at 100% 100%, var(--cc-ice-sheen), transparent 44%),
+    linear-gradient(180deg, var(--cc-ice-top), var(--cc-ice-deep));
+  box-shadow:
+    inset 0 1px 0 var(--cc-ice-rim),
+    inset 0 0 0 1px var(--cc-ice-edge),
+    inset 0 -3px 6px #071d3338;
+  cursor: pointer;
 }
-#coldCallDialog[data-cc-mode='rehearse'] .cc-section[data-cc-revealed] .cc-onward {
-  display: flex;
-  margin-top: var(--v32-s5);
-}
-#coldCallDialog .cc-hint {
-  margin: 0;
-  font: 400 14px/20px var(--dkla-interface, Inter), sans-serif;
-  color: var(--v31-muted);
+#coldCallDialog .cc-cover-hint {
+  position: relative;
+  font: var(--v31-ui);
+  color: var(--cc-ice-text);
 }
 /* A step that has just been asked for fades in, once (opacity and position only). */
 @media (prefers-reduced-motion: no-preference) {
@@ -756,25 +844,70 @@
 #coldCallDialog .cc-exits {
   display: grid;
   gap: var(--v32-s5);
-  max-width: var(--cc-measure);
+  max-width: var(--cc-wide);
   margin-top: var(--v32-s5);
 }
 #coldCallDialog .cc-exits .cc-label {
   margin-bottom: var(--v32-s1);
 }
 
-/* ---------- the foot: where you are, and the keys ---------- */
+/* ---------- the foot: the switch, the one action that comes next, where you are, the keys ---------- */
 .cc-shell .cc-foot {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--v32-s4);
+  gap: var(--v32-s3) var(--v32-s4);
   flex: none;
-  min-height: 44px;
-  padding: 0 var(--cc-gutter);
+  min-height: 64px;
+  padding: var(--v32-s3) var(--cc-gutter);
   border-top: 1px solid var(--v32-hair);
   font: var(--v32-ui-small);
   color: var(--v31-muted);
+  container-type: inline-size;
+}
+.cc-shell .cc-foot #ccAct {
+  min-width: 168px;
+}
+.cc-shell .cc-foot-status {
+  display: flex;
+  align-items: center;
+  gap: var(--v32-s4);
+  min-width: 0;
+  margin-left: auto;
+}
+/* While rehearsing, the question on screen carries its own "2 of 5". */
+#coldCallDialog[data-cc-mode='rehearse'][data-cc-at='episode'] #ccProgress {
+  display: none;
+}
+/* A narrower foot gives up the keys, then stands the action on a row of its own. */
+@container (max-width: 660px) {
+  .cc-shell .cc-foot .cc-keys {
+    display: none !important;
+  }
+}
+@container (max-width: 480px) {
+  .cc-shell .cc-foot #ccAct {
+    order: 3;
+    flex: 1 0 100%;
+  }
+  .cc-shell .cc-foot .cc-act-key {
+    display: none;
+  }
+  #coldCallDialog[data-cc-mode='rehearse'][data-cc-at='episode'] #ccProgress {
+    display: inline;
+  }
+}
+/* The key that does what the button does, on the button. */
+.cc-shell .cc-act-key {
+  margin-left: var(--v32-s1);
+  padding: 0 var(--v32-s1);
+  border: 0;
+  border-radius: 4px;
+  background: #0b182229;
+  color: inherit;
+  font: var(--v32-readout);
+  font-size: 12px;
+  line-height: 20px;
 }
 .cc-shell .cc-keys {
   display: none;
@@ -868,6 +1001,7 @@
 }
 #coldCallIndexDialog .cc-ix-rail ol {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -878,7 +1012,7 @@
   gap: var(--v32-s2);
   width: 100%;
   height: var(--v32-h-row);
-  padding: 0 var(--v32-s3) 0 var(--v32-s6);
+  padding: 0 var(--v32-s3) 0 calc(var(--v32-s3) + var(--v32-s4));
   border: 0;
   border-radius: var(--v32-r-control);
   background: transparent;
@@ -905,25 +1039,30 @@
 #coldCallIndexDialog .cc-ix-jump-course:not(:first-child) {
   margin-top: var(--v32-s4);
 }
+/* While searching, the rail lists only where the matches are. */
 #coldCallIndexDialog .cc-ix-jump[data-cc-empty] {
-  opacity: 0.4;
+  display: none;
 }
-#coldCallIndexDialog .cc-main {
-  padding-top: var(--v32-s1);
+/* The search field stays at the head of the list as it scrolls, on the list's own measure. */
+#coldCallIndexDialog .cc-ix-head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  max-width: calc(792px + 2 * var(--v32-s3));
+  margin: 0 calc(-1 * var(--v32-s3));
+  padding: var(--v32-s1) var(--v32-s3) var(--v32-s3);
+  background: var(--v31-raised);
 }
 #coldCallIndexDialog .cc-ix-find {
   display: flex;
   align-items: center;
   gap: var(--v32-s2);
-  flex: none;
   height: var(--v32-h-control);
-  margin: 0 var(--v32-s5) var(--v32-s3) var(--cc-gutter);
   padding: 0 var(--v32-s3);
   border: 1px solid var(--v32-hair-strong);
   border-radius: var(--v32-r-control);
   background: var(--v31-panel);
   color: var(--v31-muted);
-  max-width: 792px;
 }
 #coldCallIndexDialog .cc-ix-find:focus-within {
   border-color: var(--v31-link);
@@ -969,7 +1108,9 @@
 }
 #coldCallIndexDialog .cc-ix-course-title {
   padding: var(--v32-s3) 0 var(--v32-s1);
-  font: 600 22px/28px var(--dkla-display, 'Exo 2'), sans-serif;
+  font:
+    600 22px/28px var(--dkla-display, 'Exo 2'),
+    sans-serif;
   letter-spacing: 0;
   color: var(--cc-course-here, var(--v31-text));
 }
@@ -988,9 +1129,17 @@
 #coldCallIndexDialog .cc-ix-group {
   margin-top: var(--v32-s5);
 }
+/* A group's heading stays under the search field while its cases scroll (the longest group has 152). */
 #coldCallIndexDialog .cc-ix-group-title {
-  padding-bottom: var(--v32-s1);
-  font: 600 14px/20px var(--dkla-interface, Inter), sans-serif;
+  position: sticky;
+  top: 52px;
+  z-index: 1;
+  margin: 0 calc(-1 * var(--v32-s3));
+  padding: var(--v32-s1) var(--v32-s3);
+  background: var(--v31-raised);
+  font:
+    600 14px/20px var(--dkla-interface, Inter),
+    sans-serif;
   letter-spacing: 0;
   color: var(--v31-text);
 }
@@ -998,34 +1147,37 @@
   display: grid;
   margin: 0 calc(-1 * var(--v32-s3));
 }
-/* A row: the case's drawing in the margin, the caption, the year, the episodes. One line, one height. */
+/* A row: the glyph for its kind, the caption, the year, the episodes. One line, one height. */
 #coldCallIndexDialog .cc-ix-row {
-  position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 4ch 11ch;
+  grid-template-columns: 16px minmax(0, 1fr) 4ch 11ch;
   align-items: center;
-  column-gap: var(--v32-s4);
+  column-gap: var(--v32-s3);
   width: 100%;
   height: var(--v32-h-row);
   padding: 0 var(--v32-s3);
-  border: 0;
   border-radius: var(--v32-r-control);
-  background: transparent;
   color: var(--v31-text);
   font: var(--v31-ui);
-  text-align: left;
   cursor: pointer;
 }
 #coldCallIndexDialog .cc-ix-row:hover {
   background: var(--v32-hover);
 }
+#coldCallIndexDialog .cc-ix-row:active {
+  background: var(--v32-pressed);
+}
+#coldCallIndexDialog .cc-ix-row:focus-visible {
+  outline: 0;
+  box-shadow: var(--v31-focus);
+}
 #coldCallIndexDialog .cc-ix-art {
-  position: absolute;
-  top: 10px;
-  left: -16px;
   width: 16px;
   height: 16px;
   color: var(--v31-muted);
+}
+#coldCallIndexDialog .cc-ix-own {
+  color: var(--cc-course);
 }
 #coldCallIndexDialog .cc-ix-name {
   overflow: hidden;
@@ -1095,6 +1247,19 @@
   #coldCallDialog .cc-briefing > * {
     max-width: var(--cc-measure);
   }
+  /* No room for the caption beside the plate: the plate above it, and the caption has the whole measure. */
+  #coldCallDialog .cc-head[data-cc-art] {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--v32-s4);
+  }
+  #coldCallDialog .cc-plate {
+    width: 72px;
+    height: 72px;
+  }
+  #coldCallDialog .cc-pict {
+    width: 48px;
+    height: 48px;
+  }
 }
 /* No room for two columns: the dialog fills the window and the list folds into one line above the text. */
 @media (max-width: 899px) {
@@ -1111,6 +1276,9 @@
   .cc-shell .cc-layout {
     display: flex;
     flex-direction: column;
+  }
+  .cc-shell .cc-main {
+    flex: 1;
   }
   #coldCallDialog #ccList {
     flex: none;
@@ -1139,12 +1307,6 @@
   }
   #coldCallDialog #ccList[open] {
     padding-bottom: var(--v32-s2);
-  }
-  #coldCallDialog .cc-setup {
-    min-height: 0;
-  }
-  #coldCallDialog .cc-begin {
-    margin-top: 0;
   }
   .cc-shell .cc-keys {
     display: none !important;
@@ -1175,17 +1337,17 @@
     font-size: 22px;
     line-height: 28px;
   }
-  #coldCallDialog .cc-pict {
-    width: 48px;
-    height: 48px;
-  }
   #coldCallDialog .cc-lead,
   #coldCallDialog .cc-cue {
     font-size: 19px;
     line-height: 28px;
   }
+  #coldCallDialog[data-cc-mode='rehearse'] .cc-cue {
+    font-size: 22px;
+    line-height: 30px;
+  }
   #coldCallIndexDialog .cc-ix-row {
-    grid-template-columns: minmax(0, 1fr) 4ch;
+    grid-template-columns: 16px minmax(0, 1fr) 4ch;
   }
   #coldCallIndexDialog .cc-ix-count {
     display: none;

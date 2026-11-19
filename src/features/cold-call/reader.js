@@ -10,7 +10,11 @@
 
    Two ways through it, one switch (remembered in this browser under MODE_KEY, which is not saved work):
    Read shows everything, each prompt above its episode; Rehearse shows one prompt at a time with the
-   narration covered until asked for. DEFAULT_MODE is the one line that says which a first visit gets. */
+   narration under a pane of frost until asked for. DEFAULT_MODE is the one line that says which a first
+   visit gets.
+
+   The foot of the reader is its one deck of controls, the same place at every step: the switch, the one
+   action that comes next (start, show the answer, next question, back), where you are, and the keys. */
 (() => {
   'use strict';
   // The data loader (src/features/performance/data-loader.js). Until it is in the page, this stand-in reads
@@ -77,6 +81,9 @@
     page: icon('M4.5 4.5h11v11h-11zM4.5 8h11M8 8v7.5'),
     list: icon('M4 6h12M4 10h12M4 14h8'),
     more: icon('M5.5 8 10 12.5 14.5 8'),
+    case: icon(
+      'M10 3.5v13M6.5 16.5h7M4 7h12M4 7l-1.8 4.6a2.4 2.4 0 0 0 3.6 0ZM16 7l-1.8 4.6a2.4 2.4 0 0 0 3.6 0Z',
+    ),
     left: '<svg class="cc-key-icon" viewBox="0 0 12 12" role="img" aria-label="Left arrow"><path d="M10 6H2M5 3 2 6l3 3"/></svg>',
     right:
       '<svg class="cc-key-icon" viewBox="0 0 12 12" role="img" aria-label="Right arrow"><path d="M2 6h8M7 3l3 3-3 3"/></svg>',
@@ -154,16 +161,27 @@
   function setupHTML(c) {
     const art = pictogram(c.id),
       cast = (Array.isArray(c.actors) ? c.actors : []).filter((a) => a && (a.name || a.role)),
-      path = lines(c.proceedings),
-      n = c.sections.length;
-    return `<header class="cc-setup" id="cc-step-setup" data-cc-step="0" aria-labelledby="ccCaption">
-      ${art ? `<figure class="cc-art">${art.svg}${art.label ? `<figcaption>${esc(art.label)}</figcaption>` : ''}</figure>` : ''}
-      <h2 class="cc-caption" id="ccCaption" tabindex="-1">${caption(c.title)}</h2>
-      <p class="cc-facts">${c.citation ? `<span class="cc-cite">${esc(c.citation)}</span>` : ''}<span class="cc-course"><i class="cc-dot" aria-hidden="true"></i>${esc(c.course)}</span></p>
+      path = lines(c.proceedings);
+    // A caption whose longest line (a party, with its "v.") would not fit the measure at the title's full
+    // size is set at the title's smaller size, where almost all of them do: fewer names broken in two.
+    const parts = window.DKLACaption?.parse(c.title).cases || [],
+      longest = Math.max(0, ...parts.flatMap((p) => [p.first.length, p.second ? p.second.length + 3 : 0])),
+      long = longest > (art ? 40 : 48);
+    // The plate: the case's own drawing on a tile of clear ice, the one place the setup wears the frost.
+    // With nothing to brief (no lead, cast or path) the setup is its head alone and the first episode follows.
+    return `<header class="cc-setup" id="cc-step-setup" data-cc-step="0"${c.lead || cast.length || path.length ? '' : ' data-cc-bare'} aria-labelledby="ccCaption">
+      <div class="cc-head"${art ? ' data-cc-art' : ''}>
+        ${art ? `<figure class="cc-plate"${art.label ? ` title="${esc(art.label)}"` : ''}>${art.svg}</figure>` : ''}
+        <div class="cc-head-text">
+          ${art?.label ? `<p class="cc-hook">${esc(art.label)}</p>` : ''}
+          <h2 class="cc-caption" id="ccCaption"${long ? ' data-cc-long' : ''} tabindex="-1">${caption(c.title)}</h2>
+          <p class="cc-facts">${c.citation ? `<span class="cc-cite">${esc(c.citation)}</span>` : ''}<span class="cc-course"><i class="cc-dot" aria-hidden="true"></i>${esc(c.course)}</span></p>
+        </div>
+      </div>
       ${c.lead ? `<p class="cc-lead">${esc(c.lead)}</p>` : ''}
       ${
         cast.length || path.length
-          ? `<div class="cc-briefing">${
+          ? `<div class="cc-briefing" data-cc-cast="${cast.length}">${
               cast.length
                 ? `<section class="cc-cast" aria-labelledby="ccCastLabel"><h3 class="cc-label" id="ccCastLabel">Who is involved</h3><dl>${cast
                     .map((a) => `<div><dt>${esc(a.name)}</dt><dd>${esc(a.role)}</dd></div>`)
@@ -180,12 +198,6 @@
             }</div>`
           : ''
       }
-      <div class="cc-begin">
-        <button type="button" class="cc-button cc-primary" id="ccBegin" data-cc-begin></button>
-        <button type="button" class="cc-button" id="ccBeginOther" data-cc-begin-other></button>
-        <span class="cc-readout">${n} episode${n === 1 ? '' : 's'}</span>
-        <p class="cc-begin-note" id="ccBeginNote"></p>
-      </div>
     </header>`;
   }
   /* ---------- the episodes ---------- */
@@ -216,9 +228,10 @@
   function sectionHTML(s, i, plain = false) {
     const n = current.sections.length,
       id = esc(s.id),
-      kind = cueKind(s.cue),
-      last = i === n - 1;
-    return `<section class="cc-section" id="cc-section-${id}" data-cc-section="${i}" data-cc-step="${i + 1}" data-cc-cue="${kind}" aria-labelledby="cc-cue-${id}"><p class="cc-count">${i + 1} of ${n}</p><h3 class="cc-cue" id="cc-cue-${id}" tabindex="-1">${kind === 'none' ? `Episode ${i + 1}` : esc(s.cue)}</h3><div class="cc-cover"><p class="cc-hint">${kind === 'question' ? 'Answer from memory, then check.' : 'Tell this part from memory, then check.'}</p><button type="button" class="cc-button cc-primary" data-cc-reveal="${i}">${kind === 'question' ? 'Show the answer' : 'Show the episode'}</button></div><div class="cc-answer" id="cc-answer-${id}">${answerHTML(s, i, plain)}</div><div class="cc-onward"><button type="button" class="cc-button cc-primary" data-cc-next>${last ? 'What it does not decide' : 'Next question'}${ICON.next}</button></div></section>`;
+      kind = cueKind(s.cue);
+    // The cover is the frost over a narration not yet asked for. Pressing it shows the narration, as the
+    // action at the foot does; it is not a second control for the keyboard or a screen reader.
+    return `<section class="cc-section" id="cc-section-${id}" data-cc-section="${i}" data-cc-step="${i + 1}" data-cc-cue="${kind}" aria-labelledby="cc-cue-${id}"><p class="cc-count"><span class="cc-sr">${kind === 'question' ? 'Question' : 'Episode'} </span>${i + 1} of ${n}</p><h3 class="cc-cue" id="cc-cue-${id}" tabindex="-1">${kind === 'none' ? `Episode ${i + 1}` : esc(s.cue)}</h3><div class="cc-cover" data-cc-reveal="${i}" aria-hidden="true"><span class="cc-cover-hint" id="cc-hint-${id}">${kind === 'question' ? 'Answer from memory, then check.' : 'Tell this part from memory, then check.'}</span></div><div class="cc-answer" id="cc-answer-${id}">${answerHTML(s, i, plain)}</div></section>`;
   }
   /* ---------- the end: what the case leaves open, the sources, the ways out ---------- */
   // The next case with an account in the same topic group of the map, or in the groups after it in the same
@@ -247,21 +260,22 @@
       return false;
     }
   };
-  const row = (attributes, glyph, label, meta = '') =>
-    `<button type="button" class="cc-row" ${attributes}>${glyph}<span class="cc-row-label">${label}</span>${meta ? `<span class="cc-row-meta">${meta}</span>` : ''}</button>`;
+  const row = (attributes, glyph, label, meta = '', tag = 'button type="button"') =>
+    `<${tag} class="cc-row" ${attributes}>${glyph}<span class="cc-row-label">${label}</span>${meta ? `<span class="cc-row-meta">${meta}</span>` : ''}</${tag.split(' ')[0]}>`;
+  const backLabel = () =>
+    origin === 'index'
+      ? 'All Cold Calls'
+      : origin === 'brief'
+        ? 'Back to the brief'
+        : origin === 'case'
+          ? 'Back to the case'
+          : 'Close Cold Call';
   function endHTML(c) {
     const limits = lines(c.limits),
       n = c.sections.length,
       next = nextCase(c.id),
       nextAccount = next && cases.get(next.id),
-      back =
-        origin === 'index'
-          ? 'All Cold Calls'
-          : origin === 'brief'
-            ? 'Back to the brief'
-            : origin === 'case'
-              ? 'Back to the case'
-              : 'Close Cold Call';
+      casePage = origin !== 'case' && onMap(c.id);
     const sources = c.sources
       .map((s) =>
         s.briefId
@@ -286,18 +300,23 @@
       }
       <div class="cc-exits">
         <section aria-labelledby="ccSourcesLabel"><h3 class="cc-label" id="ccSourcesLabel">Sources</h3><div class="cc-rows cc-source-list">${sources}</div></section>
-        <nav aria-labelledby="ccWaysLabel"><h3 class="cc-label" id="ccWaysLabel">From here</h3><div class="cc-rows">${
-          nextAccount
-            ? row(
-                `data-cc-open="${esc(next.id)}" title="${esc(nextAccount.title)}"`,
-                ICON.next,
-                `<span class="cc-row-kind">Next Cold Call</span>${captionLine(nextAccount.title)}`,
-                esc(next.group),
-              )
+        ${
+          nextAccount || casePage
+            ? `<nav aria-labelledby="ccWaysLabel"><h3 class="cc-label" id="ccWaysLabel">From here</h3><div class="cc-rows">${
+                nextAccount
+                  ? // data-cold-call is what the analytics layer counts as a Cold Call opened; a span, not a
+                    // button, so the frosted style of the entry control (frost.css) stays off it.
+                    row(
+                      `role="button" tabindex="0" data-cold-call="${esc(next.id)}" data-cc-open="${esc(next.id)}" title="${esc(nextAccount.title)}"`,
+                      ICON.next,
+                      `<span class="cc-row-kind">Next Cold Call</span>${captionLine(nextAccount.title)}`,
+                      esc(next.group),
+                      'span',
+                    )
+                  : ''
+              }${casePage ? row(`data-cc-case-page="${esc(c.id)}"`, ICON.page, 'Case page') : ''}</div></nav>`
             : ''
-        }${
-          origin !== 'case' && onMap(c.id) ? row(`data-cc-case-page="${esc(c.id)}"`, ICON.page, 'Case page') : ''
-        }${row('data-cc-close', ICON.back, back)}</div></nav>
+        }
       </div>
     </footer>`;
   }
@@ -313,16 +332,18 @@
         ${c.sections
           .map(
             (s, i) =>
-              `<li class="cc-nav-row" data-cc-nav="${i + 1}"><button type="button" class="cc-nav-go" id="ccNavGo${i}" data-cc-go="${i + 1}" aria-labelledby="ccNavGo${i} ccNavText${i}">${i + 1}</button><span class="cc-nav-text" id="ccNavText${i}"><span class="cc-nav-cue" title="${esc(s.cue)}">${esc(s.cue || 'Episode ' + (i + 1))}</span><span class="cc-nav-title" title="${esc(s.title)}">${esc(s.title)}</span></span></li>`,
+              `<li class="cc-nav-row" data-cc-nav="${i + 1}"><button type="button" class="cc-nav-go" id="ccNavGo${i}" data-cc-go="${i + 1}" aria-labelledby="ccNavGo${i} ccNavText${i}">${i + 1}</button><span class="cc-nav-text" id="ccNavText${i}"><span class="cc-nav-cue">${esc(s.cue || 'Episode ' + (i + 1))}</span><span class="cc-nav-title">${esc(s.title)}</span></span></li>`,
           )
           .join('')}
         <li class="cc-nav-row cc-nav-plain" data-cc-nav="${n + 1}"><button type="button" class="cc-nav-go" data-cc-go="${n + 1}">What it does not decide</button></li>
       </ol></nav>
     </details>`;
   }
-  const modeHTML = `<div class="cc-mode" role="group" aria-label="Read or rehearse"><button type="button" class="cc-seg" data-cc-mode-set="read">Read</button><button type="button" class="cc-seg" data-cc-mode-set="rehearse" title="Answer each question before you see it">Rehearse</button></div>`;
+  const modeHTML = `<div class="cc-mode" role="group" aria-label="Read or rehearse"><button type="button" class="cc-seg" data-cc-mode-set="read" title="Every episode open, each question above its answer">Read</button><button type="button" class="cc-seg" data-cc-mode-set="rehearse" title="One question at a time; answer from memory before you see the narration">Rehearse</button></div>`;
   const barHTML = (c) =>
-    `<header class="cc-bar"><div class="cc-bar-title"><span class="cc-bar-kind" id="ccKind">Cold Call</span>${c ? `<span class="cc-bar-case"><i class="cc-dot" aria-hidden="true"></i><span id="ccTitle" title="${esc(c.title)}">${captionLine(c.title)}</span></span>` : ''}</div>${c ? modeHTML : ''}<button type="button" class="cc-x" id="ccClose" aria-label="Close Cold Call" title="Close (Esc)">${ICON.close}</button></header>`;
+    `<header class="cc-bar"><div class="cc-bar-title"><span class="cc-bar-kind" id="ccKind">Cold Call</span>${c ? `<span class="cc-bar-case"><i class="cc-dot" aria-hidden="true"></i><span id="ccTitle" title="${esc(c.title)}">${captionLine(c.title)}</span></span>` : ''}</div><button type="button" class="cc-x" id="ccClose" aria-label="Close Cold Call" title="Close (Esc)">${ICON.close}</button></header>`;
+  const KEYS = `<kbd>${ICON.left}</kbd><kbd>${ICON.right}</kbd>`;
+  const footHTML = `<footer class="cc-foot">${modeHTML}<button type="button" class="cc-button cc-primary" id="ccAct" data-cc-act><span id="ccActLabel"></span><kbd class="cc-act-key" id="ccActKey" aria-hidden="true">Space</kbd></button><span class="cc-foot-status"><span class="cc-readout" id="ccProgress"></span><span class="cc-keys cc-keys-read">${KEYS} episode<i></i><kbd>Esc</kbd> close</span><span class="cc-keys cc-keys-rehearse">${KEYS} question<i></i><kbd>Esc</kbd> close</span></span></footer>`;
   // Opened before the narratives or the definition tables have arrived: a calm loading state, then the account.
   let waiting = 0;
   const tablesReady = () => !gloss?.ready || gloss.ready();
@@ -384,6 +405,7 @@
     mode = savedMode();
     if (!already) returnTo = remember(trigger);
     dialog.dataset.course = c.course;
+    dialog.removeAttribute('data-cc-scrolled');
     // Opened over the index of accounts: that dialog's scrim is already behind this one.
     dialog.toggleAttribute('data-cc-over', origin === 'index');
     glossing = gloss?.begin(c.id, c.title) || null;
@@ -414,7 +436,7 @@
               ${endHTML(c)}
             ${glossing ? glossing.descriptions() : ''}</article>
           </div>
-          <footer class="cc-foot"><span class="cc-readout" id="ccProgress"></span><span class="cc-keys cc-keys-read"><kbd>${ICON.left}</kbd><kbd>${ICON.right}</kbd> episode<i></i><kbd>Esc</kbd> close</span><span class="cc-keys cc-keys-rehearse"><kbd>Space</kbd> answer, then next<i></i><kbd>${ICON.left}</kbd><kbd>${ICON.right}</kbd> question<i></i><kbd>Esc</kbd> close</span></footer>
+          ${footHTML}
         </div>
       </div>
       <p class="cc-sr" id="ccLive" role="status"></p>`;
@@ -436,7 +458,7 @@
     const kept = memory.get(id);
     $('ccScroll').scrollTop = mode === 'read' ? kept?.top || 0 : 0;
     if (mode === 'read' && kept?.top) track();
-    $('ccBegin').focus?.({ preventScroll: true });
+    $('ccAct').focus?.({ preventScroll: true });
     if (unmarked < c.sections.length) {
       dialog.dataset.ccMarked = 'pending';
       markRest(c, unmarked, ticket);
@@ -522,6 +544,7 @@
   function sync(fresh) {
     const n = count();
     dialog.dataset.ccMode = mode;
+    dialog.dataset.ccAt = step < 1 ? 'setup' : step > n ? 'end' : 'episode';
     for (const el of all('[data-cc-step]')) {
       const k = +el.dataset.ccStep;
       el.toggleAttribute('data-cc-current', k === step);
@@ -533,18 +556,27 @@
       const go = el.querySelector('.cc-nav-go');
       if (k === step) go.setAttribute('aria-current', 'step');
       else go.removeAttribute('aria-current');
+      // A row cut short says the rest when pointed at: the prompt while its narration is covered, then the title.
+      const s = current.sections[k - 1];
+      if (s) {
+        const full = mode === 'rehearse' && !revealed.has(k - 1) ? s.cue || '' : s.title;
+        if (go.title !== full) go.title = full;
+      }
     }
     if (fresh || shownMode !== mode) {
       shownMode = mode;
       for (const button of all('[data-cc-mode-set]'))
         button.setAttribute('aria-pressed', String(button.dataset.ccModeSet === mode));
-      const rehearsing = mode === 'rehearse';
-      $('ccBegin').textContent = rehearsing ? 'Start rehearsing' : 'Start reading';
-      $('ccBeginOther').textContent = rehearsing ? 'Read' : 'Rehearse';
-      $('ccBeginNote').textContent = rehearsing
-        ? 'Read: every episode open, each question above its answer.'
-        : 'Rehearse: answer each question before you see it.';
     }
+    // The one action that comes next. Filled where it is the way forward; a plain button while reading,
+    // where the way forward is the text itself.
+    const act = action();
+    if ($('ccActLabel').textContent !== act.label) $('ccActLabel').textContent = act.label;
+    $('ccAct').classList.toggle('cc-primary', act.primary);
+    $('ccAct').dataset.ccAct = act.does;
+    $('ccActKey').hidden = !act.space;
+    if (act.describedBy) $('ccAct').setAttribute('aria-describedby', act.describedBy);
+    else $('ccAct').removeAttribute('aria-describedby');
     const unit = mode === 'rehearse' ? 'Question' : 'Episode',
       text =
         step < 1 ? `${n} episode${n === 1 ? '' : 's'}` : step > n ? 'The end' : `${unit} ${step} of ${n}`;
@@ -552,6 +584,28 @@
       $('ccProgress').textContent = text;
       $('ccProgressSmall').textContent = text;
     }
+  }
+  function action() {
+    const n = count(),
+      rehearsing = mode === 'rehearse';
+    if (step === 0)
+      return { does: 'next', label: rehearsing ? 'Start rehearsing' : 'Start reading', primary: true };
+    if (step > n) return { does: 'close', label: backLabel(), primary: true };
+    const s = current.sections[step - 1];
+    if (rehearsing && !revealed.has(step - 1))
+      return {
+        does: 'reveal',
+        label: cueKind(s.cue) === 'question' ? 'Show the answer' : 'Show the episode',
+        primary: true,
+        space: true,
+        describedBy: 'cc-hint-' + s.id,
+      };
+    return {
+      does: 'next',
+      label: step === n ? 'What it does not decide' : rehearsing ? 'Next question' : 'Next episode',
+      primary: rehearsing,
+      space: rehearsing,
+    };
   }
   const scroller = () => $('ccScroll');
   const stepElement = (k) => dialog.querySelector(`[data-cc-step="${k}"]`);
@@ -562,7 +616,8 @@
     if (mode !== 'read') return;
     const top = box.getBoundingClientRect().top + 96;
     let next = 0;
-    for (const el of all('[data-cc-step]')) if (el.getBoundingClientRect().top <= top) next = +el.dataset.ccStep;
+    for (const el of all('[data-cc-step]'))
+      if (el.getBoundingClientRect().top <= top) next = +el.dataset.ccStep;
     // The end counts once it has come into view, however short it is.
     if (box.scrollTop + box.clientHeight >= box.scrollHeight - 2 && box.scrollTop > 4) next = count() + 1;
     if (next !== step) {
@@ -570,7 +625,8 @@
       sync();
     }
   }
-  const glide = (box, top) => (window.DKLACalm?.scrollTo ? DKLACalm.scrollTo(box, top) : (box.scrollTop = top));
+  const glide = (box, top) =>
+    window.DKLACalm?.scrollTo ? DKLACalm.scrollTo(box, top) : (box.scrollTop = top);
   function go(k, how = {}) {
     if (!current) return;
     const n = count();
@@ -582,20 +638,16 @@
       el = stepElement(k);
     if (mode === 'rehearse') box.scrollTop = 0;
     else {
-      const top = k === 0 ? 0 : box.scrollTop + el.getBoundingClientRect().top - box.getBoundingClientRect().top - 32;
+      // An episode's own space above it is twice this: the text before it ends out of sight.
+      const top =
+        k === 0 ? 0 : box.scrollTop + el.getBoundingClientRect().top - box.getBoundingClientRect().top + 32;
       if (how.instant) box.scrollTop = top;
       else glide(box, top);
     }
     dialog.toggleAttribute('data-cc-scrolled', mode === 'read' && k > 0);
     // Focus goes to what is to be read or pressed next, so a screen reader says it and Tab starts there.
-    const target =
-      k === 0
-        ? $('ccBegin')
-        : k > n
-          ? $('ccLimitsLabel')
-          : mode === 'rehearse' && !revealed.has(k - 1)
-            ? el.querySelector('[data-cc-reveal]')
-            : el.querySelector('.cc-cue');
+    // (While rehearsing that is the question: Space and Enter then show its narration, see the keys below.)
+    const target = k === 0 ? $('ccAct') : k > n ? $('ccLimitsLabel') : el.querySelector('.cc-cue');
     target?.focus({ preventScroll: true });
   }
   function reveal(i) {
@@ -634,22 +686,20 @@
     if (mode === 'rehearse' || step === 0) box.scrollTop = 0;
     else {
       const el = stepElement(step);
-      box.scrollTop += el.getBoundingClientRect().top - box.getBoundingClientRect().top - 32;
+      box.scrollTop += el.getBoundingClientRect().top - box.getBoundingClientRect().top + 32;
     }
     dialog.toggleAttribute('data-cc-scrolled', box.scrollTop > 4);
   }
   dialog.addEventListener('click', (event) => {
-    const control = event.target.closest('button, a');
+    const control = event.target.closest('button, a, [role="button"], [data-cc-reveal]');
     if (!control) return;
     const d = control.dataset;
     if (d.ccGo !== undefined) go(+d.ccGo);
     else if (d.ccReveal !== undefined) reveal(+d.ccReveal);
-    else if (d.ccNext !== undefined) go(step + 1);
-    else if (d.ccBegin !== undefined) go(1);
-    else if (d.ccBeginOther !== undefined) {
-      setMode(mode === 'read' ? 'rehearse' : 'read');
-      go(1, { instant: true });
-    } else if (d.ccModeSet) setMode(d.ccModeSet);
+    else if (d.ccAct === 'reveal') reveal(step - 1);
+    else if (d.ccAct === 'next') go(step + 1);
+    else if (d.ccAct === 'close') close();
+    else if (d.ccModeSet) setMode(d.ccModeSet);
     else if (d.ccSourceBrief) openSourceBrief(d.ccSourceBrief, control);
     else if (d.ccClose !== undefined) close();
     else if (d.ccOpen && cases.has(d.ccOpen)) {
@@ -697,7 +747,14 @@
       go(step + (event.key === 'ArrowRight' ? 1 : -1));
       return;
     }
-    if (mode !== 'rehearse' || (event.key !== ' ' && event.key !== 'Enter')) return;
+    if (event.key !== ' ' && event.key !== 'Enter') return;
+    // A row that is not a <button> (the next account) is pressed with the same two keys.
+    if (target?.matches?.('.cc-row[role="button"]')) {
+      event.preventDefault();
+      target.click();
+      return;
+    }
+    if (mode !== 'rehearse') return;
     if (target?.closest?.('button, a[href], summary, [role="button"]')) return;
     event.preventDefault();
     onward(event.key === ' ');
@@ -811,7 +868,13 @@
     account: (id) => {
       const c = cases.get(id);
       return c
-        ? { id: c.id, title: c.title, citation: c.citation || '', course: c.course, episodes: c.sections.length }
+        ? {
+            id: c.id,
+            title: c.title,
+            citation: c.citation || '',
+            course: c.course,
+            episodes: c.sections.length,
+          }
         : null;
     },
     coverage: () => ({ ...dataset?.coverage }),
@@ -823,7 +886,14 @@
     /** For the checks: the open account, the step (0 the setup, then the episodes, then the end), what is revealed. */
     state: () =>
       dialog.open && current
-        ? { id: current.id, mode, step, steps: count() + 2, revealed: [...revealed].sort((a, b) => a - b), origin }
+        ? {
+            id: current.id,
+            mode,
+            step,
+            steps: count() + 2,
+            revealed: [...revealed].sort((a, b) => a - b),
+            origin,
+          }
         : null,
     /** Resolves when every episode of the open account has its definitions (at once if none is open). */
     marked: () =>
