@@ -726,7 +726,23 @@
       attrs: 'data-r18-open="progress"',
     },
   ];
+  // "Study notes" is the place the old menu's "Choose a course" offered beside the three courses: the
+  // subject that holds the reader's own entries and the cross-course comparisons. On Home it is the
+  // small tile "Notes" under LRS, which a phone-sized map cannot name; this row is its named route
+  // (the owner's Q20). The other destinations of "Choose a course" and "Browse subjects" (a course, a
+  // subject, a group) are on the map and in search.
   const YOURS = [
+    {
+      id: 'notes',
+      label: 'Study notes',
+      glyph: 'note',
+      attrs: 'data-study-region="workbench-region"',
+      count: () =>
+        safe(
+          () => Object.values(mapData().homes).filter((home) => home.region === 'workbench-region').length,
+        ),
+      unit: ['entry', 'entries'],
+    },
     { id: 'add', label: 'Add an entry', glyph: 'add', attrs: 'data-action="add"' },
     { id: 'connect', label: 'Add a connection', glyph: 'connect', attrs: 'data-action="connect"' },
     { id: 'path', label: 'Find a connection path', glyph: 'path', attrs: 'data-action="path"' },

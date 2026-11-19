@@ -998,6 +998,9 @@ function setScopeFor(n) {
         : 'Study notes';
 }
 function home(scope = 'Contracts', animate = true, save = true) {
+  // "Study notes" is one subject, not a course: its view is that subject, open (it used to be the same
+  // subject as a small card in a corner of an empty map).
+  if (scope === 'Study notes' && regionFor('workbench-region')) return goRegion('workbench-region', animate);
   if (save) remember();
   S.scope = scope;
   S.region = null;
@@ -2920,24 +2923,9 @@ function draw() {
         clickable: true,
         attrs: `data-map-region="${E(r.id)}" role="button" tabindex="0"`,
       });
-    if (!near) continue;
-    if (r.special === 'glossary') {
-      const cnt = window.DKLA?.glossaryCount?.() || 0;
-      if (pw >= 200 && cnt)
-        putLabel({
-          key: 'rk:' + r.id,
-          pri: 3,
-          x: r.x + 40,
-          y: ty0 + (titleRows.length - 1) * tfs * 1.23 + tfs * 1.55,
-          fs: 11 / z,
-          text: `${cnt.toLocaleString()} terms · click to browse`,
-          fill: tint,
-          weight: 500,
-          width: r.w - 100,
-          lines: 1,
-          op: dim,
-        });
-    }
+    // (The dictionary's old tile said "N terms · click to browse" under its name. The tile has been the
+    // dictionary control in Rules & authorities since v2.5 and is taken off the map; its line was left
+    // behind with nothing under it to press, beside the Study workbench on a phone. It is not drawn.)
   }
   // Stars: the galaxy at the floor and the entries in flight through the band; once the map is in place only selected or connected entries keep a star.
   R11.starIndex = [];
