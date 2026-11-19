@@ -17,7 +17,7 @@
    What --check holds, for every stored answer: the case and the episode exist; the stored cue is still the
    episode's cue and is a question; there are one to four sentences, none twice; each is in the episode's
    paragraphs, begins where a sentence begins and ends where one ends; and the page's copy is what --write
-   would write. Reads source files only (tools/cold-call/narratives). */
+   would write. Reads source files only (tools/cold-call/narratives and cases.json). */
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -47,6 +47,11 @@ function narratives() {
     const account = JSON.parse(fs.readFileSync(path.join(NARRATIVES, name), 'utf8'));
     if (account?.id && Array.isArray(account.sections)) cases.set(account.id, account);
   }
+  // Three accounts (the first written) are kept in cases.json instead of a file of their own.
+  for (const account of JSON.parse(fs.readFileSync(path.join(root, 'tools/cold-call/cases.json'), 'utf8'))
+    .cases)
+    if (account?.id && Array.isArray(account.sections) && !cases.has(account.id))
+      cases.set(account.id, account);
   return cases;
 }
 const read = () => JSON.parse(fs.readFileSync(FILE, 'utf8'));

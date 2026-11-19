@@ -1708,14 +1708,9 @@ const breakages = [
       ),
   ],
   [
-    'in a rehearsal, Enter on a defined word moves to the next question instead of opening its definition',
+    'the Cold Call reader no longer attaches its reading tools: no definition or plain-English card opens',
     'src/features/cold-call/reader.js',
-    () =>
-      edit(
-        'src/features/cold-call/reader.js',
-        `if (target?.closest?.('button, a[href], summary, [role="button"]')) return;`,
-        `if (target?.closest?.('button, a[href], summary')) return;`,
-      ),
+    () => edit('src/features/cold-call/reader.js', '  gloss?.attach?.(dialog);\n', ''),
   ],
   [
     'after a reveal, the defined words and plain-English markers of the answer cannot be opened',
@@ -1724,16 +1719,6 @@ const breakages = [
       append(
         'src/features/cold-call/reader.css',
         "\n#coldCallDialog[data-cc-mode='rehearse'] .cc-answer :is(.cc-term, .cc-plain) {\n  pointer-events: none;\n}\n",
-      ),
-  ],
-  [
-    'Escape on an open definition closes the whole Cold Call, losing the place',
-    'src/features/cold-call/reader.js',
-    () =>
-      edit(
-        'src/features/cold-call/reader.js',
-        '    if (gloss?.tookEscape()) {\n      gloss.close();\n      return;\n    }\n',
-        '',
       ),
   ],
   [
