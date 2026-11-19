@@ -14,7 +14,7 @@
   overflow: visible;
   pointer-events: none;
   z-index: 4;
-  /* HUD colours: face, sweep highlight, deep end; and the two glows */
+  /* HUD colours: face, sweep highlight (also set on the band, below), deep end; and the two glows */
   --fuel-a: #5fd8ff;
   --fuel-b: #f2feff;
   --fuel-c: #2fa6e0;
@@ -22,7 +22,8 @@
   --fuel-halo: rgb(40 160 255 / 35%);
   --fuel-track: rgb(95 216 255 / 16%);
 }
-.ny-clock .ny-fuel[data-level='low'] {
+.ny-clock .ny-fuel[data-level='low'],
+.ny-clock .ny-fuel-shine[data-level='low'] {
   --fuel-a: #ffbe4d;
   --fuel-b: #fff4dc;
   --fuel-c: #e8952a;
@@ -30,7 +31,8 @@
   --fuel-halo: rgb(255 150 40 / 35%);
   --fuel-track: rgb(255 190 80 / 15%);
 }
-.ny-clock .ny-fuel[data-level='empty'] {
+.ny-clock .ny-fuel[data-level='empty'],
+.ny-clock .ny-fuel-shine[data-level='empty'] {
   --fuel-a: #ff6b3d;
   --fuel-b: #ffe3d8;
   --fuel-c: #e2451f;
@@ -84,8 +86,75 @@
     display: block;
   }
 }
+/* The bright band crossing the line (fuel.js): a window that slides across the frame, holding a
+   copy of the lit line that slides back by the same amount. Only transforms move, each on its own
+   layer, so nothing in the page is restyled or laid out while it runs. It stands still while the
+   tab is hidden, a dialog is open or the map is moving (calm.css). */
+.ny-clock .ny-fuel-shine {
+  --fuel-b: #f2feff;
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+  contain: strict;
+}
+.ny-clock .ny-fuel-shine[data-level='uncalibrated'] {
+  display: none;
+}
+.ny-clock .ny-fuel-window {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc((100% - 4px) * 0.52);
+  height: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 50%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 50%, transparent);
+  transform: translateX(-100%);
+  will-change: transform;
+  animation: ny-fuel-window 5s linear infinite;
+}
+.ny-clock .ny-fuel-copy {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  overflow: visible;
+  transform: translateX(52%);
+  will-change: transform;
+  animation: ny-fuel-copy 5s linear infinite;
+}
+.ny-clock .ny-fuel-copy path {
+  fill: none;
+  stroke: var(--fuel-b);
+  stroke-width: 1.5px;
+  stroke-linejoin: round;
+  stroke-linecap: butt;
+}
+@keyframes ny-fuel-window {
+  0% {
+    transform: translateX(-100%);
+  }
+  56%,
+  100% {
+    transform: translateX(192.3%);
+  }
+}
+@keyframes ny-fuel-copy {
+  0% {
+    transform: translateX(52%);
+  }
+  56%,
+  100% {
+    transform: translateX(-100%);
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .ny-clock .ny-fuel-lit {
     transition: none;
+  }
+  .ny-clock .ny-fuel-shine {
+    display: none;
   }
 }

@@ -32,9 +32,12 @@
     folder: '#d9b877',
   };
 
-  // An open eye, in a group so CSS can make Dottie blink (ask.css, .dottie-eye).
+  // An open eye in a group, and after it the same eye shut (a flat ellipse, invisible until a blink).
+  // A blink fades one into the other (ask.css) by fill-opacity alone: scaling a shape inside an
+  // SVG, or changing a group's opacity, makes the browser lay the page out again.
   const eye = (x, y, r = 2.1) =>
-    `<g class="dottie-eye"><circle cx="${x}" cy="${y}" r="${r}" fill="${C.eye}"/><circle cx="${x + r * 0.35}" cy="${y - r * 0.35}" r="${r * 0.34}" fill="#fff"/></g>`;
+    `<g class="dottie-eye"><circle cx="${x}" cy="${y}" r="${r}" fill="${C.eye}"/><circle cx="${x + r * 0.35}" cy="${y - r * 0.35}" r="${r * 0.34}" fill="#fff"/></g>` +
+    `<ellipse class="dottie-lid" cx="${x}" cy="${y}" rx="${r}" ry="${r * 0.1}" fill="${C.eye}" fill-opacity="0"/>`;
 
   // Front-facing head for the launcher (32 x 32).
   function face() {
@@ -505,4 +508,16 @@
   // trot: the spinner's 8 running frames, for the Muybridge sheet (TROT.frame with
   // TROT.straight draws one frame in plain side view).
   window.DKLADottie = { name: 'Dottie Docket', poses: Object.keys(poses), svg, spinner, trot: TROT };
+
+  // Dottie blinks every 5.2 s (ask.css, html.dottie-blink). The class is on for the 0.42 s of the
+  // blink only, so between blinks nothing is animating and the page is at rest (an endless CSS
+  // animation that sat still 92% of the time restyled the page on every frame). No blink in a
+  // hidden tab, with reduced motion, or while the map is being moved.
+  const calm = matchMedia('(prefers-reduced-motion: reduce)');
+  const html = document.documentElement;
+  setInterval(() => {
+    if (document.hidden || calm.matches || html.classList.contains('dkla-moving')) return;
+    html.classList.add('dottie-blink');
+    setTimeout(() => html.classList.remove('dottie-blink'), 440);
+  }, 5200);
 })();

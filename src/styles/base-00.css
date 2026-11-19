@@ -690,8 +690,7 @@ dialog {
   box-shadow: 0 28px 100px #0009;
 }
 dialog::backdrop {
-  background: #05060ab8;
-  backdrop-filter: blur(3px);
+  background: var(--v31-scrim);
 }
 .modal-head {
   display: flex;

@@ -81,7 +81,7 @@
   flex-direction: column;
 }
 #civilSourceDialog::backdrop {
-  background: #17232f88;
+  background: var(--v31-scrim);
 }
 .civil-source-header {
   padding: 17px 22px;

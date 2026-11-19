@@ -48,7 +48,7 @@
   display: none !important;
 }
 #dklaAskDialog::backdrop {
-  background: rgb(7 14 17 / 76%);
+  background: var(--v31-scrim);
 }
 #dklaAskDialog .ask-heading,
 #dklaAskDialog .ask-form > div,
@@ -742,19 +742,38 @@ body:has(#shShell:not([hidden])) .study-header .ask-bar-dottie {
 }
 
 /* Dottie blinks now and then (owner, 12 November 2026); each eye closes for a moment. */
-.dottie .dottie-eye {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: dottie-blink 5.2s ease-in-out infinite;
+/* dottie.js puts the class on <html> for the 0.42 s of each blink (every 5.2 s): the open eye fades
+   out as the shut eye (.dottie-lid) fades in, and back. Under an open dialog the page's Dottie
+   keeps her eyes open; the one inside the dialog still blinks. */
+.dottie .dottie-lid {
+  fill-opacity: 0;
+}
+html.dottie-blink:not(.dkla-ambient-off) .dottie .dottie-eye circle,
+html.dottie-blink dialog[open] .dottie .dottie-eye circle {
+  animation: dottie-blink 0.42s ease-in-out;
+}
+html.dottie-blink:not(.dkla-ambient-off) .dottie .dottie-lid,
+html.dottie-blink dialog[open] .dottie .dottie-lid {
+  animation: dottie-lid 0.42s ease-in-out;
 }
 @keyframes dottie-blink {
   0%,
-  92%,
   100% {
-    transform: scaleY(1);
+    fill-opacity: 1;
   }
-  95% {
-    transform: scaleY(0.1);
+  30%,
+  45% {
+    fill-opacity: 0;
+  }
+}
+@keyframes dottie-lid {
+  0%,
+  100% {
+    fill-opacity: 0;
+  }
+  30%,
+  45% {
+    fill-opacity: 1;
   }
 }
 /* Off the main view (zoomed in, a course, a reader or a panel), the hanging Dottie steps away so she
@@ -767,7 +786,8 @@ body:has(#shShell:not([hidden])) .study-header .ask-bar-dottie {
   visibility: hidden;
 }
 @media (prefers-reduced-motion: reduce) {
-  .dottie .dottie-eye {
+  .dottie .dottie-eye circle,
+  .dottie .dottie-lid {
     animation: none;
   }
 }

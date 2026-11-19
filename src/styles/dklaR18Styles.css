@@ -47,7 +47,7 @@
   flex-direction: column;
 }
 #r18Dialog::backdrop {
-  background: rgba(5, 9, 13, 0.66);
+  background: var(--v31-scrim);
 }
 .r18-head {
   display: flex;

@@ -10,7 +10,14 @@
  * right through a few random characters before landing on the right values.
  * There is no sound. With reduced motion, or in a hidden tab, values simply
  * change. Screen readers get the time once a minute; the cards are hidden
- * from them. window.DKLAClock.cascade() runs the riffle (used by the tests). */
+ * from them. window.DKLAClock.cascade() runs the riffle (used by the tests).
+ *
+ * At rest the clock costs no layout (v3.2): every half-card holds a strip of
+ * all its characters, one per line, and shows one by sliding the strip
+ * (a transform), so a change of digit restyles two small elements and lays
+ * nothing out. The falling leaf is always in the page, invisible between
+ * flips. While a dialog is open, the map is moving or the tab is hidden the
+ * digits change without flipping, and a hidden tab stops the ticking. */
 (() => {
   'use strict';
   const searchBox = document.querySelector('.study-header .study-search');
@@ -48,9 +55,10 @@
   const clock = document.createElement('div');
   clock.className = 'ny-clock';
   clock.setAttribute('role', 'img');
+  const strip = (set) => `<span><i class="ny-strip">${[...set].join('\n')}</i></span>`;
   const card = (kind, set) =>
-    `<span class="flip ${kind}" data-set="${set}"><span class="half top"><span></span></span><span class="half bottom"><span></span></span>` +
-    `<span class="leaf"><span class="half top front"><span></span></span><span class="half bottom back"><span></span></span></span></span>`;
+    `<span class="flip ${kind}" data-set="${set}"><span class="half top">${strip(set)}</span><span class="half bottom">${strip(set)}</span>` +
+    `<span class="leaf"><span class="half top front">${strip(set)}</span><span class="half bottom back">${strip(set)}</span></span></span>`;
   const cards = (count, kind, set) => card(kind, set).repeat(count);
   clock.innerHTML =
     '<span class="ny-time" aria-hidden="true">' +
@@ -71,14 +79,35 @@
   // Each card's moving parts and state: what it shows, what it should show,
   // and any riffle characters still to pass through.
   const flaps = [...clock.querySelectorAll('.flip')].map((el) => {
-    const [upper, lower, front, back] = [...el.querySelectorAll('.half > span')];
+    const [upper, lower, front, back] = [...el.querySelectorAll('.ny-strip')];
     return { el, upper, lower, front, back, shown: '', target: '', queue: [], busy: false, held: false };
   });
+  // Show one character of a strip: slide it up by that character's line. No text changes, so
+  // nothing is laid out. A character outside the card's set (never expected) is added to it.
+  function put(flap, part, value) {
+    let set = flap.el.dataset.set,
+      at = set.indexOf(value);
+    if (at < 0) {
+      set = flap.el.dataset.set = set + value;
+      at = set.length - 1;
+      for (const each of [flap.upper, flap.lower, flap.front, flap.back])
+        each.textContent = [...set].join('\n');
+    }
+    if (part.dataset.at !== String(at)) {
+      part.dataset.at = at;
+      part.style.setProperty('--at', at);
+    }
+  }
   const rows = [clock.querySelector('.ny-time'), clock.querySelector('.ny-date')].map((row) =>
     flaps.filter((flap) => row.contains(flap.el)),
   );
 
-  const still = () => calm.matches || document.hidden || !clock.isConnected || clock.offsetParent === null;
+  const still = () =>
+    calm.matches ||
+    document.hidden ||
+    window.DKLACalm?.quiet() ||
+    !clock.isConnected ||
+    clock.offsetParent === null;
 
   function settle(flap) {
     clearTimeout(flap.timer);
@@ -88,8 +117,9 @@
     flap.busy = flap.held = flap.riffling = false;
     flap.shown = flap.target;
     flap.el.dataset.value = flap.target;
-    flap.upper.textContent = flap.lower.textContent = flap.target;
-    flap.el.classList.remove('flipping', 'landing');
+    put(flap, flap.upper, flap.target);
+    put(flap, flap.lower, flap.target);
+    if (flap.el.classList.contains('flipping')) flap.el.classList.remove('flipping', 'landing');
   }
 
   // One flip: the new top half shows at once, the old bottom half stays until
@@ -100,21 +130,23 @@
     flap.busy = true;
     flap.shown = value;
     el.dataset.value = value;
-    flap.upper.textContent = flap.back.textContent = value;
-    flap.lower.textContent = flap.front.textContent = old;
+    put(flap, flap.upper, value);
+    put(flap, flap.back, value);
+    put(flap, flap.lower, old);
+    put(flap, flap.front, old);
     el.style.setProperty('--flip', ms + 'ms');
     el.classList.remove('flipping', 'landing');
     void el.offsetWidth; // restart the animation
     el.classList.add('flipping');
     el.classList.toggle('landing', land);
     // The leaf hits the bottom about two thirds of the way through a landing.
-    flap.impact = setTimeout(() => (flap.lower.textContent = value), land ? ms * 0.64 : ms);
+    flap.impact = setTimeout(() => put(flap, flap.lower, value), land ? ms * 0.64 : ms);
     flap.timer = setTimeout(() => next(flap), ms + 16);
   }
 
   function next(flap) {
     flap.el.classList.remove('flipping', 'landing');
-    flap.lower.textContent = flap.shown;
+    put(flap, flap.lower, flap.shown);
     flap.busy = false;
     if (still()) return settle(flap);
     if (flap.queue.length) return flip(flap, flap.queue.shift(), RIFFLE, false);
@@ -163,9 +195,15 @@
       setTimeout(done, 40);
     });
   }
-  document.addEventListener('visibilitychange', () => document.hidden && flaps.forEach(settle));
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) flaps.forEach(settle);
+    else tick();
+  });
+  // A dialog opening stops any flip in mid-air; the digits then change without flipping.
+  document.addEventListener('dkla:ambient', (event) => event.detail?.off && flaps.forEach(settle));
 
-  let lastMinute = '',
+  let timer = 0,
+    lastMinute = '',
     lastHour = '',
     lastDate = '';
   function tick() {
@@ -174,7 +212,7 @@
     const date = (part.weekday.slice(0, 3) + part.month.slice(0, 3)).toUpperCase() + part.day;
     const chars = part.hour + part.minute + part.second + date;
     flaps.forEach((flap, i) => show(flap, chars[i]));
-    meridiem.textContent = part.dayPeriod;
+    if (meridiem.textContent !== part.dayPeriod) meridiem.textContent = part.dayPeriod;
     const hour = part.hour + part.dayPeriod;
     if ((lastHour && hour !== lastHour) || (lastDate && date !== lastDate)) cascade();
     lastHour = hour;
@@ -184,7 +222,9 @@
       lastMinute = minute;
       clock.setAttribute('aria-label', 'New York time: ' + spoken.format(now));
     }
-    setTimeout(tick, 1000 - (Date.now() % 1000) + 5);
+    // One timer at a time, and none in a hidden tab (it starts again when the tab is shown).
+    clearTimeout(timer);
+    if (!document.hidden) timer = setTimeout(tick, 1000 - (Date.now() % 1000) + 5);
   }
   tick();
   window.DKLAClock = Object.freeze({ cascade });

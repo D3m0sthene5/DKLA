@@ -1167,6 +1167,14 @@
             return seven;
           }),
       );
+      // The bright band that crosses the label (hud-font.css): two empty spans, lettered by CSS from
+      // data-label, so the label's text stays exactly the version.
+      const shine = document.createElement('span');
+      shine.className = 'dkla-release-shine';
+      shine.setAttribute('aria-hidden', 'true');
+      shine.innerHTML = '<span class="dkla-release-window"><span class="dkla-release-copy"></span></span>';
+      shine.querySelector('.dkla-release-copy').dataset.label = version;
+      release.appendChild(shine);
       home.appendChild(release);
       home.setAttribute('aria-label', `DKLA ${version} — Danny Kind Legal Atlas. Open the atlas.`);
     }

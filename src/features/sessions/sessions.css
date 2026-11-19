@@ -17,11 +17,12 @@
   box-sizing: border-box;
   padding: 4px 6px 5px;
   color: #e1e5e9;
-  background: rgba(12, 23, 30, 0.93);
+  /* no backdrop blur (v3.2): the fill is nearly opaque, and a blur behind it was redrawn on every
+     frame of a map move; the fill is a touch more solid instead */
+  background: rgba(12, 23, 30, 0.96);
   border: 1px solid #50677966;
   border-radius: 10px;
   box-shadow: 0 8px 30px #0003;
-  backdrop-filter: blur(18px);
   font-family: var(--dkla-interface, 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif);
 }
 #dklaSessions[hidden],

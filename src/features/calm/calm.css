@@ -1,0 +1,335 @@
+/* Calm (v3.2). Loaded last. Four jobs, all built on the motion tokens in src/features/v31/tokens.css:
+
+   1. Rest: every ambient animation stands still while the tab is hidden or a dialog is open
+      (html.dkla-ambient-off, set by calm.js) and while the map is being moved (html.dkla-moving, set
+      by the map).
+   2. One scrim behind every dialog, flat, no blur.
+   3. Arriving and leaving: dialogs, the menu, the search panel, the reader and drawers. Only
+      opacity and the transform properties (scale, translate) move; every one is a transition, so
+      it can be interrupted and reverses from where it is; a closing panel takes no clicks.
+   4. Press feedback: one hover, one pressed state and one focus ring for every control.
+
+   Reduced motion removes all of 1 and 3 (the rule at the end, and the older `*` rule in
+   dklaR9bStyles.css). */
+
+/* ---------- 1. rest ---------- */
+html.dkla-ambient-off .ny-fuel-window,
+html.dkla-ambient-off .ny-fuel-copy,
+html.dkla-ambient-off .dkla-release-window,
+html.dkla-ambient-off .dkla-release-copy,
+html.dkla-ambient-off .dkla-splash-text,
+html.dkla-ambient-off .cc-cold-vapor.cc-on i,
+html.dkla-ambient-off .dkla-star,
+html.dkla-moving .ny-fuel-window,
+html.dkla-moving .ny-fuel-copy,
+html.dkla-moving .dkla-release-window,
+html.dkla-moving .dkla-release-copy,
+html.dkla-moving .dkla-splash-text,
+html.dkla-moving .cc-cold-vapor.cc-on i {
+  animation-play-state: paused !important;
+}
+/* A Cold Call button inside the open dialog keeps its vapour. */
+html.dkla-ambient-off:not(.dkla-moving) dialog[open] .cc-cold-vapor.cc-on i {
+  animation-play-state: running !important;
+}
+
+/* ---------- 2. one scrim ---------- */
+dialog::backdrop {
+  background: var(--v31-scrim);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+/* ---------- 3. arriving and leaving ---------- */
+/* Dialogs fade and grow from 98%. `display` and `overlay` change at the end of the way out, so
+   the dialog is still drawn while it fades; it is already closed, so the page underneath takes
+   the next click at once. Browsers without @starting-style simply show and hide it. */
+dialog {
+  transition:
+    opacity var(--v31-t-pop) var(--v31-ease),
+    scale var(--v31-t-pop) var(--v31-ease),
+    overlay var(--v31-t-pop) allow-discrete,
+    display var(--v31-t-pop) allow-discrete;
+}
+dialog:not([open]) {
+  opacity: 0;
+  scale: 0.98;
+  pointer-events: none;
+}
+dialog::backdrop {
+  transition:
+    opacity var(--v31-t-pop) linear,
+    overlay var(--v31-t-pop) allow-discrete,
+    display var(--v31-t-pop) allow-discrete;
+}
+dialog:not([open])::backdrop {
+  opacity: 0;
+  pointer-events: none;
+}
+@starting-style {
+  dialog[open] {
+    opacity: 0;
+    scale: 0.98;
+  }
+  dialog[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+/* The menu and the search panel drop 8 px. */
+.more-menu,
+.search-results {
+  transition:
+    opacity var(--v31-t-pop) var(--v31-ease),
+    translate var(--v31-t-pop) var(--v31-ease),
+    display var(--v31-t-pop) allow-discrete;
+}
+.more-menu[hidden],
+.search-results[hidden] {
+  opacity: 0;
+  translate: 0 -8px;
+  pointer-events: none;
+}
+@starting-style {
+  .more-menu:not([hidden]),
+  .search-results:not([hidden]) {
+    opacity: 0;
+    translate: 0 -8px;
+  }
+}
+
+/* The reader slides 24 px and fades; it leaves the same way in three-quarters of the time. */
+#inspector {
+  transition:
+    opacity var(--v31-t-panel) var(--v31-ease),
+    translate var(--v31-t-panel) var(--v31-ease),
+    display var(--v31-t-panel) allow-discrete;
+}
+#inspector[hidden] {
+  opacity: 0;
+  translate: 24px 0;
+  pointer-events: none;
+  transition-duration: calc(var(--v31-t-panel) * 0.75);
+}
+@starting-style {
+  #inspector:not([hidden]) {
+    opacity: 0;
+    translate: 24px 0;
+  }
+}
+
+/* Drawers (every <details>): when one opens, its contents fade and settle 6 px into place. Two
+   things were tried, measured and left out. Animating the drawer's height lays the whole reader out
+   again on every frame; on a slow machine (4x slower processor) one drawer stalled the page for up to
+   0.8 s. Fading the contents out before a drawer shuts needs a transition on content-visibility,
+   which also keeps a drawer's contents hidden for one frame after it is opened; code that opens a
+   drawer and reads or scrolls to what is inside in the same breath then finds nothing. So a drawer
+   opens with one layout, as it always did, and shuts at once. */
+@supports selector(::details-content) {
+  details::details-content {
+    opacity: 0;
+    translate: 0 -6px;
+  }
+  details[open]::details-content {
+    opacity: 1;
+    translate: none;
+    transition:
+      opacity var(--v31-t-pop) linear,
+      translate var(--v31-t-pop) var(--v31-ease);
+  }
+}
+
+/* ---------- 4. press feedback ---------- */
+/* Every control: a button, a drawer's heading, a menu row, a tab, a link dressed as a button (not
+   shapes inside an SVG: scaling one would move it; the map has its own rule below).
+   :where() keeps these at no weight, so a component's own colours still win; what they add is
+   the same timing everywhere, a pressed state, and no double-tap delay on touch screens. */
+html {
+  touch-action: manipulation;
+}
+:where(
+  button,
+  summary,
+  select,
+  [role='button'],
+  [role='menuitem'],
+  [role='tab'],
+  [role='option'],
+  input[type='button'],
+  input[type='submit'],
+  input[type='checkbox'],
+  input[type='radio'],
+  a.source-link,
+  a.cite-link,
+  a.file-link,
+  a.dkla-control,
+  a.v31-open,
+  a.v31-route-step,
+  a.source-pdf-button,
+  a.fc-back-entry,
+  a.r28-step-source
+):where(:not(svg *)) {
+  touch-action: manipulation;
+  transition:
+    scale var(--v31-t-press) var(--v31-ease),
+    transform var(--v31-t-press) var(--v31-ease),
+    filter var(--v31-t-press) linear,
+    background-color var(--v31-t-press) linear,
+    border-color var(--v31-t-press) linear,
+    color var(--v31-t-press) linear,
+    box-shadow var(--v31-t-press) linear,
+    opacity var(--v31-t-press) linear;
+}
+/* Hover: the fill one step up. A component with its own hover fill keeps it; the rest get a
+   thin wash of white over whatever fill they have. */
+@media (hover: hover) {
+  :where(
+      button,
+      summary,
+      select,
+      [role='button'],
+      [role='menuitem'],
+      [role='tab'],
+      [role='option'],
+      input[type='button'],
+      input[type='submit']
+    ):where(:hover):where(:not(:disabled, [aria-disabled='true'], svg *)) {
+    box-shadow: inset 0 0 0 100vmax rgb(255 255 255 / 5%);
+  }
+}
+/* Pressed: on pointer-down (not on click) the control shrinks to 97% and darkens a little. */
+:where(
+    button,
+    summary,
+    select,
+    [role='button'],
+    [role='menuitem'],
+    [role='tab'],
+    [role='option'],
+    input[type='button'],
+    input[type='submit'],
+    a.source-link,
+    a.cite-link,
+    a.file-link,
+    a.dkla-control,
+    a.v31-open,
+    a.v31-route-step,
+    a.source-pdf-button,
+    a.fc-back-entry,
+    a.r28-step-source
+  ):where(:active):where(:not(:disabled, [aria-disabled='true'], svg *)) {
+  /* !important: several components start from `all: unset`, which would wipe these out. */
+  scale: 0.97 !important;
+  filter: brightness(0.88) !important;
+  transition-duration: 60ms;
+}
+/* Rows that fill their panel shrink less, so their text does not visibly jump. */
+:where(.more-menu, .search-results, .v31-rail, .gl-list, .r21-list) :where(button):where(:active) {
+  scale: 0.985 !important;
+}
+/* A text link only darkens. */
+:where(a[href]):where(:active):where(:not(svg *)) {
+  filter: brightness(0.82) !important;
+}
+/* The map's own targets are drawn in SVG: the one under the pointer darkens (no layout, and not
+   while the map is being dragged). */
+#geoCanvas:not(.panning)
+  :is(
+    [data-map-node],
+    [data-map-region],
+    [data-map-district],
+    [data-map-jump],
+    [data-jump-node],
+    [data-study-scope],
+    [data-authority-open],
+    [data-sh-open],
+    .node-card,
+    .dkla-court-link,
+    [role='button'],
+    [role='link']
+  ):active:not(:has(:active)) {
+  filter: brightness(0.86);
+}
+/* One focus ring, for keyboard focus only. */
+:is(
+  button,
+  summary,
+  select,
+  a,
+  [role='button'],
+  [role='menuitem'],
+  [role='tab'],
+  [role='option'],
+  input[type='button'],
+  input[type='submit'],
+  input[type='checkbox'],
+  input[type='radio']
+):focus-visible {
+  outline: 2px solid transparent !important;
+  box-shadow: var(--v31-focus) !important;
+}
+@media (forced-colors: active) {
+  :is(
+    button,
+    summary,
+    select,
+    a,
+    [role='button'],
+    [role='menuitem'],
+    [role='tab'],
+    [role='option']
+  ):focus-visible {
+    outline: 2px solid Highlight !important;
+  }
+}
+
+/* ---------- loading: nothing for 150 ms, then a quiet skeleton ---------- */
+/* calm.js puts `calm-wait` on a status line that says "Loading…". Its words stay for screen
+   readers; what shows is three grey bars where the text will be, and only if the wait lasts
+   longer than 150 ms, so a fast load shows no flash. */
+.calm-wait {
+  display: block !important;
+  /* its own width: with no text drawn it would shrink to nothing where its parent fits its contents */
+  width: 520px;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-height: 74px;
+  margin: 18px 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: hidden;
+  color: transparent !important;
+  font-size: 0 !important;
+  text-shadow: none !important;
+  user-select: none;
+  background:
+    linear-gradient(var(--v31-raised), var(--v31-raised)) 0 0 / 46% 16px no-repeat,
+    linear-gradient(var(--v31-raised), var(--v31-raised)) 0 32px / 92% 12px no-repeat,
+    linear-gradient(var(--v31-raised), var(--v31-raised)) 0 56px / 78% 12px no-repeat !important;
+  border-radius: 4px;
+  animation: calm-wait 120ms linear 150ms both;
+}
+@keyframes calm-wait {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---------- reduced motion: no ambient motion, no arriving or leaving ---------- */
+@media (prefers-reduced-motion: reduce) {
+  dialog,
+  dialog::backdrop,
+  .more-menu,
+  .search-results,
+  #inspector,
+  details::details-content {
+    transition: none !important;
+  }
+  /* The skeleton still waits its 150 ms, in one step. */
+  .calm-wait {
+    animation: calm-wait 1ms step-end 150ms both !important;
+  }
+}

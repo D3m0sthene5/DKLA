@@ -67,11 +67,41 @@ button[data-cold-call]:disabled::after {
   position: absolute;
   left: -6px;
   top: 0;
+  overflow: hidden;
   pointer-events: none;
   z-index: -1;
-  opacity: 1;
-  max-width: none !important;
-  max-height: none !important;
+  contain: strict;
+  /* A plain clip, no mask (a mask over moving layers is redrawn on every frame): each puff already
+     fades to nothing at its own edge and at both ends of its life, so the cut is not seen. */
+}
+/* One puff (frost.js sets its size, start, drift, strength, life and texture). Transform and opacity
+   only: the compositor moves it, the page is not restyled. */
+.cc-cold-vapor i {
+  position: absolute;
+  background: center / 100% 100% no-repeat;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: cc-vapor 5s linear infinite paused;
+}
+.cc-cold-vapor.cc-on i {
+  animation-play-state: running;
+}
+@keyframes cc-vapor {
+  0% {
+    transform: translate(var(--x), var(--y)) scale(0.92, 0.272);
+    opacity: 0;
+  }
+  25%,
+  75% {
+    opacity: calc(var(--o) * 0.62);
+  }
+  50% {
+    opacity: var(--o);
+  }
+  100% {
+    transform: translate(calc(var(--x) + var(--dx)), calc(var(--y) + var(--dy))) scale(1.69, 0.546);
+    opacity: 0;
+  }
 }
 button[data-cold-call]:disabled .cc-cold-vapor {
   display: none;

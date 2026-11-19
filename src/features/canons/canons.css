@@ -30,8 +30,7 @@
   flex-direction: column;
 }
 #dklaCanons::backdrop {
-  background: #050b11b8;
-  backdrop-filter: blur(5px);
+  background: var(--v31-scrim);
 }
 .canons-head {
   display: flex;

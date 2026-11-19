@@ -271,6 +271,83 @@ const breakages = [
       ),
   ],
   [
+    'Calm: the splash line pulses its size, so the page is laid out on every frame',
+    'src/features/splash/splash.css',
+    () => edit('src/features/splash/splash.css', 'transform: scale(1.06);', 'font-size: 17px;'),
+  ],
+  [
+    'Calm: the clock moves its digits with a margin, a layout every second',
+    'src/features/clock/clock.css',
+    () =>
+      edit(
+        'src/features/clock/clock.css',
+        'transform: translateY(calc(var(--at, 0) * var(--h) * -1));',
+        'margin-top: calc(var(--at, 0) * var(--h) * -1);',
+      ),
+  ],
+  [
+    'Calm: a timer that looks five times a second comes back to the top bar',
+    'src/features/topbar/topbar.js',
+    () => append('src/features/topbar/topbar.js', '\nsetInterval(() => {}, 200);\n'),
+  ],
+  [
+    'Calm: ambient motion keeps running under an open dialog',
+    'src/features/calm/calm.js',
+    () =>
+      edit(
+        'src/features/calm/calm.js',
+        'const now = document.hidden || open.size > 0 || gesture;',
+        'const now = document.hidden || gesture;',
+      ),
+  ],
+  [
+    'Calm: dialogs appear and vanish with no way in or out',
+    'src/features/calm/calm.css',
+    () =>
+      edit(
+        'src/features/calm/calm.css',
+        'dialog:not([open]) {\n  opacity: 0;\n  scale: 0.98;',
+        'dialog:not([open]) {\n  opacity: 1;\n  scale: 1;',
+      ),
+  ],
+  [
+    'Calm: the timelines dialog blurs the whole screen behind it again',
+    'src/features/r19/timelines.css',
+    () =>
+      edit(
+        'src/features/r19/timelines.css',
+        '#r21Timelines::backdrop {\n  background: var(--v31-scrim);',
+        '#r21Timelines::backdrop {\n  background: var(--v31-scrim);\n  backdrop-filter: blur(5px);',
+      ),
+  ],
+  [
+    'Calm: controls no longer answer a press',
+    'src/features/calm/calm.css',
+    () => edit('src/features/calm/calm.css', 'scale: 0.97 !important;', 'scale: 1 !important;'),
+  ],
+  [
+    'Calm: the rail marks the part before the one being read',
+    'src/features/v25/reading.js',
+    () =>
+      edit(
+        'src/features/v25/reading.js',
+        'return inBand >= 0 && !landed ? inBand : current;',
+        'return current;',
+      ),
+  ],
+  [
+    'Calm: a Loading line shows its text at once instead of a skeleton',
+    'src/features/calm/calm.js',
+    () =>
+      edit('src/features/calm/calm.js', 'const WAITING = /^\\s*Loading\\b/;', 'const WAITING = /^never$/;'),
+  ],
+  [
+    'Calm: reduced motion still fades the scrim behind a dialog',
+    'src/features/calm/calm.css',
+    () =>
+      edit('src/features/calm/calm.css', '  dialog,\n  dialog::backdrop,\n  .more-menu,', '  .more-menu,'),
+  ],
+  [
     'Ask Dottie fuel gauge: the ring stays full whatever credit is left',
     'src/features/fuel/fuel.js',
     () => edit('src/features/fuel/fuel.js', '`${shown * length} ${length + 1}`', '`${length} ${length + 1}`'),

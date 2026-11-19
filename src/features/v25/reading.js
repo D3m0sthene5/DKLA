@@ -273,6 +273,7 @@
     return list;
   }
   function rail(body) {
+    watchBody(body);
     const list = places(body);
     const signature = list.map(([label]) => label).join('|');
     let nav = body.querySelector(':scope > .v31-rail');
@@ -299,20 +300,75 @@
     nav.replaceChildren(inner);
     markPlace();
   }
+  /* Which place the rail marks: the one a reader is at. That is the first heading in the top
+     third of the reading area (below the sticky strip); when no heading is there, the part whose
+     text fills the top of the area; and at the very end of the page, the last heading in view.
+     (Before v3.2 it was the last heading above a line 120 px down, which stayed on the part
+     before until the next heading had almost left the screen.) */
+  let pinned = -1,
+    pinTimer = 0,
+    markFrame = 0;
+  function placeNow(nav) {
+    const box = inspector.getBoundingClientRect();
+    const top = box.top + (inspector.querySelector('.reader-top')?.offsetHeight || 0),
+      height = box.bottom - top,
+      band = top + Math.max(96, height * 0.3);
+    const tops = nav.v31Targets.map((target) =>
+      target.isConnected && target.getClientRects().length ? target.getBoundingClientRect().top : null,
+    );
+    let current = 0,
+      inBand = -1,
+      lastInView = -1;
+    tops.forEach((y, i) => {
+      if (y === null) return;
+      if (y <= top + 24) current = i;
+      else if (inBand < 0 && y <= band) inBand = i;
+      if (y < box.bottom - 24) lastInView = i;
+    });
+    const atEnd =
+      inspector.scrollTop > 0 && inspector.scrollTop >= inspector.scrollHeight - inspector.clientHeight - 2;
+    if (atEnd && lastInView >= 0) return lastInView;
+    // A heading sitting exactly where a rail click puts it wins over one further down the band.
+    const landed = tops[current] !== null && tops[current] > top - 4;
+    return inBand >= 0 && !landed ? inBand : current;
+  }
   function markPlace() {
+    markFrame = 0;
     const nav = inspector?.querySelector('.reader-body > .v31-rail');
     if (!nav?.v31Targets) return;
-    const top = inspector.getBoundingClientRect().top + 120;
-    let current = 0;
-    nav.v31Targets.forEach((target, i) => {
-      if (target.isConnected && target.getBoundingClientRect().top <= top) current = i;
-    });
+    const current = pinned >= 0 && pinned < nav.v31Targets.length ? pinned : placeNow(nav);
     nav.querySelectorAll('[data-v31-place]').forEach((button, i) => {
-      if (i === current) button.setAttribute('aria-current', 'location');
-      else button.removeAttribute('aria-current');
+      if (i === current) {
+        if (button.getAttribute('aria-current') !== 'location')
+          button.setAttribute('aria-current', 'location');
+      } else if (button.hasAttribute('aria-current')) button.removeAttribute('aria-current');
     });
   }
-  if (inspector?.addEventListener) inspector.addEventListener('scroll', markPlace, { passive: true });
+  // At most once a frame, however many scroll events arrive.
+  function markSoon() {
+    if (!markFrame) markFrame = (globalThis.requestAnimationFrame || setTimeout)(markPlace);
+  }
+  function unpin() {
+    if (pinned < 0) return;
+    pinned = -1;
+    clearTimeout(pinTimer);
+    markSoon();
+  }
+  if (inspector?.addEventListener) {
+    inspector.addEventListener('scroll', markSoon, { passive: true });
+    // The visitor takes over: the mark follows the page again at once.
+    for (const type of ['wheel', 'touchstart', 'keydown'])
+      inspector.addEventListener(type, unpin, { passive: true });
+  }
+  // The page under the rail can change height without scrolling (a drawer, a late brief): the
+  // reader's body is watched for its size, the one that is open now.
+  const sizes = typeof ResizeObserver === 'function' ? new ResizeObserver(markSoon) : null;
+  let watched = null;
+  function watchBody(body) {
+    if (!sizes || body === watched) return;
+    sizes.disconnect();
+    sizes.observe((watched = body));
+  }
   if (inspector?.addEventListener)
     inspector.addEventListener('click', (event) => {
       const button = event.target.closest('.v31-rail [data-v31-place]');
@@ -320,13 +376,21 @@
       const target = button.closest('.v31-rail').v31Targets?.[Number(button.dataset.v31Place)];
       if (!target?.isConnected) return;
       const offset = (inspector.querySelector('.reader-top')?.offsetHeight || 0) + 16;
-      inspector.scrollTo({
-        top:
-          inspector.scrollTop +
-          target.getBoundingClientRect().top -
-          inspector.getBoundingClientRect().top -
-          offset,
-      });
+      // Asked again on every frame of the scroll, so it lands on the heading even if the page above
+      // it changes height on the way.
+      const top = () =>
+        inspector.scrollTop +
+        target.getBoundingClientRect().top -
+        inspector.getBoundingClientRect().top -
+        offset;
+      // The clicked place is marked at once and stays marked while the page travels to it (about a
+      // quarter of a second; src/features/calm/calm.js stops the travel if the visitor scrolls).
+      pinned = Number(button.dataset.v31Place);
+      markPlace();
+      clearTimeout(pinTimer);
+      pinTimer = setTimeout(unpin, 320);
+      if (window.DKLACalm?.scrollTo) window.DKLACalm.scrollTo(inspector, top, 250);
+      else inspector.scrollTo({ top: top() });
     });
   function supportingCase() {
     if (!supporting) return;

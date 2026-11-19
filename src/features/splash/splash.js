@@ -546,8 +546,10 @@
       perEm = 0;
       schedule();
     });
-    // Panels and dialogs can open without a map draw.
-    setInterval(() => document.hidden || schedule(), 500);
+    // Panels and dialogs can open without a map draw: looked at again after anything a visitor does
+    // and when a dialog opens or closes (src/features/calm/calm.js), not on a timer.
+    window.DKLACalm?.after(schedule);
+    document.addEventListener('dkla:ambient', schedule);
     window.DKLASplash.ready = true;
     schedule();
   }

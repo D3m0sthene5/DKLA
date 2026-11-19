@@ -27,8 +27,7 @@
   flex-direction: column;
 }
 #dklaFlowcharts::backdrop {
-  background: #050b11b8;
-  backdrop-filter: blur(5px);
+  background: var(--v31-scrim);
 }
 /* v3.1: the course colour names the course (the kicker); everything clickable is blue. */
 #dklaFlowcharts[data-fc-course='K'],

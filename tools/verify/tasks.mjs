@@ -164,6 +164,14 @@ export const tasks = [
   // v3.2: a drag carries the drawn map under the pointer without rebuilding it; the map at rest equals a
   // fresh draw; momentum, a press that stops it, reduced motion, a continuous pinch, a redirected flight.
   step('browser', 'the map in motion', node('tools/feel/check-map.mjs', '{page}'), SERVER),
+  // v3.2 calm: no layout at rest, ambient motion paused under a dialog, every dialog and panel with a way
+  // in and out that can be interrupted, pressed states, the rail's mark, loading skeletons, reduced motion.
+  step(
+    'browser',
+    'calm: rest, transitions and press feedback',
+    node('tools/feel/check-calm.mjs', '{page}'),
+    SERVER,
+  ),
   // The fuel gauge round the clock: lit share, direction, colours, label, refresh after an answer.
   step(
     'browser',

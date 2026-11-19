@@ -16,7 +16,7 @@
   display: none;
 }
 #glossaryDialog::backdrop {
-  background: #05090dcc;
+  background: var(--v31-scrim);
 }
 #glossaryDialog .gl-header {
   display: flex;

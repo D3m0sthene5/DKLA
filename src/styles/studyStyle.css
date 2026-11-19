@@ -399,12 +399,12 @@ button.text-button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #19212af5;
+  /* opaque (v3.2): it had a blur behind a 96% fill; without the blur the text scrolling under it must not show */
+  background: #19212a;
   padding: 13px 24px 11px;
   border-bottom: 1px solid #2b3642;
   z-index: 2;
   gap: 10px;
-  backdrop-filter: blur(12px);
 }
 .reader-top span {
   color: #b4c3cf;
@@ -738,8 +738,7 @@ dialog {
   max-width: 94vw;
 }
 dialog::backdrop {
-  background: #050a10a8;
-  backdrop-filter: blur(3px);
+  background: var(--v31-scrim);
 }
 #modal .modal-head {
   padding: 17px 25px;
