@@ -3,6 +3,97 @@
 Written at the end of a session so the next one can pick up cleanly.
 Update or replace this file when the state changes.
 
+## The territories (19 November 2026, branch `v32-home`, merged into `v32-design`, not deployed)
+
+The owner's verdict on the quiet Home: the saturated course territories were easier to tell apart, the
+quiet one had fewer crossing lines, and he wants both (docs/DESIGN.md rule 15). What Home and the course
+views draw now, all of it in `draw()` (`src/runtime/studyCode.js`) and `src/features/v32/cards.css`:
+
+- **A subject's tile is filled in its course's colour.** One fill a course (`TILE_FILL` in
+  `studyCode.js`: `#1f4872`, `#6b3c06`, `#1a4b2b`, each at the course's own hue so nothing is a brown or
+  grey made by mixing), one hairline in the course's accent at 0.8, light on the top edge. The fill is
+  opaque. The map's text colour is 7.5:1 or better on every fill; a tile's count on a course view is in
+  the text colour too (`.v32-on-tile`). A tile that is not a subject (reading records, Notes) stays a
+  plain panel, so the doctrine is what has the colour. Tokens for the three fills were not added
+  (`tokens.css` was out of bounds for that pass): ask for them.
+- **The tree is drawn to be followed.** Each course's `spine` in the course's colour: "leads to" (kind
+  `flow`) solid, 1.75 px, ending in an arrowhead drawn in the same path; "or instead" (`contrast`)
+  dashed and "depends on" (`depends`) dotted, 1.5 px, lighter. `treeLines()` routes a course's tree as a
+  whole and remembers it: a line is straight unless it would pass behind a third subject, and then takes
+  the shortest way round along lines of sight between the corners of the subjects in its way, 190 map
+  units out, paying to cross another line (2,000 units) or the name of a part (3,000). On Home: 32
+  lines, 6 of them routed, none behind a subject by more than 3 px (7 lines were, at 8 places, 5 of
+  them for 22 to 77 px), 2 crossings (the second is between two lines that used to be hidden behind
+  tiles). The curves of association still appear only for the tile under the pointer or the open
+  subject, with the other lines stepped back to 0.22.
+- **Where a course begins.** Its first subject (`step` 1) carries a numbered dot on its corner
+  (`.v32-start`), the same mark that stands before an open subject's name. `r20.js` leaves it in place.
+- **The land.** Under each course the ground is stippled in the course's colour (a 12 px grid of 0.75
+  px dots, pattern `land-k/cp/lrs`, one path a course). Its outline is the course's own parts
+  (`courseDesign.zones`) and every subject's place, snapped to the grid so no dot is cut; it has no
+  edge and no fill. It replaces the three radial gradients. On a course view the parts are a flat wash
+  of the course's deepest step (`--wash`) over it. A wide part now keeps its name and ground ("The life
+  of the suit" was left out on a 1440 px course view because its name asked for more room than the band
+  has).
+- **Beside the reader** a tile that steps back is drawn over a solid piece of ground
+  (`.v32-tile-under`), so the open subject's lines pass behind it and never through its name.
+- **Checks**: `tools/v32/check-cards.mjs` holds the fills, the 7:1, the line weights, the arrowheads, "no
+  line behind a third subject", at most two crossings, the land, the start marks and the strip; three
+  breakages in `tools/verify/break.mjs`.
+- **For the owner's PC**: every picture of Home and of a course view changes (`pnpm views:update`).
+- **Open**: an open subject is still a neutral panel whose only course mark is its numbered dot; the
+  curves of association shown on hover still run straight behind tiles; the books in Rules &
+  authorities are now the quietest thing on Home.
+
+## Cold Call as a rehearsal (19 November 2026, branch `v32-coldcall`, not merged, not deployed)
+
+- **What it is now.** An account opens on a setup that answers "tell us about this case": the case's
+  drawing on a plate of clear ice, its hook, the composed caption, the citation, then the `lead` as the
+  largest text, the cast (`actors`) and "How it got here" (`proceedings`, numbered). Each episode leads
+  with its `cue`, the question a professor would open with. The end is "What this case does not decide"
+  (`limits`), the sources and the ways out. `lead`, `actors`, `proceedings` and `cue` were in the data all
+  along and were not shown before. No narrative text was changed.
+- **Two ways through it, one switch** at the foot, remembered in this browser under
+  `dkla.coldCallMode.v1` (a preference, not saved work; `dkla.coldCall.v1` is still never read or
+  written). Read: everything open, each question above its title. Rehearse: one question at a time, the
+  narration and its title under a still pane of frost until asked for; the list at the side shows
+  questions, not titles, until then. **The owner has not chosen the default.** It is Read, behind one
+  constant: `DEFAULT_MODE` near the top of `src/features/cold-call/reader.js`.
+- **The foot is the one deck of controls**, the same place at every step: the switch, the one action that
+  comes next ("Start reading", "Show the answer", "Next question", "Back to the case"), where you are, the
+  keys. Space or Enter shows and moves on while rehearsing (Space first pages through an answer longer
+  than the screen); Left and Right move between steps; Escape closes; focus returns to what opened it.
+- **The frost** (`--cc-ice-*` at the top of `reader.css`, the palette of `frost.css`) is used twice in the
+  reader and nowhere else: the plate behind the drawing and the pane over a covered narration. Both are
+  still. The frosted button style itself belongs to `button[data-cold-call]`, which is why the rows of
+  the index and the "Next Cold Call" row are not `<button>` elements: they keep `data-cold-call` (the
+  reader's own listener opens them, and the analytics layer counts a `cold_call` from that attribute).
+- **Captions** are composed by `src/features/v32/caption.js` (`DKLACaption.parse/html/inline/year`): a
+  break only before "v.", "v." tied to the word after it, consolidated cases one per line with the second
+  subordinate, a stage note on its own line. A caption whose longest line would not fit is set at 30 px
+  instead of 34, and a prompt over 80 characters keeps 22 px while rehearsing.
+- **The index**: `window.DKLAColdCallIndex = { count(), open(trigger), close() }`
+  (`src/features/v32/coldcall-index.js`). `count()` is null until the narratives have arrived. The list is
+  grouped by course, then by subject in the map's order, then that course's supporting cases; typing
+  filters by caption and citation; a row opens the reader over the list. Nothing in the app opens it yet:
+  the Library (another branch) is to show a row when `DKLAColdCallIndex` exists.
+- **What the data holds** (audit of all 742, 4,097 episodes): every account has every field. `lead` 99 to
+  359 characters (median 204); cast 2 to 7 (median 3); `proceedings` is one paragraph in 208 accounts and
+  2 to 5 steps in the rest; `limits` is two paragraphs in 76; episodes 3 to 11 (median 5); `cue` 4 to 104
+  characters, a question in 2,417 episodes and an instruction, headline or date in 1,680; 392 accounts
+  (the map cases) have a drawing and 350 (supporting cases) do not. A missing field is drawn as nothing
+  (checked with fields taken away, since no real account lacks one).
+- **Checks**: `tools/v32/check-coldcall.mjs` ("Cold Call rehearsal"), `tools/v32/caption.test.mjs` ("case
+  captions composed"), `tools/cold-call/check_reader.cjs` (now holds the setup, the prompts and a bare
+  account), nine breakages in `tools/verify/break.mjs`.
+- **For the owner's PC**: the `cold-call` picture changes (the reader opens on the setup); run
+  `pnpm views:update` after looking at `work/views/`.
+- **Known and not done**: the next case offered at the end is the next in the same group of the map (the
+  session cards do not expose which session a case belongs to); a setup with five or more actors is
+  taller than the first screen at 1440 x 900 (about a fifth of the accounts) and scrolls; the rail of the
+  index does not mark the group in view; the `cold_call` analytics event is unchanged (it carries no mode
+  or reveal, because the tracker has no public way to send one and what is collected is the owner's call).
+
 ## What the map draws (19 November 2026, branch `v32-cards`, not merged, not deployed)
 
 - **An open subject is one panel.** Its title (Exo 2, with the course's numbered dot), a readout of what

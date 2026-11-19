@@ -1,7 +1,7 @@
 /* Ask Dottie's fuel gauge: a glowing line around the frame of the top-bar clock that runs out as
  * her OpenAI credit runs out, like a usage ring. It starts at the top centre and runs clockwise;
  * its length is the share of the credit left (half left, half the frame lit), drawn in the
- * version label's HUD glow (src/features/v26/hud-font.css) over a faint full-frame track.
+ * instrument cluster's one glow (--v32-hud, shared with the version readout) over a hairline track.
  * Below a quarter it turns amber, below a tenth red-orange. Before the owner has calibrated it,
  * the frame shows a dim dashed track and no number at all.
  *
@@ -9,7 +9,7 @@
  * while the tab is visible, and after each Ask Dottie answer (the 'dkla:ask-answered' event
  * from src/features/ask/ask.js; again a minute later, when the server's 60 s cache has
  * turned over). Nothing is printed; screen readers get "Ask Dottie credit about N% left".
- * The clock shows from 1360 px wide; the gauge is part of it and follows it.
+ * The clock shows from 1280 px wide (src/features/v32/chrome.css); the gauge is part of it and follows it.
  * window.DKLAFuel.refresh() fetches now and .state() reports what is drawn (used by the tests). */
 (() => {
   'use strict';

@@ -11,8 +11,9 @@
       the same while the map is being moved.
    3. Every dialog fades and scales in and out (a transition of opacity and scale, on the dialog and
       its backdrop), all on one flat scrim with no blur; Esc in the middle of the way in closes it at
-      once and the closing dialog takes no clicks. The menu, the search panel and the reader have a
-      way in and a way out; typing in search does not replay it; a second click reverses the menu.
+      once and the closing dialog takes no clicks. The Library (the menu, a dialog since v3.2) opens
+      that way from its button; the search panel and the reader have a way in and a way out; typing
+      in search does not replay it.
    4. Reduced motion: no transition on any of them, and nothing ambient runs.
    5. A sample of controls change on pointer-down (smaller and darker), and a map tile darkens.
    6. The "On this page" rail marks the part being read.
@@ -176,7 +177,7 @@ const names = running.map((a) => a.name).sort();
 for (const expected of [
   'dkla-hud-copy',
   'dkla-hud-window',
-  'dkla-splash-pulse',
+  'dkla-splash-pulse-bar',
   'ny-fuel-copy',
   'ny-fuel-window',
 ])
@@ -208,7 +209,8 @@ const readClock = () =>
         .formatToParts(new Date())
         .map((p) => [p.type, p.value]),
     );
-    const cards = [...document.querySelectorAll('.ny-clock .ny-time .flip.big')];
+    // The hours and minutes (the seconds, in their own group, are the same size since v3.2).
+    const cards = [...document.querySelectorAll('.ny-clock .ny-time > .flip.big')];
     const shown = cards.map((card) => {
       const strip = card.querySelector('.half.top .ny-strip');
       return strip.textContent.split('\n')[Number(getComputedStyle(strip).getPropertyValue('--at'))];
@@ -459,38 +461,28 @@ assert.deepEqual(
 await goHome(page);
 await page.waitForFunction(() => getComputedStyle(document.getElementById('inspector')).display === 'none');
 
-const menuIn = await act(page, '#moreMenu', () => document.getElementById('moreBtn').click());
-assert.equal(menuIn.hidden, false);
-assert.deepEqual(menuIn.own, ['opacity', 'translate'], 'the menu drops in');
-// A second click in the middle of the way in reverses it from where it is (a reversed transition
-// lasts only as long as the way in had got, so it is read in the same breath as the click).
-await page.waitForFunction(
-  () => Number(getComputedStyle(document.getElementById('moreMenu')).opacity) > 0.6,
-  null,
-  {
-    polling: 'raf',
-  },
+// The menu is the Library since v3.2: a dialog like the others (its way in and out, the scrim and Esc
+// in mid-air are checked with every dialog below). From its own button it arrives the same way, with
+// its rows drawn, and Esc hands the page back.
+const libraryIn = await act(page, '#libraryDialog', () => document.getElementById('moreBtn').click());
+for (const property of ['opacity', 'scale'])
+  assert.ok(
+    libraryIn.own.includes(property),
+    `the Library arrives with a ${property} transition (${libraryIn.own})`,
+  );
+assert.deepEqual(libraryIn.backdrop, ['opacity'], "the Library's scrim fades in");
+assert.ok(
+  (await page.locator('#libraryDialog[open] #moreMenu [role="menuitem"]').count()) > 15,
+  'the Library has its rows',
 );
-const menuOut = await page.evaluate(() => {
-  const menu = document.getElementById('moreMenu');
-  document.getElementById('moreBtn').click();
-  const style = getComputedStyle(menu);
-  return {
-    hidden: menu.hidden,
-    display: style.display,
-    pointer: style.pointerEvents,
-    moving: menu
-      .getAnimations()
-      .map((a) => a.transitionProperty)
-      .filter(Boolean)
-      .sort(),
-  };
-});
-assert.equal(menuOut.hidden, true);
-assert.deepEqual(menuOut.moving, ['display', 'opacity', 'translate'], 'the menu has a way out');
-assert.notEqual(menuOut.display, 'none', 'the menu is still drawn while it leaves');
-assert.equal(menuOut.pointer, 'none', 'the leaving menu takes no clicks');
-await page.waitForFunction(() => getComputedStyle(document.getElementById('moreMenu')).display === 'none');
+await page.keyboard.press('Escape');
+await page.waitForFunction(
+  () => getComputedStyle(document.getElementById('libraryDialog')).display === 'none',
+);
+assert.equal(
+  await page.evaluate(() => document.getElementById('moreBtn').getAttribute('aria-expanded')),
+  'false',
+);
 
 await page.click('#search');
 await page.keyboard.type('per');
@@ -515,18 +507,29 @@ await page.waitForFunction(
   () => getComputedStyle(document.getElementById('searchResults')).display === 'none',
 );
 await page.evaluate(() => document.activeElement?.blur());
-report.push('reader, menu and search arrive and leave');
+report.push('reader, Library and search arrive and leave');
 
 /* ---------- 2. ambient motion stands still under a dialog ---------- */
 await page.evaluate(() => window.DKLATimelines.open(window.DKLATimelines.list()[0].id));
 await page.locator('#r21Timelines[open]').waitFor();
 assert.ok(await page.evaluate(() => document.documentElement.classList.contains('dkla-ambient-off')));
+// Since v3.2 the instrument cluster is unlit behind a dialog or beside a reader (docs/DESIGN.md rule 14):
+// the bright bands that cross the fuel line and the version are not drawn at all, and the splash line
+// has stepped out. So there is less to pause than before; whatever ambient animation is left is paused.
 running = await ambient(page);
-assert.ok(running.length >= 4, `the ambient animations are still there (${running.map((a) => a.name)})`);
 assert.deepEqual(
   running.filter((a) => a.state !== 'paused').map((a) => a.name),
   [],
   'nothing ambient runs while a dialog is open',
+);
+assert.deepEqual(
+  await page.evaluate(() =>
+    ['.ny-clock .ny-fuel-shine', '.study-header .dkla-release-shine'].map(
+      (selector) => getComputedStyle(document.querySelector(selector)).display,
+    ),
+  ),
+  ['none', 'none'],
+  'behind a dialog the cluster is unlit: its bright bands are not drawn',
 );
 assert.equal(
   await page.evaluate(() => document.querySelectorAll('.ny-clock .flip.flipping').length),
@@ -534,8 +537,13 @@ assert.equal(
   'the clock does not flip under a dialog',
 );
 await page.keyboard.press('Escape');
-await page.waitForFunction(() => !document.documentElement.classList.contains('dkla-ambient-off'));
+await page.waitForFunction(
+  () =>
+    !document.documentElement.classList.contains('dkla-ambient-off') &&
+    !document.documentElement.classList.contains('v32-reading'),
+);
 running = await ambient(page);
+assert.ok(running.length >= 4, `the ambient animations are back (${running.map((a) => a.name)})`);
 assert.deepEqual(
   running.filter((a) => a.state !== 'running').map((a) => a.name),
   [],
@@ -838,7 +846,7 @@ assert.equal(
   'reduced motion: the dialog simply goes',
 );
 await calm.page.click('#moreBtn');
-assert.deepEqual(await moving(calm.page, '#moreMenu'), []);
+assert.deepEqual(await moving(calm.page, '#libraryDialog'), [], 'reduced motion: the Library simply appears');
 await calm.page.keyboard.press('Escape');
 await calm.page.evaluate(() => (location.hash = 'node=citoh'));
 await calm.page.waitForFunction(() => !document.getElementById('inspector').hidden);

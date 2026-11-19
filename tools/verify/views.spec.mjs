@@ -117,7 +117,9 @@ for (const size of sizes)
     await view(
       'home',
       async () => {
-        await page.locator('#geoBreadcrumb [data-study-scope="Atlas"]').click();
+        // The wordmark is the way Home (v3.2: on Home the breadcrumb steps aside, so there is no Atlas
+        // crumb to press there).
+        await page.locator('#atlasHome').click();
       },
       async () => {
         await expect(page.locator('#geoCanvas g.map-region path[data-map-region]').first()).toBeAttached();
@@ -174,8 +176,10 @@ for (const size of sizes)
       async () => {
         await expect(page.locator('#coldCallDialog')).toHaveAttribute('open', '');
         await expect
-          .poll(() => page.locator('#ccNarrative .cc-section > p:not(.cc-kicker)').count())
+          .poll(() => page.locator('#ccNarrative .cc-section .cc-answer > p').count())
           .toBeGreaterThan(5);
+        // v3.2: the reader opens on the setup (the lead, the cast, how the case got here).
+        await expect(page.locator('#coldCallDialog .cc-setup .cc-lead')).toBeVisible();
       },
     );
     await view(

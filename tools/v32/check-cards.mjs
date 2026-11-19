@@ -18,7 +18,16 @@
      reader, close in) no text is drawn under 9 px;
    - a course view names every subject of the course and says what is in it, and the controls under the
      location bar do not cover a tile;
-   - Home's tiles keep the map's fixed outlines as their press targets, with one hairline each. */
+   - Home's tiles keep the map's fixed outlines as their press targets, with one hairline each;
+   - the three territories keep their colour (rule 15): every subject's tile is filled in its course's own
+     fill, the three fills are told apart, and a tile's name is 7:1 or better on it; under each course the
+     ground is stippled in the course's colour, with no gradient; each course's first subject carries its
+     number;
+   - the principal paths read at rest: each course's tree in the course's colour, at a weight and strength
+     that can be followed, "leads to" with an arrowhead; no tree line passes behind a third subject, and
+     the trees cross at most twice on Home; the curves of association appear only for the tile under the
+     pointer, with the other lines stepped back;
+   - beside the reader a tile that steps back stays solid, so no line shows through its name. */
 import assert from 'node:assert/strict';
 import { chromium } from '@playwright/test';
 
@@ -621,6 +630,150 @@ assert.ok(homeView.tree >= 25, `Home: at rest the three course trees are drawn (
 assert.equal(homeView.covers, 6, 'Home: six books');
 assert.equal(homeView.books.length, 1, 'Home: the six books share one outline');
 await legible('Home');
+// The territories (rule 15): three coloured regions, and their trees drawn to be followed.
+const territory = await page.evaluate(() => {
+  const canvas = document.getElementById('geoCanvas'),
+    lum = (rgb) => {
+      const [r, g, b] = rgb
+        .match(/[\d.]+/g)
+        .slice(0, 3)
+        .map((v) => {
+          const c = Number(v) / 255;
+          return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+        });
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    },
+    ratio = (a, b) => (Math.max(lum(a), lum(b)) + 0.05) / (Math.min(lum(a), lum(b)) + 0.05),
+    hex = (h) =>
+      `rgb(${parseInt(h.slice(1, 3), 16)}, ${parseInt(h.slice(3, 5), 16)}, ${parseInt(h.slice(5, 7), 16)})`,
+    courses = Object.keys(galaxy().blocks),
+    ground = getComputedStyle(document.documentElement).getPropertyValue('--v31-ground').trim(),
+    out = { courses: {}, wrongFill: [], lowContrast: [], weak: [], outlines: new Set() };
+  for (const c of courses) out.courses[c] = { fills: new Set(), subjects: 0 };
+  for (const g of canvas.querySelectorAll('.v32-tile')) {
+    const r = regionFor(g.dataset.tile),
+      c = regionCourse(r);
+    if (!r.step || !out.courses[c]) continue;
+    const bg = getComputedStyle(g.querySelector('.v32-tile-bg')),
+      name = canvas.querySelector(`text.region-title[data-map-region="${g.dataset.tile}"]`);
+    out.courses[c].subjects++;
+    out.courses[c].fills.add(bg.fill);
+    out.outlines.add(bg.strokeWidth);
+    if (bg.fill !== hex(TILE_FILL[c]) || Number(bg.fillOpacity) !== 1) out.wrongFill.push(g.dataset.tile);
+    if (bg.stroke !== hex(ARM_COLORS[c]) || Number(bg.strokeOpacity) < 0.6) out.weak.push(g.dataset.tile);
+    if (name && ratio(getComputedStyle(name).fill, bg.fill) < 7)
+      out.lowContrast.push(g.dataset.tile + ' ' + ratio(getComputedStyle(name).fill, bg.fill).toFixed(2));
+  }
+  const fills = courses.map((c) => [...out.courses[c].fills]);
+  // the tree lines, as drawn: sampled every two pixels along the line itself (not its arrowhead)
+  const m = canvas.getScreenCTM(),
+    tiles = [...canvas.querySelectorAll('.v32-tile')].map((g) => ({
+      id: g.dataset.tile,
+      b: g.querySelector('.v32-tile-bg').getBoundingClientRect(),
+    })),
+    lines = [...canvas.querySelectorAll('.v32-link:not(.v32-thread)')].map((e) => {
+      const cs = getComputedStyle(e),
+        probe = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      probe.setAttribute('d', e.getAttribute('d').split(' M')[0]);
+      canvas.appendChild(probe);
+      const L = probe.getTotalLength(),
+        n = Math.max(2, Math.ceil((L * m.a) / 2)),
+        pts = [];
+      for (let i = 0; i <= n; i++) {
+        const p = probe.getPointAtLength((L * i) / n);
+        pts.push({ x: p.x * m.a + m.e, y: p.y * m.d + m.f });
+      }
+      probe.remove();
+      const ids = e.dataset.link.split(' ');
+      return {
+        ids,
+        pts,
+        flow: e.classList.contains('v32-flow'),
+        head: e.getAttribute('d').split(' M').length === 2,
+        px: parseFloat(cs.strokeWidth) * m.a,
+        strength: Number(cs.strokeOpacity) * Number(e.getAttribute('opacity') || 1),
+        own: cs.stroke === hex(ARM_COLORS[regionCourse(regionFor(ids[0]))]),
+      };
+    }),
+    behind = [],
+    crossings = [],
+    turn = (a, b, c) => (c.y - a.y) * (b.x - a.x) > (b.y - a.y) * (c.x - a.x),
+    cut = (a, b, c, d) => turn(a, c, d) !== turn(b, c, d) && turn(a, b, c) !== turn(a, b, d);
+  for (const l of lines)
+    for (const t of tiles) {
+      if (l.ids.includes(t.id)) continue;
+      const inside = l.pts.filter(
+        (p) => p.x > t.b.left + 1.5 && p.x < t.b.right - 1.5 && p.y > t.b.top + 1.5 && p.y < t.b.bottom - 1.5,
+      ).length;
+      if (inside > 1) behind.push(`${l.ids.join(' to ')} behind ${t.id}`);
+    }
+  for (let i = 0; i < lines.length; i++)
+    for (let j = i + 1; j < lines.length; j++) {
+      const A = lines[i].pts,
+        B = lines[j].pts;
+      let hit = false;
+      for (let a = 2; a < A.length - 3 && !hit; a++)
+        for (let b = 2; b < B.length - 3 && !hit; b++) hit = cut(A[a], A[a + 1], B[b], B[b + 1]);
+      if (hit) crossings.push(lines[i].ids.join('>') + ' x ' + lines[j].ids.join('>'));
+    }
+  const land = [...canvas.querySelectorAll('.v32-land')];
+  return {
+    subjects: courses.map((c) => out.courses[c].subjects),
+    fills,
+    apart: fills.flat().map((f) => ratio(f, hex(ground))),
+    wrongFill: out.wrongFill,
+    weak: out.weak,
+    lowContrast: out.lowContrast,
+    outlines: [...out.outlines],
+    lines: lines.length,
+    thin: lines.filter((l) => l.px < 1.4 || l.strength < 0.6 || !l.own).length,
+    headless: lines.filter((l) => l.flow !== l.head).length,
+    flows: lines.filter((l) => l.flow).length,
+    behind,
+    crossings,
+    land: land.map((e) => e.dataset.land),
+    landFill: land.filter((e) => /^url\(/.test(e.getAttribute('fill') || '')).length,
+    gradients: [...canvas.querySelectorAll('[fill^="url(#glow"]')].length,
+    starts: [...canvas.querySelectorAll('.v32-start')].map((e) => regionFor(e.parentNode.dataset.tile)?.step),
+    startText: [...canvas.querySelectorAll('.v32-start text')].map((e) => e.textContent),
+  };
+});
+assert.ok(
+  territory.subjects.every((n) => n >= 9),
+  `Home: each course's subjects are tiles (${territory.subjects})`,
+);
+assert.ok(
+  territory.fills.every((f) => f.length === 1) && new Set(territory.fills.flat()).size === 3,
+  `Home: one fill a course, three in all (${JSON.stringify(territory.fills)})`,
+);
+assert.deepEqual(territory.wrongFill, [], "Home: a subject's tile is filled in its course's colour");
+assert.deepEqual(territory.weak, [], "Home: and edged in the course's accent, clearly");
+assert.ok(
+  territory.apart.every((r) => r >= 1.7),
+  `Home: a territory's fill stands off the ground (${territory.apart.map((r) => r.toFixed(2))})`,
+);
+assert.deepEqual(territory.lowContrast, [], "Home: a tile's name is 7:1 or better on its fill");
+assert.equal(territory.outlines.length, 1, `Home: tiles have one outline weight (${territory.outlines})`);
+assert.equal(
+  territory.thin,
+  0,
+  'Home: every tree line is in its course colour at a weight that can be followed',
+);
+assert.ok(territory.flows >= 12, `Home: the trees have their "leads to" lines (${territory.flows})`);
+assert.equal(territory.headless, 0, 'Home: a "leads to" line ends in an arrowhead, and only those do');
+assert.deepEqual(territory.behind, [], 'Home: no tree line passes behind a third subject');
+assert.ok(
+  territory.crossings.length <= 2,
+  `Home: the trees cross at most twice (${territory.crossings.join('; ')})`,
+);
+assert.equal(territory.land.length, 3, 'Home: each course stands on its land');
+assert.equal(territory.landFill, 3, "Home: the land is the ground's dots in the course's colour");
+assert.equal(territory.gradients, 0, 'Home: no gradient under a course');
+assert.deepEqual(territory.starts, [1, 1, 1], "Home: each course's first subject is marked");
+assert.deepEqual(territory.startText, ['1', '1', '1'], 'Home: with its number');
+report.push(
+  `Home: ${territory.lines} tree lines, ${territory.crossings.length} crossings, none behind a subject; fills ${territory.fills.flat().join(' ')}`,
+);
 // a tile under the pointer shows its own links, and only those
 const over = await page.evaluate(() => {
   const g = document.querySelector('#geoCanvas .v32-tile[data-tile="consideration"] .v32-tile-hit'),
@@ -636,13 +789,55 @@ const lit = await page.evaluate(() => {
   return {
     shown: shown.length,
     own: shown.filter((e) => e.dataset.link.split(' ').includes('consideration')).length,
+    // the lines of the other subjects step back while this one's are shown
+    loud: [...document.querySelectorAll('#geoCanvas .v32-link:not(.v32-thread, .is-hover, .is-lit)')].filter(
+      (e) => parseFloat(getComputedStyle(e).strokeOpacity) > 0.3,
+    ).length,
   };
 });
+assert.equal(lit.loud, 0, `Home: while a tile's links show, the other lines step back (${lit.loud} do not)`);
 assert.ok(
   lit.shown >= 1 && lit.shown === lit.own,
   `Home: a tile under the pointer shows its own links only (${lit.own} of ${lit.shown})`,
 );
 await page.mouse.move(5, 5);
+// A case opened from Home: beside the reader the other subjects step back, and the open subject's lines
+// pass behind them, never through their names: a dimmed tile stands on a solid piece of ground.
+await go(() => goNode('hamer'));
+await page.waitForFunction(() => selected?.type === 'node' && selected.id === 'hamer' && S.panelOpen);
+await rest();
+const strip = await page.evaluate(() => {
+  const dimmed = [...document.querySelectorAll('#geoCanvas .v32-tile')].filter(
+    // (a subject of another course fades out with its course; it is not in the picture)
+    (g) => Number(g.getAttribute('opacity')) < 1 && Number(getComputedStyle(g).opacity) > 0.1,
+  );
+  return {
+    dimmed: dimmed.length,
+    solid: dimmed.filter((g) => {
+      const under = g.previousElementSibling;
+      if (!under?.classList.contains('v32-tile-under')) return false;
+      const cs = getComputedStyle(under),
+        a = under.getBoundingClientRect(),
+        b = g.querySelector('.v32-tile-bg').getBoundingClientRect();
+      return (
+        Number(cs.fillOpacity) === 1 &&
+        Number(cs.opacity) === 1 &&
+        cs.fill !== 'none' &&
+        Math.abs(a.left - b.left) < 1.5 &&
+        Math.abs(a.width - b.width) < 3
+      );
+    }).length,
+    lit: document.querySelectorAll('#geoCanvas .v32-link.is-lit').length,
+  };
+});
+assert.ok(strip.dimmed >= 3, `beside the reader the other subjects step back (${strip.dimmed})`);
+assert.equal(
+  strip.solid,
+  strip.dimmed,
+  `a tile that steps back stays solid, so no line shows through its name (${strip.solid} of ${strip.dimmed})`,
+);
+assert.ok(strip.lit >= 1, 'the open subject keeps its lines lit beside the reader');
+await legible('the strip beside a case opened from Home');
 report.push(
   `Home: ${homeView.tiles} tiles; supporting cases ${homeView.support.map((s) => s.count).join(', ')}; dictionary ${homeView.dictionary} terms`,
 );
