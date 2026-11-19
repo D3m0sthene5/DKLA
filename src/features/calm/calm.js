@@ -1,8 +1,9 @@
 /* Calm (v3.2): the page is at rest when nothing is happening.
  *
  * This file keeps one fact for everything decorative in the page: is it quiet time? Quiet means the tab
- * is hidden, a dialog is open over the page, or the map is being moved (the map sets the class
- * `dkla-moving` on <html> during a gesture; this file only reads it). While it is quiet, <html> carries
+ * is hidden, a dialog is open over the page, or the map is being moved (a wheel turn or a drag on the
+ * map, noticed here; the map's own code may also put the class `dkla-moving` on <html> for as long as
+ * it animates, which counts the same). While it is quiet, <html> carries
  * `dkla-ambient-off` and the stylesheets pause every ambient animation (calm.css: the fuel gauge's and the
  * version label's sweep, the splash pulse, Dottie's blink, the Cold Call vapour); the clock changes its
  * digits without flipping. Nothing here polls: dialogs are noticed when they are opened (show and
@@ -28,12 +29,13 @@
     known = new WeakSet(),
     listeners = [];
   let off = false,
+    gesture = false,
     frame = 0,
     settle = 0;
 
   function update() {
     for (const dialog of open) if (!dialog.open || !dialog.isConnected) open.delete(dialog);
-    const now = document.hidden || open.size > 0;
+    const now = document.hidden || open.size > 0 || gesture;
     if (now !== off) {
       off = now;
       root.classList.toggle('dkla-ambient-off', off);
@@ -114,6 +116,49 @@
   for (const dialog of document.querySelectorAll('dialog')) {
     know(dialog);
     if (dialog.open) open.add(dialog);
+  }
+
+  // ----- the map being moved: a wheel turn over it, or a drag on it -----
+  // Only listened to here (passive listeners; the map's own handlers are untouched). Quiet time
+  // lasts until 0.3 s after the last wheel turn or the end of the drag.
+  const map = document.getElementById('geoCanvas');
+  let pressed = false,
+    gestureTimer = 0;
+  function moved(on) {
+    clearTimeout(gestureTimer);
+    if (on) {
+      if (!gesture) {
+        gesture = true;
+        update();
+      }
+    } else
+      gestureTimer = setTimeout(() => {
+        gesture = false;
+        update();
+      }, 300);
+  }
+  if (map) {
+    map.addEventListener(
+      'wheel',
+      () => {
+        moved(true);
+        moved(false);
+      },
+      { passive: true },
+    );
+    map.addEventListener('pointerdown', () => (pressed = true), { passive: true });
+    map.addEventListener('pointermove', (event) => pressed && event.buttons && !gesture && moved(true), {
+      passive: true,
+    });
+    for (const type of ['pointerup', 'pointercancel'])
+      addEventListener(
+        type,
+        () => {
+          if (pressed && gesture) moved(false);
+          pressed = false;
+        },
+        { capture: true, passive: true },
+      );
   }
 
   // ----- "Loading…" lines become skeletons -----

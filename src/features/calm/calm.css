@@ -118,26 +118,24 @@ dialog:not([open])::backdrop {
   }
 }
 
-/* Drawers (every <details>): the contents open and close their height. Only where the browser
-   can animate to `height: auto`; elsewhere they open at once, as before. */
-@supports (interpolate-size: allow-keywords) {
-  @media (prefers-reduced-motion: no-preference) {
-    details {
-      interpolate-size: allow-keywords;
-    }
-    details::details-content {
-      height: 0;
-      overflow: clip;
-      opacity: 0;
-      transition:
-        height var(--v31-t-pop) var(--v31-ease),
-        opacity var(--v31-t-pop) var(--v31-ease),
-        content-visibility var(--v31-t-pop) allow-discrete;
-    }
-    details[open]::details-content {
-      height: auto;
-      opacity: 1;
-    }
+/* Drawers (every <details>): when one opens, its contents fade and settle 6 px into place. Two
+   things were tried, measured and left out. Animating the drawer's height lays the whole reader out
+   again on every frame; on a slow machine (4x slower processor) one drawer stalled the page for up to
+   0.8 s. Fading the contents out before a drawer shuts needs a transition on content-visibility,
+   which also keeps a drawer's contents hidden for one frame after it is opened; code that opens a
+   drawer and reads or scrolls to what is inside in the same breath then finds nothing. So a drawer
+   opens with one layout, as it always did, and shuts at once. */
+@supports selector(::details-content) {
+  details::details-content {
+    opacity: 0;
+    translate: 0 -6px;
+  }
+  details[open]::details-content {
+    opacity: 1;
+    translate: none;
+    transition:
+      opacity var(--v31-t-pop) linear,
+      translate var(--v31-t-pop) var(--v31-ease);
   }
 }
 

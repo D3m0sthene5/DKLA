@@ -20,9 +20,10 @@ first; the motion tokens are in `src/features/v31/tokens.css`.
   Things learned the hard way: a transform or a group opacity on a shape inside an SVG costs a layout
   per change, fill-opacity does not; `display` toggles and text changes cost a layout, `visibility`
   and a transform on a strip do not.
-- **Quiet time.** `html.dkla-ambient-off` (tab hidden or a dialog open; set by `calm.js`) and
-  `html.dkla-moving` (for the map to set during a gesture; nothing sets it yet) pause every ambient
-  animation in `calm.css`. New ambient decoration must be added to that list.
+- **Quiet time.** `html.dkla-ambient-off` (tab hidden, a dialog open, or a wheel turn or drag on the
+  map; set by `calm.js`, which only listens to the map) and `html.dkla-moving` (for the map's own code
+  to set while it animates, for example a glide after the finger lifts; nothing sets it yet) pause
+  every ambient animation in `calm.css`. New ambient decoration must be added to that list.
 - **Dialogs** share one flat scrim (`--v31-scrim`, no blur) and fade and scale through
   `@starting-style` and `allow-discrete` transitions; the menu, search panel and reader the same way
   on their `hidden` attribute. A closing panel is already closed for the code (`open` false, `hidden`
@@ -37,7 +38,8 @@ first; the motion tokens are in `src/features/v31/tokens.css`.
 - **Checks**: `tools/feel/check-calm.mjs` ("calm: rest, transitions and press feedback") with ten
   breakages in `tools/verify/break.mjs`; `tools/v31/check-case.mjs` asserts the rail's mark;
   `tools/fuel/check-browser.mjs` checks the new sweep. Benchmark: `tools/feel/measure.mjs`.
-- **Still to do**: the map engineer should set `dkla-moving` on `<html>` during pan and zoom; the
+- **Still to do**: the map's own animations (button zooms, any glide) should set `dkla-moving` on
+  `<html>` while they run; the
   reader's way out starts only after the map has refitted (the refit blocks the page for a moment
   when the reader closes; that is map work); `pnpm views:update` on the owner's PC (dialog scrims are
   no longer blurred, so every picture with a dialog changes slightly).

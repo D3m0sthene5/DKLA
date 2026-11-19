@@ -7,7 +7,8 @@
       counter). The decorations that keep moving (the fuel gauge's and the version label's bright band,
       the splash pulse, the Cold Call vapour) animate only transform and opacity, there is no SMIL,
       and no timer in the page runs more often than once a second.
-   2. While a dialog is open nothing ambient is running, and it starts again when the dialog closes.
+   2. While a dialog is open nothing ambient is running, and it starts again when the dialog closes;
+      the same while the map is being moved.
    3. Every dialog fades and scales in and out (a transition of opacity and scale, on the dialog and
       its backdrop), all on one flat scrim with no blur; Esc in the middle of the way in closes it at
       once and the closing dialog takes no clicks. The menu, the search panel and the reader have a
@@ -324,6 +325,42 @@ await page.waitForFunction(
 await sleep(350);
 report.push('the rail marks the part being read and scrolls briefly');
 
+// A drawer: its contents are there at once (code may read them in the same breath), and they fade
+// and settle in; its height is not animated (that would lay the reader out on every frame).
+const drawer = await page.evaluate(
+  () =>
+    new Promise((done) => {
+      const details =
+        document.querySelector('#inspector details.v31-notes') ||
+        document.querySelector('#inspector details');
+      const closed = details.innerText.length;
+      details.open = true;
+      const style = getComputedStyle(details, '::details-content');
+      const atOnce = {
+        text: details.innerText.length,
+        visibility: style.contentVisibility,
+        opacity: Number(style.opacity),
+      };
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => {
+          const mid = Number(getComputedStyle(details, '::details-content').opacity);
+          const height = getComputedStyle(details, '::details-content').transitionProperty;
+          details.open = false;
+          const shut = getComputedStyle(details, '::details-content').contentVisibility;
+          done({ closed, atOnce, mid, height, shut, supported: CSS.supports('selector(::details-content)') });
+        }),
+      );
+    }),
+);
+assert.ok(drawer.atOnce.text > drawer.closed, 'an opened drawer has its contents at once');
+if (drawer.supported) {
+  assert.equal(drawer.atOnce.visibility, 'visible');
+  assert.ok(drawer.atOnce.opacity < 0.2, `a drawer's contents start faded (${drawer.atOnce.opacity})`);
+  assert.ok(drawer.mid > 0 && drawer.mid < 1, `and fade in (${drawer.mid} two frames on)`);
+  assert.ok(!/height/.test(drawer.height), 'a drawer does not animate its height');
+  assert.equal(drawer.shut, 'hidden', 'a drawer shuts at once');
+}
+
 /* ---------- 5. press feedback ---------- */
 async function press(selector, name, { scale = true } = {}) {
   const target = page.locator(selector).first();
@@ -491,7 +528,20 @@ assert.deepEqual(
   [],
   'ambient motion starts again when the dialog closes',
 );
-report.push('ambient motion pauses under a dialog');
+// The same while the map is being moved: a wheel turn over it, and for 0.3 s after.
+const mapBox = await page.locator('#geoCanvas').boundingBox();
+await page.mouse.move(mapBox.x + mapBox.width * 0.5, mapBox.y + mapBox.height * 0.2);
+await page.mouse.wheel(0, -120);
+await page.waitForFunction(() => document.documentElement.classList.contains('dkla-ambient-off'), null, {
+  polling: 'raf',
+  timeout: 3000,
+});
+await page.mouse.wheel(0, 120);
+await page.waitForFunction(() => !document.documentElement.classList.contains('dkla-ambient-off'), null, {
+  timeout: 5000,
+});
+await goHome(page);
+report.push('ambient motion pauses under a dialog and while the map moves');
 
 /* ---------- 3. every dialog ---------- */
 // The dialogs the atlas builds on first use, opened once so that they exist.
