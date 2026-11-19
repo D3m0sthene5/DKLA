@@ -374,9 +374,8 @@ const report = [];
   const start = await camera(),
     c = at(0.42, 0.5);
   await mouse('mouseMoved', c.x, c.y);
-  const cdp = await context.newCDPSession(page);
-  // A pinch settles when the wheel falls silent for a seventh of a second. On a machine too busy to
-  // deliver the wheel that fast it settles in the middle, so the pinch is made again (three times at most).
+  // A pinch settles when the wheel falls silent for a seventh of a second. If a frame takes longer than
+  // that on a busy machine it settles in the middle, so the pinch is made again (three times at most).
   const steady = (samples) => {
     const settling = samples.findIndex((s) => s.flying || s.snaps !== samples[0].snaps);
     return samples
@@ -388,17 +387,31 @@ const report = [];
     await page.evaluate(() => home('Contracts', false, false));
     await rest();
     await watch(true);
-    for (let i = 0; i < 40; i++) {
-      await cdp.send('Input.dispatchMouseEvent', {
-        type: 'mouseWheel',
-        x: c.x,
-        y: c.y,
-        deltaX: 0,
-        deltaY: -4,
-        modifiers: 2,
-      });
-      await sleep(8);
-    }
+    // One wheel event at the start of each frame, sent from inside the page so that none waits on this
+    // script (the gap between them is one frame, however long a frame takes here).
+    await page.evaluate(
+      (c) =>
+        new Promise((resolve) => {
+          const svg = document.getElementById('geoCanvas');
+          let sent = 0;
+          const send = () => {
+            svg.dispatchEvent(
+              new WheelEvent('wheel', {
+                deltaY: -4,
+                ctrlKey: true,
+                clientX: c.x,
+                clientY: c.y,
+                bubbles: true,
+                cancelable: true,
+              }),
+            );
+            if (++sent < 40) requestAnimationFrame(send);
+            else resolve();
+          };
+          requestAnimationFrame(send);
+        }),
+      c,
+    );
     pinched = await watch(false);
   }
   {
