@@ -3,6 +3,53 @@
 Written at the end of a session so the next one can pick up cleanly.
 Update or replace this file when the state changes.
 
+## What the map draws (19 November 2026, branch `v32-cards`, not merged, not deployed)
+
+- **An open subject is one panel.** Its title (Exo 2, with the course's numbered dot), a readout of what
+  is inside ("5 cases · 4 rules · 11 concepts"), then its groups on two columns. A group is a heading
+  (Inter 600), its question and rows of one height; nothing inside the panel has a border. A row is a
+  glyph for the kind of entry (a case's own pictogram; a section sign for a rule; a book for a
+  Restatement or code provision; a ring for a concept; lines for a note; a question mark for a problem),
+  its name on at most two lines, and a readout at the right (a case's year, a rule's citation). A
+  group's notes and questions are one row with their number; pressing it opens the group in the reader
+  with that list unfolded. The open entry's row is filled and marked in amber (`--v31-here`).
+- **Where the rectangles come from.** `layoutCards()` at the top of `src/features/v25/geography.js`
+  lays out the inside of every subject from the curated dataset, once, when the page loads: 64-unit rows
+  (36 px when a subject is open in a 1440 px window), two columns of rows per group, groups dealt into
+  two columns of nearest height in their curated order. `tools/v25/geography.json` is unchanged: it still
+  says which subject and group an entry belongs to and in what order. A subject keeps its place and size
+  on the map (Home is drawn from those and is pinned); it gets `panelH`, the height its contents need,
+  and `cardBox(r)` in `studyCode.js` is what is drawn, framed by the camera and joined by lines once a
+  subject is 200 px wide. Entries that are notes share their group's last row as their place.
+- **What is drawn at each zoom** is decided in `draw()` (`studyCode.js`, "v3.2 Instrument"): a tile
+  under 200 px; then the panel with its title and counts; groups with their counts while rows would be
+  under 16.5 px; rows; and, close in (rows from 54 px), the entry's summary under its name. No text is
+  drawn under 9 px at 1440 x 900. The layers that rebuilt cards after every draw are gone (`dklaUI.js`
+  decorateMap, `r20.js` subtopic tiles and mini cards, the r18 glyph recolour), which is why a draw of
+  an open subject takes a third of the time it did.
+- **Tiles, Home and course views.** A tile's press target is still the map's fixed outline (the path the
+  geometry check records); what is seen is a panel with a whisper of the course colour. Lines between
+  subjects are dim and light up for the tile under the pointer (`lightTile()`, classes only). On a
+  course view each tile carries its cases and rules, the course is framed above the band of controls at
+  the foot (`r20.js` safeArea and `DKLASessions.band()`), and the Home blocks fade out
+  (`R18.courseFade`). Styles are in `src/features/v32/cards.css`.
+- **Lines.** At rest the map shows only each course's tree (`courseDesign.spine`: 13, 10 and 9 lines
+  drawn; three in the dataset name subjects no longer on the map and are left out when the design is
+  copied in `geography.js`). The curves of association between subjects (`galaxy().threads`, 97) are
+  not in the picture at rest: `threadPaths()` draws the open subject's, and `lightTile()` adds the
+  ones of the tile under the pointer and takes them away again.
+- **Composition.** `fitText()` in `studyCode.js` breaks every name on the map: "v." stays with the
+  party after it, and two lines are split where they come out nearest in length. Counts carry their
+  unit (`countSpans()`), 13 px at reading zoom in the muted colour. A case's pictogram is drawn in a
+  row only where it still reads at 16 px (`pictReads()`), otherwise the plain case glyph.
+- **Check**: `tools/v32/check-cards.mjs` ("v3.2 cards" in `pnpm verify`), four breakages in
+  `tools/verify/break.mjs`. The smoke test's row check and `tools/feel/measure.mjs` use `.v32-row`.
+- **For the owner's PC**: every picture of the map changes; run `pnpm views:update` after looking at
+  `work/views/`.
+- **Known**: the mono face embedded in the page is JetBrains Mono Bold only, so readouts are bold; a
+  500 weight would sit better. With the reader open the map is a strip some 360 px wide and a group's
+  rows are 18 px there.
+
 ## The map in motion (19 November 2026, branch `v32-map`, not merged, not deployed)
 
 - **What changed**: a drag, a pinch, a glide or a flight no longer draws the map on every frame. The picture

@@ -144,11 +144,11 @@ renderHeading = function () {
   const welcome = $('mapWelcome');
   if (S.scope === 'Civil Procedure') {
     welcome.innerHTML =
-      '<h1>Civil Procedure</h1><p>Courts, parties, claims, and adjudication.</p><button data-study-node="cp-framework">How a civil action fits together →</button><button data-civil-week="0">All 14 syllabus weeks →</button>';
+      '<h1>Civil Procedure</h1><p>Courts, parties, claims, and adjudication.</p><button data-study-node="cp-framework">How a civil action fits together</button><button data-civil-week="0">All 14 syllabus weeks</button>';
     welcome.hidden = !!(S.region || S.district || selected);
   } else if (S.scope === 'Contracts') {
     welcome.innerHTML =
-      '<h1>Contracts</h1><button data-study-node="legal-framework">How the law fits together →</button><button data-contract-reading="9">All 26 reading assignments →</button>';
+      '<h1>Contracts</h1><button data-study-node="legal-framework">How the law fits together</button><button data-contract-reading="9">All 26 reading assignments</button>';
   }
 };
 coursesDialog = function () {

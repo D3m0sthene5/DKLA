@@ -164,6 +164,10 @@ export const tasks = [
   // v3.2: a drag carries the drawn map under the pointer without rebuilding it; the map at rest equals a
   // fresh draw; momentum, a press that stops it, reduced motion, a continuous pinch, a redirected flight.
   step('browser', 'the map in motion', node('tools/feel/check-map.mjs', '{page}'), SERVER),
+  // v3.2 cards: an open subject is one panel of groups and rows on one grid (no box in a box, one row
+  // height, one glyph size, counts, the open entry marked), nothing under 9 px at any level, and the
+  // course view's controls clear of its tiles.
+  step('browser', 'v3.2 cards', node('tools/v32/check-cards.mjs', '{page}'), SERVER),
   // v3.2 calm: no layout at rest, ambient motion paused under a dialog, every dialog and panel with a way
   // in and out that can be interrupted, pressed states, the rail's mark, loading skeletons, reduced motion.
   step(

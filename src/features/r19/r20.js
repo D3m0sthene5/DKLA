@@ -14,11 +14,10 @@
      Zoomed in on one course, the other courses' titles, tallies, tiles and blocks used to hang in at the edges
      ("…edure", "324 entries · 11 subjects"). They now fade out as the camera moves from the atlas to a course,
      continuously with the zoom, so the animation still reads as one map. */
-  function fadeOthers() {
-    if (!svg || typeof galaxy !== 'function') return;
-    const blocks = galaxy().blocks || {},
-      mine = blocks[S.scope];
-    if (!mine) return;
+  // v3.2: how far the view has gone from the atlas (0) to one course alone (1). The layers that paint the
+  // Home blocks (Rules & authorities, SCOTUS History and its figures) fade by the same amount.
+  function courseFade() {
+    if (typeof galaxy !== 'function' || !(galaxy().blocks || {})[S.scope]) return 0;
     // 0 at the atlas, 1 by the time this course fills the screen (courses differ in how far that zoom is)
     const zf = zoomFloor() * 1.12;
     let zc = zf * 1.6;
@@ -29,7 +28,17 @@
     } catch {
       /* default span */
     }
-    const f = zc <= zf * 1.05 ? (S.z >= zc ? 1 : 0) : Math.max(0, Math.min(1, (S.z - zf) / (zc - zf)));
+    return zc <= zf * 1.05 ? (S.z >= zc ? 1 : 0) : Math.max(0, Math.min(1, (S.z - zf) / (zc - zf)));
+  }
+  if (typeof R18 !== 'undefined') R18.courseFadeNow = courseFade;
+  function fadeOthers() {
+    if (!svg || typeof galaxy !== 'function') return;
+    const blocks = galaxy().blocks || {},
+      mine = blocks[S.scope];
+    if (typeof R18 !== 'undefined') R18.courseFade = 0;
+    if (!mine) return;
+    const f = courseFade();
+    if (typeof R18 !== 'undefined') R18.courseFade = f;
     if (f <= 0) return;
     // this course's own frame: its block plus its own supporting-cases tile, with a small margin
     const pad = Math.max(mine.w, mine.h) * 0.03;
@@ -70,6 +79,17 @@
     const fade = [];
     const visit = (el, depth) => {
       if (el.tagName === 'defs' || el.tagName === 'title') return;
+      // v3.2: a subject of another course (or the notes tile, which stands inside a course's frame) and its
+      // name fade whatever the frame says; the ground belongs to every view
+      if (el.classList.contains('v32-ground')) return;
+      const other = depth === 0 && (el.dataset.tile || el.dataset.card || el.dataset.mapRegion);
+      if (other) {
+        const region = regionFor(other);
+        if (region && regionCourse(region) !== S.scope) {
+          fade.push(el);
+          return;
+        }
+      }
       let b;
       try {
         b = el.getBBox();
@@ -142,6 +162,25 @@
       if (measure(line, fs, weight) > maxW) return null;
     }
     if (line) out.push(line);
+    // v3.2: the same number of lines, broken where they come out nearest in length (a designer would not
+    // leave one short word on a line of its own)
+    const words = String(text).split(/\s+/).filter(Boolean),
+      n = out.length;
+    if (n > 1 && n <= 3 && words.length <= 9) {
+      const wide = (i, j) => measure(words.slice(i, j).join(' '), fs, weight);
+      let best = null;
+      const cuts = (from, left, at, widest) => {
+        if (left === 1) {
+          const w = Math.max(widest, wide(from, words.length));
+          if (w <= maxW && (!best || w < best.w)) best = { w, at: [...at, from] };
+          return;
+        }
+        for (let k = from + 1; k <= words.length - (left - 1); k++)
+          cuts(k, left - 1, [...at, from], Math.max(widest, wide(from, k)));
+      };
+      cuts(0, n, [], 0);
+      if (best) return best.at.map((from, i) => words.slice(from, best.at[i + 1] ?? words.length).join(' '));
+    }
     return out;
   }
   function tileLabels() {
@@ -169,10 +208,25 @@
         short = ((typeof SHORT_NAMES !== 'undefined' && SHORT_NAMES[t.id]) || '').replace(/­/g, '');
       return short && short !== full ? [full, short] : [full];
     };
+    // v3.2: on a course view (tiles from 130 px wide) each subject of the course also says what is inside
+    // it, its cases and rules as a readout under its name; its name is fitted in the room that leaves.
+    const cfs = Math.min(13, Math.max(10.5, 13 * (z / 0.0627))) / z, // 13 px on a course view in a 1440 px window
+      part = (n, one) => (n ? n + ' ' + one + (n === 1 ? '' : 's') : '');
+    for (const t of tiles) {
+      t.line = '';
+      if (t.pw < 130 || !t.r.step || regionCourse(t.r) !== S.scope || typeof cardCounts !== 'function')
+        continue;
+      const c = cardCounts('r:' + t.id),
+        line =
+          [part(c.cases, 'case'), part(c.rules, 'rule')].filter(Boolean).join(' · ') ||
+          part(c.concepts, 'concept');
+      if (line && t.ph >= 44 && textWidth(line, cfs, 500) * 1.08 <= t.r.w - 16 / z) t.line = line;
+    }
     const fit = (t, px) => {
       const fs = px / z,
-        maxW = (t.pw - (t.pw < 70 ? 6 : 14)) / z,
-        maxLines = Math.max(1, Math.min(3, Math.floor((t.ph - 8) / (px * 1.22))));
+        // v3.2: a tile from 70 to 90 px wide keeps 4 px a side (it kept 7, which set the longest names at 8.5 px)
+        maxW = (t.pw - (t.pw < 70 ? 6 : t.pw < 90 ? 8 : 14)) / z,
+        maxLines = Math.max(1, Math.min(3, Math.floor((t.ph - 8 - (t.line ? 22 : 0)) / (px * 1.22))));
       for (const name of names(t)) {
         const rows = wrapPlain(name, maxW, fs, 600);
         if (rows && rows.length <= maxLines) return rows;
@@ -193,316 +247,30 @@
         rows = fit(t, size);
       }
       if (!rows) continue;
+      t.rows = rows;
+      t.size = size;
+    }
+    const shown = tiles.filter((t) => t.rows);
+    for (const t of shown) {
+      const rows = t.rows,
+        fs = t.size / z,
+        lh = fs * 1.22,
+        counted = !!t.line,
+        up = counted ? 10 / z : 0,
+        cx = t.r.x + t.r.w / 2,
+        y0 = t.r.y + t.r.h / 2 - ((rows.length - 1) * lh) / 2 + fs * 0.35 - up;
       for (const old of svg.querySelectorAll('text.region-title[data-map-region="' + t.id + '"]'))
         old.remove();
       for (const badge of t.g.querySelectorAll(':scope > g')) badge.remove();
-      const fs = size / z,
-        lh = fs * 1.22,
-        cx = t.r.x + t.r.w / 2,
-        y0 = t.r.y + t.r.h / 2 - ((rows.length - 1) * lh) / 2 + fs * 0.35;
       parts.push(
-        `<text class="map-label region-title r20-tile" x="${cx}" y="${y0}" font-size="${fs}" font-weight="600" fill="#f7f5f0" text-anchor="middle" opacity="${t.g.getAttribute('opacity') || 1}" data-map-region="${esc(t.id)}" role="button" tabindex="0" style="cursor:pointer">${rows.map((row, i) => `<tspan x="${cx}" dy="${i ? lh : 0}">${esc(row)}</tspan>`).join('')}</text>`,
+        `<text class="map-label region-title r20-tile${t.pw >= 130 ? ' is-course' : ''}" x="${cx}" y="${y0}" font-size="${fs}" font-weight="600" fill="#f7f5f0" text-anchor="middle" opacity="${t.g.getAttribute('opacity') || 1}" data-map-region="${esc(t.id)}" role="button" tabindex="0" style="cursor:pointer">${rows.map((row, i) => `<tspan x="${cx}" dy="${i ? lh : 0}">${esc(row)}</tspan>`).join('')}</text>`,
       );
-    }
-    if (parts.length) svg.insertAdjacentHTML('beforeend', parts.join(''));
-  }
-
-  /* ---------- 2b'. subtopic tiles between the course view and the card view ----------
-     Rule: a tile shows either content you can read or a clean summary, never a partial one. While a
-     subtopic is under 190 px wide its entry names cannot fit on a line, so the renderer's rows (which came
-     out as unreadable specks, or were dropped one by one where they collided) are replaced by the subtopic's
-     name at one size for the whole subject and a count line. From 190 px the rows return as cards. */
-  function districtTiles() {
-    if (!svg || typeof R18 === 'undefined' || !R18.districtRows) return;
-    const z = S.z,
-      M = mapData(),
-      V = visibleBox(),
-      carded = new Set();
-    for (const c of svg.querySelectorAll('.node-card[data-map-node]')) {
-      const h = homeFor(c.dataset.mapNode);
-      if (h && h.district) carded.add(h.district);
-    }
-    const byRegion = new Map();
-    for (const d of Object.values(M.districts)) {
-      const dw = d.w * z,
-        dh = d.h * z;
-      if (dw < 54 || dw >= 190 || dh < 26 || carded.has(d.id)) continue;
-      if (d.x > V.x + V.w || d.x + d.w < V.x || d.y > V.y + V.h || d.y + d.h < V.y) continue;
-      const titles = [...svg.querySelectorAll('text[data-map-district="' + d.id + '"]')],
-        rows = [...svg.querySelectorAll('text[data-map-jump]')].filter((t) => {
-          const h = homeFor(t.getAttribute('data-map-jump'));
-          return h && h.district === d.id;
-        });
-      const drawn = titles.find((t) => !/^\+ \d/.test(t.textContent.trim()));
-      // every tile the renderer has drawn, including those whose name and rows its label engine dropped
-      const any = drawn || rows[0] || titles[0] || svg.querySelector('[data-map-district="' + d.id + '"]');
-      if (!any) continue;
-      (byRegion.get(d.region) || byRegion.set(d.region, []).get(d.region)).push({
-        d,
-        dw,
-        dh,
-        titles,
-        rows,
-        op: any.getAttribute('opacity') || 1,
-      });
-    }
-    const parts = [];
-    for (const [rid, list] of byRegion) {
-      const region = regionFor(rid),
-        acc = region ? regionAccent(region) : '#93a7b7';
-      const fit = (t, px) => {
-        const rows = wrapPlain(t.d.title || '', (t.dw - 16) / z, px / z, 600);
-        return rows && rows.length * px * 1.2 <= t.dh - 10 && rows.length <= 3 ? rows : null;
-      };
-      // two sizes only across the whole view, so neighbouring subjects match
-      const px = list.every((t) => fit(t, 12)) ? 12 : 10;
-      for (const t of list) {
-        let size = px,
-          rows = fit(t, size);
-        while (!rows && size > 8.5) {
-          size -= 0.5;
-          rows = fit(t, size);
-        }
-        for (const old of t.titles) old.remove();
-        for (const old of t.rows) {
-          const pv = old.previousElementSibling;
-          if (pv && pv.classList.contains('r20-mini')) pv.remove();
-          old.remove();
-        }
-        // last resort for a very long name in a very small tile: set it at 9 px and condense it to the tile
-        let squeeze = false;
-        if (!rows) {
-          size = 9;
-          rows = wrapPlain(t.d.title || '', ((t.dw - 16) / z) * 1.3, size / z, 600);
-          squeeze = true;
-        }
-        if (!rows || rows.length * size * 1.2 > t.dh - 6) continue;
-        const d = t.d,
-          // A row too wide for its tile makes the whole label smaller; letters are never stretched or
-          // squeezed (a fixed textLength distorts the glyphs at other zoom levels).
-          shrink = squeeze
-            ? Math.min(1, ...rows.map((row) => (d.w - 16 / z) / Math.max(1e-6, measure(row, size / z, 600))))
-            : 1,
-          fs = (size / z) * shrink,
-          lh = fs * 1.2,
-          x = d.x + 8 / z,
-          y0 = d.y + 7 / z + fs * 0.82;
+      if (counted)
         parts.push(
-          `<text class="map-label r20-tile" x="${x}" y="${y0}" font-size="${fs}" font-weight="600" fill="${acc}" opacity="${t.op}" data-map-district="${esc(d.id)}" role="button" tabindex="0" style="cursor:pointer">${rows.map((row, i) => `<tspan x="${x}" dy="${i ? lh : 0}" data-fit="${d.w - 16 / z}">${esc(row)}</tspan>`).join('')}</text>`,
+          `<text class="v32-count" x="${cx}" y="${y0 + (rows.length - 1) * lh + 21 / z}" font-size="${cfs}" text-anchor="middle" opacity="${t.g.getAttribute('opacity') || 1}">${countSpans(t.line)}</text>`,
         );
-        const ns = R18.districtRows(d.id, d) || [],
-          cases = ns.filter((n) => n.kind === 'Case').length,
-          rest = ns.length - cases;
-        const note = [
-          cases ? cases + (cases === 1 ? ' case' : ' cases') : '',
-          rest ? rest + (rest === 1 ? ' concept' : ' concepts') : '',
-        ]
-          .filter(Boolean)
-          .join(' · ');
-        const ny = y0 + (rows.length - 1) * lh + 15 / z;
-        if (
-          note &&
-          t.dw >= 96 &&
-          ny + 6 / z <= d.y + d.h &&
-          measure(note, 10 / z, 400, 'region-title') <= d.w - 16 / z
-        )
-          parts.push(
-            `<text class="map-label r20-tile" x="${x}" y="${ny}" font-size="${10 / z}" font-weight="400" fill="#9fb0bf" opacity="${t.op}" pointer-events="none">${esc(note)}</text>`,
-          );
-      }
     }
     if (parts.length) svg.insertAdjacentHTML('beforeend', parts.join(''));
-  }
-
-  /* ---------- 2c. one design for entries: cards with icons ----------
-     When a subject is too small on screen for full cards, its entries were listed as bare lines of text.
-     Each line is now a compact card with the entry's icon, so a subject looks the same kind of thing at
-     every size. */
-  let ICONS = null;
-  const iconData = () => {
-    if (!ICONS) {
-      try {
-        ICONS = JSON.parse(document.getElementById('dklaIcons').textContent);
-      } catch {
-        ICONS = { paths: {}, records: {} };
-      }
-    }
-    return ICONS;
-  };
-  function miniCards() {
-    if (!svg) return;
-    const z = S.z,
-      rows = svg.querySelectorAll('text[data-map-jump]');
-    if (!rows.length) return;
-    const I = iconData();
-    for (const t of rows) {
-      if (t.dataset.r20) continue;
-      const id = t.getAttribute('data-map-jump'),
-        h = homeFor(id),
-        d = h && districtFor(h.district);
-      if (!d) continue;
-      // every row card is built on the renderer's 12 px row size, whatever the text was shrunk to
-      const fs = 12 / z,
-        base = parseFloat(t.getAttribute('y'));
-      if (!isFinite(base)) continue;
-      const x0 = d.x + 24,
-        w = d.w - 48,
-        ch = fs * 1.62,
-        cy = base - fs * 0.34,
-        top = cy - ch / 2;
-      const region = regionFor(d.region),
-        acc = region ? regionAccent(region) : '#93a7b7',
-        n = nodesById.get(id);
-      const rec = I.records && I.records[id],
-        path =
-          (I.paths &&
-            I.paths[
-              (rec && rec.motif) ||
-                (n && n.kind === 'Case' ? 'case' : n && n.kind === 'Rule' ? 'rule' : 'concept')
-            ]) ||
-          (I.paths && I.paths.case) ||
-          '';
-      const size = fs * 1.08,
-        ix = x0 + fs * 0.5,
-        op = t.getAttribute('opacity') || 1;
-      const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-      g.setAttribute('opacity', op);
-      g.setAttribute('pointer-events', 'none');
-      g.setAttribute('class', 'r20-mini');
-      g.innerHTML =
-        `<rect x="${x0}" y="${top}" width="${w}" height="${ch}" rx="${fs * 0.32}" fill="#1e2c37" stroke="${acc}" stroke-opacity=".3" stroke-width="${1 / z}"/>` +
-        (n && n.kind === 'Case'
-          ? `<path d="M${x0 + fs * 0.22} ${top + ch * 0.2}V${top + ch * 0.8}" stroke="${acc}" stroke-width="${1.6 / z}" opacity=".8"/>`
-          : '') +
-        (path
-          ? `<g transform="translate(${ix},${cy - size / 2}) scale(${size / 24})" fill="none" stroke="${acc}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:${acc}">${path}</g>`
-          : '');
-      t.parentNode.insertBefore(g, t);
-      const tx = ix + size + fs * 0.5;
-      t.setAttribute('x', tx);
-      for (const sp of t.querySelectorAll('tspan')) sp.setAttribute('x', tx);
-      t.setAttribute('fill', '#dce5ec');
-      t.dataset.r20 = '1';
-      // a long name is set slightly smaller, then smaller still if needed, so the whole name stays on its card
-      for (const sp of [t, ...t.querySelectorAll('tspan')]) {
-        sp.removeAttribute('textLength');
-        sp.removeAttribute('lengthAdjust');
-      }
-      // The renderer's rows can carry their own size and width limit (fit.js), which would override the
-      // card's: the name is fitted to this card as a whole, so only the text element keeps a size.
-      for (const sp of t.querySelectorAll('tspan')) {
-        sp.removeAttribute('font-size');
-        sp.removeAttribute('data-fit');
-      }
-      t.setAttribute('font-size', fs);
-      let len = 0;
-      try {
-        len = t.getComputedTextLength();
-      } catch {
-        /* not laid out */
-      }
-      const room = x0 + w - fs * 0.5 - tx;
-      if (room > 0) t.setAttribute('data-fit', room);
-      if (len > room && room > 0) {
-        // one smaller step only, so a view never mixes a dozen type sizes
-        const k = 0.88;
-        t.setAttribute('font-size', fs * k);
-        // still too long: smaller again, to fit (never stretched or squeezed letters)
-        if (len * k > room) t.setAttribute('font-size', (fs * room) / len);
-      }
-      // a name too small to read is not drawn; the card and its icon stay
-      const shown = parseFloat(t.getAttribute('font-size')) * z;
-      if (shown < 8.2) t.style.opacity = shown < 7.4 ? 0 : ((shown - 7.4) / 0.8).toFixed(2);
-    }
-  }
-
-  /* ---------- 2d. small cards keep their icon and their whole name ----------
-     Below a certain size the icon layer left cards bare, and a long name could shrink to nothing. A small
-     card now carries a small icon, and its name is set slightly smaller or condensed to stay on the card. */
-  function smallCards() {
-    if (!svg) return;
-    const z = S.z,
-      I = iconData();
-    for (const card of svg.querySelectorAll('.node-card[data-map-node]')) {
-      if (card.querySelector(':scope > g[transform]') || card.dataset.r20) continue;
-      const id = card.dataset.mapNode,
-        c = homeFor(id),
-        t = card.querySelector('text');
-      if (!c || !t) continue;
-      if (c.w * z < 70 || c.h * z < 13) continue;
-      card.dataset.r20 = '1';
-      const n = nodesById.get(id),
-        region = regionFor(c.region),
-        acc = region ? regionAccent(region) : '#93a7b7';
-      const rec = I.records && I.records[id],
-        path =
-          (I.paths &&
-            I.paths[
-              (rec && rec.motif) ||
-                (n && n.kind === 'Case' ? 'case' : n && n.kind === 'Rule' ? 'rule' : 'concept')
-            ]) ||
-          '';
-      const size = Math.min(c.h * 0.6, 15 / z),
-        ix = c.x + 9 / z + (n && n.kind === 'Case' ? 3 / z : 0),
-        tx = ix + size + 5 / z,
-        room = c.x + c.w - 6 / z - tx;
-      if (path)
-        card.insertAdjacentHTML(
-          'beforeend',
-          `<g transform="translate(${ix},${c.y + (c.h - size) / 2}) scale(${size / 24})" fill="none" stroke="${acc}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none" style="color:${acc}">${path}</g>`,
-        );
-      // the name, whole: one line if it fits, otherwise two; a slightly smaller size before any squeeze
-      const label = (n && (typeof displayName === 'function' ? displayName(n) : n.title)) || t.textContent,
-        wt = t.getAttribute('font-weight') || 500;
-      const two = c.h * z >= 25,
-        words = String(label).split(/\s+/);
-      let px = Math.min(12, c.h * z * (two ? 0.36 : 0.58)),
-        rows = [label];
-      const wide = (row, p) => measure(row, p / z, wt, 'node-card');
-      if (wide(label, px) > room && two && words.length > 1) {
-        let best = null;
-        for (let i = 1; i < words.length; i++) {
-          const r = [words.slice(0, i).join(' '), words.slice(i).join(' ')],
-            m = Math.max(wide(r[0], px), wide(r[1], px));
-          if (!best || m < best.m) best = { r, m };
-        }
-        rows = best.r;
-      }
-      const longest = Math.max(...rows.map((r) => wide(r, px)));
-      if (longest > room) px *= 0.88;
-      const fs = px / z,
-        cy = c.y + c.h / 2,
-        y0 = rows.length === 1 ? cy + fs * 0.35 : cy - fs * 0.22;
-      t.setAttribute('font-size', fs);
-      t.setAttribute('x', tx);
-      t.removeAttribute('textLength');
-      t.textContent = '';
-      const spans = rows.map((row, i) => {
-        const sp = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
-        sp.setAttribute('x', tx);
-        sp.setAttribute('y', y0 + i * fs * 1.16);
-        sp.textContent = row;
-        t.appendChild(sp);
-        return sp;
-      });
-      // A row still too wide makes the whole name smaller to fit; letters are never stretched or
-      // squeezed (a fixed textLength distorts the glyphs at other zoom levels).
-      let longestDrawn = 0;
-      if (room > 0) for (const sp of spans) sp.setAttribute('data-fit', room);
-      for (const sp of spans)
-        try {
-          longestDrawn = Math.max(longestDrawn, sp.getComputedTextLength());
-        } catch {
-          /* not laid out */
-        }
-      if (longestDrawn > room && room > 0) {
-        const fit = (fs * room) / longestDrawn,
-          top = rows.length === 1 ? cy + fit * 0.35 : cy - fit * 0.22;
-        t.setAttribute('font-size', fit);
-        spans.forEach((sp, i) => sp.setAttribute('y', top + i * fit * 1.16));
-      }
-      t.style.opacity = px < 7.4 ? 0 : px < 8.2 ? ((px - 7.4) / 0.8).toFixed(2) : '';
-    }
   }
 
   // run after every other layer has painted (the r18 hook runs last; the tiles are painted in it)
@@ -539,9 +307,6 @@
   const tidy = () => {
     try {
       tileLabels();
-      districtTiles();
-      miniCards();
-      smallCards();
       fadeOthers();
       hideTinyText();
       fitDrawn();
@@ -587,7 +352,11 @@
       ) {
         const top = 58,
           cut = a.y - top;
-        a = { x: a.x, y: top, w: a.w, h: a.h + cut + 34 };
+        // v3.2: on a course view the foot of the map is a band of controls (the zoom buttons, the hint and
+        // the strip of sessions). The course, with its supporting-cases control, stops above that band, so
+        // nothing on the map lies under a control. Home keeps the rows it had (v25/home-fit.js frames it).
+        const band = S.scope === 'Atlas' ? -34 : Math.max(0, (window.DKLASessions?.band?.() || 0) + 8 - 70);
+        a = { x: a.x, y: top, w: a.w, h: a.h + cut - band };
       }
       return a;
     };
@@ -792,7 +561,18 @@
         if (!block) return b;
         const zones = ((M.courseDesign || {})[S.scope] || {}).zones || [],
           tile = D && D.tiles && D.tiles[S.scope];
-        return bounds([block, ...zones, ...(tile ? [tile] : [])]);
+        const fitted = bounds([block, ...zones, ...(tile ? [tile] : [])]);
+        // v3.2: a course name on two rows ("Legislation and the / Regulatory State") needs the second row's
+        // height above the subjects, or its first row is drawn under the top bar.
+        const extra = R18.courseTitleRows(S.scope).length - 1;
+        if (extra > 0) {
+          const a = safeArea(),
+            zf = Math.min((a.w - 40) / fitted.w, (a.h - 40) / fitted.h, 0.7),
+            up = (extra * 1.23 * R18.courseTitlePx(zf)) / zf;
+          fitted.y -= up;
+          fitted.h += up;
+        }
+        return fitted;
       } catch {
         return b;
       }

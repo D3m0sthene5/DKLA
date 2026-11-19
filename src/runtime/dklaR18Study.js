@@ -1478,7 +1478,9 @@
       parts = [];
     for (const [id, t] of regionTallies()) {
       if (!(t[3] + t[2] + t[1])) continue;
-      const r = regionFor(id);
+      const r0 = regionFor(id),
+        // an open subject is drawn at the height of its contents (studyCode.js cardBox)
+        r = r0 && r0.w * z >= V32.tileMin ? { ...r0, h: cardBox(r0).h } : r0;
       if (!r || !intersects(r, B, 0) || r.w * z < 36) continue;
       const w = r.w * 0.84,
         x0 = r.x + r.w * 0.08,

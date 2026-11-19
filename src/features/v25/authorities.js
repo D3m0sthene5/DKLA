@@ -1555,7 +1555,7 @@
       pad = m.pad * u;
     const attrs = e ? `data-map-jump="${esc(n.key)}"` : `data-map-region="${esc(n.key)}"`,
       clip = 'authority-clip-' + n.key.replace(/[^a-zA-Z0-9]/g, (c) => '_' + c.charCodeAt(0).toString(16));
-    let out = `<g class="authority-map-tile${e ? ' authority-map-provision' : ''}${card.cover ? ' authority-volume-cover' : ''}${chosen ? ' is-selected' : ''}" data-authority-collection="${esc(n.collection)}" data-authority-box="${card.x},${card.y},${card.w},${card.h}" ${attrs} role="${e ? 'button' : 'group'}"${e ? ' tabindex="0"' : ''} aria-label="${esc(e ? 'Read ' + entryName(e) : n.title)}"><title>${esc(e ? entryName(e) : n.title)}</title><rect class="authority-cover-bg" x="${card.x}" y="${card.y}" width="${card.w}" height="${card.h}" rx="${12 * u}" fill="${chosen ? s.paper : s.base}" stroke="${chosen ? '#eee0bf' : s.edge}" stroke-opacity=".85" stroke-width="${(chosen ? 2 : 1) / z}"/><path d="M${card.x + 7 * u} ${card.y + 15 * u}V${card.y + card.h - 15 * u}" stroke="${s.edge}" stroke-opacity=".6" stroke-width="${3 * u}" pointer-events="none"/><defs><clipPath id="${clip}"><rect x="${card.x + pad}" y="${card.y + 10 * u}" width="${card.w - pad * 2}" height="${card.h - 20 * u}"/></clipPath></defs><g clip-path="url(#${clip})">`;
+    let out = `<g class="authority-map-tile${e ? ' authority-map-provision' : ''}${card.cover ? ' authority-volume-cover' : ''}${chosen ? ' is-selected' : ''}" data-authority-collection="${esc(n.collection)}" data-authority-box="${card.x},${card.y},${card.w},${card.h}" style="--skin:${s.edge}" ${attrs} role="${e ? 'button' : 'group'}"${e ? ' tabindex="0"' : ''} aria-label="${esc(e ? 'Read ' + entryName(e) : n.title)}"><title>${esc(e ? entryName(e) : n.title)}</title><rect class="authority-cover-bg" x="${card.x}" y="${card.y}" width="${card.w}" height="${card.h}" rx="${12 * u}" fill="${chosen ? s.paper : s.base}" stroke="${chosen ? '#eee0bf' : s.edge}" stroke-opacity=".85" stroke-width="${(chosen ? 2 : 1) / z}"/><path d="M${card.x + 7 * u} ${card.y + 15 * u}V${card.y + card.h - 15 * u}" stroke="${s.edge}" stroke-opacity=".6" stroke-width="${3 * u}" pointer-events="none"/><defs><clipPath id="${clip}"><rect x="${card.x + pad}" y="${card.y + 10 * u}" width="${card.w - pad * 2}" height="${card.h - 20 * u}"/></clipPath></defs><g clip-path="url(#${clip})">`;
     if (!e)
       out += `<g class="authority-title-control" ${attrs} role="button" tabindex="0" aria-label="${esc('Explore ' + n.title)}">`;
     if (overview && card.w * z < 150 && !window.DKLAHomeFit?.fullLabels?.()) {
@@ -1569,11 +1569,19 @@
     } else if (card.cover && n.collection === 'constitution') {
       const markH = (m.flat ? 28 : m.compact ? 48 : 84) * u;
       out += people(card.x + pad, card.y + pad, card.w - pad * 2, markH, clip + '-people');
+      // v3.2: on Home the name under the mark is never set under 9.5 px (where the cover has the room)
+      const big = 9.5 / z,
+        roomy =
+          overview &&
+          big > m.small * u &&
+          widthOf('U.S. Constitution', big, 550, 'authority-document-label') <= card.w - pad * 2 &&
+          pad + markH + 8 * u + big * 1.3 <= card.h - pad * 0.5,
+        lfs = roomy ? big : m.small * u;
       out += text(
-        rows('U.S. Constitution', card.w / u - m.pad * 2, m.small, 550),
+        roomy ? ['U.S. Constitution'] : rows('U.S. Constitution', card.w / u - m.pad * 2, m.small, 550),
         card.x + pad,
-        card.y + pad + markH + (8 + m.small) * u,
-        m.small * u,
+        card.y + pad + markH + 8 * u + lfs,
+        lfs,
         s.ink,
         550,
         'authority-document-label',
@@ -1697,13 +1705,25 @@
   function dictionarySpine(g) {
     // The dictionary keeps its legacy region/id and routes. Only its painted
     // entrance moves: retain the existing map bounds, camera and course layout.
+    // v3.2: it is drawn as a row-like control (a glyph, its name, its count of terms as a readout), in
+    // the place and at the size the bar had.
     const u = g.unit * (g.spineBox?.scale || 1),
       x = g.spineBox ? g.spineBox.x : g.box.x + g.box.w * 0.48,
       y = g.box.y + 17 * u,
       w = g.spineBox ? g.spineBox.w : g.box.w * 0.52 - 26 * u,
       h = 53 * u,
-      r = 5 * u;
-    return `<g class="map-region dictionary-spine" role="button" tabindex="0" data-dictionary-spine aria-label="Open legal dictionary"><title>Open legal dictionary</title><defs><linearGradient id="dictionary-leather" x2="0" y2="1"><stop stop-color="#514b61"/><stop offset=".28" stop-color="#393546"/><stop offset=".78" stop-color="#302d3b"/><stop offset="1" stop-color="#252630"/></linearGradient></defs><path class="dictionary-spine-cover" data-map-region="dictionary-region" d="M${x + r} ${y}H${x + w - r}Q${x + w} ${y} ${x + w} ${y + r}V${y + h - r}Q${x + w} ${y + h} ${x + w - r} ${y + h}H${x + r}Q${x} ${y + h} ${x} ${y + h - r}V${y + r}Q${x} ${y} ${x + r} ${y}Z" fill="url(#dictionary-leather)" stroke="#a89ab8" stroke-opacity=".65" stroke-width="${0.8 / S.z}"/><path d="M${x + 10 * u} ${y + 5 * u}H${x + w - 10 * u}M${x + 10 * u} ${y + h - 5 * u}H${x + w - 10 * u}" stroke="#c9bca5" stroke-opacity=".35" stroke-width="${0.5 / S.z}" fill="none" pointer-events="none"/><path d="M${x + 27 * u} ${y + 7 * u}V${y + h - 7 * u}M${x + 34 * u} ${y + 7 * u}V${y + h - 7 * u}M${x + w - 34 * u} ${y + 7 * u}V${y + h - 7 * u}M${x + w - 27 * u} ${y + 7 * u}V${y + h - 7 * u}" stroke="#c3af87" stroke-opacity=".5" stroke-width="${0.7 / S.z}" pointer-events="none"/><text class="region-title dictionary-spine-title" data-map-region="dictionary-region" x="${x + w / 2}" y="${y + h * 0.65}" text-anchor="middle" font-size="${25 * u}" font-weight="500" fill="#ebe0c8" pointer-events="none">Legal dictionary</text></g>`;
+      r = Math.min(6 / S.z, h / 2),
+      gs = 24 * u,
+      fs = 25 * u,
+      label = 'Legal dictionary',
+      labelX = x + 16 * u + gs + 10 * u,
+      labelW = widthOf(label, fs, 500, 'authority-volume-title'),
+      terms = window.DKLA?.glossaryCount?.() || 0,
+      count = terms ? terms.toLocaleString('en-US') : '',
+      cfs = 21 * u,
+      // the count is drawn only where it stands clear of the name and is large enough to read
+      showCount = !!count && cfs * S.z >= 9 && labelX + labelW + cfs * 7.4 + 16 * u <= x + w;
+    return `<g class="map-region dictionary-spine v32-dictionary" role="button" tabindex="0" data-dictionary-spine aria-label="Open legal dictionary${count ? ': ' + count + ' terms' : ''}"><title>Open legal dictionary${count ? ' · ' + count + ' terms' : ''}</title><path class="dictionary-spine-cover" data-map-region="dictionary-region" d="M${x + r} ${y}H${x + w - r}Q${x + w} ${y} ${x + w} ${y + r}V${y + h - r}Q${x + w} ${y + h} ${x + w - r} ${y + h}H${x + r}Q${x} ${y + h} ${x} ${y + h - r}V${y + r}Q${x} ${y} ${x + r} ${y}Z" stroke-width="${1 / S.z}"/><g class="v32-glyph" transform="translate(${x + 16 * u} ${y + (h - gs) / 2}) scale(${gs / 16})"><path d="M8 4.4C6.8 3.5 5 3 2.5 3v9c2.5 0 4.3.5 5.5 1.4 1.2-.9 3-1.4 5.5-1.4V3C11 3 9.2 3.5 8 4.4ZM8 4.4v9"/></g><text class="region-title dictionary-spine-title" data-map-region="dictionary-region" x="${labelX}" y="${y + h / 2 + fs * 0.35}" font-size="${fs}" font-weight="500" pointer-events="none">${label}</text>${showCount ? `<text class="v32-count" x="${x + w - 16 * u}" y="${y + h / 2 + cfs * 0.36}" font-size="${cfs}" text-anchor="end" pointer-events="none"><tspan class="v32-num">${count}</tspan> terms</text>` : ''}</g>`;
   }
   function entrance() {
     if (active() || window.SCOTUSHistory?.state?.().open) return;
@@ -1716,7 +1736,11 @@
     const g = geometry(root, true),
       B = visibleBox();
     if (!intersects(g.box, B, 80)) return;
-    let out = `<g class="authority-map-entrance" data-map-region="${ROOT}" role="group" aria-label="Rules and authorities"><title>Constitution, federal rules, codes and Restatements</title>${frame(root, g, true)}<g class="authority-title-control" data-map-region="${ROOT}" role="button" tabindex="0" aria-label="Explore rules and authorities"><rect x="${(g.panels?.[0] || g.box).x + 26 * g.unit}" y="${g.box.y + 14 * g.unit}" width="${(g.panels?.[0] || g.box).w - 52 * g.unit}" height="${g.header - 24 * g.unit}" fill="transparent" pointer-events="all"/></g>`;
+    // v3.2: this block belongs to Home. It fades as a course takes over the view (r19/r20.js fadeOthers) and
+    // is not drawn at all once the course is alone, so it never shows under a course view's controls.
+    const fade = (typeof R18 !== 'undefined' && R18.courseFade) || 0;
+    if (fade >= 0.85) return;
+    let out = `<g class="authority-map-entrance" data-map-region="${ROOT}" role="group" aria-label="Rules and authorities"${fade > 0 ? ` opacity="${(1 - fade).toFixed(3)}"` : ''}><title>Constitution, federal rules, codes and Restatements</title>${frame(root, g, true)}<g class="authority-title-control" data-map-region="${ROOT}" role="button" tabindex="0" aria-label="Explore rules and authorities"><rect x="${(g.panels?.[0] || g.box).x + 26 * g.unit}" y="${g.box.y + 14 * g.unit}" width="${(g.panels?.[0] || g.box).w - 52 * g.unit}" height="${g.header - 24 * g.unit}" fill="transparent" pointer-events="all"/></g>`;
     for (const card of g.cards.values()) out += tile(card, true);
     out += dictionarySpine(g) + '</g>';
     // v3.2: turning this markup into elements was the largest single cost of a draw. While the markup is

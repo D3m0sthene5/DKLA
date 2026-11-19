@@ -186,47 +186,11 @@
    rules inside the map and lets them win over the earlier map layers wherever
    this file ends up in the cascade. */
 
-/* 1. Subject blocks: one border colour per course.
-   The renderer gives each block one of three shades and strokes it in that same
-   shade, so sibling borders ranged from crisp to nearly invisible ("Third
-   parties", "Mistake", "Battle of forms"). The fills keep their three shades;
-   the borders now all use the lightest shade the course already has.
-   Matching on the stroke attribute means a block the script recolours (for
-   example a selection) simply falls outside these rules. */
-#studyMain #geoCanvas .territory-hit[stroke='#834600'],
-#studyMain #geoCanvas .territory-hit[stroke='#9b5400'] {
-  stroke: #af6100;
-}
-#studyMain #geoCanvas .territory-hit[stroke='#1c548d'],
-#studyMain #geoCanvas .territory-hit[stroke='#2765a5'] {
-  stroke: #3a77b8;
-}
-#studyMain #geoCanvas .territory-hit[stroke='#135c30'],
-#studyMain #geoCanvas .territory-hit[stroke='#296d40'] {
-  stroke: #34814e;
-}
-
-/* 2. Sharper block edge. !important because the r16 layer pins this value
-   (.76) with !important. */
-#studyMain #geoCanvas .territory-hit {
-  stroke-opacity: 0.9 !important;
-  transition:
-    fill-opacity 140ms ease,
-    stroke-opacity 140ms ease;
-}
-
-/* 3. Block hover. The original hover rule has been dead since the r16 layer
-   pinned fill and stroke opacity with !important, so blocks gave no feedback
-   under the pointer. Hovering the block now lifts it slightly. (The label sits
-   in a separate layer and keeps its own existing hover: it turns white.) */
-#studyMain #geoCanvas .map-region:hover > .territory-hit {
-  fill-opacity: 0.58 !important;
-  stroke-opacity: 1 !important;
-}
+/* 1 to 3 styled the old subject blocks (.territory-hit). v3.2 draws tiles and panels of its own
+   (src/features/v32/cards.css), so those rules are gone. */
 
 /* 4. Keyboard focus, in the atlas's warm gold. Done with the stroke because an
    SVG shape does not draw a CSS outline here. */
-#studyMain #geoCanvas .territory-hit:focus-visible,
 #studyMain #geoCanvas .r19-tile:focus-visible > rect,
 #studyMain #geoCanvas .sh-hit:focus-visible > rect {
   stroke: #d6b78e;
@@ -270,7 +234,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #studyMain #geoCanvas .territory-hit,
   #studyMain #geoCanvas .r19-tile > rect,
   #studyMain #geoCanvas .sh-hit > rect {
     transition: none;
@@ -287,67 +250,8 @@
    The existing hover states (panel border .85; card border 1 + brightness) are
    left alone: every rule here stays below them in specificity or excludes :hover. */
 
-/* Subtopic panels: the frame hairline was drawn at 15% and vanished against the
-   subject fill, so panels read as borderless slabs. Lift it to a real hairline,
-   and lift the current subtopic (drawn at 38%) by the same step so it still
-   stands out from its siblings. */
-#geoCanvas .map-district > .district-hit[stroke-opacity='0.15'] {
-  stroke-opacity: 0.3;
-}
-#geoCanvas .map-district > .district-hit[stroke-opacity='0.38'] {
-  stroke-opacity: 0.6;
-}
-
-/* Subtopic headings: same size and weight as the entry titles beneath them, so the
-   hierarchy was carried by colour alone. Restore the 600 the markup asks for
-   (an earlier layer flattened every map label to 500). Matched by the
-   data-map-district hook so course and subject titles are not affected; the
-   "+ N more" rows share the hook but are weight 400 and stay as they are.
-   Desktop only: on a phone the headings already run to the panel edge and the
-   wider weight would touch the border. */
-@media (min-width: 861px) {
-  #geoCanvas text.map-label[data-map-district][font-weight='600'] {
-    font-weight: 600;
-  }
-}
-
-/* "Zoom in to read them.": #6f879e was the lowest-contrast text on the map.
-   Use the atlas muted tone. */
-#geoCanvas text.map-label[fill='#6f879e'] {
-  fill: #8fa3b3;
-}
-
-/* Entry cards. Secondary cards ("Notes and questions") had a 25% border that
-   disappeared; bring it close to the 40% of their siblings. */
-#geoCanvas .node-card:not(:hover) > rect[stroke-opacity='0.25'] {
-  stroke-opacity: 0.36;
-}
-
-/* Case accent bar: square ends looked clipped beside the 7px card radius. */
-#geoCanvas .node-card > path[opacity='.8'] {
-  stroke-linecap: round;
-  opacity: 0.95;
-}
-
-/* The entry whose title is highlighted (current entry, reader closed) only changed
-   text colour; give its border matching emphasis. Selected cards (#eed6b4 border)
-   keep their own. */
-#geoCanvas .node-card:not(:hover):has(> text[fill='#f7e7cb']) > rect:not([stroke='#eed6b4']) {
-  stroke-opacity: 0.8;
-}
-
-/* Keyboard focus: the atlas gold ring, drawn on the shape itself so it follows the
-   rounded corners (a CSS outline does not paint on the card group, and on the
-   panel it comes out as a square hairline). 2 screen px at every zoom, the same
-   weight the map uses for a selected card. */
-#geoCanvas g.node-card:focus-visible > rect[rx],
-#geoCanvas .map-district > rect.district-hit:focus-visible {
-  stroke: #d6b78e;
-  stroke-opacity: 1;
-  stroke-width: 2px;
-  vector-effect: non-scaling-stroke;
-  outline: none;
-}
+/* The rules for the old subtopic panels and entry cards (.district-hit, .node-card) went with them in
+   v3.2: a subject's groups and rows are styled in src/features/v32/cards.css. */
 
 /* ==========================================================================
    AREA: reader-top

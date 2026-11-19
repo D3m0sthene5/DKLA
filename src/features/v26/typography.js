@@ -219,6 +219,12 @@
     // layer above the block, outside its click target, so a click on a figure
     // opens the article instead of SCOTUS History.
     const layer = el(canvas, 'g', { class: 'dkla-court-links' });
+    // v3.2: the figures fade with the building as a course takes over the view (r19/r20.js fadeOthers)
+    const fade = (typeof R18 !== 'undefined' && R18.courseFade) || 0;
+    if (fade > 0) {
+      layer.style.opacity = String(1 - fade);
+      if (fade > 0.97) layer.style.pointerEvents = 'none';
+    }
     function sculpt(pose, cx, base, size, mirror, cls) {
       const [name, article] = SUBJECTS[pose + (mirror ? '-right' : '')] || SUBJECTS[pose];
       const site = article.startsWith('https://') ? 'supremecourt.gov' : 'Wikipedia';

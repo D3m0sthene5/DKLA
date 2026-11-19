@@ -750,10 +750,11 @@ async function caseScenario(S) {
   const card = await mapPoint(
     page,
     () =>
-      [...document.querySelectorAll('#geoCanvas .node-card')].find(
+      // v3.2: an entry on the map is a row (.v32-row); .node-card was the card it replaced
+      [...document.querySelectorAll('#geoCanvas .v32-row[data-map-node], #geoCanvas .node-card')].find(
         (c) =>
           (c.dataset.mapNode || c.closest('[data-map-node]')?.dataset.mapNode) === 'adequacy-consideration',
-      ) || document.querySelector('#geoCanvas .node-card'),
+      ) || document.querySelector('#geoCanvas .v32-row[data-map-node], #geoCanvas .node-card'),
   );
   const open = { mutations: '#inspector', after: 4000 };
   await interact(S, 'case: open from the map (click a card)', {
