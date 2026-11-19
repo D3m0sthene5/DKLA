@@ -385,7 +385,8 @@ const breakages = [
   [
     'The frame: the command field is no longer centred on the window',
     'src/features/v32/chrome.css',
-    () => edit('src/features/v32/chrome.css', '    minmax(var(--v32c-side), 1fr);', '    auto;'),
+    () =>
+      edit('src/features/v32/chrome.css', '    minmax(var(--v32c-side), 1fr);', '    minmax(100px, 1fr);'),
   ],
   [
     'The frame: a path too long for its room is clipped by the browser instead of folded',
