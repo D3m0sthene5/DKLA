@@ -16,24 +16,44 @@ compiler never fills a missing narrative with a reordered brief.
 
 ## Reading
 
-The v3.2 reader (19 November 2026) opens on a setup: the case's drawing, the composed caption and
-citation, the two-sentence `lead`, the cast (`actors`) and how the case reached this court
-(`proceedings`). Each episode then leads with its `cue`, the question a professor would open with; the
-account ends with what the case does not decide (`limits`), the sources and the ways out. Full brief
-opens the original source in a nested view. (The v2.5 reader had stopped showing `lead`, `actors` and
-`proceedings`; they are shown again as the setup, once, before the first episode.)
+The v3.2 reader (19 November 2026) has two ways through an account and one switch at its foot.
 
-There are two ways through an account and one switch at the foot of the reader. Read shows every
-episode open, each question above its title; reopening an account in the same session returns to where
-the reading stopped. Rehearse shows one question at a time with the narration covered until it is
-asked for (Space, Enter or the labelled button). The choice is remembered in the browser under
-`dkla.coldCallMode.v1`. Which one a first visit gets is `DEFAULT_MODE` in
-`src/features/cold-call/reader.js` (Read, until the owner decides).
+Read is the default and opens into the story: one click lands on the first episode, each episode under
+its own title, with the definition links and plain-English markers in the narration. The setup (the
+case's drawing, the composed caption and citation, the two-sentence `lead`, the cast from `actors` and
+how the case reached this court from `proceedings`) is the top of the same page, one scroll back and
+named at the head of the episode list. The question a professor would open with (`cue`) is a small note
+in the margin where there is room. The account ends with what the case does not decide (`limits`), the
+sources and the ways out; Full brief is at the foot throughout and opens the original source in a nested
+view. A case left mid-read is resumed at the same place next time (browser key
+`dkla.coldCallResume.v1`, cleared when the case is finished). Which way Read opens is `READ_OPENS_AT` in
+`src/features/cold-call/reader.js`; which mode a first visit gets is `DEFAULT_MODE`.
 
-Rehearsal keeps no score and stores nothing about the reader's answers. The practice-aloud controls and
-episode ratings removed at the owner's request have not come back, and the reader still never reads or
-writes the old `dkla.coldCall.v1` storage key. Existing rule recall, saved edits, the graph and map
-camera are preserved.
+Rehearse shows one prompt at a time with the narration not shown until it is asked for (the button under
+the prompt, Space or Enter). The choice is remembered under `dkla.coldCallMode.v1`. Rehearsal keeps no
+score and stores nothing about the reader's answers. The practice-aloud controls and episode ratings
+removed at the owner's request have not come back, and the reader still never reads or writes the old
+`dkla.coldCall.v1` storage key. Existing rule recall, saved edits, the graph and map camera are preserved.
+
+## Direct answers (rehearsal)
+
+`answers.json` holds, for an episode whose cue is a question, the sentences of that episode's own
+paragraphs that answer it: whole sentences, word for word, in the order they should be said, the first
+one answering the question by itself where one sentence can. When the narration is revealed in a
+rehearsal these come first, then the episode as it is told. An episode with no entry shows its narration
+as before. Nothing is written for the page by hand:
+
+```sh
+node tools/cold-call/answers.mjs                  # check every entry against its episode
+node tools/cold-call/answers.mjs --write          # write src/features/v32/coldcall-answers.js
+node tools/cold-call/answers.mjs --todo work.jsonl   # the questions without an answer, sentences numbered
+node tools/cold-call/answers.mjs --fill work.jsonl --by "who, when"   # store picks made by sentence number
+```
+
+The check refuses an entry whose case or episode does not exist, whose stored question is no longer the
+episode's (the narrative was revised: choose again), whose cue is not a question, or any sentence that is
+not found whole in the episode. `answers.json` is a pinned content file: after a reviewed change run
+`python tools/verify/content.py --update`.
 
 ## Definitions (hover links)
 
