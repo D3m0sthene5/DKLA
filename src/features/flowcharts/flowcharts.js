@@ -853,10 +853,19 @@
   }
 
   const nth = (n) => n + (n % 100 > 10 && n % 100 < 14 ? 'th' : ['th', 'st', 'nd', 'rd'][n % 10] || 'th');
-  // The first sentence of an outcome's explanation. It is shown under an answer only where the
-  // answer ends the chart there: an outcome's account says when it applies, which helps choose
-  // between the answers; a further step's account says what comes after choosing, which does not.
-  const opening = (text) => String(text || '').split(/(?<=[.!?])\s+(?=[A-Z“"(])/)[0];
+  /* Under an answer in the walkthrough: the opening sentence of the stored explanation of the step
+     the answer leads to, when it states something (a fact, a holding, a condition) that can help
+     choose between the answers. When it opens with an instruction (what to do after choosing), it
+     is not shown here: it belongs at that step, where it is read in full. Nothing is composed; a
+     fork whose answers have no such sentence shows none, and tools/flowcharts/deciding-gaps.mjs
+     (the same rule) lists those forks for the owner's content audit. */
+  const INSTRUCTION =
+    /^(?:Identify|Apply|Check|Use|Consider|Read|Compare|Specify|Assess|Confirm|Test|Ask|Define|Examine|Give|Distinguish|Look|Tie|Enforce|Address|Evaluate|Measure|Explain|Determine|Award|Rely|Select|Require|Separate|Follow|Establish|Leave|Tailor|Complete|Return|Try|Weigh|Allow|Show|Verify|Cite|Treat|Start|Begin|Find|Decide|Classify|Note|Keep|Stop|Proceed|Raise|Move|File|Plead|Calculate|Limit|Reject|Deny|Grant|Dismiss|Analyze|Describe|List|Locate|Match|Name|Preserve|Resolve|Review|Seek|Sort|Trace|Turn|Then|(?:State|Record|Order|Place) (?:the|each|which|whether|what|why|how|any|every|a|an)) /;
+  const opening = (text) => String(text || '').split(/(?<=[.!?])\s+(?=[A-Z“"(§])/)[0];
+  const deciding = (to) => {
+    const first = opening(to.detail);
+    return first && !INSTRUCTION.test(first) ? first : '';
+  };
   function sourcesHTML(node) {
     // v3.1: each source says what kind of entry it is (case, rule, concept).
     const KIND = { Case: 'Case', Rule: 'Rule', Concept: 'Concept', Statute: 'Statute', Note: 'Note' };
@@ -1020,7 +1029,7 @@
                 const next = byId.get(edge.to);
                 const own = active.from && next.sources.includes(active.from);
                 return `<li><button type="button" data-flowchart-branch="${esc(edge.to)}" data-fc-branch-index="${index}"${own ? ' class="fc-own"' : ''}>
-          <span>${esc(edge.label)}</span><span class="fc-destination">→ ${nodeType(next) || 'Step'} ${next.number} · ${esc(next.label)}</span>${next.edges.length ? '' : `<span class="fc-leads">${esc(opening(next.detail))}</span>`}
+          <span>${esc(edge.label)}</span><span class="fc-destination">→ ${nodeType(next) || 'Step'} ${next.number} · ${esc(next.label)}</span>${deciding(next) ? `<span class="fc-leads">${esc(deciding(next))}</span>` : ''}
         </button></li>`;
               })
               .join('')}</ol>`

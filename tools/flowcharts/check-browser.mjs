@@ -214,7 +214,8 @@ async function trip(page, hash, tap) {
     await expect.poll(place, { message: `${hash}, ${view}: back from a source` }).toEqual(left);
     // The app's own Back (the arrow in the top bar, where there is one) does the same.
     if (!tap) {
-      await act(source);
+      // (Pressed where it stands: a pointer click would first scroll it to a place of its own choosing.)
+      await source.evaluate((link) => link.click());
       await expect(dialog).toBeHidden();
       await expect(page.locator('#studyBack')).toHaveAttribute('title', /Back to the flowchart/);
       await page.locator('#studyBack').click();
@@ -240,6 +241,37 @@ async function trip(page, hash, tap) {
     'One route to chart step 19',
     'Your path from chart step 19: 1 decision so far',
   ]);
+}
+
+/* Under an answer in the walkthrough: the opening sentence stored for where it leads, when that
+   sentence states something; an instruction is not shown. (The same rule as
+   tools/flowcharts/deciding-gaps.mjs, which lists the forks left with nothing.) */
+async function decidingSentences(page) {
+  const dialog = courseDialog(page);
+  const { deciding } = await import('./deciding-gaps.mjs');
+  const chart = JSON.parse(
+    await page.evaluate(() => document.getElementById('dklaFlowchartsData').textContent),
+  ).find((one) => one.id === 'LRS-15');
+  const byId = new Map(chart.nodes.map((node) => [node.id, node]));
+  for (const step of ['order', 'balance', 'interest']) {
+    await page.goto(routeFor('#flowchart=LRS-15&step=' + step));
+    await dialog.locator('[data-flowcharts-view="walkthrough"]').click();
+    const expected = byId.get(step).edges.map((edge) => deciding(byId.get(edge.to)));
+    const shown = await dialog
+      .locator('#flowchartDetail .fc-choices > li')
+      .evaluateAll((items) => items.map((item) => item.querySelector('.fc-leads')?.textContent || ''));
+    assert.deepEqual(shown, expected, `LRS-15 ${step}: the sentences under the answers`);
+  }
+  // The model case: one answer has a stated example, the instruction-only answers have nothing.
+  assert.deepEqual(
+    byId.get('order').edges.map((edge) => deciding(byId.get(edge.to))),
+    [
+      '',
+      'Marathon Oil read an opportunity for public hearing on individualized discharge permits to entail formal adjudication.',
+      '',
+      'The federal APA supplies no general state-agency process.',
+    ],
+  );
 }
 
 /* A drawing on the map, on the step being shown or on any other: pressed, it shows a card with its
@@ -481,6 +513,7 @@ try {
   await trip(page, '#flowchart=LRS-15&step=order', false);
   await drawings(page, false);
   await fitted(page, false);
+  await decidingSentences(page);
   assert.deepEqual(desktop.errors, []);
   await desktop.context.close();
 
