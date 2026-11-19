@@ -189,7 +189,7 @@
     if (!adopt() && tries < 100) setTimeout(() => adoptSoon(tries + 1), 100);
   })(0);
 
-  // The way back and the breadcrumb live in the bar; in a window under 1000 px wide, where the bar
+  // The way back and the breadcrumb live in the bar; in a window under 1024 px wide, where the bar
   // has no room for a path, they stay on the map, where they were. The same element either way, so
   // everything that writes the trail or asks where it is (the map's label engine, the Home fit)
   // needs no change.
@@ -197,7 +197,7 @@
     main = $('studyMain'),
     canvas = $('geoCanvas'),
     trail = $('geoBreadcrumb');
-  const roomy = matchMedia('(min-width: 1000px)');
+  const roomy = matchMedia('(min-width: 1024px)');
   function placeNav() {
     if (!nav) return;
     if (roomy.matches) {
@@ -733,13 +733,19 @@
   // "115 flowcharts · 975 steps": the number with what it counts; nothing while the number is not known.
   const counting = (n, [one, many]) =>
     Number.isFinite(n) && n > 0 ? `${count(n)} ${n === 1 ? one : many}` : '';
-  function metaOf(row) {
-    if (row.meta) return row.meta();
-    if (!row.count) return '';
+  const metaParts = (row) => {
+    if (row.meta) return [row.meta()];
+    if (!row.count) return [];
     const first = counting(row.count(), row.unit);
     const second = first && row.more ? counting(row.more.count(), row.more.unit) : '';
-    return [first, second].filter(Boolean).join(' · ');
-  }
+    return [first, second].filter(Boolean);
+  };
+  const metaOf = (row) => metaParts(row).join(' · ');
+  // The second count is its own element: a narrow Library drops it before it cuts a row's name.
+  const metaHTML = (row) => {
+    const [first = '', second] = metaParts(row);
+    return E(first) + (second ? `<span class="v32-row-more"> · ${E(second)}</span>` : '');
+  };
   function rowHTML(row, role) {
     const attrs = typeof row.attrs === 'function' ? row.attrs() : row.attrs;
     return (
@@ -747,7 +753,7 @@
       glyph(row.glyph) +
       `<span class="v32-row-label">${E(row.label)}</span>` +
       `<span class="v32-row-note">${E(row.note || '')}</span>` +
-      `<span class="v32-row-meta">${E(metaOf(row))}</span></button>`
+      `<span class="v32-row-meta">${metaHTML(row)}</span></button>`
     );
   }
   const groupHTML = ([name, list]) =>
@@ -773,8 +779,7 @@
       const row = EVERY.find((r) => r.id === el.dataset.v32Row);
       const meta = el.querySelector('.v32-row-meta');
       if (!row?.count || !meta) continue;
-      const text = metaOf(row);
-      if (meta.textContent !== text) meta.textContent = text;
+      if (meta.textContent !== metaOf(row)) meta.innerHTML = metaHTML(row);
     }
   }
   document.addEventListener('dkla:data', () => setTimeout(recount, 120));

@@ -8,7 +8,7 @@
    3. The Library (the menu, as a dialog).
    4. The map's own controls: zoom, the hint, the save readout, on the 24 px gutter.
    5. Windows 850 px wide or less (phones): search is a panel.
-   6. Windows under 1000 px wide: the breadcrumb sits on the map.
+   6. Windows under 1024 px wide: the breadcrumb sits on the map.
 
    src/features/v32/chrome.js builds the groups and puts `v32-chrome` on <html>; every rule here
    starts from it, so these rules outrank the older layers they replace. Where one of those layers
@@ -994,13 +994,39 @@ dialog.v32-shell {
   font: var(--v31-label);
   font-weight: 400;
 }
+/* One column in a narrow window. A row's name is never cut: the line of explanation steps out
+   where a count is shown, a second count ("· 975 steps") steps out, and in the narrowest windows
+   the counts do. */
 @media (max-width: 700px) {
+  dialog.v32-shell {
+    width: calc(100vw - var(--v32-s4));
+    max-height: calc(100dvh - var(--v32-s4));
+  }
+  .v32-shell-head {
+    padding: var(--v32-s3) var(--v32-s2) 0 var(--v32-s4);
+  }
   .v32-library {
     grid-template-columns: minmax(0, 1fr);
     row-gap: var(--v32-s4);
+    padding: var(--v32-s2) var(--v32-s4) var(--v32-s4);
+  }
+  .v32-library .v32-row-label {
+    flex: none;
+  }
+  .v32-library .v32-row:has(.v32-row-meta:not(:empty)) .v32-row-note,
+  .v32-library .v32-row-more {
+    display: none;
   }
   .v32-lib-foot {
     flex-wrap: wrap;
+  }
+  .v32-lib-name {
+    display: none;
+  }
+}
+@media (max-width: 340px) {
+  .v32-library .v32-row-meta {
+    display: none;
   }
 }
 
@@ -1248,13 +1274,59 @@ html.v32-chrome.v32-save-note.v32-hint-off #saveStatus {
   html.v32-chrome #searchResults .ask-search {
     min-height: var(--v32-s7);
   }
+  /* A result is two lines here (the title; under it where the entry sits, or the passage that
+     matched): one line cannot hold both in a window this narrow. The kind word stays on the
+     title's line. */
+  html.v32-chrome #searchResults button:not(.v32-row, .ask-search) {
+    display: grid;
+    grid-template-columns: 16px minmax(0, 1fr);
+    align-content: center;
+    gap: 0 var(--v32-s3);
+    min-height: 56px;
+    /* the second line runs the row's whole width; the title keeps clear of the kind word */
+    padding: var(--v32-s2) var(--v32-s3);
+  }
+  html.v32-chrome #searchResults button:not(.v32-row, .ask-search)::before {
+    grid-area: 1 / 1;
+    align-self: center;
+  }
+  html.v32-chrome #searchResults button > strong {
+    grid-area: 1 / 2;
+    max-width: none;
+    margin-right: 80px;
+  }
+  html.v32-chrome #searchResults button > small:not(:has(> .search-sub)),
+  html.v32-chrome #searchResults .search-sub,
+  html.v32-chrome #searchResults .search-why {
+    grid-area: 2 / 2;
+  }
+  html.v32-chrome #searchResults .search-why:empty {
+    margin-left: 0;
+  }
+  html.v32-chrome #searchResults .search-type {
+    top: var(--v32-s2);
+    bottom: auto;
+    height: 20px;
+  }
+  /* (A row with no second line: its kind word is centred with its title.) */
+  html.v32-chrome #searchResults button:has(.search-sub-same):not(:has(.search-why > *)) .search-type {
+    top: 0;
+    bottom: 0;
+    height: auto;
+  }
+  /* Ask Dottie's row is her name alone, and there are no keys to list for a finger. */
+  html.v32-chrome #searchResults .ask-search small,
+  html.v32-chrome #searchResults .v32-keys {
+    display: none;
+  }
 }
 
-/* ---------- 6. windows under 1000 px wide: the path sits on the map ---------- */
+/* ---------- 6. windows under 1024 px wide: the path sits on the map ---------- */
 /* The bar has no room for a path there (chrome.js moves the way back and the breadcrumb onto the
    map's top left corner): the same quiet text on one panel fill, on the 24 px gutter, never wider
-   than the map that shows beside a reader. Not on Home, as in the bar. */
-@media (max-width: 999px) {
+   than the map that shows beside a reader. Not on Home, as in the bar. (1024 px is also where the
+   reader widens to leave only a strip of map: tokens.css.) */
+@media (max-width: 1023px) {
   html.v32-chrome #studyMain > .map-nav {
     top: var(--v32-s3);
     left: var(--v32-s5);
