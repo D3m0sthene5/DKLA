@@ -539,5 +539,14 @@
         }
     }, 3300);
   })();
-  window.DKLATimelines = { open, apply, linksFor, list: () => TL.list.slice(), rev: TL.rev };
+  // `parts`: the words and tests this file draws timelines with, for a view that draws them another way
+  // (src/features/v32/doctrine-b.js).
+  window.DKLATimelines = {
+    open,
+    apply,
+    linksFor,
+    list: () => TL.list.slice(),
+    rev: TL.rev,
+    parts: { TURN, MEANS, FAMILY, label, name, live, family, source, reviewSources },
+  };
 })();

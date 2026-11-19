@@ -134,6 +134,8 @@
     ['r19-brief', 'brief', 8],
     ['dkla-terms', 'brief', 9],
     // Doctrine: where the entry sits. Its timelines, the flowchart steps that cite it, its connections.
+    // The doctrinal history as a plate (src/features/v32/doctrine-b.js), when that composition is on.
+    ['v32db', 'doctrine', -0.75],
     ['v32-intro', 'doctrine', -0.5],
     ['v28-case-timelines', 'doctrine', 0],
     ['dkla-timeline', 'doctrine', 0],

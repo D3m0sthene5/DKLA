@@ -1063,7 +1063,7 @@
   });
   // A link to one facet of an entry: #node=citoh&facet=timeline.
   function route() {
-    const found = decodeURIComponent(location.hash || '').match(/^#node=([^&]+)&facet=([a-z]+)$/);
+    const found = decodeURIComponent(location.hash || '').match(/^#node=([^&]+)&facet=([a-z]+)(?:&.*)?$/);
     if (!found) return;
     try {
       if (!nodesById.has(found[1])) return;
