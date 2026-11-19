@@ -1311,13 +1311,14 @@
   font: var(--v31-ui);
   font-weight: 400;
   line-height: 24px;
-  text-wrap: pretty;
+  text-wrap: balance;
   color: var(--v31-muted);
 }
 #inspector .v32 .v32-entry-here {
   margin-top: 4px;
   font: var(--v32-ui-small);
   line-height: 24px;
+  text-wrap: balance;
   color: var(--v31-text);
 }
 
@@ -2022,7 +2023,11 @@
 #inspector :is(.v32, .v32-plain) :is(h2, h3, h4, .v32-label, .dkla-icon-caption, .v32-sit-q) {
   text-wrap: balance;
 }
-#inspector :is(.v32, .v32-plain) :is(p, li, dd, .v32-sit-text) {
+/* (Two rules: inside :is() the class would lend its weight to the bare p, li and dd.) */
+#inspector :is(.v32, .v32-plain) :is(p, li, dd) {
+  text-wrap: pretty;
+}
+#inspector .v32 .v32-sit-text {
   text-wrap: pretty;
 }
 #inspector :is(.v32, .v32-plain) .v32-count {

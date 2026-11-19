@@ -844,7 +844,7 @@ await calm.page.evaluate(() => (location.hash = 'node=citoh'));
 await calm.page.waitForFunction(() => !document.getElementById('inspector').hidden);
 assert.deepEqual(await moving(calm.page, '#inspector'), []);
 // Reduced motion: a facet opens at once, with no fade.
-await calm.page.locator('#inspector .v32-tabs [data-v32-tab="timeline"]').click();
+await calm.page.locator('#inspector .v32-tabs [data-v32-tab="doctrine"]').click();
 assert.deepEqual(
   await calm.page.evaluate(() =>
     document

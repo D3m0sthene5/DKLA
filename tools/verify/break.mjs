@@ -388,6 +388,32 @@ const breakages = [
       ),
   ],
   [
+    "v3.2 reader: the year is drawn in a case's name again (it belongs to the citation line)",
+    'src/features/v25/reading.js',
+    () =>
+      edit(
+        'src/features/v25/reading.js',
+        'if (year) out.push(hidden(year));',
+        "if (year) out.push(element('span', '', year));",
+      ),
+  ],
+  [
+    'v3.2 reader: the sheet no longer says where the case sits (no column beside the brief)',
+    'src/features/v32/case.js',
+    () =>
+      edit(
+        'src/features/v32/case.js',
+        '? [sitTimeline(host), sitChart(host), sitLinks(host)].filter(Boolean)',
+        '? []',
+      ),
+  ],
+  [
+    'v3.2 reader: a canon is a bare name again (what it does is not said)',
+    'src/features/canons/canons.js',
+    () =>
+      edit('src/features/canons/canons.js', '<div class="v32-entry-does">${esc(entry.definition)}</div>', ''),
+  ],
+  [
     'Calm: the splash line pulses its size, so the page is laid out on every frame',
     'src/features/splash/splash.css',
     () => edit('src/features/splash/splash.css', 'transform: scale(1.06);', 'font-size: 17px;'),
