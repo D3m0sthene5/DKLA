@@ -614,9 +614,11 @@ html.v32-chrome .study-header .study-search .search-results {
   scrollbar-color: var(--v32-hair-strong) transparent;
   scroll-padding: var(--v32-s7) 0;
 }
-/* Section labels: label text, never capitals. A count sits beside it in mono. */
+/* Section labels: label text, never capitals. A count sits beside it in mono. The map names its rows
+   with the same class on SVG text, sized by the painter for the zoom: this rule is for the frame's own
+   labels and leaves those alone (it set every row's name on an open subject at 12 map units, 6.75 px). */
 html.v32-chrome #searchResults .search-label,
-.v32-label {
+.v32-label:where(:not(text)) {
   display: flex;
   align-items: baseline;
   gap: var(--v32-s2);
