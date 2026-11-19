@@ -111,7 +111,7 @@ reach; the episode's own title, the case illustration, a way back in words and t
   the margin question, resume across sessions, Rehearse, the next Cold Call at the end, the collection.
 - **Checks**: `tools/v32/check-coldcall.mjs` ("Cold Call rehearsal"), `tools/cold-call/answers.mjs`
   ("Cold Call direct answers"), `tools/v32/caption.test.mjs` ("case captions composed"),
-  `tools/cold-call/check_reader.cjs`; nineteen breakages in `tools/verify/break.mjs`.
+  `tools/cold-call/check_reader.cjs`; eighteen breakages in `tools/verify/break.mjs`.
 - **For the owner's PC**: the `cold-call` picture changes; run `pnpm views:update` after looking at
   `work/views/`.
 - **Known and not done**: the remaining direct answers; a two-part question is rarely answered by one
