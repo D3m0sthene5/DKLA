@@ -8,6 +8,9 @@ retrieved 2026-11-11. Upstream project: https://github.com/JetBrains/JetBrainsMo
 
 - `jetbrains-mono-latin-700-normal.woff2`
   SHA-256 d0d4e818808f2a0ba39b2b09d1989366f63494e295f003c7ef436697378507e8
+- `jetbrains-mono-latin-500-normal.woff2` (Medium, added 2026-11-19 from the same package and version for
+  readouts across the app: counts, citations, the instrument cluster)
+  SHA-256 cb182feeed4d798ff6961d3c79f7026279448fca0676438aaecb21f3fc39553a
 - `OFL.txt`: the package's LICENSE file, the complete SIL Open Font License 1.1
   (SHA-256 403581b69dac5cff4079205e01c6b467e56af449ecbd7247693ddb1baafa005b).
 
