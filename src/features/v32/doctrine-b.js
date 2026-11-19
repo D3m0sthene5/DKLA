@@ -1,8 +1,7 @@
-/* The Doctrine view of a case, composition B: a plate and an account (a comparison prototype).
+/* The Doctrine view of a case: a plate and an account.
  *
- * On when localStorage 'dkla.v32.doctrine' is 'b' or the address carries doctrine=b. With it on, a case's
- * Doctrine tab takes the whole width of the reader (the map strip and the margin give way; the case's
- * header becomes one line in the top strip) and opens with the doctrinal history itself:
+ * A case's Doctrine tab takes the whole width of the reader (the map strip and the margin give way; the
+ * case's header becomes one line in the top strip) and opens with the doctrinal history itself:
  *
  *   - the plate: one drawing of the timeline, time left to right on a true scale. A long empty stretch
  *     is a marked break. A rule that a later entry overrules or replaces by name is drawn as a span from
@@ -26,18 +25,6 @@
   const inspector = document.getElementById('inspector');
   const P = window.DKLATimelines?.parts;
   if (!inspector || !P) return;
-
-  /* ---------- the switch ---------- */
-  let inAddress = false;
-  function flagged() {
-    if (/(?:^|[#&?])doctrine=b(?:&|$)/.test(location.hash)) inAddress = true;
-    if (inAddress) return true;
-    try {
-      return localStorage.getItem('dkla.v32.doctrine') === 'b';
-    } catch {
-      return false;
-    }
-  }
 
   /* ---------- small tools ---------- */
   const esc = (text) =>
@@ -1077,8 +1064,7 @@
   function draw() {
     const body = host();
     const id = current();
-    const on =
-      flagged() && !inspector.hidden && !!body && !!id && window.DKLAReader?.current?.() === 'doctrine';
+    const on = !inspector.hidden && !!body && !!id && window.DKLAReader?.current?.() === 'doctrine';
     const lines = on
       ? window.DKLATimelines.list().filter(
           (t) => t.steps.some((s) => s.id === id) && t.steps.filter(P.live).length > 1,
@@ -1090,7 +1076,7 @@
       document.body.classList.toggle('v32db-on', active);
     if (!active) {
       masthead(null);
-      if (!flagged() || !body) root = null;
+      if (!body) root = null;
       body?.querySelector(':scope > .v32db')?.remove();
       return;
     }
