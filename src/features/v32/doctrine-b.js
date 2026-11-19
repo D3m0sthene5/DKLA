@@ -775,7 +775,7 @@
           ${nameHTML(item, 'h3', 'v32db-sel-name', true)}
           <p class="v32db-sel-fx">${esc(item.s.effect || '')}</p>
           <p class="v32db-sel-note">${esc(item.s.note || '')}</p>
-          ${item.s.fate ? `<p class="v32db-later"><b>Later development</b> ${esc(item.s.fate)}</p>` : ''}
+          ${item.s.fate ? `<p class="v32db-later"><b>Later development</b>${esc(item.s.fate)}</p>` : ''}
         </div>
       </article>
       <div class="v32db-nears" data-v32db-n="${near.length}">${near.map(([other, relation]) => nearHTML(other, relation)).join('')}</div>`;
@@ -806,7 +806,7 @@
           <p class="v32db-unit-fx">${esc(s.effect || '')}</p>
           <p class="v32db-unit-note">${esc(s.note || '')}</p>
           ${s.context ? `<p class="v32db-unit-context">${esc(s.context)}</p>` : ''}
-          ${s.fate ? `<p class="v32db-later"><b>Later development</b> ${esc(s.fate)}</p>` : ''}
+          ${s.fate ? `<p class="v32db-later"><b>Later development</b>${esc(s.fate)}</p>` : ''}
           ${sources ? `<p class="v32db-unit-sources">${sources}</p>` : ''}
         </div>
         <div class="v32db-unit-art">${art(item.artId, 'v32db-art-md')}</div>
@@ -872,7 +872,7 @@
       <section class="v32db-all" aria-label="Every entry, in order">
         <header class="v32db-all-head">
           <h3>Every entry, in order</h3>
-          ${t.guide ? `<p class="v32db-guide"><b>How these entries connect</b> ${esc(t.guide)}</p>` : ''}
+          ${t.guide ? `<p class="v32db-guide"><b>How these entries connect</b>${esc(t.guide)}</p>` : ''}
         </header>
         <ol class="v32db-list">${model.items.map((item) => unitHTML(item, model)).join('')}</ol>
         ${t.now ? `<section class="v32db-now"><h3>${esc(t.summaryLabel || 'Main takeaway')}</h3><p>${esc(t.now)}</p>${P.reviewSources(t) ? `<p class="v32db-unit-sources">${P.reviewSources(t)}</p>` : ''}</section>` : ''}

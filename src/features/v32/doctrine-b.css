@@ -866,6 +866,7 @@ html:root body #inspector .v32db-unit:last-child > .v32db-unit-mark::before {
 }
 html:root body #inspector .v32db-unit-mark > .v32db-glyph {
   position: absolute;
+  z-index: 1;
   left: 14px;
   top: 15px;
   transform: translate(-50%, -50%);
@@ -876,42 +877,30 @@ html:root body #inspector .v32db-unit-mark > .v32db-glyph {
 html:root body #inspector .v32db-in-span > .v32db-unit-mark::after {
   content: '';
   position: absolute;
-  left: 34px;
+  left: 27px;
   top: 0;
   bottom: -40px;
-  width: 10px;
+  width: 8px;
   border-left: 2px solid var(--v32db-span);
-  background: color-mix(in srgb, var(--v32db-span) 16%, var(--v31-panel));
+  background: color-mix(in srgb, var(--v32db-span) 18%, var(--v31-panel));
 }
+/* It begins level with the entry that set the rule and ends level with the entry that ended it. */
 html:root body #inspector .v32db-span-a > .v32db-unit-mark::after {
-  top: 14px;
-  left: 14px;
-  width: 30px;
+  top: 15px;
   border-top: 2px solid var(--v32db-span);
-  border-left: 0;
-  background:
-    linear-gradient(var(--v31-panel) 0 0) 0 0 / 20px 100% no-repeat,
-    color-mix(in srgb, var(--v32db-span) 16%, var(--v31-panel));
-  background-origin: content-box;
 }
 html:root body #inspector .v32db-span-b > .v32db-unit-mark::after {
   bottom: auto;
   height: 14px;
-  left: 14px;
-  width: 30px;
-  border-left: 0;
   border-bottom: 3px solid var(--v31-text);
-  background:
-    linear-gradient(var(--v31-panel) 0 0) 0 0 / 20px 100% no-repeat,
-    color-mix(in srgb, var(--v32db-span) 16%, var(--v31-panel));
 }
 html:root body #inspector .v32db-span-b.v32db-is-here > .v32db-unit-mark::after {
   border-bottom-color: var(--v31-here);
 }
 html:root body #inspector .v32db-hung > .v32db-unit-mark > .v32db-glyph {
-  left: 39px;
-  background: none;
-  box-shadow: none;
+  left: 32px;
+  background: var(--v31-panel);
+  box-shadow: 0 0 0 3px var(--v31-panel);
 }
 html:root body #inspector .v32db-unit.v32db-is-here .v32db-unit-mark > .v32db-glyph {
   color: var(--v31-here);
