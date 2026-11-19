@@ -214,45 +214,53 @@ async function route(page, hash) {
           await shot(page, viewport.name + '-region');
         });
         await check(viewport.name + ': zoomed subject rows stay on their cards', async () => {
-          // From the course view to the card view: every entry row sits inside its card, and no visible line
-          // is drawn too small to read (owner, 12 November 2026: text ran "through and through" the tiles).
+          // From the course view to close in: every row's text sits inside its row, and no visible line is
+          // drawn too small to read (owner, 12 November 2026: text ran "through and through" the tiles).
+          // v3.2: rows are drawn by the map itself (.v32-row); below 9 px a simpler picture is drawn instead.
           const bad = [];
+          let rowsSeen = 0;
           for (const z of [0.12, 0.18, 0.25, 0.32, 0.4, 0.6]) {
             await page.evaluate((zoom) => {
               const r = mapData().regions.find((x) => x.id === 'offer-region');
-              setCamera(r.x + r.w / 2, r.y + r.h / 2, zoom, false);
+              setCamera(r.x + r.w / 2, r.y + Math.min(r.h, r.panelH || r.h) / 2, zoom, false);
             }, z);
             await page.waitForTimeout(500);
-            bad.push(
-              ...(await page.evaluate((zoom) => {
-                const out = [];
-                for (const t of document.querySelectorAll('#geoCanvas text[data-map-jump]')) {
-                  const card = t.previousElementSibling,
-                    rect = card && card.classList.contains('r20-mini') && card.querySelector('rect');
-                  if (!rect || getComputedStyle(t).visibility === 'hidden' || +t.style.opacity === 0)
-                    continue;
-                  const tb = t.getBoundingClientRect(),
-                    cb = rect.getBoundingClientRect();
-                  if (tb.right > cb.right + 1 || tb.left < cb.left - 1)
-                    out.push(zoom + ' ' + t.textContent.trim().slice(0, 40) + ' runs off its card');
+            const found = await page.evaluate((zoom) => {
+              const out = [];
+              let rows = 0;
+              for (const g of document.querySelectorAll('#geoCanvas .v32-row')) {
+                const cb = g.querySelector('.v32-row-bg').getBoundingClientRect();
+                rows++;
+                for (const t of g.querySelectorAll('text')) {
+                  const tb = t.getBoundingClientRect();
+                  if (
+                    tb.right > cb.right + 1 ||
+                    tb.left < cb.left - 1 ||
+                    tb.top < cb.top - 2 ||
+                    tb.bottom > cb.bottom + 2
+                  )
+                    out.push(zoom + ' ' + t.textContent.trim().slice(0, 40) + ' runs off its row');
                 }
-                for (const e of document.querySelectorAll('#geoCanvas text, #geoCanvas tspan')) {
-                  if (e.tagName === 'text' && e.children.length) continue;
-                  const cs = getComputedStyle(e),
-                    r = e.getBoundingClientRect();
-                  if (cs.visibility === 'hidden' || !e.textContent.trim() || r.width < 5) continue;
-                  if (r.bottom < 80 || r.top > innerHeight || r.right < 0 || r.left > innerWidth) continue;
-                  let o = 1;
-                  for (let n = e; n && n.id !== 'geoCanvas'; n = n.parentElement)
-                    o *= +getComputedStyle(n).opacity;
-                  if (o >= 0.3 && parseFloat(cs.fontSize) * S.z < 7)
-                    out.push(zoom + ' ' + e.textContent.trim().slice(0, 40) + ' is too small to read');
-                }
-                return out;
-              }, z)),
-            );
+              }
+              for (const e of document.querySelectorAll('#geoCanvas text, #geoCanvas tspan')) {
+                if (e.tagName === 'text' && e.children.length) continue;
+                const cs = getComputedStyle(e),
+                  r = e.getBoundingClientRect();
+                if (cs.visibility === 'hidden' || !e.textContent.trim() || r.width < 5) continue;
+                if (r.bottom < 80 || r.top > innerHeight || r.right < 0 || r.left > innerWidth) continue;
+                let o = 1;
+                for (let n = e; n && n.id !== 'geoCanvas'; n = n.parentElement)
+                  o *= +getComputedStyle(n).opacity;
+                if (o >= 0.3 && parseFloat(cs.fontSize) * S.z < 9)
+                  out.push(zoom + ' ' + e.textContent.trim().slice(0, 40) + ' is too small to read');
+              }
+              return { out, rows };
+            }, z);
+            bad.push(...found.out);
+            rowsSeen += found.rows;
           }
           assert.deepEqual(bad.slice(0, 8), []);
+          assert.ok(rowsSeen > 20, 'An open subject draws its entries as rows');
           await page.evaluate(() => home('Atlas', false, false));
           await page.waitForTimeout(500);
         });

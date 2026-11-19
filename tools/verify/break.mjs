@@ -1308,6 +1308,46 @@ const breakages = [
       ),
   ],
   [
+    'rows on a subject get an outline of their own again (a box inside the panel)',
+    'src/features/v32/cards.css',
+    () =>
+      edit(
+        'src/features/v32/cards.css',
+        '#geoCanvas .v32-row-bg {\n  fill: #fff;',
+        '#geoCanvas .v32-row-bg {\n  stroke: #ee9138;\n  stroke-width: 1px;\n  fill: #fff;',
+      ),
+  ],
+  [
+    'the entry that is open is no longer marked on the map',
+    'src/runtime/studyCode.js',
+    () =>
+      edit(
+        'src/runtime/studyCode.js',
+        "${chosen ? ' is-here' : ''}${isActive && !chosen",
+        '${isActive && !chosen',
+      ),
+  ],
+  [
+    'a group of a subject is laid out with taller rows than the rest',
+    'src/features/v25/geography.js',
+    () =>
+      edit(
+        'src/features/v25/geography.js',
+        'main.forEach(([, h], i) => Object.assign(h, cell(i)));',
+        "main.forEach(([, h], i) => Object.assign(h, cell(i), side === 'R' ? { h: CARD.row * 1.5 } : null));",
+      ),
+  ],
+  [
+    'the course view offers its list of sessions twice, over a tile',
+    'src/features/v32/cards.css',
+    () =>
+      edit(
+        'src/features/v32/cards.css',
+        '#studyMain:has(#dklaSessions:not([hidden]))',
+        '#studyMain:has(#noSuchStrip)',
+      ),
+  ],
+  [
     'Lazy data blocks are no longer verified before use',
     'src/features/performance/data-loader.js',
     () =>

@@ -169,12 +169,27 @@
         short = ((typeof SHORT_NAMES !== 'undefined' && SHORT_NAMES[t.id]) || '').replace(/­/g, '');
       return short && short !== full ? [full, short] : [full];
     };
+    // v3.2: on a course view (tiles from 150 px wide) each subject of the course also says what is inside
+    // it, its cases and rules as a readout under its name; its name is fitted in the room that leaves.
+    const cfs = 10.5 / z,
+      part = (n, one) => (n ? n + ' ' + one + (n === 1 ? '' : 's') : '');
+    for (const t of tiles) {
+      t.line = '';
+      if (t.pw < 150 || !t.r.step || regionCourse(t.r) !== S.scope || typeof cardCounts !== 'function')
+        continue;
+      const c = cardCounts('r:' + t.id),
+        line =
+          [part(c.cases, 'case'), part(c.rules, 'rule')].filter(Boolean).join(' · ') ||
+          part(c.concepts, 'concept');
+      if (line && t.ph >= 44 && textWidth(line, cfs, 700, V32_MONO) <= t.r.w - 16 / z) t.line = line;
+    }
     const fit = (t, px) => {
       const fs = px / z,
-        maxW = (t.pw - (t.pw < 70 ? 6 : 14)) / z,
-        maxLines = Math.max(1, Math.min(3, Math.floor((t.ph - 8) / (px * 1.22))));
+        // v3.2: a tile from 70 to 90 px wide keeps 4 px a side (it kept 7, which set the longest names at 8.5 px)
+        maxW = (t.pw - (t.pw < 70 ? 6 : t.pw < 90 ? 8 : 14)) / z,
+        maxLines = Math.max(1, Math.min(3, Math.floor((t.ph - 8 - (t.line ? 20 : 0)) / (px * 1.22))));
       for (const name of names(t)) {
-        const rows = wrapPlain(name, maxW, fs, 600);
+        const rows = wrapPlain(name, maxW, fs, 500); // v3.2: names are drawn at 500, so they are measured at 500
         if (rows && rows.length <= maxLines) return rows;
       }
       return null;
@@ -193,28 +208,27 @@
         rows = fit(t, size);
       }
       if (!rows) continue;
+      t.rows = rows;
+      t.size = size;
+    }
+    const shown = tiles.filter((t) => t.rows);
+    for (const t of shown) {
+      const rows = t.rows,
+        fs = t.size / z,
+        lh = fs * 1.22,
+        counted = !!t.line,
+        up = counted ? 9 / z : 0,
+        cx = t.r.x + t.r.w / 2,
+        y0 = t.r.y + t.r.h / 2 - ((rows.length - 1) * lh) / 2 + fs * 0.35 - up;
       for (const old of svg.querySelectorAll('text.region-title[data-map-region="' + t.id + '"]'))
         old.remove();
       for (const badge of t.g.querySelectorAll(':scope > g')) badge.remove();
-      const fs = size / z,
-        lh = fs * 1.22,
-        cx = t.r.x + t.r.w / 2,
-        y0 = t.r.y + t.r.h / 2 - ((rows.length - 1) * lh) / 2 + fs * 0.35;
-      // v3.2: on a course view (tiles from 150 px wide) a tile also says what is inside it, when there is room
-      const tally = t.pw >= 150 && typeof cardCounts === 'function' ? cardCounts('r:' + t.id) : null,
-        line = tally ? countText(tally) : '',
-        cfs = 10.5 / z,
-        withCount =
-          !!line &&
-          rows.length * size * 1.22 + 26 <= t.ph - 12 &&
-          textWidth(line, cfs, 700, V32_MONO) <= t.r.w - 16 / z,
-        up = withCount ? 9 / z : 0;
       parts.push(
-        `<text class="map-label region-title r20-tile" x="${cx}" y="${y0 - up}" font-size="${fs}" font-weight="600" fill="#f7f5f0" text-anchor="middle" opacity="${t.g.getAttribute('opacity') || 1}" data-map-region="${esc(t.id)}" role="button" tabindex="0" style="cursor:pointer">${rows.map((row, i) => `<tspan x="${cx}" dy="${i ? lh : 0}">${esc(row)}</tspan>`).join('')}</text>`,
+        `<text class="map-label region-title r20-tile" x="${cx}" y="${y0}" font-size="${fs}" font-weight="600" fill="#f7f5f0" text-anchor="middle" opacity="${t.g.getAttribute('opacity') || 1}" data-map-region="${esc(t.id)}" role="button" tabindex="0" style="cursor:pointer">${rows.map((row, i) => `<tspan x="${cx}" dy="${i ? lh : 0}">${esc(row)}</tspan>`).join('')}</text>`,
       );
-      if (withCount)
+      if (counted)
         parts.push(
-          `<text class="v32-mono v32-faint" x="${cx}" y="${y0 - up + (rows.length - 1) * lh + 19 / z}" font-size="${cfs}" text-anchor="middle" opacity="${t.g.getAttribute('opacity') || 1}">${esc(line)}</text>`,
+          `<text class="v32-mono v32-faint" x="${cx}" y="${y0 + (rows.length - 1) * lh + 19 / z}" font-size="${cfs}" text-anchor="middle" opacity="${t.g.getAttribute('opacity') || 1}">${esc(t.line)}</text>`,
         );
     }
     if (parts.length) svg.insertAdjacentHTML('beforeend', parts.join(''));

@@ -235,10 +235,6 @@ button.text-button {
 #geoCanvas.panning {
   cursor: grabbing;
 }
-#geoCanvas .territory-hit,
-#geoCanvas .district-hit {
-  cursor: pointer;
-}
 #geoCanvas [data-map-node] {
   cursor: grab;
 }
@@ -254,17 +250,6 @@ button.text-button {
 }
 #geoCanvas .region-title {
   font-family: Georgia, 'Times New Roman', serif;
-}
-#geoCanvas .map-region:hover > path:first-child,
-#geoCanvas .map-district:hover > rect:first-child {
-  stroke-opacity: 0.85;
-}
-#geoCanvas .node-card:hover > rect {
-  stroke-opacity: 1;
-  filter: brightness(1.1);
-}
-#geoCanvas .node-card {
-  transition: opacity 130ms;
 }
 .map-nav {
   position: absolute;

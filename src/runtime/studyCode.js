@@ -1866,9 +1866,9 @@ function fadeOuts() {
      rows under 16.5 px             each group's name and its counts
      rows from 16.5 px              the rows: a glyph for the kind of entry, its name, its year or section
      rows from 54 px                the name on one line and the entry's summary under it
-   Sizes are screen px at the zoom where a subject fills a 1440 px window (V32.z0); they follow the zoom
+   Sizes are screen px at the zoom a subject opens at in a 1440 px window (V32.z0); they follow the zoom
    between the limits given, and a line that does not fit ends in an ellipsis and carries a title. */
-const V32 = { z0: 1420 / 2400, tileMin: 200 };
+const V32 = { z0: 1350 / 2400, tileMin: 200 };
 const V32_CARD = {
   padX: 40,
   inset: 14,
@@ -1877,7 +1877,7 @@ const V32_CARD = {
   head: 44,
   question: 30,
   headGap: 14,
-  row: 62,
+  row: 64,
   cellGap: 14,
 };
 // The same numbers the layout used (geography.js loads after this file; the copy above only covers the first draws).
@@ -1896,7 +1896,7 @@ const V32_GLYPHS = {
   // a balance: a case with no pictogram of its own
   case: '<path d="M8 2.5v11M5 13.5h6M3 5.5h10M3 5.5 1.6 9.2a1.9 1.9 0 0 0 2.8 0ZM13 5.5l-1.4 3.7a1.9 1.9 0 0 0 2.8 0Z"/>',
   // a section sign: a rule or a section of a statute
-  rule: '<path d="M10.6 4.7C10.6 3.4 9.5 2.5 8 2.5S5.4 3.4 5.4 4.7C5.4 7.2 10.6 7.6 10.6 10.1c0 1-.7 1.7-1.6 2M5.4 11.3c0 1.3 1.1 2.2 2.6 2.2s2.6-.9 2.6-2.2C10.6 8.8 5.4 8.4 5.4 5.9c0-1 .7-1.7 1.6-2"/>',
+  rule: '<path d="M10.4 4.5C10.2 3.3 9.3 2.6 8 2.6c-1.4 0-2.4.8-2.4 2 0 .9.6 1.5 1.6 2l2.4 1.3c.9.5 1.3 1.1 1.3 1.8 0 .8-.5 1.4-1.3 1.7M5.6 11.5c.2 1.2 1.1 1.9 2.4 1.9 1.4 0 2.4-.8 2.4-2 0-.9-.6-1.5-1.6-2L6.4 8.1C5.5 7.6 5.1 7 5.1 6.3c0-.8.5-1.4 1.3-1.7"/>',
   // an open book: a Restatement or code provision
   code: '<path d="M8 4.4C6.8 3.5 5 3 2.5 3v9c2.5 0 4.3.5 5.5 1.4 1.2-.9 3-1.4 5.5-1.4V3C11 3 9.2 3.5 8 4.4ZM8 4.4v9"/>',
   // a point with its orbit: a concept
@@ -1960,6 +1960,8 @@ function rowFact(n) {
       inTitle = n.title.match(/\(((?:[^()]*[\s,])?((?:1[5-9]|20)\d\d))\)\s*$/);
     meta = String(rowYears.get(n.id) || inName?.[1] || inTitle?.[2] || '');
     if (inName && inName[1] === meta) label = name.slice(0, inName.index);
+    // "(Chenery I, 1943)": the year is the readout, so the name keeps "(Chenery I)"
+    else if (meta && name.endsWith(', ' + meta + ')')) label = name.slice(0, -meta.length - 3) + ')';
   } else if (kind === 'rule' || kind === 'code') {
     // "Restatement § 71 — exchange requirement": the citation is the readout and the rest is the name
     const m = name.match(
@@ -2396,6 +2398,7 @@ function draw() {
       readout: px(12, 9.5, 12.5),
       head: px(19, 11.5, 20),
       question: px(13, 10.5, 14),
+      summary: px(12.5, 11, 13),
       label: px(13, 11, 15.5),
       meta: px(11, 9.5, 12),
       glyph: px(16, 11, 20),
@@ -2404,7 +2407,7 @@ function draw() {
       rows: rowPx >= 16.5,
       focusRows: rowPx >= 13.5,
       twoLines: rowPx >= 31 && rowPx < 54,
-      summary: rowPx >= 54,
+      summaryOn: rowPx >= 54,
       meta1: rowPx >= 22,
       groups: C.top * z >= 26,
       showQuestion: C.question * z >= 12,
@@ -2472,7 +2475,7 @@ function draw() {
         continue;
       }
       const yT = r.y + 92,
-        rb = px(11, 7.5, 12),
+        rb = px(11, 8.5, 12),
         hasStep = !!r.step,
         tx = hasStep ? x0 + rb * 2 + px(10, 6, 11) : x0,
         readoutW = readout ? textWidth(readout, K.readout, 700, V32_MONO) : 0,
@@ -2484,7 +2487,7 @@ function draw() {
         ask = r.routeLabel && sc >= 0.6 ? fitText(r.routeLabel, askRoom, K.ask, 400, 1) : null;
       if (hasStep)
         parts.push(
-          `<circle class="v32-step" cx="${x0 + rb}" cy="${yT - K.title * 0.33}" r="${rb}" fill="${acc}"/><text class="v32-step-n" x="${x0 + rb}" y="${yT - K.title * 0.33 + rb * 0.4}" font-size="${rb * 1.12}" text-anchor="middle">${r.step}</text>`,
+          `<circle class="v32-step" cx="${x0 + rb}" cy="${yT - K.title * 0.33}" r="${rb}" fill="${acc}"/><text class="v32-step-n" x="${x0 + rb}" y="${yT - K.title * 0.33 + rb * 0.4}" font-size="${Math.max(rb * 1.12, 9.5 / z)}" text-anchor="middle">${r.step}</text>`,
         );
       parts.push(
         `<text class="v32-title" x="${tx}" y="${yT}" font-size="${K.title}">${E(titleFit.rows[0] || '')}</text>`,
@@ -2517,7 +2520,7 @@ function draw() {
         );
         if (here)
           g.push(
-            `<rect class="v32-here" x="${d.x + 3 / z}" y="${hy - K.head * 0.78}" width="${3 / z}" height="${K.head * 0.94}" rx="${1.5 / z}"/>`,
+            `<rect class="v32-here" x="${hx - 9 / z}" y="${hy - K.head * 0.78}" width="${3 / z}" height="${K.head * 0.94}" rx="${1.5 / z}"/>`,
           );
         g.push(
           `<text class="v32-head" x="${hx}" y="${hy}" font-size="${K.head}">${E(name.rows[0] || '')}</text>`,
@@ -2559,20 +2562,26 @@ function draw() {
             isActive = active.has(n.id),
             quiet = selected && active.size && !isActive,
             metaW = f.meta && K.meta1 ? textWidth(f.meta, K.meta, 700, V32_MONO) : 0,
-            showMeta = metaW > 0 && c.w - labelX - C.inset - metaW - K.glyph >= c.w * 0.42,
-            room = c.w - labelX - C.inset - (showMeta ? metaW + K.glyph * 0.75 : 0),
+            full = c.w - labelX - C.inset,
+            withMeta = full - metaW - K.glyph * 0.75,
+            // on one line the name comes first: the readout is dropped where it would cut the name short
+            showMeta =
+              metaW > 0 &&
+              withMeta >= c.w * 0.42 &&
+              (K.twoLines || K.summaryOn || textWidth(f.label, K.label, 500) <= withMeta),
+            room = showMeta ? withMeta : full,
             lab = fitText(f.label, room, K.label, 500, K.twoLines ? 2 : 1),
             sum =
-              K.summary && n.summary
-                ? fitText(n.summary, c.w - labelX - C.inset, K.question, 400, rowPx >= 60 ? 2 : 1)
+              K.summaryOn && n.summary
+                ? fitText(n.summary, c.w - labelX - C.inset, K.summary, 400, rowPx >= 60 ? 2 : 1)
                 : null,
-            lh = K.label * 1.2,
-            block = sum ? lh + sum.rows.length * K.question * 1.28 : lab.rows.length * lh,
+            lh = K.label * 1.14,
+            block = sum ? lh + sum.rows.length * K.summary * 1.3 : lab.rows.length * lh,
             y1 = c.y + (c.h - block) / 2 + K.label * 0.92,
             gy = sum ? y1 - K.label * 0.92 + (lh - K.glyph) / 2 : c.y + (c.h - K.glyph) / 2;
           visible.add(n.id);
           rows.push(
-            `<g class="v32-row${chosen ? ' is-here' : ''}${isActive && !chosen ? ' is-linked' : ''}"${quiet ? ' opacity=".38"' : ''} data-map-node="${E(n.id)}" data-kind="${f.kind}" role="button" tabindex="0"${chosen ? ' aria-current="true"' : ''} aria-label="${E(n.title)}. ${E(roleLabel(n))}."><title>${E(n.title)}${n.summary ? ' — ' + E(n.summary) : ''}</title><rect class="v32-row-bg" x="${c.x}" y="${c.y + K.hair}" width="${c.w}" height="${c.h - K.hair * 2}" rx="${K.rowRadius}"/>${chosen ? `<rect class="v32-here" x="${c.x + 3 / z}" y="${c.y + c.h * 0.25}" width="${3 / z}" height="${c.h * 0.5}" rx="${1.5 / z}"/>` : ''}${rowGlyph(n, f.kind, c.x + gx, gy, K.glyph, K.summary)}<text class="v32-label" x="${c.x + labelX}" y="${y1}" font-size="${K.label}">${(sum ? lab.rows.slice(0, 1) : lab.rows).map((row, i) => `<tspan x="${c.x + labelX}" dy="${i ? lh : 0}">${E(row)}</tspan>`).join('')}</text>${sum ? `<text class="v32-muted" x="${c.x + labelX}" y="${y1 + lh * 0.98}" font-size="${K.question}">${sum.rows.map((row, i) => `<tspan x="${c.x + labelX}" dy="${i ? K.question * 1.28 : 0}">${E(row)}</tspan>`).join('')}</text>` : ''}${showMeta ? `<text class="v32-mono v32-faint" x="${c.x + c.w - C.inset}" y="${sum ? y1 : c.y + c.h / 2 + K.meta * 0.36}" font-size="${K.meta}" text-anchor="end">${E(f.meta)}</text>` : ''}</g>`,
+            `<g class="v32-row${chosen ? ' is-here' : ''}${isActive && !chosen ? ' is-linked' : ''}"${quiet ? ' opacity=".5"' : ''} data-map-node="${E(n.id)}" data-kind="${f.kind}" role="button" tabindex="0"${chosen ? ' aria-current="true"' : ''} aria-label="${E(n.title)}. ${E(roleLabel(n))}."><title>${E(n.title)}${n.summary ? ' — ' + E(n.summary) : ''}</title><rect class="v32-row-bg" x="${c.x}" y="${c.y + K.hair}" width="${c.w}" height="${c.h - K.hair * 2}" rx="${K.rowRadius}"/>${chosen ? `<rect class="v32-here" x="${c.x + 1 / z}" y="${c.y + c.h * 0.22}" width="${2.5 / z}" height="${c.h * 0.56}" rx="${1.25 / z}"/>` : ''}${rowGlyph(n, f.kind, c.x + gx, gy, K.glyph, K.summaryOn)}<text class="v32-label" x="${c.x + labelX}" y="${y1}" font-size="${K.label}">${(sum ? lab.rows.slice(0, 1) : lab.rows).map((row, i) => `<tspan x="${c.x + labelX}" dy="${i ? lh : 0}">${E(row)}</tspan>`).join('')}</text>${sum ? `<text class="v32-muted" x="${c.x + labelX}" y="${y1 + lh * 1.02}" font-size="${K.summary}">${sum.rows.map((row, i) => `<tspan x="${c.x + labelX}" dy="${i ? K.summary * 1.3 : 0}">${E(row)}</tspan>`).join('')}</text>` : ''}${showMeta ? `<text class="v32-mono v32-faint" x="${c.x + c.w - C.inset}" y="${sum ? y1 : c.y + c.h / 2 + K.meta * 0.36}" font-size="${K.meta}" text-anchor="end">${E(f.meta)}</text>` : ''}</g>`,
           );
         }
         const nc = members.notes.length ? homeFor(members.notes[0].id) : null;
@@ -2588,7 +2597,7 @@ function draw() {
               1,
             );
           rows.push(
-            `<g class="v32-row v32-notes${hereNote ? ' is-here' : ''}" data-map-district="${E(d.id)}" data-map-notes="1" role="button" tabindex="0"${hereNote ? ' aria-current="true"' : ''} aria-label="Notes and questions in ${E(d.title)}: ${count}"><title>Open the ${count} ${members.notes.length === 1 ? 'note or question' : 'notes and questions'} filed under ${E(d.title)}</title><rect class="v32-row-bg" x="${nc.x}" y="${nc.y + K.hair}" width="${nc.w}" height="${nc.h - K.hair * 2}" rx="${K.rowRadius}"/>${hereNote ? `<rect class="v32-here" x="${nc.x + 3 / z}" y="${nc.y + nc.h * 0.25}" width="${3 / z}" height="${nc.h * 0.5}" rx="${1.5 / z}"/>` : ''}<g class="v32-glyph" transform="translate(${nc.x + gx} ${nc.y + (nc.h - K.glyph) / 2}) scale(${K.glyph / 16})">${V32_GLYPHS.note}</g><text class="v32-label v32-quiet" x="${nc.x + labelX}" y="${nc.y + nc.h / 2 + K.label * 0.35}" font-size="${K.label}">${E(lab.rows[0] || '')}</text><text class="v32-mono v32-faint" x="${nc.x + nc.w - C.inset}" y="${nc.y + nc.h / 2 + K.meta * 0.36}" font-size="${K.meta}" text-anchor="end">${count}</text></g>`,
+            `<g class="v32-row v32-notes${hereNote ? ' is-here' : ''}" data-map-district="${E(d.id)}" data-map-notes="1" role="button" tabindex="0"${hereNote ? ' aria-current="true"' : ''} aria-label="Notes and questions in ${E(d.title)}: ${count}"><title>Open the ${count} ${members.notes.length === 1 ? 'note or question' : 'notes and questions'} filed under ${E(d.title)}</title><rect class="v32-row-bg" x="${nc.x}" y="${nc.y + K.hair}" width="${nc.w}" height="${nc.h - K.hair * 2}" rx="${K.rowRadius}"/>${hereNote ? `<rect class="v32-here" x="${nc.x + 1 / z}" y="${nc.y + nc.h * 0.22}" width="${2.5 / z}" height="${nc.h * 0.56}" rx="${1.25 / z}"/>` : ''}<g class="v32-glyph" transform="translate(${nc.x + gx} ${nc.y + (nc.h - K.glyph) / 2}) scale(${K.glyph / 16})">${V32_GLYPHS.note}</g><text class="v32-label v32-quiet" x="${nc.x + labelX}" y="${nc.y + nc.h / 2 + K.label * 0.35}" font-size="${K.label}">${E(lab.rows[0] || '')}</text><text class="v32-mono v32-faint" x="${nc.x + nc.w - C.inset}" y="${nc.y + nc.h / 2 + K.meta * 0.36}" font-size="${K.meta}" text-anchor="end">${count}</text></g>`,
           );
         }
         if (rows.length) {

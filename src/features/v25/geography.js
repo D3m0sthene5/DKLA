@@ -21,8 +21,8 @@
      columns of rows of one height; a group's notes and questions share one last row. Subjects keep
      their place and size on the map (Home is drawn from those), and each gets `panelH`, the height
      its contents need, which is what is drawn and framed once a subject is open.
-     Sizes are map units. A subject is 2400 wide and fills a 1440 px window at 0.59 px a unit, so
-     62 units is a 36 px row there (docs/DESIGN.md rule 7). */
+     Sizes are map units. A subject is 2400 wide and, opened in a 1440 px window, is drawn at 0.5625 px
+     a unit, so 64 units is a 36 px row there (docs/DESIGN.md rule 7). */
   const CARD = {
     padX: 40, // subject edge to a row's edge (the label starts `inset` further in)
     inset: 14, // a row's edge to its glyph: headings share that left edge
@@ -33,7 +33,7 @@
     head: 44, // a group's name
     question: 30, // its question, when it has one worth showing
     headGap: 14,
-    row: 62,
+    row: 64,
     cellGap: 14,
   };
   const plainQuestion = (d) => {
