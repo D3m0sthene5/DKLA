@@ -769,7 +769,42 @@ await page.evaluate(() => {
 });
 await page.locator('#fileDialog[open] .file-loading.calm-wait').waitFor({ timeout: 5000 });
 await page.evaluate(() => document.getElementById('fileDialog').close());
-report.push('a Loading line waits 150 ms, then is a skeleton');
+// The atlas toast is never a skeleton. While Study is open it rides inside that dialog; a toast that
+// says "Loading…" there stays plain text, takes no clicks, goes back to the page with the dialog and
+// hides itself (marked as a skeleton it once stayed on screen for good and blocked what was under it).
+await page.click('#moreBtn');
+await page.locator('#moreMenu [data-r18-open="drill"]').click();
+await page.locator('#r18Dialog[open]').waitFor();
+await page.evaluate(() => toast('Loading the casebook pages…'));
+await sleep(400);
+const riding = await page.evaluate(() => {
+  const el = document.getElementById('toast'),
+    style = getComputedStyle(el);
+  return {
+    inside: el.closest('dialog')?.id,
+    skeleton: el.classList.contains('calm-wait'),
+    pointer: style.pointerEvents,
+    shown: style.display !== 'none' && style.fontSize !== '0px',
+  };
+});
+assert.deepEqual(
+  riding,
+  { inside: 'r18Dialog', skeleton: false, pointer: 'none', shown: true },
+  'the toast in Study',
+);
+await page.evaluate(() => document.getElementById('r18Dialog').close());
+// (it goes back on the dialog's close event, a moment after close())
+await page.waitForFunction(() => document.getElementById('toast').parentNode === document.body, null, {
+  timeout: 5000,
+});
+await page.waitForFunction(
+  () => getComputedStyle(document.getElementById('toast')).display === 'none',
+  null,
+  {
+    timeout: 8000,
+  },
+);
+report.push('a Loading line waits 150 ms, then is a skeleton; the toast is left alone and hides itself');
 
 assert.deepEqual(errors, []);
 await context.close();

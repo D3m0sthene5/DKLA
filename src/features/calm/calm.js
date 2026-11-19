@@ -162,10 +162,17 @@
   }
 
   // ----- "Loading…" lines become skeletons -----
+  // Never the atlas toast (#toast): it is a short notice that hides itself, and while Study is open it
+  // rides inside that dialog (dklaR18Study.js), where it would otherwise be taken for a loading line.
+  // Marked as a skeleton it stayed on screen for good and took clicks meant for what was under it.
   const WAITING = /^\s*Loading\b/;
   function waitLines(scope) {
     for (const line of scope.querySelectorAll('[role="status"]')) {
-      const waiting = WAITING.test(line.textContent) && !line.children.length;
+      const waiting =
+        WAITING.test(line.textContent) &&
+        !line.children.length &&
+        line.id !== 'toast' &&
+        !line.hasAttribute('aria-live');
       if (waiting !== line.classList.contains('calm-wait')) line.classList.toggle('calm-wait', waiting);
     }
   }

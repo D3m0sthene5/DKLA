@@ -287,8 +287,8 @@ html {
 /* calm.js puts `calm-wait` on a status line that says "Loading…". Its words stay for screen
    readers; what shows is three grey bars where the text will be, and only if the wait lasts
    longer than 150 ms, so a fast load shows no flash. */
-.calm-wait {
-  display: block !important;
+:is(dialog, #inspector) .calm-wait:not(#toast) {
+  display: block;
   /* its own width: with no text drawn it would shrink to nothing where its parent fits its contents */
   width: 520px;
   max-width: 100%;
@@ -318,6 +318,12 @@ html {
   }
 }
 
+/* A toast is a notice, never a control: it takes no clicks, so it cannot cover the thing a visitor
+   is reaching for. */
+#toast {
+  pointer-events: none;
+}
+
 /* ---------- reduced motion: no ambient motion, no arriving or leaving ---------- */
 @media (prefers-reduced-motion: reduce) {
   dialog,
@@ -329,7 +335,7 @@ html {
     transition: none !important;
   }
   /* The skeleton still waits its 150 ms, in one step. */
-  .calm-wait {
+  :is(dialog, #inspector) .calm-wait:not(#toast) {
     animation: calm-wait 1ms step-end 150ms both !important;
   }
 }

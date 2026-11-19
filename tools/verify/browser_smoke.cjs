@@ -263,6 +263,12 @@ async function route(page, hash) {
           await shot(page, viewport.name + '-case');
           await page.locator('#inspector [data-cold-call="cp-pennoyer"]').click();
           await page.locator('#coldCallDialog[open]').waitFor();
+          // The narratives are a data block the hosted page may still be fetching (four pages load at
+          // once here): the dialog then opens on a loading line and fills in when the block arrives.
+          await page
+            .locator('#ccNarrative .cc-section > p:not(.cc-kicker)')
+            .first()
+            .waitFor({ timeout: 60_000 });
           const paragraphs = await page.locator('#ccNarrative .cc-section > p:not(.cc-kicker)').count();
           assert.ok(paragraphs > 5);
           await shot(page, viewport.name + '-cold-call');

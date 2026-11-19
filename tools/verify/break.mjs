@@ -429,6 +429,16 @@ const breakages = [
       edit('src/features/calm/calm.js', 'const WAITING = /^\\s*Loading\\b/;', 'const WAITING = /^never$/;'),
   ],
   [
+    'Calm: a toast that says Loading inside Study is turned into a skeleton and stays on screen',
+    'src/features/calm/calm.js',
+    () =>
+      edit(
+        'src/features/calm/calm.js',
+        "        line.id !== 'toast' &&\n        !line.hasAttribute('aria-live');",
+        '        true;',
+      ),
+  ],
+  [
     'Calm: reduced motion still fades the scrim behind a dialog',
     'src/features/calm/calm.css',
     () =>
