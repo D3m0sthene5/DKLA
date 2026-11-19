@@ -299,7 +299,9 @@ const palette = (page) =>
 // What each row says is behind it, worked out here from the page's data, independently of the code that
 // draws it: the number and what it counts.
 const expectedCounts = (page) =>
-  page.evaluate(() => {
+  page.evaluate(async () => {
+    // (The Cold Call narratives arrive late in the hosted page; their row counts them once they are in.)
+    await window.DKLAColdCall.whenLoaded();
     const block = (id) => JSON.parse(document.getElementById(id).textContent);
     const say = (value, one, many) => `${value.toLocaleString('en-US')} ${value === 1 ? one : many}`;
     const charts = block('dklaFlowchartsData');
@@ -325,6 +327,7 @@ const expectedCounts = (page) =>
       ),
       authorities: say(window.DKLAAuthorities.data.entries.length, 'provision', 'provisions'),
       scotus: say(Object.keys(window.SCOTUSHistory.data.people).length, 'justice', 'justices'),
+      coldcalls: say(window.DKLAColdCall.cases().length, 'case', 'cases'),
       supporting: say(
         window.DKLABriefs.data.entries.length - Object.keys(window.DKLABriefs.data.map).length,
         'case',
@@ -343,11 +346,22 @@ const GO_TO = [
   'dictionary',
   'authorities',
   'scotus',
+  'coldcalls',
   'sessions',
   'lectures',
 ];
 const LIBRARY = {
-  Collections: ['timelines', 'flowcharts', 'canons', 'dictionary', 'authorities', 'scotus', 'supporting'],
+  // (Cold Calls joined the collections with src/features/v32/coldcall-index.js.)
+  Collections: [
+    'timelines',
+    'flowcharts',
+    'canons',
+    'dictionary',
+    'authorities',
+    'scotus',
+    'supporting',
+    'coldcalls',
+  ],
   Classes: ['sessions', 'lectures', 'textbook'],
   Study: ['drill', 'pairs', 'sheets', 'progress'],
   Yours: ['add', 'connect', 'path', 'save'],
@@ -1199,6 +1213,10 @@ try {
     authorities: () => /Rules & authorities/.test(document.getElementById('geoBreadcrumb').textContent),
     scotus: () => window.SCOTUSHistory.state().open === true,
     supporting: () => document.getElementById('r19Dialog').open,
+    coldcalls: () =>
+      document.getElementById('coldCallIndexDialog').open &&
+      document.querySelectorAll('#coldCallIndexDialog .cc-ix-row').length ===
+        window.DKLAColdCall.cases().length,
     textbook: () => document.getElementById('bookDialog').open,
     drill: () => document.getElementById('r18Dialog').open && window.DKLAStudy.state().tab === 'drill',
     pairs: () => document.getElementById('r18Dialog').open && window.DKLAStudy.state().tab === 'pairs',
@@ -1235,6 +1253,7 @@ try {
         if (await page.evaluate(() => document.getElementById('libraryDialog').open))
           wrong.push(id + ' left the Library open');
         if (id === 'authorities') await page.evaluate(() => home('Atlas'));
+        if (id === 'coldcalls') await page.evaluate(() => window.DKLAColdCallIndex.close());
       }
       assert.deepEqual(wrong, []);
       await goHome(page);
@@ -1274,7 +1293,14 @@ try {
           [...document.querySelectorAll('#libraryDialog .v32-row')].map((r) => r.dataset.v32Row),
         );
       assert.ok(!(await ids()).includes('undo'), 'nothing to undo: no row');
-      assert.ok(!(await ids()).includes('coldcalls'), 'no Cold Call index yet: no row');
+      // The Cold Call index is in the page now: taken away for a moment, its row goes with it.
+      await settle(page);
+      await page.evaluate(() => {
+        window.__coldIndex = window.DKLAColdCallIndex;
+        delete window.DKLAColdCallIndex;
+      });
+      await openLibrary();
+      assert.ok(!(await ids()).includes('coldcalls'), 'no Cold Call index: no row');
       await settle(page);
       await page.evaluate(() => {
         undoStack.push(JSON.stringify(data));
@@ -1288,7 +1314,8 @@ try {
       assert.equal(await page.evaluate(() => window.__cold), 'opened');
       await page.evaluate(() => {
         undoStack.pop();
-        delete window.DKLAColdCallIndex;
+        window.DKLAColdCallIndex = window.__coldIndex;
+        delete window.__coldIndex;
       });
       await settle(page);
     },
