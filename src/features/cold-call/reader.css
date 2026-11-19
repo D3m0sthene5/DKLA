@@ -37,7 +37,7 @@
   --cc-ice-edge: #bedfe82b;
   --cc-ice-glint: #d6f4ff30;
   --cc-ice-sheen: #b9e5f51f;
-  --cc-ice-line: #e8f4fa17;
+  --cc-tick: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23a9b8c4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 6.5 5 9l4.500-6'/%3E%3C/svg%3E");
   --cc-ice-text: #e8f4fa;
   --cc-ice-crack: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 36' fill='none' stroke-linecap='round'%3E%3Cpath d='M30 0 23 5l-2.5 4.5L11 13.5l-3 6L0 25M20.5 9.5l6.5 3 5 1M11 13.5 5 10.5l-4 1M8 19.5l4 4 1.2 7' stroke='%23041c2d' stroke-opacity='.3' stroke-width='1.6' transform='translate(.8 .8)'/%3E%3Cpath d='M30 0 23 5l-2.5 4.5L11 13.5l-3 6L0 25M20.5 9.5l6.5 3 5 1M11 13.5 5 10.5l-4 1M8 19.5l4 4 1.2 7' stroke='%23f1fcff' stroke-opacity='.5' stroke-width='.7'/%3E%3C/svg%3E");
   --cc-ice-crack-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 34' fill='none' stroke-linecap='round'%3E%3Cpath d='M40 9 33 14.5l-2 7.5-8 4.5L20 34M31 22l5.5 2.2 2.5 4M33 14.5l-4.5-2.2-1-4' stroke='%23041c2d' stroke-opacity='.3' stroke-width='1.6' transform='translate(.8 .8)'/%3E%3Cpath d='M40 9 33 14.5l-2 7.5-8 4.5L20 34M31 22l5.5 2.2 2.5 4M33 14.5l-4.5-2.2-1-4' stroke='%23f1fcff' stroke-opacity='.45' stroke-width='.7'/%3E%3C/svg%3E");
@@ -126,9 +126,78 @@
   outline: none;
 }
 
-/* On the setup the caption is the hero just below, so the bar does not say it twice. */
-#coldCallDialog[data-cc-at='setup']:not([data-cc-scrolled]) .cc-bar-case {
+/* The reader's bar says "Cold Call" while the setup's head (the drawing and the caption, large) is in sight
+   just below it. Once that has scrolled away, and at every step of a rehearsal, the bar carries the case:
+   its drawing at 36 px on a small plate and its caption in the title face, so the case is recognisable
+   wherever the reader is. The two share one place and change by opacity alone. */
+#coldCallDialog .cc-bar {
+  min-height: 72px;
+}
+#coldCallDialog .cc-bar-title {
+  display: grid;
+  align-items: center;
+}
+#coldCallDialog .cc-bar-title > * {
+  grid-area: 1 / 1;
+  min-width: 0;
+  transition:
+    opacity var(--v31-t-pop) linear,
+    visibility 0s linear var(--v31-t-pop);
+}
+#coldCallDialog .cc-bar-case,
+#coldCallDialog[data-cc-docked] .cc-bar-kind {
+  opacity: 0;
   visibility: hidden;
+}
+#coldCallDialog[data-cc-docked] .cc-bar-case {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+#coldCallDialog .cc-bar-case {
+  align-items: center;
+  gap: var(--v32-s4);
+}
+#coldCallDialog .cc-plate.cc-plate-small {
+  display: grid;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--v32-r-control);
+}
+#coldCallDialog .cc-plate.cc-plate-small::before {
+  background-size:
+    22px 18px,
+    20px 17px;
+}
+#coldCallDialog .cc-plate.cc-plate-small .cc-pict {
+  width: 36px;
+  height: 36px;
+}
+#coldCallDialog .cc-bar-text {
+  display: grid;
+  min-width: 0;
+}
+#coldCallDialog .cc-bar-label {
+  display: flex;
+  align-items: center;
+  gap: var(--v32-s2);
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
+  white-space: nowrap;
+}
+#coldCallDialog .cc-bar-name {
+  overflow: hidden;
+  font:
+    600 22px/28px var(--dkla-display, 'Exo 2'),
+    sans-serif;
+  font-family: var(--dkla-display, 'Exo 2'), sans-serif !important;
+  color: var(--v31-text);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#coldCallDialog .cc-bar-name .cap-v {
+  color: var(--v31-muted);
 }
 /* The bar: title area at the left, the one close button at the right. Its hairline shows only once
    something has scrolled beneath it. */
@@ -475,13 +544,28 @@
 #coldCallDialog .cc-nav-go[aria-current] + .cc-nav-text {
   color: var(--v31-text);
 }
-/* While rehearsing a row shows the prompt, and the title only once its narration has been asked for. */
+/* Reading, a row is the episode's title. Rehearsing, it is the prompt, and it stays the prompt when the
+   narration is shown (a question stays a question, so it can be compared with its answer); a row whose
+   narration has been shown gets a small tick, in room kept for it so the words do not move. */
 #coldCallDialog .cc-nav-cue,
-#coldCallDialog[data-cc-mode='rehearse'] .cc-nav-row:not([data-cc-revealed]) .cc-nav-title {
+#coldCallDialog[data-cc-mode='rehearse'] .cc-nav-title {
   display: none;
 }
-#coldCallDialog[data-cc-mode='rehearse'] .cc-nav-row:not([data-cc-revealed]) .cc-nav-cue {
+#coldCallDialog[data-cc-mode='rehearse'] .cc-nav-cue {
   display: inline;
+}
+#coldCallDialog[data-cc-mode='rehearse'] .cc-nav-row:not(.cc-nav-plain) {
+  padding-right: var(--v32-s6);
+}
+#coldCallDialog[data-cc-mode='rehearse'] .cc-nav-row[data-cc-revealed]:not(.cc-nav-plain)::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 6px);
+  right: var(--v32-s3);
+  width: 12px;
+  height: 12px;
+  background: var(--cc-tick) center / 12px 12px no-repeat;
+  pointer-events: none;
 }
 
 /* ---------- the setup ---------- */
@@ -489,11 +573,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* One screen: the first episode begins below it (100cqb is the scroller less its own padding). */
-  min-height: calc(100cqb + var(--v32-s7));
-}
-#coldCallDialog .cc-setup[data-cc-bare] {
-  min-height: 0;
+  /* The setup is the top of the story's own page: the first episode follows it directly. */
 }
 /* The head: the case's drawing on a plate of clear ice, and beside it the hook, the caption, the citation. */
 #coldCallDialog .cc-head {
@@ -525,8 +605,7 @@
     inset 0 -3px 6px #071d3338;
 }
 /* Fissures at two corners, still (the same clear ice as the button that opens a Cold Call). */
-#coldCallDialog .cc-plate::before,
-#coldCallDialog .cc-cover::before {
+#coldCallDialog .cc-plate::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -670,38 +749,63 @@
   color: var(--v31-body);
 }
 
-/* ---------- an episode: the prompt, then its narration ---------- */
+/* ---------- an episode ----------
+   Read: the episode's own title is the headline; the narration runs under it on the reading measure; the
+   question a professor might ask is a note in the margin beside the first lines (or, with no margin to
+   spare, one quiet line under the headline). */
 #coldCallDialog .cc-section {
+  display: grid;
+  grid-template-columns: minmax(0, var(--cc-measure)) minmax(0, 1fr);
+  column-gap: var(--v32-s5);
   padding-top: var(--v32-s8);
 }
 #coldCallDialog .cc-count {
+  grid-column: 1 / -1;
   margin: 0 0 var(--v32-s2);
   font: var(--v32-readout);
   font-variant-numeric: tabular-nums;
   color: var(--v31-muted);
 }
-#coldCallDialog .cc-cue {
+#coldCallDialog .cc-title {
+  grid-column: 1 / -1;
   max-width: var(--cc-wide);
-  margin: 0;
+  margin: 0 0 var(--v32-s4);
   font:
-    500 22px/30px var(--dkla-interface, Inter),
+    600 30px/38px var(--dkla-interface, Inter),
     sans-serif;
   letter-spacing: 0;
   color: var(--v31-text);
   text-wrap: balance;
 }
 #coldCallDialog .cc-answer {
-  max-width: var(--cc-measure);
-  margin-top: var(--v32-s5);
+  grid-column: 1;
+  grid-row: 3;
+  min-width: 0;
 }
-#coldCallDialog .cc-title {
-  margin: 0 0 var(--v32-s2);
-  font:
-    600 17px/28px var(--dkla-interface, Inter),
-    sans-serif;
+#coldCallDialog .cc-cue {
+  grid-column: 2;
+  grid-row: 3;
+  align-self: start;
+  max-width: 200px;
+  /* Its first line level with the first line of the narration (28 px lines there, 18 here). */
+  margin: 5px 0 0;
+  font: var(--v32-ui-small);
+  font-weight: 400;
   letter-spacing: 0;
-  color: var(--v31-text);
-  text-wrap: balance;
+  color: var(--v31-muted);
+  text-wrap: pretty;
+}
+#coldCallDialog .cc-cue-label {
+  display: block;
+  font: var(--v31-label);
+  color: var(--v31-muted);
+}
+#coldCallDialog[data-cc-mode='read'] .cc-section:not([data-cc-cue='question']) .cc-cue {
+  display: none;
+}
+/* The first episode follows the setup as the next part of one page. */
+#coldCallDialog[data-cc-mode='read'] .cc-setup + .cc-section {
+  padding-top: var(--v32-s7);
 }
 #coldCallDialog .cc-answer > p,
 #coldCallDialog .cc-limits > p,
@@ -756,67 +860,145 @@
   margin-top: var(--v32-s2);
 }
 
-/* Covered and shown. Read: every narration is open. Rehearse: one step at a time, and an episode's
-   narration lies under a pane of frost until it is asked for. */
-#coldCallDialog .cc-cover {
+/* Rehearse: one step at a time. The prompt is what there is to read, large; beside it the control that
+   shows the narration (clear ice, the look of the button that opens a Cold Call) and a word on what to do
+   first. When the narration is asked for, the stored answer comes first where there is one, then the
+   episode's title and its narration. Nothing here imitates text that is not there. */
+#coldCallDialog .cc-cover,
+#coldCallDialog .cc-direct {
   display: none;
 }
 #coldCallDialog[data-cc-mode='rehearse'] [data-cc-step]:not([data-cc-current]) {
   display: none;
 }
 #coldCallDialog[data-cc-mode='rehearse'] .cc-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   padding-top: var(--v32-s3);
 }
-#coldCallDialog[data-cc-mode='rehearse'] .cc-section:not([data-cc-revealed]) .cc-answer {
-  display: none;
+#coldCallDialog[data-cc-mode='rehearse'] .cc-cue {
+  order: 1;
+  max-width: var(--cc-wide);
+  margin: 0;
+  font:
+    500 22px/30px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-text);
+  text-wrap: balance;
 }
-/* While rehearsing the question is all there is to read: it takes the title's size. */
 #coldCallDialog[data-cc-mode='rehearse'] .cc-cue:not([data-cc-long]) {
   font-size: 30px;
   line-height: 38px;
 }
-/* The frost: clear ice with a pale rim over the lines of a narration not yet read. It is still. Pressing
-   it, the action at the foot, Space and Enter all show the narration. */
+#coldCallDialog[data-cc-mode='rehearse'] .cc-cue-label {
+  display: none;
+}
 #coldCallDialog[data-cc-mode='rehearse'] .cc-section:not([data-cc-revealed]) .cc-cover {
-  position: relative;
+  order: 2;
   display: flex;
-  align-items: flex-end;
-  max-width: var(--cc-measure);
-  height: 232px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--v32-s3) var(--v32-s4);
   margin-top: var(--v32-s5);
-  padding: var(--v32-s5);
-  border-radius: var(--v32-r-surface);
+}
+#coldCallDialog .cc-reveal {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--v32-s2);
+  height: var(--v32-h-control);
+  padding: 0 var(--v32-s3) 0 var(--v32-s4);
+  border: 1px solid;
+  border-color: #bedfe8 #729eae #698ca0 #9bc5d3;
+  border-radius: var(--v32-r-control);
   background:
-    linear-gradient(var(--cc-ice-line), var(--cc-ice-line)) 24px 28px / 34% 8px no-repeat,
-    linear-gradient(var(--cc-ice-line), var(--cc-ice-line)) 24px 64px / 86% 6px no-repeat,
-    linear-gradient(var(--cc-ice-line), var(--cc-ice-line)) 24px 92px / 79% 6px no-repeat,
-    linear-gradient(var(--cc-ice-line), var(--cc-ice-line)) 24px 120px / 83% 6px no-repeat,
-    linear-gradient(var(--cc-ice-line), var(--cc-ice-line)) 24px 148px / 52% 6px no-repeat,
-    radial-gradient(ellipse at 4% 0%, var(--cc-ice-glint), transparent 46%),
-    radial-gradient(ellipse at 100% 100%, var(--cc-ice-sheen), transparent 44%),
-    linear-gradient(180deg, var(--cc-ice-top), var(--cc-ice-deep));
+    var(--cc-ice-crack) left top / 22px 18px no-repeat,
+    var(--cc-ice-crack-2) right bottom / 20px 17px no-repeat,
+    radial-gradient(ellipse at 5% 0%, var(--cc-ice-glint), transparent 52%),
+    radial-gradient(ellipse at 100% 100%, var(--cc-ice-sheen), transparent 45%),
+    linear-gradient(180deg, #2a4d60, #1b394d 47%, #173247);
   box-shadow:
-    inset 0 1px 0 var(--cc-ice-rim),
-    inset 0 0 0 1px var(--cc-ice-edge),
-    inset 0 -3px 6px #071d3338;
+    inset 0 1px 2px #ebfbff25,
+    inset 0 -2px 3px #071d3338;
+  color: var(--cc-ice-text);
+  font: var(--v31-ui);
+  white-space: nowrap;
   cursor: pointer;
 }
+#coldCallDialog .cc-reveal::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+}
+#coldCallDialog .cc-reveal:hover {
+  border-color: #d3ebf1 #82afbf #7a9db1 #aed2de;
+}
+#coldCallDialog .cc-reveal .cc-act-key {
+  background: #ebfbff1f;
+}
 #coldCallDialog .cc-cover-hint {
-  position: relative;
   font: var(--v31-ui);
-  color: var(--cc-ice-text);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+#coldCallDialog[data-cc-mode='rehearse'] .cc-section:not([data-cc-revealed]) .cc-title,
+#coldCallDialog[data-cc-mode='rehearse'] .cc-section:not([data-cc-revealed]) .cc-answer {
+  display: none;
+}
+/* The stored answer: the first thing shown, at the size of the setup's lead. */
+#coldCallDialog[data-cc-mode='rehearse'] .cc-section[data-cc-revealed] .cc-direct {
+  order: 3;
+  display: block;
+  max-width: var(--cc-wide);
+  margin-top: var(--v32-s5);
+}
+#coldCallDialog .cc-direct-label {
+  margin: 0 0 var(--v32-s2);
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
+}
+#coldCallDialog .cc-direct-say {
+  margin: 0;
+  font:
+    400 22px/32px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-text);
+  text-wrap: pretty;
+}
+#coldCallDialog .cc-direct-say + .cc-direct-say {
+  margin-top: var(--v32-s2);
+}
+/* Then the episode as it is told: its title, at the weight of a heading inside the answer, and its narration. */
+#coldCallDialog[data-cc-mode='rehearse'] .cc-title {
+  order: 4;
+  max-width: var(--cc-measure);
+  margin: var(--v32-s5) 0 var(--v32-s2);
+  font-size: 17px;
+  line-height: 28px;
+}
+#coldCallDialog[data-cc-mode='rehearse'] .cc-section[data-cc-direct] .cc-title {
+  margin-top: var(--v32-s6);
+}
+#coldCallDialog[data-cc-mode='rehearse'] .cc-answer {
+  order: 5;
+  max-width: var(--cc-measure);
 }
 /* A step that has just been asked for fades in, once (opacity and position only). */
 @media (prefers-reduced-motion: no-preference) {
   #coldCallDialog[data-cc-mode='rehearse'] [data-cc-step][data-cc-current],
-  #coldCallDialog[data-cc-mode='rehearse'] .cc-section[data-cc-revealed] .cc-answer {
+  #coldCallDialog[data-cc-mode='rehearse']
+    .cc-section[data-cc-revealed]
+    :is(.cc-direct, .cc-title, .cc-answer) {
     transition:
       opacity var(--v31-t-pop) var(--v31-ease),
       translate var(--v31-t-pop) var(--v31-ease);
   }
   @starting-style {
     #coldCallDialog[data-cc-mode='rehearse'] [data-cc-step][data-cc-current],
-    #coldCallDialog[data-cc-mode='rehearse'] .cc-section[data-cc-revealed] .cc-answer {
+    #coldCallDialog[data-cc-mode='rehearse']
+      .cc-section[data-cc-revealed]
+      :is(.cc-direct, .cc-title, .cc-answer) {
       opacity: 0;
       translate: 0 8px;
     }
@@ -1239,6 +1421,30 @@
     line-height: 36px;
   }
 }
+/* No margin to spare: the question is one quiet line under the headline. */
+@container (max-width: 739px) {
+  #coldCallDialog[data-cc-mode='read'] .cc-section {
+    grid-template-columns: minmax(0, var(--cc-measure));
+  }
+  #coldCallDialog[data-cc-mode='read'] .cc-title {
+    margin-bottom: var(--v32-s2);
+  }
+  #coldCallDialog[data-cc-mode='read'] .cc-cue {
+    grid-column: 1;
+    grid-row: 3;
+    max-width: none;
+    margin: 0 0 var(--v32-s4);
+  }
+  #coldCallDialog[data-cc-mode='read'] .cc-cue-label {
+    display: inline;
+  }
+  #coldCallDialog[data-cc-mode='read'] .cc-cue-label::after {
+    content: ':';
+  }
+  #coldCallDialog[data-cc-mode='read'] .cc-answer {
+    grid-row: 4;
+  }
+}
 @container (max-width: 660px) {
   #coldCallDialog .cc-briefing {
     grid-template-columns: minmax(0, 1fr);
@@ -1328,19 +1534,32 @@
   .cc-shell .cc-bar-title {
     gap: var(--v32-s2);
   }
-  /* The caption is in the setup just below; the bar keeps the name of the feature and the switch. */
   #coldCallDialog .cc-bar-case {
-    display: none;
+    gap: var(--v32-s3);
   }
-  #coldCallDialog .cc-caption {
+  #coldCallDialog .cc-plate.cc-plate-small {
+    width: 40px;
+    height: 40px;
+  }
+  #coldCallDialog .cc-plate.cc-plate-small .cc-pict {
+    width: 32px;
+    height: 32px;
+  }
+  #coldCallDialog .cc-bar-name {
+    font-size: 17px;
+    line-height: 22px;
+  }
+  #coldCallDialog .cc-caption,
+  #coldCallDialog[data-cc-mode='read'] .cc-title {
     font-size: 22px;
     line-height: 28px;
   }
   #coldCallDialog .cc-lead,
-  #coldCallDialog .cc-cue {
+  #coldCallDialog .cc-direct-say {
     font-size: 19px;
     line-height: 28px;
   }
+  #coldCallDialog[data-cc-mode='rehearse'] .cc-cue,
   #coldCallDialog[data-cc-mode='rehearse'] .cc-cue:not([data-cc-long]) {
     font-size: 22px;
     line-height: 30px;

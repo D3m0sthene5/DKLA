@@ -1,20 +1,24 @@
 /* Authored Cold Call narratives. Display only: graph, briefs and source prose stay untouched.
 
-   v3.2 (docs/PHILOSOPHY.md, principle 5: recall before reveal). An account is shown as what a student needs
-   when called on, in order:
+   What Cold Call is for (the owner's words): "getting straight into a detailed chronological story, knowing
+   who did what, and recognizing the case through its artwork". So there are two ways through an account, and
+   one switch (remembered in this browser under MODE_KEY, which is not saved work):
 
-   - the setup: the composed caption, the citation, the case's pictogram, the two-sentence `lead`, the cast
-     (`actors`) and how the case reached this court (`proceedings`);
-   - the episodes, each under its `cue`, the question or prompt a professor would open with;
-   - the end: what the case does not decide (`limits`), the sources, and the ways out.
+   - Read (DEFAULT_MODE). One continuous page with no step required before the story: the setup (the case's
+     drawing, the composed caption, the citation, the two-sentence `lead`, the cast from `actors`, how the
+     case reached this court from `proceedings`), then every episode under its own title as the headline,
+     then what the case does not decide (`limits`), the sources and the ways out. The question a professor
+     might open with (`cue`) is a note in the margin, never the heading. READ_OPENS_AT says whether the page
+     opens at the setup or at the first episode with the setup one scroll back.
+   - Rehearse, a deliberate choice. One prompt at a time; the narration is not shown until asked for (the
+     button beside the prompt, Space or Enter). Where an answer has been stored for the episode
+     (src/features/v32/coldcall-answers.js, made from tools/cold-call/answers.json) the reveal leads with it:
+     the sentences of this episode's own narration that answer the question, word for word. Where none is
+     stored the reveal is the narration and says nothing more.
 
-   Two ways through it, one switch (remembered in this browser under MODE_KEY, which is not saved work):
-   Read shows everything, each prompt above its episode; Rehearse shows one prompt at a time with the
-   narration under a pane of frost until asked for. DEFAULT_MODE is the one line that says which a first
-   visit gets.
-
-   The foot of the reader is its one deck of controls, the same place at every step: the switch, the one
-   action that comes next (start, show the answer, next question, back), where you are, and the keys. */
+   The case stays in sight throughout: once the setup's head has scrolled away, or while rehearsing, the bar
+   carries the drawing and the caption. A case left mid-read is resumed at the same place next time, across
+   sessions (RESUME_KEY, one small entry per case, cleared when the case is finished). */
 (() => {
   'use strict';
   // The data loader (src/features/performance/data-loader.js). Until it is in the page, this stand-in reads
@@ -32,6 +36,13 @@
   /* The owner has not yet decided whether an account opens to be read or to be rehearsed. Until he does it
      opens to be read, as it always has. To make rehearsal the default, change 'read' to 'rehearse' here. */
   const DEFAULT_MODE = 'read';
+  /* Where Read opens when there is no place to resume. 'setup': at the top of the page, the setup, with the
+     first episode following on scroll. 'story': at the first episode, as the 3.1 reader did, with the setup
+     one scroll back (and under "The setup" in the list). The owner is to choose from pictures of both. */
+  const READ_OPENS_AT = 'setup';
+  // Where a case was left mid-read: { caseId: [step, pixels into that step, the account's revision, when] }.
+  const RESUME_KEY = 'dkla.coldCallResume.v1',
+    RESUME_MAX = 60;
   const MODES = ['read', 'rehearse'],
     MODE_KEY = 'dkla.coldCallMode.v1';
   // The narratives. In the single-file copy they are in the page and are read now, as before. In the hosted
@@ -218,23 +229,36 @@
      Court could not simply decide that Ohio must hear the suit."), a headline or a date ("1968–1969"). A
      question is answered; anything else is told from memory. An episode with no cue is told from its number. */
   const cueKind = (cue) => (!cue ? 'none' : /\?["”’')\]]*\s*$/.test(cue) ? 'question' : 'prompt');
-  // The narration of one episode: its title, its paragraphs, a follow-up where one was written, its sources.
+  // The narration of one episode: its paragraphs, a follow-up where one was written, its sources.
   // `plain` draws it without definitions or markers (see show(): the later episodes of a long account are
   // drawn plain first and marked a moment later).
   function answerHTML(s, i, plain = false) {
     const term = plain ? null : glossing?.section();
-    return `<h4 class="cc-title" id="cc-heading-${esc(s.id)}" tabindex="-1">${esc(s.title)}</h4>${paragraphs(s, i, term)}${s.followUp ? `<details class="cc-followup"><summary>${esc(s.followUp.question)}</summary><p>${term ? term.text(s.followUp.answer, `${i}.followUp-answer`) : esc(s.followUp.answer)}</p>${citations(s.followUp.sources)}</details>` : ''}${citations(s.sources)}`;
+    return `${paragraphs(s, i, term)}${s.followUp ? `<details class="cc-followup"><summary>${esc(s.followUp.question)}</summary><p>${term ? term.text(s.followUp.answer, `${i}.followUp-answer`) : esc(s.followUp.answer)}</p>${citations(s.followUp.sources)}</details>` : ''}${citations(s.sources)}`;
+  }
+  /* The direct answer to an episode's question, where one has been stored: sentences of this episode's own
+     paragraphs, word for word. A stored sentence that is no longer in the episode (the narrative was revised
+     since) is not shown: the reveal then leads with the narration, as it does for every episode without one. */
+  const squash = (text) => String(text).replace(/\s+/g, ' ').trim();
+  function directAnswer(c, s) {
+    const stored = window.DKLAColdCallAnswers?.answers?.[c.id]?.[s.id];
+    if (!Array.isArray(stored) || !stored.length || cueKind(s.cue) !== 'question') return null;
+    const text = squash(s.paragraphs.join(' '));
+    return stored.every((sentence) => sentence && text.includes(squash(sentence))) ? stored : null;
   }
   // While rehearsing a prompt is set large, on two lines at most; one too long for that (some eighty of the
-  // 4,097) keeps the size it has when read, rather than standing three lines tall beside empty space.
+  // 4,097) keeps a smaller size, rather than standing three lines tall beside empty space.
   const LONG_CUE = 80;
+  /* An episode. Its own title is its heading. Its prompt is a note in the margin when read (questions only:
+     a headline or a date in the margin would say nothing) and the thing asked when rehearsed. reader.css
+     places the parts for each mode; the words and their order in the page are the same in both. */
   function sectionHTML(s, i, plain = false) {
     const n = current.sections.length,
       id = esc(s.id),
-      kind = cueKind(s.cue);
-    // The cover is the frost over a narration not yet asked for. Pressing it shows the narration, as the
-    // action at the foot does; it is not a second control for the keyboard or a screen reader.
-    return `<section class="cc-section" id="cc-section-${id}" data-cc-section="${i}" data-cc-step="${i + 1}" data-cc-cue="${kind}" aria-labelledby="cc-cue-${id}"><p class="cc-count"><span class="cc-sr">${kind === 'question' ? 'Question' : 'Episode'} </span>${i + 1} of ${n}</p><h3 class="cc-cue" id="cc-cue-${id}"${(s.cue || '').length > LONG_CUE ? ' data-cc-long' : ''} tabindex="-1">${kind === 'none' ? `Episode ${i + 1}` : esc(s.cue)}</h3><div class="cc-cover" data-cc-reveal="${i}" aria-hidden="true"><span class="cc-cover-hint" id="cc-hint-${id}">${kind === 'question' ? 'Answer from memory, then check.' : 'Tell this part from memory, then check.'}</span></div><div class="cc-answer" id="cc-answer-${id}">${answerHTML(s, i, plain)}</div></section>`;
+      kind = cueKind(s.cue),
+      asked = kind === 'question',
+      direct = directAnswer(current, s);
+    return `<section class="cc-section" id="cc-section-${id}" data-cc-section="${i}" data-cc-step="${i + 1}" data-cc-cue="${kind}"${direct ? ' data-cc-direct' : ''}><p class="cc-count"><span class="cc-sr">Episode </span>${i + 1} of ${n}</p><h3 class="cc-title" id="cc-heading-${id}" tabindex="-1">${esc(s.title)}</h3><p class="cc-cue" id="cc-cue-${id}"${(s.cue || '').length > LONG_CUE ? ' data-cc-long' : ''} tabindex="-1"><span class="cc-cue-label">If called on</span> ${kind === 'none' ? `Episode ${i + 1}` : esc(s.cue)}</p><div class="cc-cover"><button type="button" class="cc-reveal" data-cc-reveal="${i}" aria-describedby="cc-hint-${id}">${asked ? 'Show the answer' : 'Show the episode'}<kbd class="cc-act-key" aria-hidden="true">Space</kbd></button><span class="cc-cover-hint" id="cc-hint-${id}">${asked ? 'Answer aloud from memory first.' : 'Tell this part from memory first.'}</span></div>${direct ? `<div class="cc-direct" id="cc-direct-${id}" tabindex="-1"><p class="cc-direct-label">The answer, in this episode’s own words</p>${direct.map((sentence) => `<p class="cc-direct-say">${esc(squash(sentence))}</p>`).join('')}</div>` : ''}<div class="cc-answer" id="cc-answer-${id}">${answerHTML(s, i, plain)}</div></section>`;
   }
   /* ---------- the end: what the case leaves open, the sources, the ways out ---------- */
   // The next case with an account in the same topic group of the map, or in the groups after it in the same
@@ -342,11 +366,20 @@
       </ol></nav>
     </details>`;
   }
-  const modeHTML = `<div class="cc-mode" role="group" aria-label="Read or rehearse"><button type="button" class="cc-seg" data-cc-mode-set="read" title="Every episode open, each question above its answer">Read</button><button type="button" class="cc-seg" data-cc-mode-set="rehearse" title="One question at a time; answer from memory before you see the narration">Rehearse</button></div>`;
-  const barHTML = (c) =>
-    `<header class="cc-bar"><div class="cc-bar-title"><span class="cc-bar-kind" id="ccKind">Cold Call</span>${c ? `<span class="cc-bar-case"><i class="cc-dot" aria-hidden="true"></i><span id="ccTitle" title="${esc(c.title)}">${captionLine(c.title)}</span></span>` : ''}</div><button type="button" class="cc-x" id="ccClose" aria-label="Close Cold Call" title="Close (Esc)">${ICON.close}</button></header>`;
+  const modeHTML = `<div class="cc-mode" role="group" aria-label="Read or rehearse"><button type="button" class="cc-seg" data-cc-mode-set="read" title="The whole story on one page">Read</button><button type="button" class="cc-seg" data-cc-mode-set="rehearse" title="One question at a time; answer from memory before you see the narration">Rehearse</button></div>`;
+  // The bar: the name of the feature; and, once the setup's head is out of sight or while rehearsing, the
+  // case itself (its drawing and its caption), so the case is recognisable wherever the reader is.
+  const barHTML = (c) => {
+    const art = c && pictogram(c.id);
+    return `<header class="cc-bar"><div class="cc-bar-title"><span class="cc-bar-kind" id="ccKind">Cold Call</span>${c ? `<span class="cc-bar-case">${art ? `<span class="cc-plate cc-plate-small" aria-hidden="true">${art.svg}</span>` : ''}<span class="cc-bar-text"><span class="cc-bar-label" aria-hidden="true">Cold Call<i class="cc-dot"></i>${esc(c.course)}</span><span class="cc-bar-name" id="ccTitle" title="${esc(c.title)}">${captionLine(c.title)}</span></span></span>` : ''}</div><button type="button" class="cc-x" id="ccClose" aria-label="${c ? backLabel() : 'Close Cold Call'}" title="${c ? backLabel() : 'Close'} (Esc)">${ICON.close}</button></header>`;
+  };
   const KEYS = `<kbd>${ICON.left}</kbd><kbd>${ICON.right}</kbd>`;
-  const footHTML = `<footer class="cc-foot">${modeHTML}<button type="button" class="cc-button cc-primary" id="ccAct" data-cc-act><span id="ccActLabel"></span><kbd class="cc-act-key" id="ccActKey" aria-hidden="true">Space</kbd></button><span class="cc-foot-status"><span class="cc-readout" id="ccProgress"></span><span class="cc-keys cc-keys-read">${KEYS} episode<i></i><kbd>Esc</kbd> close</span><span class="cc-keys cc-keys-rehearse">${KEYS} question<i></i><kbd>Esc</kbd> close</span></span></footer>`;
+  // The foot. The full brief is one press away at every step, as it was at the top of the 3.1 reader.
+  const footHTML = (c) => {
+    const brief =
+      c.sources.find((s) => s.briefId === c.briefId && s.briefId) || c.sources.find((s) => s.briefId);
+    return `<footer class="cc-foot">${modeHTML}<button type="button" class="cc-button cc-primary" id="ccAct" data-cc-act hidden><span id="ccActLabel"></span><kbd class="cc-act-key" id="ccActKey" aria-hidden="true">Space</kbd></button><span class="cc-foot-status"><span class="cc-readout" id="ccProgress"></span>${brief ? sourceLink(brief, 'Full brief', ' id="ccFullBrief"') : ''}<span class="cc-keys cc-keys-read">${KEYS} episode<i></i><kbd>Esc</kbd> close</span><span class="cc-keys cc-keys-rehearse">${KEYS} question<i></i><kbd>Esc</kbd> close</span></span></footer>`;
+  };
   // Opened before the narratives or the definition tables have arrived: a calm loading state, then the account.
   let waiting = 0;
   const tablesReady = () => !gloss?.ready || gloss.ready();
@@ -439,7 +472,7 @@
               ${endHTML(c)}
             ${glossing ? glossing.descriptions() : ''}</article>
           </div>
-          ${footHTML}
+          ${footHTML(c)}
         </div>
       </div>
       <p class="cc-sr" id="ccLive" role="status"></p>`;
@@ -461,11 +494,25 @@
     );
     sync(true);
     if (!dialog.open) dialog.showModal();
-    // Reopened in this session: back where the reading stopped (rehearsal starts again from the setup).
-    const kept = memory.get(id);
-    $('ccScroll').scrollTop = mode === 'read' ? kept?.top || 0 : 0;
-    if (mode === 'read' && kept?.top) track();
-    $('ccAct').focus?.({ preventScroll: true });
+    // Read: back where the reading stopped, in this session or an earlier one; otherwise where
+    // READ_OPENS_AT says. Rehearsal starts from the setup.
+    const box = $('ccScroll');
+    box.scrollTop = 0;
+    if (mode === 'read') {
+      const kept = memory.get(id),
+        stored = kept ? null : resumeGet(c);
+      if (kept?.top) box.scrollTop = kept.top;
+      else if (stored) box.scrollTop = topOf(stepElement(stored[0])) + stored[1];
+      else if (READ_OPENS_AT === 'story') box.scrollTop = topOf(stepElement(1)) + 32;
+      if (box.scrollTop) track();
+    }
+    dock();
+    // Reading: focus is in the story (the caption, or the title of the episode resumed at), so the keys
+    // scroll it at once and a screen reader says where it is. Rehearsing: the way in is the action.
+    (mode === 'read'
+      ? (step && stepElement(step)?.querySelector?.('.cc-title')) || $('ccCaption')
+      : $('ccAct')
+    ).focus?.({ preventScroll: true });
     if (unmarked < c.sections.length) {
       dialog.dataset.ccMarked = 'pending';
       markRest(c, unmarked, ticket);
@@ -523,6 +570,61 @@
     // After the reader's first frame has been drawn.
     requestAnimationFrame(() => soon(step));
   }
+  /* ---------- where a case was left mid-read ---------- */
+  // How far down the page an element starts (the page being what scrolls inside the reader).
+  const topOf = (el) => {
+    const box = $('ccScroll');
+    return el.getBoundingClientRect().top - box.getBoundingClientRect().top + box.scrollTop;
+  };
+  function resumes() {
+    try {
+      const all = JSON.parse(localStorage.getItem(RESUME_KEY) || '{}');
+      return all && typeof all === 'object' && !Array.isArray(all) ? all : {};
+    } catch {
+      return {};
+    }
+  }
+  // The place stored for this account, if it is for the account as it now stands and still on the page.
+  function resumeGet(c) {
+    const at = resumes()[c.id];
+    return Array.isArray(at) &&
+      at[2] === (c.revision || 0) &&
+      at[0] >= 0 &&
+      at[0] <= c.sections.length &&
+      at[1] >= 0
+      ? at
+      : null;
+  }
+  function resumeSet(id, at) {
+    try {
+      const all = resumes();
+      if (!at && !(id in all)) return;
+      if (at) all[id] = [...at, Date.now()];
+      else delete all[id];
+      const ids = Object.keys(all);
+      for (const old of ids.sort((a, b) => (all[a][3] || 0) - (all[b][3] || 0)).slice(0, -RESUME_MAX))
+        delete all[old];
+      if (Object.keys(all).length) localStorage.setItem(RESUME_KEY, JSON.stringify(all));
+      else localStorage.removeItem(RESUME_KEY);
+    } catch {
+      /* private browsing: the place lasts as long as the page (memory) */
+    }
+  }
+  /* Called when the reader closes or the page goes away. Read only: a case read to its end, or left at the
+     very top, has no place to come back to and its entry is cleared; rehearsing leaves the entry alone. */
+  function keepPlace() {
+    if (!current || !dialog.open || mode !== 'read') return;
+    const box = $('ccScroll'),
+      midway = step <= count() && box.scrollTop > 40;
+    memory.set(current.id, { top: midway ? box.scrollTop : 0 });
+    resumeSet(
+      current.id,
+      midway
+        ? [step, Math.max(0, Math.round(box.scrollTop - topOf(stepElement(step)))), current.revision || 0]
+        : null,
+    );
+  }
+  window.addEventListener?.('pagehide', keepPlace);
   function close() {
     if (!dialog.open) return;
     gloss?.close();
@@ -530,10 +632,7 @@
     delete dialog.dataset.ccMarked;
     for (const resolve of markWaiters.splice(0)) resolve();
     if (waiting) waiting = 0;
-    // Where the reading stopped, for the next opening in this session; an account read to its end, or
-    // rehearsed, opens again at the setup.
-    else if (current)
-      memory.set(current.id, { top: mode === 'read' && step <= count() ? $('ccScroll').scrollTop : 0 });
+    else if (current) keepPlace();
     current = null;
     dialog.close();
     dialog.replaceChildren();
@@ -566,10 +665,11 @@
       const go = el.querySelector('.cc-nav-go');
       if (k === step) go.setAttribute('aria-current', 'step');
       else go.removeAttribute('aria-current');
-      // A row cut short says the rest when pointed at: the prompt while its narration is covered, then the title.
+      // A row cut short says the rest when pointed at: the title when reading, the prompt when rehearsing
+      // (before and after its narration is shown: a question stays a question).
       const s = current.sections[k - 1];
       if (s) {
-        const full = mode === 'rehearse' && !revealed.has(k - 1) ? s.cue || '' : s.title;
+        const full = mode === 'rehearse' ? s.cue || '' : s.title;
         if (go.title !== full) go.title = full;
       }
     }
@@ -578,15 +678,15 @@
       for (const button of all('[data-cc-mode-set]'))
         button.setAttribute('aria-pressed', String(button.dataset.ccModeSet === mode));
     }
-    // The one action that comes next. Filled where it is the way forward; a plain button while reading,
-    // where the way forward is the text itself.
+    // The action at the foot, where there is one (see action()).
     const act = action();
-    if ($('ccActLabel').textContent !== act.label) $('ccActLabel').textContent = act.label;
-    $('ccAct').classList.toggle('cc-primary', act.primary);
-    $('ccAct').dataset.ccAct = act.does;
-    $('ccActKey').hidden = !act.space;
-    if (act.describedBy) $('ccAct').setAttribute('aria-describedby', act.describedBy);
-    else $('ccAct').removeAttribute('aria-describedby');
+    $('ccAct').hidden = !act;
+    if (act) {
+      if ($('ccActLabel').textContent !== act.label) $('ccActLabel').textContent = act.label;
+      $('ccAct').dataset.ccAct = act.does;
+      $('ccActKey').hidden = !act.space;
+    }
+    dock();
     const unit = mode === 'rehearse' ? 'Question' : 'Episode',
       text =
         step < 1 ? `${n} episode${n === 1 ? '' : 's'}` : step > n ? 'The end' : `${unit} ${step} of ${n}`;
@@ -595,27 +695,28 @@
       $('ccProgressSmall').textContent = text;
     }
   }
+  /* Reading needs no action: the story is the page, and the way on is to scroll. So the foot offers one
+     only for the way out at the end, and while rehearsing: to begin, and to move on once a narration has been
+     shown. (Showing it is the button beside the prompt, where the reader is looking.) */
   function action() {
-    const n = count(),
-      rehearsing = mode === 'rehearse';
-    if (step === 0)
-      return { does: 'next', label: rehearsing ? 'Start rehearsing' : 'Start reading', primary: true };
-    if (step > n) return { does: 'close', label: backLabel(), primary: true };
-    const s = current.sections[step - 1];
-    if (rehearsing && !revealed.has(step - 1))
-      return {
-        does: 'reveal',
-        label: cueKind(s.cue) === 'question' ? 'Show the answer' : 'Show the episode',
-        primary: true,
-        space: true,
-        describedBy: 'cc-hint-' + s.id,
-      };
-    return {
-      does: 'next',
-      label: step === n ? 'What it does not decide' : rehearsing ? 'Next question' : 'Next episode',
-      primary: rehearsing,
-      space: rehearsing,
-    };
+    const n = count();
+    if (step > n) return { does: 'close', label: backLabel() };
+    if (mode === 'read') return null;
+    if (step === 0) return { does: 'next', label: 'Start rehearsing' };
+    if (!revealed.has(step - 1)) return null;
+    return { does: 'next', label: step === n ? 'What it does not decide' : 'Next question', space: true };
+  }
+  // The bar carries the case once the setup's head is out of sight, and at every step of a rehearsal but the setup.
+  function dock() {
+    const head = dialog.querySelector('.cc-head'),
+      box = $('ccScroll');
+    if (!box) return;
+    dialog.toggleAttribute(
+      'data-cc-docked',
+      mode === 'rehearse'
+        ? step > 0
+        : !head || head.getBoundingClientRect().bottom < box.getBoundingClientRect().top + 8,
+    );
   }
   const scroller = () => $('ccScroll');
   const stepElement = (k) => dialog.querySelector(`[data-cc-step="${k}"]`);
@@ -623,6 +724,7 @@
   function track() {
     const box = scroller();
     dialog.toggleAttribute('data-cc-scrolled', box.scrollTop > 4);
+    dock();
     if (mode !== 'read') return;
     // On the way to a step that was asked for, the steps passed on the way are not where the reader is.
     if (aim !== null) {
@@ -664,18 +766,29 @@
     }
     dialog.toggleAttribute('data-cc-scrolled', mode === 'read' && k > 0);
     // Focus goes to what is to be read or pressed next, so a screen reader says it and Tab starts there.
-    // (While rehearsing that is the question: Space and Enter then show its narration, see the keys below.)
-    const target = k === 0 ? $('ccAct') : k > n ? $('ccLimitsLabel') : el.querySelector('.cc-cue');
+    // (Reading, that is the episode's title. Rehearsing, its prompt: Space and Enter then show the narration.)
+    const target =
+      k === 0
+        ? mode === 'rehearse'
+          ? $('ccAct')
+          : $('ccCaption')
+        : k > n
+          ? $('ccLimitsLabel')
+          : el.querySelector(mode === 'rehearse' ? '.cc-cue' : '.cc-title');
     target?.focus({ preventScroll: true });
   }
   function reveal(i) {
     if (!current || revealed.has(i) || !current.sections[i]) return;
     revealed.add(i);
     sync();
-    const s = current.sections[i];
-    // Said to a screen reader, and focus moves to the narration's first line so reading continues from there.
-    $('ccLive').textContent = `${cueKind(s.cue) === 'question' ? 'The answer' : 'The episode'}: ${s.title}`;
-    $('cc-heading-' + s.id)?.focus({ preventScroll: true });
+    const s = current.sections[i],
+      direct = $('cc-direct-' + s.id);
+    // Said to a screen reader (the stored answer where there is one, otherwise the episode's title), and
+    // focus moves to the first thing shown so reading continues from there.
+    $('ccLive').textContent = direct
+      ? `The answer: ${[...direct.querySelectorAll('.cc-direct-say')].map((p) => p.textContent).join(' ')}`
+      : `${cueKind(s.cue) === 'question' ? 'The answer' : 'The episode'}: ${s.title}`;
+    (direct || $('cc-heading-' + s.id))?.focus({ preventScroll: true });
   }
   // Space and Enter while rehearsing: begin, then show, then move on. Space first pages through a narration
   // longer than the screen, so the habit of paging with it never skips the rest of an answer.
@@ -714,7 +827,6 @@
     const d = control.dataset;
     if (d.ccGo !== undefined) go(+d.ccGo);
     else if (d.ccReveal !== undefined) reveal(+d.ccReveal);
-    else if (d.ccAct === 'reveal') reveal(step - 1);
     else if (d.ccAct === 'next') go(step + 1);
     else if (d.ccAct === 'close') close();
     else if (d.ccModeSet) {
@@ -722,13 +834,18 @@
       // Chosen with the pointer: the keys go on from here (Space begins, or shows the answer), so focus
       // moves to what they act on. Chosen from the keyboard, focus stays on the switch.
       if (event.detail && step <= count())
-        (step ? stepElement(step).querySelector('.cc-cue') : $('ccAct')).focus({ preventScroll: true });
+        (step
+          ? stepElement(step).querySelector(mode === 'rehearse' ? '.cc-cue' : '.cc-title')
+          : mode === 'rehearse'
+            ? $('ccAct')
+            : $('ccCaption')
+        ).focus({ preventScroll: true });
     } else if (d.ccSourceBrief) openSourceBrief(d.ccSourceBrief, control);
     else if (d.ccClose !== undefined) close();
     else if (d.ccOpen && cases.has(d.ccOpen)) {
       // The next account, in the same reader; "back" still leads where this one was opened from.
       gloss?.close();
-      memory.delete(d.ccOpen);
+      keepPlace();
       if (origin === 'case') origin = '';
       show(d.ccOpen, undefined, true);
     } else if (d.ccCasePage) {
@@ -907,6 +1024,8 @@
     mode: () => (dialog.open && current ? mode : savedMode()),
     setMode,
     defaultMode: DEFAULT_MODE,
+    /** 'setup' or 'story': where Read opens when there is no place to resume. */
+    readOpensAt: READ_OPENS_AT,
     /** For the checks: the open account, the step (0 the setup, then the episodes, then the end), what is revealed. */
     state: () =>
       dialog.open && current
