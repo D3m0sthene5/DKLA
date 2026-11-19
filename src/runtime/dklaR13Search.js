@@ -1386,10 +1386,20 @@
       'click',
       (e) => {
         if (isOpen() && e.target.closest('#searchResults button, #searchResults a'))
-          setTimeout(() => closePanel(false), 0);
+          // Only if the results are still shut when this runs. The step-aside is deferred, and on a busy
+          // page the box can be used again first (Enter on a result, then typing straight away): closing
+          // then shut the panel under results that had just been drawn, leaving them inside the 1 px
+          // closed box, where they could be found but every tap fell through to the page behind.
+          setTimeout(() => {
+            if ($('searchResults').hidden) closePanel(false);
+          }, 0);
       },
       true,
     );
+    // The same from any direction: on a narrow screen results are only ever shown in the open panel.
+    new MutationObserver(() => {
+      if (narrow.matches && !$('searchResults').hidden && !isOpen()) openPanel();
+    }).observe($('searchResults'), { attributes: true, attributeFilter: ['hidden'] });
     narrow.addEventListener?.('change', () => {
       if (!narrow.matches) closePanel(false);
     });

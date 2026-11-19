@@ -186,6 +186,47 @@ try {
         assert.equal(await panelOpen(page), false, 'choosing a result closes the panel');
         await snap(page, 'phone-3-lecture');
       });
+    // The panel steps aside a moment after a result is chosen. On a busy page the box can be used again
+    // before that moment (Enter on a result, then typing straight away). The race is forced here by
+    // holding the page's zero-delay timers: the new results must be in the open panel and take a tap
+    // (they used to be left inside the closed 1 px box, where every tap fell through to the reader).
+    await check(`${width} px: typing again before the panel has stepped aside keeps it usable`, async () => {
+      await page.evaluate(() => {
+        for (const dialog of document.querySelectorAll('dialog[open]')) dialog.close();
+      });
+      await page.locator('#searchOpen').tap();
+      await type(page, 'International Shoe');
+      await page.evaluate(() => {
+        const real = window.setTimeout;
+        window.__held = [];
+        window.__realTimeout = real;
+        window.setTimeout = (fn, ms, ...rest) =>
+          ms === 0 ? (window.__held.push(fn), 0) : real(fn, ms, ...rest);
+      });
+      await page.locator('#search').press('Enter');
+      await page.locator('#search').focus();
+      await type(page, 'Erie');
+      await page.evaluate(() => {
+        window.setTimeout = window.__realTimeout;
+        for (const fn of window.__held) fn();
+      });
+      await page.waitForTimeout(400);
+      assert.equal(await panelOpen(page), true, 'the panel is still open over its results');
+      const first = page.locator('#searchResults [data-search-key]').first();
+      const tappable = await first.evaluate((b) => {
+        const r = b.getBoundingClientRect();
+        return b.contains(document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2));
+      });
+      assert.ok(tappable, 'a result takes a tap');
+      await first.tap({ timeout: 5000 });
+      await page.waitForFunction(
+        () => !document.documentElement.classList.contains('dkla-search-panel'),
+        null,
+        {
+          timeout: 5000,
+        },
+      );
+    });
     if (errors.length) {
       failures++;
       console.log(`FAIL ${width} px: page errors\n     ` + errors.join('\n     '));

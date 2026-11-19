@@ -439,6 +439,22 @@ const breakages = [
       ),
   ],
   [
+    'Phone search: the deferred close shuts the panel under results typed in the meantime',
+    'src/runtime/dklaR13Search.js',
+    () => {
+      edit(
+        'src/runtime/dklaR13Search.js',
+        "if ($('searchResults').hidden) closePanel(false);",
+        'closePanel(false);',
+      );
+      edit(
+        'src/runtime/dklaR13Search.js',
+        "if (narrow.matches && !$('searchResults').hidden && !isOpen()) openPanel();",
+        'void 0;',
+      );
+    },
+  ],
+  [
     'Calm: reduced motion still fades the scrim behind a dialog',
     'src/features/calm/calm.css',
     () =>
