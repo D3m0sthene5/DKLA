@@ -221,13 +221,13 @@
   text-transform: none;
   color: var(--v31-muted);
 }
-#inspector .v32 .v32-count {
+#inspector :is(.v32, .v32-plain) .v32-count {
   font: var(--v32-mono);
   font-variant-numeric: tabular-nums;
   letter-spacing: 0;
   color: var(--v31-faint);
 }
-#inspector .v32 .v32-label > .v32-count {
+#inspector :is(.v32, .v32-plain) .v32-label > .v32-count {
   margin-left: 4px;
 }
 /* Rows: 36 px, a 16 px mark, the name, a trailing readout. The fill on hover reaches 8 px past the text. */
@@ -292,6 +292,7 @@
 #inspector .v32 .v32-seg > button {
   all: unset;
   box-sizing: border-box;
+  position: relative;
   display: grid;
   place-items: center;
   min-width: 64px;
@@ -301,6 +302,12 @@
   font: var(--v31-ui);
   color: var(--v31-muted);
   cursor: pointer;
+}
+/* The part is 36 px high; a press 4 px above or below it still counts (the 44 px hit area). */
+#inspector .v32 .v32-seg > button::before {
+  content: '';
+  position: absolute;
+  inset: -4px 0;
 }
 #inspector .v32 .v32-seg > button:hover {
   color: var(--v31-text);
@@ -316,6 +323,7 @@
 #inspector .v32 .text-button {
   all: unset;
   box-sizing: border-box;
+  position: relative;
   flex: none;
   display: inline-flex;
   align-items: center;
@@ -324,6 +332,18 @@
   font: var(--v31-ui);
   color: var(--v31-link);
   cursor: pointer;
+}
+/* Quiet and default controls are 36 px high and take a press 4 px above and below (44 px hit area). */
+#inspector .v32 .v31-open::before,
+#inspector .v32 #showNeighborhood::before,
+#inspector .v32 .dkla-term-more::before,
+#inspector .v32 .text-button::before,
+#inspector .v32 .reading-actions button::before,
+#inspector .v32 .r19-line button::before,
+#inspector .v32 .r19-related button::before {
+  content: '';
+  position: absolute;
+  inset: -4px 0;
 }
 #inspector .v32 .v31-open:hover,
 #inspector .v32 #showNeighborhood:hover,
@@ -340,6 +360,7 @@
 #inspector .v32 .r19-related button {
   all: unset;
   box-sizing: border-box;
+  position: relative;
   display: inline-flex;
   align-items: center;
   height: 36px;
@@ -470,11 +491,17 @@
 #inspector .v32.v32-single > .v32-bar > * {
   display: none;
 }
+/* The button is 36 px high; the 4 px above and below it pass a press on to it (case.js). */
 #inspector .v32 .v32-cc {
   position: absolute;
   left: var(--v32-gutter);
-  top: 12px;
+  top: 8px;
   display: flex;
+  padding: 4px 0;
+  cursor: pointer;
+}
+#inspector .v32 .v32-cc:empty {
+  display: none;
 }
 #inspector .v32 .v32-tabs {
   display: flex;
@@ -542,6 +569,12 @@
 }
 #inspector .v32 .v32-tab > .v32-count:empty {
   display: none;
+}
+/* A tab is 36 px high and takes a press anywhere in the bar's height. */
+#inspector .v32 .v32-tab::before {
+  content: '';
+  position: absolute;
+  inset: -12px 0;
 }
 /* The open tab's mark sits on the bar's hairline. */
 #inspector .v32 .v32-tab::after {
@@ -777,8 +810,7 @@
 #inspector .v32 > .entry-sections h3,
 #inspector .v32 .r19-text h3,
 #inspector .v32 > .study-roadmap > h3,
-#inspector .v32 > .v32-notes > h3,
-#inspector .v32 > .course-case-index > h3 {
+#inspector .v32 > .v32-notes > h3 {
   margin: 0 0 12px;
   padding: 0;
   border: 0;
@@ -819,12 +851,20 @@
   margin: 0 0 48px;
   padding: 0;
   border: 0;
+  border-radius: 0;
   background: none;
 }
 #inspector .v32 .r19-text {
   padding: 0;
   border: 0;
   background: none;
+}
+/* Emphasis inside the reading text is one step up, never the heaviest weight. */
+#inspector
+  .v32
+  :is(.case-box, .entry-sections, .note-text, .r19-text, .takeaway, .lecture-note)
+  :is(strong, b) {
+  font-weight: 600;
 }
 #inspector .v32 .r19-text h3:not(:first-child) {
   margin-top: 48px;
@@ -967,6 +1007,7 @@
   margin-left: 4px;
   padding: 0;
   border: 0;
+  border-radius: 0;
   background: none;
   font: var(--v32-mono);
   font-variant-numeric: tabular-nums;
@@ -1111,6 +1152,7 @@
 }
 #inspector .v32 .v32-step-q small {
   position: absolute;
+  font: inherit;
   width: 1px;
   height: 1px;
   overflow: hidden;
@@ -1193,7 +1235,10 @@
 #inspector .v32 > details.quiet-details > summary::-webkit-details-marker {
   display: none;
 }
-#inspector .v32 > details.quiet-details > summary::before {
+#inspector .v32 > details.quiet-details > summary::before,
+#inspector :is(.v32, .v32-plain) .case-group > summary::before,
+#inspector .v32 #originalMetadata > summary::before,
+#inspector .v32 > .sh-case-panel .sh-vote-details > summary::before {
   content: '';
   flex: none;
   width: 20px;
@@ -1204,7 +1249,10 @@
     center / 20px no-repeat;
   transition: transform var(--v31-t-press) var(--v31-ease);
 }
-#inspector .v32 > details.quiet-details[open] > summary::before {
+#inspector .v32 > details.quiet-details[open] > summary::before,
+#inspector :is(.v32, .v32-plain) .case-group[open] > summary::before,
+#inspector .v32 #originalMetadata[open] > summary::before,
+#inspector .v32 > .sh-case-panel .sh-vote-details[open] > summary::before {
   transform: rotate(90deg);
 }
 #inspector .v32 > details.quiet-details > summary:hover {
@@ -1246,17 +1294,28 @@
   border: 0;
   background: none;
 }
+/* A drawer inside the drawer: the same chevron and quiet words. */
 #inspector .v32 #originalMetadata > summary {
   display: flex;
   align-items: center;
   height: 36px;
+  margin: 0;
+  padding: 0;
   list-style: none;
   font: var(--v31-ui);
-  color: var(--v31-link);
+  color: var(--v31-muted);
   cursor: pointer;
+}
+#inspector .v32 #originalMetadata > summary:hover {
+  color: var(--v31-text);
 }
 #inspector .v32 #originalMetadata > summary::-webkit-details-marker {
   display: none;
+}
+#inspector .v32 #originalMetadata pre a.cite-link {
+  display: inline;
+  margin: 0;
+  padding: 0;
 }
 #inspector .v32 #originalMetadata pre {
   margin: 8px 0 16px;
@@ -1332,13 +1391,16 @@
 #inspector .v32 > .r6-connections > .related-heading > .v32-label {
   margin: 0;
 }
-#inspector .v32 .related-heading .case-count {
+#inspector :is(.v32, .v32-plain) .case-count {
   margin-left: 4px;
   padding: 0;
   border: 0;
+  border-radius: 0;
   background: none;
+  vertical-align: baseline;
 }
-#inspector .v32 .study-connection {
+#inspector .v32 .study-connection,
+#inspector :is(.v32, .v32-plain) .indexed-case {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 0 24px;
@@ -1351,28 +1413,34 @@
   background: none;
   box-shadow: none;
 }
-#inspector .v32 .study-connection .connection-destination {
+#inspector .v32 .study-connection .connection-destination,
+#inspector :is(.v32, .v32-plain) .indexed-case > button[data-study-node] {
   all: unset;
+  box-sizing: border-box;
   grid-column: 1;
-  display: flex;
-  align-items: center;
+  display: block;
+  /* 36 px for a name on one line; a name on two lines keeps the same space under it. */
   min-height: 36px;
+  padding: 8px 0 4px;
   font: var(--v31-body-type);
   font-weight: 600;
   line-height: 24px;
   color: var(--v31-link);
   cursor: pointer;
 }
-#inspector .v32 .study-connection .connection-destination:hover {
+#inspector .v32 .study-connection .connection-destination:hover,
+#inspector :is(.v32, .v32-plain) .indexed-case > button[data-study-node]:hover {
   color: var(--v31-link-hover);
 }
-#inspector .v32 .study-connection .dkla-location {
+#inspector .v32 .study-connection .dkla-location,
+#inspector :is(.v32, .v32-plain) .indexed-case > .dkla-index-kind {
   grid-column: 1;
-  margin: -4px 0 8px;
+  margin: 0 0 8px;
   font: var(--v31-label);
   color: var(--v31-faint);
 }
-#inspector .v32 .study-connection > p {
+#inspector .v32 .study-connection > p,
+#inspector :is(.v32, .v32-plain) .indexed-case > p {
   grid-column: 1;
   max-width: var(--v32-measure);
   margin: 0;
@@ -1382,15 +1450,15 @@
   white-space: normal;
   color: var(--v31-muted);
 }
-#inspector .v32 .study-connection > .text-button {
+/* The row's second action is the same quiet control as every other (words in the link blue), one size down. */
+#inspector .v32 .study-connection > .text-button,
+#inspector :is(.v32, .v32-plain) .indexed-case > .text-button {
   grid-column: 2;
   grid-row: 1 / span 3;
   align-self: start;
+  /* Its words sit on the name's first line. */
+  margin-top: 2px;
   font: var(--v32-ui-small);
-  color: var(--v31-muted);
-}
-#inspector .v32 .study-connection > .text-button:hover {
-  color: var(--v31-text);
 }
 /* "Questions this case helps answer": rows. */
 #inspector .v32 > .case-topics {
@@ -1572,9 +1640,10 @@
 #inspector .v32 > .sh-case-panel .sh-sort > button:hover {
   color: var(--v31-text);
 }
+/* (!important: the SCOTUS History styles tint the pressed part with !important, for its own dialog too.) */
 #inspector .v32 > .sh-case-panel .sh-sort > button[aria-pressed='true'] {
-  background: var(--v31-raised);
-  color: var(--v31-text);
+  background: var(--v31-raised) !important;
+  color: var(--v31-text) !important;
 }
 #inspector .v32 > .sh-case-panel .sh-votes {
   display: grid;
@@ -1668,6 +1737,7 @@
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
+  gap: 4px;
   height: 36px;
   font: var(--v31-ui);
   color: var(--v31-link) !important;
@@ -1684,12 +1754,22 @@
   font-weight: 400;
   color: var(--v31-muted);
 }
+/* The same drawer as "Record details": a chevron that turns, quiet words. */
 #inspector .v32 > .sh-case-panel .sh-vote-details > summary {
   display: flex;
   align-items: center;
   height: 36px;
-  color: var(--v31-link);
+  padding: 0;
+  list-style: none;
+  font: var(--v31-ui);
+  color: var(--v31-muted);
   cursor: pointer;
+}
+#inspector .v32 > .sh-case-panel .sh-vote-details > summary::-webkit-details-marker {
+  display: none;
+}
+#inspector .v32 > .sh-case-panel .sh-vote-details > summary:hover {
+  color: var(--v31-text);
 }
 #inspector .v32 > .sh-case-panel .sh-vote-details p {
   margin: 0 0 8px !important;
@@ -1714,6 +1794,7 @@
 #inspector .v32 > .sh-case-panel .sh-source a {
   display: inline-flex;
   align-items: center;
+  gap: 4px;
   height: 36px;
   font: var(--v31-label);
   color: var(--v31-muted);
@@ -1722,12 +1803,72 @@
   color: var(--v31-text);
 }
 
-/* ---------- Cases (a concept's cases across the course) ---------- */
-#inspector .v32 > .course-case-index {
+/* ---------- Cases (a concept's or a rule's cases across the course) ---------- */
+/* The same rows as Connections: the case, how it bears on this entry, one quiet action. A group of
+   cases that reach this entry through another one is a drawer under the cases filed here. */
+#inspector :is(.v32, .v32-plain) > .course-case-index {
   margin: 0;
   padding: 0;
   border: 0;
   background: none;
+}
+#inspector :is(.v32, .v32-plain) > .course-case-index > h3.v32-label {
+  display: flex;
+  align-items: center;
+  min-height: 36px;
+  margin: 0;
+}
+#inspector :is(.v32, .v32-plain) > .course-case-index .dkla-index-scope {
+  display: none;
+}
+#inspector :is(.v32, .v32-plain) .case-group {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid var(--v32-hair);
+  border-radius: 0;
+  background: none;
+}
+#inspector :is(.v32, .v32-plain) .case-group > summary {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font: var(--v31-ui);
+  color: var(--v31-muted);
+  cursor: pointer;
+}
+#inspector :is(.v32, .v32-plain) .case-group > summary:hover {
+  color: var(--v31-text);
+}
+#inspector :is(.v32, .v32-plain) .case-group > summary::-webkit-details-marker {
+  display: none;
+}
+#inspector :is(.v32, .v32-plain) .case-group > summary > .v32-count {
+  margin-left: 8px;
+}
+/* One group, already open, under a heading that says the same: its line is not needed. */
+#inspector :is(.v32, .v32-plain) > .course-case-index > .case-group[open]:only-of-type {
+  border-top: 0;
+}
+#inspector :is(.v32, .v32-plain) > .course-case-index > .case-group[open]:only-of-type > summary {
+  display: none;
+}
+#inspector :is(.v32, .v32-plain) .indexed-case > button[data-study-node] > strong {
+  font: inherit;
+  color: inherit;
+}
+#inspector :is(.v32, .v32-plain) .indexed-case > .context-text,
+#inspector :is(.v32, .v32-plain) .case-group > .context-text {
+  margin: 0 0 8px;
+  font: var(--v31-label);
+  color: var(--v31-faint);
+}
+#inspector :is(.v32, .v32-plain) .indexed-case > .dkla-source-evidence {
+  grid-column: 1;
+  margin: 8px 0 0;
 }
 
 /* ---------- print: every facet, in order, each under its name ---------- */

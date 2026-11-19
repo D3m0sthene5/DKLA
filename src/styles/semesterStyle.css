@@ -39,70 +39,7 @@
   color: #c2b499;
   background: #222d36;
 }
-.case-count {
-  font: 500 12px system-ui;
-  padding: 3px 7px;
-  border-radius: 15px;
-  background: #31414c;
-  vertical-align: middle;
-  margin-left: 5px;
-}
-.course-case-index {
-  border-top: 1px solid #465562;
-  padding-top: 14px;
-  margin-top: 24px;
-}
-.case-group {
-  margin: 12px 0;
-  border: 1px solid #3a4b5b;
-  border-radius: 5px;
-  padding: 11px 12px;
-}
-.case-group > summary {
-  font-size: 13px;
-  color: #dfcbab;
-  line-height: 1.5;
-  cursor: pointer;
-}
-.indexed-case {
-  padding: 13px 0;
-  border-bottom: 1px solid #344551;
-}
-.indexed-case:last-child {
-  border-bottom: 0;
-}
-.indexed-case > button:first-child {
-  display: block;
-  text-align: left;
-  border: 0;
-  padding: 0;
-  background: none;
-  width: 100%;
-}
-.indexed-case strong {
-  display: block;
-  font-size: 14px;
-  font-weight: 600;
-  color: #ddd4c6;
-  line-height: 1.45;
-}
-.indexed-case span {
-  display: block;
-  font-size: 10px;
-  color: #91a6b7;
-  margin-top: 4px;
-}
-.indexed-case p {
-  font-size: 13px;
-  line-height: 1.6;
-  color: #c5d0db;
-  margin: 7px 0 !important;
-}
-.index-evidence {
-  font-size: 10px !important;
-  color: #9fbbca !important;
-  padding: 0 !important;
-}
+/* (The count beside a heading and the "Cases across the course" rows are drawn by src/features/v32/case.css.) */
 .case-topics {
   margin: 24px 0;
 }

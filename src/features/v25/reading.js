@@ -214,6 +214,26 @@
       if ([...drawer.children].every((child) => child.tagName === 'SUMMARY')) drawer.remove();
     }
   }
+  // The voting record's links end in a typed arrow. In the reader the arrow is drawn (one stroke, the
+  // weight of every other icon): the same links, the same words.
+  const ARROWS = {
+    '→': 'M3.5 8h9M8.5 4l4 4-4 4',
+    '↗': 'M5 11l6-6M6 5h5v5',
+  };
+  function arrows(body) {
+    for (const link of body.querySelectorAll(
+      ':scope > .sh-case-panel .sh-panel-actions button, :scope > .sh-case-panel .sh-source a',
+    )) {
+      const last = link.lastChild;
+      const found = last?.nodeType === 3 && last.textContent.match(/\s*([→↗])\s*$/);
+      if (!found) continue;
+      last.textContent = last.textContent.slice(0, found.index);
+      link.insertAdjacentHTML(
+        'beforeend',
+        `<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${ARROWS[found[1]]}"/></svg>`,
+      );
+    }
+  }
   // The header of every entry that is a record of the map: its name, then (case.js) the citation line,
   // then the line that says what its picture shows. The rule and concept readers share it with cases.
   function header(body) {
@@ -413,6 +433,7 @@
       notesSection(body);
     }
     editing(body);
+    arrows(body);
     unwrap(body.querySelector(':scope > .v25-study-tools'));
     unwrap(body.querySelector(':scope > .v25-term-details'));
     briefHead(body, isCase);

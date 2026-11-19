@@ -482,38 +482,12 @@
   font-size: 11px;
   letter-spacing: 0.12em;
 }
-/* !important: an earlier `#inspector h2,#inspector h3{letter-spacing:-.015em}` layer and a 14px h3 rule
-   squash this uppercase label into tight 14px capitals. */
-#inspector .reader-body .dkla-terms h3 {
-  font-size: 11px !important;
-  letter-spacing: 0.12em !important;
-  margin: 0 0 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-#inspector .reader-body .dkla-terms h3 span {
-  font-size: 11px;
-  letter-spacing: 0;
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-  padding: 3px 7px;
-  margin: 0;
-  border-radius: 999px;
-  background: #26323d;
-  color: #c3ced8;
-}
+/* (The "Terms in this entry" label is drawn by src/features/v32/case.css now.) */
 #inspector .reader-body .why h3 {
   font-size: 11px !important;
   letter-spacing: 0.12em !important;
   text-transform: uppercase;
   margin: 0 0 7px;
-}
-#inspector .reader-body .case-count {
-  font-variant-numeric: tabular-nums;
-  border-radius: 999px;
-  background: #26323d;
-  color: #c3ced8;
 }
 
 /* ---------- 3. Doctrine timeline rail ---------- */
@@ -598,20 +572,7 @@
   margin-bottom: 2px !important;
 } /* beats `.case-box p{margin:0 0 18px!important}` */
 
-/* ---------- 6. Cases across the course ---------- */
-#inspector .reader-body .course-case-index {
-  padding-top: 4px;
-}
-#inspector .reader-body .course-case-index .case-group {
-  border-color: #3a4856;
-  border-radius: 9px;
-}
-#inspector .reader-body .course-case-index .case-group > summary {
-  transition: color 0.14s ease;
-}
-#inspector .reader-body .course-case-index .case-group > summary:hover {
-  color: #e6edf3;
-}
+/* ---------- 6. Cases across the course: src/features/v32/case.css ---------- */
 
 /* ---------- 7. Connections ---------- */
 #inspector .reader-body .study-connection {

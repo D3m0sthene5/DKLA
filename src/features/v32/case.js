@@ -695,6 +695,11 @@
       tab.scrollIntoView({ block: 'nearest', inline: 'nearest' });
       return;
     }
+    // The 4 px above and below the Cold Call button belong to it (a 44 px hit area round a 36 px button).
+    if (event.target.classList.contains('v32-cc')) {
+      event.target.querySelector('[data-cold-call]:not(:disabled)')?.click();
+      return;
+    }
     const mode = event.target.closest('.v32-brief-head [data-v32-mode]');
     if (mode) {
       setMode(mode.dataset.v32Mode);

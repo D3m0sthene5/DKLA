@@ -682,7 +682,8 @@
 }
 .v31-dot > span {
   position: absolute;
-  top: 24px;
+  /* Every year sits on one baseline, clear of the ring round the open entry's mark. */
+  top: 26px;
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
