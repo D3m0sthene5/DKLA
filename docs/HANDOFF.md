@@ -3,6 +3,48 @@
 Written at the end of a session so the next one can pick up cleanly.
 Update or replace this file when the state changes.
 
+## The territories (19 November 2026, branch `v32-home`, not merged, not deployed)
+
+The owner's verdict on the quiet Home: the saturated course territories were easier to tell apart, the
+quiet one had fewer crossing lines, and he wants both (docs/DESIGN.md rule 15). What Home and the course
+views draw now, all of it in `draw()` (`src/runtime/studyCode.js`) and `src/features/v32/cards.css`:
+
+- **A subject's tile is filled in its course's colour.** One fill a course (`TILE_FILL` in
+  `studyCode.js`: `#1f4872`, `#6b3c06`, `#1a4b2b`, each at the course's own hue so nothing is a brown or
+  grey made by mixing), one hairline in the course's accent at 0.8, light on the top edge. The fill is
+  opaque. The map's text colour is 7.5:1 or better on every fill; a tile's count on a course view is in
+  the text colour too (`.v32-on-tile`). A tile that is not a subject (reading records, Notes) stays a
+  plain panel, so the doctrine is what has the colour. Tokens for the three fills were not added
+  (`tokens.css` was out of bounds for that pass): ask for them.
+- **The tree is drawn to be followed.** Each course's `spine` in the course's colour: "leads to" (kind
+  `flow`) solid, 1.75 px, ending in an arrowhead drawn in the same path; "or instead" (`contrast`)
+  dashed and "depends on" (`depends`) dotted, 1.5 px, lighter. `treeLines()` routes a course's tree as a
+  whole and remembers it: a line is straight unless it would pass behind a third subject, and then takes
+  the shortest way round along lines of sight between the corners of the subjects in its way, 190 map
+  units out, paying to cross another line (2,000 units) or the name of a part (3,000). On Home: 32
+  lines, 6 of them routed, none behind a subject by more than 3 px (7 lines were, at 8 places, 5 of
+  them for 22 to 77 px), 2 crossings (the second is between two lines that used to be hidden behind
+  tiles). The curves of association still appear only for the tile under the pointer or the open
+  subject, with the other lines stepped back to 0.22.
+- **Where a course begins.** Its first subject (`step` 1) carries a numbered dot on its corner
+  (`.v32-start`), the same mark that stands before an open subject's name. `r20.js` leaves it in place.
+- **The land.** Under each course the ground is stippled in the course's colour (a 12 px grid of 0.75
+  px dots, pattern `land-k/cp/lrs`, one path a course). Its outline is the course's own parts
+  (`courseDesign.zones`) and every subject's place, snapped to the grid so no dot is cut; it has no
+  edge and no fill. It replaces the three radial gradients. On a course view the parts are a flat wash
+  of the course's deepest step (`--wash`) over it. A wide part now keeps its name and ground ("The life
+  of the suit" was left out on a 1440 px course view because its name asked for more room than the band
+  has).
+- **Beside the reader** a tile that steps back is drawn over a solid piece of ground
+  (`.v32-tile-under`), so the open subject's lines pass behind it and never through its name.
+- **Checks**: `tools/v32/check-cards.mjs` holds the fills, the 7:1, the line weights, the arrowheads, "no
+  line behind a third subject", at most two crossings, the land, the start marks and the strip; three
+  breakages in `tools/verify/break.mjs`.
+- **For the owner's PC**: every picture of Home and of a course view changes (`pnpm views:update`).
+- **Open**: an open subject is still a neutral panel whose only course mark is its numbered dot; the
+  curves of association shown on hover still run straight behind tiles; the books in Rules &
+  authorities are now the quietest thing on Home.
+
 ## What the map draws (19 November 2026, branch `v32-cards`, not merged, not deployed)
 
 - **An open subject is one panel.** Its title (Exo 2, with the course's numbered dot), a readout of what

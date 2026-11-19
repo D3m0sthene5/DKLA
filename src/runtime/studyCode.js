@@ -1549,7 +1549,7 @@ function treeLines(lines, tiles, names) {
     });
   const wayRound = (o) => {
     const { l, others, lane } = o,
-      gap = 150 + lane * 110,
+      gap = 190 + lane * 110,
       // the other lines of the tree, as drawn so far (two straight lines that share a subject meet there:
       // no crossing; two that both go round something are kept from crossing even so)
       drawn = all
@@ -2398,9 +2398,9 @@ function draw() {
   );
   // the course view's furniture (its parts and the lines between subjects) fades as a subject opens
   const zoneOp = Math.min(1, Math.max(0, (0.3 - z) / 0.14)),
-    // the land is at its strongest on Home, where it is the only ground a territory has; closer in, the
-    // course's parts and then the open subject stand on it and it steps back
-    landOp = Math.min(1, Math.max(0.45, 1.3 - z * 10));
+    // the land is at its strongest on Home, where it is the only ground a territory has; on a course view
+    // the course's parts stand on it and it steps back; round an open subject it is the ground again
+    landOp = Math.max(0.7 + 0.2 * (1 - zoneOp), Math.min(1, 1.3 - z * 10));
   const regionById = new Map(regions.map((r) => [r.id, r]));
   for (const c of Object.keys(G.blocks)) {
     const dimc = S.scope !== 'Atlas' && S.scope !== c ? 0.5 : 1,
@@ -2428,10 +2428,12 @@ function draw() {
     const col = ARM_COLORS[c] || '#9fb3c4';
     for (const zn of dz.zones || []) {
       if (!intersects(zn, B, 200) || zn.w * z <= 150) continue;
+      // a part's name is set as large as the band above its subjects allows (a wide part asked for 15 px
+      // in a 22 px band and was left out, name and ground, while its narrower neighbours were drawn)
       const head = 360 * z,
-        zfs = Math.min(15, Math.max(11, zn.w * z * 0.018)) / z,
-        zpx = zfs * z;
-      if (head < zpx * 1.6) continue;
+        zpx = Math.min(15, Math.max(11, zn.w * z * 0.018), head / 1.6),
+        zfs = zpx / z;
+      if (zpx < 11) continue;
       // A part of the course: one quiet fill step, no outline. It belongs to the course view and is gone
       // by the time a subject is open.
       if (zoneOp <= 0) continue;
