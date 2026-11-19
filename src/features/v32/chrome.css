@@ -15,8 +15,8 @@
    set a property with !important, the same property carries it here, and says so. */
 html.v32-chrome {
   --top: 56px;
-  /* Readouts: the embedded bold face until a lighter JetBrains Mono is embedded under its own name. */
-  --v32c-mono: 'JetBrains Mono', 'DKLA JetBrains Mono', ui-monospace, monospace;
+  /* Readouts: the embedded JetBrains Mono (Medium for counts and the shortcut, Bold for the clock). */
+  --v32c-mono: 'DKLA JetBrains Mono', 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
   /* The least width of each side of the bar: the right group's own width at each step below (a few
      pixels over), so both sides are equal and the field is centred on the window. */
   --v32c-side: 236px;
@@ -206,6 +206,7 @@ html.v32-chrome .study-header .map-nav {
   padding: 0;
   /* !important: the r16 layer gives the map's controls a fill, an edge and a shadow with it */
   border: 0 !important;
+  border-radius: 0;
   background: none !important;
   box-shadow: none !important;
   color: var(--v31-muted);
@@ -247,7 +248,8 @@ html.v32-chrome .map-nav #geoBreadcrumb {
 html.v32-chrome .map-nav #geoBreadcrumb button {
   position: relative;
   flex: 0 1 auto;
-  min-width: 24px;
+  /* never narrower than a control is high ("LRS", and the "…" that opens the whole path) */
+  min-width: var(--v32-h-control);
   height: var(--v32-h-control);
   padding: 0 var(--v32-s1);
   overflow: hidden;
@@ -280,7 +282,6 @@ html.v32-chrome .map-nav #geoBreadcrumb.v32-trail-measure button {
   flex-shrink: 0;
 }
 html.v32-chrome .map-nav #geoBreadcrumb .v32-crumb-more {
-  min-width: var(--v32-s5);
   justify-content: center;
   color: var(--v31-muted);
   text-align: center;
@@ -319,6 +320,8 @@ html.v32-chrome .map-nav #geoBreadcrumb > span {
   background: var(--v31-faint);
   color: transparent;
   font-size: 0;
+  /* !important: typography.css sets the trail's weight with it (the character is not drawn) */
+  font-weight: 500 !important;
   -webkit-mask: var(--v32-g-chevron) center / 12px 12px no-repeat;
   mask: var(--v32-g-chevron) center / 12px 12px no-repeat;
 }
@@ -874,6 +877,7 @@ html.v32-chrome #searchResults .ask-search {
   min-height: var(--v32-h-row);
   padding: 0 var(--v32-s3);
   border: 0;
+  border-radius: var(--v32-r-control);
   background: none;
   color: var(--v31-text);
   white-space: nowrap;
@@ -929,6 +933,7 @@ html.v32-chrome #searchResults .ask-search small {
   height: 16px;
   padding: 0;
   border: 0;
+  border-radius: 0;
   background: none;
   color: var(--v31-muted);
   font: 500 12px/16px var(--v32c-mono);

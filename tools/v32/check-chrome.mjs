@@ -7,7 +7,7 @@
       version), Ask Dottie and the Library. Only Exo 2, Inter and the mono face are used in it.
    2. The breadcrumb is in the bar, on one line, and right at each level. A path longer than its room is
       shortened by design: a level is shown whole or folded into a "…" control that opens the whole path;
-      the command field gives the last level room (down to 320 px, its right edge fixed); only then is the
+      the command field gives the last level room (down to 256 px, its right edge fixed); only then is the
       last level cut, at a word, with its whole text as its title. Held through a resize with the longest
       path in the data. A crumb and Back both navigate; the wordmark is the way Home, where the breadcrumb
       steps aside. Under 1024 px the path sits on the map.
@@ -409,11 +409,9 @@ try {
           timeIn: time.left > clock.left && time.right < version.left,
           versionIn: version.left > clock.left && version.right < clock.right && version.top > clock.top,
           rule: getComputedStyle(document.querySelector('.study-header .ny-clock'), '::after').width,
-          baselines: [
-            '.ny-clock .ny-time .flip .half.top',
-            '.ny-clock .ny-meridiem',
-            '.study-header .dkla-release',
-          ].map((selector) => Math.round(base(selector) * 10) / 10),
+          baselines: ['.ny-clock .ny-meridiem', '.study-header .dkla-release'].map(
+            (selector) => Math.round(base(selector) * 10) / 10,
+          ),
         };
       });
       assert.deepEqual(i.frame, i.cluster, 'the frame is the whole cluster');
@@ -425,7 +423,7 @@ try {
         Math.abs(i.gauge[0] - i.frame[0]) <= 1 && Math.abs(i.gauge[1] - i.frame[1]) <= 1,
         `the gauge runs round the whole frame: ${i.gauge} of ${i.frame}`,
       );
-      const [, meridiem, version] = i.baselines;
+      const [meridiem, version] = i.baselines;
       assert.ok(
         Math.abs(meridiem - version) <= 1,
         `"PM" and the version stand on one line: ${i.baselines.join(', ')}`,
@@ -632,7 +630,7 @@ try {
       assert.equal(t.text, 'Atlas › … › ' + LONGEST_LAST);
       assert.deepEqual(t.clipped, []);
       assert.equal(t.lines, 1);
-      assert.ok(t.field.w < rest.w && t.field.w >= 320, `the field gave room: ${rest.w} to ${t.field.w}`);
+      assert.ok(t.field.w < rest.w && t.field.w >= 256, `the field gave room: ${rest.w} to ${t.field.w}`);
       assert.ok(Math.abs(t.field.right - rest.right) < 0.5, "the field's right edge has not moved");
       assert.ok(t.right <= t.field.x - 8, 'the path ends before the field starts');
       await snap(page, 'chrome-3b-long-path');
@@ -645,6 +643,31 @@ try {
         LONGEST_LAST,
       ]);
       await page.keyboard.press('Escape');
+      // The path the owner's critique named ("Atlas › Legislation and the Regulatory State › Judicial review
+      // of agency interpretation › Chevron to independent judicial judgment"): where you are is whole in
+      // both windows the frame was drawn for, because the field gives it room.
+      const OWNERS = 'Chevron to independent judicial judgment';
+      for (const width of [1440, 1280]) {
+        await page.setViewportSize({ width, height: width === 1280 ? 800 : 900 });
+        await page.evaluate(() => goNode('lrs-i-loper-bright', true));
+        await page.waitForFunction(() => selected?.id === 'lrs-i-loper-bright');
+        try {
+          await page.waitForFunction(
+            (text) =>
+              document.querySelector('#geoBreadcrumb button:last-of-type')?.textContent.trim() === text,
+            OWNERS,
+            { timeout: 4000 },
+          );
+        } catch {
+          /* said below, with what is shown instead */
+        }
+        const o = await trail(page);
+        assert.equal(o.last.text, OWNERS, `${width}px: [${o.text}] beside a field ${o.field.w}px wide`);
+        assert.deepEqual(o.clipped, [], width + 'px');
+        assert.ok(o.field.w >= 256, `${width}px: the field is ${o.field.w}px wide`);
+        assert.ok(o.right <= o.field.x - 8, width + 'px: the path ends before the field starts');
+      }
+      await page.setViewportSize({ width: 1440, height: 900 });
       // Back on Home the field is where it was.
       await goHome(page);
       assert.deepEqual((await trail(page)).field, rest, 'Home: the field is back');
@@ -686,7 +709,7 @@ try {
           if (/\b(and|of|the)$/.test(kept)) say('the cut ends on a loose word');
           if (t.last.title !== LONGEST_LAST || t.last.label !== LONGEST_LAST)
             say('a cut level does not carry its whole text');
-          if (t.inBar && t.field.w > 321) say(`cut while the field is still ${t.field.w}px wide`);
+          if (t.inBar && t.field.w > 257) say(`cut while the field is still ${t.field.w}px wide`);
         }
         if (t.inBar && t.right > t.field.x - 8) say('the path runs into the field');
         if (!t.inBar && t.right > width - 23) say('the path runs past the map');

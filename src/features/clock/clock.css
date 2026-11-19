@@ -83,12 +83,10 @@
 }
 .ny-clock .half.top {
   top: 0;
-  border-radius: 2px 2px 0 0;
   background: var(--card-top);
 }
 .ny-clock .half.bottom {
   bottom: 0;
-  border-radius: 0 0 2px 2px;
   background: var(--card-bottom);
 }
 .ny-clock .half.bottom > span {

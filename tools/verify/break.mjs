@@ -397,7 +397,7 @@ const breakages = [
   [
     'The frame: the command field gives a long path no room, so its last level is cut',
     'src/features/v32/chrome.js',
-    () => edit('src/features/v32/chrome.js', 'const FIELD_LEAST = 320;', 'const FIELD_LEAST = 5200;'),
+    () => edit('src/features/v32/chrome.js', 'const FIELD_LEAST = 256;', 'const FIELD_LEAST = 5200;'),
   ],
   [
     'The frame: a count in the Library is a bare number again, with nothing to say what it counts',

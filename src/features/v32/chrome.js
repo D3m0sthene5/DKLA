@@ -229,8 +229,11 @@
   let trailWatch = null,
     crumbsNow = [];
   const fullName = (crumb) => crumb.dataset.v32Name || crumb.textContent.trim();
-  // The command field may give the path room, down to this width (and no further).
-  const FIELD_LEAST = 320;
+  // The command field may give the path room, down to this width (and no further): its icon, "Search or
+  // jump to…" and the shortcut still fit, with a little air. (320 until the owner's own example, "Chevron
+  // to independent judicial judgment", lost its last word at 1280 px for want of 40 px beside a field
+  // that had 130 px of nothing in it.)
+  const FIELD_LEAST = 256;
   let pushed = 0;
   const push = (px) => {
     px = Math.max(0, Math.ceil(px));
@@ -252,7 +255,7 @@
   //      then "Atlas › … › last". A level folds only where that gives real room back (folding "LRS"
   //      into "…" would hide a name and gain nothing);
   //   2. the last level, where you are, comes first. If no folding shows it whole, the command field
-  //      gives up room for it (down to 320 px wide; its right edge and everything right of it stay
+  //      gives up room for it (down to 256 px wide; its right edge and everything right of it stay
   //      where they are), and after that the first level folds too ("… › last");
   //   3. only then is the last level cut, at a word, with "…" and its whole text as the tooltip.
   function fitTrail() {
