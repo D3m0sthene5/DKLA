@@ -202,10 +202,12 @@
     }
     for (const node of byId.values()) (rows[rank(node.id)] ||= []).push(node);
 
-    const cardWidth = 244;
-    const gap = 32;
+    const cardWidth = 264;
+    const gap = 28;
     const padding = 28;
-    const rowGap = 68;
+    const rowGap = 60;
+    // After the first decision the chart's main branches are named in large type: that row is deeper.
+    const trunkGap = 30;
     let leftLanes = 0;
     let rightLanes = 0;
     const widest = Math.max(...rows.map((row) => row.length));
@@ -220,7 +222,15 @@
           : 0;
       };
       row.sort((a, b) => parentPosition(a) - parentPosition(b));
-      const cardHeight = (node) => (node.edges.length ? 89 + node.edges.length * 51 : 108);
+      // A step is its question, its answers as lettered lines and the drawings of the cases it cites.
+      const lines = (text, perLine) => Math.max(1, Math.ceil(String(text).length / perLine));
+      const cardHeight = (node) =>
+        22 +
+        lines(node.label, 21) * 20 +
+        (node.edges.length
+          ? 8 + node.edges.reduce((sum, edge) => sum + lines(edge.label, 22) * 18 + 6, 0)
+          : 20) +
+        (artOf(node).length ? 44 : 6);
       const rowHeight = Math.max(...row.map(cardHeight));
       let x = (contentWidth - (row.length * (cardWidth + gap) - gap)) / 2;
       for (const node of row) {
@@ -234,7 +244,7 @@
         });
         x += cardWidth + gap;
       }
-      y += rowHeight + rowGap;
+      y += rowHeight + rowGap + (level === 0 && row.length === 1 && row[0].edges.length > 1 ? trunkGap : 0);
     });
 
     const wires = [];
@@ -257,7 +267,13 @@
           const outer = (side < 0 ? 0 : contentWidth) + side * (12 + lane * 9);
           path = `M ${sx} ${sy} V ${from.rowEnd + 16 + index * 6} H ${outer} V ${to.y - 16 - port * 4} H ${tx} V ${to.y - 3}`;
         }
-        wires.push({ path, from: node.id, edge: index });
+        // Each wire carries the letter of its answer where it leaves the step. The first decision's
+        // answers name the chart's main branches: each is lettered above the step it leads to.
+        const trunk =
+          node.id === chart.entry && node.edges.length > 1 && to.level === from.level + 1 && parents.length === 1
+            ? { x: tx + 14, y: to.y - 12, label: edge.label }
+            : null;
+        wires.push({ path, from: node.id, edge: index, key: { x: sx + 6, y: sy + 15 }, trunk });
       });
     }
     const shift = padding + (leftLanes ? 12 + leftLanes * 9 : 0);
@@ -265,7 +281,69 @@
     return { positions, wires, shift, width, height: y - rowGap + padding };
   }
 
-  const badge = (node) => `<span class="fc-number" aria-hidden="true">${node.number}</span>`;
+  // A step's number sits in the shape of what the step is: a decision between answers (diamond), a
+  // step with one way on (square), an outcome (disc).
+  const SHAPE = {
+    decision: '<path d="M14 1.5 26.5 14 14 26.5 1.5 14Z"/>',
+    step: '<rect x="3" y="3" width="22" height="22" rx="4"/>',
+    outcome: '<circle cx="14" cy="14" r="12"/>',
+  };
+  const kindOf = (node) => (node.edges.length > 1 ? 'decision' : node.edges.length ? 'step' : 'outcome');
+  const badge = (node) =>
+    `<span class="fc-number fc-shape-${kindOf(node)}" aria-hidden="true"><svg viewBox="0 0 28 28" width="28" height="28">${SHAPE[kindOf(node)]}</svg><b>${node.number}</b></span>`;
+  // The drawings of the cases a step cites (only a drawing made for that case), at most four.
+  let ICONS = null;
+  function icons() {
+    if (!ICONS) {
+      try {
+        ICONS = JSON.parse(document.getElementById('dklaIcons')?.textContent || '{}');
+      } catch {
+        ICONS = {};
+      }
+    }
+    return ICONS;
+  }
+  function artOf(node) {
+    return node.sources
+      .map((id) => {
+        const meta = icons().records?.[id];
+        const path = meta?.status === 'unique' && icons().paths?.[meta.motif];
+        return path ? { id, path, title: titleOf(id) } : null;
+      })
+      .filter(Boolean)
+      .slice(0, 4);
+  }
+  const artHTML = (node) => {
+    const list = artOf(node);
+    return list.length
+      ? `<div class="fc-art-row">${list
+          .map(
+            (one) =>
+              `<a class="fc-art" href="${sourceURL(one.id)}" data-flowchart-source="${esc(one.id)}" title="${esc(one.title)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${one.path}</svg><span class="fc-sr-only">${esc(one.title)}</span></a>`,
+          )
+          .join('')}</div>`
+      : '';
+  };
+  // Drawings were made at different sizes inside the same square: each is fitted to its box.
+  function fitArt(scope) {
+    for (const svg of scope.querySelectorAll('.fc-art > svg:not([data-fit])')) {
+      let box;
+      try {
+        box = svg.getBBox();
+      } catch {
+        continue;
+      }
+      if (!box.width || !box.height) continue;
+      const side = Math.max(box.width, box.height) + 2;
+      svg.setAttribute(
+        'viewBox',
+        [box.x + box.width / 2 - side / 2, box.y + box.height / 2 - side / 2, side, side]
+          .map((n) => Math.round(n * 100) / 100)
+          .join(' '),
+      );
+      svg.dataset.fit = '1';
+    }
+  }
   const nodeType = (node) => (node.edges.length ? '' : 'Outcome');
   function graphHTML(session) {
     const { byId } = session;
@@ -289,15 +367,22 @@
               <path d="M 0 0 L 8 4 L 0 8 Z"></path></marker></defs>
             <g transform="translate(${shift} 0)">${wires
               .map(
-                ({ path, from, edge }) =>
-                  `<path class="fc-wire" data-fc-from="${esc(from)}" data-fc-edge="${edge}" d="${path}" marker-end="url(#fcArrow)"></path>`,
+                ({ path, from, edge, key }) =>
+                  `<path class="fc-wire" data-fc-from="${esc(from)}" data-fc-edge="${edge}" d="${path}" marker-end="url(#fcArrow)"></path>${byId.get(from).edges.length > 1 ? `<text class="fc-wire-key" x="${key.x}" y="${key.y}">${String.fromCharCode(97 + edge)}</text>` : ''}`,
               )
               .join('')}</g>
           </svg>
+          ${wires
+            .filter((wire) => wire.trunk)
+            .map(
+              ({ trunk }) =>
+                `<p class="fc-trunk" style="left:${trunk.x + shift}px;top:${trunk.y - 22}px">${esc(trunk.label)}</p>`,
+            )
+            .join('')}
           ${[...byId.values()]
             .map((node) => {
               const pos = positions.get(node.id);
-              return `<article class="fc-map-node${node.edges.length ? '' : ' fc-outcome'}" data-fc-cell="${esc(node.id)}"
+              return `<article class="fc-map-node fc-kind-${kindOf(node)}${node.edges.length ? '' : ' fc-outcome'}" data-fc-cell="${esc(node.id)}"
               style="left:${pos.x + shift}px;top:${pos.y}px;width:${pos.width}px;height:${pos.height}px">
               <button type="button" class="fc-node-heading" data-flowchart-node="${esc(node.id)}">
                 ${badge(node)}<span><span class="fc-sr-only">Step ${node.number}. </span>${esc(node.label)}</span></button>
@@ -306,13 +391,14 @@
                   ? `<ul>${node.edges
                       .map(
                         (edge, index) =>
-                          `<li><button type="button" data-fc-map-branch="${index}" data-fc-from="${esc(node.id)}">
-                  <span>${esc(edge.label)}</span><span class="fc-destination">→ ${byId.get(edge.to).number}</span>
+                          `<li><button type="button" data-fc-map-branch="${index}" data-fc-from="${esc(node.id)}" title="Take this answer to step ${byId.get(edge.to).number}">
+                  ${node.edges.length > 1 ? `<i class="fc-key" aria-hidden="true">${String.fromCharCode(97 + index)}</i>` : '<i class="fc-key" aria-hidden="true"></i>'}<span>${esc(edge.label)}</span><span class="fc-destination">→ ${byId.get(edge.to).number}</span>
                 </button></li>`,
                       )
                       .join('')}</ul>`
                   : `<small class="fc-node-type">${nodeType(node)}</small>`
               }
+              ${artHTML(node)}
             </article>`;
             })
             .join('')}
@@ -491,7 +577,10 @@
     const route = new Set(trail.slice(1).map((step, i) => `${trail[i].id}/${step.edge}`));
     for (const wire of map.querySelectorAll('.fc-wire'))
       wire.classList.toggle('fc-path-wire', route.has(`${wire.dataset.fcFrom}/${wire.dataset.fcEdge}`));
-    if (view === 'map') paintZoom({ center });
+    if (view === 'map') {
+      fitArt(map);
+      paintZoom({ center });
+    }
     if (focus) {
       const destination = detail.querySelector('h3');
       destination.focus({ preventScroll: true });

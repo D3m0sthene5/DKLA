@@ -387,6 +387,18 @@
         b.ends = span;
         spans.push(span);
       }
+      // An entry stored as a comparison from another jurisdiction or legal regime stands on a line of
+      // its own, lettered with that jurisdiction (its stored `object`: "Swiss law", "Singapore"),
+      // unless the object only repeats the entry's own name.
+      for (const item of items) {
+        const own = namedBy(item, item.s.object || '');
+        if (item.turn !== 'counterpoint' || !item.s.object || item.span) continue;
+        if (own && words(own).length === words(item.s.object).length) continue;
+        const rail = { line: { id: 'apart-' + item.i, name: item.s.object }, items: [item], of: null };
+        item.rail = rail;
+        item.rails = [rail];
+        rails.push(rail);
+      }
     }
     for (const item of items) {
       if (item.short) continue;
@@ -398,9 +410,14 @@
           break;
         }
       }
-      // A long caption takes the name the timeline's own prose calls the case by ("Brand X").
-      if (!item.short && plain(item.first).length > 34)
-        item.short = calledBy(item, prose(t, items, item, subject));
+      // A long name that is not a caption takes the entry's own stored short title; a long caption
+      // takes the name the timeline's own prose calls the case by ("Brand X").
+      if (!item.short && plain(item.first).length > 34) {
+        const own = item.cases.length === 1 && item.first.length === 1 && item.s.id;
+        const title = own ? String(nodesById.get(item.s.id)?.shortTitle || '') : '';
+        item.short =
+          title.replace(/\s*\((?:1[5-9]|20)\d{2}\)\s*$/, '').trim() || calledBy(item, prose(t, items, item, subject));
+      }
     }
     for (const item of items) item.words = held(item.s.effect || item.kind);
     // What became of entries: an entry's stored later development that names another entry of this
@@ -502,7 +519,8 @@
     }
     for (let i = 1; i < n; i++) ts[i] = Math.max(ts[i], ts[i - 1]);
     const whole = n ? ts[n - 1] - ts[0] : 0;
-    const isBreak = (i) => n >= 4 && ts[i] - ts[i - 1] > 0.3 * whole && ts[i] - ts[i - 1] >= 15;
+    // (Two fifths of the whole, so a short timeline is not all breaks.)
+    const isBreak = (i) => n >= 4 && ts[i] - ts[i - 1] > 0.4 * whole && ts[i] - ts[i - 1] >= 15;
     const widthOf = (i) =>
       model.spans.some((span) => span.a.i <= i - 1 && (span.b ? span.b.i : n - 1) >= i)
         ? Math.max(gap, Math.min(deckNeed + 48, (x1 - x0) * 0.36))
@@ -1132,6 +1150,11 @@
         `<section class="v32db-rel"><h4>What became of it</h4><p class="v32db-rel-said">${esc(item.s.fate)}</p>${item.later ? `<div class="v32db-rows">${rowHTML(item.later, item.later.words)}</div>` : ''}</section>`,
       );
     const bears = item.bears;
+    if (!bears && item.rail && aside(model, item))
+      // Drawn apart by its stored kind of move: the timeline's own words for what that kind is.
+      parts.push(
+        `<section class="v32db-rel v32db-rel-why"><h4>Why it is drawn apart, on ${esc(item.rail.line.name)}</h4><p class="v32db-rel-said">${esc(P.MEANS[item.turn] || '')}</p></section>`,
+      );
     if (bears?.basis && !['sets', 'ends'].includes(bears.as)) {
       const bands = model.spans.map((span) => span.short);
       const where = item.hung

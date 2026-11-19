@@ -989,9 +989,31 @@ html:root body #inspector .v32db-rel-source {
 html:root body #inspector .v32db-account[data-v32db-side='0'] {
   grid-template-columns: minmax(0, 1fr);
 }
+/* (Larger: its picture, its name, and its note set as a lead paragraph.) */
+html:root body #inspector .v32db-sel-wide {
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 0 32px;
+}
+html:root body #inspector .v32db-sel-wide .v32db-art-lg {
+  width: 96px;
+  height: 96px;
+}
+html:root body #inspector .v32db-sel-wide .v32db-sel-name {
+  font-size: 28px !important;
+  line-height: 34px !important;
+}
+html:root body #inspector .v32db-sel-wide .v32db-sel-note {
+  max-width: 720px;
+  font:
+    400 20px/30px var(--dkla-interface, Inter),
+    sans-serif;
+}
+html:root body #inspector .v32db-sel-wide .v32db-sel-fx {
+  max-width: 720px;
+}
 html:root body #inspector .v32db-sel-wide .v32db-sel-text {
   display: grid;
-  grid-template-columns: minmax(0, 600px) minmax(0, 520px);
+  grid-template-columns: minmax(0, 720px) minmax(0, 480px);
   gap: 8px 48px;
   align-items: start;
 }

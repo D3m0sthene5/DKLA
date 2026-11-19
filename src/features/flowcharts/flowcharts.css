@@ -514,14 +514,14 @@
   color: var(--fc-muted);
   font-size: 0.8rem;
 }
+/* The whole chart, drawn (v3.2): no boxes inside boxes and no grid behind it. A step is a beam in the
+   course's colour carrying its question; its answers are lettered lines, and each wire carries its
+   answer's letter where it leaves; the number sits in the shape of what the step is; the cases a
+   step cites are shown by their drawings. Amber marks the step you are on. */
 .fc-map-scroll {
-  height: min(60dvh, 610px);
+  height: min(64dvh, 640px);
   overflow: auto;
-  border: 1px solid var(--fc-line);
-  border-radius: 11px;
-  background-color: #101b24;
-  background-image: radial-gradient(#304653 1px, transparent 1px);
-  background-size: 18px 18px;
+  border-top: 1px solid var(--fc-line);
   overscroll-behavior: contain;
 }
 .fc-graph {
@@ -530,12 +530,13 @@
   zoom: var(--fc-map-scale, 1);
   margin-inline: auto;
   position: relative;
+  --fc-wire: color-mix(in srgb, var(--fc-course, var(--v31-link)) 62%, var(--v31-ground));
 }
 .fc-wires {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  color: #9bb6c3;
+  color: var(--fc-wire);
 }
 .fc-wires marker path {
   fill: currentColor;
@@ -543,87 +544,169 @@
 .fc-wire {
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.8px;
-  opacity: 0.83;
+  stroke-width: 1.5px;
 }
 .fc-path-wire {
-  stroke: var(--fc-accent);
-  stroke-width: 3px;
-  opacity: 1;
+  stroke: var(--v31-text);
+  stroke-width: 2.5px;
+}
+.fc-wire-key {
+  fill: var(--v31-soft);
+  font:
+    600 12px/1 var(--dkla-mono, 'JetBrains Mono'),
+    monospace;
+}
+#dklaFlowcharts .fc-trunk {
+  position: absolute;
+  margin: 0;
+  font:
+    600 17px/22px var(--dkla-display, 'Exo 2'),
+    sans-serif;
+  white-space: nowrap;
+  color: var(--v31-text);
 }
 .fc-map-node {
   position: absolute;
-  border: 1px solid var(--fc-line);
-  border-radius: 11px;
-  background: var(--fc-panel);
+  box-sizing: border-box;
+  border-top: 2px solid var(--fc-course, var(--v31-link));
+  border-bottom: 1px solid color-mix(in srgb, var(--fc-course, var(--v31-link)) 45%, transparent);
+  background: color-mix(in srgb, var(--fc-course, var(--v31-link)) 11%, var(--v31-ground));
 }
 .fc-map-node.fc-outcome {
-  background: #192933;
-  border-style: dashed;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--fc-course, var(--v31-link)) 22%, var(--v31-ground));
 }
 .fc-map-node.fc-path {
-  border-color: var(--fc-accent);
+  border-top-color: var(--v31-text);
 }
 .fc-map-node:has([aria-current='step']) {
-  border: 2px solid var(--fc-accent);
+  border-top-color: var(--v31-here);
+  box-shadow: 0 0 0 2px var(--v31-here);
+  background: var(--v31-here-bg);
 }
 #dklaFlowcharts .fc-node-heading {
   display: grid;
   width: 100%;
-  min-height: 68px;
-  grid-template-columns: 26px 1fr;
-  gap: 7px;
+  min-height: 0;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 10px;
   align-items: start;
-  padding: 10px;
+  padding: 10px 12px 0;
   border: 0;
+  border-radius: 0;
   background: transparent;
-  color: inherit;
+  color: var(--v31-text);
   text-align: start;
-  font-size: 0.87rem;
-  line-height: 1.27;
-  font-weight: 650;
+  font:
+    600 15px/20px var(--dkla-interface, Inter),
+    sans-serif;
   overflow-wrap: anywhere;
 }
 #dklaFlowcharts .fc-node-heading:hover {
-  color: var(--fc-accent);
+  color: var(--v31-link-hover);
+}
+#dklaFlowcharts .fc-node-heading > span:last-child {
+  padding-top: 4px;
 }
 .fc-number {
+  position: relative;
   display: grid;
   place-items: center;
-  width: 23px;
-  height: 23px;
-  border-radius: 50%;
-  background: var(--fc-accent);
-  color: #13232c;
-  font-size: 0.75rem;
-  font-weight: 800;
+  width: 28px;
+  height: 28px;
+  border-radius: 0;
+  background: none;
+  color: var(--v31-ground);
+}
+.fc-number > svg {
+  position: absolute;
+  inset: 0;
+  fill: var(--fc-course, var(--v31-link));
+}
+.fc-number > b {
+  position: relative;
+  font:
+    700 12px/1 var(--dkla-mono, 'JetBrains Mono'),
+    monospace;
   font-variant-numeric: tabular-nums;
+}
+.fc-map-node:has([aria-current='step']) .fc-number > svg {
+  fill: var(--v31-here);
 }
 .fc-node-type {
   display: block;
-  line-height: 1.15;
-  margin: -3px 0 0 43px;
-  color: var(--fc-muted);
-  font-size: 0.73rem;
+  margin: 2px 0 0 50px;
+  color: var(--v31-muted);
+  font:
+    500 12px/16px var(--dkla-interface, Inter),
+    sans-serif;
 }
 .fc-map-node ul {
   list-style: none;
-  margin: 0;
-  padding: 0 7px;
+  margin: 6px 0 0;
+  padding: 0 6px 0 44px;
 }
 #dklaFlowcharts .fc-map-node li button {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 5px;
+  grid-template-columns: 12px minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 6px;
   width: 100%;
-  min-height: 46px;
-  margin-bottom: 4px;
-  padding: 4px 7px;
-  font-size: 0.75rem;
-  line-height: 1.22;
+  min-height: 0;
+  margin: 0;
+  padding: 3px 6px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  font:
+    400 13px/18px var(--dkla-interface, Inter),
+    sans-serif;
   text-align: start;
-  background: #16242d;
+  color: var(--v31-soft);
+}
+#dklaFlowcharts .fc-map-node li button:hover {
+  background: var(--v32-hover, rgba(255, 255, 255, 0.06));
+  color: var(--v31-text);
+}
+.fc-map-node .fc-key {
+  font:
+    600 12px/18px var(--dkla-mono, 'JetBrains Mono'),
+    monospace;
+  font-style: normal;
+  color: var(--v31-muted);
+}
+.fc-map-node .fc-destination {
+  grid-column: auto;
+  font:
+    500 12px/18px var(--dkla-mono, 'JetBrains Mono'),
+    monospace;
+  color: var(--v31-faint);
+}
+.fc-art-row {
+  display: flex;
+  gap: 8px;
+  margin: 6px 0 0;
+  padding: 0 12px 8px 50px;
+}
+#dklaFlowcharts .fc-art {
+  display: block;
+  width: 28px;
+  height: 28px;
+  color: var(--fc-course, var(--v31-link));
+}
+#dklaFlowcharts .fc-art:hover {
+  color: var(--v31-text);
+}
+.fc-art > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.fc-art > svg * {
+  vector-effect: non-scaling-stroke;
 }
 .fc-sr-only {
   position: absolute;
