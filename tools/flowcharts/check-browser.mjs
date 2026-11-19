@@ -86,6 +86,136 @@ async function verifyZoom(dialog) {
   assert.ok((await measure()).overflow, '100% restores the full-size scrollable chart');
 }
 
+/* Every answer on the whole map: its one wire leaves the plate at that answer (or, for a step with a
+   single way on, from the foot of the plate), arrives with an arrow on the step the chart's data
+   names (or on the bar over that step, whose own arrow lands on it), and passes behind no other
+   step on the way. Measured from what is drawn, not from the attributes the page wrote. */
+const reach = () => {
+  const dialog = document.querySelector('dialog#dklaFlowcharts');
+  dialog.querySelector('[data-flowcharts-view="map"]').click();
+  const chart = JSON.parse(document.getElementById('dklaFlowchartsData').textContent).find(
+    (one) => one.id === dialog.dataset.printChart,
+  );
+  const map = dialog.querySelector('.fc-map');
+  const cells = new Map(
+    [...map.querySelectorAll('[data-fc-cell]')].map((cell) => [
+      cell.dataset.fcCell,
+      cell.getBoundingClientRect(),
+    ]),
+  );
+  const point = (path, length) => path.getPointAtLength(length).matrixTransform(path.getScreenCTM());
+  const near = (a, b, slack = 2.5) => Math.abs(a - b) <= slack;
+  const within = (value, low, high, slack = 2.5) => value >= low - slack && value <= high + slack;
+  const faults = [];
+  const bars = new Map([...map.querySelectorAll('.fc-join')].map((join) => [join.dataset.fcTo, join]));
+  for (const [to, join] of bars) {
+    const stem = join.querySelector('.fc-join-in');
+    const end = point(stem, stem.getTotalLength());
+    const box = cells.get(to);
+    if (
+      !stem.hasAttribute('marker-end') ||
+      !box ||
+      !within(end.x, box.left, box.right) ||
+      !near(end.y, box.top, 5)
+    )
+      faults.push(`the bar over ${to} has no arrow landing on ${to}`);
+  }
+  let answers = 0;
+  for (const node of chart.nodes)
+    (node.edges || []).forEach((edge, index) => {
+      answers += 1;
+      const name = `${node.id}, answer ${index + 1} (${edge.label}) to ${edge.to}`;
+      const wires = map.querySelectorAll(
+        `.fc-wire[data-fc-from="${CSS.escape(node.id)}"][data-fc-edge="${index}"]`,
+      );
+      if (wires.length !== 1) return faults.push(`${name}: ${wires.length} wires`);
+      const wire = wires[0];
+      const from = cells.get(node.id);
+      const to = cells.get(edge.to);
+      const button = map
+        .querySelector(`[data-fc-cell="${CSS.escape(node.id)}"] [data-fc-map-branch="${index}"]`)
+        .getBoundingClientRect();
+      const length = wire.getTotalLength();
+      const start = point(wire, 0);
+      const end = point(wire, length);
+      const side =
+        (near(start.x, from.left) || near(start.x, from.right)) && within(start.y, button.top, button.bottom);
+      const foot = near(start.y, from.bottom) && within(start.x, from.left, from.right);
+      if (!side && !foot) faults.push(`${name}: the wire does not start at its answer`);
+      if (wire.hasAttribute('marker-end')) {
+        const top = near(end.y, to.top, 5) && within(end.x, to.left, to.right);
+        const flank = near(end.x, to.left, 5) && within(end.y, to.top, to.bottom);
+        if (!top && !flank) faults.push(`${name}: the arrow does not land on ${edge.to}`);
+      } else {
+        const join = bars.get(edge.to);
+        if (!join) return faults.push(`${name}: ends on a bar, but ${edge.to} has none`);
+        const bar = join.querySelector('.fc-join-bar').getBoundingClientRect();
+        if (!within(end.x, bar.left, bar.right) || !within(end.y, bar.top, bar.bottom))
+          faults.push(`${name}: does not end on the bar over ${edge.to}`);
+      }
+      for (let at = 0; at <= length; at += 4) {
+        const p = point(wire, at);
+        for (const [id, box] of cells) {
+          if (id === node.id || id === edge.to) continue;
+          if (p.x > box.left + 2 && p.x < box.right - 2 && p.y > box.top + 2 && p.y < box.bottom - 2)
+            return faults.push(`${name}: passes behind ${id}`);
+        }
+      }
+    });
+  return {
+    answers,
+    wires: map.querySelectorAll('.fc-wire').length,
+    cells: cells.size,
+    arrangement: map.querySelector('.fc-graph').classList.contains('fc-flow-b') ? 'b' : 'a',
+    faults,
+  };
+};
+
+/* A trip to a cited case and back, from a step reached by a longer route than the shortest: the
+   step, the whole walked path, the view, the zoom and the scroll positions come back as they were. */
+async function trip(page, hash, tap) {
+  const dialog = courseDialog(page);
+  const act = (target) => (tap ? target.tap() : target.click());
+  const place = () =>
+    dialog.evaluate((box) => {
+      const map = !box.querySelector('.fc-map').hidden;
+      const scroll = box.querySelector('.fc-map-scroll');
+      return {
+        address: location.hash,
+        step: box.querySelector('#flowchartDetail h3').textContent.trim(),
+        path: [...box.querySelectorAll('.fc-trail li .fc-trail-q')].map((one) => one.textContent.trim()),
+        map,
+        page: Math.round(box.querySelector('.fc-body').scrollTop),
+        // the zoom and the map's own position mean something only while the map is shown
+        zoom: map ? box.querySelector('.fc-zoom-value').textContent : '',
+        scroll: map ? [Math.round(scroll.scrollLeft), Math.round(scroll.scrollTop)] : [],
+      };
+    });
+  await page.goto(routeFor(hash));
+  await expect(dialog).toBeVisible();
+  await act(dialog.locator('[data-flowcharts-view="walkthrough"]'));
+  const walk = ['order', 'hearing', 'informal', 'interest', 'balance', 'goldberg'];
+  for (const to of hash.includes('step=order') ? walk.slice(1) : walk) await act(branch(page, to));
+  await expect(activeHeading(page)).toHaveText('Goldberg required an evidentiary hearing before cutoff');
+  for (const view of ['walkthrough', 'map']) {
+    await act(dialog.locator(`[data-flowcharts-view="${view}"]`));
+    const source = dialog
+      .locator('a[data-flowchart-source][href="#node=lrs-o-goldberg"]')
+      .filter({ visible: true })
+      .first();
+    await source.scrollIntoViewIfNeeded();
+    const left = await place();
+    assert.equal(left.path.length, 7, 'the walked path has its seven steps');
+    assert.ok(left.path.includes('What does hearing mean in this statute?'), 'the path is the one walked');
+    await act(source);
+    await expect(page).toHaveURL(routeFor('#node=lrs-o-goldberg'));
+    await expect(dialog).toBeHidden();
+    await page.goBack();
+    await expect(dialog).toBeVisible();
+    await expect.poll(place, { message: `${hash}, ${view}: back from a source` }).toEqual(left);
+  }
+}
+
 try {
   const desktop = await open({ width: 1440, height: 900 });
   const { page } = desktop;
@@ -182,6 +312,8 @@ try {
   await page.keyboard.press('Escape');
   await expect(dialog).toBeHidden();
   await expect(page).toHaveURL(routeFor(''));
+  await trip(page, '#flowchart=LRS-15', false);
+  await trip(page, '#flowchart=LRS-15&step=order', false);
   assert.deepEqual(desktop.errors, []);
   await desktop.context.close();
 
@@ -244,6 +376,7 @@ try {
       arrows: nodes.reduce((sum, node) => sum + node.edges.length, 0),
     })),
   );
+  const answers = { a: 0, b: 0 };
   for (const chart of graphSizes) {
     await phone.goto(routeFor('#flowchart=' + chart.id), { waitUntil: 'commit' });
     await expect(phoneDialog.locator('#flowchartsTitle')).toHaveText(chart.title);
@@ -252,30 +385,27 @@ try {
       chart.nodes,
       chart.id + ' overview nodes',
     );
-    // Every answer has its wire. A wire ends in an arrow on the step it leads to, or, where paths
-    // meet, on the bar over that step, which carries the arrow for all of them.
-    const drawn = await phoneDialog.locator('.fc-map').evaluate((map) => {
-      const wires = [...map.querySelectorAll('.fc-wire')];
-      const joined = wires.filter((wire) => wire.hasAttribute('data-fc-joined'));
-      const bars = new Set(
-        [...map.querySelectorAll('.fc-join')]
-          .filter((join) => join.querySelector('path[marker-end]'))
-          .map((join) => join.dataset.fcTo),
-      );
-      return {
-        wires: wires.length,
-        ended: wires.filter((wire) => wire.hasAttribute('marker-end')).length + joined.length,
-        unmet: joined.filter((wire) => !bars.has(wire.dataset.fcTo)).length,
-      };
-    });
-    assert.equal(drawn.wires, chart.arrows, chart.id + ' overview wires');
-    assert.equal(drawn.ended, chart.arrows, chart.id + ' overview arrows');
-    assert.equal(drawn.unmet, 0, chart.id + ': every wire that ends on a bar has a bar with an arrow');
+    // Both arrangements of the whole map (the second is opened by flow=b while the two are compared).
+    for (const flow of ['a', 'b']) {
+      if (flow === 'b') {
+        await phone.goto(routeFor('#flowchart=' + chart.id + '&flow=b'), { waitUntil: 'commit' });
+        await expect(phoneDialog.locator('.fc-graph.fc-flow-b')).toHaveCount(1);
+      }
+      const drawn = await phone.evaluate(reach);
+      assert.equal(drawn.arrangement, flow, chart.id + ' arrangement');
+      assert.equal(drawn.cells, chart.nodes, chart.id + ' steps on the whole map');
+      assert.equal(drawn.answers, chart.arrows, chart.id + ' answers');
+      assert.equal(drawn.wires, chart.arrows, chart.id + ' wires');
+      assert.deepEqual(drawn.faults, [], `${chart.id}, arrangement ${flow}: every answer reaches its step`);
+      answers[flow] += drawn.answers;
+    }
   }
+  await trip(phone, '#flowchart=LRS-15', true);
+  await trip(phone, '#flowchart=LRS-15&step=order&from=lrs-o-hearing-trigger', true);
   assert.deepEqual(mobile.errors, []);
   await mobile.context.close();
   console.log(
-    'Desktop and 390px chart navigation, source and related links, history, print, and every overview passed.',
+    `Desktop and 390px chart navigation, source and related links, history, print passed; on ${graphSizes.length} charts every one of ${answers.a} answers reaches the step the data names, in both arrangements.`,
   );
 } finally {
   await browser.close();
