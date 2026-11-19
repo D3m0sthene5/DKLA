@@ -15,13 +15,13 @@ html:root body.v32db-on #inspector {
   --v32db-cut: var(--v31-panel);
 }
 @media (max-width: 1439px) {
-  body.v32db-on #inspector {
+  html:root body.v32db-on #inspector {
     --v32-gutter: 32px;
     --v32-left: 32px;
   }
 }
 @media (max-width: 1099px) {
-  body.v32db-on #inspector {
+  html:root body.v32db-on #inspector {
     --v32-gutter: 24px;
     --v32-left: 24px;
   }
@@ -113,7 +113,7 @@ html:root body.v32db-on #inspector .v32 .v32-cc {
   top: 2px;
 }
 html:root body.v32db-on #inspector .v32 > .v32-panel {
-  height: 20px;
+  height: 16px;
 }
 
 /* ---------- pieces used throughout ---------- */
@@ -122,7 +122,7 @@ html:root body #inspector .v32 > .v32db {
   margin: 0 0 48px;
   --v32db-span: var(--v32-course, var(--v31-lrs));
 }
-html:root body #inspector .v32db :is(h3, h4, p, ol, li) {
+html:root body #inspector .v32db :where(h3, h4, p, ol, li) {
   margin: 0;
   padding: 0;
   border: 0;
@@ -247,6 +247,17 @@ html:root body #inspector .v32db-q {
   font: 400 16px/24px var(--dkla-interface, Inter), sans-serif;
   color: var(--v31-muted);
 }
+@media (max-width: 1439px) {
+  html:root body #inspector .v32db-title {
+    font-size: 24px !important;
+  }
+  html:root body #inspector .v32db-q {
+    font-size: 15px;
+  }
+  html:root body #inspector .v32db-head {
+    gap: 4px 24px;
+  }
+}
 html:root body #inspector .v32db-count {
   flex: none;
   font: var(--v32-ui-small);
@@ -355,18 +366,25 @@ html:root body #inspector .v32db-stem.v32db-is-here.v32db-is-sel {
   stroke: var(--v31-here);
 }
 
-/* A label: the year and the kind of move, then the name. It begins at its stem. */
+/* A label: the year and the name, then in words the kind of move. It begins at its stem. */
 html:root body #inspector .v32db-tag {
   all: unset;
   box-sizing: border-box;
   position: absolute;
   display: flex;
-  flex-direction: column;
-  max-width: 280px;
+  align-items: center;
+  gap: 10px;
+  max-width: 288px;
   padding: 2px 10px 3px 9px;
   border-radius: 0 6px 6px 0;
   white-space: nowrap;
   cursor: pointer;
+}
+html:root body #inspector .v32db-tag.v32db-small {
+  max-width: 272px;
+}
+html:root body #inspector .v32db-tag.v32db-big {
+  max-width: 400px;
 }
 html:root body #inspector .v32db-tag:hover {
   background: var(--v32-hover);
@@ -381,6 +399,18 @@ html:root body #inspector .v32db-tag:focus-visible,
 html:root body #inspector .v32db-deck:focus-visible,
 html:root body #inspector .v32db-near:focus-visible {
   box-shadow: var(--v31-focus);
+}
+html:root body #inspector .v32db-tag > .v32db-art-tag {
+  width: 32px;
+  height: 32px;
+}
+html:root body #inspector .v32db-tag.v32db-is-here > .v32db-art-tag {
+  color: var(--v31-here);
+}
+html:root body #inspector .v32db-tag-words {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 html:root body #inspector .v32db-tag-top {
   display: flex;
@@ -397,6 +427,11 @@ html:root body #inspector .v32db-tag-name {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+html:root body #inspector .v32db-tag-caption > .v32db-line {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 html:root body #inspector .v32db-tag-kind {
   display: flex;
   align-items: baseline;
@@ -404,18 +439,17 @@ html:root body #inspector .v32db-tag-kind {
   font: var(--v32-ui-small);
   color: var(--v31-muted);
 }
-html:root body #inspector .v32db-c-rule .v32db-tag-name {
-  font: 600 20px/26px var(--dkla-display, 'Exo 2'), sans-serif;
-  color: var(--v31-text);
-}
-html:root body #inspector .v32db-c-reach .v32db-tag-name {
+html:root body #inspector .v32db-tag .v32db-tag-name {
   font: 600 15px/22px var(--dkla-interface, Inter), sans-serif;
   color: var(--v31-text);
 }
-html:root body #inspector .v32db-c-steady .v32db-tag-name,
-html:root body #inspector .v32db-c-aside .v32db-tag-name {
+html:root body #inspector .v32db-tag.v32db-small .v32db-tag-name {
   font: 500 14px/20px var(--dkla-interface, Inter), sans-serif;
   color: var(--v31-soft);
+}
+html:root body #inspector .v32db-tag.v32db-big .v32db-tag-name {
+  font: 600 20px/26px var(--dkla-display, 'Exo 2'), sans-serif;
+  color: var(--v31-text);
 }
 html:root body #inspector .v32db-tag.v32db-is-here .v32db-tag-name {
   font-size: 22px;
@@ -423,9 +457,16 @@ html:root body #inspector .v32db-tag.v32db-is-here .v32db-tag-name {
 }
 /* A label to the left of its stem reads up to it. */
 html:root body #inspector .v32db-tag.v32db-flip {
-  align-items: flex-end;
+  flex-direction: row-reverse;
   padding: 2px 9px 3px 10px;
   border-radius: 6px 0 0 6px;
+}
+html:root body #inspector .v32db-tag.v32db-flip > .v32db-tag-words {
+  align-items: flex-end;
+}
+/* A long timeline: one line a label, save the turns of the rule and the open case. */
+html:root body #inspector .v32db-dense .v32db-tag:not(.v32db-big) .v32db-tag-kind {
+  display: none;
 }
 
 /* A span: a beam with the rule's name lettered on it, resting on the entry that set it and the entry
@@ -499,16 +540,13 @@ html:root body #inspector .v32db-deck-fx {
 
 /* ---------- under the plate: what the shapes say ---------- */
 html:root body #inspector .v32db-under {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 8px 32px;
-  margin: 12px 0 0;
+  margin: 8px 0 0;
 }
 html:root body #inspector .v32db-legend {
   display: flex;
   flex-wrap: wrap;
   gap: 4px 24px;
+  overflow: hidden;
   font: var(--v32-ui-small);
   color: var(--v31-muted);
 }
@@ -518,8 +556,9 @@ html:root body #inspector .v32db-key-group {
   align-items: center;
   gap: 4px 12px;
 }
-html:root body #inspector .v32db-key-class {
-  color: var(--v31-faint);
+html:root body #inspector .v32db-key-group + .v32db-key-group {
+  padding-left: 24px;
+  border-left: 1px solid var(--v32-hair-strong);
 }
 html:root body #inspector .v32db-key {
   display: inline-flex;
@@ -540,8 +579,8 @@ html:root body #inspector .v32db-account {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   gap: 24px 48px;
-  margin: 20px 0 0;
-  padding: 24px 0 0;
+  margin: 12px 0 0;
+  padding: 20px 0 0;
   border-top: 1px solid var(--v32-hair);
 }
 html:root body #inspector .v32db-sel {
@@ -558,8 +597,8 @@ html:root body #inspector .v32db-art-note {
 }
 html:root body #inspector .v32db-sel-top {
   display: flex;
-  align-items: baseline;
-  gap: 12px;
+  align-items: center;
+  gap: 16px;
   font: var(--v32-ui-small);
   color: var(--v31-muted);
 }
@@ -616,7 +655,7 @@ html:root body #inspector .v32db-place {
   text-align: center;
 }
 html:root body #inspector .v32db-sel-name {
-  margin: 4px 0 6px;
+  margin: 4px 0 0;
   font: 600 28px/34px var(--dkla-display, 'Exo 2'), sans-serif !important;
   text-wrap: balance;
   color: var(--v31-text);
@@ -653,7 +692,7 @@ html:root body #inspector .v32db-authority {
   color: var(--v31-muted);
 }
 html:root body #inspector .v32db-sel-fx {
-  max-width: 560px;
+  max-width: 600px;
   margin: 12px 0 8px;
   font: 600 21px/28px var(--dkla-interface, Inter), sans-serif;
   text-wrap: balance;
@@ -674,63 +713,82 @@ html:root body #inspector .v32db-later {
   text-wrap: pretty;
   color: var(--v31-soft);
 }
-html:root body #inspector .v32db-later > b,
-html:root body #inspector .v32db-near-later > b {
+html:root body #inspector .v32db-later > b {
   display: block;
   font: var(--v32-ui-small);
   font-weight: 600;
   color: var(--v31-muted);
 }
-/* Its neighbours: each is its date, its name and what it changed. */
+/* Its neighbours: each is its date, its name and what it changed. One column, a hairline between. */
 html:root body #inspector .v32db-nears {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px 16px;
-  align-content: start;
-}
-html:root body #inspector .v32db-nears[data-v32db-n='1'] {
-  grid-template-columns: minmax(0, 1fr);
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  min-width: 0;
+  margin-top: -10px;
 }
 html:root body #inspector .v32db-near {
   all: unset;
   box-sizing: border-box;
+  position: relative;
   display: flex;
   flex-direction: column;
-  min-width: 0;
-  padding: 12px 16px 14px;
-  border-radius: 12px;
-  background: var(--v31-raised);
+  padding: 10px 12px 12px;
+  border-radius: 6px;
   cursor: pointer;
 }
+html:root body #inspector .v32db-near + .v32db-near {
+  margin-top: 1px;
+}
+html:root body #inspector .v32db-near + .v32db-near::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: -1px;
+  height: 1px;
+  background: var(--v32-hair);
+}
 html:root body #inspector .v32db-near:hover {
-  background: var(--v32-raised-2);
+  background: var(--v32-hover);
 }
 html:root body #inspector .v32db-near-rel {
-  margin-bottom: 6px;
   font: var(--v32-ui-small);
   color: var(--v31-muted);
 }
 html:root body #inspector .v32db-near-top {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 8px;
+  min-width: 0;
+  margin-top: 2px;
+}
+html:root body #inspector .v32db-near-top > .v32db-glyph {
+  align-self: flex-start;
+  margin-top: 6px;
 }
 html:root body #inspector .v32db-near-name {
-  margin: 2px 0 4px;
+  min-width: 0;
   font: 600 17px/24px var(--dkla-interface, Inter), sans-serif;
-  text-wrap: balance;
   color: var(--v31-text);
 }
 html:root body #inspector .v32db-near-fx {
+  margin-top: 2px;
   font: 400 15px/22px var(--dkla-interface, Inter), sans-serif;
   text-wrap: pretty;
   color: var(--v31-body);
 }
 html:root body #inspector .v32db-near-later {
-  margin-top: 8px;
+  margin-top: 2px;
   font: 400 14px/20px var(--dkla-interface, Inter), sans-serif;
   text-wrap: pretty;
   color: var(--v31-soft);
+}
+html:root body #inspector .v32db-near-later > b {
+  margin-right: 6px;
+  font: var(--v32-ui-small);
+  font-weight: 600;
+  color: var(--v31-muted);
 }
 
 /* ---------- every entry, in order ---------- */
@@ -934,4 +992,14 @@ html:root body #inspector .v32db-now > p {
   html:root body #inspector .v32db-now {
     margin-left: 144px;
   }
+}
+
+/* Said to a screen reader, not drawn. */
+html:root body #inspector .v32db-vh {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }

@@ -319,8 +319,8 @@
   /* ---------- the plate ---------- */
   const PAD = 8, // above and below the drawing
     X0 = 20, // the first entry's place from the plate's left edge
-    DECK = 52, // a span's height
-    STEM = 14, // from the line (or a span's edge) to the nearest label
+    DECK = 50, // a span's height
+    STEM = 12, // from the line (or a span's edge) to the nearest label
     TIER = 6, // between two labels of a stack
     MINGAP = 16, // the least distance between two marks
     BREAK = 136; // the width of a marked break
@@ -328,14 +328,43 @@
   // The label of an entry: its year and kind of move, then its name. Applications and comparisons are one
   // line; an entry on a span carries its shape (it has no mark on the line).
   function tagHTML(item) {
-    const small = item.cls === 'steady' || item.cls === 'aside';
-    const name = item.short || plain(item.first);
+    const small = (item.cls === 'steady' || item.cls === 'aside') && !item.here;
+    const big = item.cls === 'rule' || item.here;
     const here = item.here ? '<span class="v32db-here">You are here</span>' : '';
     const year = timeHTML(item.s, 'v32db-yr');
     const mark = item.hung ? glyph(item.turn, 12) : '';
     const title = `${item.full} (${yearOf(item.s)}). ${item.kind}. ${item.s.effect || ''}`;
-    const inner = `<span class="v32db-tag-top">${mark}${year}<span class="v32db-tag-name">${esc(name)}</span>${small ? here : ''}</span>${small ? '' : `<span class="v32db-tag-kind">${esc(item.kind)}${here}</span>`}`;
-    return `<button type="button" class="v32db-tag v32db-c-${item.cls} v32db-f-${item.fam}${item.here ? ' v32db-is-here' : ''}${item.hung ? ' v32db-hung' : ''}" data-v32db-i="${item.i}" title="${esc(title)}">${inner}</button>`;
+    // A turn of the rule is named as a caption, a party to a line; every other name is one line, and
+    // gives way party by party where it is too long (layout()).
+    const name = item.short
+      ? `<span class="v32db-tag-name">${esc(item.short)}</span>`
+      : big && item.first.length === 2
+        ? `<span class="v32db-tag-name v32db-tag-caption"><span class="v32db-line">${esc(item.first[0])}</span><span class="v32db-line">v. ${esc(item.first[1])}</span></span>`
+        : `<span class="v32db-tag-name" data-a="${esc(item.first[0])}"${item.first[1] ? ` data-b="${esc(item.first[1])}"` : ''}>${esc(plain(item.first))}</span>`;
+    const picture = big ? art(item.artId, 'v32db-art-tag') : '';
+    return `<button type="button" class="v32db-tag v32db-c-${item.cls} v32db-f-${item.fam}${big ? ' v32db-big' : ''}${small ? ' v32db-small' : ''}${item.here ? ' v32db-is-here' : ''}${item.hung ? ' v32db-hung' : ''}" data-v32db-i="${item.i}" title="${esc(title)}">${picture}<span class="v32db-tag-words"><span class="v32db-tag-top">${mark}${year}${name}${small ? here : ''}</span>${small ? '' : `<span class="v32db-tag-kind">${esc(item.kind)}${here}</span>`}</span></button>`;
+  }
+  // A name too long for its label gives way party by party: the longer one first, never the "v.".
+  let pen = null;
+  function fitName(el) {
+    if (!el.dataset.a) return;
+    el.textContent = el.dataset.b ? `${el.dataset.a} v. ${el.dataset.b}` : el.dataset.a;
+    if (!el.dataset.b || el.scrollWidth <= el.clientWidth + 1) return;
+    pen ||= document.createElement('canvas').getContext('2d');
+    const cs = getComputedStyle(el);
+    pen.font = `${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+    const w = (text) => pen.measureText(text).width;
+    const cut = (text, room) => {
+      if (w(text) <= room) return text;
+      let out = text;
+      while (out.length > 3 && w(out + '…') > room) out = out.slice(0, -1);
+      return out.replace(/[\s,.&(-]+$/, '') + '…';
+    };
+    const room = el.clientWidth - w(' v. ') - 2;
+    const a = w(el.dataset.a),
+      b = w(el.dataset.b);
+    const forA = a <= room / 2 ? a : b <= room / 2 ? room - b : room / 2;
+    el.textContent = `${cut(el.dataset.a, forA)} v. ${cut(el.dataset.b, room - Math.min(a, forA))}`;
   }
   // A span: the rule's name as the lettering of a beam, the years it ran, and what the entry that set it did.
   function deckHTML(span) {
@@ -416,6 +445,9 @@
     const tagOf = new Map([...plate.querySelectorAll('.v32db-tag')].map((el) => [Number(el.dataset.v32dbI), el]));
     const deckOf = new Map([...plate.querySelectorAll('.v32db-deck')].map((el) => [Number(el.dataset.v32dbI), el]));
     for (const el of [...tagOf.values(), ...deckOf.values()]) el.style.cssText = '';
+    // A long timeline keeps each label to one line (its shape on the line says its kind of move).
+    plate.classList.toggle('v32db-dense', items.length > 12);
+    for (const el of plate.querySelectorAll('.v32db-tag-name[data-a]')) fitName(el);
     const size = new Map();
     for (const [i, el] of tagOf) size.set(i, { w: Math.ceil(el.getBoundingClientRect().width), h: el.offsetHeight });
     let deckNeed = 0;
@@ -547,14 +579,11 @@
           }
         }
         const prefers = item.fam === 'narrow' ? 'down' : item.cls === 'rule' || item.fam === 'wide' ? 'up' : '';
-        // Nearest the line first; then the side its move prefers; then to the right of its stem.
-        tries.sort(
-          (p, q) =>
-            (prefers ? Number(p.side !== prefers) - Number(q.side !== prefers) : 0) ||
-            p.level - q.level ||
-            Number(p.flip) - Number(q.flip) ||
-            Number(p.side !== 'down') - Number(q.side !== 'down'),
-        );
+        // Nearest the line; a widening and a turn of the rule would sooner stand above it and a
+        // narrowing hang below (worth one row); then to the right of its stem; then below.
+        const cost = (one) =>
+          one.level + (prefers && one.side !== prefers ? 34 : 0) + (one.flip ? 3 : 0) + (one.side === 'up' ? 1 : 0);
+        tries.sort((p, q) => cost(p) - cost(q));
         const pick = tries[0];
         sides[pick.side].push({ left: pick.left, w: sz.w, level: pick.level, h: sz.h });
         out.set(item.i, { box: pick.box, from: spineY, side: pick.side, stemX: x, flip: pick.flip });
@@ -563,11 +592,27 @@
       });
       return { out, upMost, downMost };
     }
-    // Without spans the line sits under the tallest stack above it; with spans, under them.
-    let spineY = lanes.length ? lanesBottom + 24 : PAD;
-    let line = onLine(lanes.length ? spineY : 10000);
-    spineY = Math.max(spineY, PAD + (line.upMost ? line.upMost + STEM : 12));
-    line = onLine(spineY);
+    // Where the line sits: under the spans, and as far under them as makes the whole plate shortest
+    // (room above the line lets labels stand there that would otherwise stack below it).
+    const least = lanes.length ? lanesBottom + 20 : PAD + 12;
+    let spineY = least,
+      line = null,
+      best = Infinity;
+    for (let y = least; y <= least + 240; y += 12) {
+      const tried = onLine(y);
+      if (tried.upMost && y < PAD + tried.upMost + STEM) continue;
+      const total = y + (tried.downMost ? STEM + tried.downMost : 16);
+      if (total < best - 0.5) {
+        best = total;
+        spineY = y;
+        line = tried;
+      }
+    }
+    if (!line) {
+      line = onLine(10000);
+      spineY = Math.max(least, PAD + line.upMost + STEM);
+      line = onLine(spineY);
+    }
     for (const [i, at] of line.out) placed.set(i, at);
     const height = Math.round(spineY + (line.downMost ? STEM + line.downMost : 16) + PAD);
 
@@ -610,11 +655,6 @@
         `<path class="v32db-break" d="M${mid - 43} ${spineY + 6}l5 -12M${mid + 38} ${spineY + 6}l5 -12"/>`,
         `<text class="v32db-break-words" x="${mid}" y="${spineY + 4}" text-anchor="middle">${b.years} years</text>`,
       );
-      for (const one of lanes)
-        if (one.x < mid && one.x + one.w > mid)
-          ink.push(
-            `<path class="v32db-break v32db-break-deck" d="M${mid - 10} ${one.y + one.h + 5}l${(6 * (one.h + 10)) / 14} ${-(one.h + 10)}M${mid + 4} ${one.y + one.h + 5}l${(6 * (one.h + 10)) / 14} ${-(one.h + 10)}"/>`,
-          );
     }
     for (const tick of geo.ticks)
       ink.push(`<path class="v32db-tick" d="M${Math.round(tick.x) + 0.5} ${spineY - 3}v6"/>`);
@@ -678,7 +718,7 @@
     return `<${tag} class="${cls}">${to ? `<a class="v32db-open" role="link" tabindex="0" ${to} title="Open this entry">${inner}</a>` : inner}${also}</${tag}>`;
   }
   function nearHTML(item, relation) {
-    return `<button type="button" class="v32db-near v32db-f-${item.fam}${item.here ? ' v32db-is-here' : ''}" data-v32db-i="${item.i}"><span class="v32db-near-rel">${esc(relation)}</span><span class="v32db-near-top">${glyph(item.turn, 12)}${timeHTML(item.s, 'v32db-yr')}${item.here ? '<span class="v32db-here">You are here</span>' : ''}</span><span class="v32db-near-name"><span class="v32db-caption">${captionHTML(item.first)}</span></span><span class="v32db-near-fx">${esc(item.s.effect || item.kind)}</span>${item.s.fate ? `<span class="v32db-near-later"><b>Later development</b> ${esc(item.s.fate)}</span>` : ''}</button>`;
+    return `<button type="button" class="v32db-near v32db-f-${item.fam}${item.here ? ' v32db-is-here' : ''}" data-v32db-i="${item.i}" title="Show this entry"><span class="v32db-near-rel">${esc(relation)}</span><span class="v32db-near-top">${glyph(item.turn, 12)}${timeHTML(item.s, 'v32db-yr')}<span class="v32db-near-name"><span class="v32db-caption">${captionHTML(item.first)}</span></span>${item.here ? '<span class="v32db-here">You are here</span>' : ''}</span><span class="v32db-near-fx">${esc(item.s.effect || item.kind)}</span>${item.s.fate ? `<span class="v32db-near-later"><b>Later development</b>${esc(item.s.fate)}</span>` : ''}</button>`;
   }
   function accountHTML(model, index) {
     const items = model.items,
@@ -701,9 +741,8 @@
     return `<article class="v32db-sel v32db-f-${item.fam}${item.here ? ' v32db-is-here' : ''}" data-v32db-i="${item.i}">
         <div class="v32db-sel-art">${picture}${note ? `<p class="v32db-art-note">${esc(note)}</p>` : ''}</div>
         <div class="v32db-sel-main">
-          <p class="v32db-sel-top">${dateLine(item)}${item.here ? '<span class="v32db-here">You are here</span>' : ''}<span class="v32db-step"><button type="button" data-v32db-go="${index - 1}" aria-label="The entry before" title="The entry before (Left)"${index ? '' : ' disabled'}>${CHEVRON.replace('<svg', '<svg class="v32db-back"')}</button><span class="v32db-place">${index + 1} of ${items.length}</span><button type="button" data-v32db-go="${index + 1}" aria-label="The entry after" title="The entry after (Right)"${index < items.length - 1 ? '' : ' disabled'}>${CHEVRON}</button></span></p>
+          <p class="v32db-sel-top">${dateLine(item)}${kindLine(item).replace(/^<p /, '<span ').replace(/<\/p>$/, '</span>')}${item.here ? '<span class="v32db-here">You are here</span>' : ''}<span class="v32db-step"><button type="button" data-v32db-go="${index - 1}" aria-label="The entry before" title="The entry before (Left)"${index ? '' : ' disabled'}>${CHEVRON.replace('<svg', '<svg class="v32db-back"')}</button><span class="v32db-place">${index + 1} of ${items.length}</span><button type="button" data-v32db-go="${index + 1}" aria-label="The entry after" title="The entry after (Right)"${index < items.length - 1 ? '' : ' disabled'}>${CHEVRON}</button></span></p>
           ${nameHTML(item, 'h3', 'v32db-sel-name', true)}
-          ${kindLine(item)}
           <p class="v32db-sel-fx">${esc(item.s.effect || '')}</p>
           <p class="v32db-sel-note">${esc(item.s.note || '')}</p>
           ${item.s.fate ? `<p class="v32db-later"><b>Later development</b> ${esc(item.s.fate)}</p>` : ''}
@@ -765,7 +804,7 @@
       .map((cls) => {
         const list = order.filter((turn) => CLASS[turn] === cls);
         return list.length
-          ? `<span class="v32db-key-group"><span class="v32db-key-class">${CLASS_WORDS[cls]}</span>${list.map((turn) => `<span class="v32db-key v32db-c-${cls} v32db-f-${P.FAMILY[turn] || 'steady'}" title="${esc(P.MEANS[turn] || '')}">${glyph(turn, { rule: 14, reach: 12, steady: 10, aside: 11 }[cls])}${esc(seen.get(turn))}</span>`).join('')}</span>`
+          ? `<span class="v32db-key-group" title="${CLASS_WORDS[cls]}">${list.map((turn) => `<span class="v32db-key v32db-c-${cls} v32db-f-${P.FAMILY[turn] || 'steady'}" title="${esc(P.MEANS[turn] || '')}">${glyph(turn, { rule: 14, reach: 12, steady: 10, aside: 11 }[cls])}${esc(seen.get(turn))}</span>`).join('')}</span>`
           : '';
       })
       .join('');
@@ -797,7 +836,7 @@
       </div>
       <div class="v32db-under">
         <p class="v32db-legend">${legendHTML(model)}</p>
-        <p class="v32db-count" id="v32dbHint" title="Select an entry on the drawing, or press the Left and Right keys">Doctrine timeline <span>${model.items.length} entries</span>${range ? ` <span>${range}</span>` : ''}</p>
+        <p class="v32db-vh" id="v32dbHint">${model.items.length} entries${range ? `, ${range}` : ''}. Select an entry on the drawing, or press the Left and Right keys.</p>
       </div>
       <section class="v32db-account" aria-live="polite" aria-label="The selected entry and its neighbours"></section>
       <section class="v32db-all" aria-label="Every entry, in order">
