@@ -146,11 +146,15 @@ try {
   await page.evaluate(() => window.DKLAColdCall.marked());
   await page.mouse.move(4, 4); // off the text: a pointer resting on a defined word opens its card
   assert.equal(await page.evaluate(() => window.DKLAColdCall.defaultMode), 'read', 'the default is Read');
-  assert.equal(await page.evaluate(() => window.DKLAColdCall.readOpensAt), 'setup');
+  assert.equal(
+    await page.evaluate(() => window.DKLAColdCall.readOpensAt),
+    'story',
+    'Read opens into the story',
+  );
   assert.deepEqual(
     await state().then((s) => [s.id, s.mode, s.step, s.origin]),
-    [TYPICAL, 'read', 0, 'case'],
-    'a first visit opens at the top of the page, to be read',
+    [TYPICAL, 'read', 1, 'case'],
+    'a first visit: one click lands on the first episode, to be read',
   );
   const account = await page.evaluate(async (id) => {
     const data = await window.DKLAData.json('dklaColdCallData');
@@ -158,6 +162,79 @@ try {
   }, TYPICAL);
   const cues = account.sections.map((s) => s.cue),
     titles = account.sections.map((s) => s.title);
+  // What that one click shows together: the case's drawing and name, the episode's own title, the story,
+  // its defined words and a plain-English marker; a way back in words; and no button before any of it.
+  const landed = await page.evaluate(() => {
+    const d = document.getElementById('coldCallDialog'),
+      scroll = d.querySelector('#ccScroll'),
+      box = scroll.getBoundingClientRect(),
+      vis = (el) => !!el && el.getClientRects().length > 0 && getComputedStyle(el).visibility !== 'hidden',
+      inView = (el) => {
+        const r = el.getBoundingClientRect();
+        return r.height > 0 && r.top >= box.top && r.bottom <= box.bottom;
+      },
+      first = d.querySelector('.cc-section[data-cc-step="1"]'),
+      title = first.querySelector('.cc-title');
+    return {
+      title: inView(title) && title.textContent,
+      titleTop: Math.round(title.getBoundingClientRect().top - box.top),
+      paragraphs: [...first.querySelectorAll('.cc-answer > p')].filter(inView).length,
+      terms: [...first.querySelectorAll('.cc-term')].filter(inView).length,
+      markers: [...first.querySelectorAll('.cc-plain')].filter(inView).length,
+      barCase: vis(d.querySelector('.cc-bar-case')),
+      barArt: d.querySelector('.cc-bar .cc-pict')?.getBoundingClientRect().width || 0,
+      barName: d.querySelector('.cc-bar-name').textContent.replace(/\s+/g, ' ').trim(),
+      back: vis(d.querySelector('#ccClose')) && d.querySelector('#ccClose .cc-back-long').textContent,
+      backShown: vis(d.querySelector('#ccClose .cc-back-long')),
+      action: vis(d.querySelector('#ccAct')),
+      primaries: [...d.querySelectorAll('.cc-button.cc-primary')].filter(vis).length,
+      // The setup is within reach: one scroll back, named at the head of the list, and behind the case's name.
+      scrolledPast: Math.round(scroll.scrollTop),
+      setupJustAbove: Math.round(
+        first.getBoundingClientRect().top - d.querySelector('.cc-setup').getBoundingClientRect().bottom,
+      ),
+      setupRow: d.querySelector('.cc-nav-row[data-cc-nav="0"]').innerText.replace(/\s+/g, ' ').trim(),
+      setupRowShown: vis(d.querySelector('.cc-nav-row[data-cc-nav="0"] .cc-nav-sub')),
+      barLeadsTo: d.querySelector('.cc-bar-case').dataset.ccGo + ' ' + d.querySelector('.cc-bar-case').title,
+      focus: document.activeElement?.className,
+      focusInStory: scroll.contains(document.activeElement),
+    };
+  });
+  assert.equal(landed.title, titles[0], 'the first episode, under its own title');
+  assert.ok(landed.titleTop >= 0 && landed.titleTop < 120, 'at the head of the reading area');
+  assert.ok(landed.paragraphs >= 1, 'the story has begun');
+  assert.ok(
+    landed.terms >= 3 && landed.markers >= 1,
+    `its defined words (${landed.terms}) and a plain-English marker (${landed.markers}) are there`,
+  );
+  assert.ok(landed.barCase && landed.barArt >= 36, `the case's drawing is in sight (${landed.barArt} px)`);
+  assert.equal(landed.barName, account.title.replace(/\s+/g, ' '), 'and its name');
+  assert.ok(landed.backShown && landed.back === 'Back to the case', 'a way back to the case, in words');
+  assert.ok(!landed.action && landed.primaries === 0, 'no button stands between the reader and the story');
+  assert.ok(
+    landed.scrolledPast > 0 && landed.setupJustAbove >= 0 && landed.setupJustAbove <= 64,
+    'the setup is one scroll back',
+  );
+  assert.ok(
+    landed.setupRowShown && /^The setup Who is involved, how it got here$/.test(landed.setupRow),
+    'the list names the setup and what it holds',
+  );
+  assert.match(landed.barLeadsTo, /^0 The setup: who is involved/, 'the case in the bar leads to it too');
+  assert.ok(
+    landed.focusInStory && landed.focus === 'cc-title',
+    'focus is in the story, so the keys scroll it',
+  );
+  // Forgotten who Riverview is: the case in the bar, or the first row of the list, and the setup is there.
+  await page.locator('#coldCallDialog .cc-bar-case').click();
+  await page.waitForFunction(() => window.DKLAColdCall.state().step === 0);
+  await page.locator('#coldCallDialog [data-cc-go="1"]').click();
+  await page.waitForFunction(() => window.DKLAColdCall.state().step === 1);
+  await sleep(450);
+  await page.locator('#coldCallDialog .cc-nav-row[data-cc-nav="0"] .cc-nav-go').click();
+  await page.waitForFunction(
+    () => window.DKLAColdCall.state().step === 0 && document.getElementById('ccScroll').scrollTop === 0,
+  );
+  await sleep(300);
   const setup = await page.evaluate(() => {
     const d = document.getElementById('coldCallDialog'),
       box = (el) => el?.getBoundingClientRect(),
@@ -230,10 +307,7 @@ try {
     setup.barKind && !setup.barCase,
     'the bar does not repeat the caption while the setup shows it large',
   );
-  assert.ok(
-    setup.focusInStory && setup.focus === 'ccCaption',
-    'focus is in the story, so the keys scroll it',
-  );
+  assert.ok(setup.focusInStory, 'focus is still in the story');
   // Space, as on any page, moves down into the story; nothing had to be pressed first.
   await page.keyboard.press('Space');
   await page.waitForFunction(() => document.getElementById('ccScroll').scrollTop > 200);
@@ -432,7 +506,7 @@ try {
   );
   await launch.click();
   await page.locator('#coldCallDialog[open] #ccNarrative').waitFor();
-  assert.equal((await state()).step, 0, 'a finished case opens at the top again');
+  assert.equal((await state()).step, 1, 'a finished case opens at the first episode again');
   await page.evaluate(() => window.DKLAColdCall.close());
   passed.push(
     'a case left mid-read is resumed at the same place after a reload; finishing it clears the place',
@@ -455,6 +529,11 @@ try {
     'rehearse',
     'the choice is remembered',
   );
+  assert.equal(await page.locator('#coldCallDialog .cc-seg[aria-pressed="true"]').innerText(), 'Rehearse');
+  // (Chosen while reading the first episode, it asks that episode's question. From the setup it begins.)
+  assert.deepEqual(await state().then((s) => [s.mode, s.step, s.revealed.length]), ['rehearse', 1, 0]);
+  await page.locator('#coldCallDialog .cc-nav-row[data-cc-nav="0"] .cc-nav-go').click();
+  await page.waitForFunction(() => window.DKLAColdCall.state().step === 0);
   assert.equal(
     await page
       .locator('#ccAct')
@@ -462,7 +541,7 @@ try {
       .then((t) => t.trim()),
     'Start rehearsing',
   );
-  assert.equal(await page.locator('#coldCallDialog .cc-seg[aria-pressed="true"]').innerText(), 'Rehearse');
+  assert.equal(await page.evaluate(() => document.activeElement?.id), 'ccAct');
   const stored = await page.evaluate((id) => window.DKLAColdCallAnswers.answers[id], TYPICAL);
   assert.equal(
     Object.keys(stored).length,
@@ -779,6 +858,183 @@ try {
   } else
     passed.push('(fields-missing check not run: this copy of the page does not share its parsed narratives)');
 
+  /* ---------- the inline reading tools: a definition, and a sentence in plain English ---------- */
+  // Open one of each for real, by each way in, when reading and after a rehearsal's reveal: the card says
+  // what it should, and the reader is where it was afterwards (the same episode, mode and place).
+  const CARD = '#coldCallDialog #ccGlossCard',
+    FIRST = '#coldCallDialog .cc-section[data-cc-step="1"] ';
+  const placeOf = (p) =>
+    p.evaluate(() => {
+      const s = window.DKLAColdCall.state();
+      return [
+        s.step,
+        s.mode,
+        s.revealed.length,
+        Math.round(document.getElementById('ccScroll').scrollTop),
+        document.getElementById('coldCallDialog').open,
+      ].join(' ');
+    });
+  const pointOn = (locator) =>
+    locator.evaluate((e) => {
+      const r = e.getClientRects()[0];
+      return { x: r.left + Math.min(r.width / 2, 12), y: r.top + r.height / 2 };
+    });
+  const expected = await page.evaluate(() => {
+    const table = window.DKLAColdCallGloss.table();
+    return { assent: table.terms.get('assent').gloss };
+  });
+  // The reader on the first episode of the typical account, in one of the two modes (revealed, if rehearsing).
+  const settle = async (p, mode) => {
+    await p.evaluate(
+      async ({ id, mode, key }) => {
+        window.DKLAColdCall.close();
+        localStorage.removeItem(key);
+        window.DKLAColdCall.setMode(mode);
+        window.DKLAColdCall.open(id);
+        await window.DKLAColdCall.marked();
+        if (mode === 'rehearse') {
+          document.querySelector('#coldCallDialog [data-cc-go="1"]').click();
+          document.querySelector('#coldCallDialog .cc-section[data-cc-current] .cc-reveal').click();
+        }
+      },
+      { id: TYPICAL, mode, key: RESUME_KEY },
+    );
+    await p
+      .locator(FIRST + '.cc-answer .cc-term')
+      .first()
+      .waitFor();
+    await sleep(350);
+  };
+  const tools = [];
+  const tryTools = async (p, mode, ways) => {
+    await settle(p, mode);
+    const plain = await p.evaluate(() => {
+      const mark = document.querySelector('#coldCallDialog .cc-section[data-cc-step="1"] .cc-plain');
+      return window.DKLAColdCallGloss.plainShown().find((e) => e.id === mark.dataset.ccPlain).plain;
+    });
+    for (const [what, selector, says] of [
+      ['a definition', FIRST + '.cc-term[data-cc-term="assent"]', expected.assent],
+      ['plain English', FIRST + '.cc-plain', plain],
+    ]) {
+      const target = p.locator(selector).first();
+      await target.scrollIntoViewIfNeeded();
+      await sleep(200);
+      for (const way of ways) {
+        const name = `${mode}, ${way}, ${what}`,
+          before = await placeOf(p);
+        if (way === 'mouse') {
+          await p.mouse.move(5, 5);
+          const at = await pointOn(target);
+          await p.mouse.move(at.x, at.y, { steps: 3 });
+        } else if (way === 'touch') {
+          const at = await pointOn(target);
+          await p.touchscreen.tap(at.x, at.y);
+        } else {
+          // Tab, as a reader would, from the head of the episode (or of the answer) until the word has focus.
+          await p.locator(FIRST + (mode === 'rehearse' ? '.cc-cue' : '.cc-title')).focus();
+          for (let i = 0; i < 40; i++) {
+            await p.keyboard.press('Tab');
+            if (await target.evaluate((e) => e === document.activeElement)) break;
+            await p.keyboard.press('Escape'); // a card opened on a word passed on the way
+            if (!(await p.evaluate(() => document.getElementById('coldCallDialog').open))) break;
+          }
+          assert.ok(await target.evaluate((e) => e === document.activeElement), `${name}: Tab reaches it`);
+          if (!(await p.locator(CARD).count())) await p.keyboard.press('Enter');
+        }
+        await p.locator(CARD).waitFor({ state: 'visible', timeout: 3000 });
+        await sleep(350);
+        const card = await p.evaluate((sel) => {
+          const c = document.querySelector(sel),
+            r = c.getBoundingClientRect();
+          return {
+            text: c.innerText.replace(/\s+/g, ' '),
+            opacity: +getComputedStyle(c).opacity,
+            inWindow: r.left >= 0 && r.top >= 0 && r.right <= innerWidth + 1 && r.bottom <= innerHeight + 1,
+            sideways: document.documentElement.scrollWidth > innerWidth + 1,
+          };
+        }, CARD);
+        assert.ok(
+          card.text.includes(says.replace(/\s+/g, ' ')),
+          `${name}: the card says "${says.slice(0, 40)}…"`,
+        );
+        assert.ok(
+          card.opacity === 1 && card.inWindow && !card.sideways,
+          `${name}: the card is whole and in the window`,
+        );
+        assert.equal(await placeOf(p), before, `${name}: opening it moved the reader`);
+        // Close it the way that input does.
+        if (way === 'mouse') await p.mouse.move(5, 5);
+        else if (way === 'touch') {
+          const at = await pointOn(target);
+          await p.touchscreen.tap(at.x, at.y);
+        } else await p.keyboard.press('Escape');
+        await p.locator(CARD).waitFor({ state: 'detached', timeout: 3000 });
+        assert.equal(await placeOf(p), before, `${name}: the reader is where it was`);
+        tools.push(name);
+      }
+    }
+    // And the reading carries on: the next step is one key or one press away, as before.
+    if (ways.includes('touch')) return;
+    await p.keyboard.press('ArrowRight');
+    await p.waitForFunction(() => window.DKLAColdCall.state().step === 2);
+  };
+  await tryTools(page, 'read', ['mouse', 'keyboard']);
+  await tryTools(page, 'rehearse', ['mouse', 'keyboard']);
+  {
+    // A phone: 390 x 844, touch.
+    const phoneContext = await browser.newContext({
+      viewport: { width: 390, height: 844 },
+      isMobile: true,
+      hasTouch: true,
+      serviceWorkers: 'block',
+    });
+    await phoneContext.route('**/*', (route) => {
+      const url = new URL(route.request().url());
+      return url.origin !== address.origin || url.pathname.startsWith('/api/')
+        ? route.fulfill({ status: 204, body: '' })
+        : route.continue().catch(() => {});
+    });
+    const phone = await phoneContext.newPage();
+    phone.setDefaultTimeout(30_000);
+    phone.on('pageerror', (error) => errors.push('phone: ' + error.message));
+    await phone.goto(address.href + `#node=${TYPICAL}`, { waitUntil: 'domcontentloaded', timeout: 90_000 });
+    await phone.locator('html.dkla-boot-ready').waitFor({ timeout: 90_000 });
+    await phone.waitForFunction(() => window.LegalAtlas?.ready && window.DKLAColdCall);
+    await phone.evaluate(() => window.DKLAColdCall.whenLoaded());
+    await tryTools(phone, 'read', ['touch']);
+    // On a narrow screen the margin question gives way and the prose has the width.
+    const narrow = await phone.evaluate(() => {
+      const d = document.getElementById('coldCallDialog'),
+        s = d.querySelector('.cc-section[data-cc-step="1"]'),
+        p = s.querySelector('.cc-answer > p').getBoundingClientRect(),
+        box = d.querySelector('#ccScroll').getBoundingClientRect();
+      return {
+        cue: s.querySelector('.cc-cue').getClientRects().length,
+        share: p.width / box.width,
+        title: s.querySelector('.cc-title').getClientRects().length,
+        art: d.querySelector('.cc-bar .cc-pict').getBoundingClientRect().width,
+        back: d.querySelector('#ccClose').innerText.trim(),
+      };
+    });
+    assert.equal(narrow.cue, 0, 'phone: the margin question gives way');
+    assert.ok(narrow.share >= 0.85, `phone: the prose has the width (${Math.round(narrow.share * 100)}%)`);
+    assert.ok(
+      narrow.title && narrow.art >= 32 && /Back|Close|All/.test(narrow.back),
+      'phone: the title, the drawing and a way back in words',
+    );
+    await tryTools(phone, 'rehearse', ['touch']);
+    await phoneContext.close();
+  }
+  assert.equal(tools.length, 12, 'six ways in, two tools each');
+  await page.evaluate((k) => {
+    window.DKLAColdCall.close();
+    window.DKLAColdCall.setMode('read');
+    localStorage.removeItem(k);
+  }, RESUME_KEY);
+  passed.push(
+    'the reading tools: a definition and a sentence in plain English open by mouse, keyboard and touch, reading and after a reveal, and the reader is where it was afterwards',
+  );
+
   /* ---------- typesetting and the shell ---------- */
   await open(TYPICAL, 'read');
   await page.locator('#coldCallDialog [data-cc-go="1"]').click();
@@ -829,12 +1085,12 @@ try {
       readouts: [...new Set(readouts)],
       radius: ds.borderRadius,
       shadow: ds.boxShadow !== 'none',
-      close: [x.offsetWidth, x.offsetHeight, x.querySelector('svg') ? 'svg' : x.textContent],
+      close: [x.offsetHeight, !!x.querySelector('svg'), x.querySelector('.cc-back-long').textContent],
       hit: [
         x.offsetWidth - parseFloat(hit.left) - parseFloat(hit.right),
         x.offsetHeight - parseFloat(hit.top) - parseFloat(hit.bottom),
       ],
-      closes: d.querySelectorAll('.cc-bar button').length,
+      closes: [...d.querySelectorAll('.cc-bar button')].map((b) => b.id || b.className).join(' '),
       blur: [d, ...d.querySelectorAll('*')].filter((el) => getComputedStyle(el).backdropFilter !== 'none')
         .length,
       running: d.getAnimations({ subtree: true }).filter((a) => a.playState === 'running').length,
@@ -851,9 +1107,9 @@ try {
   assert.deepEqual(type.readouts, ['13px 500 true'], 'readouts: 13 px, the mono face, weight 500');
   assert.equal(type.radius, '12px');
   assert.ok(type.shadow, 'the overlay plane has its elevation');
-  assert.deepEqual(type.close, [36, 36, 'svg'], 'one 36 px close button, drawn');
+  assert.deepEqual(type.close, [36, true, 'Back to the case'], 'one way out, 36 px, said in words');
   assert.ok(type.hit[0] >= 44 && type.hit[1] >= 44, 'with a 44 px target');
-  assert.equal(type.closes, 1, 'the bar holds the title and the close button and nothing else');
+  assert.equal(type.closes, 'cc-bar-case ccClose', 'the bar holds the case and the way out and nothing else');
   assert.equal(type.blur, 0, 'no backdrop-filter');
   assert.equal(type.running, 0, 'nothing is still moving beside the text');
   assert.equal(type.forever, 0, 'nothing runs forever');
@@ -950,11 +1206,14 @@ try {
   for (const id of LONG_CAPTIONS) {
     await open(id, 'read');
     judge(
-      await sweep(page, () => composition(page, '#coldCallDialog .cc-head'), {
-        from: 1680,
-        to: 390,
-        step: 86,
-      }),
+      await sweep(
+        page,
+        async () => {
+          await page.evaluate(() => (document.getElementById('ccScroll').scrollTop = 0));
+          return composition(page, '#coldCallDialog .cc-head');
+        },
+        { from: 1680, to: 390, step: 86 },
+      ),
       '',
       ['danglingV', 'loneSeparator', 'centredFragments', 'tinyArt'],
     );

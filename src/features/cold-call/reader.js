@@ -351,12 +351,21 @@
   /* ---------- the list at the side: the setup, each episode, the end ---------- */
   // An episode's row shows its title; while rehearsing it shows the prompt until the narration is asked for,
   // because the title gives the answer away.
+  // What a setup holds besides the case's name, said where the way to it is offered.
+  const holds = (c) =>
+    [
+      Array.isArray(c.actors) && c.actors.length ? 'Who is involved' : '',
+      lines(c.proceedings).length ? 'how it got here' : '',
+    ]
+      .filter(Boolean)
+      .join(', ')
+      .replace(/^h/, 'H');
   function listHTML(c) {
     const n = c.sections.length;
     return `<details id="ccList" ${wide.matches ? 'open' : ''}>
       <summary><span>In this account</span><span class="cc-readout" id="ccProgressSmall"></span>${ICON.more}</summary>
       <nav aria-label="In this account"><ol class="cc-nav">
-        <li class="cc-nav-row cc-nav-plain cc-nav-setup" data-cc-nav="0"><button type="button" class="cc-nav-go" data-cc-go="0"><span>The setup</span><span class="cc-nav-sub">Who is involved, how it got here</span></button></li>
+        <li class="cc-nav-row cc-nav-plain cc-nav-setup" data-cc-nav="0"><button type="button" class="cc-nav-go" data-cc-go="0"><span>The setup</span>${holds(c) ? `<span class="cc-nav-sub">${holds(c)}</span>` : ''}</button></li>
         ${c.sections
           .map(
             (s, i) =>
@@ -376,7 +385,7 @@
       short = /^Back/.test(back) ? 'Back' : /^Close/.test(back) ? 'Close' : back;
     // The case in the bar is also the way to its setup (who is involved, how it got here). The way out is
     // said in words: where it leads.
-    return `<header class="cc-bar"><div class="cc-bar-title"><span class="cc-bar-kind" id="ccKind">Cold Call</span>${c ? `<button type="button" class="cc-bar-case" data-cc-go="0" title="The setup: who is involved, how it got here">${art ? `<span class="cc-plate cc-plate-small" aria-hidden="true">${art.svg}</span>` : ''}<span class="cc-bar-text"><span class="cc-bar-label" aria-hidden="true">Cold Call<i class="cc-dot"></i>${esc(c.course)}</span><span class="cc-bar-name" id="ccTitle">${captionLine(c.title)}</span></span></button>` : ''}</div><button type="button" class="cc-button cc-back" id="ccClose" title="${esc(back)} (Esc)">${ICON.back}<span class="cc-back-long">${esc(back)}</span><span class="cc-back-short" aria-hidden="true">${esc(short)}</span></button></header>`;
+    return `<header class="cc-bar"><div class="cc-bar-title"><span class="cc-bar-kind" id="ccKind">Cold Call</span>${c ? `<button type="button" class="cc-bar-case" data-cc-go="0" title="The setup${holds(c) ? ': ' + holds(c).toLowerCase() : ''}">${art ? `<span class="cc-plate cc-plate-small" aria-hidden="true">${art.svg}</span>` : ''}<span class="cc-bar-text"><span class="cc-bar-label" aria-hidden="true">Cold Call<i class="cc-dot"></i>${esc(c.course)}</span><span class="cc-bar-name" id="ccTitle">${captionLine(c.title)}</span></span></button>` : ''}</div><button type="button" class="cc-button cc-back" id="ccClose" title="${esc(back)} (Esc)">${ICON.back}<span class="cc-back-long">${esc(back)}</span><span class="cc-back-short" aria-hidden="true">${esc(short)}</span></button></header>`;
   };
   const KEYS = `<kbd>${ICON.left}</kbd><kbd>${ICON.right}</kbd>`;
   // The foot. The full brief is one press away at every step, as it was at the top of the 3.1 reader.
@@ -502,13 +511,14 @@
     // Read: back where the reading stopped, in this session or an earlier one; otherwise where
     // READ_OPENS_AT says. Rehearsal starts from the setup.
     const box = $('ccScroll');
-    box.scrollTop = 0;
+    box.scrollTop = openedTop = 0;
     if (mode === 'read') {
       const kept = memory.get(id),
         stored = kept?.at || (kept ? null : resumeGet(c));
       if (kept?.top) box.scrollTop = kept.top;
       else if (stored) box.scrollTop = topOf(stepElement(stored[0])) + stored[1];
       else if (READ_OPENS_AT === 'story') box.scrollTop = topOf(stepElement(1)) + 32;
+      openedTop = box.scrollTop;
       if (box.scrollTop) {
         held = stored ? [stored[0], stored[1]] : READ_OPENS_AT === 'story' && !kept?.top ? [1, 32] : null;
         track();
@@ -541,13 +551,14 @@
      hand. Marking the later episodes changes where lines break, so what is above the place can grow or
      shrink by a line or two after the reader is on screen: the place is held to its episode while that
      happens (hold()), so the words being read do not move. */
-  let held = null;
+  let held = null,
+    openedTop = 0; // where the page stood when the account opened
   function hold() {
     const el = held && current && stepElement(held[0]);
     if (!el) return;
     const top = topOf(el) + held[1],
       box = $('ccScroll');
-    if (Math.abs(box.scrollTop - top) >= 1) box.scrollTop = top;
+    if (Math.abs(box.scrollTop - top) >= 1) box.scrollTop = openedTop = top;
   }
   function markDone(ticket) {
     if (ticket !== marking) return;
@@ -638,7 +649,10 @@
   function keepPlace() {
     if (!current || !dialog.open || mode !== 'read') return;
     const box = $('ccScroll'),
-      midway = step <= count() && box.scrollTop > 40,
+      finished = step > count();
+    // Opened and closed without reading on: whatever place was kept before still stands.
+    if (!finished && Math.abs(box.scrollTop - openedTop) <= 40) return;
+    const midway = !finished && box.scrollTop > 40,
       at = midway
         ? [step, Math.max(0, Math.round(box.scrollTop - topOf(stepElement(step)))), current.revision || 0]
         : null;

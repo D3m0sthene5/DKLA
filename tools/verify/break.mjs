@@ -1708,6 +1708,35 @@ const breakages = [
       ),
   ],
   [
+    'in a rehearsal, Enter on a defined word moves to the next question instead of opening its definition',
+    'src/features/cold-call/reader.js',
+    () =>
+      edit(
+        'src/features/cold-call/reader.js',
+        `if (target?.closest?.('button, a[href], summary, [role="button"]')) return;`,
+        `if (target?.closest?.('button, a[href], summary')) return;`,
+      ),
+  ],
+  [
+    'after a reveal, the defined words and plain-English markers of the answer cannot be opened',
+    'src/features/cold-call/reader.css',
+    () =>
+      append(
+        'src/features/cold-call/reader.css',
+        "\n#coldCallDialog[data-cc-mode='rehearse'] .cc-answer :is(.cc-term, .cc-plain) {\n  pointer-events: none;\n}\n",
+      ),
+  ],
+  [
+    'Escape on an open definition closes the whole Cold Call, losing the place',
+    'src/features/cold-call/reader.js',
+    () =>
+      edit(
+        'src/features/cold-call/reader.js',
+        '    if (gloss?.tookEscape()) {\n      gloss.close();\n      return;\n    }\n',
+        '',
+      ),
+  ],
+  [
     'a composed caption drops the second of two consolidated cases',
     'src/features/v32/caption.js',
     () => edit('src/features/v32/caption.js', '      cases.push(split(head));\n', ''),
