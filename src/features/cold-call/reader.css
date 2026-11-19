@@ -1,4 +1,14 @@
-/* Isolated narrative and full-source readers; no atlas geometry overrides. */
+/* Cold Call: the reader, the list of every account, and the full brief opened from an account
+   (v3.2 "Instrument", docs/DESIGN.md). Every size, colour and gap is a token from
+   src/features/v31/tokens.css. No atlas geometry is touched from here.
+
+   One shell for the three dialogs (.cc-shell): the overlay plane (--v31-raised with --v32-e2 and the flat
+   scrim), radius 12, a bar with the title at the left and one close button at the right. Dialogs arrive and
+   leave by the shared rule in src/features/calm/calm.css (200 ms, opacity and scale). Nothing in here moves
+   unless the reader asks for it: a step that appears fades in once, and that is all.
+
+   Reading text is 17/28 at a measure of about 68 characters on the lightest plane; a prompt is 22/30;
+   counts and readouts are 13 px in the mono face, muted, with their unit. */
 .cc-launch {
   display: inline-flex !important;
   align-items: center;
@@ -10,279 +20,61 @@
   font-weight: 600 !important;
   cursor: pointer;
 }
-#coldCallDialog {
-  --cc-accent: #edac72;
+
+/* ---------- the shell ---------- */
+.cc-shell {
+  /* Definitions and plain-English markers (glossary.css) are things to open, so they wear the link blue. */
+  --cc-accent: var(--v31-link);
+  --cc-course: var(--v31-muted);
+  --cc-gutter: var(--v32-s7);
+  --cc-measure: 568px;
+  --cc-wide: 680px;
   box-sizing: border-box;
-  width: min(1180px, 96vw);
-  max-width: 1180px;
-  height: min(960px, 94dvh);
-  max-height: 94dvh;
+  width: min(1180px, 100vw - 48px);
+  max-width: none;
+  height: min(960px, 100dvh - 48px);
+  max-height: none;
   margin: auto;
   padding: 0;
-  border: 1px solid #455464;
-  border-radius: 14px;
-  background: #17212b;
-  color: #e2e9ef;
-  box-shadow: 0 24px 100px #0008;
-  font:
-    16px/1.75 -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    sans-serif;
+  border: 0;
+  border-radius: var(--v32-r-surface);
+  background: var(--v31-raised);
+  color: var(--v31-body);
+  box-shadow: var(--v32-e2);
+  font: var(--v31-body-type);
+  letter-spacing: 0;
   overflow: hidden;
 }
-#coldCallDialog[open] {
+.cc-shell[open] {
   display: flex;
   flex-direction: column;
 }
-#coldCallDialog::backdrop {
+.cc-shell::backdrop {
   background: var(--v31-scrim);
 }
-#coldCallDialog[data-course='Civil Procedure'] {
-  --cc-accent: #92caff;
+/* The reader over the list of accounts: that dialog's scrim is already there. */
+.cc-shell[data-cc-over]::backdrop {
+  background: transparent;
 }
-#coldCallDialog[data-course='Legislation and the Regulatory State'] {
-  --cc-accent: #88d7b0;
+.cc-shell[data-course='Contracts'] {
+  --cc-course: var(--v31-contracts);
 }
-#coldCallDialog * {
+.cc-shell[data-course='Civil Procedure'] {
+  --cc-course: var(--v31-civil);
+}
+.cc-shell[data-course='Legislation and the Regulatory State'] {
+  --cc-course: var(--v31-lrs);
+}
+.cc-shell *,
+.cc-shell *::before,
+.cc-shell *::after {
   box-sizing: border-box;
 }
-#coldCallDialog [hidden] {
+.cc-shell [hidden] {
   display: none !important;
 }
-#coldCallDialog button {
-  font: inherit;
-  line-height: 1.4;
-  background: transparent;
-  color: #d9e4ed;
-  border: 1px solid #475868;
-  border-radius: 7px;
-  padding: 8px 12px;
-  min-height: 40px;
-  cursor: pointer;
-}
-#coldCallDialog button:hover {
-  background: #263646;
-  border-color: var(--cc-accent);
-}
-#coldCallDialog :focus-visible {
-  outline: 2px solid var(--cc-accent);
-  outline-offset: 4px;
-}
-#coldCallDialog a {
-  color: var(--cc-accent);
-  text-underline-offset: 3px;
-}
-#coldCallDialog .cc-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 24px 30px 22px;
-  border-bottom: 1px solid #354451;
-  flex: none;
-}
-#coldCallDialog .cc-heading {
-  min-width: 0;
-  max-width: 780px;
-}
-#coldCallDialog .cc-header h2 {
-  font-size: clamp(23px, 2.4vw, 31px);
-  line-height: 1.22;
-  margin: 5px 0 0;
-  color: #f3f5f7;
-  letter-spacing: -0.025em;
-  overflow-wrap: break-word;
-}
-#coldCallDialog .cc-kicker {
-  color: var(--cc-accent);
-  font-size: 11px;
-  line-height: 1.5;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 650;
-  margin: 0 0 10px;
-}
-#coldCallDialog .cc-cite {
-  color: #9fb2c3;
-  font-size: 13px;
-  margin: 9px 0 0;
-}
-#coldCallDialog .cc-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 8px;
-  flex-shrink: 0;
-  max-width: 210px;
-}
-#coldCallDialog .cc-actions button {
-  font-size: 12px;
-  white-space: nowrap;
-}
-#coldCallDialog .cc-layout {
-  display: grid;
-  grid-template-columns: 250px minmax(0, 1fr);
-  min-height: 0;
-  flex: 1;
-}
-#coldCallDialog #ccSections {
-  border-right: 1px solid #354451;
-  overflow: auto;
-  overscroll-behavior: contain;
-  background: #131d26;
-}
-#coldCallDialog #ccSections > summary {
-  display: none;
-}
-#coldCallDialog .cc-index-inner {
-  padding: 24px 14px;
-}
-#coldCallDialog .cc-index-label {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-  font-size: 11px;
-  color: #a8bac9;
-  margin: 0 8px 14px;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-}
-#coldCallDialog #ccProgress {
-  font-variant-numeric: tabular-nums;
-  color: #849bac;
-}
-#coldCallDialog nav {
-  display: grid;
-  gap: 6px;
-}
-#coldCallDialog nav button {
-  display: grid;
-  grid-template-columns: 20px 1fr;
-  text-align: left;
-  gap: 10px;
-  border: 1px solid transparent;
-  font-size: 12px;
-  line-height: 1.6;
-  padding: 10px 8px;
-  color: #adbdca;
-}
-#coldCallDialog nav button[aria-current] {
-  background: #233341;
-  border-color: #445e73;
-  color: #eef4f8;
-}
-#coldCallDialog .cc-number {
-  color: var(--cc-accent);
-  font-variant-numeric: tabular-nums;
-  font-size: 11px;
-}
-#coldCallDialog #ccScroll {
-  overflow: auto;
-  overscroll-behavior: contain;
-  scrollbar-gutter: stable;
-  padding: 40px clamp(28px, 4vw, 56px) 64px;
-  min-height: 0;
-  outline-offset: -4px;
-}
-#coldCallDialog article {
-  max-width: 66ch;
-  margin: 0 auto;
-}
-#coldCallDialog p {
-  margin: 0 0 20px;
-}
-#coldCallDialog .cc-section {
-  padding-top: 34px;
-  margin-top: 40px;
-  border-top: 1px solid #354451;
-}
-#coldCallDialog .cc-section:first-of-type {
-  margin-top: 0;
-  padding-top: 0;
-  border-top: 0;
-}
-#coldCallDialog h3 {
-  font-size: clamp(23px, 2.1vw, 28px);
-  line-height: 1.35;
-  font-weight: 650;
-  letter-spacing: -0.02em;
-  color: #f0f4f8;
-  margin: 0 0 24px;
-}
-#coldCallDialog .cc-citations {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 16px;
-  font-size: 11px;
-  margin: 20px 0 0;
-}
-#coldCallDialog .cc-citations button {
-  font-size: 11px;
-  color: #9bb7cc;
-  border: 0;
-  background: none;
-  padding: 3px 0;
-  min-height: 28px;
-  text-align: left;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  max-width: 100%;
-  overflow-wrap: anywhere;
-}
-#coldCallDialog .cc-citations a {
-  color: #9bb7cc;
-  overflow-wrap: anywhere;
-}
-#coldCallDialog .cc-notice {
-  border-left: 3px solid var(--cc-accent);
-  padding: 10px 14px;
-  background: #202f3b;
-  font-size: 13px;
-  color: #cbd9e4;
-}
-#coldCallDialog summary {
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 600;
-  color: #bdcfdd;
-  padding: 10px 0;
-  line-height: 1.5;
-}
-#coldCallDialog details > p {
-  font-size: 14px;
-  color: #bccbd6;
-  line-height: 1.75;
-  margin-top: 14px;
-}
-#coldCallDialog .cc-followup {
-  margin: 20px 0;
-  border-left: 2px solid #486274;
-  padding-left: 16px;
-}
-#coldCallDialog .cc-end {
-  border-top: 1px solid #354451;
-  margin-top: 44px;
-  padding-top: 16px;
-  font-size: 13px;
-  color: #b4c4d0;
-}
-#coldCallDialog .cc-source-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 20px;
-  margin-top: 14px;
-}
-#coldCallDialog .cc-source-list button {
-  border: 0;
-  padding: 4px 0;
-  font-size: 12px;
-  color: var(--cc-accent);
-  min-height: 32px;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-#coldCallDialog .cc-sr {
+.cc-shell .cc-sr,
+.cc-shell .cap-read {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -293,211 +85,1120 @@
   white-space: nowrap;
   border: 0;
 }
+.cc-shell .cc-icon {
+  width: var(--v32-icon);
+  height: var(--v32-icon);
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: var(--v32-icon-stroke);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.cc-shell .cc-dot {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  align-self: center;
+  border-radius: var(--v32-r-pill);
+  background: var(--cc-course);
+}
+.cc-shell .cc-readout {
+  font: var(--v32-readout);
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-muted);
+  white-space: nowrap;
+}
+/* A heading or prompt given focus by the reader (so a screen reader says it) shows no ring. */
+.cc-shell [tabindex='-1']:focus {
+  outline: none;
+}
+
+/* The bar: title area at the left, the one close button at the right. Its hairline shows only once
+   something has scrolled beneath it. */
+.cc-shell .cc-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--v32-s4);
+  flex: none;
+  min-height: 64px;
+  padding: 0 var(--v32-s3) 0 var(--v32-s5);
+}
+.cc-shell .cc-bar::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: var(--v32-hair);
+  opacity: 0;
+  transition: opacity var(--v31-t-pop) linear;
+}
+.cc-shell[data-cc-scrolled] .cc-bar::after {
+  opacity: 1;
+}
+.cc-shell .cc-bar-title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--v32-s4);
+  flex: 1;
+  min-width: 0;
+}
+.cc-shell .cc-bar-kind {
+  flex: none;
+  margin: 0;
+  font: 600 22px/28px var(--dkla-display, 'Exo 2'), sans-serif;
+  font-family: var(--dkla-display, 'Exo 2'), sans-serif !important;
+  letter-spacing: 0;
+  color: var(--v31-text);
+  white-space: nowrap;
+}
+.cc-shell .cc-bar-case {
+  display: flex;
+  align-items: baseline;
+  gap: var(--v32-s2);
+  min-width: 0;
+  font: var(--v31-ui);
+  color: var(--v31-muted);
+}
+.cc-shell .cc-bar-case > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cc-shell .cc-bar-case .cc-dot {
+  align-self: center;
+}
+.cc-shell .cc-x {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--v32-h-control);
+  height: var(--v32-h-control);
+  flex: none;
+  padding: 0;
+  border: 0;
+  border-radius: var(--v32-r-control);
+  background: transparent;
+  color: var(--v31-muted);
+  cursor: pointer;
+}
+/* 36 px to look at, 44 px to hit. */
+.cc-shell .cc-x::before,
+.cc-shell .cc-button::before,
+.cc-shell .cc-seg::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+}
+.cc-shell .cc-x:hover {
+  background: var(--v32-hover);
+  color: var(--v31-text);
+}
+
+/* One of each control: primary (filled), default (hairline), a row, a text link. */
+.cc-shell .cc-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--v32-s2);
+  height: var(--v32-h-control);
+  min-width: 0;
+  padding: 0 var(--v32-s4);
+  border: 1px solid var(--v32-hair-strong);
+  border-radius: var(--v32-r-control);
+  background: transparent;
+  color: var(--v31-text);
+  font: var(--v31-ui);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.cc-shell .cc-button:hover {
+  background: var(--v32-hover);
+  border-color: var(--v32-hair-strong);
+}
+.cc-shell .cc-button.cc-primary {
+  border-color: transparent;
+  background: var(--v31-link);
+  color: var(--v31-on-link);
+}
+.cc-shell .cc-button.cc-primary:hover {
+  background: var(--v31-link-hover);
+  border-color: transparent;
+}
+.cc-shell .cc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--v32-s1);
+  min-height: var(--v32-h-control);
+  padding: 0;
+  border: 0;
+  border-radius: var(--v32-r-control);
+  background: none;
+  color: var(--v31-link);
+  font: var(--v32-ui-small);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--v31-link) 45%, transparent);
+  text-underline-offset: 3px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.cc-shell .cc-link:hover {
+  background: none;
+  color: var(--v31-link-hover);
+}
+.cc-shell .cc-link .cc-icon {
+  width: 16px;
+  height: 16px;
+}
+.cc-shell .cc-rows {
+  display: grid;
+  margin: 0 calc(-1 * var(--v32-s3));
+}
+.cc-shell .cc-row {
+  display: flex;
+  align-items: center;
+  gap: var(--v32-s3);
+  width: 100%;
+  min-width: 0;
+  height: var(--v32-h-row);
+  padding: 0 var(--v32-s3);
+  border: 0;
+  border-radius: var(--v32-r-control);
+  background: transparent;
+  color: var(--v31-text);
+  font: var(--v31-ui);
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+.cc-shell .cc-row:hover {
+  background: var(--v32-hover);
+}
+.cc-shell .cc-row .cc-icon {
+  color: var(--v31-muted);
+}
+.cc-shell .cc-row-label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cc-shell .cc-row-kind {
+  margin-right: var(--v32-s2);
+  color: var(--v31-muted);
+}
+.cc-shell .cc-row-meta {
+  flex: 0 1 auto;
+  max-width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
+}
+
+/* ---------- a caption, composed (src/features/v32/caption.js) ---------- */
+/* On one line of a list: only "v." and a note step back. */
+.cc-shell .cap-v,
+.cc-shell .cap-note,
+.cc-shell .cap-with {
+  color: var(--v31-muted);
+}
+/* As a heading: one case to a line, each party whole. A party is a box that goes to the next line
+   as one piece, so the break falls before "v."; only a party longer than the measure breaks inside,
+   and then into lines of like length. */
+.cc-shell .cc-caption .cap-case {
+  display: block;
+}
+.cc-shell .cc-caption .cap-party {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: top;
+  text-wrap: balance;
+}
+.cc-shell .cc-caption .cap-tie {
+  white-space: nowrap;
+}
+.cc-shell .cc-caption .cap-sub,
+.cc-shell .cc-caption .cap-note {
+  display: block;
+  margin-top: var(--v32-s2);
+  font: var(--v31-heading);
+  font-weight: 500;
+  color: var(--v31-soft);
+  text-wrap: balance;
+}
+.cc-shell .cc-caption .cap-sub .cap-v {
+  color: var(--v31-muted);
+}
+.cc-shell .cc-caption .cap-note {
+  font: var(--v31-body-type);
+  line-height: 24px;
+  color: var(--v31-muted);
+}
+
+/* ---------- the reader's two columns ---------- */
+.cc-shell .cc-layout {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  flex: 1;
+  min-height: 0;
+}
+.cc-shell .cc-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+#coldCallDialog #ccScroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  padding: var(--v32-s5) var(--cc-gutter) var(--v32-s7);
+  outline-offset: -4px;
+  container-type: size;
+}
+#coldCallDialog #ccNarrative {
+  max-width: 792px;
+}
+
+/* The list at the side: one step down from the reading plane, no line between them. */
+#coldCallDialog #ccList {
+  margin: 0;
+  padding: var(--v32-s3);
+  overflow: auto;
+  overscroll-behavior: contain;
+  background: var(--v31-panel);
+}
+#coldCallDialog #ccList > summary {
+  display: none;
+}
+#coldCallDialog .cc-nav {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* A row: the whole of it is the button (so the target is the row); the text lies over it. */
+#coldCallDialog .cc-nav-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  column-gap: var(--v32-s2);
+  min-height: 56px;
+  padding: var(--v32-s2) var(--v32-s3) var(--v32-s2) var(--v32-s4);
+  color: var(--v31-muted);
+}
+#coldCallDialog .cc-nav-plain {
+  min-height: var(--v32-h-row);
+}
+#coldCallDialog .cc-nav-go {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  padding: var(--v32-s2) var(--v32-s3) var(--v32-s2) var(--v32-s4);
+  border: 0;
+  border-radius: var(--v32-r-control);
+  background: transparent;
+  color: inherit;
+  font: var(--v32-readout);
+  line-height: 20px;
+  font-variant-numeric: tabular-nums;
+  text-align: left;
+  cursor: pointer;
+}
+#coldCallDialog .cc-nav-plain .cc-nav-go {
+  padding-left: calc(var(--v32-s4) + 24px + var(--v32-s2));
+  font: var(--v31-ui);
+}
+#coldCallDialog .cc-nav-go:hover {
+  background: var(--v32-hover);
+}
+/* You are here: the fill one step up, the words at full strength, a short amber mark. */
+#coldCallDialog .cc-nav-go::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 4px;
+  width: 3px;
+  height: 16px;
+  border-radius: var(--v32-r-pill);
+  background: var(--v31-here);
+  opacity: 0;
+}
+#coldCallDialog .cc-nav-go[aria-current] {
+  background: var(--v32-hover);
+  color: var(--v31-text);
+}
+#coldCallDialog .cc-nav-go[aria-current]::before {
+  opacity: 1;
+}
+#coldCallDialog .cc-nav-text {
+  position: relative;
+  grid-column: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font: var(--v31-ui);
+  text-wrap: pretty;
+  pointer-events: none;
+}
+#coldCallDialog .cc-nav-go[aria-current] + .cc-nav-text {
+  color: var(--v31-text);
+}
+/* While rehearsing a row shows the prompt, and the title only once its narration has been asked for. */
+#coldCallDialog .cc-nav-cue,
+#coldCallDialog[data-cc-mode='rehearse'] .cc-nav-row:not([data-cc-revealed]) .cc-nav-title {
+  display: none;
+}
+#coldCallDialog[data-cc-mode='rehearse'] .cc-nav-row:not([data-cc-revealed]) .cc-nav-cue {
+  display: inline;
+}
+
+/* ---------- the setup ---------- */
+#coldCallDialog .cc-setup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* One screen: the first episode begins below it. */
+  min-height: calc(100cqb - var(--v32-s5) - var(--v32-s7));
+}
+#coldCallDialog .cc-art {
+  display: flex;
+  align-items: center;
+  gap: var(--v32-s4);
+  margin: 0 0 var(--v32-s4);
+  color: var(--cc-course);
+}
+#coldCallDialog .cc-pict {
+  width: 56px;
+  height: 56px;
+  flex: none;
+  overflow: visible;
+}
+#coldCallDialog .cc-pict-badge {
+  fill: var(--v31-raised);
+  stroke: none;
+}
+#coldCallDialog .cc-art figcaption {
+  max-width: 320px;
+  font: 400 14px/20px var(--dkla-interface, Inter), sans-serif;
+  color: var(--v31-muted);
+  text-wrap: balance;
+}
+#coldCallDialog .cc-caption {
+  max-width: 100%;
+  margin: 0;
+  font: var(--v31-title);
+  font-family: var(--dkla-display, 'Exo 2'), sans-serif !important;
+  letter-spacing: 0;
+  color: var(--v31-text);
+  overflow-wrap: break-word;
+}
+#coldCallDialog .cc-facts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--v32-s1) var(--v32-s4);
+  margin: var(--v32-s3) 0 0;
+}
+#coldCallDialog .cc-cite {
+  font: var(--v32-readout);
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-muted);
+  overflow-wrap: anywhere;
+}
+#coldCallDialog .cc-course {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--v32-s2);
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
+  white-space: nowrap;
+}
+#coldCallDialog .cc-lead {
+  max-width: var(--cc-wide);
+  margin: var(--v32-s5) 0 0;
+  font: 400 22px/32px var(--dkla-interface, Inter), sans-serif;
+  color: var(--v31-text);
+  text-wrap: pretty;
+}
+/* The cast and the path side by side, each with the room its lines need. */
+#coldCallDialog .cc-briefing {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--v32-s6) var(--v32-s7);
+  width: 100%;
+  margin-top: var(--v32-s6);
+}
+#coldCallDialog .cc-briefing > :only-child {
+  max-width: var(--cc-measure);
+}
+#coldCallDialog .cc-label {
+  margin: 0 0 var(--v32-s3);
+  font: var(--v32-ui-small);
+  letter-spacing: 0;
+  color: var(--v31-muted);
+}
+#coldCallDialog .cc-cast dl {
+  display: grid;
+  gap: var(--v32-s3);
+  margin: 0;
+}
+#coldCallDialog .cc-cast dt {
+  font: 600 16px/24px var(--dkla-interface, Inter), sans-serif;
+  color: var(--v31-text);
+  text-wrap: balance;
+}
+#coldCallDialog .cc-cast dd,
+#coldCallDialog .cc-path li,
+#coldCallDialog .cc-path-one {
+  margin: 0;
+  font: 400 16px/24px var(--dkla-interface, Inter), sans-serif;
+  text-wrap: pretty;
+}
+#coldCallDialog .cc-cast dd {
+  color: var(--v31-muted);
+}
+#coldCallDialog .cc-path ol {
+  display: grid;
+  gap: var(--v32-s3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: cc-path;
+}
+#coldCallDialog .cc-path li {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  color: var(--v31-body);
+  counter-increment: cc-path;
+}
+#coldCallDialog .cc-path li::before {
+  content: counter(cc-path);
+  font: var(--v32-readout);
+  line-height: 24px;
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-muted);
+}
+#coldCallDialog .cc-path-one {
+  color: var(--v31-body);
+}
+/* The way in, at the foot of the first screen: the same place in every account. */
+#coldCallDialog .cc-begin {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--v32-s3);
+  width: 100%;
+  margin-top: auto;
+  padding-top: var(--v32-s6);
+}
+#coldCallDialog .cc-begin-note {
+  flex-basis: 100%;
+  margin: 0;
+  font: 400 14px/20px var(--dkla-interface, Inter), sans-serif;
+  color: var(--v31-muted);
+}
+
+/* ---------- an episode: the prompt, then its narration ---------- */
+#coldCallDialog .cc-section {
+  padding-top: var(--v32-s8);
+}
+#coldCallDialog .cc-count {
+  margin: 0 0 var(--v32-s2);
+  font: var(--v32-readout);
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-muted);
+}
+#coldCallDialog .cc-cue {
+  max-width: var(--cc-wide);
+  margin: 0;
+  font: 500 22px/30px var(--dkla-interface, Inter), sans-serif;
+  letter-spacing: 0;
+  color: var(--v31-text);
+  text-wrap: balance;
+}
+#coldCallDialog .cc-answer {
+  max-width: var(--cc-measure);
+  margin-top: var(--v32-s5);
+}
+#coldCallDialog .cc-title {
+  margin: 0 0 var(--v32-s2);
+  font: 600 17px/28px var(--dkla-interface, Inter), sans-serif;
+  letter-spacing: 0;
+  color: var(--v31-text);
+  text-wrap: balance;
+}
+#coldCallDialog .cc-answer > p,
+#coldCallDialog .cc-limits > p,
+#coldCallDialog .cc-followup > p {
+  margin: 0 0 var(--v32-s4);
+  font: var(--v32-reading);
+  color: var(--v31-body);
+  text-wrap: pretty;
+}
+#coldCallDialog .cc-refs {
+  display: grid;
+}
+#coldCallDialog .cc-ref {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: var(--v32-s3);
+  margin: 0;
+}
+#coldCallDialog .cc-pin {
+  min-width: 0;
+  font: var(--v32-readout);
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-muted);
+  overflow-wrap: anywhere;
+}
+#coldCallDialog .cc-notice {
+  max-width: var(--cc-measure);
+  margin: 0 0 var(--v32-s5);
+  font: 400 14px/20px var(--dkla-interface, Inter), sans-serif;
+  color: var(--v31-muted);
+}
+#coldCallDialog .cc-followup {
+  margin: var(--v32-s2) 0 var(--v32-s4);
+}
+#coldCallDialog .cc-followup > summary {
+  display: flex;
+  align-items: center;
+  min-height: var(--v32-h-control);
+  font: var(--v31-ui);
+  color: var(--v31-link);
+  cursor: pointer;
+  list-style: none;
+}
+#coldCallDialog .cc-followup > summary::-webkit-details-marker {
+  display: none;
+}
+#coldCallDialog .cc-followup > p {
+  margin-top: var(--v32-s2);
+}
+
+/* Covered and shown. Read: every narration is open. Rehearse: one step at a time, and an episode's
+   narration stays covered until it is asked for. */
+#coldCallDialog .cc-cover,
+#coldCallDialog .cc-onward {
+  display: none;
+}
+#coldCallDialog[data-cc-mode='rehearse'] [data-cc-step]:not([data-cc-current]) {
+  display: none;
+}
+#coldCallDialog[data-cc-mode='rehearse'] .cc-section {
+  padding-top: var(--v32-s3);
+}
+#coldCallDialog[data-cc-mode='rehearse'] .cc-section:not([data-cc-revealed]) .cc-answer {
+  display: none;
+}
+#coldCallDialog[data-cc-mode='rehearse'] .cc-section:not([data-cc-revealed]) .cc-cover {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--v32-s4);
+  margin-top: var(--v32-s5);
+}
+#coldCallDialog[data-cc-mode='rehearse'] .cc-section[data-cc-revealed] .cc-onward {
+  display: flex;
+  margin-top: var(--v32-s5);
+}
+#coldCallDialog .cc-hint {
+  margin: 0;
+  font: 400 14px/20px var(--dkla-interface, Inter), sans-serif;
+  color: var(--v31-muted);
+}
+/* A step that has just been asked for fades in, once (opacity and position only). */
+@media (prefers-reduced-motion: no-preference) {
+  #coldCallDialog[data-cc-mode='rehearse'] [data-cc-step][data-cc-current],
+  #coldCallDialog[data-cc-mode='rehearse'] .cc-section[data-cc-revealed] .cc-answer {
+    transition:
+      opacity var(--v31-t-pop) var(--v31-ease),
+      translate var(--v31-t-pop) var(--v31-ease);
+  }
+  @starting-style {
+    #coldCallDialog[data-cc-mode='rehearse'] [data-cc-step][data-cc-current],
+    #coldCallDialog[data-cc-mode='rehearse'] .cc-section[data-cc-revealed] .cc-answer {
+      opacity: 0;
+      translate: 0 8px;
+    }
+  }
+}
+
+/* ---------- the end ---------- */
+#coldCallDialog .cc-finish {
+  padding-top: var(--v32-s8);
+}
+#coldCallDialog[data-cc-mode='rehearse'] .cc-finish {
+  padding-top: var(--v32-s3);
+}
+#coldCallDialog .cc-finish-title {
+  margin: 0 0 var(--v32-s3);
+  font: var(--v31-heading);
+  letter-spacing: 0;
+  color: var(--v31-text);
+  text-wrap: balance;
+}
+#coldCallDialog .cc-limits {
+  max-width: var(--cc-measure);
+}
+#coldCallDialog .cc-exits {
+  display: grid;
+  gap: var(--v32-s5);
+  max-width: var(--cc-measure);
+  margin-top: var(--v32-s5);
+}
+#coldCallDialog .cc-exits .cc-label {
+  margin-bottom: var(--v32-s1);
+}
+
+/* ---------- the foot: where you are, and the keys ---------- */
+.cc-shell .cc-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--v32-s4);
+  flex: none;
+  min-height: 44px;
+  padding: 0 var(--cc-gutter);
+  border-top: 1px solid var(--v32-hair);
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
+}
+.cc-shell .cc-keys {
+  display: none;
+  align-items: center;
+  gap: var(--v32-s2);
+  white-space: nowrap;
+}
+#coldCallDialog[data-cc-mode='read'] .cc-keys-read,
+#coldCallDialog[data-cc-mode='rehearse'] .cc-keys-rehearse {
+  display: flex;
+}
+.cc-shell .cc-keys kbd {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  font: var(--v32-readout);
+  color: var(--v31-soft);
+}
+.cc-shell .cc-keys i {
+  width: 1px;
+  height: 12px;
+  margin: 0 var(--v32-s2);
+  background: var(--v32-hair-strong);
+}
+.cc-shell .cc-key-icon {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+/* Read or rehearse: two halves of one small control. */
+.cc-shell .cc-mode {
+  display: flex;
+  flex: none;
+  padding: 2px;
+  border-radius: var(--v32-r-control);
+  background: var(--v31-panel);
+}
+.cc-shell .cc-seg {
+  position: relative;
+  height: 32px;
+  min-width: 0;
+  padding: 0 var(--v32-s3);
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--v31-muted);
+  font: var(--v32-ui-small);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.cc-shell .cc-seg:hover {
+  background: transparent;
+  color: var(--v31-text);
+}
+.cc-shell .cc-seg[aria-pressed='true'] {
+  background: var(--v32-raised-2);
+  color: var(--v31-text);
+}
+
+/* Opened before the narratives have arrived (hosted page, first moments after loading). */
+.cc-shell .cc-loading {
+  margin: 0;
+  padding: var(--v32-s5) var(--v32-s5);
+  font: var(--v31-body-type);
+  color: var(--v31-muted);
+}
+/* The shared skeleton is drawn in the raised fill, which is this dialog's own plane: one step up here. */
+.cc-shell .cc-loading.calm-wait:not(#toast) {
+  margin: var(--v32-s5) !important;
+  background:
+    linear-gradient(var(--v32-raised-2), var(--v32-raised-2)) 0 0 / 46% 16px no-repeat,
+    linear-gradient(var(--v32-raised-2), var(--v32-raised-2)) 0 32px / 92% 12px no-repeat,
+    linear-gradient(var(--v32-raised-2), var(--v32-raised-2)) 0 56px / 78% 12px no-repeat !important;
+}
+
+/* ---------- every Cold Call (src/features/v32/coldcall-index.js) ---------- */
+#coldCallIndexDialog .cc-bar-title {
+  align-items: baseline;
+}
+#coldCallIndexDialog .cc-ix-rail {
+  padding: var(--v32-s3);
+  overflow: auto;
+  overscroll-behavior: contain;
+  background: var(--v31-panel);
+}
+#coldCallIndexDialog .cc-ix-rail ol {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#coldCallIndexDialog .cc-ix-jump button {
+  display: flex;
+  align-items: center;
+  gap: var(--v32-s2);
+  width: 100%;
+  height: var(--v32-h-row);
+  padding: 0 var(--v32-s3) 0 var(--v32-s6);
+  border: 0;
+  border-radius: var(--v32-r-control);
+  background: transparent;
+  color: var(--v31-muted);
+  font: var(--v31-ui);
+  text-align: left;
+  cursor: pointer;
+}
+#coldCallIndexDialog .cc-ix-jump button:hover {
+  background: var(--v32-hover);
+  color: var(--v31-text);
+}
+#coldCallIndexDialog .cc-ix-jump button > span:not(.cc-readout) {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#coldCallIndexDialog .cc-ix-jump-course button {
+  padding-left: var(--v32-s3);
+  color: var(--v31-text);
+}
+#coldCallIndexDialog .cc-ix-jump-course:not(:first-child) {
+  margin-top: var(--v32-s4);
+}
+#coldCallIndexDialog .cc-ix-jump[data-cc-empty] {
+  opacity: 0.4;
+}
+#coldCallIndexDialog .cc-main {
+  padding-top: var(--v32-s1);
+}
+#coldCallIndexDialog .cc-ix-find {
+  display: flex;
+  align-items: center;
+  gap: var(--v32-s2);
+  flex: none;
+  height: var(--v32-h-control);
+  margin: 0 var(--v32-s5) var(--v32-s3) var(--cc-gutter);
+  padding: 0 var(--v32-s3);
+  border: 1px solid var(--v32-hair-strong);
+  border-radius: var(--v32-r-control);
+  background: var(--v31-panel);
+  color: var(--v31-muted);
+  max-width: 792px;
+}
+#coldCallIndexDialog .cc-ix-find:focus-within {
+  border-color: var(--v31-link);
+}
+#coldCallIndexDialog .cc-ix-find input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--v31-text);
+  font: var(--v31-ui);
+  font-weight: 400;
+}
+#coldCallIndexDialog .cc-ix-find input::placeholder {
+  color: var(--v31-faint);
+}
+#coldCallIndexDialog .cc-ix-find input::-webkit-search-cancel-button {
+  display: none;
+}
+#coldCallIndexDialog .cc-ix-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  padding: 0 var(--v32-s5) var(--v32-s7) var(--cc-gutter);
+}
+#coldCallIndexDialog #ccIxList {
+  max-width: 792px;
+}
+#coldCallIndexDialog .cc-ix-course + .cc-ix-course {
+  margin-top: var(--v32-s7);
+}
+#coldCallIndexDialog .cc-ix-course-title,
+#coldCallIndexDialog .cc-ix-group-title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--v32-s3);
+  margin: 0;
+}
+#coldCallIndexDialog .cc-ix-course-title {
+  padding: var(--v32-s3) 0 var(--v32-s1);
+  font: 600 22px/28px var(--dkla-display, 'Exo 2'), sans-serif;
+  letter-spacing: 0;
+  color: var(--cc-course-here, var(--v31-text));
+}
+#coldCallIndexDialog [data-course='Contracts'] {
+  --cc-course: var(--v31-contracts);
+  --cc-course-here: var(--v31-contracts);
+}
+#coldCallIndexDialog [data-course='Civil Procedure'] {
+  --cc-course: var(--v31-civil);
+  --cc-course-here: var(--v31-civil);
+}
+#coldCallIndexDialog [data-course='Legislation and the Regulatory State'] {
+  --cc-course: var(--v31-lrs);
+  --cc-course-here: var(--v31-lrs);
+}
+#coldCallIndexDialog .cc-ix-group {
+  margin-top: var(--v32-s5);
+}
+#coldCallIndexDialog .cc-ix-group-title {
+  padding-bottom: var(--v32-s1);
+  font: 600 14px/20px var(--dkla-interface, Inter), sans-serif;
+  letter-spacing: 0;
+  color: var(--v31-text);
+}
+#coldCallIndexDialog .cc-ix-rows {
+  display: grid;
+  margin: 0 calc(-1 * var(--v32-s3));
+}
+/* A row: the case's drawing in the margin, the caption, the year, the episodes. One line, one height. */
+#coldCallIndexDialog .cc-ix-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 4ch 11ch;
+  align-items: center;
+  column-gap: var(--v32-s4);
+  width: 100%;
+  height: var(--v32-h-row);
+  padding: 0 var(--v32-s3);
+  border: 0;
+  border-radius: var(--v32-r-control);
+  background: transparent;
+  color: var(--v31-text);
+  font: var(--v31-ui);
+  text-align: left;
+  cursor: pointer;
+}
+#coldCallIndexDialog .cc-ix-row:hover {
+  background: var(--v32-hover);
+}
+#coldCallIndexDialog .cc-ix-art {
+  position: absolute;
+  top: 10px;
+  left: -16px;
+  width: 16px;
+  height: 16px;
+  color: var(--v31-muted);
+}
+#coldCallIndexDialog .cc-ix-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#coldCallIndexDialog .cc-ix-year,
+#coldCallIndexDialog .cc-ix-count {
+  font: var(--v32-readout);
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-muted);
+  text-align: right;
+  white-space: nowrap;
+}
+#coldCallIndexDialog .cc-ix-none {
+  margin: var(--v32-s5) 0 0;
+  font: var(--v31-body-type);
+  color: var(--v31-muted);
+}
+
+/* ---------- the full brief, opened from an account ---------- */
+#ccBriefDialog {
+  width: min(900px, 100vw - 48px);
+}
+#ccBriefDialog .cc-brief-body {
+  flex: 1;
+  min-height: 0;
+  padding: var(--v32-s3) var(--v32-s7) var(--v32-s7);
+  overflow: auto;
+  overscroll-behavior: contain;
+  overflow-wrap: break-word;
+}
+#ccBriefDialog .cc-brief-body > * {
+  max-width: var(--cc-wide);
+}
+#ccBriefDialog p {
+  margin: 0 0 var(--v32-s4);
+}
+#ccBriefDialog h3 {
+  margin: 0 0 var(--v32-s4);
+  font-size: 22px;
+  line-height: 30px;
+}
+#ccBriefDialog h4 {
+  margin: var(--v32-s6) 0 var(--v32-s3);
+  font-size: 17px;
+  line-height: 28px;
+}
+
+/* ---------- narrower windows ---------- */
+@media (max-width: 1239px) {
+  .cc-shell {
+    --cc-gutter: var(--v32-s6);
+  }
+  .cc-shell .cc-layout {
+    grid-template-columns: 272px minmax(0, 1fr);
+  }
+  #coldCallDialog .cc-caption {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}
+@container (max-width: 660px) {
+  #coldCallDialog .cc-briefing {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  #coldCallDialog .cc-briefing > * {
+    max-width: var(--cc-measure);
+  }
+}
+/* No room for two columns: the dialog fills the window and the list folds into one line above the text. */
 @media (max-width: 899px) {
-  #coldCallDialog {
+  .cc-shell,
+  #ccBriefDialog {
+    --cc-gutter: var(--v32-s5);
     width: 100vw;
-    max-width: 100vw;
     height: 100dvh;
-    max-height: 100dvh;
     border-radius: 0;
-    border: 0;
   }
-  #coldCallDialog .cc-header {
-    padding: 20px 22px 18px;
-    gap: 16px;
-    flex-wrap: wrap;
+  .cc-shell .cc-bar {
+    padding-left: var(--v32-s4);
   }
-  #coldCallDialog .cc-heading {
-    flex-basis: 100%;
-  }
-  #coldCallDialog .cc-header h2 {
-    font-size: 26px;
-  }
-  #coldCallDialog .cc-actions {
-    justify-content: flex-start;
-    max-width: none;
-    gap: 10px;
-  }
-  #coldCallDialog .cc-layout {
+  .cc-shell .cc-layout {
     display: flex;
     flex-direction: column;
   }
-  #coldCallDialog #ccSections {
+  #coldCallDialog #ccList {
     flex: none;
-    border-right: 0;
-    border-bottom: 1px solid #354451;
-    max-height: 38dvh;
+    max-height: 44dvh;
+    padding: 0 var(--v32-s2);
   }
-  #coldCallDialog #ccSections > summary {
+  #coldCallDialog #ccList > summary {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 12px 22px;
-    font-size: 13px;
-    list-style: none;
-  }
-  #coldCallDialog #ccSections > summary::-webkit-details-marker {
-    display: none;
-  }
-  #coldCallDialog #ccProgressMobile {
-    margin-left: auto;
-    font-size: 11px;
-    font-weight: 400;
-    color: #91a6b8;
-  }
-  #coldCallDialog .cc-index-label {
-    display: none;
-  }
-  #coldCallDialog .cc-index-inner {
-    padding: 0 14px 12px;
-  }
-  #coldCallDialog nav button {
-    font-size: 13px;
+    gap: var(--v32-s3);
     min-height: 44px;
+    padding: 0 var(--v32-s2);
+    font: var(--v31-ui);
+    color: var(--v31-text);
+    list-style: none;
+    cursor: pointer;
   }
-  #coldCallDialog #ccScroll {
+  #coldCallDialog #ccList > summary::-webkit-details-marker {
+    display: none;
+  }
+  #coldCallDialog #ccList > summary > span:first-child {
     flex: 1;
-    padding: 28px 24px 50px;
   }
-  #coldCallDialog h3 {
-    font-size: 23px;
+  #coldCallDialog #ccList > summary .cc-icon {
+    color: var(--v31-muted);
   }
-}
-@media (max-width: 420px) {
-  #coldCallDialog .cc-header {
-    padding: 18px 20px 14px;
+  #coldCallDialog #ccList[open] {
+    padding-bottom: var(--v32-s2);
   }
-  #coldCallDialog .cc-header h2 {
-    font-size: 23px;
+  #coldCallDialog .cc-setup {
+    min-height: 0;
   }
-  #coldCallDialog .cc-kicker {
-    font-size: 10px;
+  #coldCallDialog .cc-begin {
+    margin-top: 0;
   }
-  #coldCallDialog #ccScroll {
-    padding: 26px 20px 44px;
+  .cc-shell .cc-keys {
+    display: none !important;
   }
-  #coldCallDialog {
-    font-size: 15px;
-  }
-}
-#ccBriefDialog {
-  box-sizing: border-box;
-  width: min(900px, 96vw);
-  height: min(920px, 94dvh);
-  max-height: 94dvh;
-  margin: auto;
-  padding: 0;
-  border: 1px solid #455464;
-  border-radius: 12px;
-  background: #17212b;
-  color: #e2e9ef;
-  overflow: hidden;
-  font:
-    16px/1.75 -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    sans-serif;
-}
-#ccBriefDialog[open] {
-  display: flex;
-  flex-direction: column;
-}
-#ccBriefDialog::backdrop {
-  background: var(--v31-scrim);
-}
-#ccBriefDialog header {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  justify-content: space-between;
-  padding: 22px 28px;
-  border-bottom: 1px solid #354451;
-  flex: none;
-}
-#ccBriefDialog header > div {
-  min-width: 0;
-}
-#ccBriefDialog .cc-kicker {
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #9bb7cc;
-}
-#ccBriefDialog h2 {
-  font-size: 23px;
-  line-height: 1.3;
-  margin: 6px 0 0;
-  overflow-wrap: break-word;
-}
-#ccBriefDialog button {
-  font: inherit;
-  font-size: 12px;
-  white-space: nowrap;
-  background: transparent;
-  color: #d9e4ed;
-  border: 1px solid #607587;
-  border-radius: 7px;
-  min-height: 40px;
-  padding: 8px 12px;
-  cursor: pointer;
-}
-#ccBriefDialog :focus-visible {
-  outline: 2px solid #edac72;
-  outline-offset: 3px;
-}
-#ccBriefDialog .cc-brief-body {
-  padding: 30px 40px 50px;
-  overflow: auto;
-  overscroll-behavior: contain;
-  min-height: 0;
-  overflow-wrap: break-word;
-}
-#ccBriefDialog p {
-  margin: 0 0 20px;
-}
-#ccBriefDialog h3 {
-  font-size: 23px;
-  line-height: 1.3;
-  margin: 0 0 24px;
-}
-#ccBriefDialog h4 {
-  font-size: 17px;
-  line-height: 1.4;
-  margin: 30px 0 12px;
-}
-@media (max-width: 600px) {
-  #ccBriefDialog {
-    width: 100vw;
-    height: 100dvh;
-    max-height: 100dvh;
-    border: 0;
-    border-radius: 0;
-  }
-  #ccBriefDialog header {
-    padding: 20px;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-  #ccBriefDialog header > div {
-    flex-basis: 100%;
-  }
-  #ccBriefDialog h2 {
-    font-size: 22px;
+  #coldCallIndexDialog .cc-ix-rail {
+    display: none;
   }
   #ccBriefDialog .cc-brief-body {
-    padding: 24px 20px 40px;
+    padding: var(--v32-s3) var(--v32-s5) var(--v32-s7);
+  }
+}
+@media (max-width: 599px) {
+  .cc-shell {
+    --cc-gutter: var(--v32-s4);
+  }
+  .cc-shell .cc-bar {
+    gap: var(--v32-s2);
+    padding: 0 var(--v32-s2) 0 var(--v32-s4);
+  }
+  .cc-shell .cc-bar-title {
+    gap: var(--v32-s2);
+  }
+  /* The caption is in the setup just below; the bar keeps the name of the feature and the switch. */
+  #coldCallDialog .cc-bar-case {
+    display: none;
+  }
+  #coldCallDialog .cc-caption {
+    font-size: 22px;
+    line-height: 28px;
+  }
+  #coldCallDialog .cc-pict {
+    width: 48px;
+    height: 48px;
+  }
+  #coldCallDialog .cc-lead,
+  #coldCallDialog .cc-cue {
+    font-size: 19px;
+    line-height: 28px;
+  }
+  #coldCallIndexDialog .cc-ix-row {
+    grid-template-columns: minmax(0, 1fr) 4ch;
+  }
+  #coldCallIndexDialog .cc-ix-count {
+    display: none;
+  }
+}
+@media (hover: none) {
+  .cc-shell .cc-keys {
+    display: none !important;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  #coldCallDialog * {
+  .cc-shell * {
     scroll-behavior: auto !important;
     transition: none !important;
   }
-}
-/* Opened before the narratives have arrived (hosted page, first moments after loading). */
-#coldCallDialog .cc-loading {
-  margin: 0;
-  padding: 40px 30px;
-  color: #b9c7d3;
-  font-size: 16px;
 }
