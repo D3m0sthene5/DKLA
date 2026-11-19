@@ -144,7 +144,31 @@
 }
 #coldCallDialog .cc-bar-case {
   align-items: center;
+  justify-self: start;
   gap: var(--v32-s4);
+  max-width: 100%;
+  margin: 0 0 0 calc(-1 * var(--v32-s2));
+  padding: var(--v32-s1) var(--v32-s3) var(--v32-s1) var(--v32-s2);
+  border: 0;
+  border-radius: var(--v32-r-control);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+#coldCallDialog .cc-bar-case:hover {
+  background: var(--v32-hover);
+}
+/* The way back, in words. */
+#coldCallDialog .cc-back {
+  flex: none;
+  padding: 0 var(--v32-s4) 0 var(--v32-s3);
+  color: var(--v31-text);
+}
+#coldCallDialog .cc-back .cc-icon {
+  color: var(--v31-muted);
+}
+#coldCallDialog .cc-back-short {
+  display: none;
 }
 #coldCallDialog .cc-plate.cc-plate-small {
   display: grid;
@@ -497,6 +521,23 @@
 }
 #coldCallDialog .cc-nav-go:hover {
   background: var(--v32-hover);
+}
+/* The setup's row says what is there, for the moment a name in the story is forgotten. */
+#coldCallDialog .cc-nav-setup {
+  display: block;
+  padding: 0;
+}
+#coldCallDialog .cc-nav-setup .cc-nav-go {
+  position: relative;
+  inset: auto;
+  display: grid;
+  padding-top: var(--v32-s2);
+  padding-bottom: var(--v32-s2);
+}
+#coldCallDialog .cc-nav-sub {
+  font: var(--v32-ui-small);
+  font-weight: 400;
+  color: var(--v31-muted);
 }
 /* You are here: the fill one step up, the words at full strength, a short amber mark. */
 #coldCallDialog .cc-nav-go::before {
@@ -1416,6 +1457,382 @@
     line-height: 36px;
   }
 }
+/* No margin to spare: the question gives way and the prose has the width. */
+@container (max-width: 739px) {
+  #coldCallDialog[data-cc-mode='read'] .cc-section {
+    grid-template-columns: minmax(0, var(--cc-measure));
+  }
+  #coldCallDialog[data-cc-mode='read'] .cc-cue {
+    display: none;
+  }
+}
+@container (max-width: 660px) {
+  .cc-shell .cc-foot .cc-keys {
+    display: none !important;
+  }
+}
+@container (max-width: 480px) {
+  .cc-shell .cc-foot #ccAct {
+    order: 3;
+    flex: 1 0 100%;
+  }
+  .cc-shell .cc-foot .cc-act-key {
+    display: none;
+  }
+  #coldCallDialog[data-cc-mode='rehearse'][data-cc-at='episode'] #ccProgress {
+    display: inline;
+  }
+}
+/* The key that does what the button does, on the button. */
+.cc-shell .cc-act-key {
+  margin-left: var(--v32-s1);
+  padding: 0 var(--v32-s1);
+  border: 0;
+  border-radius: 4px;
+  background: #0b182229;
+  color: inherit;
+  font: var(--v32-readout);
+  font-size: 12px;
+  line-height: 20px;
+}
+.cc-shell .cc-keys {
+  display: none;
+  align-items: center;
+  gap: var(--v32-s2);
+  white-space: nowrap;
+}
+#coldCallDialog[data-cc-mode='read'] .cc-keys-read,
+#coldCallDialog[data-cc-mode='rehearse'] .cc-keys-rehearse {
+  display: flex;
+}
+.cc-shell .cc-keys kbd {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  font: var(--v32-readout);
+  color: var(--v31-soft);
+}
+.cc-shell .cc-keys i {
+  width: 1px;
+  height: 12px;
+  margin: 0 var(--v32-s2);
+  background: var(--v32-hair-strong);
+}
+.cc-shell .cc-key-icon {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+/* Read or rehearse: two halves of one small control. */
+.cc-shell .cc-mode {
+  display: flex;
+  flex: none;
+  padding: 2px;
+  border-radius: var(--v32-r-control);
+  background: var(--v31-panel);
+}
+.cc-shell .cc-seg {
+  position: relative;
+  height: 32px;
+  min-width: 0;
+  padding: 0 var(--v32-s3);
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--v31-muted);
+  font: var(--v32-ui-small);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.cc-shell .cc-seg:hover {
+  background: transparent;
+  color: var(--v31-text);
+}
+.cc-shell .cc-seg[aria-pressed='true'] {
+  background: var(--v32-raised-2);
+  color: var(--v31-text);
+}
+
+/* Opened before the narratives have arrived (hosted page, first moments after loading). */
+.cc-shell .cc-loading {
+  margin: 0;
+  padding: var(--v32-s5) var(--v32-s5);
+  font: var(--v31-body-type);
+  color: var(--v31-muted);
+}
+/* The shared skeleton is drawn in the raised fill, which is this dialog's own plane: one step up here. */
+.cc-shell .cc-loading.calm-wait:not(#toast) {
+  margin: var(--v32-s5) !important;
+  background:
+    linear-gradient(var(--v32-raised-2), var(--v32-raised-2)) 0 0 / 46% 16px no-repeat,
+    linear-gradient(var(--v32-raised-2), var(--v32-raised-2)) 0 32px / 92% 12px no-repeat,
+    linear-gradient(var(--v32-raised-2), var(--v32-raised-2)) 0 56px / 78% 12px no-repeat !important;
+}
+
+/* ---------- every Cold Call (src/features/v32/coldcall-index.js) ---------- */
+#coldCallIndexDialog .cc-bar-title {
+  align-items: baseline;
+}
+#coldCallIndexDialog .cc-ix-rail {
+  padding: var(--v32-s3);
+  overflow: auto;
+  overscroll-behavior: contain;
+  background: var(--v31-panel);
+}
+#coldCallIndexDialog .cc-ix-rail ol {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* A name in the rail is said whole: it wraps onto a second line where it must. */
+#coldCallIndexDialog .cc-ix-jump button {
+  display: flex;
+  align-items: center;
+  gap: var(--v32-s2);
+  width: 100%;
+  min-height: var(--v32-h-row);
+  padding: var(--v32-s2) var(--v32-s3) var(--v32-s2) calc(var(--v32-s3) + var(--v32-s4));
+  border: 0;
+  border-radius: var(--v32-r-control);
+  background: transparent;
+  color: var(--v31-muted);
+  font: var(--v31-ui);
+  text-align: left;
+  text-wrap: balance;
+  cursor: pointer;
+}
+#coldCallIndexDialog .cc-ix-jump button:hover {
+  background: var(--v32-hover);
+  color: var(--v31-text);
+}
+#coldCallIndexDialog .cc-ix-jump button > span {
+  flex: 1;
+  min-width: 0;
+}
+#coldCallIndexDialog .cc-ix-jump-course button {
+  padding-left: var(--v32-s3);
+  color: var(--v31-text);
+}
+#coldCallIndexDialog .cc-ix-jump-course:not(:first-child) {
+  margin-top: var(--v32-s4);
+}
+/* While searching, the rail lists only where the matches are. */
+#coldCallIndexDialog .cc-ix-jump[data-cc-empty] {
+  display: none;
+}
+/* The search field stays at the head of the list as it scrolls, on the list's own measure. */
+#coldCallIndexDialog .cc-ix-head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  max-width: calc(792px + 2 * var(--v32-s3));
+  margin: 0 calc(-1 * var(--v32-s3));
+  padding: var(--v32-s1) var(--v32-s3) var(--v32-s3);
+  background: var(--v31-raised);
+}
+#coldCallIndexDialog .cc-ix-find {
+  display: flex;
+  align-items: center;
+  gap: var(--v32-s2);
+  height: var(--v32-h-control);
+  padding: 0 var(--v32-s3);
+  border: 1px solid var(--v32-hair-strong);
+  border-radius: var(--v32-r-control);
+  background: var(--v31-panel);
+  color: var(--v31-muted);
+}
+#coldCallIndexDialog .cc-ix-find:focus-within {
+  border-color: var(--v31-link);
+}
+#coldCallIndexDialog .cc-ix-find input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--v31-text);
+  font: var(--v31-ui);
+  font-weight: 400;
+}
+#coldCallIndexDialog .cc-ix-find input::placeholder {
+  color: var(--v31-faint);
+}
+#coldCallIndexDialog .cc-ix-find input::-webkit-search-cancel-button {
+  display: none;
+}
+#coldCallIndexDialog .cc-ix-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  padding: 0 var(--v32-s5) var(--v32-s7) var(--cc-gutter);
+}
+#coldCallIndexDialog #ccIxList {
+  max-width: 792px;
+}
+#coldCallIndexDialog .cc-ix-course + .cc-ix-course {
+  margin-top: var(--v32-s7);
+}
+#coldCallIndexDialog .cc-ix-course-title,
+#coldCallIndexDialog .cc-ix-group-title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--v32-s3);
+  margin: 0;
+}
+#coldCallIndexDialog .cc-ix-course-title {
+  padding: var(--v32-s3) 0 var(--v32-s1);
+  font:
+    600 22px/28px var(--dkla-display, 'Exo 2'),
+    sans-serif;
+  letter-spacing: 0;
+  color: var(--cc-course-here, var(--v31-text));
+}
+#coldCallIndexDialog [data-course='Contracts'] {
+  --cc-course: var(--v31-contracts);
+  --cc-course-here: var(--v31-contracts);
+}
+#coldCallIndexDialog [data-course='Civil Procedure'] {
+  --cc-course: var(--v31-civil);
+  --cc-course-here: var(--v31-civil);
+}
+#coldCallIndexDialog [data-course='Legislation and the Regulatory State'] {
+  --cc-course: var(--v31-lrs);
+  --cc-course-here: var(--v31-lrs);
+}
+#coldCallIndexDialog .cc-ix-group {
+  margin-top: var(--v32-s5);
+}
+/* A group's heading stays under the search field while its cases scroll (the longest group has 152). */
+#coldCallIndexDialog .cc-ix-group-title {
+  position: sticky;
+  top: 52px;
+  z-index: 1;
+  margin: 0 calc(-1 * var(--v32-s3));
+  padding: var(--v32-s1) var(--v32-s3);
+  background: var(--v31-raised);
+  font:
+    600 14px/20px var(--dkla-interface, Inter),
+    sans-serif;
+  letter-spacing: 0;
+  color: var(--v31-text);
+}
+#coldCallIndexDialog .cc-ix-rows {
+  display: grid;
+  margin: 0 calc(-1 * var(--v32-s3));
+}
+/* A row: what stands for the case, the caption, the year, the episodes. A case on the map is known by its
+   drawing, at 40 px in a taller row; a supporting case has a small page in the same column and a row of the
+   ordinary height. Rows are one height within a group. */
+#coldCallIndexDialog .cc-ix-row {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 4ch 11ch;
+  align-items: center;
+  column-gap: var(--v32-s3);
+  width: 100%;
+  height: var(--v32-h-row);
+  padding: 0 var(--v32-s3);
+  border-radius: var(--v32-r-control);
+  color: var(--v31-text);
+  font: var(--v31-ui);
+  cursor: pointer;
+}
+#coldCallIndexDialog .cc-ix-row-art {
+  height: 56px;
+}
+#coldCallIndexDialog .cc-ix-row:hover {
+  background: var(--v32-hover);
+}
+#coldCallIndexDialog .cc-ix-row:active {
+  background: var(--v32-pressed);
+}
+#coldCallIndexDialog .cc-ix-row:focus-visible {
+  outline: 0;
+  box-shadow: var(--v31-focus);
+}
+#coldCallIndexDialog .cc-ix-art {
+  justify-self: center;
+  width: 16px;
+  height: 16px;
+  color: var(--v31-muted);
+}
+#coldCallIndexDialog .cc-ix-own {
+  width: 40px;
+  height: 40px;
+  color: var(--cc-course);
+}
+#coldCallIndexDialog .cc-ix-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#coldCallIndexDialog .cc-ix-year,
+#coldCallIndexDialog .cc-ix-count {
+  font: var(--v32-readout);
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-muted);
+  text-align: right;
+  white-space: nowrap;
+}
+#coldCallIndexDialog .cc-ix-none {
+  margin: var(--v32-s5) 0 0;
+  font: var(--v31-body-type);
+  color: var(--v31-muted);
+}
+
+/* ---------- the full brief, opened from an account ---------- */
+#ccBriefDialog {
+  width: min(900px, 100vw - 48px);
+}
+#ccBriefDialog .cc-brief-body {
+  flex: 1;
+  min-height: 0;
+  padding: var(--v32-s3) var(--v32-s7) var(--v32-s7);
+  overflow: auto;
+  overscroll-behavior: contain;
+  overflow-wrap: break-word;
+}
+#ccBriefDialog .cc-brief-body > * {
+  max-width: var(--cc-wide);
+}
+#ccBriefDialog p {
+  margin: 0 0 var(--v32-s4);
+}
+#ccBriefDialog h3 {
+  margin: 0 0 var(--v32-s4);
+  font-size: 22px;
+  line-height: 30px;
+}
+#ccBriefDialog h4 {
+  margin: var(--v32-s6) 0 var(--v32-s3);
+  font-size: 17px;
+  line-height: 28px;
+}
+
+/* ---------- narrower windows ---------- */
+@media (max-width: 1239px) {
+  .cc-shell {
+    --cc-gutter: var(--v32-s6);
+  }
+  .cc-shell .cc-layout {
+    grid-template-columns: 272px minmax(0, 1fr);
+  }
+  #coldCallDialog .cc-caption {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}
 /* No margin to spare: the question is one quiet line under the headline. */
 @container (max-width: 739px) {
   #coldCallDialog[data-cc-mode='read'] .cc-section {
@@ -1539,6 +1956,20 @@
   #coldCallDialog .cc-plate.cc-plate-small .cc-pict {
     width: 32px;
     height: 32px;
+  }
+  #coldCallDialog .cc-back {
+    padding: 0 var(--v32-s3) 0 var(--v32-s2);
+  }
+  #coldCallDialog .cc-back-long {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  #coldCallDialog .cc-back-short {
+    display: inline;
   }
   /* A narrow bar says the caption on two lines rather than cutting it. */
   #coldCallDialog .cc-bar-name {

@@ -36,10 +36,11 @@
   /* The owner has not yet decided whether an account opens to be read or to be rehearsed. Until he does it
      opens to be read, as it always has. To make rehearsal the default, change 'read' to 'rehearse' here. */
   const DEFAULT_MODE = 'read';
-  /* Where Read opens when there is no place to resume. 'setup': at the top of the page, the setup, with the
-     first episode following on scroll. 'story': at the first episode, as the 3.1 reader did, with the setup
-     one scroll back (and under "The setup" in the list). The owner is to choose from pictures of both. */
-  const READ_OPENS_AT = 'setup';
+  /* Where Read opens when there is no place to resume. 'story' (the owner's choice, 19 November 2026: "Cold
+     Call should open into the story"): at the first episode, with the setup one scroll back, under "The
+     setup" at the head of the list, and behind the case's name in the bar. 'setup': at the top of the page,
+     the setup, with the first episode following on scroll. */
+  const READ_OPENS_AT = 'story';
   // Where a case was left mid-read: { caseId: [step, pixels into that step, the account's revision, when] }.
   const RESUME_KEY = 'dkla.coldCallResume.v1',
     RESUME_MAX = 60;
@@ -355,7 +356,7 @@
     return `<details id="ccList" ${wide.matches ? 'open' : ''}>
       <summary><span>In this account</span><span class="cc-readout" id="ccProgressSmall"></span>${ICON.more}</summary>
       <nav aria-label="In this account"><ol class="cc-nav">
-        <li class="cc-nav-row cc-nav-plain" data-cc-nav="0"><button type="button" class="cc-nav-go" data-cc-go="0">The setup</button></li>
+        <li class="cc-nav-row cc-nav-plain cc-nav-setup" data-cc-nav="0"><button type="button" class="cc-nav-go" data-cc-go="0"><span>The setup</span><span class="cc-nav-sub">Who is involved, how it got here</span></button></li>
         ${c.sections
           .map(
             (s, i) =>
@@ -370,8 +371,12 @@
   // The bar: the name of the feature; and, once the setup's head is out of sight or while rehearsing, the
   // case itself (its drawing and its caption), so the case is recognisable wherever the reader is.
   const barHTML = (c) => {
-    const art = c && pictogram(c.id);
-    return `<header class="cc-bar"><div class="cc-bar-title"><span class="cc-bar-kind" id="ccKind">Cold Call</span>${c ? `<span class="cc-bar-case">${art ? `<span class="cc-plate cc-plate-small" aria-hidden="true">${art.svg}</span>` : ''}<span class="cc-bar-text"><span class="cc-bar-label" aria-hidden="true">Cold Call<i class="cc-dot"></i>${esc(c.course)}</span><span class="cc-bar-name" id="ccTitle" title="${esc(c.title)}">${captionLine(c.title)}</span></span></span>` : ''}</div><button type="button" class="cc-x" id="ccClose" aria-label="${c ? backLabel() : 'Close Cold Call'}" title="${c ? backLabel() : 'Close'} (Esc)">${ICON.close}</button></header>`;
+    const art = c && pictogram(c.id),
+      back = c ? backLabel() : 'Close Cold Call',
+      short = /^Back/.test(back) ? 'Back' : /^Close/.test(back) ? 'Close' : back;
+    // The case in the bar is also the way to its setup (who is involved, how it got here). The way out is
+    // said in words: where it leads.
+    return `<header class="cc-bar"><div class="cc-bar-title"><span class="cc-bar-kind" id="ccKind">Cold Call</span>${c ? `<button type="button" class="cc-bar-case" data-cc-go="0" title="The setup: who is involved, how it got here">${art ? `<span class="cc-plate cc-plate-small" aria-hidden="true">${art.svg}</span>` : ''}<span class="cc-bar-text"><span class="cc-bar-label" aria-hidden="true">Cold Call<i class="cc-dot"></i>${esc(c.course)}</span><span class="cc-bar-name" id="ccTitle">${captionLine(c.title)}</span></span></button>` : ''}</div><button type="button" class="cc-button cc-back" id="ccClose" title="${esc(back)} (Esc)">${ICON.back}<span class="cc-back-long">${esc(back)}</span><span class="cc-back-short" aria-hidden="true">${esc(short)}</span></button></header>`;
   };
   const KEYS = `<kbd>${ICON.left}</kbd><kbd>${ICON.right}</kbd>`;
   // The foot. The full brief is one press away at every step, as it was at the top of the 3.1 reader.
