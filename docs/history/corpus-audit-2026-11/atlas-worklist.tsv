@@ -1,0 +1,553 @@
+surface	unit	course	ordered_offset	count	first_key	last_key	ordered_keys_sha256_prefix	feed_and_key
+U.S. Code heading index	title file	shared	0	54	1	9	0b02f1176801993b	uscode/title-[number].json; only assigned text within course-review priority
+authority	connection	CP	0	100	frcp-10/1	frcp-23/14	ced3e95bb763a2d0	tools/v25/authorities.json / entries[id].links
+authority	connection	CP	100	100	frcp-23/15	frcp-56/8	3994768afd23aefa	tools/v25/authorities.json / entries[id].links
+authority	connection	CP	200	40	frcp-56/9	frcp-9/9	5c2b561dc7a2187a	tools/v25/authorities.json / entries[id].links
+authority	connection	K	0	100	consumer-1/1	restatement-24/1	f946c0c71198b469	tools/v25/authorities.json / entries[id].links
+authority	connection	K	100	100	restatement-24/2	ucc-2-306/3	04860998144f9077	tools/v25/authorities.json / entries[id].links
+authority	connection	K	200	8	ucc-2-306/4	ucc-2-719/1	80dd9e5761473872	tools/v25/authorities.json / entries[id].links
+authority	connection	shared	0	100	const-amend-1/1	const-amend-5/9	8c4e31995b1476f5	tools/v25/authorities.json / entries[id].links
+authority	connection	shared	100	100	const-amend-6/1	const-art-3/38	fc8885b6657a83c7	tools/v25/authorities.json / entries[id].links
+authority	connection	shared	200	100	const-art-3/39	usc-28-1331/1	7329639822d5c708	tools/v25/authorities.json / entries[id].links
+authority	connection	shared	300	100	usc-28-1331/2	usc-42-7607/2	2ef6edcd2a424853	tools/v25/authorities.json / entries[id].links
+authority	connection	shared	400	20	usc-45-56/1	usc-9-3/1	9a6641902fbdfaa1	tools/v25/authorities.json / entries[id].links
+authority	entry	CP	0	100	admiralty-A	frcp-82	ecf2f1b93f78b2fe	tools/v25/authorities.json / entries[id]
+authority	entry	CP	100	7	frcp-83	frcp-forms	19fc8d2805a831e2	tools/v25/authorities.json / entries[id]
+authority	entry	K	0	100	consumer-1	restatement-18	5e6d779f07a15348	tools/v25/authorities.json / entries[id]
+authority	entry	K	100	100	restatement-180	restatement-27	e430eda0d3dc5d33	tools/v25/authorities.json / entries[id]
+authority	entry	K	200	100	restatement-270	restatement-36	bf43044da669d8a8	tools/v25/authorities.json / entries[id]
+authority	entry	K	300	100	restatement-360	ucc-1-107	b9abfdda45b9fa29	tools/v25/authorities.json / entries[id]
+authority	entry	K	400	100	ucc-1-108	ucc-2-709	dfec82bb4e50985d	tools/v25/authorities.json / entries[id]
+authority	entry	K	500	40	ucc-2-710	ucc-article-9	447d1481e3f51466	tools/v25/authorities.json / entries[id]
+authority	entry	shared	0	100	const-amend-1	usc-28-126	e6e0d301d899b50c	tools/v25/authorities.json / entries[id]
+authority	entry	shared	100	100	usc-28-1260	usc-28-1450	05135aacdd9564ca	tools/v25/authorities.json / entries[id]
+authority	entry	shared	200	100	usc-28-1451	usc-28-178	d08e3904d3affe0e	tools/v25/authorities.json / entries[id]
+authority	entry	shared	300	100	usc-28-1781	usc-28-2242	34a4f04594c71a41	tools/v25/authorities.json / entries[id]
+authority	entry	shared	400	100	usc-28-2243	usc-28-2634	0237f96112dd13b5	tools/v25/authorities.json / entries[id]
+authority	entry	shared	500	100	usc-28-2635	usc-28-372	f2e9beac221c3b1c	tools/v25/authorities.json / entries[id]
+authority	entry	shared	600	100	usc-28-373	usc-28-531	9b077a2c637dd089	tools/v25/authorities.json / entries[id]
+authority	entry	shared	700	100	usc-28-532	usc-28-671	b835768ec84b1ed4	tools/v25/authorities.json / entries[id]
+authority	entry	shared	800	100	usc-28-672	usc-49-323	0794653ac0626ea0	tools/v25/authorities.json / entries[id]
+authority	entry	shared	900	72	usc-49-46110	usc-9-9	bd47e977372249c3	tools/v25/authorities.json / entries[id]
+brief	mapped full	CP	0	100	CP-001	CP-ATLAS-SHOSHONE	14713d8d31e9d52c	tools/r19/assemble.py build_data() / full[briefId]
+brief	mapped full	CP	100	34	CP-ATLAS-SIBBACH	CPR-016	543f4a5ab8e37e28	tools/r19/assemble.py build_data() / full[briefId]
+brief	mapped full	K	0	100	CT-ATLAS-KLAR	CTR-037	74f951dfbefaa789	tools/r19/assemble.py build_data() / full[briefId]
+brief	mapped full	K	100	3	CTR-038	CTR-040	0acbba3a2ec33046	tools/r19/assemble.py build_data() / full[briefId]
+brief	mapped full	LRS	0	100	LRS-ATLAS-I-ALABAMA-REALTORS	LRS-CB-0456	bd6d3a4ada4efc0a	tools/r19/assemble.py build_data() / full[briefId]
+brief	mapped full	LRS	100	54	LRS-CB-0473	LRSR-043	8bb8c677bbe4081d	tools/r19/assemble.py build_data() / full[briefId]
+brief	six-part brief and rule	CP	0	100	CP-001	CP-117	29ae0afcfc70fd66	tools/r19/assemble.py build_data() / sections[briefId]
+brief	six-part brief and rule	CP	100	100	CP-118	CP-COMP-CB-ABKCO-APPEAL	0d6fc01e8771ff24	tools/r19/assemble.py build_data() / sections[briefId]
+brief	six-part brief and rule	CP	200	100	CP-COMP-CB-ACLU-DOD-2005	CP-COMP-CB-CAP-241	6557d48e30590384	tools/r19/assemble.py build_data() / sections[briefId]
+brief	six-part brief and rule	CP	300	100	CP-COMP-CB-CAP-243	CP-COMP-CB-CAP-485	bf2fed6798cd2486	tools/r19/assemble.py build_data() / sections[briefId]
+brief	six-part brief and rule	CP	400	100	CP-COMP-CB-CAP-486	CP-COMP-CB-MACDERMID	7df121c5b2b783cd	tools/r19/assemble.py build_data() / sections[briefId]
+brief	six-part brief and rule	CP	500	92	CP-COMP-CB-MARRESE-SC	CPR-016	75f0ee3a3b881302	tools/r19/assemble.py build_data() / sections[briefId]
+brief	six-part brief and rule	K	0	100	CT-ADDITIONAL-CM-B1-001	CT-ADDITIONAL-CM-B2-007	5bd8da3e63a790d2	tools/r19/assemble.py build_data() / sections[briefId]
+brief	six-part brief and rule	K	100	100	CT-ADDITIONAL-CM-B2-008	CT-ADDITIONAL-CM-B3-028	0e904f0af58e6724	tools/r19/assemble.py build_data() / sections[briefId]
+brief	six-part brief and rule	K	200	100	CT-ADDITIONAL-CM-B3-029	CT-ADDITIONAL-CM-B4-003	2646cb2d5226e440	tools/r19/assemble.py build_data() / sections[briefId]
+brief	six-part brief and rule	K	300	100	CT-ADDITIONAL-CM-B4-004	CT-ADDITIONAL-CM-B4-111	09e8173960c06da0	tools/r19/assemble.py build_data() / sections[briefId]
+brief	six-part brief and rule	K	400	100	CT-ADDITIONAL-CM-B4-112	CT-NEXT-CM-0097	753f965795fedaaf	tools/r19/assemble.py build_data() / sections[briefId]
+brief	six-part brief and rule	K	500	100	CT-NEXT-CM-0098	CTR-017	b58314285d33dd9d	tools/r19/assemble.py build_data() / sections[briefId]
+brief	six-part brief and rule	K	600	23	CTR-018	CTR-040	c60de2a20272acb6	tools/r19/assemble.py build_data() / sections[briefId]
+brief	six-part brief and rule	LRS	0	100	LRS-ATLAS-I-ALABAMA-REALTORS	LRS-CB-0456	bd6d3a4ada4efc0a	tools/r19/assemble.py build_data() / sections[briefId]
+brief	six-part brief and rule	LRS	100	100	LRS-CB-0473	LRS-CLOSURE-082	fa294a3daf832184	tools/r19/assemble.py build_data() / sections[briefId]
+brief	six-part brief and rule	LRS	200	49	LRS-CLOSURE-083	LRSR-043	43fb3bafe0d9f448	tools/r19/assemble.py build_data() / sections[briefId]
+brief	supporting full	CP	0	100	CP-003	CP-COMP-CB-CAP-020	113e34031c7ea34b	tools/r19/assemble.py build_data() / full[briefId]
+brief	supporting full	CP	100	100	CP-COMP-CB-CAP-021	CP-COMP-CB-CAP-274	7a795f8279a5d653	tools/r19/assemble.py build_data() / full[briefId]
+brief	supporting full	CP	200	100	CP-COMP-CB-CAP-279	CP-COMP-CB-CAP-506	028b820a8875b799	tools/r19/assemble.py build_data() / full[briefId]
+brief	supporting full	CP	300	100	CP-COMP-CB-CAP-507	CP-COMP-CB-REF-010	9f2dda861f31ab1c	tools/r19/assemble.py build_data() / full[briefId]
+brief	supporting full	CP	400	58	CP-COMP-CB-REF-013	CP-SUP-ROYALCANIN	9f48cef2757f8f2b	tools/r19/assemble.py build_data() / full[briefId]
+brief	supporting full	K	0	100	CT-ADDITIONAL-CM-B1-001	CT-ADDITIONAL-CM-B2-006	5f876d554f2ea857	tools/r19/assemble.py build_data() / full[briefId]
+brief	supporting full	K	100	100	CT-ADDITIONAL-CM-B2-007	CT-ADDITIONAL-CM-B3-023	d18d10991e91fb53	tools/r19/assemble.py build_data() / full[briefId]
+brief	supporting full	K	200	100	CT-ADDITIONAL-CM-B3-027	CT-ADDITIONAL-CM-B4-001	0b22958085865348	tools/r19/assemble.py build_data() / full[briefId]
+brief	supporting full	K	300	100	CT-ADDITIONAL-CM-B4-002	CT-ADDITIONAL-CM-B4-108	44ea5b57c2936c3b	tools/r19/assemble.py build_data() / full[briefId]
+brief	supporting full	K	400	100	CT-ADDITIONAL-CM-B4-109	CT-NEXT-CM-0144	8f79d0ac26e4b420	tools/r19/assemble.py build_data() / full[briefId]
+brief	supporting full	K	500	24	CT-NEXT-CM-0145	CT-SUP-0022-PSENICSKA-DISTRICT	0792537aecf097d6	tools/r19/assemble.py build_data() / full[briefId]
+brief	supporting full	LRS	0	95	LRS-CLOSURE-001	LRS-COMP-SLAUGHTER-WILCOX	167e562877f107c5	tools/r19/assemble.py build_data() / full[briefId]
+canon	entry	LRS	0	100	absurdity-doctrine	whole-text-canon	6ab4d644423f87b9	tools/canons/data/index.json [id]
+canon	source attachment	LRS	0	100	absurdity-doctrine/1	constitutional-stare-decisis/6	66f286af0ee44575	tools/canons/data/index.json [id].sources
+canon	source attachment	LRS	100	100	de-minimis-non-curat-lex/1	historical-chevron-framework/2	360c56ea6656c03c	tools/canons/data/index.json [id].sources
+canon	source attachment	LRS	200	100	historical-chevron-framework/3	major-questions-doctrine/16	180ee28f389cd9b6	tools/canons/data/index.json [id].sources
+canon	source attachment	LRS	300	100	major-questions-doctrine/2	presumption-against-implied-repeal/10	42ff4ed35f6ecccd	tools/canons/data/index.json [id].sources
+canon	source attachment	LRS	400	100	presumption-against-implied-repeal/2	presumption-of-severability/3	d8db9cadc5cf448f	tools/canons/data/index.json [id].sources
+canon	source attachment	LRS	500	100	presumption-of-severability/4	subsequent-legislative-history/3	2f5bd815e298894c	tools/canons/data/index.json [id].sources
+canon	source attachment	LRS	600	52	subsequent-legislative-history/4	whole-text-canon/9	e2915a4d31e1bbad	tools/canons/data/index.json [id].sources
+chronology	sequence	CP	0	1	course-chronology-1	course-chronology-1	953680456b52b11e	tools/v28/case-chronologies.json
+chronology	sequence	K	0	1	course-chronology-0	course-chronology-0	40a3b5df040e61ca	tools/v28/case-chronologies.json
+chronology	sequence	LRS	0	1	course-chronology-2	course-chronology-2	8f05e2eb8849dd95	tools/v28/case-chronologies.json
+chronology	step	CP	0	100	course-chronology-1/1.	course-chronology-1/189.	7bd31e719657b895	tools/v28/case-chronologies.json / steps (1-based position, ID)
+chronology	step	CP	100	100	course-chronology-1/19.	course-chronology-1/279.cp-cooper	8fa9d8649fa679d8	tools/v28/case-chronologies.json / steps (1-based position, ID)
+chronology	step	CP	200	100	course-chronology-1/28.	course-chronology-1/369.	190a675227ee2d73	tools/v28/case-chronologies.json / steps (1-based position, ID)
+chronology	step	CP	300	100	course-chronology-1/37.cp-american-well	course-chronology-1/459.cp-swanson	498bbcdb93d34c1e	tools/v28/case-chronologies.json / steps (1-based position, ID)
+chronology	step	CP	400	100	course-chronology-1/46.	course-chronology-1/549.	1f79688fd7bfaa82	tools/v28/case-chronologies.json / steps (1-based position, ID)
+chronology	step	CP	500	92	course-chronology-1/55.	course-chronology-1/99.cp-ragan	9051e9af740ea8f3	tools/v28/case-chronologies.json / steps (1-based position, ID)
+chronology	step	K	0	100	course-chronology-0/1.	course-chronology-0/189.	accf22dd99e3793c	tools/v28/case-chronologies.json / steps (1-based position, ID)
+chronology	step	K	100	100	course-chronology-0/19.lawrence-fox	course-chronology-0/279.nanakuli	5f52485633848f0f	tools/v28/case-chronologies.json / steps (1-based position, ID)
+chronology	step	K	200	100	course-chronology-0/28.gibson	course-chronology-0/369.	7515618261bc2a03	tools/v28/case-chronologies.json / steps (1-based position, ID)
+chronology	step	K	300	100	course-chronology-0/37.	course-chronology-0/459.	b98ddf33941f09d0	tools/v28/case-chronologies.json / steps (1-based position, ID)
+chronology	step	K	400	100	course-chronology-0/46.ricketts	course-chronology-0/549.	24d8ed2d86486f4a	tools/v28/case-chronologies.json / steps (1-based position, ID)
+chronology	step	K	500	100	course-chronology-0/55.	course-chronology-0/73.	9d0cd8a522605377	tools/v28/case-chronologies.json / steps (1-based position, ID)
+chronology	step	K	600	28	course-chronology-0/74.seaver	course-chronology-0/99.	d737b801bdcfda8c	tools/v28/case-chronologies.json / steps (1-based position, ID)
+chronology	step	LRS	0	100	course-chronology-2/1.lrs-o-marbury	course-chronology-2/189.lrs-n-standing-thompson	9f19227ba8dce67a	tools/v28/case-chronologies.json / steps (1-based position, ID)
+chronology	step	LRS	100	100	course-chronology-2/19.lrs-o-bi-metallic	course-chronology-2/54.lrs-o-wyman-gordon	26f515b8f335e288	tools/v28/case-chronologies.json / steps (1-based position, ID)
+chronology	step	LRS	200	49	course-chronology-2/55.	course-chronology-2/99.	9e3f4138b1bc1c20	tools/v28/case-chronologies.json / steps (1-based position, ID)
+cold-call	episode and rehearsal cue	CP	0	100	brief-CP-010/episode-1	brief-CP-131/episode-1	82a68959eb207d05	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	CP	100	100	brief-CP-131/episode-2	brief-CP-COMP-CB-CAP-073/episode-4	45729edd61f10523	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	CP	200	100	brief-CP-COMP-CB-CAP-076/episode-1	brief-CP-COMP-CB-CAP-307/episode-4	86c2d4e244da5df1	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	CP	300	100	brief-CP-COMP-CB-CAP-311/episode-1	brief-CP-COMP-CB-CAP-417/episode-5	5c098c36225ca5ca	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	CP	400	100	brief-CP-COMP-CB-CAP-419/episode-1	brief-CP-COMP-CB-CAP-530/episode-1	6f39a80a9ff85c02	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	CP	500	100	brief-CP-COMP-CB-CAP-530/episode-2	brief-CP-COMP-CB-KOREAN-AIR-1987/episode-4	6cad16b81136a74f	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	CP	600	100	brief-CP-COMP-CB-KOREAN-AIR-1987/episode-5	brief-CP-COMP-CB-REF-347/episode-5	ae5e8b5c861072e6	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	CP	700	100	brief-CP-COMP-CB-REF-348/episode-1	burger/episode-1	14368136a56e0277	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	CP	800	100	burger/episode-2	cp-briseno/episode-1	e00b413643ecfb15	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	CP	900	100	cp-briseno/episode-2	cp-dyer-macdougall/episode-5	070728ccd899acc3	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	CP	1000	100	cp-eisen/episode-1	cp-hanson/episode-4	9fa232e24470604e	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	CP	1100	100	cp-hanson/episode-5	cp-livingston/episode-4	2a93ea831c82fa08	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	CP	1200	100	cp-livingston/episode-5	cp-provident/episode-4	d5a2da2c41c77a19	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	CP	1300	100	cp-provident/episode-5	cp-szukhent/episode-3	e9f5d42fc29449ae	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	CP	1400	100	cp-szukhent/episode-4	shoe/episode-2	43843548225ce31e	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	CP	1500	9	shoe/episode-3	wwvw/episode-6	8b9837b1f61df5f5	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	K	0	100	alaska-packers/episode-1	brief-CT-ADDITIONAL-CM-B1-037/episode-7	b1ee8473a7426509	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	K	100	100	brief-CT-ADDITIONAL-CM-B1-037/episode-8	brief-CT-ADDITIONAL-CM-B2-035/episode-1	84f878241e9d3337	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	K	200	100	brief-CT-ADDITIONAL-CM-B2-035/episode-2	brief-CT-ADDITIONAL-CM-B3-010/episode-5	d1ecb7bb3c210fff	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	K	300	100	brief-CT-ADDITIONAL-CM-B3-010/episode-6	brief-CT-ADDITIONAL-CM-B3-052/episode-5	fd15c480cb910031	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	K	400	100	brief-CT-ADDITIONAL-CM-B3-068/episode-1	brief-CT-ADDITIONAL-CM-B4-062/episode-1	7f8ae24f04d61406	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	K	500	100	brief-CT-ADDITIONAL-CM-B4-062/episode-2	brief-CT-ADDITIONAL-CM-B4-113/episode-1	9e4eac431a69c000	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	K	600	100	brief-CT-ADDITIONAL-CM-B4-113/episode-2	brief-CT-CB-0162/episode-4	69c8368e871cfa37	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	K	700	100	brief-CT-CB-0162/episode-5	brief-CT-CB-0569/episode-4	8b96ce3fab73aadb	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	K	800	100	brief-CT-CB-0569/episode-5	cohen-cowles/episode-4	8a3ed840cc087a10	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	K	900	100	cohen-cowles/episode-5	graham/episode-4	87b087de75f4a2db	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	K	1000	100	graham/episode-5	lawrence-fox/episode-4	5eb8a1efe1f4c82e	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	K	1100	100	lawrence-fox/episode-5	plante/episode-3	36828e1d3952a5a7	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	K	1200	100	plante/episode-4	tolosa/episode-1	f4efac116839ba35	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	K	1300	65	tolosa/episode-2	xlo/episode-4	273a6a2c7219a042	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	LRS	0	100	brief-LRS-CLOSURE-001/episode-1	brief-LRS-CLOSURE-030/episode-1	bfa1677283a2d5b5	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	LRS	100	100	brief-LRS-CLOSURE-030/episode-2	brief-LRS-CLOSURE-080/episode-2	dbb8abd9709b67ea	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	LRS	200	100	brief-LRS-CLOSURE-080/episode-3	lrs-i-gray-powell/episode-6	25e4857cec3343ed	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	LRS	300	100	lrs-i-hearst/episode-1	lrs-k-mcboyle/episode-4	634daf87197a5868	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	LRS	400	100	lrs-k-people-smith/episode-1	lrs-n-community-nutrition/episode-1	230271daeb0b3caf	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	LRS	500	100	lrs-n-community-nutrition/episode-2	lrs-n-pacific-gas-policy/episode-3	22890ddb2b450835	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	LRS	600	100	lrs-n-pacific-gas-policy/episode-4	lrs-n-standing-newport/episode-1	5499e6b6a7c304ca	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	LRS	700	100	lrs-n-standing-newport/episode-2	lrs-o-bailey/episode-7	84f8c27d4810a63a	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	LRS	800	100	lrs-o-barry-shelter/episode-1	lrs-o-jarkesy/episode-2	0dea9a28f7cbb57e	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	LRS	900	100	lrs-o-jarkesy/episode-3	lrs-o-nova-scotia/episode-2	312ec464ee209a47	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	LRS	1000	100	lrs-o-nova-scotia/episode-3	lrs-s-chadha/disposition	55bf2c36a61fdc96	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	LRS	1100	100	lrs-s-chadha/legislative	lrs-s-weiss/episode-3	92ade0482e34aac3	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	episode and rehearsal cue	LRS	1200	23	lrs-s-weiss/episode-4	lrs-s-yakus/episode-7	c5a05c14350b9733	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json / sections[id]
+cold-call	main narrative	CP	0	100	burger	cp-shaffer	883ff5f910468bf7	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json
+cold-call	main narrative	CP	100	34	cp-shamrock	wwvw	e2509f2ef5e930cb	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json
+cold-call	main narrative	K	0	100	alaska-packers	williams-walker-thomas	83a1451dc37c3241	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json
+cold-call	main narrative	K	100	4	wood-lucy	xlo	0fbeeed005c75be2	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json
+cold-call	main narrative	LRS	0	100	lrs-i-alabama-realtors	lrs-o-florida-east-coast	78ae4e5ac5d5fb7f	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json
+cold-call	main narrative	LRS	100	54	lrs-o-gg-fire	lrs-s-yakus	fcb932ee113fe2e5	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json
+cold-call	supporting narrative	CP	0	100	brief-CP-010	brief-CP-COMP-CB-CAP-532	6ad0c9534731f49a	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json
+cold-call	supporting narrative	CP	100	52	brief-CP-COMP-CB-CAP-553	brief-CP-SUP-ROYALCANIN	ff77f18bbe5f4b0d	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json
+cold-call	supporting narrative	K	0	100	brief-CT-ADDITIONAL-CM-B1-001	brief-CT-ADDITIONAL-CM-B4-104	53bac53c8a165591	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json
+cold-call	supporting narrative	K	100	57	brief-CT-ADDITIONAL-CM-B4-107	brief-CT-SUP-0022-PSENICSKA-DISTRICT	222328071cedae90	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json
+cold-call	supporting narrative	LRS	0	41	brief-LRS-CLOSURE-001	brief-LRS-COMP-SLAUGHTER-SEILA	8944d78e613e6b0a	tools/cold-call/cases.json or tools/cold-call/narratives/[ID].json
+definition	cold-call gloss	shared	0	100	18-usc-505	adequate-state-ground	70c2f58ca47c40ad	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	100	100	adherence-treaty	agency-law	7169ee58db658fd4	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	200	100	agency-or-instrumentality	anti-injunction-act	d079d9cacd395094	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	300	100	anti-injunction-provision	article-i	9da60af92558c160	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	400	100	article-i-2	balloon-payment	e11e52e2d37455ef	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	500	100	bank-board	blacklisting	f2f43c7c63e168ac	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	600	100	blm	california-labor-code	e5491e606601f61d	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	700	100	california-statute-of-frauds-provisions	chapter-93a	e9b5e4d782da45c1	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	800	100	charge-back	classified-civil-service	9c221763d221f22b	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	900	100	classified-information	commerce-power	1cfa77ecf8e2e642	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	1000	100	commercial-bribery	condition-precedent	03154210a138dc44	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	1100	100	condition-to-closing	continuing-legal-education	2f7b89ce9503add9	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	1200	100	continuing-objection	court-of-errors	279c851f5e0e09f7	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	1300	100	court-of-exchequer	deadlock	30ca7d3dd3540206	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	1400	100	deadly-force	descent	2677e5538a8a35b7	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	1500	100	desertion	dismissal-stipulation	eb64fde4d9dca428	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	1600	100	disorderly-conduct	eaton	292ab2e138ae42f9	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	1700	100	ebitda	epidemiology	40645b5850a80e95	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	1800	100	equal-footing	exclusivity-clause	e034380fe5732574	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	1900	100	exculpatory	fair-certainty	37446937fa845dd6	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	2000	100	fair-considered-judgment	ferens	f63e5c8d49cbc811	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	2100	100	feres-doctrine	fortuitous	be0db939bef75052	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	2200	100	fortune-v-ncr	general-damages	b8fdaec0e5ec7801	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	2300	100	general-demurrer	gross-receipts	f59b43b54a939591	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	2400	100	gross-ton	horizontal-merger	190ccce86d75b200	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	2500	100	horse-protection-act	in-absentia	c0aa690da5c540b6	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	2600	100	in-aid-of-jurisdiction	informal-hearing	63752e799298a371	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	2700	100	informal-rulemaking	intersession-recess	5b724d60e7783d8a	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	2800	100	interspousal-immunity	judiciary-article	935e1c0b52e070b6	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	2900	100	juries-of-the-vicinity	lease-bonus	d339f520e0eedd73	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	3000	100	lease-purchase	litigation-position	30f60c92590355d3	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	3100	100	litigation-rationalization	mansfield-rule	09d409b2c18dedeb	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	3200	100	manufacturing-defect	memorial-pleading	9a5fd5c1c67ff0c6	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	3300	100	memorialization	motion-to-suppress	4aa94e4741c2507b	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	3400	100	motions-panel	new-bivens-context	04a1d20cc026e475	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	3500	100	new-business-rule	nonterminable	866af3323a881f29	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	3600	100	nonwaiver	on-inquiry	c339bc83a423ceac	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	3700	100	on-its-face	pacific-gas	2d68f6f085faebee	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	3800	100	pacific-gas-electric	perkins	99f9bff174b20e51	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	3900	100	perkins-v-lukens-steel	political-function	48124fc9996ec263	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	4000	100	political-question	presidential-elector	dbfc44c35b349aa4	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	4100	100	presiding-judge	procedendo	360fe760599942f1	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	4200	100	procedural	public-accommodation	94a70912dd6430ab	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	4300	100	public-and-general	racial-steering	caa9766cbfedc3c9	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	4400	100	ragan	redeem	28ca9a5d6cd19957	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	4500	100	redemption-period	repeat-player	da8eb7dfd449a9df	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	4600	100	replacement-cost	return-receipt	1e580e6479259a77	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	4700	100	revell	rule-4	6cbbbc72fcbf3eb6	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	4800	100	rule-404b	sealing-and-delivery	7d28163273209ab0	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	4900	100	sealing-of-records	section-405h	b936fd8160a11d6e	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	5000	100	section-46110	severance-pay	33c73d120acc7a12	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	5100	100	sex-offender-registration	special-damages	2b3013b352f3264d	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	5200	100	special-demurrer	steering-committee	1a4181a72254c55f	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	5300	100	stel	sue-and-be-sued	cd261abc4387f0fe	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	5400	100	suez-canal-cases	tariff-act	309d3c0b216495b0	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	5500	100	tariff-commission	title-to-office	3a01a5d6b12c8211	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	5600	100	title-vi	ucc-1-205	f37f72f823c629df	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	5700	100	ucc-2-201	universal-vacatur	0b6da3ca93357f3d	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	5800	100	unjust-enrichment	wage-price-freeze	7b70c0761e6aa640	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	5900	100	wage-stabilization-board	wrongful-death	5999c7c1ebdeb430	tools/cold-call/glossary-terms.json / terms[key]
+definition	cold-call gloss	shared	6000	22	wrongful-detention	zubik	313cd4225ac37b4d	tools/cold-call/glossary-terms.json / terms[key]
+definition	dictionary entry	shared	0	100	1.QMCSO	1088.constitutional_avoidance	9410a4a173111505	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	100	100	1089.constitutional_clauses	1178.coparcenary	cef61df022929c72	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	200	100	1179.copartner	1268.credit_bureau	7194698c853c2e20	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	300	100	1269.credit_card_accountability_responsibility_and_disclosure_act_(2009)	1358.de_facto	3fce3444a8f65640	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	400	100	1359.de_facto_corporation	1448.delayed_exchange	1ed801c781a2e019	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	500	100	1449.delegate	1538.directive_to_physicians	93e9187737a2cb6b	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	600	100	1539.director	1628.doctrine_of_integration_of_wills	30b6632f5d6f0132	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	700	100	1629.doctrine_of_worthier_title	1718.dynamite_charge	1d3d88cbb682939d	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	800	100	1719.dynasty_trust	1808.endowment_insurance	0680d05acbd3890f	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	900	100	1809.enemy_combatant	1899.ex_parte	15f7eb0c957dc6e4	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	1000	100	19.ab_intestato	1989.factor's_lien	04e498f90ec6f4bd	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	1100	100	199.adverse_possession	2078.fiduciary	5b71f34b80254ca8	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	1200	100	2079.fiduciary_duties_of_trustees	2168.form_8-k	e88d3ce46ad4f06b	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	1300	100	2169.form_interrogatories	2258.gap_filling	33299dcbf4a616b7	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	1400	100	2259.garageman's_lien	2348.greenhouse_gases	1422edbc15238700	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	1500	100	2349.greenmail	2438.hold_harmless	18ceeccb8e8c4440	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	1600	100	2439.holder	2528.implied_warranty	a7ec3cf202879b90	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	1700	100	2529.implied_warranty_of_fitness	2618.Indian_country	2017c20a262d9b51	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	1800	100	2619.indicia	2708.intentional_interference_with_contractual_relations	7f14ed376f17d18c	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	1900	100	2709.intentional_tort	2799.investor_protection_guide_viaticals	6a75b1f9c9034bb9	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	2000	100	28.abate	2889.judicial_proceeding	56e5b5a7dc698562	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	2100	100	289.amnesty	2979.last_will_and_testament	9413fa53a0128cce	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	2200	100	298.ancillary_jurisdiction	3068.letters_testamentary	f5a643ac35d33780	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	2300	100	3069.leverage	3158.local_government_law	be26ffec35256642	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	2400	100	3159.local_rules	3248.marriage	d31b86013c7a35fe	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	2500	100	3249.marriage_certificate	3338.misappropriation	d3f38f1f9e7f694d	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	2600	100	3339.misappropriation_theory_of_insider_trading	3428.municipality	2d3e635c914dc2aa	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	2700	100	3429.muniment_of_title	3518.no-knock_warrant	107e2fa019ce6934	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	2800	100	3519.no-par_stock	3608.oath	e2341b99bb6d8497	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	2900	100	3609.oath_of_office	3699.orphan_works	daf1bd55540ae6a4	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	3000	100	37.able_to_work	3789.patent_search	e312c4b60b9518d8	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	3100	100	379.artificial_person	3879.persuasive_authority	d19c9fe71fb8e116	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	3200	100	388.assessor's_parcel_number	3969.postal_power	7b23be34aaeb7c0b	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	3300	100	397.assisted_suicide	4058.principal	b41698580309c43f	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	3400	100	4059.principal_in_the_second_degree	4148.propria_persona	0682b8c55daf1a9c	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	3500	100	4149.proprietary	4238.qualified_immunity	7e045d6b2dd2ab0d	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	3600	100	4239.qualified_individual_with_a_disability	4328.recidivism	7e73e5524b8d1702	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	3700	100	4329.recidivist	4418.repeal	94354d3ad87ff3ad	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	3800	100	4419.replacement_property	4508.rex_non_potest_peccare	232ea9af38de9a8d	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	3900	100	4509.reynolds_v._sims_(1964)	4599.seasoned_issuer	4eae460575ed4280	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	4000	100	46.absolute-bar_rule	4689.seriatim	a525294b27bfc389	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	4100	100	469.bailout	4779.slapp_suit	b2de5db973fa9a4a	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	4200	100	478.bank	4869.sprinkling_trust	ba411e389c2111d8	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	4300	100	487.bankruptcy_power	4959.subpena_(subpoena)	15db976ade03c1a0	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	4400	100	496.barrister	5048.sweat_equity	7750655ebb012158	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	4500	100	5049.swift_witness	5138.texas_v_johnson_(1989)	184e3470d9fb5b78	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	4600	100	5139.textualism	5228.trespass	2da900923f1fc413	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	4700	100	5229.trespass_to_chattels	5318.uniform_resource_locator_(url)	df8384ac22d2e932	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	4800	100	5319.uniform_simultaneous_death_act	5408.vendor	f8e6e51768582afd	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	4900	100	5409.venire	5499.whistleblower_act	e3549a5669c31bb3	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	5000	100	55.absurdity_doctrine	563.blackmail	3279bae26d1335ff	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	5100	100	564.blank_endorsement	653.Buyout_agreement	f3b5c15f1b92fd59	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	5200	100	654.bylaw	743.certainty_effect	948150fd39e95ae4	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	5300	100	744.certificate_of_citizenship	833.city_of_clinton_v._cedar_rapids_and_missouri_railroad_company_(1868)	76a657d849ec90e3	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	5400	100	834.civil	923.collusive_suit	eeecfa0eb53ef884	src/data/dklaGlossary / terms (1-based row and slug)
+definition	dictionary entry	shared	5500	83	924.collyer_doctrine	999.comprehensive_crime_control_act_of_1984	c50906f009e88d76	src/data/dklaGlossary / terms (1-based row and slug)
+flowchart	branch	CP	0	100	CP-01/1/1->2	CP-09/1/2->3	860670ecbcf60757	tools/flowcharts/data/civil.json / nodes[id].edges (1-based choice, destination)
+flowchart	branch	CP	100	100	CP-09/1/3->4	CP-17/1/2->5	f8b0c54ea61516be	tools/flowcharts/data/civil.json / nodes[id].edges (1-based choice, destination)
+flowchart	branch	CP	200	100	CP-17/2/1->3	CP-25/3/2->5	ac6b9644d87e71ea	tools/flowcharts/data/civil.json / nodes[id].edges (1-based choice, destination)
+flowchart	branch	CP	300	100	CP-25/3/3->6	CP-33/6/1->7	48eb462e3ba6dfa0	tools/flowcharts/data/civil.json / nodes[id].edges (1-based choice, destination)
+flowchart	branch	CP	400	25	CP-33/6/2->8	CP-35/8/1->1	81c822692b691114	tools/flowcharts/data/civil.json / nodes[id].edges (1-based choice, destination)
+flowchart	branch	K	0	100	K-01/a/1->b	K-10/d/1->g	7ba86308f93085de	tools/flowcharts/data/contracts.json / nodes[id].edges (1-based choice, destination)
+flowchart	branch	K	100	100	K-10/d/2->h	K-18/a/2->c	15fe3d8e84b714e2	tools/flowcharts/data/contracts.json / nodes[id].edges (1-based choice, destination)
+flowchart	branch	K	200	100	K-18/a/3->d	K-26/f/2->i	361463c0e008026d	tools/flowcharts/data/contracts.json / nodes[id].edges (1-based choice, destination)
+flowchart	branch	K	300	100	K-26/g/1->f	K-35/f/1->e	85365d949479fe29	tools/flowcharts/data/contracts.json / nodes[id].edges (1-based choice, destination)
+flowchart	branch	K	400	19	K-36/a/1->b	K-37/f/2->i	26f87a23a62222ba	tools/flowcharts/data/contracts.json / nodes[id].edges (1-based choice, destination)
+flowchart	branch	LRS	0	100	LRS-01/chambers/1->present	LRS-10/inferior/2->defect	44e23d273fa401b7	tools/flowcharts/data/lrs.json / nodes[id].edges (1-based choice, destination)
+flowchart	branch	LRS	100	100	LRS-10/principal/1->valid	LRS-17/third/2->represent	bb1e2b4e5eb4c5b7	tools/flowcharts/data/lrs.json / nodes[id].edges (1-based choice, destination)
+flowchart	branch	LRS	200	100	LRS-17/trigger/1->evidence	LRS-26/discrete/1->compel	568a506f9b39f4fd	tools/flowcharts/data/lrs.json / nodes[id].edges (1-based choice, destination)
+flowchart	branch	LRS	300	100	LRS-26/discrete/2->limit	LRS-34/stay/2->ordinary	646b50be52eb4924	tools/flowcharts/data/lrs.json / nodes[id].edges (1-based choice, destination)
+flowchart	branch	LRS	400	100	LRS-35/cause/1->redress	X-04/start/1->contract	7719c4a4f2f3318e	tools/flowcharts/data/lrs.json / nodes[id].edges (1-based choice, destination)
+flowchart	branch	LRS	500	3	X-04/start/2->statute	X-04/statute/2->history	028def4ef88dc1c8	tools/flowcharts/data/lrs.json / nodes[id].edges (1-based choice, destination)
+flowchart	chart	CP	0	35	CP-01	CP-35	c17961ef283deff4	tools/flowcharts/data/civil.json
+flowchart	chart	K	0	37	K-01	K-37	a9c3f94bafed5b9c	tools/flowcharts/data/contracts.json
+flowchart	chart	LRS	0	43	LRS-01	X-04	3592a74db968e0ba	tools/flowcharts/data/lrs.json
+flowchart	source attachment	CP	0	100	CP-01/1/1	CP-05/3/2	4c45d9f64ba3ef55	tools/flowcharts/data/civil.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	CP	100	100	CP-05/3/3	CP-10/4/2	6d67bc74c1c81e2a	tools/flowcharts/data/civil.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	CP	200	100	CP-10/5/1	CP-14/9/2	50e88be835441ac1	tools/flowcharts/data/civil.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	CP	300	100	CP-15/1/1	CP-18/8/3	24269959b1a0cae3	tools/flowcharts/data/civil.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	CP	400	100	CP-19/1/1	CP-23/5/1	f0d327d0cd7d6ae2	tools/flowcharts/data/civil.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	CP	500	100	CP-23/5/2	CP-27/6/1	c0ca21b259e024b3	tools/flowcharts/data/civil.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	CP	600	100	CP-27/6/2	CP-31/9/1	f08cdbc2f1f7a442	tools/flowcharts/data/civil.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	CP	700	100	CP-31/9/2	CP-35/9/3	226d01de454f34df	tools/flowcharts/data/civil.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	K	0	100	K-01/a/1	K-06/c/2	b596a5cc651f9a64	tools/flowcharts/data/contracts.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	K	100	100	K-06/c/3	K-11/e/2	9109bd3298ac0cb3	tools/flowcharts/data/contracts.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	K	200	100	K-11/f/1	K-16/b/3	1850edf6e7420f4c	tools/flowcharts/data/contracts.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	K	300	100	K-16/b/4	K-20/b/3	4655c7f78ed2e074	tools/flowcharts/data/contracts.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	K	400	100	K-20/c/1	K-25/a/3	e353e9ce0f4bb4e1	tools/flowcharts/data/contracts.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	K	500	100	K-25/b/1	K-29/c/2	7bd7110bcc5c4a4d	tools/flowcharts/data/contracts.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	K	600	100	K-29/c/3	K-33/e/1	f83c328874cbd004	tools/flowcharts/data/contracts.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	K	700	74	K-33/e/2	K-37/i/1	e146e91a41de530d	tools/flowcharts/data/contracts.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	LRS	0	100	LRS-01/chambers/1	LRS-06/harmonize/1	05f378f02087ef6c	tools/flowcharts/data/lrs.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	LRS	100	100	LRS-06/harmonize/2	LRS-11/ftc/3	364e59cdcc6c06e0	tools/flowcharts/data/lrs.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	LRS	200	100	LRS-11/functions/1	LRS-15/interest/3	66780cc8bfde805b	tools/flowcharts/data/lrs.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	LRS	300	100	LRS-15/interest/4	LRS-19/staged/1	26764bfca4ba0064	tools/flowcharts/data/lrs.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	LRS	400	100	LRS-19/staged/2	LRS-24/cure/1	ed83a2c084a1df4b	tools/flowcharts/data/lrs.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	LRS	500	100	LRS-24/cure/2	LRS-28/start/2	e549c01914efc13f	tools/flowcharts/data/lrs.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	LRS	600	100	LRS-28/valid/1	LRS-33/other/1	42e0ae0b995f2efa	tools/flowcharts/data/lrs.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	LRS	700	100	LRS-33/other/2	LRS-38/exceptions/1	73705027efb66ddc	tools/flowcharts/data/lrs.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	LRS	800	100	LRS-38/exceptions/2	X-03/promise/2	0d6e93569615c18a	tools/flowcharts/data/lrs.json / nodes[id].sources (1-based attachment)
+flowchart	source attachment	LRS	900	37	X-03/promise/3	X-04/statute/4	81f43d8137645284	tools/flowcharts/data/lrs.json / nodes[id].sources (1-based attachment)
+flowchart	step	CP	0	100	CP-01/1	CP-12/4	0cb0bc8999620238	tools/flowcharts/data/civil.json / nodes[id]
+flowchart	step	CP	100	100	CP-12/5	CP-24/2	d0717e50ef1a7ee0	tools/flowcharts/data/civil.json / nodes[id]
+flowchart	step	CP	200	100	CP-24/3	CP-35/7	5a3008d5a7398a09	tools/flowcharts/data/civil.json / nodes[id]
+flowchart	step	CP	300	2	CP-35/8	CP-35/9	12fb4c679e2e3a8e	tools/flowcharts/data/civil.json / nodes[id]
+flowchart	step	K	0	100	K-01/a	K-13/i	65c657d59b4d71d1	tools/flowcharts/data/contracts.json / nodes[id]
+flowchart	step	K	100	100	K-14/a	K-26/a	a155758d6266debc	tools/flowcharts/data/contracts.json / nodes[id]
+flowchart	step	K	200	97	K-26/b	K-37/i	fbe46dee39320542	tools/flowcharts/data/contracts.json / nodes[id]
+flowchart	step	LRS	0	100	LRS-01/chambers	LRS-13/duty	cab9e9be70b584e5	tools/flowcharts/data/lrs.json / nodes[id]
+flowchart	step	LRS	100	100	LRS-13/first	LRS-23/notice	1bd015b30f05ba54	tools/flowcharts/data/lrs.json / nodes[id]
+flowchart	step	LRS	200	100	LRS-23/ordinary	LRS-35/general	a35416072f8e12fb	tools/flowcharts/data/lrs.json / nodes[id]
+flowchart	step	LRS	300	76	LRS-35/injury	X-04/statute	dc75867800d0dc5c	tools/flowcharts/data/lrs.json / nodes[id]
+flowchart	terminal step	CP	0	88	CP-01/7	CP-35/9	5e05e7f31cf6db56	tools/flowcharts/data/civil.json / nodes[id] with no choices
+flowchart	terminal step	K	0	100	K-01/d	K-33/g	5778d4521e5f9a0e	tools/flowcharts/data/contracts.json / nodes[id] with no choices
+flowchart	terminal step	K	100	11	K-34/f	K-37/i	73b57e7d8b9ffb9c	tools/flowcharts/data/contracts.json / nodes[id] with no choices
+flowchart	terminal step	LRS	0	100	LRS-01/law	LRS-31/binding	3ad0d96840290338	tools/flowcharts/data/lrs.json / nodes[id] with no choices
+flowchart	terminal step	LRS	100	42	LRS-31/discretion	X-04/integratedonly	53238e573887cd5a	tools/flowcharts/data/lrs.json / nodes[id] with no choices
+lecture	class notes	K	0	24	1	9	e069f517db620d66	tools/canons/data/lectures.json [course,number]
+lecture	class notes	LRS	0	22	1	9	12035fb3a15b91b1	tools/canons/data/lectures.json [course,number]
+lecture	topic	K	0	100	1/1	20/3	7ef13f6ae6d1e25f	tools/canons/data/lectures.json [course,number] / topics (1-based)
+lecture	topic	K	100	98	20/4	9/5	bc3a28f9be30084a	tools/canons/data/lectures.json [course,number] / topics (1-based)
+lecture	topic	LRS	0	100	1/1	20/4	f5ed971b8f7ddb59	tools/canons/data/lectures.json [course,number] / topics (1-based)
+lecture	topic	LRS	100	86	20/5	9/8	5f7cfcef1e1a5993	tools/canons/data/lectures.json [course,number] / topics (1-based)
+lecture	topic charts link	K	0	100	15/1/1	23/3/1	caecbfe943232fb8	tools/canons/data/lectures.json [course,number] / topics.charts
+lecture	topic charts link	K	100	26	23/3/2	24/7/2	2d1fd94a8fe7af46	tools/canons/data/lectures.json [course,number] / topics.charts
+lecture	topic charts link	LRS	0	100	13/1/1	19/6/1	7fb8845776798df7	tools/canons/data/lectures.json [course,number] / topics.charts
+lecture	topic charts link	LRS	100	40	19/6/2	22/7/2	6c32f9f8ea108658	tools/canons/data/lectures.json [course,number] / topics.charts
+lecture	topic nodes link	K	0	100	1/2/1	15/1/3	244346cc11fcfcaf	tools/canons/data/lectures.json [course,number] / topics.nodes
+lecture	topic nodes link	K	100	100	15/1/4	19/3/1	fc807e81fa3a10ab	tools/canons/data/lectures.json [course,number] / topics.nodes
+lecture	topic nodes link	K	200	100	19/3/2	22/3/2	fcd7250cc67f4d01	tools/canons/data/lectures.json [course,number] / topics.nodes
+lecture	topic nodes link	K	300	100	22/3/3	3/4/4	49a4ff3832222a56	tools/canons/data/lectures.json [course,number] / topics.nodes
+lecture	topic nodes link	K	400	100	3/4/5	8/7/4	f8b8c0783c11a874	tools/canons/data/lectures.json [course,number] / topics.nodes
+lecture	topic nodes link	K	500	17	8/7/5	9/5/2	589022d5d69d2460	tools/canons/data/lectures.json [course,number] / topics.nodes
+lecture	topic nodes link	LRS	0	100	1/6/1	15/1/3	2cfba2b405482c55	tools/canons/data/lectures.json [course,number] / topics.nodes
+lecture	topic nodes link	LRS	100	100	15/1/4	19/2/2	e2d357cbb8df4e9c	tools/canons/data/lectures.json [course,number] / topics.nodes
+lecture	topic nodes link	LRS	200	100	19/2/3	4/8/2	25fd6d9809012eb4	tools/canons/data/lectures.json [course,number] / topics.nodes
+lecture	topic nodes link	LRS	300	86	4/9/1	9/8/3	4944e0bdc9c360a9	tools/canons/data/lectures.json [course,number] / topics.nodes
+map	edge	CP	0	100	e-001	r7-1b098218eefd290b	2713ad952a018b2f	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	CP	100	100	r7-1b09e3e99319dd82	r7-48af5080fd789da8	79b2ea66f3edf1f7	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	CP	200	100	r7-4981cab2389a72fc	r7-77ce835d2dd84538	bd23ba9b91e10486	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	CP	300	100	r7-78cbe1ecea2d0d92	r7-b04c130ef3335ed1	9826212c217b28ec	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	CP	400	100	r7-b08e15016abd5316	r7-e434c876e50e5002	8add65bbfd657d15	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	CP	500	100	r7-e4b3749fcc14b046	r9v-cp-bristol-myers--general-jurisdiction	1f3619afc9719f22	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	CP	600	100	r9v-cp-burnham--cp-due-process	r9v-cp-mas-perry--cp-amount-in-controversy	3969d10e162acc4d	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	CP	700	91	r9v-cp-mas-perry--cp-usc-1332	r9v-wwvw--specific-jurisdiction	b4ff29a8c169f8b1	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	CP+Cross-course	0	1	e-005	e-005	22ec1a2672a37805	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	CP+K	0	23	e-016	r9v-carnival--cp-personal-jurisdiction	42aeeb6a932ccc18	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	CP+K+LRS+Legislation & Regulatory State	0	1	e-033	e-033	bbd50f7c418ed384	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	CP+K+Lawyering	0	1	e-038	e-038	a3ad1bc7e1dd70bf	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	CP+LRS	0	11	r21-cp-mathews--lrs-o-mathews	r9v-cp-transunion--cp-class-certification	29c11c86e2479a2e	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	CP+Lawyering	0	1	e-040	e-040	7b6dbf6770d47bb7	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	Cross-course	0	2	e-036	e-037	601fd35a8eca50cb	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	Cross-course+K	0	3	e-021	e-026	685b6b64743c14c6	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	Cross-course+LRS	0	1	r10-lrs-k-rucho--rules-standards	r10-lrs-k-rucho--rules-standards	91694539ef231f76	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	Cross-course+Lawyering	0	1	e-039	e-039	e5009a03b212bebf	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	K	0	100	contracts-r2-001	contracts-r3-0055	ddcf1999a28a614b	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	K	100	100	contracts-r3-0056	contracts-r3-0161	efe9dd277ec97491	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	K	200	100	contracts-r3-0162	contracts-r3-0261	3d015b8b35bef9b7	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	K	300	100	contracts-r3-0262	contracts-r3-0361	ad81767fb0c76f05	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	K	400	100	contracts-r3-0362	contracts-r3-0461	2b1ae01e967359ba	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	K	500	100	contracts-r3-0462	contracts-r3-0561	90fd3461479eb7f2	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	K	600	100	contracts-r3-0562	r21-reading-notes-11--austin	e8193f59e8c1d00f	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	K	700	100	r21-reading-notes-11--contracts-class-11	r22-ucc2209--alaska-packers	11466380f578f0a4	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	K	800	100	r22-ucc2209--modification	r6-relevance-dixon-promissory-estoppel	18a8833f40b932ca	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	K	900	100	r6-relevance-dixon-reliance-interest	r6-relevance-kannavos-misrepresentation	50c7c31a9992bcce	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	K	1000	100	r6-relevance-kannavos-rescission	r6-relevance-parker-mitigation	35c179561d659482	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	K	1100	100	r6-relevance-parker-remedial-overview	r6-relevance-wassermans-stipulated-remedies	f1ae8377a04131fe	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	K	1200	92	r6-relevance-watkins-assent-consent-intent	r9v-trident--objective-assent	ef66b5c9ea3efb11	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	K+LRS	0	3	r8-bridge-meaning-1	r8-bridge-reliance-2	a92daa12c990ac69	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	K+LRS+Legislation & Regulatory State	0	41	contracts-r3-0075	r8-bridge-meaning-3	04e51d5480348079	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	K+Lawyering	0	6	contracts-r3-0073	e-041	98309ddd3b8873f7	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	LRS	0	100	lrs-i-edge-001	r10-lrs-k-public-citizen--lrs-k-absurdity	74587fc7d74c3011	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	LRS	100	100	r10-lrs-k-public-citizen--lrs-k-legislative-history	r8-0e86a965257234d9eed6	f98323d47e835aa7	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	LRS	200	100	r8-0ee9729788bdce525d5e	r8-6c24f9d8f9e101fc3e10	bcc7ceaea4b44866	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	LRS	300	100	r8-6c4d668bd5734887b813	r8-cb8d2e5cd64744c30889	bd7f9dc180ba0146	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	LRS	400	100	r8-cf0085c75b991f58ac6e	r9v-lrs-n-standing-sierra--lrs-n-standing-apa702	f2319046b0b6a96b	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	LRS	500	64	r9v-lrs-n-standing-spokeo--lrs-n-standing-congress	r9v-lrs-s-yakus--lrs-s-delegation-dimensions	ad1fb1a087e42eca	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	LRS+Lawyering	0	1	r10-lrs-k-trump-illinois--procedure	r10-lrs-k-trump-illinois--procedure	12e230fceea9a019	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	LRS+Legislation & Regulatory State	0	1	r10-lrs-k-rucho--structure	r10-lrs-k-rucho--structure	a4170964f5ad890a	effective graph / edges[id]; verify label, endpoints and explanation
+map	edge	Lawyering	0	2	e-042	e-043	2182bcc716421f4b	effective graph / edges[id]; verify label, endpoints and explanation
+map	node	CP	0	100	burger	cp-frcp-17	26c599ef250da599	tools/v25/explanation_inventory.py effective() / nodes[id]
+map	node	CP	100	100	cp-frcp-18	cp-property-jurisdiction	3cade16aedf49e23	tools/v25/explanation_inventory.py effective() / nodes[id]
+map	node	CP	200	100	cp-provident	fairness	8d8d50273c0ab7e9	tools/v25/explanation_inventory.py effective() / nodes[id]
+map	node	CP	300	8	ford	wwvw	4f8edba74c98a4f2	tools/v25/explanation_inventory.py effective() / nodes[id]
+map	node	CP+K	0	2	carnival	forum-selection	f24667ec801c96f1	tools/v25/explanation_inventory.py effective() / nodes[id]
+map	node	CP+LRS	0	1	cp-transunion	cp-transunion	8160eebd06bd09b2	tools/v25/explanation_inventory.py effective() / nodes[id]
+map	node	Cross-course	0	3	foreseeability	rules-standards	4bccc91b14fd6f03	tools/v25/explanation_inventory.py effective() / nodes[id]
+map	node	K	0	100	acceptance	forbearance-claim	f56afa0a1e151e3c	tools/v25/explanation_inventory.py effective() / nodes[id]
+map	node	K	100	100	force-majeure	note-carr	1e4fd8931bfbe43c	tools/v25/explanation_inventory.py effective() / nodes[id]
+map	node	K	200	100	note-charity-comparisons	problem-foley	972e482bbf8509f3	tools/v25/explanation_inventory.py effective() / nodes[id]
+map	node	K	300	100	problem-funeral	swiss-2024	e81767094f1853d5	tools/v25/explanation_inventory.py effective() / nodes[id]
+map	node	K	400	36	taylor-caldwell	xlo	0c2cbc8b76550f37	tools/v25/explanation_inventory.py effective() / nodes[id]
+map	node	K+Legislation & Regulatory State+LRS	0	1	interpretation	interpretation	6e0534af16e1fe99	tools/v25/explanation_inventory.py effective() / nodes[id]
+map	node	LRS	0	100	lrs-framework	lrs-n-biestek	51ac0fa0039945d0	tools/v25/explanation_inventory.py effective() / nodes[id]
+map	node	LRS	100	100	lrs-n-commerce-new-york	lrs-o-brock	a5e069f44cd0169d	tools/v25/explanation_inventory.py effective() / nodes[id]
+map	node	LRS	200	100	lrs-o-cafeteria-workers	lrs-s-hampton	83268662980ae6c7	tools/v25/explanation_inventory.py effective() / nodes[id]
+map	node	LRS	300	24	lrs-s-humphrey	lrs-s-yakus	35b078324597825b	tools/v25/explanation_inventory.py effective() / nodes[id]
+map	node	Lawyering	0	3	analogy	procedure	fb57af0998a82ce2	tools/v25/explanation_inventory.py effective() / nodes[id]
+map	node	Legislation & Regulatory State+LRS	0	1	structure	structure	520cdb563bf80b19	tools/v25/explanation_inventory.py effective() / nodes[id]
+session	assignment	K	0	26	1	9	75abf7073cbfaa41	src/features/sessions/sessions.js / COURSES; October 1 patch for Civil Procedure
+session	class	LRS	0	26	1	9	75abf7073cbfaa41	src/features/sessions/sessions.js / COURSES; October 1 patch for Civil Procedure
+session	week	CP	0	14	1	9	141a31e55354c29d	src/features/sessions/sessions.js / COURSES; October 1 patch for Civil Procedure
+source viewer	page link	CP	0	100	CP-001/1	CP-101/1	5eef212964668301	tools/v28/source-links.json [id], 1-based link
+source viewer	page link	CP	100	100	CP-102/1	CP-ATLAS-DYER-MACDOUGALL/1	74f4aed9164caa0d	tools/v28/source-links.json [id], 1-based link
+source viewer	page link	CP	200	100	CP-ATLAS-EISEN/1	CP-COMP-CB-CAP-089/1	f5a75fe88e8c1bbe	tools/v28/source-links.json [id], 1-based link
+source viewer	page link	CP	300	100	CP-COMP-CB-CAP-090/1	CP-COMP-CB-CAP-289/1	f0f7098165dbd1e6	tools/v28/source-links.json [id], 1-based link
+source viewer	page link	CP	400	100	CP-COMP-CB-CAP-294/1	CP-COMP-CB-CAP-460/1	a52687e352b62942	tools/v28/source-links.json [id], 1-based link
+source viewer	page link	CP	500	100	CP-COMP-CB-CAP-462/1	CP-COMP-CB-ERICKSON-APPEAL/2	3fe72ad68d33d764	tools/v28/source-links.json [id], 1-based link
+source viewer	page link	CP	600	100	CP-COMP-CB-ERICKSON-APPEAL/3	CP-COMP-SUP-WILKINS/1	3402d127ff4ef641	tools/v28/source-links.json [id], 1-based link
+source viewer	page link	CP	700	50	CP-DKLA-HURN/1	CPR-016/1	dcc6afed96fe6ddd	tools/v28/source-links.json [id], 1-based link
+source viewer	page link	K	0	100	CT-ADDITIONAL-CM-B1-001/1	CT-ADDITIONAL-CM-B1-083/1	16d1b1cb539eb6b3	tools/v28/source-links.json [id], 1-based link
+source viewer	page link	K	100	100	CT-ADDITIONAL-CM-B1-084/1	CT-ADDITIONAL-CM-B2-081/1	3d4966be1232b9e5	tools/v28/source-links.json [id], 1-based link
+source viewer	page link	K	200	100	CT-ADDITIONAL-CM-B2-082/1	CT-ADDITIONAL-CM-B3-076/1	4fac348441eb90e6	tools/v28/source-links.json [id], 1-based link
+source viewer	page link	K	300	100	CT-ADDITIONAL-CM-B3-077/1	CT-ADDITIONAL-CM-B4-036/1	bd2e5b097c8519f9	tools/v28/source-links.json [id], 1-based link
+source viewer	page link	K	400	100	CT-ADDITIONAL-CM-B4-037/1	CT-ADDITIONAL-FA26-004/1	c50dc8a62d7433fe	tools/v28/source-links.json [id], 1-based link
+source viewer	page link	K	500	100	CT-ADDITIONAL-FA26-005/1	CT-CB-0560/1	47ba80d70b46d83c	tools/v28/source-links.json [id], 1-based link
+source viewer	page link	K	600	100	CT-CB-0569/1	CT-NEXT-CM-0144/1	0d2e8df578a8958f	tools/v28/source-links.json [id], 1-based link
+source viewer	page link	K	700	100	CT-NEXT-CM-0144/2	CTR-027/2	40a6d5305a90700d	tools/v28/source-links.json [id], 1-based link
+source viewer	page link	K	800	19	CTR-028/1	CTR-040/1	7f65a78b4bade9bc	tools/v28/source-links.json [id], 1-based link
+source viewer	page link	LRS	0	100	LRS-ATLAS-I-ALABAMA-REALTORS/1	LRS-ATLAS-O-CAFETERIA-WORKERS/1	71d76d54917430c9	tools/v28/source-links.json [id], 1-based link
+source viewer	page link	LRS	100	100	LRS-ATLAS-O-CAFETERIA-WORKERS/2	LRS-CLOSURE-002/2	91c6b42c0f930667	tools/v28/source-links.json [id], 1-based link
+source viewer	page link	LRS	200	100	LRS-CLOSURE-002/3	LRS-CLOSURE-063/1	5a2d77568a58f47a	tools/v28/source-links.json [id], 1-based link
+source viewer	page link	LRS	300	100	LRS-CLOSURE-064/1	LRS-SUP-0005C/1	4bf7cf4b5c41d3c1	tools/v28/source-links.json [id], 1-based link
+source viewer	page link	LRS	400	14	LRS-SUP-0005D/1	LRSR-043/3	786a9b4e78a1200c	tools/v28/source-links.json [id], 1-based link
+source viewer	page link	shared	0	1	swiss-2024/1	swiss-2024/1	315cc5de3242a3e6	tools/v28/source-links.json [id], 1-based link
+study	learning record	CP	0	100	burger	cp-frcp-17	26c599ef250da599	effective graph / nodes[id].learning
+study	learning record	CP	100	100	cp-frcp-18	cp-property-jurisdiction	3cade16aedf49e23	effective graph / nodes[id].learning
+study	learning record	CP	200	100	cp-provident	fairness	8d8d50273c0ab7e9	effective graph / nodes[id].learning
+study	learning record	CP	300	8	ford	wwvw	4f8edba74c98a4f2	effective graph / nodes[id].learning
+study	learning record	CP+K	0	2	carnival	forum-selection	f24667ec801c96f1	effective graph / nodes[id].learning
+study	learning record	CP+LRS	0	1	cp-transunion	cp-transunion	8160eebd06bd09b2	effective graph / nodes[id].learning
+study	learning record	K	0	100	acceptance	gap-classroom	7674acc3b17ad27f	effective graph / nodes[id].learning
+study	learning record	K	100	100	gap-eu-directive	reading-notes-22	1fff35b2b9289686	effective graph / nodes[id].learning
+study	learning record	K	200	61	reading-notes-23	xlo	7ff89e951f90a73b	effective graph / nodes[id].learning
+study	learning record	K+Legislation & Regulatory State+LRS	0	1	interpretation	interpretation	6e0534af16e1fe99	effective graph / nodes[id].learning
+study	learning record	LRS	0	100	lrs-framework	lrs-n-biestek	51ac0fa0039945d0	effective graph / nodes[id].learning
+study	learning record	LRS	100	100	lrs-n-commerce-new-york	lrs-o-brock	a5e069f44cd0169d	effective graph / nodes[id].learning
+study	learning record	LRS	200	100	lrs-o-cafeteria-workers	lrs-s-hampton	83268662980ae6c7	effective graph / nodes[id].learning
+study	learning record	LRS	300	24	lrs-s-humphrey	lrs-s-yakus	35b078324597825b	effective graph / nodes[id].learning
+study	takeaway	CP	0	100	burger	cp-shady-grove	c66ffbcdb960d316	tools/r19/data/takeaways.json [nodeId]
+study	takeaway	CP	100	35	cp-shaffer	wwvw	73cb0df7f86fe5a6	tools/r19/data/takeaways.json [nodeId]
+study	takeaway	K	0	100	alaska-packers	wood-lucy	646264dd33d24586	tools/r19/data/takeaways.json [nodeId]
+study	takeaway	K	100	3	wucherpfennig	xlo	9edf7730802d3462	tools/r19/data/takeaways.json [nodeId]
+study	takeaway	LRS	0	100	lrs-i-alabama-realtors	lrs-o-florida-east-coast	78ae4e5ac5d5fb7f	tools/r19/data/takeaways.json [nodeId]
+study	takeaway	LRS	100	54	lrs-o-gg-fire	lrs-s-yakus	fcb932ee113fe2e5	tools/r19/data/takeaways.json [nodeId]
+timeline	sequence	CP	0	40	amendment	venue	3503a68b4284e5d9	tools/r19/data/timelines.json / timelines
+timeline	sequence	K	0	32	acceptance	warranties	7f726ff3c073a5d9	tools/r19/data/timelines.json / timelines
+timeline	sequence	LRS	0	24	appointments	zone-of-interests	84beb3c5bc965a2e	tools/r19/data/timelines.json / timelines
+timeline	step	CP	0	100	amendment/1.	fedq/8.	2350afca4b160640	tools/r19/data/timelines.json / timelines / steps (1-based position, ID)
+timeline	step	CP	100	100	fedq/9.cp-grable	pj-traditional/5.	865b575c1564cca9	tools/r19/data/timelines.json / timelines / steps (1-based position, ID)
+timeline	step	CP	200	82	pj-traditional/6.cp-tickle	venue/4.cp-usc-1391	3d7c61ed28598c1e	tools/r19/data/timelines.json / timelines / steps (1-based position, ID)
+timeline	step	K	0	100	acceptance/1.white-corlies	liquidated-damages/2.lake-river	e440321146481b19	tools/r19/data/timelines.json / timelines / steps (1-based position, ID)
+timeline	step	K	100	100	liquidated-damages/3.wassermans	warranties/4.	e606605209371af3	tools/r19/data/timelines.json / timelines / steps (1-based position, ID)
+timeline	step	K	200	1	warranties/5.	warranties/5.	f12c9758129b06e6	tools/r19/data/timelines.json / timelines / steps (1-based position, ID)
+timeline	step	LRS	0	100	appointments/1.lrs-s-shoemaker	mqd/2.	97d957183d1a9f1e	tools/r19/data/timelines.json / timelines / steps (1-based position, ID)
+timeline	step	LRS	100	100	mqd/3.lrs-i-king-burwell	zone-of-interests/7.lrs-n-standing-ncua	9d3a0d142172dd6e	tools/r19/data/timelines.json / timelines / steps (1-based position, ID)
+timeline	step	LRS	200	2	zone-of-interests/8.lrs-n-standing-thompson	zone-of-interests/9.lrs-n-standing-patchak	a16eaf7e4b7acd46	tools/r19/data/timelines.json / timelines / steps (1-based position, ID)
+translation	authored sentence	CP	0	100	brief-CP-010/2.0	brief-CP-109/1.1	4ac2678116a8c67a	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	100	100	brief-CP-109/1.1	brief-CP-128/2.2	4bb63427d796676f	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	200	100	brief-CP-128/2.2	brief-CP-142/2.1	316c8283df14c6fb	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	300	100	brief-CP-142/2.2	brief-CP-COMP-CB-ADVANCED-TACTICAL/3.1	9e67c2bf34dd5cba	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	400	100	brief-CP-COMP-CB-ADVANCED-TACTICAL/4.2	brief-CP-COMP-CB-CAP-087/3.2	dd2b9aecf531ba05	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	500	100	brief-CP-COMP-CB-CAP-087/4.0	brief-CP-COMP-CB-CAP-157/2.1	c1c13e3749697087	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	600	100	brief-CP-COMP-CB-CAP-157/2.2	brief-CP-COMP-CB-CAP-311/1.1	5b80e22d723ffd3b	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	700	100	brief-CP-COMP-CB-CAP-311/1.1	brief-CP-COMP-CB-CAP-350/3.0	e83a8d60651d157c	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	800	100	brief-CP-COMP-CB-CAP-350/3.1	brief-CP-COMP-CB-CAP-413/2.1	54bed51fc04927c3	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	900	100	brief-CP-COMP-CB-CAP-413/2.2	brief-CP-COMP-CB-CAP-431/2.1	8e8e079bb6915ef8	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	1000	100	brief-CP-COMP-CB-CAP-431/2.2	brief-CP-COMP-CB-CAP-501/0.1	9514b634fbf0496d	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	1100	100	brief-CP-COMP-CB-CAP-501/1.0	brief-CP-COMP-CB-CAP-532/0.1	641c381cfe9b6bee	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	1200	100	brief-CP-COMP-CB-CAP-532/2.0	brief-CP-COMP-CB-CAP-591/2.2	1446da6f603d0efe	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	1300	100	brief-CP-COMP-CB-CAP-591/2.3	brief-CP-COMP-CB-KOREAN-AIR-1987/0.1	ecf001d77ee8dfa6	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	1400	100	brief-CP-COMP-CB-KOREAN-AIR-1987/0.1	brief-CP-COMP-CB-MARRESE-SC/3.2	3e148c7314ee2e76	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	1500	100	brief-CP-COMP-CB-MARRESE-SC/3.2	brief-CP-COMP-CB-PFAU-2011/3.1	3c4fca772b403d85	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	1600	100	brief-CP-COMP-CB-RANDONE/0.0	brief-CP-COMP-CB-ROBINSON-MEYER/3.1	49cd698d920d59c3	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	1700	100	brief-CP-COMP-CB-ROURKE-AMCHEM/1.2	brief-CP-COMP-SUP-CASA/4.0	3ed14701d97ee80d	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	1800	100	brief-CP-COMP-SUP-CASA/4.0	brief-CP-SUP-PERTTU/1.1	350c8d84f8616bc6	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	1900	100	brief-CP-SUP-PERTTU/1.2	cp-amchem/6.1	bc64f68ea7c01a12	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	2000	100	cp-amchem/6.2	cp-berk/1.2	17794dcec1e0089e	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	2100	100	cp-berk/2.0	cp-byrd/0.1	4bab59ee1aff52e7	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	2200	100	cp-byrd/0.2	cp-conley/4.0	62edca517347509a	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	2300	100	cp-conley/4.1	cp-eisen/1.0	c7d1d477412c7c8e	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	2400	100	cp-eisen/1.1	cp-gasperini/3.1	cf58c5719da5878e	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	2500	100	cp-gasperini/4.1	cp-hanna-decision/1.1	b2acf0e914df4b12	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	2600	100	cp-hanna-decision/2.1	cp-home-depot/3.3	409cf985c3863dcc	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	2700	100	cp-ingraham/0.1	cp-krupski/2.1	0cb81cce946691cb	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	2800	100	cp-krupski/3.0	cp-matsushita/0.1	22a3cb534e9d7f0b	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	2900	100	cp-matsushita/1.0	cp-panamerican/0.1	c43aa30327229e01	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	3000	100	cp-panamerican/0.1	cp-reasor/1.1	ce7b00d495f04199	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	3100	100	cp-reasor/2.0	cp-smith/4.0	a2f684f286857e88	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	3200	100	cp-smith/4.0	cp-szukhent/2.1	7cce4f7d5f127329	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	3300	100	cp-szukhent/2.2	cp-twombly/2.1	836a825b98c05617	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	3400	100	cp-twombly/2.2	cp-zippo/1.0	42e43061a36b161e	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	CP	3500	49	cp-zippo/1.0	wwvw/4.3	9f846716ab1a09a9	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	0	100	alaska-packers/1.2	bloor/2.1	491f4b09b0a26230	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	100	100	bloor/2.1	brief-CT-ADDITIONAL-CM-B1-019/2.1	5191478323c401bb	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	200	100	brief-CT-ADDITIONAL-CM-B1-019/3.0	brief-CT-ADDITIONAL-CM-B1-069/2.1	763e75c1b62422f4	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	300	100	brief-CT-ADDITIONAL-CM-B1-069/2.2	brief-CT-ADDITIONAL-CM-B2-002/0.0	46667c55803c03b0	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	400	100	brief-CT-ADDITIONAL-CM-B2-002/0.2	brief-CT-ADDITIONAL-CM-B2-048/1.1	c66d27fa6aaa64bb	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	500	100	brief-CT-ADDITIONAL-CM-B2-048/1.2	brief-CT-ADDITIONAL-CM-B2-092/3.0	27908e9108d884fd	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	600	100	brief-CT-ADDITIONAL-CM-B2-092/3.0	brief-CT-ADDITIONAL-CM-B3-027/2.2	ffaf8dba9fbcd4e0	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	700	100	brief-CT-ADDITIONAL-CM-B3-027/3.0	brief-CT-ADDITIONAL-CM-B3-047/2.0	a958745d66c7759e	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	800	100	brief-CT-ADDITIONAL-CM-B3-047/2.0	brief-CT-ADDITIONAL-CM-B3-098/2.0	f17547e981ee5191	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	900	100	brief-CT-ADDITIONAL-CM-B3-098/2.1	brief-CT-ADDITIONAL-CM-B4-031/3.0	6a55fa52733ca7e0	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	1000	100	brief-CT-ADDITIONAL-CM-B4-031/3.1	brief-CT-ADDITIONAL-CM-B4-066/8.1	436bbdd40679058a	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	1100	100	brief-CT-ADDITIONAL-CM-B4-072/0.0	brief-CT-ADDITIONAL-CM-B4-081/4.0	80f54229a87efde0	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	1200	100	brief-CT-ADDITIONAL-CM-B4-081/4.1	brief-CT-ADDITIONAL-FA26-001/2.1	20e90bbba47d4d4b	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	1300	100	brief-CT-ADDITIONAL-FA26-001/3.0	brief-CT-CB-0098/0.1	85c8c5e58a1bfccf	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	1400	100	brief-CT-CB-0098/1.0	brief-CT-CB-0242/2.0	e6842c7c1db68719	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	1500	100	brief-CT-CB-0242/2.1	brief-CT-CB-0450/3.3	585995958f421625	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	1600	100	brief-CT-CB-0450/4.0	brief-CT-NEXT-CM-0093/1.1	40fe2f24c79f005d	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	1700	100	brief-CT-NEXT-CM-0093/1.1	brief-CT-NEXT-CM-0172/3.0	b3b57967f9fc2fa9	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	1800	100	brief-CT-NEXT-CM-0172/4.0	dalton/2.0	1ff429294fd50eb4	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	1900	100	dalton/2.0	figgie/2.0	66de3521e938531c	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	2000	100	figgie/2.2	hassler/2.2	064ef3f5614165a0	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	2100	100	hassler/2.2	klar/4.0	95f9c03bdea14e97	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	2200	100	klein-pepsico/0.1	masterson/2.0	70d7e6a4e3e41eb3	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	2300	100	masterson/2.1	northrop/3.0	48a0cf6c5657e13c	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	2400	100	northrop/3.1	ricketts/5.1	7a988ba3259e7742	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	2500	100	rockingham/0.0	sullivan/1.0	80bb57a41b0f123e	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	2600	100	sullivan/1.1	trident/0.0	3d3121155a6fa278	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	2700	100	trident/0.1	wood-lucy/3.0	27692849b9dcf72f	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	K	2800	38	wood-lucy/3.1	xlo/3.1	bc7e221e68e969ac	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	0	100	brief-LRS-CLOSURE-001/0.0	brief-LRS-CLOSURE-008/5.2	1f9f1b4f67b7f9e8	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	100	100	brief-LRS-CLOSURE-008/6.0	brief-LRS-CLOSURE-014/5.1	5f93e36693fc7ce2	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	200	100	brief-LRS-CLOSURE-014/5.1	brief-LRS-CLOSURE-061/1.0	edfbb197674a4040	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	300	100	brief-LRS-CLOSURE-061/3.0	brief-LRS-CLOSURE-085/1.0	b77f648b0459b476	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	400	100	brief-LRS-CLOSURE-085/1.0	lrs-i-benzene/3.1	a89e9687c67b21d6	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	500	100	lrs-i-benzene/4.2	lrs-i-loper-bright/3.2	3bb47974da61fc7a	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	600	100	lrs-i-loper-bright/3.2	lrs-k-epic/0.2	cc86c437a4b954c8	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	700	100	lrs-k-epic/0.2	lrs-k-riggs/4.2	80f77fba1c2faa29	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	800	100	lrs-k-riggs/4.2	lrs-n-american-horse-lyng/3.0	d23bb141e5f97c25	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	900	100	lrs-n-american-horse-lyng/3.1	lrs-n-fcc-fox/3.0	173f12985d8b6a47	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	1000	100	lrs-n-fcc-fox/3.0	lrs-n-national-tire-brinegar/4.2	d24c735b1bee94c5	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	1100	100	lrs-n-norton-suwa/0.1	lrs-n-safe-extensions/2.0	340de9e1a564f21a	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	1200	100	lrs-n-safe-extensions/2.1	lrs-n-standing-havens/3.0	2fea5a3361dad700	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	1300	100	lrs-n-standing-havens/3.1	lrs-n-standing-sierra/3.0	5c3dd29d9d98a4a3	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	1400	100	lrs-n-standing-sierra/3.1	lrs-n-texas-united-states-dapa/5.0	e5c05650e2ff5ebf	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	1500	100	lrs-n-texas-united-states-dapa/5.3	lrs-o-calcutt/1.2	c806b1b2106376ea	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	1600	100	lrs-o-calcutt/2.0	lrs-o-florida-east-coast/5.1	5d0bbfb58dc87e88	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	1700	100	lrs-o-florida-east-coast/5.1	lrs-o-londoner/2.2	1f3ccef155d8f195	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	1800	100	lrs-o-londoner/3.0	lrs-o-mock/3.1	3c6336928bff3aeb	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	1900	100	lrs-o-mock/4.2	lrs-o-vermont-yankee/3.1	e8aa0f7c75b99973	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	2000	100	lrs-o-vermont-yankee/3.1	lrs-s-bowsher/1.1	d2ab249616cd223b	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	2100	100	lrs-s-bowsher/2.0	lrs-s-gundy/2.0	f6d604395c9fbac9	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	2200	100	lrs-s-gundy/3.0	lrs-s-shoemaker/3.2	9294373c84617a11	tools/cold-call/plain-sentences.json / sentences[id].at
+translation	authored sentence	LRS	2300	86	lrs-s-shoemaker/3.2	lrs-s-yakus/6.3	51b67674c9d9d5c0	tools/cold-call/plain-sentences.json / sentences[id].at

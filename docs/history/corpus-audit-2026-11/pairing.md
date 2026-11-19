@@ -1,0 +1,19 @@
+# Independent Opus review
+
+Campaign branch `audit/corpus-2026-11-19`. Blind packet `OP-01 r1` uses the original tree `c3191d285cf72097984dddcd689545f32db73908`. Read that revision before opening the proposed changes. This packet remains unclaimed by an external provider.
+
+Paste this into a fresh Opus 5.5 High session with access to D3m0sthene5/DKLA and the audit branch:
+
+> Take OP-01 r1 on audit/corpus-2026-11-19. Open docs/history/corpus-audit-2026-11/pairing.md. Independently read the three authorities, reconstruct the rule, and test the listed baseline Atlas claims. Save your pinpoints, counterexamples and dispositions as OP-01-opus-r1.md on this branch. Include your observed model and effort. Ask Astra for its disposition.
+
+| Course | Source to open first | Baseline Atlas challenge |
+| --- | --- | --- |
+| Contracts | *Walker & Co. v. Harrison*, 347 Mich. 630, 635 (1957), First Restatement § 275(c), (e). [Opinion](https://law.justia.com/cases/michigan/supreme-court/1957/347-mich-630-2.html) | In `tools/cold-call/plain-sentences.json`, case `brief-CT-NEXT-CM-0128`, address `2.1`, the translation of the six factors asks “whether Walker acted in bad faith.” Test this against a negligent lapse and evaluate the treatment of preparations for performance. |
+| Civil Procedure | *Royal Canin U.S.A., Inc. v. Wullschleger*, slip opinion pp. 7–9 and 14–16. [Opinion](https://www.supremecourt.gov/opinions/24pdf/23-677_6jgm.pdf) | In `tools/flowcharts/data/civil.json`, trace the chart branches keyed by “Identify a claim of original federal jurisdiction” and “Anchor established”. Compare a removed plaintiff’s amendment eliminating the federal claim with a judge’s dismissal of the same claim. Record the destination for each. |
+| LRS | *Kisor v. Wilkie*, 588 U.S. 558, 573–80, 589–90 (2019), majority Parts II–B and IV. [Reporter](https://www.supremecourt.gov/opinions/preliminaryprint/588US2PP_final.pdf) | Look up timeline `deference` in the seed and in `tools/r19/data/timelines.json`. Which question and label can a student actually see? Assess the scope of the Kisor step when read next to Loper. Record a supported finding or a specifically rejected flag. |
+
+The comparison unit is the sourced proposition. Report the answer derived before inspecting the Atlas, the exact baseline claim and field, the effective screen, a near-miss or exception, and the disposition on each. Identify unavailable sources. The coordinator should acknowledge the submitted revision with a sourced accept, reject or unresolved decision. Cross-provider verified counts start only after that exchange.
+
+The earlier Relay package was recovered at revision 1 and its README inspected. On the audit host, `python3 -m bridge doctor` found signed-in Codex CLI 0.167.0-alpha.4 and no Claude executable. The repository-specific live check stopped at that discovery step before any provider call. The Relay Claude and Codex adapters inherit their CLI configurations. Neither adapter specifies a model or reasoning effort. No external model identity, effort or comparative performance was observed. Historical Relay demonstration turns used a scripted reviewer and are outside the evidence for this packet.
+
+The branch exchange above lets the two providers work independently. To use Relay on a host signed into both CLIs, set the desired models and effort in those CLIs and open a terminal in the extracted Relay folder. Run `python3 -m bridge doctor`, then `python3 -m bridge.livecheck --workspace "<audit-worktree>"`, then `python3 -m bridge serve --profile project --workspace "<audit-worktree>"`. In the private local page, start a job with Claude first and the prompt above. Relay's repository live check exercises a feature-manifest/timeline test-plan exchange. The legal packet needs its own reply and disposition.
