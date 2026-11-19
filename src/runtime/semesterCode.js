@@ -856,7 +856,7 @@ document.addEventListener(
   false,
 );
 $('mapWelcome').innerHTML =
-  '<h1>Contracts</h1><button id="startContractGuide">How the law fits together →</button><button id="semesterReadings">All 26 reading assignments →</button>';
+  '<h1>Contracts</h1><button id="startContractGuide">How the law fits together</button><button id="semesterReadings">All 26 reading assignments</button>';
 $('startContractGuide').onclick = () => goNode('legal-framework', true);
 $('semesterReadings').onclick = () => classDialog(9);
 // Preserve source collection and extra state in the same portable document.

@@ -14,6 +14,97 @@
     return;
   }
   if (G.schemaVersion !== 1) return;
+  /* v3.2 "Instrument": what is inside a subject is laid out here, on one grid, from the curated data.
+     The dataset still says which subject and group an entry belongs to, which side of the subject a
+     group stands on, and the order of the groups and of the entries in them. This pass only decides
+     the rectangles: a subject is two columns of groups; a group is its heading, its question and two
+     columns of rows of one height; a group's notes and questions share one last row. Subjects keep
+     their place and size on the map (Home is drawn from those), and each gets `panelH`, the height
+     its contents need, which is what is drawn and framed once a subject is open.
+     Sizes are map units. A subject is 2400 wide and fills a 1440 px window at 0.59 px a unit, so
+     62 units is a 36 px row there (docs/DESIGN.md rule 7). */
+  const CARD = {
+    padX: 40, // subject edge to a row's edge (the label starts `inset` further in)
+    inset: 14, // a row's edge to its glyph: headings share that left edge
+    top: 148, // subject top to the first group (the title's band)
+    bottom: 40,
+    colGap: 40,
+    groupGap: 54,
+    head: 44, // a group's name
+    question: 30, // its question, when it has one worth showing
+    headGap: 14,
+    row: 62,
+    cellGap: 14,
+  };
+  const plainQuestion = (d) => {
+    const q = String(d.question || '').trim();
+    return (
+      !!q &&
+      !/^Explore the (assigned|questions)/i.test(q) &&
+      q.toLowerCase() !== String(d.title || '').toLowerCase()
+    );
+  };
+  function layoutCards(G) {
+    const inGroup = new Map();
+    for (const [id, h] of Object.entries(G.homes)) {
+      if (!inGroup.has(h.district)) inGroup.set(h.district, []);
+      inGroup.get(h.district).push([id, h]);
+    }
+    for (const r of G.regions) {
+      const groups = (r.districtIds || []).map((id) => G.districts[id]).filter(Boolean);
+      if (!groups.length) continue;
+      const inner = r.w - 2 * CARD.padX,
+        colW = (inner - CARD.colGap) / 2,
+        cellW = (colW - CARD.cellGap) / 2,
+        x0 = r.x + CARD.padX,
+        // the four places a row can start: two in each column of groups
+        cellX = [0, cellW + CARD.cellGap, colW + CARD.colGap, colW + CARD.colGap + cellW + CARD.cellGap];
+      const order = groups
+        .map((d) => ({
+          d,
+          side: d.w > r.w * 0.6 ? 'F' : d.x + d.w / 2 < r.x + r.w / 2 ? 'L' : 'R',
+          x: d.x,
+          y: d.y,
+        }))
+        .sort((a, b) => a.y - b.y || a.x - b.x);
+      let yL = r.y + CARD.top,
+        yR = yL;
+      for (const { d, side } of order) {
+        const members = (inGroup.get(d.id) || []).sort((a, b) => a[1].y - b[1].y || a[1].x - b[1].x),
+          main = members.filter(([, h]) => !h.support),
+          notes = members.filter(([, h]) => h.support),
+          cells = main.length + (notes.length ? 1 : 0),
+          cols = side === 'F' ? 4 : 2,
+          rows = Math.ceil(cells / cols),
+          first = side === 'R' ? 2 : 0,
+          head = CARD.head + (plainQuestion(d) ? CARD.question : 0) + CARD.headGap,
+          y = side === 'F' ? Math.max(yL, yR) : side === 'L' ? yL : yR;
+        d.x = x0 + cellX[first];
+        d.y = y;
+        d.w = side === 'F' ? inner : colW;
+        d.h = head + rows * CARD.row;
+        d.headerH = head;
+        delete d.headScale;
+        // entries run down the first column of rows, then the next
+        const cell = (i) => ({
+          x: x0 + cellX[first + Math.floor(i / Math.max(1, rows))],
+          y: y + head + (i % Math.max(1, rows)) * CARD.row,
+          w: cellW,
+          h: CARD.row,
+        });
+        main.forEach(([, h], i) => Object.assign(h, cell(i)));
+        const last = cell(main.length);
+        for (const [, h] of notes) Object.assign(h, last);
+        d.supportStart = notes.length ? last.y : y + d.h;
+        d.notesCell = notes.length ? last : null;
+        const next = y + d.h + CARD.groupGap;
+        if (side !== 'R') yL = next;
+        if (side !== 'L') yR = next;
+      }
+      r.panelH = Math.max(yL, yR) - CARD.groupGap + CARD.bottom - r.y;
+    }
+  }
+  layoutCards(G);
   const LRS = 'Legislation and the Regulatory State';
   const targets = {
     tall: {
@@ -281,15 +372,16 @@
         .sort((a, b) => a.id.localeCompare(b.id));
       const d = M.districts.inbox;
       if (d && added.length) {
+        const cellW = (d.w - CARD.cellGap) / 2;
         for (const n of added) {
           if (!personalSlots.has(n.id)) personalSlots.set(n.id, personalSlots.size);
           const i = personalSlots.get(n.id),
             h = {
               id: n.id,
-              x: d.x + 28 + (i % 2) * 528,
-              y: d.y + 126 + Math.floor(i / 2) * 110,
-              w: 500,
-              h: 88,
+              x: d.x + (i % 2) * (cellW + CARD.cellGap),
+              y: d.y + G.districts.inbox.h + Math.floor(i / 2) * CARD.row,
+              w: cellW,
+              h: CARD.row,
               region: d.region,
               district: d.id,
               core: true,
@@ -311,9 +403,10 @@
           n.position = { x: h.x, y: h.y };
           n.learning = { ...n.learning, district: d.id };
         }
-        d.h = Math.max(d.h, 126 + Math.ceil(personalSlots.size / 2) * 110 + 28);
+        d.h = Math.max(d.h, G.districts.inbox.h + Math.ceil(personalSlots.size / 2) * CARD.row);
         const r = M.regions.find((r) => r.id === d.region);
-        r.h = Math.max(r.h, d.y + d.h - r.y + 40);
+        r.panelH = Math.max(r.panelH || 0, d.y + d.h - r.y + CARD.bottom);
+        r.h = Math.max(r.h, r.panelH);
       }
       for (const [course, source] of Object.entries(G.courseDesign)) {
         const design = copy(source),
@@ -527,6 +620,7 @@
   window.DKLAGeography = {
     version: '2.5',
     locked: true,
+    card: CARD,
     apply,
     bounds() {
       applyOnce();

@@ -188,7 +188,7 @@
     if (c && r && S.scope !== c && S.region === id) {
       S.scope = c;
       renderHeading();
-      fitBox(r, animate, R18.subjectPad(), 0.95);
+      fitBox(cardBox(r), animate, R18.subjectPad(), 0.95);
       renderInspector();
     }
     return v;
@@ -207,7 +207,7 @@
       fitBox(
         { x: d.x, y: d.y, w: d.w, h: Math.min(d.h, Math.max(330, b.y + b.h - d.y + 50)) },
         animate,
-        16,
+        stripPad(16),
         1.05,
       );
     }

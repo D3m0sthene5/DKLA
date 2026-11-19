@@ -1022,7 +1022,7 @@ function goRegion(id, animate = true) {
   setReader(false);
   closeSearch();
   renderHeading();
-  fitBox(r, animate, R18.subjectPad(), 0.95);
+  fitBox(cardBox(r), animate, R18.subjectPad(), 0.95);
   renderInspector();
 }
 function goDistrict(id, animate = true) {
@@ -1047,9 +1047,14 @@ function goDistrict(id, animate = true) {
   fitBox(
     { x: d.x, y: d.y, w: d.w, h: Math.min(d.h, Math.max(330, b.y + b.h - d.y + 50)) },
     animate,
-    16,
+    stripPad(16),
     1.05,
   );
+}
+// Beside an open reader the map is a strip some 360 px wide, and the usual margins would leave a group's
+// rows too small to read: there a group runs to 15 px from the strip's edges.
+function stripPad(pad) {
+  return S.panelOpen && safeArea().w < 420 ? -20 : pad;
 }
 function goNode(id, center = false, save = true) {
   const n = nodesById.get(id);
@@ -1074,7 +1079,7 @@ function goNode(id, center = false, save = true) {
       b.x = Math.min(c.x - 45, d.x);
       b.w = Math.max(c.w + 90, d.w);
     }
-    fitBox(b, true, 22, 1.25);
+    fitBox(b, true, stripPad(22), 1.25);
   } else {
     schedule();
     deferPersist();
@@ -1852,6 +1857,253 @@ function fadeOuts() {
   }
   return out.join('');
 }
+/* ---- v3.2 "Instrument": an open subject (docs/DESIGN.md) ----
+   Below 200 px wide a subject is a tile. From 200 px it is one panel: its title, then its groups on two
+   columns, each group a heading, a question and rows of one height. The rectangles come from the card
+   layout in src/features/v25/geography.js (one grid for every subject); this file decides what is shown
+   in them at each zoom, so nothing is drawn too small to read:
+     the title band under 26 px     the title and what is inside ("14 cases · 6 rules")
+     rows under 16.5 px             each group's name and its counts
+     rows from 16.5 px              the rows: a glyph for the kind of entry, its name, its year or section
+     rows from 54 px                the name on one line and the entry's summary under it
+   Sizes are screen px at the zoom where a subject fills a 1440 px window (V32.z0); they follow the zoom
+   between the limits given, and a line that does not fit ends in an ellipsis and carries a title. */
+const V32 = { z0: 1420 / 2400, tileMin: 200 };
+const V32_CARD = {
+  padX: 40,
+  inset: 14,
+  top: 148,
+  bottom: 40,
+  head: 44,
+  question: 30,
+  headGap: 14,
+  row: 62,
+  cellGap: 14,
+};
+// The same numbers the layout used (geography.js loads after this file; the copy above only covers the first draws).
+const cardDims = () => window.DKLAGeography?.card || V32_CARD;
+// What is drawn for an open subject: the height its contents need, not the whole lot it stands on.
+function cardBox(r) {
+  return { x: r.x, y: r.y, w: r.w, h: r.panelH && r.panelH < r.h ? r.panelH : r.h };
+}
+function roundedPath(x, y, w, h, c) {
+  c = Math.min(c, w / 2, h / 2);
+  return `M${x + c} ${y}H${x + w - c}Q${x + w} ${y} ${x + w} ${y + c}V${y + h - c}Q${x + w} ${y + h} ${x + w - c} ${y + h}H${x + c}Q${x} ${y + h} ${x} ${y + h - c}V${y + c}Q${x} ${y} ${x + c} ${y}Z`;
+}
+/* One family of glyphs, drawn on a 16 unit grid with a 1.5 stroke (the stroke is set in cards.css): what
+   kind of thing a row is. A case shows its own pictogram (the dklaIcons block) at the same size and weight. */
+const V32_GLYPHS = {
+  // a balance: a case with no pictogram of its own
+  case: '<path d="M8 2.5v11M5 13.5h6M3 5.5h10M3 5.5 1.6 9.2a1.9 1.9 0 0 0 2.8 0ZM13 5.5l-1.4 3.7a1.9 1.9 0 0 0 2.8 0Z"/>',
+  // a section sign: a rule or a section of a statute
+  rule: '<path d="M10.6 4.7C10.6 3.4 9.5 2.5 8 2.5S5.4 3.4 5.4 4.7C5.4 7.2 10.6 7.6 10.6 10.1c0 1-.7 1.7-1.6 2M5.4 11.3c0 1.3 1.1 2.2 2.6 2.2s2.6-.9 2.6-2.2C10.6 8.8 5.4 8.4 5.4 5.9c0-1 .7-1.7 1.6-2"/>',
+  // an open book: a Restatement or code provision
+  code: '<path d="M8 4.4C6.8 3.5 5 3 2.5 3v9c2.5 0 4.3.5 5.5 1.4 1.2-.9 3-1.4 5.5-1.4V3C11 3 9.2 3.5 8 4.4ZM8 4.4v9"/>',
+  // a point with its orbit: a concept
+  concept: '<circle cx="8" cy="8" r="5.25"/><circle cx="8" cy="8" r="1.1" class="v32-dot"/>',
+  // lines of text: a note
+  note: '<path d="M3 4.5h10M3 8h10M3 11.5h6"/>',
+  // a question
+  question:
+    '<circle cx="8" cy="8" r="5.5"/><path d="M6.5 6.5a1.6 1.6 0 1 1 2.4 1.4c-.6.3-.9.7-.9 1.2"/><circle cx="8" cy="11.1" r=".55" class="v32-dot"/>',
+};
+function mapIcons() {
+  if (!R11.icons) {
+    try {
+      R11.icons = JSON.parse($('dklaIcons').textContent);
+    } catch {
+      return { paths: {}, records: {}, modifiers: {} }; // not loaded yet: asked for again on the next draw
+    }
+  }
+  return R11.icons;
+}
+function rowGlyph(n, kind, x, y, size, badge) {
+  const I = kind === 'case' ? mapIcons() : null,
+    rec = I && I.records?.[n.id],
+    own = rec && I.paths?.[rec.motif];
+  if (own) {
+    const mod = badge && rec.modifier && I.modifiers?.[rec.modifier];
+    return `<g class="v32-glyph v32-pict" transform="translate(${x} ${y}) scale(${size / 24})">${own}${mod ? `<g transform="translate(14.5 14.5) scale(.42)"><circle cx="12" cy="12" r="13" class="v32-pict-badge"/>${mod}</g>` : ''}</g>`;
+  }
+  return `<g class="v32-glyph" transform="translate(${x} ${y}) scale(${size / 16})">${V32_GLYPHS[kind] || V32_GLYPHS.note}</g>`;
+}
+// A row's kind, its name and the readout at its right edge (a case's year, a rule's section), worked out once per entry.
+const rowFacts = new Map();
+let rowYears = null,
+  rowYearsOf = null;
+function rowFact(n) {
+  const name = displayName(n);
+  let f = rowFacts.get(n.id);
+  if (f && f.src === name && f.title === n.title) return f;
+  const kind =
+    n.kind === 'Case'
+      ? 'case'
+      : n.kind === 'Rule'
+        ? /^(Restatement|U\.?C\.?C\.?\b|Uniform Commercial|N\.Y\.|Model )/i.test(n.title)
+          ? 'code'
+          : 'rule'
+        : n.kind === 'Concept'
+          ? 'concept'
+          : n.kind === 'Hypothetical'
+            ? 'question'
+            : 'note';
+  let label = name,
+    meta = '';
+  if (kind === 'case') {
+    if (rowYearsOf !== data.timelines) {
+      rowYearsOf = data.timelines;
+      rowYears = new Map();
+      for (const t of data.timelines || [])
+        for (const s of t.steps || []) if (s.year) rowYears.set(s.id, s.year);
+    }
+    const inName = name.match(/\s*\(((?:1[5-9]|20)\d\d)\)\s*$/),
+      inTitle = n.title.match(/\(((?:[^()]*[\s,])?((?:1[5-9]|20)\d\d))\)\s*$/);
+    meta = String(rowYears.get(n.id) || inName?.[1] || inTitle?.[2] || '');
+    if (inName && inName[1] === meta) label = name.slice(0, inName.index);
+  } else if (kind === 'rule' || kind === 'code') {
+    // "Restatement § 71 — exchange requirement": the citation is the readout and the rest is the name
+    const m = name.match(
+      /^((?:[A-Z][\w.’']*\.? ){0,4}(?:§§?|Rule|Article|Amendment)\s?[\w.()\-–]+(?:(?:, | and | to |–)[\w.()\-–]+)*)\s[—–:]\s(.+)$/,
+    );
+    if (m && m[1].length <= 26) {
+      meta = m[1].replace(/^Restatement /, 'Rest. ').replace(/^Federal Rule /, 'Rule ');
+      label = m[2].charAt(0).toUpperCase() + m[2].slice(1);
+    }
+  }
+  f = { src: name, title: n.title, kind, label, meta };
+  rowFacts.set(n.id, f);
+  return f;
+}
+// How many of each kind a subject and each of its groups hold: the readouts.
+let countKey = '',
+  countMap = new Map();
+function cardCounts(key) {
+  const homes = mapData().homes,
+    k = data.nodes.length + ':' + mapData().layoutId + ':' + Object.keys(homes).length;
+  if (countKey !== k) {
+    countKey = k;
+    countMap = new Map();
+    const add = (id, n, h) => {
+      let t = countMap.get(id);
+      if (!t) countMap.set(id, (t = { cases: 0, rules: 0, concepts: 0, notes: 0, main: 0 }));
+      if (h.support) t.notes++;
+      else {
+        t.main++;
+        if (n.kind === 'Case') t.cases++;
+        else if (n.kind === 'Rule') t.rules++;
+        else if (n.kind === 'Concept') t.concepts++;
+      }
+    };
+    for (const [id, h] of Object.entries(homes)) {
+      const n = nodesById.get(id);
+      if (!n) continue;
+      add('r:' + h.region, n, h);
+      add('d:' + h.district, n, h);
+    }
+  }
+  return countMap.get(key) || { cases: 0, rules: 0, concepts: 0, notes: 0, main: 0 };
+}
+function countText(t, withNotes = false) {
+  const part = (n, one, many) => (n ? `${n} ${n === 1 ? one : many}` : '');
+  return [
+    part(t.cases, 'case', 'cases'),
+    part(t.rules, 'rule', 'rules'),
+    part(t.concepts, 'concept', 'concepts'),
+    withNotes ? part(t.notes, 'note', 'notes') : '',
+  ]
+    .filter(Boolean)
+    .join(' · ');
+}
+/* Text on a card is fitted from the widths of its words (measured once each), never shrunk: it wraps to
+   the lines it is given and the last line ends in an ellipsis if there is more. */
+const wordWidths = new Map(),
+  fitted = new Map();
+function wordWidth(word, weight, family) {
+  const k = weight + family + word;
+  let w = wordWidths.get(k);
+  if (w === undefined) {
+    R11.ctx.font = `${weight} 100px ${family || R11_FONT}`;
+    w = R11.ctx.measureText(word).width;
+    if (wordWidths.size > 60000) wordWidths.clear();
+    wordWidths.set(k, w);
+  }
+  return w;
+}
+const V32_DISPLAY = '"DKLA Exo 2","Exo 2","Segoe UI",Arial,sans-serif',
+  V32_MONO = '"DKLA JetBrains Mono","JetBrains Mono",ui-monospace,Menlo,Consolas,monospace';
+function textWidth(s, fs, weight = 400, family = '') {
+  let w = 0;
+  const words = String(s).split(' ');
+  for (const word of words) if (word) w += wordWidth(word, weight, family);
+  return ((w + (words.length - 1) * wordWidth(' ', weight, family)) * fs) / 100;
+}
+// → { rows, cut }: at most `lines` rows no wider than maxW; cut says the text did not all fit.
+function fitText(s, maxW, fs, weight = 400, lines = 1, family = '') {
+  s = String(s || '').replace(/­/g, '');
+  const key = lines + '|' + weight + '|' + family + '|' + Math.round((maxW / fs) * 40) + '|' + s;
+  let out = fitted.get(key);
+  if (out) return out;
+  const unit = fs / 100,
+    space = wordWidth(' ', weight, family) * unit,
+    words = s.split(/\s+/).filter(Boolean),
+    rows = [];
+  let line = '',
+    width = 0,
+    cut = false,
+    i = 0;
+  for (; i < words.length; i++) {
+    const w = wordWidth(words[i], weight, family) * unit;
+    if (line && width + space + w > maxW) {
+      if (rows.length === lines - 1) break;
+      rows.push(line);
+      line = words[i];
+      width = w;
+    } else {
+      width = line ? width + space + w : w;
+      line = line ? line + ' ' + words[i] : words[i];
+    }
+  }
+  if (i < words.length || width > maxW) {
+    // the last line takes what is left and is cut to fit, on a letter, with an ellipsis
+    cut = true;
+    let rest = line + (i < words.length ? ' ' + words.slice(i).join(' ') : '');
+    const dots = wordWidth('…', weight, family) * unit;
+    let lo = 0,
+      hi = rest.length;
+    while (lo < hi) {
+      const mid = (lo + hi + 1) >> 1;
+      if (textWidth(rest.slice(0, mid), fs, weight, family) + dots <= maxW) lo = mid;
+      else hi = mid - 1;
+    }
+    line = rest.slice(0, lo).replace(/[\s,;:·—–-]+$/, '') + '…';
+  }
+  if (line) rows.push(line);
+  out = { rows, cut };
+  if (fitted.size > 12000) fitted.clear();
+  fitted.set(key, out);
+  return out;
+}
+// A group's entries: those with a row of their own, in place order, and those behind "Notes and questions".
+let memberKey = '',
+  memberMap = new Map();
+function cardMembers(districtId) {
+  const homes = mapData().homes,
+    k = data.nodes.length + ':' + mapData().layoutId + ':' + Object.keys(homes).length;
+  if (memberKey !== k) {
+    memberKey = k;
+    memberMap = new Map();
+    for (const [id, h] of Object.entries(homes)) {
+      const n = nodesById.get(id);
+      if (!n) continue;
+      let m = memberMap.get(h.district);
+      if (!m) memberMap.set(h.district, (m = { main: [], notes: [] }));
+      (h.support ? m.notes : m.main).push(n);
+    }
+    for (const m of memberMap.values())
+      m.main.sort((a, b) => homes[a.id].x - homes[b.id].x || homes[a.id].y - homes[b.id].y);
+  }
+  return memberMap.get(districtId) || { main: [], notes: [] };
+}
 function nearestStar(clientX, clientY, maxPx = 9) {
   const v = rect(),
     x = S.x + (clientX - v.x - v.w / 2) / S.z,
@@ -1960,7 +2212,9 @@ function draw() {
     )
     .join('');
   parts.push(`<defs>${defs2}</defs>`);
-  const glowOp = Math.min(1, Math.max(0, (band.z1 * 4 - z) / (band.z1 * 3)));
+  const glowOp = Math.min(1, Math.max(0, (band.z1 * 4 - z) / (band.z1 * 3))),
+    // the course view's furniture (its parts and the lines between subjects) fades as a subject opens
+    zoneOp = Math.min(1, Math.max(0, (0.3 - z) / 0.14));
   for (const [c, b] of Object.entries(G.blocks)) {
     const dimc = S.scope !== 'Atlas' && S.scope !== c ? 0.5 : 1;
     if (glowOp > 0)
@@ -1976,17 +2230,13 @@ function draw() {
         zfs = Math.min(15, Math.max(11, zn.w * z * 0.018)) / z,
         zpx = zfs * z;
       if (head < zpx * 1.6) continue;
+      // A part of the course: one quiet fill step, no outline. It belongs to the course view and is gone
+      // by the time a subject is open.
+      if (zoneOp <= 0) continue;
       parts.push(
-        `<rect x="${zn.x}" y="${zn.y}" width="${zn.w}" height="${zn.h}" rx="220" fill="${col}" fill-opacity="${(0.07 * dimc).toFixed(3)}" stroke="${col}" stroke-opacity="${(0.32 * dimc).toFixed(3)}" stroke-width="${1.2 / z}" stroke-dasharray="${14 / z} ${10 / z}" pointer-events="none"/>`,
+        `<rect class="v32-zone" x="${zn.x}" y="${zn.y}" width="${zn.w}" height="${zn.h}" rx="${Math.min(400, Math.max(120, 12 / z))}" opacity="${(zoneOp * dimc).toFixed(3)}"/>`,
       );
-      const rows = wrapM(
-          zn.title.toUpperCase(),
-          zn.w - 68 / z,
-          zfs,
-          600,
-          head >= zpx * 2.6 ? 2 : 1,
-          'zone-title',
-        ),
+      const rows = wrapM(zn.title, zn.w - 68 / z, zfs, 600, head >= zpx * 2.6 ? 2 : 1, 'zone-title'),
         x0 = zn.x + 34 / z,
         y0 = zn.y + 14 / z + zfs,
         zs = 10.5 / z,
@@ -2012,14 +2262,14 @@ function draw() {
             x0,
             y0,
             zfs,
-            col,
-            600,
+            '#a9b8c4',
+            500,
             'map-label zone-title',
             null,
             Math.min(2.4, Math.max(1.1, zpx * 0.13)) / z,
           ) +
-          (subRows.length ? textLines(subRows, x0, ys, zs, '#c9d4de', 400, 'map-label', null, 1.2 / z) : ''),
-        op: 0.9 * dimc,
+          (subRows.length ? textLines(subRows, x0, ys, zs, '#8597a6', 400, 'map-label', null, 1.2 / z) : ''),
+        op: zoneOp * dimc,
         avoidBoxes: true,
       });
     }
@@ -2028,16 +2278,20 @@ function draw() {
       const ra = regionFor(sp.a),
         rb = regionFor(sp.b);
       if (!ra || !rb) continue;
-      const p = edgePoint(ra, rb),
-        q = edgePoint(rb, ra);
+      // an open subject is drawn at the height of its contents: a line ends where the panel does
+      const ba = ra.w * z >= V32.tileMin ? cardBox(ra) : ra,
+        bb = rb.w * z >= V32.tileMin ? cardBox(rb) : rb;
+      const p = edgePoint(ba, bb),
+        q = edgePoint(bb, ba);
       const dash =
         sp.kind === 'contrast'
           ? ` stroke-dasharray="${8 / z} ${8 / z}"`
           : sp.kind === 'depends'
             ? ` stroke-dasharray="${2 / z} ${7 / z}" stroke-linecap="round"`
             : '';
+      if (zoneOp <= 0) continue;
       parts.push(
-        `<line x1="${p.x}" y1="${p.y}" x2="${q.x}" y2="${q.y}" stroke="${col}" stroke-opacity="${(0.32 * dimc).toFixed(3)}" stroke-width="${Math.min(2.2 / z, 90)}"${dash} pointer-events="none"/>`,
+        `<line class="v32-link${S.region && (sp.a === S.region || sp.b === S.region) ? ' is-lit' : ''}" data-link="${E(sp.a)} ${E(sp.b)}" x1="${p.x}" y1="${p.y}" x2="${q.x}" y2="${q.y}" stroke="${col}" opacity="${(zoneOp * dimc).toFixed(3)}" stroke-width="${1 / z}"${dash}/>`,
       );
       if (sp.label && Math.hypot(q.x - p.x, q.y - p.y) * z > 260 && z > band.z1 * 2.5)
         putLabel({
@@ -2089,7 +2343,7 @@ function draw() {
       const sc =
         S.scope !== 'Atlas' && (S.scope !== regionCourse(th.a) || S.scope !== regionCourse(th.b)) ? 0.45 : 1;
       parts.push(
-        `<path d="M${p.x.toFixed(0)},${p.y.toFixed(0)} Q${(mx + (nx / len) * bow).toFixed(0)},${(my + (ny / len) * bow).toFixed(0)} ${q.x.toFixed(0)},${q.y.toFixed(0)}" fill="none" stroke="${col}" stroke-opacity="${(Math.min(0.16, 0.04 + th.n * 0.012) * thOp * sc).toFixed(3)}" stroke-width="${Math.min(1.2 / z, 50) * (1 + Math.min(1.5, th.n / 8))}" pointer-events="none"/>`,
+        `<path class="v32-link v32-thread${S.region && (th.a.id === S.region || th.b.id === S.region) ? ' is-lit' : ''}" data-link="${E(th.a.id)} ${E(th.b.id)}" d="M${p.x.toFixed(0)},${p.y.toFixed(0)} Q${(mx + (nx / len) * bow).toFixed(0)},${(my + (ny / len) * bow).toFixed(0)} ${q.x.toFixed(0)},${q.y.toFixed(0)}" stroke="${col}" opacity="${(Math.min(1, 0.45 + th.n * 0.06) * thOp * sc).toFixed(3)}" stroke-width="${1 / z}"/>`,
       );
     }
   for (const cl of G.courseLabels) {
@@ -2131,16 +2385,41 @@ function draw() {
     });
   }
   const armLabel = new Map(G.regionLabels.map((l) => [l.id, l]));
+  // Sizes for this draw (map units), from screen px at the reading zoom, within limits that keep text legible.
+  const C = cardDims(),
+    sc = z / V32.z0,
+    px = (design, min, max) => Math.min(max, Math.max(min, design * sc)) / z,
+    rowPx = C.row * z,
+    K = {
+      title: px(30, 13, 34),
+      ask: px(15, 11, 16),
+      readout: px(12, 9.5, 12.5),
+      head: px(19, 11.5, 20),
+      question: px(13, 10.5, 14),
+      label: px(13, 11, 15.5),
+      meta: px(11, 9.5, 12),
+      glyph: px(16, 11, 20),
+      radius: Math.max(20, 6 / z),
+      rowRadius: px(6, 3, 8),
+      rows: rowPx >= 16.5,
+      focusRows: rowPx >= 13.5,
+      twoLines: rowPx >= 31 && rowPx < 54,
+      summary: rowPx >= 54,
+      meta1: rowPx >= 22,
+      groups: C.top * z >= 26,
+      showQuestion: C.question * z >= 12,
+      hair: 1 / z,
+    };
+  const shownGroups = new Set(); // groups whose rows are drawn in this draw
+  const focusDistrict =
+    S.district || (selected?.type === 'node' ? homeFor(selected.id)?.district : null) || null;
   for (const r of regions) {
     const course = regionCourse(r),
       isCourse = course !== 'Study notes',
       scoped = inScope.has(r.id) || activeRegions.has(r.id);
     const pw = r.w * z,
-      hr0 = headroom(r),
-      fullOn = isFinite(hr0) ? hr0 * z >= 17 : pw >= 470,
-      mode = pw < 200 ? 'star' : fullOn ? 'full' : 'mid',
-      fullT = isFinite(hr0) ? Math.min(1, Math.max(0, (hr0 * z - 17) / 14)) : 1,
-      focusHere = S.region === r.id,
+      isCard = pw >= V32.tileMin && !r.special && (r.districtIds || []).length > 0,
+      mode = isCard ? 'full' : 'star',
       weight = isCourse ? regionWeight(r.id) : 0.5,
       col = regionColor(r),
       acc = regionAccent(r),
@@ -2150,36 +2429,196 @@ function draw() {
     if (!al && !near) continue;
     const dim =
       (selected && S.region && S.region !== r.id && !activeRegions.has(r.id) ? 0.54 : 1) * (scoped ? 1 : 0.3);
-    const armCol = ARM_COLORS[course] || col;
-    let tpx = Math.min(30, 9 + 5 * weight + pw * 0.022);
-    const hr = hr0;
-    if (mode === 'full' && isFinite(hr)) tpx = Math.min(tpx, Math.max(10.5, (hr * z - 8) / 1.2));
-    let tfs = tpx / z;
-    const badgeOn = !!r.step && pw >= 120 && !(mode === 'full' && isFinite(hr) && hr * z < 26),
-      tx0 = r.x + 40 + (badgeOn ? 30 / z : 0);
-    let ty0 =
-      isFinite(hr) && mode === 'full'
-        ? Math.min(r.y + 22 / z + tfs, r.y + hr - 6 / z - tfs * 0.35)
-        : r.y + 22 / z + tfs;
-    let lx = al ? al.x + (tx0 - al.x) * t : tx0,
-      ly = al ? al.y + (ty0 - al.y) * t : ty0;
     R11.modes.set(r.id, mode);
-    const tile = mode === 'full' ? fullT : 0,
-      fillO = focusHere ? 0.55 : 0.8 + (0.24 + 0.08 * weight - 0.8) * tile,
-      strokeO = focusHere ? 0.6 : 0.95 + (0.5 + 0.2 * weight - 0.95) * tile,
-      fillCol = focusHere ? regionScale(r)[0] : col,
-      strokeCol = focusHere ? acc : col;
+    if (isCard) {
+      if (!intersects(r, B, 80)) continue;
+      const box = cardBox(r),
+        title = shortRegionTitle(r),
+        x0 = r.x + C.padX + C.inset,
+        right = r.x + r.w - C.padX - C.inset,
+        counts = cardCounts('r:' + r.id),
+        readout = countText(counts);
+      // The panel: one fill step above the map, one hairline, light from above. It is also what a press on
+      // an empty part of the subject lands on.
+      parts.push(
+        `<g class="map-region v32-card${S.region === r.id ? ' is-open' : ''}" opacity="${dim.toFixed(3)}" data-card="${E(r.id)}">${[
+          [14, 5, 0.07],
+          [7, 2, 0.11],
+          [2.5, 0, 0.16],
+        ]
+          .map(
+            ([dy, grow, o]) =>
+              `<rect class="v32-shade" x="${box.x - grow / z}" y="${box.y + dy / z}" width="${box.w + (grow * 2) / z}" height="${box.h + grow / z}" rx="${K.radius + grow / z}" fill-opacity="${o}"/>`,
+          )
+          .join(
+            '',
+          )}<path class="v32-card-bg" d="${roundedPath(box.x, box.y, box.w, box.h, K.radius)}" stroke-width="${K.hair}" data-map-region="${E(r.id)}" role="button" tabindex="0" aria-label="Explore ${E(title)}"><title>${E(title)}${r.routeLabel ? ' — ' + E(r.routeLabel) : ''}</title></path><path class="v32-card-light" d="M${box.x + K.radius} ${box.y + K.hair}H${box.x + box.w - K.radius}" stroke-width="${K.hair}"/>`,
+      );
+      if (!K.groups) {
+        // Too small for its groups: the subject's name and what is inside it.
+        const fs = 13 / z,
+          pad = 12 / z,
+          rows = fitText(title, r.w - pad * 2, fs, 600, 2, V32_DISPLAY).rows;
+        parts.push(
+          `<text class="v32-title" x="${r.x + pad}" y="${r.y + pad + fs * 0.8}" font-size="${fs}">${rows.map((row, i) => `<tspan x="${r.x + pad}" dy="${i ? fs * 1.2 : 0}">${E(row)}</tspan>`).join('')}</text>`,
+        );
+        const ry = r.y + pad + fs * 0.8 + rows.length * fs * 1.2 + 2 / z,
+          rfs = 10.5 / z;
+        if (readout && ry + rfs < box.y + box.h && textWidth(readout, rfs, 700, V32_MONO) <= r.w - pad * 2)
+          parts.push(
+            `<text class="v32-mono v32-faint" x="${r.x + pad}" y="${ry}" font-size="${rfs}">${E(readout)}</text>`,
+          );
+        parts.push('</g>');
+        continue;
+      }
+      const yT = r.y + 92,
+        rb = px(11, 7.5, 12),
+        hasStep = !!r.step,
+        tx = hasStep ? x0 + rb * 2 + px(10, 6, 11) : x0,
+        readoutW = readout ? textWidth(readout, K.readout, 700, V32_MONO) : 0,
+        titleFit = fitText(title, right - tx, K.title, 600, 1, V32_DISPLAY),
+        titleW = textWidth(titleFit.rows[0] || '', K.title, 600, V32_DISPLAY),
+        showReadout = !!readout && tx + titleW + px(24, 12, 24) + readoutW <= right,
+        askX = tx + titleW + px(16, 10, 16),
+        askRoom = (showReadout ? right - readoutW - px(24, 12, 24) : right) - askX,
+        ask = r.routeLabel && sc >= 0.6 ? fitText(r.routeLabel, askRoom, K.ask, 400, 1) : null;
+      if (hasStep)
+        parts.push(
+          `<circle class="v32-step" cx="${x0 + rb}" cy="${yT - K.title * 0.33}" r="${rb}" fill="${acc}"/><text class="v32-step-n" x="${x0 + rb}" y="${yT - K.title * 0.33 + rb * 0.4}" font-size="${rb * 1.12}" text-anchor="middle">${r.step}</text>`,
+        );
+      parts.push(
+        `<text class="v32-title" x="${tx}" y="${yT}" font-size="${K.title}">${E(titleFit.rows[0] || '')}</text>`,
+      );
+      if (ask && !ask.cut && askRoom > 0)
+        parts.push(
+          `<text class="v32-muted" x="${askX}" y="${yT}" font-size="${K.ask}">${E(ask.rows[0])}</text>`,
+        );
+      if (showReadout)
+        parts.push(
+          `<text class="v32-mono v32-faint" x="${right}" y="${yT}" font-size="${K.readout}" text-anchor="end">${E(readout)}</text>`,
+        );
+      parts.push('</g>');
+      // Groups: a heading, a question, rows. No boxes.
+      for (const id of r.districtIds) {
+        const d = districtFor(id);
+        if (!d || !intersects(d, B, 45)) continue;
+        const here = selected?.type === 'district' && selected.id === d.id,
+          focus = focusDistrict === d.id,
+          showRows = K.rows || (focus && K.focusRows),
+          dc = cardCounts('d:' + d.id),
+          hx = d.x + C.inset,
+          hw = d.w - C.inset * 2,
+          hy = d.y + C.head * 0.5 + K.head * 0.35,
+          name = fitText(d.title, hw, K.head, 600, 1),
+          g = [];
+        // a group answers a press on its heading band (it opens in the reader); under the rows it is not a target
+        g.push(
+          `<g class="map-district v32-group${here ? ' is-here' : ''}" opacity="${dim.toFixed(3)}"><rect class="v32-group-hit" x="${d.x}" y="${d.y}" width="${d.w}" height="${showRows ? d.headerH - C.headGap * 0.5 : d.h}" rx="${K.rowRadius}" data-map-district="${E(d.id)}" role="button" tabindex="0" aria-label="Explore ${E(d.title)}"${here ? ' aria-current="true"' : ''}><title>${E(d.title)} — ${E(d.question || '')}</title></rect>`,
+        );
+        if (here)
+          g.push(
+            `<rect class="v32-here" x="${d.x + 3 / z}" y="${hy - K.head * 0.78}" width="${3 / z}" height="${K.head * 0.94}" rx="${1.5 / z}"/>`,
+          );
+        g.push(
+          `<text class="v32-head" x="${hx}" y="${hy}" font-size="${K.head}">${E(name.rows[0] || '')}</text>`,
+        );
+        if (showRows && K.showQuestion && d.headerH > C.head + C.headGap) {
+          const q = fitText(d.question, hw, K.question, 400, 1);
+          g.push(
+            `<text class="v32-muted" x="${hx}" y="${d.y + C.head + C.question * 0.5 + K.question * 0.3}" font-size="${K.question}">${E(q.rows[0] || '')}</text>`,
+          );
+        } else if (!showRows) {
+          // rows would be too small to read here: say what the group holds
+          const line = countText(dc, true),
+            fs = px(11, 9.5, 12),
+            ly = hy + K.head * 0.5 + fs * 1.1;
+          if (line && ly + fs * 0.4 <= d.y + d.h && textWidth(line, fs, 700, V32_MONO) <= hw)
+            g.push(
+              `<text class="v32-mono v32-faint" x="${hx}" y="${ly}" font-size="${fs}">${E(line)}</text>`,
+            );
+        }
+        g.push('</g>');
+        parts.push(fadeIn('dg:' + d.id, g.join('')).html);
+        if (!showRows) continue;
+        anyClose = true;
+        shownGroups.add(d.id);
+        // Rows.
+        const rows = [],
+          members = cardMembers(d.id),
+          gx = C.inset,
+          labelX = gx + K.glyph * 1.6,
+          hereNote =
+            selected?.type === 'node' &&
+            homeFor(selected.id)?.support &&
+            homeFor(selected.id).district === d.id;
+        for (const n of members.main) {
+          const c = homeFor(n.id);
+          if (!c || !intersects(c, B, 40)) continue;
+          const f = rowFact(n),
+            chosen = selected?.type === 'node' && selected.id === n.id,
+            isActive = active.has(n.id),
+            quiet = selected && active.size && !isActive,
+            metaW = f.meta && K.meta1 ? textWidth(f.meta, K.meta, 700, V32_MONO) : 0,
+            showMeta = metaW > 0 && c.w - labelX - C.inset - metaW - K.glyph >= c.w * 0.42,
+            room = c.w - labelX - C.inset - (showMeta ? metaW + K.glyph * 0.75 : 0),
+            lab = fitText(f.label, room, K.label, 500, K.twoLines ? 2 : 1),
+            sum =
+              K.summary && n.summary
+                ? fitText(n.summary, c.w - labelX - C.inset, K.question, 400, rowPx >= 60 ? 2 : 1)
+                : null,
+            lh = K.label * 1.2,
+            block = sum ? lh + sum.rows.length * K.question * 1.28 : lab.rows.length * lh,
+            y1 = c.y + (c.h - block) / 2 + K.label * 0.92,
+            gy = sum ? y1 - K.label * 0.92 + (lh - K.glyph) / 2 : c.y + (c.h - K.glyph) / 2;
+          visible.add(n.id);
+          rows.push(
+            `<g class="v32-row${chosen ? ' is-here' : ''}${isActive && !chosen ? ' is-linked' : ''}"${quiet ? ' opacity=".38"' : ''} data-map-node="${E(n.id)}" data-kind="${f.kind}" role="button" tabindex="0"${chosen ? ' aria-current="true"' : ''} aria-label="${E(n.title)}. ${E(roleLabel(n))}."><title>${E(n.title)}${n.summary ? ' — ' + E(n.summary) : ''}</title><rect class="v32-row-bg" x="${c.x}" y="${c.y + K.hair}" width="${c.w}" height="${c.h - K.hair * 2}" rx="${K.rowRadius}"/>${chosen ? `<rect class="v32-here" x="${c.x + 3 / z}" y="${c.y + c.h * 0.25}" width="${3 / z}" height="${c.h * 0.5}" rx="${1.5 / z}"/>` : ''}${rowGlyph(n, f.kind, c.x + gx, gy, K.glyph, K.summary)}<text class="v32-label" x="${c.x + labelX}" y="${y1}" font-size="${K.label}">${(sum ? lab.rows.slice(0, 1) : lab.rows).map((row, i) => `<tspan x="${c.x + labelX}" dy="${i ? lh : 0}">${E(row)}</tspan>`).join('')}</text>${sum ? `<text class="v32-muted" x="${c.x + labelX}" y="${y1 + lh * 0.98}" font-size="${K.question}">${sum.rows.map((row, i) => `<tspan x="${c.x + labelX}" dy="${i ? K.question * 1.28 : 0}">${E(row)}</tspan>`).join('')}</text>` : ''}${showMeta ? `<text class="v32-mono v32-faint" x="${c.x + c.w - C.inset}" y="${sum ? y1 : c.y + c.h / 2 + K.meta * 0.36}" font-size="${K.meta}" text-anchor="end">${E(f.meta)}</text>` : ''}</g>`,
+          );
+        }
+        const nc = members.notes.length ? homeFor(members.notes[0].id) : null;
+        if (nc && intersects(nc, B, 40)) {
+          // every note and question of the group, behind one quiet row
+          const count = String(members.notes.length),
+            cw = textWidth(count, K.meta, 700, V32_MONO),
+            lab = fitText(
+              'Notes and questions',
+              nc.w - labelX - C.inset - cw - K.glyph * 0.75,
+              K.label,
+              500,
+              1,
+            );
+          rows.push(
+            `<g class="v32-row v32-notes${hereNote ? ' is-here' : ''}" data-map-district="${E(d.id)}" data-map-notes="1" role="button" tabindex="0"${hereNote ? ' aria-current="true"' : ''} aria-label="Notes and questions in ${E(d.title)}: ${count}"><title>Open the ${count} ${members.notes.length === 1 ? 'note or question' : 'notes and questions'} filed under ${E(d.title)}</title><rect class="v32-row-bg" x="${nc.x}" y="${nc.y + K.hair}" width="${nc.w}" height="${nc.h - K.hair * 2}" rx="${K.rowRadius}"/>${hereNote ? `<rect class="v32-here" x="${nc.x + 3 / z}" y="${nc.y + nc.h * 0.25}" width="${3 / z}" height="${nc.h * 0.5}" rx="${1.5 / z}"/>` : ''}<g class="v32-glyph" transform="translate(${nc.x + gx} ${nc.y + (nc.h - K.glyph) / 2}) scale(${K.glyph / 16})">${V32_GLYPHS.note}</g><text class="v32-label v32-quiet" x="${nc.x + labelX}" y="${nc.y + nc.h / 2 + K.label * 0.35}" font-size="${K.label}">${E(lab.rows[0] || '')}</text><text class="v32-mono v32-faint" x="${nc.x + nc.w - C.inset}" y="${nc.y + nc.h / 2 + K.meta * 0.36}" font-size="${K.meta}" text-anchor="end">${count}</text></g>`,
+          );
+        }
+        if (rows.length) {
+          const f = fadeIn('dr:' + d.id, `<g opacity="${dim.toFixed(3)}">${rows.join('')}</g>`);
+          for (const n of members.main) if (visible.has(n.id)) cardO.set(n.id, f.o);
+          cardParts.push(f.html);
+        }
+      }
+      continue;
+    }
+    // A tile: the subject from far away. Its outline is the map's fixed geography (and the press target);
+    // what is seen is one hairline in the course colour over a quiet tint.
+    let tpx = Math.min(30, 9 + 5 * weight + pw * 0.022),
+      tfs = tpx / z;
+    const badgeOn = !!r.step && pw >= 120,
+      tx0 = r.x + 40 + (badgeOn ? 30 / z : 0);
+    let ty0 = r.y + 22 / z + tfs;
+    let lx = tx0,
+      ly = ty0;
     const badgeW = badgeOn ? 30 / z : 0,
       titleW = Math.max(r.w - 80 - badgeW, 60 / z);
-    const availPx = (mode === 'full' && isFinite(hr) ? hr : r.h) * z - (mode === 'full' ? 4 : 22);
-    let titleLines = Math.max(0, Math.min(mode === 'star' ? 3 : 2, Math.floor(availPx / (tfs * z * 1.23))));
+    const availPx = r.h * z - 22;
+    let titleLines = Math.max(0, Math.min(3, Math.floor(availPx / (tfs * z * 1.23))));
     if (titleLines < 1) {
       const fit = availPx / 1.23;
       if (fit >= 10.5) {
         tfs = Math.min(tfs, fit / z);
         titleLines = 1;
         ty0 = r.y + 22 / z + tfs;
-        ly = al ? al.y + (ty0 - al.y) * t : ty0;
+        ly = ty0;
       }
     }
     let titleRows = [],
@@ -2195,21 +2634,15 @@ function draw() {
     } else {
       titleRows = titleLines ? wrapM(shortRegionTitle(r), titleW, tfs, 600, titleLines, 'region-title') : [];
       if (titleRows.some((l) => l.endsWith('…')) && SHORT_NAMES[r.id]) {
-        const alt = wrapM(
-          SHORT_NAMES[r.id].replace(/\u00ad/g, ''),
-          titleW,
-          tfs,
-          600,
-          titleLines,
-          'region-title',
-        );
+        const alt = wrapM(SHORT_NAMES[r.id].replace(/­/g, ''), titleW, tfs, 600, titleLines, 'region-title');
         if (alt.length && !alt.some((l) => l.endsWith('…'))) titleRows = alt;
       }
     }
     const showTitle = floor ? pw >= 36 : pw >= 72;
     if (intersects(r, B, 80)) {
+      const lit = activeRegions.has(r.id) || S.region === r.id;
       parts.push(
-        `<g class="map-region" opacity="${dim.toFixed(3)}"><path d="${regionPath(r)}" fill="${fillCol}" fill-opacity="${fillO.toFixed(3)}" stroke="${strokeCol}" stroke-opacity="${strokeO.toFixed(3)}" stroke-width="${Math.max(1.4 / z, tile < 1 ? 50 * (1 - tile) : 0)}" data-map-region="${E(r.id)}" class="territory-hit" role="button" tabindex="0" aria-label="Explore ${E(shortRegionTitle(r))}"${t < 0.5 ? ' pointer-events="none"' : ''}><title>${E(shortRegionTitle(r))}</title></path>`,
+        `<g class="map-region v32-tile${lit ? ' is-lit' : ''}" opacity="${dim.toFixed(3)}" data-tile="${E(r.id)}" style="--tile:${acc}"><rect class="v32-tile-bg" x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}" rx="${Math.min(6 / z, r.h / 2)}" stroke-width="${K.hair}"/><path d="${regionPath(r)}" data-map-region="${E(r.id)}" class="v32-tile-hit" role="button" tabindex="0" aria-label="Explore ${E(shortRegionTitle(r))}"><title>${E(shortRegionTitle(r))}</title></path>`,
       );
       const titleSt = R11.labelState.get('rt:' + r.id);
       if (badgeOn && showTitle && titleRows.length && (!titleSt || titleSt.o > 0.3))
@@ -2232,21 +2665,19 @@ function draw() {
         cls: 'region-title',
         anchor: floor ? 'middle' : 'start',
         op: labelOp,
-        halo: tile >= 0.5,
-        clickable: t >= 0.5,
+        halo: false,
+        clickable: true,
         attrs: `data-map-region="${E(r.id)}" role="button" tabindex="0"`,
       });
-    if (t < 1 || !near) continue;
-    let yy = ty0 + (titleRows.length - 1) * tfs * 1.23 + tfs * 1.55;
-    const bottom = r.y + r.h - 12 / z;
+    if (!near) continue;
     if (r.special === 'glossary') {
       const cnt = window.DKLA?.glossaryCount?.() || 0;
-      if (mode !== 'star' && cnt)
+      if (pw >= 200 && cnt)
         putLabel({
           key: 'rk:' + r.id,
           pri: 3,
           x: r.x + 40,
-          y: yy,
+          y: ty0 + (titleRows.length - 1) * tfs * 1.23 + tfs * 1.55,
           fs: 11 / z,
           text: `${cnt.toLocaleString()} terms · click to browse`,
           fill: tint,
@@ -2255,353 +2686,8 @@ function draw() {
           lines: 1,
           op: dim,
         });
-      continue;
-    }
-    const sfs = Math.min(14, Math.max(10.5, 9 + pw * 0.006)) / z,
-      sfs2 = Math.max(10.5 / z, sfs * 0.93),
-      lh = sfs * 1.45,
-      lcol = tint;
-    if (mode === 'full' && r.routeLabel) {
-      const tw = Math.max(...titleRows.map((l) => measure(l, tfs, 600, 'region-title')));
-      const room = r.x + r.w - 40 - (tx0 + tw + 18 / z);
-      if (room > 120 / z)
-        putLabel({
-          key: 'rk:' + r.id,
-          pri: 3,
-          x: tx0 + tw + 18 / z,
-          y: ty0,
-          fs: sfs,
-          text: r.routeLabel,
-          fill: lcol,
-          weight: 600,
-          width: room,
-          lines: 1,
-          op: dim,
-          halo: false,
-        });
-    }
-    if (mode === 'mid') {
-      // The summary admits its lines in a fixed order (question, tally, principal cases, subtopics, description) and each line, once admitted, keeps its place as the zoom grows: nothing appears and then vanishes.
-      const avail = bottom - yy,
-        tally = regionTally(r.id),
-        tallyText = tally.total
-          ? `${tally.cases} case${tally.cases === 1 ? '' : 's'} · ${tally.concepts} concept${tally.concepts === 1 ? '' : 's'}${tally.notes ? ` · ${tally.notes} note${tally.notes === 1 ? '' : 's'}` : ''}`
-          : '';
-      const localFocus = [...active]
-        .filter((id) => homeFor(id)?.region === r.id)
-        .map((id) => nodesById.get(id))
-        .filter(Boolean);
-      const description = localFocus.length
-        ? localFocus.slice(0, 4).map(displayName).join(' · ')
-        : /^Explore the questions| in the assigned readings\.?$/.test(r.description || '')
-          ? ''
-          : r.description || '';
-      const namesAll = data.nodes
-          .filter((n) => homeFor(n.id)?.region === r.id && geoPlacement(n.id).role === 'Principal case')
-          .slice(0, 4)
-          .map((n) => displayName(n)),
-        nameRows = namesAll.length ? wrapM(namesAll.join(' · '), r.w - 100, sfs2, 500, 2) : [],
-        hN = nameRows.length ? lh * nameRows.length + lh * 0.7 : 0;
-      const subs = (r.districtIds || []).map(districtFor).filter(Boolean),
-        hS = subs.length ? lh * (1 + subs.length) : 0;
-      const dRows = description ? wrapM(description, r.w - 100, sfs, 400, 3) : [],
-        hD = dRows.length ? lh * dRows.length + lh * 0.5 : 0;
-      const hT = tallyText ? lh * 1.15 : 0;
-      const q1 = r.routeLabel ? wrapM(r.routeLabel, r.w - 100, sfs, 600, 1) : [],
-        q2 = r.routeLabel ? wrapM(r.routeLabel, r.w - 100, sfs, 600, 2) : [];
-      const qRows = q2.length > 1 && avail >= lh * 2 + lh * 0.6 + hT ? q2 : q1,
-        hQ = qRows.length ? lh * qRows.length + lh * 0.6 : 0;
-      const showT = avail >= hQ + hT,
-        showN = hN > 0 && avail >= hQ + hT + hN,
-        subRows = subs.length
-          ? Math.max(0, Math.min(subs.length, Math.floor((avail - hQ - hT - hN - lh) / lh)))
-          : 0,
-        showD = hD > 0 && avail >= hQ + hT + hN + hS + hD;
-      if (qRows.length && avail >= hQ - lh * 0.6) {
-        putLabel({
-          key: 'rk:' + r.id,
-          pri: 3,
-          x: r.x + 40,
-          y: yy,
-          fs: sfs,
-          rows: qRows,
-          fill: lcol,
-          weight: 600,
-          op: dim,
-          halo: false,
-        });
-        yy += hQ;
-      }
-      if (showT) {
-        putLabel({
-          key: 'rc:' + r.id,
-          pri: 3,
-          x: r.x + 40,
-          y: yy,
-          fs: sfs2,
-          text: tallyText,
-          fill: '#e3e8ee',
-          weight: 500,
-          op: dim,
-          halo: false,
-        });
-        yy += hT;
-      }
-      if (showD) {
-        putLabel({
-          key: 'rd:' + r.id,
-          pri: 3.5,
-          x: r.x + 40,
-          y: yy,
-          fs: sfs,
-          rows: dRows,
-          fill: localFocus.length ? lcol : '#e3e8ee',
-          op: dim,
-          halo: false,
-        });
-        yy += hD;
-      }
-      if (showN) {
-        putLabel({
-          key: 'rn:' + r.id,
-          pri: 4,
-          x: r.x + 40,
-          y: yy,
-          fs: sfs2,
-          rows: nameRows,
-          fill: lcol,
-          weight: 500,
-          op: dim,
-          halo: false,
-        });
-        yy += hN;
-      }
-      if (subRows >= 1) {
-        putLabel({
-          key: 'rs:' + r.id,
-          pri: 4.3,
-          x: r.x + 40,
-          y: yy,
-          fs: sfs2,
-          text: `${subs.length} subtopic${subs.length === 1 ? '' : 's'}`,
-          fill: '#e3e8ee',
-          weight: 600,
-          op: dim,
-          halo: false,
-        });
-        yy += lh;
-        const shown = subRows < subs.length ? Math.max(0, subRows - 1) : subRows;
-      }
-    } else if (mode === 'full') {
-      for (const id of r.districtIds) {
-        const d = districtFor(id);
-        if (!d || !intersects(d, B, 45)) continue;
-        const sample = Object.values(M.homes).find((c) => c.district === d.id && c.core);
-        const was = R11.districtCards.has(d.id),
-          hy = was ? 0.85 : 1;
-        const showCards = d.w * z >= 310 * hy && (!sample || sample.h * z >= 30 * hy),
-          full = d.w * z >= 560 * hy && (!sample || sample.h * z >= 36 * hy);
-        anyClose ||= full;
-        if (showCards) R11.districtCards.add(d.id);
-        else R11.districtCards.delete(d.id);
-        const dIn = entrance('d:' + d.id, d.x + d.w / 2, d.y + d.h / 2, now);
-        const g = [];
-        g.push(
-          `<g class="map-district" opacity="${(dIn.o * dim).toFixed(3)}"${dIn.tr}><rect x="${d.x}" y="${d.y}" width="${d.w}" height="${d.h}" rx="16" fill="#17232d" fill-opacity=".76" stroke="${acc}" stroke-opacity="${S.district === d.id ? 0.38 : 0.15}" stroke-width="${0.8 / z}" class="district-hit" data-map-district="${E(d.id)}" role="button" tabindex="0" aria-label="Explore ${E(d.title)}"><title>${E(d.question)}</title></rect>`,
-        );
-        const tfs2 = Math.min(Math.max((d.headerH || 91) * 0.9, 10.5 / z), 14 / z),
-          tRows =
-            tfs2 * z >= 10
-              ? wrapM(d.title, d.w - 48, tfs2, 550, (d.headerH || 91) >= tfs2 * 2.3 ? 2 : 1)
-              : [],
-          tY = d.y + Math.max(Math.min(48, (d.headerH || 91) * 0.55), tfs2 * 0.95 + 4 / z);
-        if (tRows.length)
-          putLabel({
-            key: 'dt:' + d.id,
-            pri: 2,
-            x: d.x + 24,
-            y: tY,
-            fs: tfs2,
-            rows: tRows,
-            fill: acc,
-            weight: 600,
-            op: dIn.o * dim,
-            clickable: true,
-            attrs: `data-map-district="${E(d.id)}" role="button" tabindex="0"`,
-          });
-        if (!showCards && !S.connectionOverview) {
-          const qy = Math.max(d.y + (d.headerH || 91) + 36, tY + tRows.length * tfs2 * 1.23 + 14 / z);
-          const dqRows = R18.showQuestion(d, z, (d.y + d.h - qy) * z)
-            ? wrapM(d.question, d.w - 52, 13 / z, 400, d.h * z >= 150 ? 2 : 1)
-            : [];
-          if (dqRows.length)
-            putLabel({
-              key: 'dq:' + d.id,
-              pri: 2.4,
-              fast: true,
-              x: d.x + 26,
-              y: qy,
-              fs: 13 / z,
-              rows: dqRows,
-              fill: '#dbe4ec',
-              op: dIn.o * dim,
-            });
-          let yy2 = qy + (dqRows.length ? (dqRows.length * 17 + 15) / z : 2 / z);
-          const ns = R18.districtRows(id, d),
-            pitch = 22 / z,
-            max = Math.max(0, Math.floor((d.y + d.h - 14 / z - yy2) / pitch) + 1),
-            cut = ns.length > max ? Math.max(1, max - 1) : ns.length;
-          for (const n of ns.slice(0, max >= 1 ? cut : 0)) {
-            putLabel({
-              key: 'dr:' + d.id + ':' + n.id,
-              pri: 2.6,
-              fast: true,
-              x: d.x + 33,
-              y: yy2,
-              fs: 12 / z,
-              text: displayName(n),
-              width: d.w - 67,
-              lines: 1,
-              fill: n.kind === 'Case' ? acc : '#b9c7d4',
-              op: dIn.o * dim,
-              clickable: true,
-              attrs: `data-map-jump="${E(n.id)}" role="button" tabindex="0" style="cursor:pointer" aria-label="Read ${E(n.title)}"`,
-            });
-            yy2 += pitch;
-          }
-          if (cut < ns.length && max >= 2)
-            putLabel({
-              key: 'dr:' + d.id + ':more',
-              pri: 2.7,
-              fast: true,
-              x: d.x + 33,
-              y: yy2,
-              fs: 11 / z,
-              text: `+ ${ns.length - cut} more`,
-              width: d.w - 67,
-              lines: 1,
-              fill: '#93a7b7',
-              op: dIn.o * dim,
-              clickable: true,
-              attrs: `data-map-district="${E(d.id)}" role="button" tabindex="0"`,
-            });
-        } else {
-          const sub = Object.entries(M.homes).filter(
-              ([nid, c]) => nodesById.has(nid) && c.district === id && c.support,
-            ),
-            count = sub.length;
-          if (count && !full) {
-            const fs = 13 / z,
-              ss =
-                d.supportStart >= d.y && d.supportStart <= d.y + d.h
-                  ? d.supportStart
-                  : Math.max(
-                      d.y + (d.headerH || 91),
-                      ...Object.values(M.homes)
-                        .filter((c) => c.district === id && !c.support)
-                        .map((c) => c.y + c.h),
-                    );
-            putLabel({
-              key: 'dn:' + d.id,
-              pri: 3.6,
-              x: d.x + 25,
-              y: ss + fs * 1.5,
-              fs,
-              text: `${count} related notes & questions`,
-              width: d.w - 50,
-              lines: 1,
-              fill: '#99adbf',
-              op: dIn.o * dim,
-            });
-            putLabel({
-              key: 'dn2:' + d.id,
-              pri: 3.7,
-              x: d.x + 25,
-              y: ss + fs * 3.1,
-              fs: 11 / z,
-              text: 'Zoom in to read them.',
-              width: d.w - 50,
-              lines: 1,
-              fill: '#6f879e',
-              op: dIn.o * dim,
-            });
-          }
-        }
-        g.push('</g>');
-        parts.push(fadeIn('dg:' + d.id, g.join('')).html);
-      }
     }
   }
-  // Cards at their homes. Thresholds relax by 15% for cards already on screen, so nothing flickers at the boundary.
-  if (t >= 1)
-    for (const [id] of Object.entries(M.homes)) {
-      const c = homeFor(id),
-        n = nodesById.get(id);
-      if (!n || !intersects(c, B, 40)) continue;
-      const d = districtFor(c.district),
-        r = regionFor(c.region),
-        isActive = active.has(id),
-        chosen = selected?.type === 'node' && selected.id === id,
-        force = chosen || (selected?.type === 'edge' && isActive) || (S.connectionOverview && isActive);
-      const hy = wasVisible.has(id) ? 0.85 : 1,
-        standard = (d?.w || 750) * z >= 310 * hy && c.h * z >= 30 * hy,
-        full = (d?.w || 750) * z >= 560 * hy && c.h * z >= 36 * hy;
-      if (!inScope.has(c.region) && !isActive) continue;
-      if ((!standard || R11.modes.get(c.region) !== 'full') && !force) continue;
-      if (force && (c.w * z < 110 || c.h * z < 26)) continue;
-      if (c.support && !full && !force && !isActive) continue;
-      if (c.support && !full && isActive && !force && c.w * z < 185) continue;
-      visible.add(id);
-      const col = regionAccent(r),
-        dimc = selected && active.size && !isActive ? 0.24 : 1,
-        fs = Math.min(c.h / 2.4, Math.min(17, Math.max(12, 6 + c.h * z * 0.16)) / z),
-        x = c.x + 17;
-      const label = displayName(n),
-        lineLimit = c.h < fs * 2.9 ? 1 : 2,
-        rows = wrapM(label, c.w - 34, fs, c.core ? 500 : 400, lineLimit);
-      const titleY = c.y + c.h / 2 - fs * (rows.length > 1 ? 0.28 : -0.16);
-      const cIn = entrance('n:' + id, c.x + c.w / 2, c.y + c.h / 2, now);
-      if (chosen) {
-        if (pulseId !== id) {
-          pulseId = id;
-          pulseAt = now;
-        }
-        const pf = Math.min(1, (now - pulseAt) / 720);
-        if (pf < 1 && !reducedMotion && !CAM.instant) {
-          settling = true;
-          const gf = 1 + pf * 0.16,
-            cx = c.x + c.w / 2,
-            cy = c.y + c.h / 2;
-          cardParts.push(
-            `<rect x="${cx - (c.w / 2) * gf}" y="${cy - (c.h / 2) * gf}" width="${c.w * gf}" height="${c.h * gf}" rx="${9 * gf}" fill="none" stroke="#eed6b4" stroke-width="${2 / z}" stroke-opacity="${(0.85 * (1 - pf)).toFixed(3)}" pointer-events="none"/>`,
-          );
-        }
-      }
-      let card = `<g class="node-card" opacity="${(dimc * cIn.o).toFixed(3)}"${cIn.tr} data-map-node="${E(id)}" role="button" tabindex="0" aria-label="${E(n.title)}. ${E(roleLabel(n))}. Click to read; drag to move."><title>${E(n.title)} — ${E(n.summary)}</title><rect x="${c.x}" y="${c.y}" width="${c.w}" height="${c.h}" rx="7" fill="${chosen ? '#303c45' : isActive ? '#24313d' : c.core ? '#1e2c37' : '#18242f'}" stroke="${chosen ? '#eed6b4' : col}" stroke-width="${(chosen ? 2 : 1) / z}" stroke-opacity="${chosen ? 1 : isActive ? 0.8 : c.core ? 0.4 : 0.25}"/>`;
-      if (n.kind === 'Case')
-        card += `<path d="M${c.x + 7} ${c.y + 15} V${c.y + c.h - 15}" stroke="${col}" stroke-width="${2 / z}" opacity=".8"/>`;
-      card +=
-        textLines(
-          rows,
-          x,
-          titleY,
-          fs,
-          chosen ? '#f7e7cb' : c.core ? '#dce5ec' : '#abbccb',
-          c.core ? 500 : 400,
-          '',
-        ) + '</g>';
-      const f = fadeIn('n:' + id, card);
-      cardO.set(id, f.o);
-      cardParts.push(f.html);
-      putLabel({
-        key: 'cb:' + id,
-        pri: 0.6,
-        box: { x: (c.x - B.x) * z, y: (c.y - B.y) * z, w: c.w * z, h: c.h * z },
-        html: '',
-        nocollide: true,
-        sticky: false,
-      });
-    }
   // Stars: the galaxy at the floor and the entries in flight through the band; once the map is in place only selected or connected entries keep a star.
   R11.starIndex = [];
   const pad = 60 / z,
@@ -2644,25 +2730,16 @@ function draw() {
     const bw = (w) => w * t + (14 / z) * (1 - t);
     const a = { x: pa.x - bw(a0.w) / 2, y: pa.y - bw(a0.h) / 2, w: bw(a0.w), h: bw(a0.h) },
       b = { x: pb.x - bw(b0.w) / 2, y: pb.y - bw(b0.h) / 2, w: bw(b0.w), h: bw(b0.h) };
-    const fullA = (R11.modes.get(a0.region) === 'full' && a0.w * z >= 70) || visible.has(e.source),
-      fullB = (R11.modes.get(b0.region) === 'full' && b0.w * z >= 70) || visible.has(e.target);
-    if (!fullA) {
-      const rr = regionFor(a0.region);
-      if (rr) {
-        a.x = rr.x;
-        a.y = rr.y;
-        a.w = rr.w;
-        a.h = rr.h;
-      }
-    }
-    if (!fullB) {
-      const rr = regionFor(b0.region);
-      if (rr) {
-        b.x = rr.x;
-        b.y = rr.y;
-        b.w = rr.w;
-        b.h = rr.h;
-      }
+    // A ribbon ends on a row only where rows are drawn; otherwise on the subject as it is drawn.
+    const fullA = shownGroups.has(a0.district) || visible.has(e.source),
+      fullB = shownGroups.has(b0.district) || visible.has(e.target);
+    for (const [isFull, h0, end] of [
+      [fullA, a0, a],
+      [fullB, b0, b],
+    ]) {
+      const rr = isFull ? null : regionFor(h0.region);
+      if (rr)
+        Object.assign(end, rr.w * z >= V32.tileMin ? cardBox(rr) : { x: rr.x, y: rr.y, w: rr.w, h: rr.h });
     }
     if (!fullA && !fullB && a0.region === b0.region) continue;
     const ax = a.x + a.w / 2,
@@ -2773,6 +2850,7 @@ function draw() {
     cardParts.join('') +
     fadeOuts() +
     resolveLabels(V);
+  if (litTile) lightTile(litTile, true);
   S.paintNodes = [...visible];
   S.paintEdges = painted;
   for (const k of appear.keys()) if (!seenNow.has(k)) appear.delete(k);
@@ -2796,7 +2874,7 @@ function draw() {
       : selected?.type === 'node'
         ? 'Drag an entry to save a new map position'
         : anyClose
-          ? 'All nearby notes are visible · Click to read'
+          ? 'Click a row to read it · Drag the map to pan'
           : 'Scroll to explore · Drag the map to pan';
 }
 // Hover names for stars, and a forgiving click target: the nearest star within nine pixels.
@@ -2836,7 +2914,7 @@ function levelTargets(p) {
   S.scope = prev;
   const zA = fit(G.box, 20, 0.7),
     zC = fit(cb, 20, 0.7),
-    zS = subject ? fit(subject, R18.subjectPad(), 0.95) : zC * 3,
+    zS = subject ? fit(cardBox(subject), R18.subjectPad(), 0.95) : zC * 3,
     zD = district ? fit(district, 16, 1.05) : zS * 1.5;
   return { course, subject, district, z: [zA, zC, zS, zD] };
 }
@@ -2921,7 +2999,7 @@ svg.addEventListener('pointermove', (e) => {
     return;
   }
   const rg = e.target.closest?.('[data-map-region]');
-  if (rg && !e.target.closest('.node-card,.map-district')) {
+  if (rg && !e.target.closest('.v32-row,.map-district')) {
     const r = regionFor(rg.dataset.mapRegion);
     if (r && r.w * S.z < 200) {
       const tl = regionTally(r.id);
@@ -3649,11 +3727,44 @@ $('studyZoomIn').onclick = () => zoom(1.35);
 $('studyZoomOut').onclick = () => zoom(1 / 1.35);
 $('studyFit').onclick = fit;
 $('inspector').addEventListener('scroll', deferPersist, { passive: true });
+// A tile under the pointer lights the lines that leave it and the tiles at their other ends. Only classes
+// change: nothing is drawn again, and a draw puts the classes back (the map's elements are new each time).
+let litTile = null;
+function lightTile(id, again = false) {
+  if (id === litTile && !again) return;
+  for (const el of svg.querySelectorAll('.is-near, .v32-link.is-hover'))
+    el.classList.remove('is-near', 'is-hover');
+  litTile = id;
+  if (!id) return;
+  for (const line of svg.querySelectorAll('.v32-link')) {
+    const [a, b] = line.dataset.link.split(' ');
+    if (a !== id && b !== id) continue;
+    line.classList.add('is-hover');
+    svg.querySelector(`.v32-tile[data-tile="${CSS.escape(a === id ? b : a)}"]`)?.classList.add('is-near');
+  }
+}
+svg.addEventListener('pointerover', (e) => {
+  if (!S.pointers.size) lightTile(e.target.closest?.('.v32-tile')?.dataset.tile || null);
+});
+svg.addEventListener('pointerleave', () => lightTile(null));
+// "Notes and questions" on a group opens the group in the reader with that list unfolded and in view.
+function openGroupNotes() {
+  requestAnimationFrame(() => {
+    const list = [...document.querySelectorAll('#inspector details.quiet-details')].find((el) =>
+      /^Book discussions/.test(el.querySelector('summary')?.textContent || ''),
+    );
+    if (!list) return;
+    list.open = true;
+    list.scrollIntoView({ block: 'start' });
+  });
+}
 function activateMap(t) {
   if (t.dataset.mapJump) goNode(t.dataset.mapJump, true);
   else if (t.dataset.mapNode) goNode(t.dataset.mapNode, false);
-  else if (t.dataset.mapDistrict) goDistrict(t.dataset.mapDistrict);
-  else if (t.dataset.mapRegion) goRegion(t.dataset.mapRegion);
+  else if (t.dataset.mapDistrict) {
+    goDistrict(t.dataset.mapDistrict);
+    if (t.dataset.mapNotes) openGroupNotes();
+  } else if (t.dataset.mapRegion) goRegion(t.dataset.mapRegion);
   else if (t.dataset.mapEdge) goEdge(t.dataset.mapEdge, false);
 }
 svg.addEventListener('keydown', (e) => {

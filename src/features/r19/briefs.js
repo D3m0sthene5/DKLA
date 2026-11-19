@@ -448,12 +448,13 @@
         fs = Math.max(small ? 0 : 9.5 / z, Math.min(t.h * 0.36, 15 / z)),
         h = Math.max(t.h, fs * 2.2),
         w = compact && fs * z < 8 ? t.w : Math.max(t.w, measure(label, fs, 600, 'region-title') + fs * 2.4);
+      // v3.2: a plain control (one hairline, the panel's fill) with its count as a readout.
       parts.push(
-        `<g class="r19-tile" data-r19-list="${i}" role="button" tabindex="0" aria-label="Supporting cases in ${esc(c)}: ${counts[i]}" opacity="${dim}" style="cursor:pointer"><rect x="${t.x}" y="${t.y}" width="${w}" height="${h}" rx="${Math.min(260, h / 3)}" fill="${col}" fill-opacity=".08" stroke="${col}" stroke-opacity=".7" stroke-width="${1.3 / z}" stroke-dasharray="${7 / z} ${5 / z}"/>`,
+        `<g class="r19-tile v32-control" data-r19-list="${i}" role="button" tabindex="0" aria-label="Supporting cases in ${esc(c)}: ${counts[i]}" opacity="${dim}" style="cursor:pointer"><rect x="${t.x}" y="${t.y}" width="${w}" height="${h}" rx="${Math.min(6 / z, h / 2)}" stroke-width="${1 / z}"/>`,
       );
       if (fs * z >= 8)
         parts.push(
-          `<text x="${t.x + w / 2}" y="${t.y + h / 2 + fs * 0.35}" font-size="${fs}" font-weight="600" fill="${col}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif">${label}</text>`,
+          `<text x="${t.x + w / 2}" y="${t.y + h / 2 + fs * 0.35}" font-size="${fs}" text-anchor="middle">Supporting cases<tspan class="v32-count" dx="${fs * 0.7}">${counts[i]}</tspan></text>`,
         );
       parts.push('</g>');
     });

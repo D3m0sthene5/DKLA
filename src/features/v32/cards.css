@@ -1,0 +1,294 @@
+/* v3.2 "Instrument": everything the map draws (docs/DESIGN.md). The shapes and sizes are set by the
+   painter (draw() in src/runtime/studyCode.js and the layers round it); the colours, weights and the
+   answers to the pointer are here, from the tokens in v31/tokens.css.
+
+   Three planes: the ground is the map, a panel is an open subject, and nothing on a panel has a box of
+   its own. A course colour appears only as an identity mark (a tile's tint, a subject's numbered dot).
+   Amber means "you are here". Hover raises a fill one step; a press darkens it. */
+
+/* ---- type on the map ---- */
+html #geoCanvas text.v32-title {
+  font-family: var(--dkla-display);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  fill: var(--v31-text);
+}
+html #geoCanvas text.v32-head {
+  font-weight: 600;
+  fill: var(--v31-text);
+}
+html #geoCanvas text.v32-label {
+  font-weight: 500;
+  fill: var(--v31-text);
+}
+html #geoCanvas text.v32-quiet,
+html #geoCanvas text.v32-muted {
+  fill: var(--v31-muted);
+}
+html #geoCanvas text.v32-muted {
+  font-weight: 400;
+}
+html #geoCanvas text.v32-faint {
+  fill: var(--v31-faint);
+}
+/* Readouts: counts, years, section numbers. */
+html #geoCanvas text.v32-mono {
+  font-family: 'DKLA JetBrains Mono', 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+
+/* ---- an open subject: one panel ---- */
+#geoCanvas .v32-card-bg {
+  fill: var(--v31-panel);
+  stroke: var(--v32-hair-strong);
+  cursor: pointer;
+}
+/* Elevation without a filter: light on the top edge, a flat shade below. */
+#geoCanvas .v32-card-light {
+  fill: none;
+  stroke: #ffffff17;
+  pointer-events: none;
+}
+#geoCanvas .v32-shade {
+  fill: #000;
+  fill-opacity: 0.3;
+  pointer-events: none;
+}
+#geoCanvas .v32-step {
+  pointer-events: none;
+}
+html #geoCanvas text.v32-step-n {
+  font-weight: 600;
+  fill: var(--v31-on-link);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- a group: a heading, a question, rows; no box ---- */
+#geoCanvas .v32-group-hit {
+  fill: #fff;
+  fill-opacity: 0;
+  cursor: pointer;
+  transition: fill-opacity var(--v31-t-press) linear;
+}
+#geoCanvas .v32-group:hover .v32-group-hit {
+  fill-opacity: 0.045;
+}
+#geoCanvas:not(.panning) .v32-group:active .v32-group-hit {
+  fill: #000;
+  fill-opacity: 0.2;
+}
+#geoCanvas .v32-here {
+  fill: var(--v31-here);
+  pointer-events: none;
+}
+
+/* ---- a row ---- */
+#geoCanvas .v32-row {
+  cursor: pointer;
+}
+#geoCanvas .v32-row-bg {
+  fill: #fff;
+  fill-opacity: 0;
+  transition: fill-opacity var(--v31-t-press) linear;
+}
+#geoCanvas .v32-row:hover .v32-row-bg {
+  fill-opacity: 0.06;
+}
+#geoCanvas .v32-row.is-linked .v32-row-bg {
+  fill-opacity: 0.04;
+}
+#geoCanvas .v32-row.is-here .v32-row-bg {
+  fill: var(--v31-here-bg);
+  fill-opacity: 1;
+}
+#geoCanvas:not(.panning) .v32-row:active .v32-row-bg {
+  fill: #000;
+  fill-opacity: 0.22;
+}
+/* One family of glyphs: one size, one weight, one colour. */
+#geoCanvas .v32-glyph {
+  fill: none;
+  stroke: var(--v31-muted);
+  color: var(--v31-muted);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+#geoCanvas .v32-glyph .v32-dot {
+  fill: var(--v31-muted);
+  stroke: none;
+}
+/* A case's own pictogram is drawn on a 24 unit grid: the same weight on screen. */
+#geoCanvas .v32-pict {
+  stroke-width: 2;
+}
+#geoCanvas .v32-pict-badge {
+  fill: var(--v31-panel);
+  stroke: none;
+}
+#geoCanvas .v32-row.is-here .v32-glyph {
+  stroke: var(--v31-here);
+  color: var(--v31-here);
+}
+#geoCanvas .v32-row.is-here .v32-glyph .v32-dot {
+  fill: var(--v31-here);
+}
+html #geoCanvas .v32-row.is-here text.v32-faint {
+  fill: var(--v31-here);
+}
+
+/* ---- a subject from far away: a tile ---- */
+/* One hairline in the course colour over a quiet tint of it. The fill is opaque (the tint mixed into the
+   ground), so the lines between subjects pass behind a tile, never through its name. */
+#geoCanvas .v32-tile-bg {
+  fill: #17222b;
+  fill: color-mix(in srgb, var(--tile) 15%, #101921);
+  stroke: var(--tile);
+  stroke-opacity: 0.4;
+  pointer-events: none;
+  transition: stroke-opacity var(--v31-t-press) linear;
+}
+#geoCanvas .v32-tile-hit {
+  fill: #fff;
+  fill-opacity: 0;
+  stroke: none;
+  cursor: pointer;
+  transition: fill-opacity var(--v31-t-press) linear;
+}
+#geoCanvas .v32-tile:hover .v32-tile-hit {
+  fill-opacity: 0.06;
+}
+#geoCanvas .v32-tile:hover .v32-tile-bg,
+#geoCanvas .v32-tile.is-lit .v32-tile-bg {
+  stroke-opacity: 0.95;
+}
+#geoCanvas .v32-tile.is-near .v32-tile-bg {
+  stroke-opacity: 0.75;
+}
+#geoCanvas:not(.panning) .v32-tile:active .v32-tile-hit {
+  fill: #000;
+  fill-opacity: 0.25;
+}
+/* A tile's name: Inter 500, no outline round the letters (nothing runs behind them any more). */
+html #studyMain #geoCanvas text.region-title {
+  font-weight: 500;
+  fill: var(--v31-text);
+  stroke: none;
+  letter-spacing: 0;
+}
+/* A course's name stays in its colour and in the display face; the line under it is a readout. */
+html #geoCanvas text.map-label[fill='#93a7b7'] {
+  fill: var(--v31-faint);
+}
+
+/* ---- the course view's furniture: its parts and the lines between subjects ---- */
+#geoCanvas .v32-zone {
+  fill: #fff;
+  fill-opacity: 0.028;
+  pointer-events: none;
+}
+html #studyMain #geoCanvas text.zone-title {
+  font-weight: 500;
+  letter-spacing: 0;
+  stroke: none;
+}
+/* Lines are one pixel and low in contrast at rest; the ones that leave the tile under the pointer, or the
+   subject that is open, light up. */
+#geoCanvas .v32-link {
+  fill: none;
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+  stroke-opacity: 0.3;
+  pointer-events: none;
+  transition: stroke-opacity var(--v31-t-press) linear;
+}
+#geoCanvas .v32-thread {
+  stroke-opacity: 0.16;
+}
+#geoCanvas .v32-link.is-hover,
+#geoCanvas .v32-link.is-lit {
+  stroke-opacity: 1;
+  stroke-width: 1.5px;
+}
+
+/* ---- "Supporting cases": a plain control with its count ---- */
+#studyMain #geoCanvas .r19-tile.v32-control > rect {
+  fill: var(--v31-panel);
+  fill-opacity: 1;
+  stroke: var(--v32-hair-strong);
+  stroke-opacity: 1;
+  stroke-dasharray: none;
+}
+#studyMain #geoCanvas .r19-tile.v32-control:hover > rect {
+  fill: var(--v31-raised);
+  fill-opacity: 1;
+}
+html #geoCanvas .r19-tile.v32-control text {
+  font-family: var(--dkla-interface);
+  font-weight: 500;
+  fill: var(--v31-text);
+}
+html #geoCanvas .r19-tile.v32-control .v32-count {
+  font-family: 'DKLA JetBrains Mono', 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  font-weight: 700;
+  font-size: 0.86em;
+  font-variant-numeric: tabular-nums;
+  fill: var(--v31-faint);
+}
+
+/* ---- the note under the breadcrumb on a course view: quiet controls ---- */
+#studyMain #mapWelcome button {
+  display: block;
+  box-sizing: border-box;
+  height: var(--v32-h-control);
+  margin: var(--v32-s2) 0 0;
+  padding: 0 34px 0 var(--v32-s3);
+  border: 1px solid var(--v32-hair-strong);
+  border-radius: var(--v32-r-control);
+  /* a chevron drawn as a shape: it says the control leads somewhere */
+  background: var(--v31-panel)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23a9b8c4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m8 5 5 5-5 5'/%3E%3C/svg%3E")
+    no-repeat right 10px center / 16px 16px;
+  color: var(--v31-text);
+  font: var(--v31-ui);
+  box-shadow: var(--v32-e1);
+}
+#studyMain #mapWelcome button:hover {
+  background-color: var(--v31-raised);
+}
+/* The strip of session cards at the foot of a course view already lists every session: while it is
+   there the note does not offer the same list a second time (and no longer reaches down over a tile). */
+#studyMain:has(#dklaSessions:not([hidden]))
+  #mapWelcome
+  :is([data-contract-reading], [data-civil-week], [data-lrs-class]) {
+  display: none;
+}
+
+/* ---- keyboard focus: the one ring, on the shape itself ---- */
+#geoCanvas .v32-row:focus,
+#geoCanvas .v32-group-hit:focus,
+#geoCanvas .v32-card-bg:focus,
+#geoCanvas .v32-tile-hit:focus {
+  outline: none;
+}
+#geoCanvas .v32-row:focus-visible .v32-row-bg,
+#geoCanvas .v32-group-hit:focus-visible,
+#geoCanvas .v32-card-bg:focus-visible,
+#geoCanvas .v32-tile-hit:focus-visible {
+  stroke: var(--v31-link);
+  stroke-width: 2px;
+  stroke-opacity: 1;
+  vector-effect: non-scaling-stroke;
+}
+@media (prefers-reduced-motion: reduce) {
+  #geoCanvas .v32-row-bg,
+  #geoCanvas .v32-group-hit,
+  #geoCanvas .v32-tile-bg,
+  #geoCanvas .v32-tile-hit,
+  #geoCanvas .v32-link {
+    transition: none;
+  }
+}

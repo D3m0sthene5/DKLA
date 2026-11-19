@@ -136,7 +136,7 @@
     if (S.scope === COURSE) {
       const w = $('mapWelcome');
       w.innerHTML =
-        '<h1>Legislation and the Regulatory State</h1><p>Legislation, agency authority, procedure, and judicial review.</p><button data-lrs-class="0">All 26 syllabus classes →</button><button data-lrs-coverage="1">Sources on file →</button>';
+        '<h1>Legislation and the Regulatory State</h1><p>Legislation, agency authority, procedure, and judicial review.</p><button data-lrs-class="0">All 26 syllabus classes</button><button data-lrs-coverage="1">Sources on file</button>';
       w.hidden = !!(S.region || S.district || selected);
     }
   };

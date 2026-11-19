@@ -123,50 +123,12 @@
         '',
       )}</div><footer class="dkla-overview-foot"><button data-study-scope="Study notes">Study notes</button><button data-dkla-coverage="1">Coverage and missing readings</button></footer></div>`;
   }
-  function decorateMap() {
-    for (const g of svg.querySelectorAll('.node-card[data-map-node]')) {
-      const n = nodesById.get(g.dataset.mapNode),
-        c = homeFor(g.dataset.mapNode);
-      if (!n || !c || c.w * S.z < 170 || c.h * S.z < 38) continue;
-      const z = S.z,
-        size = Math.min(c.h * 0.5, 22 / z),
-        reserve = size + 10 / z,
-        fs = Math.min(c.h / (c.h * z < 34 ? 1.6 : 2.6), (c.h * z < 34 ? 11 : c.w * z > 450 ? 17 : 14) / z),
-        width = c.w - 34 - reserve,
-        lines = c.h * z < 34 ? 1 : 2,
-        rows = wrap(displayName(n), Math.floor(width / (fs * 0.56)), lines),
-        ty = c.y + c.h / 2 - fs * (rows.length > 1 ? 0.28 : -0.16);
-      g.querySelectorAll('text').forEach((t) => t.remove());
-      const meta = icons.records?.[n.id],
-        path = icons.paths?.[meta?.motif || 'case'],
-        mod = meta?.modifier && icons.modifiers?.[meta.modifier];
-      if (path)
-        g.insertAdjacentHTML(
-          'beforeend',
-          `<g transform="translate(${c.x + 14},${c.y + (c.h - size) / 2}) scale(${size / 24})" fill="none" stroke="${E(regionFor(c.region)?.color || '#b6c3cc')}" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" pointer-events="none">${path}${mod ? `<g transform="translate(14.5 14.5) scale(.42)"><circle cx="12" cy="12" r="13" fill="#1a242d" stroke="none"/>${mod}</g>` : ''}</g>`,
-        );
-      g.insertAdjacentHTML(
-        'beforeend',
-        text(
-          displayName(n),
-          c.x + 17 + reserve,
-          ty,
-          width,
-          fs,
-          selected?.id === n.id ? '#f7e7cb' : c.core ? '#dce5ec' : '#abbccb',
-          lines,
-          c.core ? 500 : 400,
-        ),
-      );
-    }
-  }
   const priorDraw = draw;
   draw = function (...args) {
     const v = priorDraw(...args);
     theme();
     renderOverview();
     if (!overview.hidden) return v;
-    decorateMap();
     svg.setAttribute(
       'aria-label',
       `Stable map of ${S.scope}. Select a subject or entry, or use search for a text alternative.`,
