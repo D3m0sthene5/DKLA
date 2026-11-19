@@ -147,6 +147,37 @@ async function settle(page) {
   });
   await page.waitForFunction(() => !document.querySelector('dialog[open]'));
 }
+// The clear button of the search field is the browser's own element inside the input. Whether it takes
+// room is asked through the browser's debugging protocol: 'no box' when it is not laid out.
+async function clearButton(page) {
+  const cdp = await page.context().newCDPSession(page);
+  try {
+    const { result } = await cdp.send('Runtime.evaluate', {
+      expression: "document.getElementById('search')",
+    });
+    const { node } = await cdp.send('DOM.describeNode', {
+      objectId: result.objectId,
+      depth: -1,
+      pierce: true,
+    });
+    const all = [];
+    const walk = (n) => {
+      all.push(n);
+      for (const child of [...(n.children || []), ...(n.shadowRoots || [])]) walk(child);
+    };
+    walk(node);
+    const button = all.find((n) => (n.attributes || []).includes('-webkit-search-cancel-button'));
+    if (!button) return 'not found';
+    try {
+      const { model } = await cdp.send('DOM.getBoxModel', { backendNodeId: button.backendNodeId });
+      return `${model.width}x${model.height}`;
+    } catch {
+      return 'no box';
+    }
+  } finally {
+    await cdp.detach();
+  }
+}
 const openLibraryOn = async (page) => {
   await page.locator('#moreBtn').click();
   await page.locator('#libraryDialog[open] .v32-row').first().waitFor();
@@ -666,7 +697,9 @@ try {
         assert.deepEqual(o.clipped, [], width + 'px');
         assert.ok(o.field.w >= 240, `${width}px: the field is ${o.field.w}px wide`);
         assert.ok(o.right <= o.field.x - 8, width + 'px: the path ends before the field starts');
-        // And the field it borrowed from still says what it is for, whole.
+        // And the field it borrowed from still says what it is for, whole: its words fit, and the clear
+        // button (drawn by the browser inside the field, where the page cannot measure it; asked of the
+        // browser itself) takes no room while there is nothing to clear.
         const words = await page.evaluate(() => {
           const input = document.getElementById('search'),
             probe = document.createElement('span');
@@ -676,16 +709,16 @@ try {
           document.body.append(probe);
           const needs = probe.getBoundingClientRect().width;
           probe.remove();
-          return {
-            needs,
-            has: input.clientWidth,
-            clear: getComputedStyle(input, '::-webkit-search-cancel-button').display,
-          };
+          return { needs, has: input.clientWidth };
         });
-        assert.equal(words.clear, 'none', width + 'px: an empty field keeps room for a clear button');
         assert.ok(
           words.needs <= words.has,
           `${width}px: "Search or jump to…" needs ${words.needs}px and has ${words.has}px`,
+        );
+        assert.equal(
+          await clearButton(page),
+          'no box',
+          width + 'px: an empty field keeps room for a clear button',
         );
       }
       await page.setViewportSize({ width: 1440, height: 900 });
