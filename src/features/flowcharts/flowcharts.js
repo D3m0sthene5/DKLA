@@ -250,20 +250,58 @@
     });
 
     const wires = [];
+    // Wires leave a step in the order of where they go, and reach a step in the order of where they
+    // come from, so a step's own wires do not cross one another (each still carries its letter).
+    const centre = (id) => positions.get(id).x + cardWidth / 2;
+    const leaves = new Map(
+      chart.nodes.map((node) => [
+        node.id,
+        node.edges
+          .map((edge, index) => index)
+          .sort((p, q) => centre(node.edges[p].to) - centre(node.edges[q].to) || p - q),
+      ]),
+    );
+    for (const list of incoming.values()) list.sort((p, q) => centre(p.from) - centre(q.from) || p.index - q.index);
+    // A wire to a step more than one row down runs between the steps of the rows it passes, by the
+    // opening nearest where it is going, instead of out round the whole chart.
+    const rowOf = [];
+    for (const pos of positions.values()) (rowOf[pos.level] ||= []).push(pos);
+    const openings = rowOf.map((row) => {
+      const sorted = [...row].sort((p, q) => p.x - q.x);
+      return [
+        sorted[0].x - gap / 2,
+        ...sorted.slice(1).map((pos) => pos.x - gap / 2),
+        sorted[sorted.length - 1].x + cardWidth + gap / 2,
+      ];
+    });
+    const rowEnd = rowOf.map((row) => row[0].rowEnd);
+    let passing = 0;
     for (const node of byId.values()) {
       const from = positions.get(node.id);
       node.edges.forEach((edge, index) => {
         const to = positions.get(edge.to);
         const parents = incoming.get(edge.to);
         const port = parents.findIndex((parent) => parent.from === node.id && parent.index === index);
-        const sx = from.x + (cardWidth * (index + 1)) / (node.edges.length + 1);
+        const out = leaves.get(node.id).indexOf(index);
+        const sx = from.x + (cardWidth * (out + 1)) / (node.edges.length + 1);
         const tx = to.x + (cardWidth * (port + 1)) / (parents.length + 1);
         const sy = from.y + from.height;
         let path;
         if (to.level === from.level + 1) {
           const middle = (from.rowEnd + to.y) / 2;
           path = `M ${sx} ${sy} V ${from.rowEnd} C ${sx} ${middle}, ${tx} ${middle}, ${tx} ${to.y - 3}`;
+        } else if (to.level > from.level + 1) {
+          const lane = 12 + (passing++ % 5) * 6;
+          path = `M ${sx} ${sy}`;
+          for (let level = from.level + 1; level < to.level; level++) {
+            const through = openings[level].reduce((best, x) =>
+              Math.abs(x - tx) < Math.abs(best - tx) ? x : best,
+            );
+            path += ` V ${rowEnd[level - 1] + lane} H ${through}`;
+          }
+          path += ` V ${rowEnd[to.level - 1] + lane} H ${tx} V ${to.y - 3}`;
         } else {
+          // Back to an earlier row: round the outside of the chart.
           const side = (sx + tx) / 2 < contentWidth / 2 ? -1 : 1;
           const lane = side < 0 ? ++leftLanes : ++rightLanes;
           const outer = (side < 0 ? 0 : contentWidth) + side * (12 + lane * 9);

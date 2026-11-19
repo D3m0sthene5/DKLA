@@ -1259,6 +1259,11 @@ html:root body #inspector .v32db-now > p {
   html:root body #inspector .v32db-account {
     grid-template-columns: minmax(0, 1fr);
   }
+  /* (The legend turns onto a second line here: its groups are parted by space alone.) */
+  html:root body #inspector .v32db-key-group + .v32db-key-group {
+    padding-left: 0;
+    border-left: 0;
+  }
   html:root body #inspector .v32db-unit {
     grid-template-columns: 72px 56px minmax(0, 1fr);
   }
@@ -1510,8 +1515,14 @@ html:root body #inspector .v32db-st-in,
 html:root body #inspector .v32db-st-end {
   position: relative;
 }
-/* The bar: from under the beam, past everything decided while the rule stood. */
-html:root body #inspector .v32db-st-in::before {
+/* The bar: from under the beam, beside everything decided under the rule or while it stood. It is
+   drawn row by row, and not beside a line of its own: nothing of the rule runs past an entry that
+   belongs to another. Where such an entry comes last, a short length of bar still meets the entry
+   that ended the rule. */
+html:root body #inspector .v32db-st-in > li {
+  position: relative;
+}
+html:root body #inspector .v32db-st-in > li:not(.v32db-st-apart)::after {
   content: '';
   position: absolute;
   left: 28px;
@@ -1520,10 +1531,34 @@ html:root body #inspector .v32db-st-in::before {
   width: 3px;
   background: var(--v32db-span);
 }
-html:root body #inspector .v32db-st-band.v32db-open-end > .v32db-st-in::before {
+html:root body #inspector .v32db-st-band.v32db-open-end > .v32db-st-in > li:last-child::after {
   bottom: -8px;
   -webkit-mask-image: linear-gradient(#000 calc(100% - 32px), transparent);
   mask-image: linear-gradient(#000 calc(100% - 32px), transparent);
+}
+html:root body #inspector .v32db-st-in > .v32db-st-apart {
+  margin: 8px 0;
+}
+html:root body #inspector .v32db-st-in > .v32db-st-apart:last-child {
+  margin-bottom: 16px;
+}
+html:root body #inspector .v32db-st-in:has(> .v32db-st-apart:last-child) + .v32db-st-end::after {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: -12px;
+  width: 3px;
+  height: 12px;
+  background: var(--v32db-span);
+}
+/* (Its dashed rail starts out at the line's side of where the bar would be.) */
+html:root body #inspector .v32db-st-in > .v32db-st-apart > .v32db-st-row::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 16px;
+  width: 22px;
+  border-top: 1.5px dashed var(--v31-soft);
 }
 html:root body #inspector .v32db-st-in > .v32db-st-item > .v32db-st-row {
   grid-template-columns: 24px 16px minmax(0, 1fr);
@@ -1659,6 +1694,26 @@ html:root body #inspector .v32db-st-lane .v32db-st-mark > .v32db-glyph {
 @media (max-width: 699px) {
   html:root body.v32db-on #inspector .reader-top > .v32-court {
     display: none;
+  }
+  /* The case's name is whole: two lines if it needs them, turning before "v." (doctrine-b.js fitMast). */
+  html:root body.v32db-on #inspector .reader-top {
+    height: auto;
+    min-height: 52px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  html:root body #inspector .v32db-mast > strong {
+    overflow: visible;
+    font-size: 18px;
+    line-height: 22px;
+    white-space: normal;
+    text-overflow: clip;
+  }
+  html:root body #inspector .v32db-mast .v32db-party {
+    display: inline-block;
+  }
+  html:root body.v32db-on #inspector .v32 > .v32-bar {
+    top: var(--v32db-strip, 52px);
   }
   html:root body #inspector .v32db-mast > .v32db-crumbs {
     display: none;

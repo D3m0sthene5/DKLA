@@ -590,10 +590,8 @@
   padding: 4px 0;
   cursor: pointer;
 }
-@media (min-width: 1024px) {
-  #inspector .v32 > .v32-bar:has(.v32-cc:not(:empty)) .v32-tabs {
-    margin-right: 148px;
-  }
+#inspector .v32 > .v32-bar:has(.v32-cc:not(:empty)) .v32-tabs {
+  margin-right: 148px;
 }
 #inspector .v32 .v32-cc:empty {
   display: none;
@@ -747,13 +745,6 @@
 @media (max-width: 1023px) {
   #inspector .v32 > .v31-rail {
     display: none !important;
-  }
-  #inspector .v32 .v32-cc {
-    position: static;
-    flex: none;
-  }
-  #inspector .v32 .v32-cc:not(:empty) {
-    margin-right: 24px;
   }
 }
 

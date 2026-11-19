@@ -1030,6 +1030,7 @@
     if (!plate) return;
     const W = plate.clientWidth;
     if (!W) return;
+    fitMast();
     // A narrow screen has the drawing stood on end; a wide one has it across the page.
     const form = W < STACK_UNDER ? 'stack' : 'plate';
     if (plate.dataset.v32dbForm !== form) {
@@ -1461,7 +1462,12 @@
     mast = document.createElement('div');
     mast.className = 'v32db-mast';
     mast.dataset.v32dbKey = key;
-    mast.innerHTML = `${art(node.id, 'v32db-art-sm')}<strong title="${esc(full)}">${captionHTML(cases[0])}</strong>`;
+    // (The entry's own stored short title, for a name too long for the line: fitMast.)
+    const short = String(node.shortTitle || '')
+      .replace(/\s*\((?:1[5-9]|20)\d{2}\)\s*$/, '')
+      .trim();
+    mast.innerHTML = `${art(node.id, 'v32db-art-sm')}<strong title="${esc(full)}" data-short="${esc(short && short !== full ? short : '')}">${captionHTML(cases[0])}</strong>`;
+    mast.querySelector('strong').v32dbFull = captionHTML(cases[0]);
     if (where) {
       const crumbs = where.cloneNode(true);
       crumbs.className = 'v32db-crumbs';
@@ -1471,6 +1477,24 @@
     if (where) mast.style.setProperty('--v32-dot', where.style.getPropertyValue('--v32-dot'));
     top.prepend(mast);
     fitArt(mast);
+    fitMast();
+  }
+  // The case's name in the header line is composed, not cut: on a narrow screen it may take two lines,
+  // turning before "v."; where even that is not enough (or one line is not, on a wide screen) the
+  // entry's stored short title stands in. The tab bar sticks under the line, however tall it is.
+  function fitMast() {
+    const top = inspector.querySelector('.reader-top');
+    const name = top?.querySelector(':scope > .v32db-mast > strong');
+    if (!name || !name.getClientRects().length) return;
+    if (name.v32dbFull) name.innerHTML = name.v32dbFull;
+    const narrow = inspector.clientWidth < STACK_UNDER + 48;
+    const over = narrow ? name.offsetHeight > 46 : name.scrollWidth > name.clientWidth + 1;
+    // (Failing a stored short title, the name its own timeline calls it by.)
+    const short = name.dataset.short || state.model?.items[state.model.here]?.short || '';
+    if (over && short) name.textContent = short;
+    const height = top.offsetHeight + 'px';
+    if (inspector.style.getPropertyValue('--v32db-strip') !== height)
+      inspector.style.setProperty('--v32db-strip', height);
   }
   let sizes = null;
   function draw() {
