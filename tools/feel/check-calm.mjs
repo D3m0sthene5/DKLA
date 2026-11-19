@@ -237,7 +237,10 @@ report.push('Home lays nothing out at rest');
 
 /* ---------- 6 (with a case open). the rail; rest with a case open ---------- */
 await page.evaluate(() => (location.hash = 'node=citoh'));
-await page.locator('#inspector .reader-body.v31-case .v31-chart-steps').waitFor({ timeout: 30_000 });
+// (The flowchart steps are a facet of their own since v3.2: they are in the page, not on show.)
+await page
+  .locator('#inspector .reader-body.v31-case .v31-chart-steps')
+  .waitFor({ state: 'attached', timeout: 30_000 });
 await page.locator('#inspector button[data-cold-call] .cc-cold-vapor.cc-on').waitFor({ timeout: 10_000 });
 await settled(page, '#inspector');
 assert.equal(await idleLayouts(), 0, 'a case open: no layout in 2 s of doing nothing');
@@ -260,7 +263,8 @@ await page.evaluate(() => {
   const reader = document.getElementById('inspector'),
     nav = reader.querySelector('.v31-rail'),
     i = [...nav.querySelectorAll('[data-v31-place]')].findIndex((b) => b.textContent === '3 Facts'),
-    top = reader.getBoundingClientRect().top + reader.querySelector('.reader-top').offsetHeight;
+    // Under the top strip and the facet bar.
+    top = window.DKLAReading.readingTop();
   reader.scrollTop += nav.v31Targets[i].getBoundingClientRect().top - top - 120;
 });
 await page.waitForFunction(
@@ -275,7 +279,7 @@ const travel = await page.evaluate(
       const reader = document.getElementById('inspector'),
         start = reader.scrollTop,
         row = [...reader.querySelectorAll('.v31-rail [data-v31-place]')].find(
-          (b) => b.textContent === 'Study',
+          (b) => b.textContent === '6 Reasoning',
         );
       row.click();
       const marked = reader.querySelector('.v31-rail [aria-current="location"]').textContent;
@@ -300,7 +304,7 @@ const travel = await page.evaluate(
       requestAnimationFrame(frame);
     }),
 );
-assert.equal(travel.marked, 'Study', 'the clicked place is marked at once');
+assert.equal(travel.marked, '6 Reasoning', 'the clicked place is marked at once');
 assert.ok(
   travel.partway > travel.start,
   `the rail scroll is under way (${travel.start} → ${travel.partway})`,
@@ -313,11 +317,13 @@ assert.ok(
   Math.abs(travel.after - travel.partway) < 60,
   `a wheel during the rail scroll stops it (${travel.partway} → ${travel.after})`,
 );
-await page.locator('#inspector .v31-rail [data-v31-place]', { hasText: 'Study' }).click();
+await page.locator('#inspector .v31-rail [data-v31-place]', { hasText: '6 Reasoning' }).click();
 await page.waitForFunction(
   () => {
-    const reader = document.getElementById('inspector');
-    return reader.scrollTop >= reader.scrollHeight - reader.clientHeight - 2;
+    const nav = document.querySelector('#inspector .v31-rail'),
+      i = [...nav.querySelectorAll('[data-v31-place]')].findIndex((b) => b.textContent === '6 Reasoning'),
+      at = nav.v31Targets[i].getBoundingClientRect().top - window.DKLAReading.readingTop();
+    return at >= 0 && at <= 32;
   },
   null,
   { timeout: 1500 },
@@ -327,12 +333,12 @@ report.push('the rail marks the part being read and scrolls briefly');
 
 // A drawer: its contents are there at once (code may read them in the same breath), and they fade
 // and settle in; its height is not animated (that would lay the reader out on every frame).
+// (The record drawer at the end of the Sources facet.)
+await page.evaluate(() => window.DKLAReader.show('sources'));
 const drawer = await page.evaluate(
   () =>
     new Promise((done) => {
-      const details =
-        document.querySelector('#inspector details.v31-notes') ||
-        document.querySelector('#inspector details');
+      const details = document.querySelector('#inspector #entryAudit');
       const closed = details.innerText.length;
       details.open = true;
       const style = getComputedStyle(details, '::details-content');
@@ -400,9 +406,14 @@ async function press(selector, name, { scale = true } = {}) {
   assert.notDeepEqual({ scale: down.scale, filter: down.filter }, { scale: rest.scale, filter: rest.filter });
 }
 await press('#inspector button[data-cold-call]', 'the Cold Call button');
+await press('#inspector .v32-tabs [role="tab"]', 'a facet tab');
+await page.evaluate(() => window.DKLAReader.show('brief'));
 await press('#inspector .v31-rail [data-v31-place]', 'a rail row');
+await page.evaluate(() => window.DKLAReader.show('study'));
 await press('#inspector .r18-recall .r18-chip', 'a study chip');
-await press('#inspector .v31-route a.v31-route-step', 'a flowchart step link');
+await page.evaluate(() => window.DKLAReader.show('flowchart'));
+await press('#inspector .v32-path a.v31-route-step', 'a flowchart step link');
+await press('#inspector .v31-chart .v31-open', 'a quiet control');
 await press('#closeInspector', 'the reader close button');
 await press('#moreBtn', 'the menu button');
 await press('.study-header .ask-bar', 'the Ask Dottie button');
@@ -832,6 +843,20 @@ await calm.page.keyboard.press('Escape');
 await calm.page.evaluate(() => (location.hash = 'node=citoh'));
 await calm.page.waitForFunction(() => !document.getElementById('inspector').hidden);
 assert.deepEqual(await moving(calm.page, '#inspector'), []);
+// Reduced motion: a facet opens at once, with no fade.
+await calm.page.locator('#inspector .v32-tabs [data-v32-tab="doctrine"]').click();
+assert.deepEqual(
+  await calm.page.evaluate(() =>
+    document
+      .querySelector('#inspector .reader-body')
+      .getAnimations({ subtree: true })
+      .map((a) => a.animationName)
+      .filter((name) => /^v32-in/.test(name)),
+  ),
+  [],
+  'reduced motion: a facet simply opens',
+);
+await calm.page.locator('#inspector .v32-tabs [data-v32-tab="brief"]').click();
 await calm.page.locator('#inspector .v31-rail [data-v31-place]', { hasText: '5 Holding' }).waitFor();
 const y0 = await calm.page.evaluate(() => document.getElementById('inspector').scrollTop);
 await calm.page.locator('#inspector .v31-rail [data-v31-place]', { hasText: '5 Holding' }).click();

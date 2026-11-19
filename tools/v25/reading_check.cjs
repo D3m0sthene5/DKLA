@@ -16,6 +16,7 @@ class El {
       add: (...c) => c.forEach((x) => this.classes.add(x)),
       remove: (...c) => c.forEach((x) => this.classes.delete(x)),
       contains: (c) => this.classes.has(c),
+      toggle: (c, on) => (on ? this.classes.add(c) : this.classes.delete(c)),
     };
   }
   get textContent() {
@@ -74,9 +75,13 @@ class El {
   }
   addEventListener() {}
   insertBefore(c, anchor) {
+    if (!anchor) return this.appendChild(c);
     c.remove();
     this.children.splice(this.children.indexOf(anchor), 0, c);
     c.parentElement = this;
+  }
+  get firstElementChild() {
+    return this.children[0] || null;
   }
   remove() {
     if (this.parentElement) {
@@ -102,6 +107,7 @@ class El {
     }
     return true;
   }
+  // Compound selectors joined by a space (descendant) or '>' (child), optionally starting at ':scope >'.
   querySelectorAll(selector) {
     const out = [],
       all = [];
@@ -112,25 +118,30 @@ class El {
       });
     walk(this);
     for (const part of selector.split(',')) {
-      const direct = part.trim().startsWith(':scope >');
-      const sel = part
-        .trim()
-        .replace(/^:scope\s*>\s*/, '')
-        .split(/\s+/);
-      for (const e of direct ? this.children : all) {
-        if (!e.matchesSimple(sel.at(-1))) continue;
-        let p = e.parentElement,
-          ok = true;
-        for (let i = sel.length - 2; i >= 0; i--) {
-          while (p && p !== this && !p.matchesSimple(sel[i])) p = p.parentElement;
-          if (!p || p === this) {
-            ok = false;
-            break;
-          }
-          p = p.parentElement;
-        }
-        if (ok && !out.includes(e)) out.push(e);
+      let text = part.trim(),
+        child = false;
+      if (text.startsWith(':scope')) {
+        text = text.slice(6).trim();
+        child = text.startsWith('>');
       }
+      const steps = [];
+      let next = child ? '>' : ' ';
+      for (const piece of text.split(/\s+/).filter(Boolean)) {
+        if (piece === '>') next = '>';
+        else {
+          steps.push([piece, next]);
+          next = ' ';
+        }
+      }
+      const fits = (e, i) => {
+        if (!e || e === this || !e.matchesSimple(steps[i][0])) return false;
+        const how = steps[i][1];
+        if (i === 0) return how === '>' ? e.parentElement === this : true;
+        if (how === '>') return fits(e.parentElement, i - 1);
+        for (let p = e.parentElement; p && p !== this; p = p.parentElement) if (fits(p, i - 1)) return true;
+        return false;
+      };
+      for (const e of all) if (fits(e, steps.length - 1) && !out.includes(e)) out.push(e);
     }
     return out;
   }
@@ -154,6 +165,10 @@ class El {
   }
   scrollIntoView() {}
   focus() {}
+  // Nothing is laid out here: layout, the rail's mark and scrolling are checked in a real browser.
+  getClientRects() {
+    return [];
+  }
 }
 const el = (tag, cls, text, parent) => {
   const e = new El(tag, cls, text);
@@ -183,8 +198,21 @@ const chips = el('div', 'dkla-file-chips', '', body);
 const sourceButton = el('button', '', 'Assigned source', chips);
 sourceButton.dataset.dklaFile = 'source.pdf#page=12';
 const caseBox = el('div', 'case-box', '', body);
+const parties = el('section', '', '', caseBox);
+el('h3', '', 'Parties', parties);
+el('p', '', 'The parties remain here.', parties);
 const holding = el('section', '', '', caseBox);
+el('h3', '', 'Holding', holding);
 el('p', '', 'Full holding and reasoning remain here.', holding);
+el('h3', '', 'Notes', body);
+const caseNotes = el('div', 'note-text', 'Qualifications remain here.', body);
+const editingDrawer = el('details', 'quiet-details', '', body);
+el('summary', '', 'Your notes and editing', editingDrawer);
+const votes = el('section', 'sh-case-panel', 'The Court voted.', editingDrawer);
+const actions = el('div', 'reading-actions', 'Edit entry', editingDrawer);
+const record = el('details', 'quiet-details', '', body);
+el('summary', '', 'Record', record);
+el('dl', 'metadata-grid', 'Record ID', record);
 const brief = el('section', 'r19-brief', '', body);
 const full = el('details', 'r19-full', '', brief);
 el('div', 'r19-text', 'Canonical full brief remains here.', full);
@@ -208,6 +236,8 @@ const supportFull = el('details', 'r19-full', 'Full supporting brief', supportin
 const document = {
   getElementById: (id) => ({ inspector, r19Body: supporting })[id] || null,
   createElement: (tag) => el(tag),
+  // (The stand-in page has no text nodes: a run of text is an element that holds it.)
+  createTextNode: (text) => el('span', '', text),
   addEventListener() {},
 };
 const window = {};
@@ -229,20 +259,53 @@ assert.equal(body.querySelector('.v25-study-tools'), null);
 assert.equal(body.querySelector('.v25-term-details'), null);
 assert.equal(timeline.parentElement.className, 'v28-case-timelines');
 assert.equal(timeline.parentElement.parentElement, body);
-// v3.1: the summary, then the "Where this case sits" heading, then the timelines; the rail comes first.
-assert.equal(intro.nextElementSibling.dataset.v31H, 'where');
-assert.equal(intro.nextElementSibling.nextElementSibling, timeline.parentElement);
-assert.equal(body.children[0].className, 'v31-rail');
 assert.equal(secondTimeline.parentElement, timeline.parentElement);
 assert.deepEqual(timeline.parentElement.children, [timeline, secondTimeline]);
 assert.equal(track.children[0].textContent, 'Authored timeline step');
-assert.equal(caseBox.children[0], holding);
+assert.deepEqual(caseBox.children, [parties, holding]);
 assert.equal(full.parentElement, brief);
-assert.equal(caption.parentElement, body.querySelector('.v25-record-header'));
-assert.equal(cold.parentElement, body.querySelector('.v25-record-actions'));
+// v3.2: one order and one facet per block. The header (name, citation line, the line under its picture),
+// the facet bar with the Cold Call button's place, the rail, then every block marked with its facet.
+const names = (list) => list.map((x) => x.className.split(' ').pop());
+assert.deepEqual(names(body.children.slice(0, 4)), ['v32-head', 'v32-bar', 'v32-panel', 'v31-rail']);
+const head = body.children[0];
+assert.deepEqual(names(head.children), ['dkla-record-title', 'v32-meta', 'v32-tag']);
+assert.equal(caption.parentElement, head.querySelector('.v32-tag'));
+assert.equal(cold.parentElement, body.querySelector('.v32-cc'));
+assert.equal(body.querySelector('.v32-tabs').attributes.role, 'tablist');
+const facets = body.children.slice(4).map((x) => [x.className.split(' ')[0], x.dataset.v32Facet]);
+assert.deepEqual(facets, [
+  ['source-caution', 'brief'],
+  ['v32-brief-head', 'brief'],
+  ['takeaway', 'brief'],
+  ['case-box', 'brief'],
+  ['r19-brief', 'brief'],
+  ['dkla-terms', 'brief'],
+  ['v32-fh', 'doctrine'],
+  ['v28-case-timelines', 'doctrine'],
+  ['v32-fh', 'court'],
+  ['sh-case-panel', 'court'],
+  ['v32-fh', 'sources'],
+  ['v25-disclosure', 'sources'],
+  ['quiet-details', 'sources'],
+  ['v32-fh', 'study'],
+  ['r18-recall', 'study'],
+  ['v32-notes', 'study'],
+  ['reading-actions', 'study'],
+]);
+// Nothing is lost on the way: the notes are a section of Study, the editing drawer gave up its buttons
+// and the Court's vote, and the record drawer closes Sources.
+assert.equal(caseNotes.parentElement.className, 'v32-notes');
+assert.equal(editingDrawer.parentElement, null);
+assert.equal(votes.parentElement, body);
+assert.equal(actions.parentElement, body);
+assert.equal(record.parentElement, body);
+// The rail lists the rule and the parts of the brief.
+const railRows = body.querySelectorAll('.v31-rail button').map((b) => b.textContent);
+assert.deepEqual(railRows, ['The rule', '1 Parties', '2 Holding']);
 assert.equal(caution.parentElement, body);
 assert.equal(sourceButton.parentElement, chips);
-assert.deepEqual(body.children.slice(-3), [body.querySelector('.v25-source-details'), recall, terms]);
+assert.equal(chips.parentElement, body.querySelector('.v25-source-details'));
 assert.equal(termButton.parentElement, terms);
 assert.equal(supporting.querySelector('.r19-rule'), null);
 assert.equal(section.parentElement, supporting);
@@ -250,15 +313,21 @@ assert.equal(supportFull.parentElement, supporting);
 const stable = body.querySelectorAll('*').length;
 window.DKLAReading.paint();
 assert.equal(body.querySelectorAll('*').length, stable);
-// Noncase headings stay direct so the provision-placement observer does not fight the reading layer.
+// A rule or concept has the same header and facets; the provision's text is ordered by the reader (the
+// provision layer only draws it: src/features/r19/provisions.js).
 body.remove();
 body = el('div', 'reader-body', '', inspector);
 const ruleTitle = el('div', 'dkla-record-title', 'Rule 4', body);
 el('p', 'dkla-rule-label', 'At a glance', body);
-const concept = el('p', 'takeaway', 'The unique concept explanation.', body);
 const provision = el('section', 'r19-prov', 'Complete source provision.', body);
-window.DKLAReading.paint();
-assert.equal(ruleTitle.parentElement, body);
+const concept = el('p', 'takeaway', 'The unique concept explanation.', body);
+for (let i = 0; i < 3; i++) window.DKLAReading.paint();
+assert.equal(ruleTitle.parentElement, body.children[0]);
+assert.equal(body.children[0].className, 'v25-record-header v32-head');
+assert.equal(provision.parentElement, body);
+assert.equal(concept.nextElementSibling, provision);
+assert.equal(provision.dataset.v32Facet, 'brief');
+assert.equal(body.querySelector('.v31-rail'), null);
 assert.equal(concept.textContent, 'The unique concept explanation.');
 assert.equal(provision.textContent, 'Complete source provision.');
 assert.equal(body.querySelector('.dkla-rule-label'), null);
@@ -320,11 +389,12 @@ console.log(
   JSON.stringify({
     dedupe: 'exact opening paragraphs only; unique context and source text preserved',
     intro: 'one unlabeled explanation',
-    timeline: 'visible, untouched',
+    timeline: 'part of Doctrine, untouched',
+    facets: 'brief, doctrine, court, sources, study in one order',
     caseAnalysis: 'preserved',
     supportingAnalysis: 'preserved',
     sourceAndStudyControls: 'preserved',
     repeatPaints: 21,
-    noncaseProvisionContract: 'preserved',
+    noncaseProvision: 'drawn once, ordered by the reader',
   }),
 );

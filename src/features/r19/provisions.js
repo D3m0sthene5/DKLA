@@ -19,19 +19,9 @@
     }
     const body = panel.querySelector('.reader-body');
     if (!body) return;
-    // under the title and the source chips, above the summary
-    const anchor =
-      body.querySelector(':scope > .dkla-file-chips') ||
-      body.querySelector(':scope > .civil-source-scope') ||
-      body.querySelector(':scope > .dkla-record-title');
-    const placed = (b) => (anchor ? b.previousElementSibling === anchor : b === body.firstElementChild);
-    if (old && old.dataset.id === id && old.parentNode === body) {
-      if (!placed(old)) {
-        if (anchor) anchor.after(old);
-        else body.prepend(old);
-      }
-      return;
-    }
+    // v3.2: where the block sits is decided in one place (src/features/v25/reading.js keeps every
+    // block of the reader in one order); this layer draws it once and leaves it where it is put.
+    if (old && old.dataset.id === id && old.parentNode === body) return;
     old?.remove();
     const size = p.lines.reduce((n, l) => n + l[1].length, 0);
     const box = document.createElement('section');
@@ -45,10 +35,9 @@
         ? `${esc(p.source)}, read ${esc(p.fetched)}.`
         : `${esc(p.source.replace(/, on file\)/, ')'))}.`;
     box.innerHTML = `<details${size < 2600 ? ' open' : ''}><summary>Text of the provision <small>${esc(p.cite)}</small></summary>
-      <div class="r19-prov-text">${p.lines.map((l) => `<p style="margin-left:${Math.min(l[0], 5) * 1.25}em">${esc(l[1])}</p>`).join('')}</div>
+      <div class="r19-prov-text">${p.lines.map((l) => `<p style="--v32-indent:${Math.min(l[0], 5)}">${esc(l[1])}</p>`).join('')}</div>
       <p class="r19-prov-src">${note} ${open}</p></details>`;
-    if (anchor) anchor.after(box);
-    else body.prepend(box);
+    body.appendChild(box);
   }
   // The icon caption is written once per render by an earlier layer; keep it matched to the open entry.
   function caption() {

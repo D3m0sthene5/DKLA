@@ -220,8 +220,9 @@ const requests = (page) => page.evaluate(() => window.DKLAData.test.requests.sli
   });
   await check("an entry's source link opens its PDF", async () => {
     await page.evaluate(() => (location.hash = 'node=cp-pennoyer'));
-    // A source button in the reader, routed to the original PDF (dklaR17PdfSources.js).
-    const link = page.locator('#inspector [data-dkla-file*=".pdf"]:visible').first();
+    // A source row in the reader's Sources facet, routed to the original PDF (dklaR17PdfSources.js).
+    await page.locator('#inspector .v32-tabs [data-v32-tab="sources"]').click();
+    const link = page.locator('#inspector .v32-sources [data-dkla-file*=".pdf"]:visible').first();
     await link.waitFor();
     await link.click();
     await page.locator('#fileDialog[open] [data-pdf-rendered]').waitFor({ timeout: 45_000 });

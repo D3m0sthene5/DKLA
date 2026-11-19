@@ -348,14 +348,70 @@ const breakages = [
     () => edit('src/features/ask/ask.js', 'openers[source.type]?.(source.id);', 'void source;'),
   ],
   [
-    'v3.1 case page: the old rule pulls the timelines back under the summary and the order never settles',
+    'v3.2 reader: every facet is on the page at once (the one long scroll is back)',
+    'src/features/v32/case.css',
+    () =>
+      edit(
+        'src/features/v32/case.css',
+        "#inspector .v32[data-v32-show='study'] > [data-v32-facet]:not([data-v32-facet='study']) {\n  display: none !important;",
+        "#inspector .v32[data-v32-show='study'] > [data-v32-facet]:not([data-v32-facet='study']) {\n  display: block;",
+      ),
+  ],
+  [
+    'v3.2 reader: the facet bar shows no counts',
+    'src/features/v32/case.js',
+    () => edit('src/features/v32/case.js', "count: n === 0 ? '' : String(n),", "count: '',"),
+  ],
+  [
+    'v3.2 reader: the facet bar scrolls away with the header',
+    'src/features/v32/case.css',
+    () =>
+      edit(
+        'src/features/v32/case.css',
+        '#inspector .v32 > .v32-bar {\n  position: sticky;',
+        '#inspector .v32 > .v32-bar {\n  position: static;',
+      ),
+  ],
+  [
+    'v3.2 reader: a facet that arrives late is not announced (no dkla:facet event)',
+    'src/features/v32/case.js',
+    () => edit('src/features/v32/case.js', 'if (opened || signature !== state.signature) {', 'if (opened) {'),
+  ],
+  [
+    'v3.2 reader: a block that arrives late gets no tab (the tabs are drawn once)',
+    'src/features/v32/case.js',
+    () =>
+      edit(
+        'src/features/v32/case.js',
+        'if (tabs.dataset.v32Tabs !== signature) {',
+        'if (!tabs.dataset.v32Tabs) {',
+      ),
+  ],
+  [
+    "v3.2 reader: the year is drawn in a case's name again (it belongs to the citation line)",
     'src/features/v25/reading.js',
     () =>
       edit(
         'src/features/v25/reading.js',
-        '    // caseOrder() places the timelines under "Where this case sits".\n',
-        "    if (group && body.querySelector(':scope > .takeaway')?.nextElementSibling !== group) body.querySelector(':scope > .takeaway')?.after(group);\n",
+        'if (year) out.push(hidden(year));',
+        "if (year) out.push(element('span', '', year));",
       ),
+  ],
+  [
+    'v3.2 reader: the sheet no longer says where the case sits (no column beside the brief)',
+    'src/features/v32/case.js',
+    () =>
+      edit(
+        'src/features/v32/case.js',
+        '? [sitTimeline(host), sitChart(host), sitLinks(host)].filter(Boolean)',
+        '? []',
+      ),
+  ],
+  [
+    'v3.2 reader: a canon is a bare name again (what it does is not said)',
+    'src/features/canons/canons.js',
+    () =>
+      edit('src/features/canons/canons.js', '<div class="v32-entry-does">${esc(entry.definition)}</div>', ''),
   ],
   [
     'Calm: the splash line pulses its size, so the page is laid out on every frame',
@@ -978,9 +1034,14 @@ const breakages = [
       edit('lib/ask/web.js', " && by !== 'headword' && !except.includes(id));", " && by !== 'headword');"),
   ],
   [
-    'case timelines: pushed below the detailed account',
+    'case timelines: no longer part of Doctrine (they trail the brief)',
     'src/features/v25/reading.js',
-    () => edit('src/features/v25/reading.js', 'summary.after(group);', 'void group;'),
+    () =>
+      edit(
+        'src/features/v25/reading.js',
+        "['v28-case-timelines', 'doctrine', 0],",
+        "['v28-case-timelines', 'brief', 7],",
+      ),
   ],
   [
     'brief navigation: queued close erases a newly opened case',

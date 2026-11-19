@@ -1432,7 +1432,7 @@
     }
     const L = labels(),
       r = ratingOf(n.id);
-    const html = `<span>Recall</span>${[3, 2, 1].map((v) => `<button class="r18-chip r18-c${v}" data-r18-rate-node="${esc(n.id)}|${v}" aria-pressed="${r === v}">${L[3 - v]}</button>`).join('')}`;
+    const html = `<span class="v32-label">Recall</span><div class="v32-seg" role="group" aria-label="How well you know this entry">${[3, 2, 1].map((v) => `<button class="r18-chip r18-c${v}" data-r18-rate-node="${esc(n.id)}|${v}" aria-pressed="${r === v}">${L[3 - v]}</button>`).join('')}</div>`;
     if (old && old.dataset.id === n.id) {
       if (old.dataset.r !== String(r)) {
         old.innerHTML = html;

@@ -634,25 +634,28 @@
   margin: 6px 0 14px;
 }
 
-/* ===================== v3.1 timelines (tokens: src/features/v31/tokens.css) =====================
-   The case-page preview: every entry on one axis, the neighbours of this case with their notes,
-   and how each moved the rule. The five movement families draw with a shape, a word and a colour. */
+/* ===================== The Timeline facet of an entry (v3.2, docs/DESIGN.md) =====================
+   Every entry on one axis, then every entry as a row with its note and how it moved the rule. The open
+   entry is amber: "you are here". The five movement families draw with a shape, a word and a colour. */
 .v31-tl {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-.v31-tl .v31-tl-q {
-  margin: -6px 0 0;
-  font:
-    400 14px/21px var(--dkla-interface, Inter),
-    sans-serif;
+.v31-tl[hidden] {
+  display: none;
+}
+#inspector .v31-tl .v31-tl-q {
+  max-width: 640px;
+  margin: 0;
+  text-wrap: balance;
+  font: var(--v31-body-type);
   color: var(--v31-muted);
 }
 .v31-axis {
   position: relative;
-  height: 46px;
-  margin: 4px 8px 0;
+  height: 48px;
+  margin: 16px 8px 0;
 }
 .v31-axis::before {
   content: '';
@@ -680,11 +683,16 @@
 }
 .v31-dot > span {
   position: absolute;
-  top: 20px;
+  /* Every year sits on one baseline, clear of the ring round the open entry's mark. */
+  top: 26px;
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
-  font: var(--v31-label);
+  font:
+    500 13px/18px 'DKLA JetBrains Mono',
+    'JetBrains Mono',
+    ui-monospace,
+    monospace;
   font-variant-numeric: tabular-nums;
   color: var(--v31-muted);
 }
@@ -713,7 +721,7 @@
   --c: var(--v31-narrow);
 }
 .v31-dot.v31-fam-aside::before {
-  background: var(--v31-ground);
+  background: var(--v31-panel);
   border: 2px solid var(--v31-aside);
 }
 .v31-dot.v31-here {
@@ -730,106 +738,179 @@
   clip-path: none;
   background: var(--v31-here);
   box-shadow:
-    0 0 0 4px var(--v31-ground),
+    0 0 0 4px var(--v31-panel),
     0 0 0 6px var(--v31-here);
 }
 .v31-dot.v31-here > span {
   top: 32px;
-  font-weight: 700;
   color: var(--v31-here);
 }
 .v31-tl-rows {
-  margin: 4px 0 0;
+  margin: 8px -8px 0;
   padding: 0;
   list-style: none;
 }
-.v31-tl-rows > li {
-  border-top: 1px solid #1f2d39;
-}
-.v31-tl-rows > li:last-child {
-  border-bottom: 1px solid #1f2d39;
-}
-.v31-tl-rows > li[aria-current] {
-  border-color: transparent;
-}
-.v31-tl-rows > li[aria-current] + li {
-  border-top-color: transparent;
-}
+/* A row is text: the date, the entry's name (a link), its note, and how it moved the rule. */
 .v31-tl-step {
-  all: unset;
-  box-sizing: border-box;
   display: grid;
-  grid-template-columns: 58px minmax(0, 1fr) 132px;
-  gap: 14px;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 0 16px;
   align-items: baseline;
-  width: 100%;
-  padding: 12px 0;
-  cursor: pointer;
+  margin: 0;
+  padding: 12px 8px;
+  border-radius: 6px;
 }
-div.v31-tl-step {
-  cursor: default;
-  border-radius: 2px;
+.v31-tl-main,
+.v31-tl-step > .v31-tl-turn {
+  max-width: 560px;
+}
+/* How the entry moved the rule: under its note, in the text's column. */
+.v31-tl-step > .v31-tl-turn {
+  grid-column: 2;
+  margin-top: 8px;
+}
+/* You are here. */
+.v31-tl-step.v31-here {
   background: var(--v31-here-bg);
-  /* The tint reaches 14 px past the text on both sides without widening the list. */
-  box-shadow:
-    -14px 0 0 var(--v31-here-bg),
-    14px 0 0 var(--v31-here-bg);
-}
-button.v31-tl-step:hover strong {
-  color: var(--v31-link-hover);
-}
-button.v31-tl-step:focus-visible {
-  outline: 2px solid var(--v31-link);
 }
 .v31-tl-year {
   font:
-    600 14px/21px var(--dkla-interface, Inter),
-    sans-serif;
+    500 13px/24px 'DKLA JetBrains Mono',
+    'JetBrains Mono',
+    ui-monospace,
+    monospace;
   font-variant-numeric: tabular-nums;
   color: var(--v31-muted);
 }
 .v31-tl-year small {
   display: block;
-  font: var(--v31-label);
-  color: var(--v31-faint);
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
 }
-div.v31-tl-step .v31-tl-year,
-div.v31-tl-step .v31-tl-year small {
+.v31-tl-step.v31-here .v31-tl-year {
   color: var(--v31-here);
 }
 .v31-tl-main {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
   min-width: 0;
 }
-.v31-tl-main strong {
+.v31-tl-name {
   font:
-    600 15px/21px var(--dkla-interface, Inter),
+    600 16px/24px var(--dkla-interface, Inter),
     sans-serif;
-  color: var(--v31-link);
-}
-div.v31-tl-step .v31-tl-main strong {
+  text-wrap: balance;
   color: var(--v31-text);
 }
-.v31-tl-main strong small {
-  margin-left: 6px;
-  font:
-    600 12px/16px var(--dkla-interface, Inter),
-    sans-serif;
+.v31-tl-name strong {
+  font: inherit;
+}
+a.v31-tl-link {
+  color: var(--v31-link);
+  text-decoration: none;
+  cursor: pointer;
+}
+a.v31-tl-link:hover {
+  color: var(--v31-link-hover);
+}
+a.v31-tl-link:focus-visible {
+  border-radius: 2px;
+  box-shadow: var(--v31-focus);
+  outline: 0;
+}
+.v31-here-label {
+  font: var(--v32-ui-small);
   color: var(--v31-here);
 }
 .v31-tl-note {
+  margin-top: 4px;
   font:
-    400 14px/21px var(--dkla-interface, Inter),
+    400 14px/20px var(--dkla-interface, Inter),
     sans-serif;
+  text-wrap: pretty;
   color: var(--v31-muted);
 }
-div.v31-tl-step .v31-tl-note {
-  color: #d9cbb4;
+.v31-tl-step.v31-here .v31-tl-note {
+  color: var(--v31-text);
 }
-/* Movement families: shape + word + colour (preview turn labels and the full view's) */
-.v31-tl-turn,
+/* Movement families in the facet: a drawn shape, the word, the colour. */
+.v31-tl-turn {
+  position: relative;
+  padding-left: 16px;
+  text-wrap: balance;
+  font: var(--v32-ui-small);
+  color: var(--v31-steady);
+}
+.v31-tl-turn:empty {
+  visibility: hidden;
+}
+.v31-tl-turn::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: currentColor;
+}
+.v31-tl-turn.v31-fam-base {
+  color: var(--v31-base);
+}
+.v31-tl-turn.v31-fam-base::before {
+  border-radius: 0;
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+.v31-tl-turn.v31-fam-wide {
+  color: var(--v31-wide);
+}
+.v31-tl-turn.v31-fam-wide::before {
+  border-radius: 0;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+.v31-tl-turn.v31-fam-narrow,
+.v31-tl-turn.v31-fam-over {
+  color: var(--v31-narrow);
+}
+.v31-tl-turn.v31-fam-narrow::before {
+  border-radius: 0;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+.v31-tl-turn.v31-fam-over::before {
+  border-radius: 0;
+  clip-path: polygon(
+    20% 0,
+    50% 30%,
+    80% 0,
+    100% 20%,
+    70% 50%,
+    100% 80%,
+    80% 100%,
+    50% 70%,
+    20% 100%,
+    0 80%,
+    30% 50%,
+    0 20%
+  );
+}
+.v31-tl-turn.v31-fam-aside {
+  color: var(--v31-aside);
+}
+.v31-tl-turn.v31-fam-aside::before {
+  border-radius: 0;
+  clip-path: polygon(
+    evenodd,
+    50% 0,
+    100% 50%,
+    50% 100%,
+    0 50%,
+    50% 0,
+    50% 25%,
+    25% 50%,
+    50% 75%,
+    75% 50%,
+    50% 25%
+  );
+}
+/* Movement families in the full timeline view (its own pass comes later). */
 #r21Timelines .r21-turn[class*='v31-fam-'] {
   font:
     600 12px/18px var(--dkla-interface, Inter),
@@ -840,52 +921,38 @@ div.v31-tl-step .v31-tl-note {
   border: 0;
   padding: 0;
 }
-.v31-tl-turn::before,
 #r21Timelines .r21-turn[class*='v31-fam-']::before {
   content: '+ ';
 }
-.v31-tl-turn.v31-fam-base,
 #r21Timelines .r21-turn.v31-fam-base {
   color: var(--v31-base);
 }
-.v31-tl-turn.v31-fam-base::before,
 #r21Timelines .r21-turn.v31-fam-base::before {
   content: '◆ ';
 }
-.v31-tl-turn.v31-fam-wide,
 #r21Timelines .r21-turn.v31-fam-wide {
   color: var(--v31-wide);
 }
-.v31-tl-turn.v31-fam-wide::before,
 #r21Timelines .r21-turn.v31-fam-wide::before {
   content: '▲ ';
 }
-.v31-tl-turn.v31-fam-narrow,
 #r21Timelines .r21-turn.v31-fam-narrow {
   color: var(--v31-narrow);
 }
-.v31-tl-turn.v31-fam-narrow::before,
 #r21Timelines .r21-turn.v31-fam-narrow::before {
   content: '▼ ';
 }
-.v31-tl-turn.v31-fam-over,
 #r21Timelines .r21-turn.v31-fam-over {
   color: var(--v31-narrow);
 }
-.v31-tl-turn.v31-fam-over::before,
 #r21Timelines .r21-turn.v31-fam-over::before {
   content: '✕ ';
 }
-.v31-tl-turn.v31-fam-aside,
 #r21Timelines .r21-turn.v31-fam-aside {
   color: var(--v31-aside);
 }
-.v31-tl-turn.v31-fam-aside::before,
 #r21Timelines .r21-turn.v31-fam-aside::before {
   content: '◇ ';
-}
-div.v31-tl-step .v31-tl-turn {
-  color: #e9dcc6;
 }
 
 /* The full timeline view: one rail, a fixed year column, the open entry marked. */

@@ -99,12 +99,21 @@ try {
       location.hash = 'node=hamer';
     });
     const preview = page.locator('#inspector .dkla-timeline[data-r21="consideration"]');
+    // v3.2: the timeline is part of the case page's Doctrine tab (the sheet's side column says where the
+    // case sits on it, with the count); opening the tab shows an
+    // axis of every entry, then the entries as rows (all of them when they fit, else this entry and its
+    // neighbours, with the count on the way to the full timeline).
+    const entries = Number(await preview.getAttribute('data-v32-count'));
+    await expect(page.locator('#inspector .v32-sits .v32-sit-kind').first()).toHaveText(
+      new RegExp('^Timeline\\s*\\d+(st|nd|rd|th) of ' + entries + '$'),
+    );
+    await page.locator('#inspector .v32-tabs [data-v32-tab="doctrine"]').click();
     await preview.waitFor();
-    // v3.1 preview: an axis of every entry, then this entry and its neighbours.
+    await expect(preview.locator('.v31-axis .v31-dot')).toHaveCount(entries);
     await expect(preview.locator('.v31-axis .v31-dot.v31-here')).toHaveCount(1);
     const sequence = preview.locator('.v31-tl-rows');
     await expect(sequence.locator('.v31-tl-step').first()).toBeVisible();
-    await expect(sequence.locator('li')).toHaveCount(3);
+    await expect(sequence.locator('li')).toHaveCount(entries <= 12 ? entries : 7);
     await expect(sequence.locator('[aria-current="step"]')).toContainText('Hamer');
     assert.equal(await sequence.evaluate((e) => e.scrollWidth > e.clientWidth + 1), false);
     await preview.locator('[data-r21-open]').click();

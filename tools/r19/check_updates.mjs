@@ -411,7 +411,9 @@ try {
     route.fulfill({ response, body: asked.length === 1 ? body.replaceAll(PDFJS, '0.0.1') : body });
   });
   const viewer = await open(seventh, pageUrl + '#node=cp-walker');
-  await viewer.getByRole('button', { name: 'Original source', exact: true }).click();
+  // The original source is the first row of the reader's Sources facet (src/features/v32/case.js).
+  await viewer.locator('#inspector .v32-tabs [data-v32-tab="sources"]').click();
+  await viewer.locator('#inspector .v32-sources [data-v32-original]').click();
   await viewer.locator('#fileDialog [data-pdf-rendered]').waitFor({ timeout: 60000 });
   assert.equal(await viewer.locator('#fileDialog canvas').count(), 1);
   assert.deepEqual(asked, ['?v=' + real.build, '?v=' + real.build + '.1']);

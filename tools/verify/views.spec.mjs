@@ -139,21 +139,26 @@ for (const size of sizes)
       () => go('node=cp-pennoyer'),
       async () => {
         await expect(inspector).toContainText('Pennoyer');
-        // The reading layout (src/features/v25/reading.js) rebuilt the case header.
+        // The reader (src/features/v25/reading.js, src/features/v32/case.js) built the header, the facet
+        // bar with the Cold Call button, and the Brief facet's Short | Full switch.
         await expect(inspector.locator('.reader-body.v25-case-reader > .v25-record-header')).toBeVisible();
-        await expect(inspector.locator('.v25-record-actions [data-cold-call="cp-pennoyer"]')).toBeVisible();
-        await expect(inspector.locator('.v25-record-actions [data-v25-full-brief]')).toBeVisible();
+        await expect(inspector.locator('.v32-bar .v32-cc [data-cold-call="cp-pennoyer"]')).toBeVisible();
+        await expect(inspector.locator('.v32-tabs [role="tab"][aria-selected="true"]')).toHaveText('Brief');
+        await expect(inspector.locator('.v32-brief-head [data-v32-mode="full"]')).toBeVisible();
       },
     );
     await view(
       'full-brief',
       async () => {
         await go('node=cp-pennoyer');
-        await inspector.locator('[data-v25-full-brief]').click();
+        await inspector.locator('.v32-brief-head [data-v32-mode="full"]').click();
       },
       async () => {
         const full = inspector.locator('.r19-brief .r19-full:not(.r19-auditbox)').first();
-        await expect(full).toHaveAttribute('open', '');
+        await expect(inspector.locator('.v32-brief-head [data-v32-mode="full"]')).toHaveAttribute(
+          'aria-pressed',
+          'true',
+        );
         await expect(full).toBeInViewport();
         await expect
           .poll(async () => (await full.innerText()).length, { message: 'the full brief has its text' })

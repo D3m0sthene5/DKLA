@@ -257,9 +257,9 @@
     const entry = (r) => {
       const n = nodesById.get(r.id);
       if (!n) return '';
-      return `<article class="indexed-case ${r.basis === 'User classification' ? 'dkla-classification' : ''}" data-indexed-case="${E(r.id)}"><button data-study-node="${E(r.id)}"><strong>${E(n.title)}</strong><span>${E(caseCoverage(n))}</span></button><span class="dkla-index-kind">${E(r.basis || 'Recorded relationship')}${r.via ? ' · Through ' + E(nodesById.get(r.via)?.title || r.via) : ''}</span><p>${E(r6StudySentence(r.reason || ''))}</p>${r.edgeId ? `<button class="text-button index-evidence" data-study-edge="${E(r.edgeId)}">Explanation and sources →</button>` : r.sources?.length ? `<div class="dkla-source-evidence">${sourceHTML(r.sources)}</div>` : `<div class="dkla-source-evidence">${briefSourceStrip(recordView(n))}</div>`}</article>`;
+      return `<article class="indexed-case ${r.basis === 'User classification' ? 'dkla-classification' : ''}" data-indexed-case="${E(r.id)}"><div class="v32-entry-name"><a role="link" tabindex="0" data-study-node="${E(r.id)}">${E(n.title).replace(/ v\. /g, ' v.&nbsp;')}</a></div><span class="dkla-index-kind">${E(r.basis || 'Recorded relationship')}${r.via ? ' · Through ' + E(nodesById.get(r.via)?.title || r.via) : ''}</span><p>${E(r6StudySentence(r.reason || ''))}</p>${r.edgeId ? `<button class="text-button index-evidence" data-study-edge="${E(r.edgeId)}">Explanation and sources</button>` : r.sources?.length ? `<div class="dkla-source-evidence">${sourceHTML(r.sources)}</div>` : `<div class="dkla-source-evidence">${briefSourceStrip(recordView(n))}</div>`}</article>`;
     };
-    let out = `<section class="course-case-index" id="courseCaseIndex"><h3>${E(heading)} <span class="case-count">${rows.length}</span></h3><div class="dkla-index-scope"><p>Every case in the course linked to this question.</p></div>`;
+    let out = `<section class="course-case-index" id="courseCaseIndex"><h3 class="v32-label">${E(heading)} <span class="case-count v32-count">${rows.length}</span></h3><div class="dkla-index-scope"><p>Every case in the course linked to this question.</p></div>`;
     if (!rows.length) out += '<p class="context-text">No case is linked to this question yet.</p>';
     for (const [key, rs] of groups) {
       const title =
@@ -268,7 +268,7 @@
           : key === 'classification'
             ? 'Filed here by you'
             : nodesById.get(key)?.title || key;
-      out += `<details class="case-group" ${key === 'direct' ? 'open' : ''}><summary>${E(title)} (${rs.length})</summary>${key === 'classification' ? '<p class="context-text">You filed this case here.</p>' : ''}${rs.map(entry).join('')}</details>`;
+      out += `<details class="case-group" ${key === 'direct' ? 'open' : ''}><summary>${E(title)} <span class="v32-count">${rs.length}</span></summary>${key === 'classification' ? '<p class="context-text">You filed this case here.</p>' : ''}${rs.map(entry).join('')}</details>`;
     }
     if (nodesById.get(root)?.civilImport)
       out +=
@@ -281,14 +281,16 @@
       n = nodesById.get(otherId);
     if (!n) return '';
     const place = geoPlacement(otherId);
-    return `<article class="study-connection simple-connection" data-connection-record="${E(e.id)}"><button class="connection-destination" data-study-node="${E(otherId)}">${E(n.title)}</button><div class="dkla-location">${E(geoDistrict(place.district)?.title || 'Study notes')} · ${E((n.courses || []).join(', '))}</div><p>${E(r6StudySentence(e.explanation || e.label))}</p><button class="text-button" data-study-edge="${E(e.id)}">${e.status === 'Disputed' ? 'Disputed relationship · read the qualification' : e.status === 'Reviewed' ? 'Reviewed ✓ · explanation and sources' : 'Explanation and sources'}</button></article>`;
+    return `<article class="study-connection simple-connection" data-connection-record="${E(e.id)}"><div class="v32-entry-name"><a class="connection-destination" role="link" tabindex="0" data-study-node="${E(otherId)}">${E(n.title).replace(/ v\. /g, ' v.&nbsp;')}</a></div><div class="dkla-location">${E(geoDistrict(place.district)?.title || 'Study notes')} · ${E((n.courses || []).join(', '))}</div><p>${E(r6StudySentence(e.explanation || e.label))}</p><button class="text-button" data-study-edge="${E(e.id)}">${e.status === 'Disputed' ? 'Disputed relationship · read the qualification' : e.status === 'Reviewed' ? '<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg>Reviewed · explanation and sources' : 'Explanation and sources'}</button></article>`;
   };
   connectionsSection = function (n) {
     const all = orderedEdges(n.id).filter((e) => !navigationEdge(e)),
       top = focusEdges(n.id, 4),
       used = new Set(top.map((e) => e.id)),
       rest = all.filter((e) => !used.has(e.id));
-    return `<section class="r6-connections"><div class="related-heading"><h3>Connections <span class="case-count">${all.length}</span></h3><button id="showNeighborhood">Show all</button></div>${top.map((e) => connectionCard(e, n.id)).join('')}${rest.length ? `<details id="remainingConnections" class="quiet-details" ${S.connectionsExpanded ? 'open' : ''}><summary>More connections (${rest.length})</summary>${rest.map((e) => connectionCard(e, n.id)).join('')}</details>` : ''}</section>`;
+    // v3.2: the Connections facet lists every relationship (the map still draws four at a time, and
+    // "Show all on the map" draws the rest); the "More connections" drawer is gone.
+    return `<section class="r6-connections"><div class="related-heading"><h3 class="v32-label">Connections <span class="case-count v32-count">${all.length}</span></h3><button id="showNeighborhood" title="Draw every connection of this entry on the map">Show all on the map</button></div>${[...top, ...rest].map((e) => connectionCard(e, n.id)).join('')}</section>`;
   };
   r6RenderLens = function () {
     const show = r6LensOpen && S.panelOpen && selected?.type === 'node';

@@ -350,9 +350,9 @@
     button.type = 'button';
     button.className = 'cc-launch';
     button.dataset.coldCall = id;
-    button.textContent = 'Cold call';
+    button.textContent = 'Cold Call';
     button.setAttribute('aria-haspopup', 'dialog');
-    button.title = 'Read the case as a chronological narrative';
+    button.title = 'The case told as a story, for when you are called on';
     const actions = panel.querySelector('.v25-record-actions');
     if (actions) actions.appendChild(button);
     else heading.after(button);
@@ -390,7 +390,7 @@
     button.type = 'button';
     button.dataset.coldCall = id;
     button.setAttribute('aria-haspopup', 'dialog');
-    button.textContent = 'Cold call';
+    button.textContent = 'Cold Call';
     // First in its row, where entryHTML puts it (v25/reading.js moves that row's buttons into the actions).
     (body.querySelector('.v25-support-actions') || body.querySelector('.r19-line'))?.prepend(button);
   }
