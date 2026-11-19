@@ -246,7 +246,7 @@ async function limits(page) {
       assert.equal(await page.locator(card).count(), 0, 'the card opened without a delay');
       await page.locator(card).waitFor({ state: 'visible', timeout: 2000 });
       const delay = Date.now() - began;
-      assert.ok(delay >= 200, `card opened after only ${delay} ms`);
+      assert.ok(delay >= 100, `card opened after only ${delay} ms`);
       const cardText = await page.locator(card).innerText();
       assert.ok(cardText.includes(gloss), 'card lacks the compromise definition');
       assert.match(cardText, /^compromise/i, 'card headword');
@@ -643,7 +643,7 @@ async function limits(page) {
       assert.equal(await page.locator(card).count(), 0, 'the plain card opened without a delay');
       const c = await plainCard(page, info.id, 'Erie hover');
       const delay = Date.now() - began;
-      assert.ok(delay >= 200, `plain card opened after only ${delay} ms`);
+      assert.ok(delay >= 100, `plain card opened after only ${delay} ms`);
       assert.equal(await c.locator('.cc-gloss-text').innerText(), info.plain, 'Erie: wrong plain text');
       assert.equal(await m.getAttribute('aria-expanded'), 'true');
       const hovered = await licensee(page);

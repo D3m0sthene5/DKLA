@@ -2666,7 +2666,9 @@ function searchEntries() {
 $('search').oninput = () => {
   clearTimeout(searchTimer);
   if (!$('search').value.trim() && window.DKLAAsk) window.DKLAAsk.showInSearch();
-  else searchTimer = setTimeout(searchEntries, 75);
+  // v3.2: one frame, not 75 ms. A search takes about a hundredth of a second, so the results can follow the
+  // keystroke at the next frame; keystrokes that arrive inside the same frame still fold into one search.
+  else searchTimer = setTimeout(searchEntries, 16);
 };
 $('search').onfocus = () => {
   if ($('search').value.trim()) searchEntries();

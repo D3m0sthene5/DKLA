@@ -204,6 +204,16 @@ export const tasks = [
     node('tools/search/check-browser.mjs', '{page}'),
     SERVER,
   ),
+  // v3.2: the work moved off the critical path still does its job: the search index is built once, in slices,
+  // and finds what an index built in one go finds; moving the map writes nothing and an edit is saved, also
+  // right before leaving; Cold Call and the dictionary filter answer at once with the same content; data
+  // blocks parsed in the loader's worker equal JSON.parse.
+  step(
+    'browser',
+    'no freezes: index built once, view changes write nothing, edits saved',
+    node('tools/feel/check-work.mjs', '{page}'),
+    SERVER,
+  ),
   // The offline worker and the update notice in a real browser: quiet when current, Refresh, old copies.
   step(
     'browser',

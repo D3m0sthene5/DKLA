@@ -25,6 +25,7 @@
   // A surface form as a pattern: any run of spaces matches any whitespace, and ' matches ’.
   const formPattern = (form) => escapeRe(form).replace(/ +/g, '\\s+').replace(/['’]/g, "['’]");
   const RUN = new RegExp(`^[${WORD}]+`, 'u');
+  const WORD_CHAR = new RegExp(`^[${WORD}]$`, 'u');
   const firstRun = (s) => (s.match(RUN)?.[0] || '').toLowerCase();
   const ABBREVIATIONS = new Set(
     (
@@ -59,7 +60,16 @@
     if (start < text.length) spans.push([start, text.length]);
     return spans;
   }
+  // The table is compiled in steps (each yield is a place to pause), so the page can do it in the background
+  // a few milliseconds at a time; compile() runs the same steps in one go.
   function compile(table) {
+    const steps = compiling(table);
+    for (;;) {
+      const step = steps.next();
+      if (step.done) return step.value;
+    }
+  }
+  function* compiling(table) {
     if (!table || table.version !== 1 || !Array.isArray(table.terms)) throw Error('Unknown glossary table');
     const density = Object.assign({ perSection: 1, maxPerParagraph: 3 }, table.density);
     if (density.perSection !== 1) throw Error('Only perSection: 1 is supported');
@@ -109,22 +119,42 @@
           head: form.split(/[ '’]/)[0],
           // the whole form, when it has no apostrophe: compared directly where the paragraph has plain spacing
           whole: /['’]/.test(form) ? null : form,
+          // v3.2: a form of plain ASCII letters, digits, spaces and hyphens needs no pattern of its own where
+          // the paragraph has plain spacing: the lowercase comparison already decides the letters, and one
+          // shared test decides the character after it. Building a Unicode pattern per form (12,000 of them,
+          // each on first use) was most of the wait when an account was opened.
+          simple: /^[a-z0-9 -]+$/.test(form),
           run: firstRun(form),
           re: null, // built on first use, as for except phrases
           pattern: `${formPattern(form)}(?![${WORD}])`,
         });
       }
       terms.set(term.key, term);
+      if (terms.size % 40 === 0) yield;
     }
-    forms.sort((a, b) => b.form.length - a.form.length || (a.form < b.form ? -1 : 1));
+    yield;
+    // Longest form first, then alphabetically (no two forms are equal). Sorted one length at a time, so the
+    // work can pause between lengths: the same order as one sort of the whole list.
+    const byLength = new Map();
+    for (const f of forms) {
+      if (!byLength.has(f.form.length)) byLength.set(f.form.length, []);
+      byLength.get(f.form.length).push(f);
+    }
+    forms.length = 0;
+    for (const length of [...byLength.keys()].sort((a, b) => b - a)) {
+      for (const f of byLength.get(length).sort((a, b) => (a.form < b.form ? -1 : 1))) forms.push(f);
+      yield;
+    }
     // Forms grouped by their first run of word characters. The text is scanned word by word and only
     // the forms that start with that word are tried, so the cost grows with the text, not the table
     // (one alternation of every form took a quarter of a second per long account with 700 terms).
+    yield;
     const byRun = new Map();
     for (const f of forms) {
       if (!byRun.has(f.run)) byRun.set(f.run, []);
       byRun.get(f.run).push(f);
     }
+    yield;
     const words = forms.length ? new RegExp(`(?<![${WORD}])[${WORD}]+`, 'gu') : null;
     return { terms, forms, byRun, words, density, source: table.source || '' };
   }
@@ -183,11 +213,21 @@
       let chosen = null;
       for (const f of candidates) {
         if (lower && !lower.startsWith(plainSpacing && f.whole ? f.whole : f.head, s)) continue;
-        f.re ||= new RegExp(f.pattern, 'iuy');
-        f.re.lastIndex = s;
-        const hit = f.re.exec(text);
-        if (hit && fits(f.term, s, s + hit[0].length)) {
-          chosen = { term: f.term, end: s + hit[0].length };
+        let end;
+        if (plainSpacing && f.simple) {
+          // The comparison above matched the whole form; only the character after it is left to check.
+          end = s + f.form.length;
+          const after = text.codePointAt(end);
+          if (after !== undefined && WORD_CHAR.test(String.fromCodePoint(after))) continue;
+        } else {
+          f.re ||= new RegExp(f.pattern, 'iuy');
+          f.re.lastIndex = s;
+          const hit = f.re.exec(text);
+          if (!hit) continue;
+          end = s + hit[0].length;
+        }
+        if (fits(f.term, s, end)) {
+          chosen = { term: f.term, end };
           break;
         }
       }
@@ -256,6 +296,13 @@
       'u',
     );
   function compilePlain(table) {
+    const steps = compilingPlain(table);
+    for (;;) {
+      const step = steps.next();
+      if (step.done) return step.value;
+    }
+  }
+  function* compilingPlain(table) {
     if (!table || table.version !== 1 || !table.sentences || typeof table.sentences !== 'object')
       throw Error('Unknown plain-English table');
     const cases = new Map();
@@ -272,6 +319,7 @@
         byAt.get(raw.at).push(entry);
       });
       cases.set(caseId, byAt);
+      if (cases.size % 20 === 0) yield;
     }
     return { cases, source: table.source || '' };
   }
@@ -308,10 +356,81 @@
   // get() is the compiled table, or false when it is unavailable. A block in the page is read on the first
   // get(). A block split out of the hosted page is false until load() has brought it (the reader awaits
   // load() before drawing an account), and a get() before then is not remembered as a failure.
-  const embedded = (id, read, what) => {
+  // v3.2: warm() compiles the table ahead of its first use, in the background and a few milliseconds at a time
+  // (`steps` is the generator form of `read`). A get() that arrives while that is under way finishes it at once.
+  const SLICE = 6;
+  // An ordinary task each time: input and drawing come first, but it does not wait for an idle page (a slow
+  // machine's page is never idle, and the tables would not be ready when the reader is first opened).
+  const background = (fn) => {
+    if (root.scheduler?.postTask) root.scheduler.postTask(fn, { priority: 'user-visible' }).catch(() => {});
+    else setTimeout(fn, 0);
+  };
+  const stats = { slices: 0, longestSlice: 0, warmed: 0, finishedInOneGo: 0 };
+  const embedded = (id, read, what, steps) => {
     let value = null,
-      loading = null;
+      loading = null,
+      job = null, // the compilation in progress
+      waiting = []; // whoever waits for it to end
+    const ended = () => {
+      for (const resolve of waiting.splice(0)) resolve(value);
+    };
+    const finish = () => {
+      if (!job) return;
+      const steps = job;
+      job = null;
+      value = false;
+      try {
+        for (;;) {
+          const step = steps.next();
+          if (step.done) {
+            value = step.value;
+            break;
+          }
+        }
+      } catch (error) {
+        console.warn(what + ' are unavailable:', error);
+      }
+      stats.finishedInOneGo++;
+      ended();
+    };
+    const pump = () =>
+      background(() => {
+        if (!job) return;
+        const began = performance.now();
+        try {
+          for (;;) {
+            const step = job.next();
+            if (step.done) {
+              value = step.value;
+              job = null;
+              stats.warmed++;
+              break;
+            }
+            if (performance.now() - began >= SLICE) break;
+          }
+        } catch (error) {
+          console.warn(what + ' are unavailable:', error);
+          value = false;
+          job = null;
+        }
+        stats.slices++;
+        stats.longestSlice = Math.max(stats.longestSlice, Math.round((performance.now() - began) * 10) / 10);
+        if (job) pump();
+        else ended();
+      });
+    // Compile `data` in the background; resolves with the table (false when it cannot be compiled).
+    const begin = (data) => {
+      if (value !== null) return Promise.resolve(value);
+      if (!job) {
+        if (data == null || !steps || typeof performance !== 'object') return Promise.resolve(take(data));
+        job = steps(data);
+        pump();
+      }
+      return new Promise((resolve) => waiting.push(resolve));
+    };
     const take = (data) => {
+      if (job) finish();
+      if (value !== null) return value;
       value = false;
       try {
         if (data != null) value = read(data);
@@ -321,6 +440,7 @@
       return value;
     };
     const get = () => {
+      if (job) finish();
       if (value !== null) return value;
       if (DKLAData.isLazy(id)) return false;
       value = false;
@@ -332,19 +452,50 @@
       }
       return value;
     };
-    get.ready = () => value !== null || !DKLAData.isLazy(id);
+    get.ready = () => value !== null || !!job || !DKLAData.isLazy(id);
+    // Resolves when the table is compiled, without ever compiling it in one go (a get() does that if it
+    // arrives first).
     get.load = () => {
-      if (get.ready()) return Promise.resolve(get());
-      loading ||= DKLAData.json(id).then(take, (error) => {
+      if (value !== null) return Promise.resolve(value);
+      loading ||= DKLAData.json(id).then(begin, (error) => {
         loading = null;
         throw error;
       });
       return loading;
     };
+    // Compile ahead of use, when the table is in the page (or once it has arrived). Never fetches.
+    get.warm = () => {
+      if (value !== null || job || !steps || typeof document !== 'object' || DKLAData.isLazy(id)) return;
+      background(() => {
+        get.load().catch(() => {});
+      });
+    };
     return get;
   };
-  const compiled = embedded('dklaColdCallGlossary', compile, 'Cold Call definitions');
-  const plainTable = embedded('dklaColdCallPlain', compilePlain, 'Plain-English sentences');
+  const compiled = embedded('dklaColdCallGlossary', compile, 'Cold Call definitions', compiling);
+  const plainTable = embedded('dklaColdCallPlain', compilePlain, 'Plain-English sentences', compilingPlain);
+  // Both tables are compiled in the background once the atlas is shown, or when a table arrives after that.
+  if (typeof document === 'object' && document.documentElement?.classList && root.MutationObserver) {
+    const warm = () => {
+      compiled.warm();
+      plainTable.warm();
+    };
+    const html = document.documentElement;
+    if (html.classList.contains('dkla-boot-ready')) warm();
+    else {
+      const watch = new root.MutationObserver(() => {
+        if (!html.classList.contains('dkla-boot-ready')) return;
+        watch.disconnect();
+        warm();
+      });
+      watch.observe(html, { attributes: true, attributeFilter: ['class'] });
+    }
+    document.addEventListener('dkla:data', (event) => {
+      if (!html.classList.contains('dkla-boot-ready')) return;
+      if (event.detail?.id === 'dklaColdCallGlossary') compiled.warm();
+      if (event.detail?.id === 'dklaColdCallPlain') plainTable.warm();
+    });
+  }
   // The plain-English entries drawn in the open account, by marker id.
   let shown = new Map();
   /** One rendering of one account: section() per episode, then descriptions() once. A section draws a
@@ -421,7 +572,7 @@
     lastPointer = null,
     swallowCancel = false,
     restoring = false;
-  const SHOW_DELAY = 250,
+  const SHOW_DELAY = 120,
     HIDE_DELAY = 300;
   // What opens a card: a defined word (.cc-term) or a plain-English marker (.cc-plain).
   const termOf = (node) => {
@@ -692,6 +843,8 @@
     /** True right after Escape closed a card, so the reader does not also close. */
     tookEscape: () => swallowCancel || !!card,
     table: () => compiled() || null,
+    /** For the checks: how the background compilation went ({ slices, longestSlice, warmed }). */
+    warmStats: stats,
     /** True when both tables can be read now (in the page, or already brought by load()). */
     ready: () => compiled.ready() && plainTable.ready(),
     /** Brings both tables if they were split out of the page; resolves when begin() can use them. */

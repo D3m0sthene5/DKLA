@@ -54,6 +54,93 @@ const TYPOGRAPHY = 'src/features/v26/typography.js',
 
 const breakages = [
   [
+    'every change to an entry builds the whole search index again',
+    'src/runtime/dklaR13Search.js',
+    () =>
+      edit(
+        'src/runtime/dklaR13Search.js',
+        '      stale = true;\n      stats.ready = false;\n      pump();',
+        '      ms = null;\n      docs = new Map();\n      stale = true;\n      stats.ready = false;\n      pump();',
+      ),
+  ],
+  [
+    'a changed entry is never replaced in the search index',
+    'src/runtime/dklaR13Search.js',
+    () =>
+      edit(
+        'src/runtime/dklaR13Search.js',
+        'if (old && sameDocument(old, doc)) continue;',
+        'if (old) continue;',
+      ),
+  ],
+  [
+    'moving the map writes the whole graph again',
+    'src/runtime/civilCode.js',
+    () => edit('src/runtime/civilCode.js', 'r7Print() !== r7Saved) {', 'true) {'),
+  ],
+  [
+    'a write started as the tab goes is not committed, and leaving is not questioned',
+    'src/runtime/civilCode.js',
+    () => {
+      edit('src/runtime/civilCode.js', 'tx.commit?.();', 'void 0;');
+      edit(
+        'src/runtime/civilCode.js',
+        'return !!r7DB && cacheAvailable && data.revision !== r7ConfirmedRevision;',
+        'return false;',
+      );
+    },
+  ],
+  [
+    'the later episodes of a Cold Call account never get their definitions',
+    'src/features/cold-call/reader.js',
+    () =>
+      edit(
+        'src/features/cold-call/reader.js',
+        '      if (i < c.sections.length) {\n        soon(step);\n        return;\n      }',
+        '      if (i < c.sections.length) return;',
+      ),
+  ],
+  [
+    'a Cold Call definition links the start of a longer word',
+    'src/features/cold-call/glossary.js',
+    () =>
+      edit(
+        'src/features/cold-call/glossary.js',
+        'if (after !== undefined && WORD_CHAR.test(String.fromCodePoint(after))) continue;',
+        '',
+      ),
+  ],
+  [
+    'typing in the dictionary filter redraws the whole dialog and drops the box',
+    'src/runtime/dklaR12Glossary.js',
+    () =>
+      edit(
+        'src/runtime/dklaR12Glossary.js',
+        '      if (list) drawList(list);\n      else render();',
+        '      render();',
+      ),
+  ],
+  [
+    'a data block parsed in the worker loses items',
+    'src/features/performance/data-loader.js',
+    () =>
+      edit(
+        'src/features/performance/data-loader.js',
+        'for (const item of m.add) box.push(item);',
+        'box.push(m.add[0]);',
+      ),
+  ],
+  [
+    'search results wait 75 ms again',
+    'src/runtime/studyCode.js',
+    () =>
+      edit(
+        'src/runtime/studyCode.js',
+        'searchTimer = setTimeout(searchEntries, 16);',
+        'searchTimer = setTimeout(searchEntries, 75);',
+      ),
+  ],
+  [
     'A class without lecture slides opens nothing instead of saying so',
     'src/features/canons/lectures.js',
     () =>

@@ -79,7 +79,9 @@ let data,
   imported = null,
   cacheAvailable = true,
   exported = false;
-let base = JSON.parse($('seedData').textContent);
+// The saved-work bridge (src/features/v25/saved-work.js) runs just before this file and has already parsed the
+// seed; it hands that object over once. Without it (or a second time) the text is parsed here.
+let base = window.DKLASavedWork?.takeSeed?.() || JSON.parse($('seedData').textContent);
 function storageKey(d = data) {
   return 'legal-atlas-v1:' + d.graphId + ':dkla-r8-rebuilt';
 }
@@ -1627,7 +1629,9 @@ window.addEventListener('beforeunload', (e) => {
   // timer never fires once the page is gone.
   if (cacheAvailable && typeof r7FlushSave === 'function') r7FlushSave();
   else if (cacheAvailable) saveCache();
-  if (!cacheAvailable && !exported) {
+  // v3.2: also while an edit's write is under way and not yet confirmed (see r7EditUnconfirmed in civilCode.js).
+  const unconfirmed = typeof r7EditUnconfirmed === 'function' && r7EditUnconfirmed();
+  if ((!cacheAvailable && !exported) || unconfirmed) {
     e.preventDefault();
     e.returnValue = '';
   }
