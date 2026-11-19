@@ -848,15 +848,15 @@
 .fc-overview .fc-map-node.fc-outcome {
   background: color-mix(in srgb, var(--fc-course, var(--v31-link)) 42%, var(--v31-ground));
 }
-/* Arrangement b (flow=b), while the two are compared. The answers share one reading edge: each is set
+/* The answers share one reading edge: each is set
    from the left whichever side its wire leaves by, and under it a short cue names the step it leads
    to, so a destination can be read without following the wire and two answers that reach the same
    step are seen to. An answer that leads to an outcome nothing else reaches has that outcome beside
    it on its own line. */
-#dklaFlowcharts .fc-flow-b .fc-map-node .fc-exit-R {
+#dklaFlowcharts .fc-map-node .fc-exit-R {
   text-align: start;
 }
-#dklaFlowcharts .fc-flow-b .fc-map-node .fc-destination {
+#dklaFlowcharts .fc-map-node .fc-destination {
   position: static;
   width: auto;
   height: auto;
@@ -868,13 +868,13 @@
     sans-serif;
   color: var(--v31-muted);
 }
-#dklaFlowcharts .fc-flow-b .fc-map-node .fc-exit-I > .fc-destination {
+#dklaFlowcharts .fc-map-node .fc-exit-I > .fc-destination {
   display: none;
 }
-#dklaFlowcharts .fc-flow-b .fc-map-node li + li > .fc-exit {
+#dklaFlowcharts .fc-map-node li + li > .fc-exit {
   border-top: 1px solid var(--v32-hair, rgba(255, 255, 255, 0.08));
 }
-#dklaFlowcharts .fc-flow-b .fc-map-node .fc-exit {
+#dklaFlowcharts .fc-map-node .fc-exit {
   padding-top: 6px;
   padding-bottom: 6px;
 }
@@ -886,10 +886,8 @@
   padding-bottom: 6px;
 }
 #dklaFlowcharts .fc-art-row.fc-art-named {
-  display: grid;
-  grid-template-columns: 28px minmax(0, 1fr);
-  gap: 4px 8px;
-  align-items: center;
+  flex-flow: row wrap;
+  gap: 4px 20px;
 }
 #dklaFlowcharts .fc-art-name {
   font:
@@ -922,15 +920,33 @@
   background: none;
   color: var(--fc-course, var(--v31-link));
 }
-#dklaFlowcharts button.fc-art:hover,
-#dklaFlowcharts button.fc-art:focus-visible,
-#dklaFlowcharts .fc-art-shown > .fc-art,
-#dklaFlowcharts a.fc-art-linked:hover > .fc-art {
+/* A drawing is pressed through a plain control round it (and round its name, where the name is
+   printed beside it). */
+#dklaFlowcharts .fc-art-press {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+#dklaFlowcharts .fc-art-press:hover > .fc-art,
+#dklaFlowcharts .fc-art-press:focus-visible > .fc-art,
+#dklaFlowcharts .fc-art-shown > .fc-art-press > .fc-art {
   color: var(--v31-text);
 }
-/* A drawing, on any step: pointed at, focused or pressed it shows a card with its case's name, and the
-   card opens the case. The card hangs from the drawing with no gap, so the pointer can travel onto
-   it; the plate it belongs to comes forward so the card lies over the plates and wires below. */
+#dklaFlowcharts .fc-art-press:hover > .fc-art-name,
+#dklaFlowcharts .fc-art-shown > .fc-art-press > .fc-art-name {
+  color: var(--v31-text);
+}
+#dklaFlowcharts .fc-art-press:focus-visible {
+  outline: 2px solid var(--v31-link);
+  outline-offset: 2px;
+}
+/* The case card: the case's name, what this step's stored explanation says of it, and the way to
+   open it. It hangs from the drawing with no gap, so the pointer can travel onto it; the plate it
+   belongs to comes forward so the card lies over the plates and wires below. */
 .fc-art-item {
   position: relative;
   display: inline-flex;
@@ -939,21 +955,17 @@
   display: none;
   position: absolute;
   z-index: 3;
-  left: -8px;
+  left: -12px;
   top: 100%;
   width: max-content;
-  max-width: 264px;
-  padding: 8px 12px;
-  border: 0;
+  max-width: 320px;
+  padding: 10px 14px 12px;
   border-top: 6px solid transparent;
-  border-radius: 8px;
+  border-radius: 10px;
   background: var(--v31-raised, var(--v31-ground)) padding-box;
-  box-shadow: 0 6px 20px rgb(0 0 0 / 0.45);
-  font:
-    500 13px/18px var(--dkla-interface, Inter),
-    sans-serif;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.5);
   text-align: start;
-  text-decoration: none;
+  white-space: normal;
   color: var(--v31-text);
 }
 #dklaFlowcharts .fc-art-item:hover > .fc-art-card,
@@ -961,31 +973,47 @@
 #dklaFlowcharts .fc-art-shown > .fc-art-card {
   display: block;
 }
-.fc-art-title,
-.fc-art-open {
+#dklaFlowcharts .fc-art-card > * {
   display: block;
 }
-.fc-art-open {
-  margin-top: 2px;
-  font-weight: 400;
+.fc-art-role {
+  margin-bottom: 2px;
+  font: var(--v31-label);
+  color: var(--fc-course, var(--v31-link));
+}
+.fc-art-title {
+  font:
+    600 15px/20px var(--dkla-interface, Inter),
+    sans-serif;
+}
+.fc-art-said {
+  margin-top: 6px;
+  font:
+    400 14px/20px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-soft);
+}
+#dklaFlowcharts a.fc-art-open {
+  width: max-content;
+  margin-top: 8px;
+  padding: 4px 0;
+  font:
+    500 14px/20px var(--dkla-interface, Inter),
+    sans-serif;
+  text-decoration: none;
   color: var(--v31-link);
 }
-#dklaFlowcharts .fc-art-card:hover > .fc-art-open,
-#dklaFlowcharts .fc-art-card:focus-visible > .fc-art-open {
+#dklaFlowcharts a.fc-art-open:hover,
+#dklaFlowcharts a.fc-art-open:focus-visible {
   color: var(--v31-link-hover, #9fd0ff);
   text-decoration: underline;
 }
 .fc-map-node:has(.fc-art-item:hover, .fc-art-item:focus-within, .fc-art-shown) {
   z-index: 6;
 }
-#dklaFlowcharts a.fc-art-linked {
-  display: contents;
-  text-decoration: none;
-}
-#dklaFlowcharts a.fc-art-linked:hover > .fc-art-name,
-#dklaFlowcharts a.fc-art-linked:focus-visible > .fc-art-name {
-  color: var(--v31-text);
-  text-decoration: underline;
+/* Looked at from the fitted overview: ringed until something else is done. */
+.fc-map-node.fc-looked {
+  box-shadow: 0 0 0 2px var(--v31-link-hover, #9fd0ff);
 }
 /* The line of help says "point" only where there is something to point with. */
 @media (hover: hover) {
@@ -1058,6 +1086,12 @@
     400 12px/16px var(--dkla-mono, 'JetBrains Mono'),
     monospace;
   color: var(--v31-muted);
+}
+.fc-index-to > span {
+  display: block;
+}
+.fc-index-met {
+  color: var(--fc-course, var(--v31-link));
 }
 .fc-index > .fc-outcome .fc-index-q {
   color: var(--v31-soft);
