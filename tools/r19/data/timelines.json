@@ -167,7 +167,12 @@
           "object": "Singapore",
           "note": "Singapore declines to imply a general duty of good faith in law; a term is implied in fact only where necessary.",
           "authorityKind": "Court decision",
-          "effect": "Rejecting a general implied duty"
+          "effect": "Rejecting a general implied duty",
+          "apart": {
+            "name": "Singapore law",
+            "basis": "The Singapore Court of Appeal declined to imply the proposed general good-faith duty into an agency agreement, while distinguishing that issue from narrower terms implied from a particular bargain.",
+            "source": "Atlas entry for Ng Giap Hon v. Westcomb Securities (summary)"
+          }
         },
         {
           "id": "northwest-ginsberg",
@@ -812,7 +817,12 @@
           "object": "French law",
           "note": "France codifies good faith in negotiations: fault in negotiating yields damages, but never the benefits expected from the unmade contract.",
           "authorityKind": "Foreign statute",
-          "effect": "Regulating negotiations in France"
+          "effect": "Regulating negotiations in France",
+          "apart": {
+            "name": "French law",
+            "basis": "The French statute is a separate comparison.",
+            "source": "This timeline’s summary"
+          }
         }
       ],
       "guide": "Distinguish a final agreement with an open term from a promise to negotiate and from reliance on a negotiation promise. Sun Printing and Oglebay concern missing pricing terms; Channel Home concerns a negotiation commitment; Hoffman and Cyberchron concern reliance.",
@@ -1064,7 +1074,12 @@
           "note": "New York would not use outside evidence to create ambiguity in this complete, clear written agreement.",
           "authorityKind": "Court decision",
           "effect": "Enforcing a clear integrated writing",
-          "context": "This is a contrasting jurisdictional approach, not a later overruling of California’s interpretation cases."
+          "context": "This is a contrasting jurisdictional approach, not a later overruling of California’s interpretation cases.",
+          "apart": {
+            "name": "New York law",
+            "basis": "This is a contrasting jurisdictional approach, not a later overruling of California’s interpretation cases.",
+            "source": "This entry’s stored context"
+          }
         },
         {
           "id": "greenfield",
@@ -1083,7 +1098,13 @@
           "object": "The CISG",
           "note": "Under the CISG, which has no parol evidence rule, a merger clause binds only if both parties meant it to; negotiations count under Article 8.",
           "authorityKind": "Court decision",
-          "effect": "Considering negotiations under the CISG"
+          "effect": "Considering negotiations under the CISG",
+          "apart": {
+            "name": "CISG",
+            "concerns": "United Nations Convention on Contracts for the International Sale of Goods",
+            "basis": "The United States and Germany were parties to the United Nations Convention on Contracts for the International Sale of Goods, or CISG, and the businesses were located there.",
+            "source": "Atlas Cold Call account of TeeVee Toons, Inc. v. Gerhard Schubert GmbH"
+          }
         }
       ],
       "guide": "These are three different questions. Gianni and Masterson address omitted terms; Bollinger addresses correcting a mistaken writing; Pacific Gas and Trident address meaning. Compare the California approach with New York’s stricter treatment of clear writings.",
@@ -1708,7 +1729,12 @@
           "object": "Colorado",
           "note": "Colorado allows disgorgement for a conscious, substantial breach where damages are inadequate, less profits due to the breacher's own contribution.",
           "authorityKind": "Court decision",
-          "effect": "Considering disgorgement for substantial breach"
+          "effect": "Considering disgorgement for substantial breach",
+          "apart": {
+            "name": "Colorado law",
+            "basis": "Colorado allows disgorgement for a conscious, substantial breach where damages are inadequate, less profits due to the breacher's own contribution.",
+            "source": "This entry’s stored note"
+          }
         }
       ],
       "guide": "Expectation asks where performance would have left the claimant. Reliance asks about losses incurred in reliance. Restitution asks what benefit the other side received. Keep a breaching party’s restitution claim separate from an injured party’s; disgorgement adds another question.",
@@ -1817,7 +1843,12 @@
           "object": "Swiss law",
           "note": "The assigned translated Swiss decision permits judicial reduction of excessive contractual penalties. This comparative account does not establish the rule in an American jurisdiction.",
           "authorityKind": "Court decision",
-          "effect": "Reducing an excessive Swiss penalty"
+          "effect": "Reducing an excessive Swiss penalty",
+          "apart": {
+            "name": "Swiss law",
+            "basis": "The Swiss case instead concerns judicial reduction of an excessive penalty under that legal regime.",
+            "source": "This timeline’s summary"
+          }
         }
       ],
       "guide": "Ask whether the amount operates as reasonable compensation or punishment under the applicable law. Compare estimated delay loss in Gustafson, saved costs ignored in Lake River, and the challenged formula in Wasserman’s. Swiss penalty law supplies a separate comparison.",
@@ -2800,7 +2831,8 @@
           "fate": "Retired by Twombly (2007)",
           "authorityKind": "Court decision",
           "effect": "Historical no-set-of-facts formula",
-          "context": "Fair notice is enough: dismiss only if it appears beyond doubt that no set of facts could support relief."
+          "context": "Fair notice is enough: dismiss only if it appears beyond doubt that no set of facts could support relief.",
+          "ruleLabel": "Conley allowed dismissal only when no possible supporting facts could entitle the plaintiff to relief."
         },
         {
           "id": "cp-gillispie",
@@ -2812,7 +2844,12 @@
           "fate": "Superseded by North Carolina's Rules of Civil Procedure (effective 1970), which adopted notice pleading",
           "authorityKind": "Court decision",
           "effect": "North Carolina retains code pleading at this time",
-          "context": "Code pleading holds out: North Carolina still demands the ultimate facts, not labels such as 'assault' and 'trespass'."
+          "context": "Code pleading holds out: North Carolina still demands the ultimate facts, not labels such as 'assault' and 'trespass'.",
+          "apart": {
+            "name": "North Carolina code pleading",
+            "basis": "This is a state code-pleading decision. Its vocabulary should not be silently treated as the language or full test of Federal Rule 8.",
+            "source": "Atlas entry for Gillispie v. Goodyear Service Stores (notes)"
+          }
         },
         {
           "id": "cp-ingraham",
@@ -3560,7 +3597,12 @@
           "object": "Arkansas",
           "note": "A state court rejects the local-action rule so that a wrongdoer cannot escape every court for harm to land in another state.",
           "authorityKind": "Court decision",
-          "effect": "Arkansas rejects the local-action restriction"
+          "effect": "Arkansas rejects the local-action restriction",
+          "apart": {
+            "name": "Arkansas law",
+            "basis": "Later federal venue reforms discussed in the chapter should be kept distinct from this state-court decision.",
+            "source": "Atlas entry for Reasor-Hill Corp. v. Harrison (notes)"
+          }
         },
         {
           "id": "cp-bates",
@@ -4483,7 +4525,8 @@
           "note": "In 1935, the Court allowed Congress to protect FTC commissioners from removal except for cause, describing their work as quasi-legislative and quasi-judicial. The later Slaughter ruling changes this result.",
           "fate": "Overruled by Trump v. Slaughter (2026)",
           "authorityKind": "Court decision",
-          "effect": "Historically permits FTC removal protection"
+          "effect": "Upheld for-cause removal protection for FTC commissioners",
+          "effectOriginal": "Historically permits FTC removal protection"
         },
         {
           "id": "lrs-s-wiener",
@@ -4860,7 +4903,8 @@
             "source": "Atlas brief of Chevron U.S.A. Inc. v. Natural Resources Defense Council, Inc.",
             "brief": "LRS-ATLAS-I-CHEVRON"
           },
-          "effectOriginal": "Historically requires Chevron deference"
+          "effectOriginal": "Historically requires Chevron deference",
+          "ruleLabel": "Clear statutory text controlled; otherwise a permissible agency interpretation received deference."
         },
         {
           "id": "lrs-i-mead-note",
@@ -5217,7 +5261,12 @@
           "object": "Colorado",
           "note": "The Colorado court looked at the rules controlling officials, not simply a “no entitlement” label. Funded benefits could be protected when officials could not deny them to eligible recipients.",
           "authorityKind": "Court decision",
-          "effect": "Recognizes an entitlement despite a contrary label"
+          "effect": "Recognizes an entitlement despite a contrary label",
+          "apart": {
+            "name": "Colorado Court of Appeals",
+            "basis": "On July 5, 2001, the Colorado Court of Appeals affirmed a judgment for a class of Adams County welfare recipients challenging deficient sanction notices.",
+            "source": "Atlas brief of Weston v. Cassata"
+          }
         }
       ],
       "guide": "A valuable job or benefit is not automatically a protected entitlement. Look for law, contract terms, or established understandings that limit officials’ freedom to deny it. A protected liberty interest is a separate route. First identify the interest; only then decide what process is due. Loudermill separates the source of job protection from constitutional procedure.",
@@ -5950,7 +5999,8 @@
           "note": "The court treated the sightline guidance as interpretive but announced an extra procedure for substantially changing a definitive interpretation. Perez later rejected that extra procedure.",
           "fate": "Its rule on revising interpretations was abrogated by Perez (2015)",
           "authorityKind": "Court decision",
-          "effect": "Historically requires procedure for changed interpretations"
+          "effect": "D.C. Circuit said a changed definitive interpretation needs notice and comment",
+          "effectOriginal": "Historically requires procedure for changed interpretations"
         },
         {
           "sup": "LRS-CLOSURE-021",
@@ -8513,7 +8563,8 @@
           "note": "The D.C. Circuit distinguished a chamber’s own appropriations power from an ordinary objection that the Executive violated a statute. Its institutional-standing judgment was later vacated.",
           "authorityKind": "Court decision",
           "fate": "The 2020 judgment was later vacated; read the assigned account as historical institutional-standing analysis.",
-          "effect": "Historically recognizes one chamber’s spending injury"
+          "effect": "Recognized the House’s own appropriations injury",
+          "effectOriginal": "Historically recognizes one chamber’s spending injury"
         },
         {
           "sup": "LRS-CLOSURE-057",
@@ -8603,7 +8654,8 @@
           "turn": "applies",
           "note": "The court read the jury-service statute in its historical setting and declined to extend it to women when they later gained voting rights. This is a historical interpretation, not a statement of current jury eligibility.",
           "authorityKind": "Court decision",
-          "effect": "Historically excludes women from this jury statute"
+          "effect": "Massachusetts’s Supreme Judicial Court read the voter-based jury statute, G.L. c. 234, § 1, to cover only men",
+          "effectOriginal": "Historically excludes women from this jury statute"
         },
         {
           "id": "lrs-k-public-citizen",

@@ -664,27 +664,29 @@ html:root body #inspector .v32db-rail-title > b {
     sans-serif;
   color: var(--v31-text);
 }
-/* What the line concerns is said where the entry's own words are not. */
+/* What the line concerns (the doctrine's object, the instrument's full name) is always said under
+   its name: the name says what the line is, these words say why it stands apart. */
 html:root body #inspector .v32db-rail-title > i {
-  display: none;
+  display: block;
+  max-width: 300px;
+  margin-bottom: 2px;
   font: var(--v32-ui-small);
   font-style: normal;
-  color: var(--v31-muted);
-}
-html:root body #inspector .v32db-plate[data-v32db-level='1'] .v32db-tag:not(.v32db-big) .v32db-rail-title > i,
-html:root body #inspector .v32db-tag.v32db-bare .v32db-rail-title > i {
-  display: block;
+  white-space: normal;
+  text-wrap: balance;
+  color: var(--v31-soft);
 }
 
 /* ---------- under the plate: what the shapes say ---------- */
 html:root body #inspector .v32db-under {
   margin: 8px 0 0;
+  overflow: hidden;
 }
 html:root body #inspector .v32db-legend {
   display: flex;
   flex-wrap: wrap;
   gap: 4px 24px;
-  overflow: hidden;
+  margin-left: -25px;
   font: var(--v32-ui-small);
   color: var(--v31-muted);
 }
@@ -694,7 +696,9 @@ html:root body #inspector .v32db-key-group {
   align-items: center;
   gap: 4px 12px;
 }
-html:root body #inspector .v32db-key-group + .v32db-key-group {
+/* A hairline between groups, never at the start of a row: every group carries one on its left and the
+   legend is drawn 25 px to the left of its clipped frame, so the first of each row loses its own. */
+html:root body #inspector .v32db-key-group {
   padding-left: 24px;
   border-left: 1px solid var(--v32-hair-strong);
 }
@@ -717,6 +721,13 @@ html:root body #inspector .v32db-key-span > i {
   border-top: 2px solid var(--v32db-span);
   border-bottom: 1px solid color-mix(in srgb, var(--v32db-span) 60%, transparent);
   background: color-mix(in srgb, var(--v32db-span) 13%, var(--v31-panel));
+}
+/* The dashed line's one meaning, whatever it is named: read the entry on it as a comparison. */
+html:root body #inspector .v32db-key-apart > i {
+  flex: none;
+  width: 24px;
+  height: 0;
+  border-top: 1.5px dashed var(--v31-soft);
 }
 /* ---------- the account ---------- */
 html:root body #inspector .v32db-account {
@@ -1275,7 +1286,7 @@ html:root body #inspector .v32db-unit.v32db-is-here > .v32db-unit-main {
   html:root body #inspector .v32db-unit-art {
     display: none;
   }
-  }
+}
 
 /* Said to a screen reader, not drawn. */
 html:root body #inspector .v32db-vh {
@@ -1632,15 +1643,14 @@ html:root body #inspector .v32db-st-rail::after {
   border-top: 1.5px dashed var(--v31-soft);
 }
 html:root body #inspector .v32db-st-rail > i {
-  display: none;
+  display: block;
   order: 3;
   flex: 0 0 100%;
+  margin-bottom: 2px;
   font: var(--v32-ui-small);
   font-style: normal;
-  color: var(--v31-muted);
-}
-html:root body #inspector .v32db-plate[data-v32db-level='1'] .v32db-st-row:not(.v32db-big) .v32db-st-rail > i {
-  display: block;
+  text-wrap: pretty;
+  color: var(--v31-soft);
 }
 /* The entry that ended the rule: the bar stops on it with a heavy cap that reaches the line. */
 html:root body #inspector .v32db-st-end::before {
@@ -1798,7 +1808,7 @@ html:root body #inspector .v32db-st-lane .v32db-st-mark > .v32db-glyph {
     font-size: 15px;
     line-height: 26px;
   }
-    html:root body #inspector .v32db-all {
+  html:root body #inspector .v32db-all {
     margin-top: 40px;
   }
   html:root body #inspector .v32db-lead {
@@ -1809,11 +1819,12 @@ html:root body #inspector .v32db-st-lane .v32db-st-mark > .v32db-glyph {
     font: var(--v32-reading);
     color: var(--v31-text);
   }
-  html:root body #inspector .v32db-key-group + .v32db-key-group {
+  html:root body #inspector .v32db-key-group {
     padding-left: 0;
     border-left: 0;
   }
   html:root body #inspector .v32db-legend {
     gap: 4px 16px;
+    margin-left: 0;
   }
 }

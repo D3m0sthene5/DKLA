@@ -51,30 +51,6 @@
       ? `<time class="${cls}" datetime="${esc(s.date)}">${yearOf(s)}</time>`
       : `<span class="${cls}">${esc(yearOf(s))}</span>`;
 
-  // What a decision held is said in the past tense. A stored line that opens "Historically accepts ..."
-  // is the same holding with a word that leaves the reader guessing which part still matters: here it
-  // reads "Accepted ...", and what later changed is named beside it from the entry's stored later
-  // development. Only the opening verb (and a verb that depends on it) changes; a verb this table does
-  // not know leaves the stored line whole.
-  const PAST = {
-    accepts: 'Accepted',
-    requires: 'Required',
-    permits: 'Permitted',
-    limits: 'Limited',
-    lets: 'Let',
-    applies: 'Applied',
-    recognizes: 'Recognized',
-    excludes: 'Excluded',
-  };
-  function held(text) {
-    const said = String(text || '');
-    const found = /^Historically,?\s+([a-z]+)\b/.exec(said);
-    if (!found || !PAST[found[1]]) return said;
-    return PAST[found[1]] + said.slice(found[0].length).replace(/\b(which \w+) receive\b/, '$1 received');
-  }
-  // A stored note that opens "Historically, clear statutory text controlled ..." is already in the past.
-  const onPlate = (text) =>
-    String(text || '').replace(/^Historically,\s+(\S)/, (all, first) => first.toUpperCase());
   // The sentences of a stored note. A full stop ends one only before a capital, and not after an
   // initial or an abbreviation of a case name.
   function sentences(text) {
@@ -95,6 +71,10 @@
     if (from < text.length) out.push(text.slice(from).trim());
     return out.filter(Boolean);
   }
+
+  // What a rule's band says the rule was: the sentence stored for it (`ruleLabel`), or the first sentence
+  // of the stored note of the entry that set it. Nothing is reworded here.
+  const ruleOf = (item) => item.s.ruleLabel || sentences(item.s.note || '')[0] || '';
 
   /* ---------- the twelve moves: four classes, a shape each ---------- */
   // What a move does to the rule decides its class, and its class its weight on the plate. The words
@@ -388,13 +368,17 @@
         spans.push(span);
       }
       // An entry stored as a comparison from another jurisdiction or legal regime stands on a line of
-      // its own, lettered with that jurisdiction (its stored `object`: "Swiss law", "Singapore"),
-      // unless the object only repeats the entry's own name.
+      // its own. The line is named in words that say what it represents (the step's stored `apart`:
+      // "Swiss law", "CISG" and the convention's full name); an entry with no such stored name stays on
+      // the axis.
       for (const item of items) {
-        const own = namedBy(item, item.s.object || '');
-        if (item.turn !== 'counterpoint' || !item.s.object || item.span) continue;
-        if (own && words(own).length === words(item.s.object).length) continue;
-        const rail = { line: { id: 'apart-' + item.i, name: item.s.object }, items: [item], of: null };
+        const apart = item.s.apart;
+        if (item.turn !== 'counterpoint' || !apart?.name || item.span) continue;
+        const rail = {
+          line: { id: 'apart-' + item.i, name: apart.name, concerns: apart.concerns || '' },
+          items: [item],
+          of: null,
+        };
         item.rail = rail;
         item.rails = [rail];
         rails.push(rail);
@@ -416,10 +400,11 @@
         const own = item.cases.length === 1 && item.first.length === 1 && item.s.id;
         const title = own ? String(nodesById.get(item.s.id)?.shortTitle || '') : '';
         item.short =
-          title.replace(/\s*\((?:1[5-9]|20)\d{2}\)\s*$/, '').trim() || calledBy(item, prose(t, items, item, subject));
+          title.replace(/\s*\((?:1[5-9]|20)\d{2}\)\s*$/, '').trim() ||
+          calledBy(item, prose(t, items, item, subject));
       }
     }
-    for (const item of items) item.words = held(item.s.effect || item.kind);
+    for (const item of items) item.words = item.s.effect || item.kind;
     // What became of entries: an entry's stored later development that names another entry of this
     // timeline ties the two; one that names none of them is said on the entry's own label.
     for (const item of items) {
@@ -459,7 +444,7 @@
     const here = item.here ? '<span class="v32db-here">You are here</span>' : '';
     const year = timeHTML(item.s, 'v32db-yr');
     const mark = item.hung ? glyph(item.turn, 12) : '';
-    const title = `${item.full} (${yearOf(item.s)}). ${item.kind}. ${held(item.s.effect || '')}`;
+    const title = `${item.full} (${yearOf(item.s)}). ${item.kind}. ${item.s.effect || ''}`;
     // The line it stands on, lettered where it stands: its name, and what the line concerns where the
     // label has no room for the entry's own words.
     const line = apart
@@ -467,7 +452,9 @@
       : '';
     // A later change that no entry of this timeline made is named on the label itself.
     const fate =
-      item.s.fate && !item.later && !item.hung ? `<span class="v32db-tag-fate">${esc(item.s.fate)}</span>` : '';
+      item.s.fate && !item.later && !item.hung
+        ? `<span class="v32db-tag-fate">${esc(item.s.fate)}</span>`
+        : '';
     // A turn of the rule with a long caption is named a party to a line; every other name is one line,
     // and gives way party by party where it is too long (fitName).
     const name = item.short
@@ -498,18 +485,20 @@
   function deckHTML(span) {
     const a = span.a,
       b = span.b;
-    const title = `${a.full} (${yearOf(a.s)}). ${held(a.s.effect || '')}`;
+    const title = `${a.full} (${yearOf(a.s)}). ${a.s.effect || ''}`;
     // A rule nothing on this timeline ended runs on: its years are open and so is its far end.
-    return `<button type="button" class="v32db-deck v32db-f-${a.fam}${a.here ? ' v32db-is-here' : ''}${b ? '' : ' v32db-open-end'}" data-v32db-i="${a.i}" title="${esc(title)}">${art(a.artId)}<span class="v32db-deck-words"><span class="v32db-deck-top"><span class="v32db-deck-name">${esc(span.short)}</span><span class="v32db-yr">${esc(yearOf(a.s))}–${b ? esc(yearOf(b.s)) : ''}</span>${a.here ? '<span class="v32db-here">You are here</span>' : ''}</span><span class="v32db-deck-fx">${glyph(a.turn, 12)}<span class="v32db-deck-said" data-rule="${esc(onPlate(sentences(a.s.note || '')[0] || ''))}" data-did="${esc(a.words)}">${esc(a.words)}</span></span></span></button>`;
+    return `<button type="button" class="v32db-deck v32db-f-${a.fam}${a.here ? ' v32db-is-here' : ''}${b ? '' : ' v32db-open-end'}" data-v32db-i="${a.i}" title="${esc(title)}">${art(a.artId)}<span class="v32db-deck-words"><span class="v32db-deck-top"><span class="v32db-deck-name">${esc(span.short)}</span><span class="v32db-yr">${esc(yearOf(a.s))}–${b ? esc(yearOf(b.s)) : ''}</span>${a.here ? '<span class="v32db-here">You are here</span>' : ''}</span><span class="v32db-deck-fx">${glyph(a.turn, 12)}<span class="v32db-deck-said" data-rule="${esc(ruleOf(a))}" data-did="${esc(a.words)}">${esc(a.words)}</span></span></span></button>`;
   }
 
-  // Each entry's place along the line. Time is true to scale inside a stretch; a gap longer than three
-  // tenths of the whole (and fifteen years) is a break of fixed width; two marks never touch.
-  function placeX(model, x0, x1, deckNeed, gap = BREAK) {
-    const items = model.items,
-      n = items.length;
+  // When each entry falls, and which gaps are folded. An undated entry sits between its neighbours. A
+  // gap is a break when it is longer than two fifths of the whole span (so a short timeline is not all
+  // breaks) and at least fifteen years, on a timeline of four entries or more. The years a break folds
+  // are counted between the two entries' dates.
+  const BREAK_SHARE = 0.4,
+    BREAK_YEARS = 15;
+  function gaps(items) {
+    const n = items.length;
     const ts = items.map((item) => item.t);
-    // An undated entry sits between its neighbours.
     for (let i = 0; i < n; i++) {
       if (ts[i] !== null) continue;
       let j = i;
@@ -520,8 +509,19 @@
     }
     for (let i = 1; i < n; i++) ts[i] = Math.max(ts[i], ts[i - 1]);
     const whole = n ? ts[n - 1] - ts[0] : 0;
-    // (Two fifths of the whole, so a short timeline is not all breaks.)
-    const isBreak = (i) => n >= 4 && ts[i] - ts[i - 1] > 0.4 * whole && ts[i] - ts[i - 1] >= 15;
+    const isBreak = (i) =>
+      i > 0 && n >= 4 && ts[i] - ts[i - 1] > BREAK_SHARE * whole && ts[i] - ts[i - 1] >= BREAK_YEARS;
+    const breaks = [];
+    for (let i = 1; i < n; i++) if (isBreak(i)) breaks.push({ i, years: Math.round(ts[i] - ts[i - 1]) });
+    return { ts, whole, isBreak, breaks };
+  }
+
+  // Each entry's place along the line. Time is true to scale inside a stretch; a break has a fixed
+  // width; two marks never touch.
+  function placeX(model, x0, x1, deckNeed, gap = BREAK) {
+    const items = model.items,
+      n = items.length;
+    const { ts, whole, isBreak } = gaps(items);
     const widthOf = (i) =>
       model.spans.some((span) => span.a.i <= i - 1 && (span.b ? span.b.i : n - 1) >= i)
         ? Math.max(gap, Math.min(deckNeed + 48, (x1 - x0) * 0.36))
@@ -917,7 +917,9 @@
       const apart = aside(model, items[i]);
       const box = {
         x: at.left,
-        y: (at.side === 'up' ? spineY - STEM - at.level - at.h : spineY + STEM + at.level) + (apart ? SIDE : 0),
+        y:
+          (at.side === 'up' ? spineY - STEM - at.level - at.h : spineY + STEM + at.level) +
+          (apart ? SIDE : 0),
         w: at.w,
         h: at.h - (apart ? SIDE : 0),
       };
@@ -952,19 +954,18 @@
       ? `<span class="v32db-st-rail"><b>${esc(item.rail.line.name)}</b>${item.rail.line.concerns ? `<i>${esc(item.rail.line.concerns)}</i>` : ''}</span>`
       : '';
     const fate =
-      item.s.fate && !item.later && !item.hung ? `<span class="v32db-st-fate">${esc(item.s.fate)}</span>` : '';
+      item.s.fate && !item.later && !item.hung
+        ? `<span class="v32db-st-fate">${esc(item.s.fate)}</span>`
+        : '';
     return `<li class="v32db-st-item ${cls}${apart ? ' v32db-st-apart' : ''}"><button type="button" class="v32db-st-row v32db-c-${item.cls} v32db-f-${item.fam}${big ? ' v32db-big' : ''}${small ? ' v32db-small' : ''}${item.here ? ' v32db-is-here' : ''}" data-v32db-i="${item.i}"><span class="v32db-st-mark">${glyph(item.turn, { rule: 18, reach: 14, steady: 11, aside: 12 }[item.cls])}</span><span class="v32db-st-main">${line}<span class="v32db-st-top">${timeHTML(item.s, 'v32db-yr')}<span class="v32db-st-name">${name}</span>${item.here ? '<span class="v32db-here">You are here</span>' : ''}</span><span class="v32db-st-fx">${esc(item.words)}</span>${fate}</span></button></li>`;
   }
   function stackHTML(model) {
     const items = model.items;
-    const ts = items.map((item) => item.t ?? 0);
-    const whole = items.length ? ts[ts.length - 1] - ts[0] : 0;
-    const gapAfter = (i) => {
-      const years = i + 1 < items.length ? ts[i + 1] - ts[i] : 0;
-      return items.length >= 4 && years > 0.4 * whole && years >= 15
-        ? `<li class="v32db-st-gap"><span>${Math.round(years)} years</span></li>`
+    const { ts, isBreak } = gaps(items);
+    const gapAfter = (i) =>
+      isBreak(i + 1)
+        ? `<li class="v32db-st-gap"><span>${Math.round(ts[i + 1] - ts[i])} years</span></li>`
         : '';
-    };
     // A named line is a group with its name over it and a short line of its own down its marks, so the
     // order within it (by date) is seen to start again in the next group.
     const laneHTML = (rail) =>
@@ -973,7 +974,10 @@
       `<li class="v32db-st-note">${n} groups. Within each, entries run in date order.</li>`;
     const out = [];
     if (model.form === 'lanes')
-      return `<ol class="v32db-st v32db-st-lanes">${lanesNote(model.rails.length)}${model.rails.filter((rail) => !rail.of).map(laneHTML).join('')}</ol>`;
+      return `<ol class="v32db-st v32db-st-lanes">${lanesNote(model.rails.length)}${model.rails
+        .filter((rail) => !rail.of)
+        .map(laneHTML)
+        .join('')}</ol>`;
     for (let i = 0; i < items.length; i++) {
       const item = items[i];
       if (!item.span) {
@@ -989,7 +993,7 @@
         if (one === span.b || (one.rail && one.rail.of === span)) continue;
         inside.push(stackRow(one, model, one.hung === span ? 'v32db-st-hung' : 'v32db-st-loose'));
       }
-      const rule = onPlate(sentences(item.s.note || '')[0] || '') || item.words;
+      const rule = ruleOf(item) || item.words;
       out.push(
         `<li class="v32db-st-band${span.b ? '' : ' v32db-open-end'}"><span class="v32db-st-origin v32db-c-rule v32db-f-${item.fam}">${glyph(item.turn, 18)}</span><button type="button" class="v32db-st-beam v32db-f-${item.fam}${item.here ? ' v32db-is-here' : ''}" data-v32db-i="${item.i}">${art(item.artId)}<span class="v32db-st-beam-words"><span class="v32db-st-top"><span class="v32db-deck-name">${esc(span.short)}</span><span class="v32db-yr">${esc(yearOf(item.s))}–${span.b ? esc(yearOf(span.b.s)) : ''}</span>${item.here ? '<span class="v32db-here">You are here</span>' : ''}</span><span class="v32db-st-rule">${esc(rule)}</span>${item.s.fate ? `<span class="v32db-st-fate">${esc(item.s.fate)}</span>` : ''}</span></button><ol class="v32db-st-in">${inside.join('')}${span.rails.length ? lanesNote(span.rails.length) : ''}${span.rails.map(laneHTML).join('')}</ol>${span.b ? `<ol class="v32db-st-end">${stackRow(span.b, model, 'v32db-st-ender')}</ol>` : ''}</li>`,
         gapAfter(last),
@@ -1223,7 +1227,9 @@
   // Another entry of the timeline, named beside the selected one: when, who, and one stored line about it.
   // (It goes by the name its label has on the plate, so the eye can find it there.)
   function rowHTML(item, words) {
-    const name = item.short ? esc(item.short) : `<span class="v32db-caption">${captionHTML(item.first)}</span>`;
+    const name = item.short
+      ? esc(item.short)
+      : `<span class="v32db-caption">${captionHTML(item.first)}</span>`;
     return `<button type="button" class="v32db-row v32db-f-${item.fam}${item.here ? ' v32db-is-here' : ''}" data-v32db-i="${item.i}" title="Show ${esc(item.full)} (${esc(yearOf(item.s))})"><span class="v32db-row-top">${glyph(item.turn, 12)}${timeHTML(item.s, 'v32db-yr')}<span class="v32db-row-name">${name}</span></span><span class="v32db-row-words">${esc(words)}</span></button>`;
   }
   // Does the plate already say, on this entry's label, what the entry did?
@@ -1345,7 +1351,7 @@
   }
 
   /* ---------- drawing ---------- */
-  const state = { entry: null, line: 0, sel: -1, model: null, key: '', shown: 0 };
+  const state = { entry: null, line: 0, sel: -1, model: null, key: '', shown: 0, preview: null };
   let root = null;
   const host = () => inspector.querySelector('.reader-body.v32.v32-case');
   const current = () => {
@@ -1383,7 +1389,11 @@
     const joined = model.items.some((item) => item.rails.length > 1)
       ? `<span class="v32db-key-group"><span class="v32db-key v32db-key-join"><svg viewBox="0 0 12 22" width="12" height="22" aria-hidden="true"><path d="M6 6v10"/><circle cx="6" cy="4" r="2.6"/><circle cx="6" cy="18" r="2.6"/></svg>One entry, marked on both lines it bears on</span></span>`
       : '';
-    return groups + span + joined;
+    // The dashed line means one thing wherever it is drawn; its name says why the entry stands apart.
+    const apart = model.items.some((item) => aside(model, item))
+      ? `<span class="v32db-key-group"><span class="v32db-key v32db-key-apart" title="An entry on a dashed line of its own is there for comparison. The line's name says what it belongs to: another legal system, another instrument, or a different doctrine."><i></i>Read as a comparison</span></span>`
+      : '';
+    return groups + span + apart + joined;
   }
   function html(model, lines) {
     const t = model.t;
@@ -1504,11 +1514,16 @@
     const body = host();
     const id = current();
     const on = !inspector.hidden && !!body && !!id && window.DKLAReader?.current?.() === 'doctrine';
-    const lines = on
+    if (state.entry !== id) state.preview = null;
+    const own = on
       ? window.DKLATimelines.list().filter(
           (t) => t.steps.some((s) => s.id === id) && t.steps.filter(P.live).length > 1,
         )
       : [];
+    // (A timeline the open case is not on can be drawn in its place, by id: show(). The checks and the
+    // contact sheet use it for the timelines that have no case of their own on the map.)
+    const other = on && state.preview && window.DKLATimelines.list().find((t) => t.id === state.preview);
+    const lines = other ? [other] : own;
     const active = on && lines.length > 0;
     // (The reader's width changes with this class; the map behind it is not asked to fit itself again.)
     if (document.body.classList.contains('v32db-on') !== active)
@@ -1623,11 +1638,76 @@
   // (src/features/v25/reading.js puts the blocks in their tabs in a microtask of its own: this one follows it.)
   const renders = new MutationObserver(() => queueMicrotask(redraw));
   renders.observe(inspector, { childList: true, attributes: true, attributeFilter: ['hidden'] });
+  // Draw a timeline by id: one of the open case's own (the switch above the chart does the same), or,
+  // for the checks, any other in its place until another entry is opened.
+  function show(timelineId) {
+    const id = current();
+    const all = window.DKLATimelines.list();
+    const own = all.filter((t) => t.steps.some((s) => s.id === id) && t.steps.filter(P.live).length > 1);
+    const at = own.findIndex((t) => t.id === timelineId);
+    if (at < 0 && !all.some((t) => t.id === timelineId)) return false;
+    state.preview = at < 0 ? timelineId : null;
+    state.line = Math.max(0, at);
+    state.sel = -1;
+    state.key = '';
+    draw();
+    return state.model?.t.id === timelineId;
+  }
+  // A timeline's shape as the chart reads it, without drawing it: its rules with the entries that set
+  // and end them and the entries in between, its lines apart, and its breaks with the years each folds.
+  function shape(timelineId, entry = null) {
+    const t = window.DKLATimelines.list().find((one) => one.id === timelineId);
+    if (!t) return null;
+    const model = build(t, entry);
+    const key = (item) => item.s.id || item.s.sup || item.s.event;
+    const { breaks } = gaps(model.items);
+    return {
+      id: t.id,
+      title: t.title,
+      entries: model.items.length,
+      settled: model.settled,
+      form: model.form,
+      spans: model.spans.map((span) => ({
+        name: span.short,
+        from: key(span.a),
+        to: span.b ? key(span.b) : null,
+        years: [yearOf(span.a.s), span.b ? yearOf(span.b.s) : ''],
+        on: span.hung.map(key),
+        between: model.items
+          .filter(
+            (item) =>
+              item.i > span.a.i &&
+              item.i < (span.b ? span.b.i : model.items.length) &&
+              item.hung !== span &&
+              !item.rail,
+          )
+          .map(key),
+      })),
+      apart: model.items
+        .filter((item) => aside(model, item))
+        .map((item) => ({
+          entry: key(item),
+          name: item.rail.line.name,
+          concerns: item.rail.line.concerns || '',
+        })),
+      lines: model.rails.map((rail) => ({
+        id: rail.line.id,
+        name: rail.line.name,
+        entries: rail.items.map(key),
+      })),
+      breaks: breaks.map((b) => ({
+        after: key(model.items[b.i - 1]),
+        before: key(model.items[b.i]),
+        years: b.years,
+      })),
+    };
+  }
   window.DKLADoctrineB = {
     draw,
     select,
+    show,
+    shape,
     model: () => state.model,
-    held,
     destroy() {
       inspector.removeEventListener('click', onClick);
       document.removeEventListener('keydown', onKey);
