@@ -1,8 +1,8 @@
-/* The splash text (src/features/splash): one of DKLASplashLines, level and
-   gently pulsing in its own slot in the top bar beside the clock (the calm top bar,
-   src/features/topbar/), shown wherever the map is (zoomed in, a case open), hidden only
-   when something covers the top bar (Study, a dialog), never over a
-   tile or a control, and still under reduced motion.
+/* The splash text (src/features/splash): one of DKLASplashLines, small, slightly tilted and
+   gently pulsing, attached to the DKLA wordmark in the top bar the way a title-screen splash is
+   (v3.2, src/features/v32/). It shows on Home only: not zoomed in, not on a course, not with an
+   entry, a dialog, Study or SCOTUS History open. It is never over a control, and is still under
+   reduced motion.
 
      node tools/splash/browser.mjs http://127.0.0.1:8766/DKLA-v3.1.html */
 import assert from 'node:assert/strict';
@@ -57,7 +57,7 @@ const look = (page) =>
       const x = cx + (along * i * Math.cos(a)) / 4,
         y = cy + (along * i * Math.sin(a)) / 4;
       for (const el of document.elementsFromPoint(x, y)) {
-        // Its slot is in the top bar: only the bar's controls count as being under it.
+        // It is in the top bar: only the bar's controls count as being under it.
         if (
           el.closest('.study-header button, .study-header a, .study-header input, .ny-clock, .ask-bar-dottie')
         )
@@ -75,7 +75,8 @@ const look = (page) =>
       index: splash.dataset.line,
       angle: (a * 180) / Math.PI,
       font: parseFloat(getComputedStyle(text).fontSize),
-      logo: plain(document.querySelector('.study-header .dkla-splash-slot')?.getBoundingClientRect()),
+      logo: plain(document.getElementById('atlasHome')?.getBoundingClientRect()),
+      group: plain(document.querySelector('.study-header .v32-bar-left')?.getBoundingClientRect()),
       bar: plain(document.querySelector('.study-header')?.getBoundingClientRect()),
       box: plain(box),
       under: [...new Set(under)],
@@ -86,18 +87,23 @@ const look = (page) =>
     };
   });
 
-// The line sits level in its slot in the top bar (state.logo is the slot's box), inside the slot and the bar
-// (owner, 12 November 2026: the tilted line looked askew and leaned out of its space).
+// The line is attached to the wordmark (state.logo is the mark and wordmark's box): it starts just after it,
+// stays inside the bar's left group and the bar, and rises a little to the right (about 3 degrees; the owner's
+// level line of 12 November 2026 sat in a slot of its own, which the v3.2 bar no longer has).
 function onCorner(state, at) {
-  const { logo: slot, bar, box } = state;
+  const { logo, group, bar, box } = state;
   const round = (q) => ['left', 'top', 'right', 'bottom'].map((k) => Math.round(q[k])).join(',');
-  const where = `${at} (slot ${round(slot)}, line ${round(box)})`;
-  assert.ok(slot.width > 0, `${where}: the top bar has a splash slot`);
-  assert.ok(box.left >= slot.left - 2 && box.right <= slot.right + 2, `${where}: inside its slot`);
+  const where = `${at} (wordmark ${round(logo)}, line ${round(box)})`;
+  assert.ok(logo.width > 0, `${where}: the top bar has its wordmark`);
+  assert.ok(box.left >= logo.right - 2 && box.left <= logo.right + 32, `${where}: attached to the wordmark`);
+  assert.ok(box.right <= group.right + 2, `${where}: inside the bar's left group`);
   assert.ok(box.top >= bar.top - 2 && box.bottom <= bar.bottom + 2, `${where}: inside the top bar`);
-  assert.ok(Math.abs(state.angle) < 0.5, `${where}: level (${state.angle.toFixed(1)} degrees)`);
+  assert.ok(
+    state.angle < -2 && state.angle > -4,
+    `${where}: tilted a little (${state.angle.toFixed(1)} degrees)`,
+  );
   const middle = (box.top + box.bottom) / 2 - (bar.top + bar.bottom) / 2;
-  assert.ok(Math.abs(middle) <= 3, `${where}: centred in the bar (${middle.toFixed(1)} px off)`);
+  assert.ok(Math.abs(middle) <= 8, `${where}: on the bar's centre line (${middle.toFixed(1)} px off)`);
 }
 
 const splash = (page) => page.locator('.dkla-splash');
@@ -118,7 +124,9 @@ async function home(page) {
   await page.evaluate(() => {
     for (const d of document.querySelectorAll('dialog[open]')) d.close();
   });
-  await page.locator('#geoBreadcrumb [data-study-scope="Atlas"]').click();
+  // The wordmark is the way Home (on Home the breadcrumb steps aside for this line).
+  await page.locator('#atlasHome').click();
+  await page.locator('#studyFit').click();
   await expect
     .poll(async () => JSON.parse(await page.locator('#geoCanvas').getAttribute('data-dkla-home-view')))
     .toMatchObject({ scope: 'Atlas', region: null, selected: false });
@@ -141,10 +149,10 @@ try {
     );
     onCorner(state, '1440 x 900');
     assert.deepEqual(state.under, [], 'nothing under the line');
-    assert.ok(state.font >= 9 && state.font <= 18, `small (${state.font}px)`);
+    assert.equal(state.font, 13, `small (${state.font}px)`);
     assert.equal(state.rootEvents, 'none');
     assert.equal(state.textEvents, 'auto', 'only the text takes clicks');
-    assert.ok(state.animations.includes('dkla-splash-pulse') && state.playing, 'it pulses');
+    assert.ok(state.animations.includes('dkla-splash-pulse-bar') && state.playing, 'it pulses');
 
     // Clicking shows another line.
     const before = state.line;
@@ -169,36 +177,41 @@ try {
     assert.deepEqual(memory.recent.slice(-run.length), run, 'the last lines shown are remembered by text');
     for (const line of run) assert.ok(memory.seen[line] >= 1, `"${line}" counted`);
 
-    // It follows the logo when the window changes size.
+    // A narrower window: still attached to the wordmark (a long line takes two rows there).
     await page.setViewportSize({ width: 1200, height: 820 });
-    await expect.poll(async () => (await look(page)).logo.right).not.toBe(state.logo.right);
     await shown(page);
     await expect
       .poll(async () => {
         try {
           onCorner(await look(page), '1200 x 820');
-          return 'on the corner';
+          return 'attached';
         } catch (error) {
           return error.message;
         }
       })
-      .toBe('on the corner');
+      .toBe('attached');
     await page.setViewportSize({ width: 1440, height: 900 });
-    await shown(page);
-
-    // It stays in its slot wherever the map is (owner, 12 November 2026: the empty slot looked odd), and
-    // hides only when something covers the top bar itself.
-    await page.evaluate(() => (location.hash = 'node=cp-pennoyer'));
-    await page.locator('#inspector').waitFor();
-    await shown(page);
     await home(page);
     await shown(page);
-    await page.evaluate(() => SCOTUSHistory.open());
+
+    // Home only (v3.2): an entry, SCOTUS History, Study, a dialog and a closer look at the map each send it
+    // away, and it says why; Home brings it back.
+    const why = async () => (await look(page)).hiddenBy;
+    await page.evaluate(() => (location.hash = 'node=cp-pennoyer'));
+    await page.locator('#inspector').waitFor();
+    await hidden(page, 'an open entry hides it');
+    assert.equal(await why(), 'not home');
+    await home(page);
     await shown(page);
+    await page.locator('[data-sh-open]').first().dispatchEvent('click');
+    await page.waitForFunction(() => window.SCOTUSHistory.state().open);
+    await hidden(page, 'SCOTUS History hides it');
     await page.evaluate(() => SCOTUSHistory.close());
+    await home(page);
     await shown(page);
     await page.evaluate(() => DKLAStudy.open('drill'));
     await hidden(page, 'Study hides it');
+    assert.equal(await why(), 'dialog');
     await page.evaluate(() => DKLAStudy.close());
     await home(page);
     await shown(page);
@@ -206,11 +219,10 @@ try {
     await hidden(page, 'a dialog hides it');
     await home(page);
     await shown(page);
-    // Zoomed into the map: still there.
+    // Zoomed into the map: gone; the whole atlas again: back.
     for (let i = 0; i < 3; i++) await page.locator('#studyZoomIn').click();
-    await shown(page);
+    await hidden(page, 'a closer look at the map hides it');
     await home(page);
-    await page.locator('#studyFit').click();
     await shown(page);
 
     // The next visit shows a different line.
@@ -277,7 +289,7 @@ try {
     await context.close();
   }
   console.log(
-    'Splash text: shown in its top-bar slot wherever the map is, hidden when the bar is covered, calm under reduced motion.',
+    'Splash text: attached to the wordmark on Home only, away for an entry, a dialog, Study, SCOTUS History and a closer look at the map, calm under reduced motion.',
   );
 } finally {
   await browser.close();

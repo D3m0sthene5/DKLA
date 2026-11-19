@@ -16,7 +16,8 @@ html.v32-chrome {
   --top: 56px;
   /* Readouts: the embedded bold face until a lighter JetBrains Mono is embedded under its own name. */
   --v32c-mono: 'JetBrains Mono', 'DKLA JetBrains Mono', ui-monospace, monospace;
-  /* The least width of each side of the bar: the right group's own width, so the field is centred. */
+  /* The least width of each side of the bar: the right group's own width at each step below (a few
+     pixels over), so both sides are equal and the field is centred on the window. */
   --v32c-side: 236px;
   --v32c-field: 520px;
 }
@@ -59,7 +60,7 @@ html.v32-chrome .study-header {
   display: grid;
   grid-template-columns:
     minmax(var(--v32c-side), 1fr) minmax(0, var(--v32c-field))
-    minmax(max-content, 1fr);
+    minmax(var(--v32c-side), 1fr);
   align-items: center;
   column-gap: var(--v32-s5);
   height: var(--top);
@@ -108,6 +109,7 @@ html.v32-chrome .study-header #moreBtn {
   width: auto;
   height: var(--v32-h-control);
   min-width: 0;
+  min-height: 0;
   margin: 0;
   padding: 0 var(--v32-s3);
   /* !important: r20.css sets the menu button's border with it */
@@ -659,9 +661,6 @@ html.v32-chrome #searchResults button:not(.v32-row, .ask-search) {
 html.v32-chrome #searchResults button:has(.search-why > *) .search-sub {
   display: none;
 }
-html.v32-chrome #searchResults .search-why:empty {
-  display: none;
-}
 html.v32-chrome #searchResults .search-sub {
   font: inherit;
 }
@@ -924,16 +923,25 @@ dialog.v32-shell {
 /* The lecture notes index (opened from the Library into the atlas's own dialog). */
 .v32-index {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--v32-s4);
 }
-.v32-index h3 {
+.v32-index section {
+  min-width: 0;
+}
+#modalBody .v32-index h3 {
   margin: 0;
   padding: var(--v32-s2) 0;
   color: var(--v31-muted);
   font: var(--v31-label);
+  letter-spacing: 0;
+  text-transform: none;
 }
-.v32-index .v32-row {
+#modalBody .v32-index .v32-row {
+  width: calc(100% + var(--v32-s3) * 2);
+  margin: 0 calc(var(--v32-s3) * -1);
   color: var(--v31-text);
+  text-decoration: none;
 }
 
 /* ---------- 4. the map's own controls ---------- */
@@ -1087,6 +1095,12 @@ html.v32-chrome.v32-save-note.v32-hint-off #saveStatus {
   html.v32-chrome .v32-ask-face {
     display: none;
   }
+  /* She steps out of the way of a reader, SCOTUS History and the open search list, as before. */
+  html.v32-chrome body.has-reader .study-header .ask-bar,
+  html.v32-chrome body:has(#shShell:not([hidden])) .study-header .ask-bar,
+  html.v32-chrome body:has(#searchResults:not([hidden])) .study-header .ask-bar {
+    display: none;
+  }
   html.v32-chrome .study-header .ask-bar-label {
     position: absolute;
     width: 1px;
@@ -1094,8 +1108,10 @@ html.v32-chrome.v32-save-note.v32-hint-off #saveStatus {
     overflow: hidden;
     clip-path: inset(50%);
   }
+  /* Her top is 8 px above the bar's bottom edge (as on a wide window), clear of the 36 px buttons. */
   html.v32-chrome .study-header .ask-bar-dottie {
-    top: -4px;
+    top: -2px;
+    right: auto;
     left: var(--v32-s2);
   }
   /* The closed field is kept in the page out of sight (dklaR13Styles.css); the open one is the panel. */
@@ -1107,6 +1123,13 @@ html.v32-chrome.v32-save-note.v32-hint-off #saveStatus {
   }
   html.v32-chrome.dkla-search-panel .study-header .study-search {
     position: fixed;
+    inset: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto minmax(0, 1fr);
+    align-items: center;
+    gap: var(--v32-s3) var(--v32-s2);
+    width: auto;
     height: auto;
     padding: var(--v32-s3) var(--v32-s3) 0;
     border-radius: 0;
@@ -1118,6 +1141,7 @@ html.v32-chrome.v32-save-note.v32-hint-off #saveStatus {
     display: none;
   }
   html.v32-chrome.dkla-search-panel .study-header .study-search #search {
+    width: 100%;
     height: var(--v32-hit);
     padding: 0 var(--v32-s3);
     border-radius: var(--v32-r-control) !important;
@@ -1152,15 +1176,22 @@ html.v32-chrome.v32-save-note.v32-hint-off #saveStatus {
   html.v32-chrome #searchResults .ask-search {
     min-height: var(--v32-s7);
   }
+  /* The passage keeps its two lines here, with where it is on a line of its own under it. */
   html.v32-chrome #searchResults .search-why {
     white-space: normal;
+  }
+  html.v32-chrome #searchResults .search-snippet {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     line-clamp: 2;
+    overflow: hidden;
   }
-  html.v32-chrome #searchResults .search-why:empty {
-    display: none;
+  html.v32-chrome #searchResults .search-where {
+    display: block;
+  }
+  html.v32-chrome #searchResults .search-snippet + .search-where::before {
+    content: none;
   }
   /* The breadcrumb on the map: the same quiet text on one panel fill. */
   html.v32-chrome #studyMain > .map-nav {

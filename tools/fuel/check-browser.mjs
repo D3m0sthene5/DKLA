@@ -9,7 +9,8 @@
    cyan, amber below 25% or red-orange below 10%. Uncalibrated shows a dim dashed frame and no lit
    line. It also checks the screen-reader label, that an Ask Dottie answer ('dkla:ask-answered')
    fetches the gauge again, that reduced motion stops the sweep, and that the gauge goes with the
-   clock below 1360 px. --shots writes a picture of the clock for each state. */
+   clock below 1280 px (1360 before v3.2, when the clock was wider). --shots writes a picture of the
+   clock for each state. */
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -263,8 +264,18 @@ if (shots) {
 assert.deepEqual(moving.errors, []);
 await moving.context.close();
 
-// Below 1360 px the clock is hidden, and the gauge and its label with it.
-const narrow = await open({ width: 1280 });
+// Below 1280 px the clock is hidden, and the gauge and its label with it; at 1280 px both are there.
+const edge = await open({ width: 1280 });
+assert.deepEqual(
+  await edge.page.evaluate(() => ({
+    clock: getComputedStyle(document.querySelector('.study-header .ny-clock')).display,
+    label: getComputedStyle(document.querySelector('.study-header .ny-fuel-label')).display,
+  })),
+  { clock: 'flex', label: 'block' },
+);
+assert.deepEqual(edge.errors, []);
+await edge.context.close();
+const narrow = await open({ width: 1279 });
 const hidden = await narrow.page.evaluate(() => ({
   clock: getComputedStyle(document.querySelector('.study-header .ny-clock')).display,
   label: getComputedStyle(document.querySelector('.study-header .ny-fuel-label')).display,
@@ -275,5 +286,5 @@ await narrow.context.close();
 
 await browser.close();
 console.log(
-  `Fuel gauge: ${report.join('; ')}; clockwise from the top centre; sweep only with motion; hidden below 1360 px.`,
+  `Fuel gauge: ${report.join('; ')}; clockwise from the top centre; sweep only with motion; hidden below 1280 px.`,
 );

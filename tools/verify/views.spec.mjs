@@ -117,7 +117,9 @@ for (const size of sizes)
     await view(
       'home',
       async () => {
-        await page.locator('#geoBreadcrumb [data-study-scope="Atlas"]').click();
+        // The wordmark is the way Home (v3.2: on Home the breadcrumb steps aside, so there is no Atlas
+        // crumb to press there).
+        await page.locator('#atlasHome').click();
       },
       async () => {
         await expect(page.locator('#geoCanvas g.map-region path[data-map-region]').first()).toBeAttached();

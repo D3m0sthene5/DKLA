@@ -8,9 +8,9 @@
    opens it and closes the panel. At 430 px the same panel fills the width. At 1440 px: "battle of the forms"
    lists flowchart K-16 labelled Flowchart, and it opens; "LRS Class 22", "Contracts class 16" and "civ pro 12"
    list that course's session first and nothing from another course above any of its material; the alias
-   "known by its associates" finds and opens the canon Noscitur a sociis; the top-bar box is exactly as wide as
-   before the change, at 1440 px and at 1024 px (iPad landscape), with no Search button. --shots saves
-   pictures. */
+   "known by its associates" finds and opens the canon Noscitur a sociis; the command field is where the v3.2
+   bar puts it (centred on the window), at 1440 px and at 1024 px (iPad landscape), with no Search button.
+   --shots saves pictures. */
 import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
@@ -21,10 +21,12 @@ assert.ok(['127.0.0.1', 'localhost'].includes(address.hostname), 'local preview 
 const shotsAt = process.argv.indexOf('--shots'),
   shots = shotsAt > 0 ? process.argv[shotsAt + 1] : null;
 if (shots) await mkdir(shots, { recursive: true });
-// The top-bar box measured before the phone change (18 November 2026): box and input, left edge and width.
+// The command field in the v3.2 bar (19 November 2026): box and input, left edge and width. The bar is three
+// groups with equal sides, so the box is centred on the window: 488 + 464 / 2 = 720 and 340 + 344 / 2 = 512.
+// (Before v3.2 the box sat left of centre between the Ask Dottie button and the clock: 436 + 430 and 288 + 410.)
 const DESKTOP = {
-  1440: { box: [436, 430], input: [472, 351] },
-  1024: { box: [288, 410], input: [325, 331] },
+  1440: { box: [488, 464], input: [528, 361] },
+  1024: { box: [340, 344], input: [380, 241] },
 };
 
 const browser = await chromium.launch();
@@ -256,7 +258,7 @@ try {
 
   /* ---------- desktop ---------- */
   const { context, page, errors } = await open({ width: 1440, height: 900 });
-  await check('1440 px: the top-bar box is unchanged and there is no Search button', async () => {
+  await check('1440 px: the command field is centred in the bar and there is no Search button', async () => {
     const measure = await page.evaluate(() => {
       const at = (el) => {
         const r = el.getBoundingClientRect();
@@ -351,7 +353,7 @@ try {
 
   /* ---------- iPad landscape ---------- */
   const tablet = await open({ width: 1024, height: 768 });
-  await check('1024 px: the top-bar box is unchanged and there is no Search button', async () => {
+  await check('1024 px: the command field is centred in the bar and there is no Search button', async () => {
     const measure = await tablet.page.evaluate(() => {
       const at = (el) => {
         const r = el.getBoundingClientRect();
@@ -374,5 +376,5 @@ if (failures) {
   process.exit(1);
 }
 console.log(
-  'Atlas search: Search button and full-width panel at 390 and 430 px; flowcharts, lectures, canons and classes found and labelled; course and class numbers honoured; desktop box unchanged.',
+  'Atlas search: Search button and full-width panel at 390 and 430 px; flowcharts, lectures, canons and classes found and labelled; course and class numbers honoured; the command field centred in the bar.',
 );

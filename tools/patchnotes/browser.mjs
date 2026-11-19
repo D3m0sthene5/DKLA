@@ -28,24 +28,35 @@ try {
   await page.locator('#moreBtn').click();
   const item = page.locator('#moreMenu [data-dkla-patch]');
   await item.waitFor();
-  assert.equal(
-    await page.evaluate(() => [...document.querySelectorAll('#moreMenu button')].pop()?.textContent.trim()),
-    'Patch notes',
-    'Patch notes is the last item of the menu',
-  );
-  // The menu is a panel of four short columns that fits the window (owner: the long list was unusable).
+  // Since v3.2 the menu is the Library, a dialog of three short groups that fits the window (owner: the
+  // long list was unusable). Patch notes is the last of its rows (it is a curiosity, not a tool), with the
+  // version beside it.
+  await page.waitForFunction(() => !document.getElementById('libraryDialog').getAnimations().length);
+  const last = await page.evaluate(() => {
+    const row = [...document.querySelectorAll('#moreMenu .v32-row')].pop();
+    return [
+      row?.querySelector('.v32-row-label')?.textContent.trim(),
+      row?.querySelector('.v32-row-meta')?.textContent.trim(),
+    ];
+  });
+  assert.deepEqual(last, ['Patch notes', 'v3.1'], 'Patch notes is the last row of the Library');
   const panel = await page.evaluate(() => {
-    const m = document.getElementById('moreMenu'),
-      r = m.getBoundingClientRect();
+    const dialog = document.getElementById('libraryDialog'),
+      m = document.getElementById('moreMenu'),
+      r = dialog.getBoundingClientRect();
     return {
-      columns: [...m.querySelectorAll('.dkla-menu-col')].map((c) => c.getAttribute('aria-label')),
-      fits: r.bottom <= innerHeight && r.left >= 0 && m.scrollHeight <= m.clientHeight + 1,
+      columns: [...m.querySelectorAll('.v32-lib-group')].map((c) => c.getAttribute('aria-label')),
+      fits:
+        r.top >= 0 &&
+        r.bottom <= innerHeight &&
+        r.left >= 0 &&
+        dialog.scrollHeight <= dialog.clientHeight + 1,
       saves: [...m.querySelectorAll('button')].filter((b) => /save/i.test(b.textContent)).length,
       drills: m.querySelectorAll('[data-r18-open="drill"]').length,
     };
   });
-  assert.deepEqual(panel.columns, ['Study', 'Explore', 'Your notes', 'DKLA']);
-  assert.ok(panel.fits, 'the menu fits the window without scrolling');
+  assert.deepEqual(panel.columns, ['Collections', 'Study', 'Yours']);
+  assert.ok(panel.fits, 'the Library fits the window without scrolling');
   assert.equal(panel.saves, 1, 'one save entry');
   assert.equal(panel.drills, 1, 'one drill entry');
   await item.click();
@@ -66,7 +77,7 @@ try {
   await page.locator('#patchNotesDialog[open]').waitFor({ state: 'detached' });
   assert.deepEqual(errors, []);
   console.log(
-    `Menu: four columns that fit the window. Patch notes: ${names.length} versions, v3.1 to v9, closes with Escape.`,
+    `Library: three groups that fit the window. Patch notes: ${names.length} versions, v3.1 to v9, closes with Escape.`,
   );
 } finally {
   await browser.close();

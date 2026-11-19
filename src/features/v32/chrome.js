@@ -248,7 +248,9 @@
       !S.region &&
       !S.district &&
       !S.panelOpen &&
-      !(typeof selected !== 'undefined' && selected);
+      !(typeof selected !== 'undefined' && selected) &&
+      // SCOTUS History is a view of its own under the bar: its trail (Atlas > SCOTUS History) shows.
+      !window.SCOTUSHistory?.state?.().open;
     const z = window.DKLAHomeFit?.homeZoom?.() || 0;
     const off = !home || (z > 0 && S.z > z * 1.04);
     if (root.classList.contains('dkla-off-home') !== off) {
