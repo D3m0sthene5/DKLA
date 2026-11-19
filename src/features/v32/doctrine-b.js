@@ -443,6 +443,7 @@
     SGAP = 8, // between a label and another entry's stem
     MINGAP = 16, // the least distance between two marks
     BREAK = 136, // the least width of a marked break
+    STACK_UNDER = 700, // a plate narrower than this is stood on end
     NAME = 22, // a named line's lettering above its rail
     DROP = 34, // from the axis down to a line that stands apart from it
     SIDE = DROP - STEM - 11; // what that adds above such an entry's label
@@ -577,7 +578,8 @@
     const out = new Map();
     let upMost = 0,
       downMost = 0,
-      missed = 0;
+      missed = 0,
+      gaveUp = 0; // what the labels that gave up their words cost
     const left = new Set(list);
     const put = (item, side, flip, from, level, sz, x) => {
       left.delete(item);
@@ -668,10 +670,11 @@
       if (!pick) consider(false, true, true);
       if (!pick) break;
       missed += pick.miss;
+      gaveUp += pick.form * (opt.formCost?.(pick.item) ?? 8);
       put(pick.item, pick.side, pick.flip, pick.from, pick.level, pick.sz, pick.x);
       out.get(pick.item.i).form = pick.form;
     }
-    return { out, upMost, downMost, missed };
+    return { out, upMost, downMost, missed, gaveUp };
   }
 
   // One arrangement of the plate at a level of detail: 3, every label says what its entry did; 2, the
@@ -692,6 +695,8 @@
       el.classList.remove('v32db-flip');
     }
     plate.dataset.v32dbLevel = String(level);
+    // A short timeline has room for its names whole.
+    plate.toggleAttribute('data-v32db-roomy', items.length <= 8);
     for (const el of plate.querySelectorAll('.v32db-tag-name[data-a]')) fitName(el);
     // What an entry did is set to the width of its date and name (and no narrower than a short line).
     for (const el of tagOf.values()) {
@@ -901,7 +906,7 @@
       best = Infinity;
     for (let y = least; y <= least + 264; y += 12) {
       const tried = onLine(y);
-      const total = y + (tried.downMost ? STEM + tried.downMost : 16) + tried.missed * 26;
+      const total = y + (tried.downMost ? STEM + tried.downMost : 16) + tried.missed * 26 + tried.gaveUp;
       if (total < best - 0.5) {
         best = total;
         spineY = y;
@@ -931,11 +936,108 @@
     return { level, W, height, xs, geo, lanes, placed, spineY, tagOf, deckOf, railsAt, nameOf, X0 };
   }
 
+  /* ---------- the plate on a narrow screen: the same drawing, stood on end ---------- */
+  // Time runs down the page. The line is at the left with each entry's mark on it; a rule is a beam
+  // across the column with an upright bar running down from it to the entry that ended it; an entry
+  // decided under the rule is tied to the bar, a line of its own stands clear of both, and a rule's
+  // named questions are lettered inside it. Nothing is placed by measurement: the page lays it out.
+  function stackRow(item, model, cls = '') {
+    const small = (item.cls === 'steady' || item.cls === 'aside') && !item.here;
+    const big = item.cls === 'rule' || item.here;
+    const name = item.short
+      ? esc(item.short)
+      : `<span class="v32db-caption">${captionHTML(item.first)}</span>`;
+    const apart = aside(model, item);
+    const line = apart
+      ? `<span class="v32db-st-rail"><b>${esc(item.rail.line.name)}</b>${item.rail.line.concerns ? `<i>${esc(item.rail.line.concerns)}</i>` : ''}</span>`
+      : '';
+    const fate =
+      item.s.fate && !item.later && !item.hung ? `<span class="v32db-st-fate">${esc(item.s.fate)}</span>` : '';
+    // (Where there is no room for what a widening or a narrowing did, its direction is still said in
+    // the timeline's own two words, after its name.)
+    return `<li class="v32db-st-item ${cls}${apart ? ' v32db-st-apart' : ''}"><button type="button" class="v32db-st-row v32db-c-${item.cls} v32db-f-${item.fam}${big ? ' v32db-big' : ''}${small ? ' v32db-small' : ''}${item.here ? ' v32db-is-here' : ''}" data-v32db-i="${item.i}"><span class="v32db-st-mark">${glyph(item.turn, { rule: 18, reach: 14, steady: 11, aside: 12 }[item.cls])}</span><span class="v32db-st-main">${line}<span class="v32db-st-top">${timeHTML(item.s, 'v32db-yr')}<span class="v32db-st-name">${name}</span>${item.here ? '<span class="v32db-here">You are here</span>' : ''}${item.cls === 'reach' && !item.here ? `<span class="v32db-st-kind v32db-f-${item.fam}">${esc(item.kind)}</span>` : ''}</span><span class="v32db-st-fx">${esc(item.words)}</span>${fate}</span></button></li>`;
+  }
+  function stackHTML(model) {
+    const items = model.items;
+    const ts = items.map((item) => item.t ?? 0);
+    const whole = items.length ? ts[ts.length - 1] - ts[0] : 0;
+    const gapAfter = (i) => {
+      const years = i + 1 < items.length ? ts[i + 1] - ts[i] : 0;
+      return items.length >= 4 && years > 0.4 * whole && years >= 15
+        ? `<li class="v32db-st-gap"><span>${Math.round(years)} years</span></li>`
+        : '';
+    };
+    const laneHTML = (rail) =>
+      `<li class="v32db-st-lane"><span class="v32db-st-lane-name">${esc(rail.line.name)}</span><ol>${rail.items.map((item) => stackRow(item, model, 'v32db-st-on')).join('')}</ol></li>`;
+    const out = [];
+    if (model.form === 'lanes')
+      return `<ol class="v32db-st v32db-st-lanes">${model.rails.filter((rail) => !rail.of).map(laneHTML).join('')}</ol>`;
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i];
+      if (!item.span) {
+        out.push(stackRow(item, model), gapAfter(i));
+        continue;
+      }
+      // A rule: its beam, then everything up to the entry that ended it (or to the end).
+      const span = item.span;
+      const last = span.b ? span.b.i : items.length - 1;
+      const inside = [];
+      for (let k = i + 1; k <= last; k++) {
+        const one = items[k];
+        if (one === span.b || (one.rail && one.rail.of === span)) continue;
+        inside.push(stackRow(one, model, one.hung === span ? 'v32db-st-hung' : 'v32db-st-loose'));
+      }
+      const rule = onPlate(sentences(item.s.note || '')[0] || '') || item.words;
+      out.push(
+        `<li class="v32db-st-band${span.b ? '' : ' v32db-open-end'}"><span class="v32db-st-origin v32db-c-rule v32db-f-${item.fam}">${glyph(item.turn, 18)}</span><button type="button" class="v32db-st-beam v32db-f-${item.fam}${item.here ? ' v32db-is-here' : ''}" data-v32db-i="${item.i}">${art(item.artId)}<span class="v32db-st-beam-words"><span class="v32db-st-top"><span class="v32db-deck-name">${esc(span.short)}</span><span class="v32db-yr">${esc(yearOf(item.s))}–${span.b ? esc(yearOf(span.b.s)) : ''}</span>${item.here ? '<span class="v32db-here">You are here</span>' : ''}</span><span class="v32db-st-rule">${esc(rule)}</span></span></button><ol class="v32db-st-in">${inside.join('')}${span.rails.map(laneHTML).join('')}</ol>${span.b ? `<ol class="v32db-st-end">${stackRow(span.b, model, 'v32db-st-ender')}</ol>` : ''}</li>`,
+        gapAfter(last),
+      );
+      i = last;
+    }
+    return `<ol class="v32db-st">${out.join('')}</ol>`;
+  }
+  // The stood plate: as many words as leave the whole drawing in the opening view.
+  function layoutStack(root, model, plate) {
+    const above =
+      plate.getBoundingClientRect().top - inspector.getBoundingClientRect().top + inspector.scrollTop;
+    const room = inspector.clientHeight - above - 12;
+    plate.style.height = '';
+    for (const level of [3, 2, 1]) {
+      plate.dataset.v32dbLevel = String(level);
+      if (plate.offsetHeight <= room) break;
+    }
+    plate.dataset.v32dbLaid = String(plate.clientWidth);
+    state.shown = Number(plate.dataset.v32dbLevel);
+    if (state.sel >= 0 && root.querySelector('.v32db-account')?.firstElementChild) select(state.sel);
+    else mark(root);
+  }
+  const plateHTML = (model) => `<svg class="v32db-ink" aria-hidden="true"></svg>
+        ${model.spans.map(deckHTML).join('')}
+        ${model.items
+          .filter((item) => !item.span)
+          .map((item) => tagHTML(item, model))
+          .join('')}
+        ${model.rails
+          .filter((rail) => rail.of || model.form === 'lanes')
+          .map(
+            (rail) =>
+              `<span class="v32db-lane-name${rail.of ? ' v32db-lane-of' : ''}" data-v32db-line="${esc(rail.line.id)}">${esc(rail.line.name)}</span>`,
+          )
+          .join('')}`;
+
   function layout(root, model) {
     const plate = root.querySelector('.v32db-plate');
     if (!plate) return;
     const W = plate.clientWidth;
     if (!W) return;
+    // A narrow screen has the drawing stood on end; a wide one has it across the page.
+    const form = W < STACK_UNDER ? 'stack' : 'plate';
+    if (plate.dataset.v32dbForm !== form) {
+      plate.dataset.v32dbForm = form;
+      plate.innerHTML = form === 'stack' ? stackHTML(model) : plateHTML(model);
+      fitArt(plate);
+    }
+    if (form === 'stack') return layoutStack(root, model, plate);
     const items = model.items;
     // As much as the plate can say while the account under it still opens in view: its date, its name
     // and the first lines of its note.
@@ -1131,7 +1233,9 @@
       const said = root?.querySelector(`.v32db-deck[data-v32db-i="${item.i}"] .v32db-deck-said`);
       return !!said && said.textContent === said.dataset.did;
     }
-    const said = root?.querySelector(`.v32db-tag[data-v32db-i="${item.i}"] > .v32db-tag-fx`);
+    const said = root?.querySelector(
+      `.v32db-tag[data-v32db-i="${item.i}"] > .v32db-tag-fx, .v32db-st-row[data-v32db-i="${item.i}"] .v32db-st-fx`,
+    );
     return !!said && said.getClientRects().length > 0;
   }
   // What stands beside the selected entry. The space is used only for something worth learning that
@@ -1295,19 +1399,7 @@
         <h3 class="v32db-title">${esc(t.title)}</h3>
       </header>
       <div class="v32db-plate" role="group" aria-label="${esc(t.title)}: the timeline, drawn" tabindex="0" aria-describedby="v32dbHint">
-        <svg class="v32db-ink" aria-hidden="true"></svg>
-        ${model.spans.map(deckHTML).join('')}
-        ${model.items
-          .filter((item) => !item.span)
-          .map((item) => tagHTML(item, model))
-          .join('')}
-        ${model.rails
-          .filter((rail) => rail.of || model.form === 'lanes')
-          .map(
-            (rail) =>
-              `<span class="v32db-lane-name${rail.of ? ' v32db-lane-of' : ''}" data-v32db-line="${esc(rail.line.id)}">${esc(rail.line.name)}</span>`,
-          )
-          .join('')}
+
       </div>
       <div class="v32db-under">
         <p class="v32db-legend">${legendHTML(model)}</p>

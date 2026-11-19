@@ -389,6 +389,12 @@ html:root body #inspector .v32db-tag.v32db-big {
 html:root body #inspector .v32db-tag.v32db-is-here {
   max-width: 480px;
 }
+html:root body #inspector .v32db-plate[data-v32db-roomy] .v32db-tag:not(.v32db-big, .v32db-small) {
+  max-width: 460px;
+}
+html:root body #inspector .v32db-plate[data-v32db-roomy] .v32db-tag.v32db-small > .v32db-tag-top {
+  max-width: 440px;
+}
 html:root body #inspector .v32db-tag:hover {
   background: var(--v32-hover);
 }
@@ -1272,4 +1278,448 @@ html:root body #inspector .v32db-vh {
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+/* ---------- the plate stood on end (a narrow screen) ---------- */
+/* Three columns: the line with each entry's mark (24 px), a rule's upright bar (12 px), the words. */
+html:root body #inspector .v32db-plate[data-v32db-form='stack'] {
+  min-height: 0;
+}
+html:root body #inspector .v32db-st,
+html:root body #inspector .v32db-st ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+html:root body #inspector .v32db-st {
+  position: relative;
+}
+/* The line. */
+html:root body #inspector .v32db-st:not(.v32db-st-lanes)::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 14px;
+  bottom: 14px;
+  width: 2px;
+  background: #5d7385;
+}
+html:root body #inspector .v32db-st-row {
+  all: unset;
+  box-sizing: border-box;
+  position: relative;
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  width: 100%;
+  min-height: 32px;
+  padding: 4px 8px 4px 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+html:root body #inspector .v32db-st-row.v32db-is-sel {
+  background: var(--v31-raised);
+}
+html:root body #inspector .v32db-st-row.v32db-is-here.v32db-is-sel {
+  background: var(--v31-here-bg);
+}
+html:root body #inspector .v32db-st-row:focus-visible,
+html:root body #inspector .v32db-st-beam:focus-visible {
+  box-shadow: var(--v31-focus);
+}
+html:root body #inspector .v32db-st-mark {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+}
+html:root body #inspector .v32db-st-mark > .v32db-glyph {
+  border-radius: 999px;
+  background: var(--v31-panel);
+  box-shadow: 0 0 0 3px var(--v31-panel);
+}
+html:root body #inspector .v32db-st-row.v32db-is-sel .v32db-st-mark > .v32db-glyph {
+  background: var(--v31-raised);
+  box-shadow: 0 0 0 3px var(--v31-raised);
+}
+html:root body #inspector .v32db-st-row.v32db-is-here .v32db-st-mark > .v32db-glyph {
+  color: var(--v31-here);
+  background: var(--v31-panel);
+  box-shadow:
+    0 0 0 3px var(--v31-panel),
+    0 0 0 4.5px var(--v31-here);
+}
+html:root body #inspector .v32db-st-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding-left: 8px;
+}
+/* (Its year, its name and "You are here" run on as one line of text and turn where the name does.) */
+html:root body #inspector .v32db-st-top {
+  display: block;
+  min-width: 0;
+  font: var(--v32-ui-small);
+  line-height: 20px;
+}
+html:root body #inspector .v32db-st-top > .v32db-yr {
+  margin-right: 8px;
+  line-height: 1;
+}
+html:root body #inspector .v32db-st-top > .v32db-here {
+  margin-left: 8px;
+  line-height: 1;
+  white-space: nowrap;
+}
+html:root body #inspector .v32db-st-name {
+  min-width: 0;
+  font:
+    600 16px/24px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-text);
+}
+/* (A caption runs on in the line; "v." still keeps the word after it.) */
+html:root body #inspector .v32db-st-name .v32db-party {
+  display: inline;
+}
+html:root body #inspector .v32db-st-row.v32db-small .v32db-st-name {
+  font-weight: 500;
+  color: var(--v31-soft);
+}
+html:root body #inspector .v32db-st-row.v32db-big .v32db-st-name {
+  font:
+    600 19px/24px var(--dkla-display, 'Exo 2'),
+    sans-serif;
+}
+html:root body #inspector .v32db-st-row.v32db-is-here .v32db-st-name {
+  font-size: 22px;
+  line-height: 28px;
+}
+html:root body #inspector .v32db-st-fx,
+html:root body #inspector .v32db-st-fate {
+  font: var(--v32-ui-small);
+  text-wrap: pretty;
+  color: var(--v31-muted);
+}
+html:root body #inspector .v32db-st-row.v32db-is-here .v32db-st-fx {
+  font: var(--v31-ui);
+  color: var(--v31-soft);
+}
+html:root body #inspector .v32db-st-fate::before {
+  content: 'Later: ';
+  font-weight: 600;
+  color: var(--v31-soft);
+}
+html:root body #inspector .v32db-st-kind {
+  display: none;
+  margin-left: 8px;
+  font: var(--v32-ui-small);
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--f, var(--v31-muted));
+}
+html:root body #inspector .v32db-plate[data-v32db-level='1'] .v32db-st-kind {
+  display: inline;
+}
+/* Less room: applications are named only; least: only the turns of the rule and the open case say more. */
+html:root body #inspector .v32db-plate[data-v32db-level='2'] .v32db-st-row.v32db-small .v32db-st-fx,
+html:root body #inspector .v32db-plate[data-v32db-level='1'] .v32db-st-row:not(.v32db-big) .v32db-st-fx,
+html:root body #inspector .v32db-plate:not([data-v32db-level='3']) .v32db-st-fate {
+  display: none;
+}
+/* A marked break in time. */
+html:root body #inspector .v32db-st-gap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 20px;
+  padding-left: 0;
+}
+html:root body #inspector .v32db-st-gap > span {
+  position: relative;
+  margin-left: -2px;
+  padding: 2px 8px 2px 0;
+  background: var(--v31-panel);
+  font: var(--v32-readout);
+  font-size: 12px;
+  color: var(--v31-faint);
+}
+html:root body #inspector .v32db-st-gap > span::before {
+  content: '⁄ ';
+  color: var(--v31-muted);
+}
+/* A rule: a beam across the words' column, then an upright bar down to the entry that ended it. */
+html:root body #inspector .v32db-st-band {
+  position: relative;
+  padding: 2px 0;
+}
+html:root body #inspector .v32db-st-origin {
+  position: absolute;
+  left: 3px;
+  top: 12px;
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--v31-panel);
+  box-shadow: 0 0 0 3px var(--v31-panel);
+}
+html:root body #inspector .v32db-st-beam {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: calc(100% - 28px);
+  margin-left: 28px;
+  padding: 6px 12px 6px 10px;
+  border-top: 2px solid var(--v32db-span);
+  border-bottom: 1px solid color-mix(in srgb, var(--v32db-span) 60%, transparent);
+  background:
+    linear-gradient(color-mix(in srgb, var(--v32db-span) 45%, transparent) 0 0) 0 4px / 100% 1px no-repeat,
+    color-mix(in srgb, var(--v32db-span) 13%, var(--v31-panel));
+  cursor: pointer;
+}
+html:root body #inspector .v32db-st-beam.v32db-is-sel {
+  background:
+    linear-gradient(color-mix(in srgb, var(--v32db-span) 45%, transparent) 0 0) 0 4px / 100% 1px no-repeat,
+    color-mix(in srgb, var(--v32db-span) 26%, var(--v31-panel));
+}
+html:root body #inspector .v32db-st-beam > .v32db-art {
+  width: 36px;
+  height: 36px;
+  margin-top: 4px;
+}
+html:root body #inspector .v32db-st-beam-words {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+html:root body #inspector .v32db-st-beam .v32db-st-top > .v32db-deck-name {
+  margin-right: 12px;
+}
+html:root body #inspector .v32db-st-beam .v32db-st-top > .v32db-yr {
+  margin-right: 0;
+}
+html:root body #inspector .v32db-st-rule {
+  font: var(--v32-ui-small);
+  text-wrap: pretty;
+  color: var(--v31-soft);
+}
+html:root body #inspector .v32db-st-in,
+html:root body #inspector .v32db-st-end {
+  position: relative;
+}
+/* The bar: from under the beam, past everything decided while the rule stood. */
+html:root body #inspector .v32db-st-in::before {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--v32db-span);
+}
+html:root body #inspector .v32db-st-band.v32db-open-end > .v32db-st-in::before {
+  bottom: -8px;
+  -webkit-mask-image: linear-gradient(#000 calc(100% - 32px), transparent);
+  mask-image: linear-gradient(#000 calc(100% - 32px), transparent);
+}
+html:root body #inspector .v32db-st-in > .v32db-st-item > .v32db-st-row {
+  grid-template-columns: 24px 16px minmax(0, 1fr);
+}
+html:root body #inspector .v32db-st-in > .v32db-st-item > .v32db-st-row > .v32db-st-main {
+  grid-column: 3;
+}
+/* Decided under the rule: its mark is tied to the bar, not set on the line. */
+html:root body #inspector .v32db-st-hung > .v32db-st-row > .v32db-st-mark {
+  grid-column: 2;
+  justify-self: start;
+  width: 16px;
+  margin-left: 10px;
+}
+html:root body #inspector .v32db-st-hung > .v32db-st-row > .v32db-st-main {
+  padding-left: 20px;
+}
+html:root body #inspector .v32db-st-hung > .v32db-st-row::before {
+  content: '';
+  position: absolute;
+  left: 31px;
+  top: 15px;
+  width: 9px;
+  height: 2px;
+  background: var(--v32db-span);
+}
+html:root body #inspector .v32db-st-hung > .v32db-st-row > .v32db-st-mark > .v32db-glyph {
+  box-shadow: none;
+  background: none;
+}
+html:root body #inspector .v32db-st-loose > .v32db-st-row > .v32db-st-main {
+  padding-left: 20px;
+}
+/* A line of its own: clear of the line and of the bar, its name lettered on a dashed rail. */
+html:root body #inspector .v32db-st-apart > .v32db-st-row > .v32db-st-mark {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: start;
+  width: 16px;
+  margin-left: 22px;
+}
+html:root body #inspector .v32db-st-apart > .v32db-st-row > .v32db-st-main {
+  grid-row: 1;
+  padding-left: 32px;
+}
+html:root body #inspector .v32db-st > .v32db-st-apart > .v32db-st-row > .v32db-st-mark {
+  grid-column: 1;
+  margin-left: 30px;
+}
+html:root body #inspector .v32db-st > .v32db-st-apart > .v32db-st-row > .v32db-st-main {
+  padding-left: 40px;
+}
+html:root body #inspector .v32db-st-rail {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 8px;
+  min-height: 24px;
+}
+html:root body #inspector .v32db-st-rail > b {
+  font:
+    600 17px/24px var(--dkla-display, 'Exo 2'),
+    sans-serif;
+  color: var(--v31-text);
+}
+html:root body #inspector .v32db-st-rail::after {
+  content: '';
+  flex: 1 1 24px;
+  min-width: 24px;
+  height: 0;
+  border-top: 1.5px dashed var(--v31-soft);
+}
+html:root body #inspector .v32db-st-rail > i {
+  display: none;
+  order: 3;
+  flex: 0 0 100%;
+  font: var(--v32-ui-small);
+  font-style: normal;
+  color: var(--v31-muted);
+}
+html:root body #inspector .v32db-plate[data-v32db-level='1'] .v32db-st-row:not(.v32db-big) .v32db-st-rail > i {
+  display: block;
+}
+/* The entry that ended the rule: the bar stops on it with a heavy cap that reaches the line. */
+html:root body #inspector .v32db-st-end::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 0;
+  width: 19px;
+  height: 3px;
+  background: var(--v31-text);
+}
+html:root body #inspector .v32db-st-end:has(.v32db-is-here)::before {
+  background: var(--v31-here);
+}
+html:root body #inspector .v32db-st-end > .v32db-st-item > .v32db-st-row {
+  padding-top: 8px;
+}
+/* A named line inside a rule (one of its questions), or one of the answers a timeline compares. */
+html:root body #inspector .v32db-st-lane {
+  position: relative;
+  padding: 6px 0 2px 44px;
+}
+html:root body #inspector .v32db-st-lanes > .v32db-st-lane {
+  padding-left: 0;
+}
+html:root body #inspector .v32db-st-lane-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font:
+    600 15px/22px var(--dkla-display, 'Exo 2'),
+    sans-serif;
+  color: var(--v31-text);
+}
+html:root body #inspector .v32db-st-lane-name::after {
+  content: '';
+  flex: 1 1 16px;
+  min-width: 16px;
+  height: 0;
+  border-top: 1.5px solid color-mix(in srgb, var(--v32db-span) 62%, var(--v31-panel));
+}
+html:root body #inspector .v32db-st-lane > ol > .v32db-st-item > .v32db-st-row {
+  grid-template-columns: 24px minmax(0, 1fr);
+}
+html:root body #inspector .v32db-st-lane .v32db-st-mark > .v32db-glyph {
+  box-shadow: none;
+  background: none;
+}
+
+/* ---------- a narrow reader: one column, and the header line gives the case's name the room ---------- */
+@media (max-width: 699px) {
+  html:root body.v32db-on #inspector .reader-top > .v32-court {
+    display: none;
+  }
+  html:root body #inspector .v32db-mast > .v32db-crumbs {
+    display: none;
+  }
+  html:root body #inspector .v32db-title {
+    font-size: 22px !important;
+    line-height: 28px !important;
+    text-wrap: balance;
+  }
+  html:root body #inspector .v32db-head {
+    margin-bottom: 4px;
+  }
+  html:root body.v32db-on #inspector .v32 > .v32-panel {
+    height: 8px;
+  }
+  html:root body #inspector .v32db-sel,
+  html:root body #inspector .v32db-sel-wide {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  html:root body #inspector .v32db-sel-art {
+    margin-bottom: 8px;
+  }
+  html:root body #inspector .v32db-sel-wide .v32db-art-lg {
+    width: 64px;
+    height: 64px;
+  }
+  html:root body #inspector .v32db-sel-wide .v32db-sel-name {
+    font-size: 24px !important;
+    line-height: 30px !important;
+  }
+  html:root body #inspector .v32db-sel-wide .v32db-sel-note {
+    font: var(--v32-reading);
+  }
+  html:root body #inspector .v32db-sel-wide .v32db-sel-text {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  html:root body #inspector .v32db-rows {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  html:root body #inspector .v32db-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  html:root body #inspector .v32db-unit {
+    grid-template-columns: 52px 40px minmax(0, 1fr);
+    gap: 0 8px;
+  }
+  html:root body #inspector .v32db-unit-date > .v32db-yr {
+    font-size: 15px;
+    line-height: 26px;
+  }
+  html:root body #inspector .v32db-now {
+    margin-left: 0;
+  }
+  html:root body #inspector .v32db-all {
+    margin-top: 40px;
+  }
+  html:root body #inspector .v32db-key-group + .v32db-key-group {
+    padding-left: 0;
+    border-left: 0;
+  }
+  html:root body #inspector .v32db-legend {
+    gap: 4px 16px;
+  }
 }

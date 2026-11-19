@@ -172,7 +172,7 @@
     return { chart, byId, trail: [{ id: chart.entry }], view: 'walkthrough', zoom: 1 };
   }
 
-  function graphLayout({ chart, byId }) {
+  function graphLayout({ chart, byId, heights }) {
     const rows = [];
     const incoming = new Map(chart.nodes.map((node) => [node.id, []]));
     for (const node of chart.nodes)
@@ -224,7 +224,9 @@
       row.sort((a, b) => parentPosition(a) - parentPosition(b));
       // A step is its question, its answers as lettered lines and the drawings of the cases it cites.
       const lines = (text, perLine) => Math.max(1, Math.ceil(String(text).length / perLine));
+      // (An estimate until the chart has been shown once; then each step's measured height.)
       const cardHeight = (node) =>
+        heights?.get(node.id) ??
         22 +
         lines(node.label, 21) * 20 +
         (node.edges.length
@@ -579,6 +581,21 @@
       wire.classList.toggle('fc-path-wire', route.has(`${wire.dataset.fcFrom}/${wire.dataset.fcEdge}`));
     if (view === 'map') {
       fitArt(map);
+      if (!active.heights) {
+        // Shown for the first time: each step is measured and the chart is laid out to those heights.
+        const scale = currentZoom(map.querySelector('.fc-graph'));
+        active.heights = new Map(
+          [...map.querySelectorAll('[data-fc-cell]')].map((cell) => {
+            const set = cell.style.height;
+            cell.style.height = 'auto';
+            const height = Math.ceil(cell.getBoundingClientRect().height / scale) + 2;
+            cell.style.height = set;
+            return [cell.dataset.fcCell, height];
+          }),
+        );
+        map.outerHTML = graphHTML(active);
+        return paintStep({ focus, center: true });
+      }
       paintZoom({ center });
     }
     if (focus) {
