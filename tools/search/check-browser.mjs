@@ -152,15 +152,35 @@ try {
         assert.equal(list[0].label, 'Lecture');
         assert.match(list[0].title, /^Class 22 lecture/);
         // The row is on screen and nothing covers it.
-        const first = page.locator('#searchResults [data-search-key]').first();
-        const tappable = await first.evaluate((b) => {
-          const r = b.getBoundingClientRect(),
-            hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
-          return (
-            r.top >= 0 && r.bottom <= innerHeight && r.left >= 0 && r.right <= innerWidth && b.contains(hit)
-          );
-        });
-        assert.ok(tappable, 'the first result is on screen and uncovered');
+        // Looked at until it holds, for up to 3 s, and always on the row that is in the list now: the list
+        // is drawn again for the same words when the dictionary's data arrives (dklaR13Search.js
+        // refreshSearch), which replaces its rows, so a row picked a moment earlier may be gone.
+        const look = () =>
+          page.evaluate(() => {
+            const b = document.querySelector('#searchResults [data-search-key]');
+            if (!b) return { under: 'no row', tappable: false };
+            const r = b.getBoundingClientRect(),
+              hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+            return {
+              key: b.dataset.searchKey,
+              box: [r.left, r.top, r.right, r.bottom].map(Math.round),
+              window: [innerWidth, innerHeight],
+              under: hit ? `${hit.tagName}#${hit.id}.${hit.className}` : 'nothing',
+              tappable:
+                r.top >= 0 &&
+                r.bottom <= innerHeight &&
+                r.left >= 0 &&
+                r.right <= innerWidth &&
+                b.contains(hit),
+            };
+          });
+        let where = await look();
+        for (let i = 0; i < 15 && !where.tappable; i++) {
+          await page.waitForTimeout(200);
+          where = await look();
+        }
+        assert.equal(where.key, 'lecture:lrs-22', 'still the lecture first');
+        assert.ok(where.tappable, 'the first result is on screen and uncovered: ' + JSON.stringify(where));
         if (width === 390) await snap(page, 'phone-2-results');
       },
     );
