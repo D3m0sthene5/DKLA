@@ -53,6 +53,26 @@ now read one facet at a time.
   left edge and title but keep their older insides; the pictures in `tools/verify/views` must be recorded
   again on the owner's PC (`pnpm views:update`): every picture with the reader in it changes.
 
+**Later the same day: the case sheet (docs/DESIGN.md rules 13 and 14, the editorial standard).** The
+owner's critique and the research changed the plan above: what is read together is on one screen, and
+tabs are for what is consulted alone. A case now opens on a sheet (the Brief tab): the subject's
+question, the pictogram as a 48 px illustration beside the name, the name set as a caption
+(`compose()` in `src/features/v25/reading.js`: one party to a unit, the line turns before "v.",
+consolidated cases one to a line, the year moved to the citation line and the strip), the rule, the
+six-part brief, and beside it a column "Where this case sits" (`sits()` in `src/features/v32/case.js`,
+built from the Doctrine tab's own blocks: place on the timeline and how the case moved the rule, the
+flowchart steps it is a source for with the answer that leads on, the nearest three connections).
+Below a 1340 px window the column is a band between the rule and the brief. Tabs: Brief, Doctrine
+(timelines, flowchart steps, connections), Cases (concepts and rules), Canons, Class notes, Court,
+Sources, Notes. `DKLAReader.show('timeline' | 'flowchart' | 'connections')` and
+`#node=…&facet=timeline` still work: they open Doctrine at that part. Rows (timeline entries, flowchart
+steps, connections, cases, canons) are text with a link in it, not buttons, so a long name wraps as
+text. A canon's row says what the canon does and, from the canon's own record, whether the case
+applies or discusses it and where. Open: the Court tab's bench (nine portrait buttons with centred
+two-line labels) still fails `tools/v32/composition.mjs`; the lint also calls "v. Murphy" on its own
+line a widow, which the caption rule requires. No "recall first" cover was built; the hook is that the
+rule is `.reader-body > .takeaway` and the Holding is the fifth `.case-box > section`.
+
 ## The map in motion (19 November 2026, branch `v32-map`, not merged, not deployed)
 
 - **What changed**: a drag, a pinch, a glide or a flight no longer draws the map on every frame. The picture
