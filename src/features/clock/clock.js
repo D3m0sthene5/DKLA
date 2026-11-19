@@ -103,10 +103,13 @@
     flaps.filter((flap) => row.contains(flap.el)),
   );
 
+  // Still also beside the reading: with a reader or a dialog open (html.v32-reading, set by
+  // src/features/v32/chrome.js) the digits change in place, with no flap falling.
   const still = () =>
     calm.matches ||
     document.hidden ||
     window.DKLACalm?.quiet() ||
+    document.documentElement.classList.contains('v32-reading') ||
     !clock.isConnected ||
     clock.offsetParent === null;
 

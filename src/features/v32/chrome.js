@@ -141,7 +141,10 @@
   right.prepend(cluster);
   right.append(more);
   brand.title = 'Danny Kind Legal Atlas: the whole atlas';
-  more.setAttribute('aria-label', 'Library');
+  // The button says what is behind it (a bare "Library" tells a newcomer little).
+  const INSIDE = 'timelines, flowcharts, canons, the dictionary, class sessions, study tools and your notes';
+  more.title = 'Library: ' + INSIDE;
+  more.setAttribute('aria-label', 'Library: ' + INSIDE);
   // The shortcut the field answers to, as this machine writes it.
   const mac = /Mac|iPhone|iPad/i.test(navigator.userAgentData?.platform || navigator.platform || '');
   const key = $('searchKey');
@@ -186,14 +189,15 @@
     if (!adopt() && tries < 100) setTimeout(() => adoptSoon(tries + 1), 100);
   })(0);
 
-  // The way back and the breadcrumb live in the bar; on a window too narrow for three groups they
-  // stay on the map, where they were. The same element either way, so everything that writes the
-  // trail or asks where it is (the map's label engine, the Home fit) needs no change.
+  // The way back and the breadcrumb live in the bar; in a window under 1000 px wide, where the bar
+  // has no room for a path, they stay on the map, where they were. The same element either way, so
+  // everything that writes the trail or asks where it is (the map's label engine, the Home fit)
+  // needs no change.
   const nav = document.querySelector('nav.map-nav'),
     main = $('studyMain'),
     canvas = $('geoCanvas'),
     trail = $('geoBreadcrumb');
-  const roomy = matchMedia('(min-width: 851px)');
+  const roomy = matchMedia('(min-width: 1000px)');
   function placeNav() {
     if (!nav) return;
     if (roomy.matches) {
@@ -205,44 +209,236 @@
     if (typeof schedule === 'function') schedule();
   });
   placeNav();
-  // A trail longer than its room in the bar: the first crumbs step out (the wordmark is still the way
-  // Home, and Back still goes back) until the rest fits; the last two always stay, shortened if they must
-  // be. Worked out when the trail is rewritten and when the bar changes width, never on a timer. A crumb
-  // says its whole name on hover.
+  // The trail is one line, left aligned, and never wraps, so a separator can never be left alone on a line.
+  // A course is named as Home names it ("LRS", "Civ Pro"; the whole name is the crumb's title). A path longer
+  // than its room is shortened the way a person would: the middle levels fold into a "…" control that opens
+  // the whole path, the first level and the last stay, and only then is the last one cut short, with an
+  // ellipsis and its whole name as a title. Worked out when the trail is rewritten, when it comes into the bar
+  // and when the bar changes width; never on a timer.
+  const SHORT = { 'Legislation and the Regulatory State': 'LRS', 'Civil Procedure': 'Civ Pro' };
+  const path = $('v32Path') || make('div', 'v32-path');
+  path.id = 'v32Path';
+  path.setAttribute('role', 'menu');
+  path.setAttribute('aria-label', 'The whole path');
+  const popovers = typeof path.showPopover === 'function';
+  if (popovers) path.setAttribute('popover', '');
+  else path.hidden = true;
+  document.body.append(path);
+  let trailWatch = null,
+    crumbsNow = [];
+  const fullName = (crumb) => crumb.dataset.v32Name || crumb.textContent.trim();
+  // The command field may give the path room, down to this width (and no further).
+  const FIELD_LEAST = 320;
+  let pushed = 0;
+  const push = (px) => {
+    px = Math.max(0, Math.ceil(px));
+    if (px === pushed) return;
+    pushed = px;
+    if (px) header.style.setProperty('--v32c-push', px + 'px');
+    else header.style.removeProperty('--v32c-push');
+  };
+  // Words a cut never ends on ("methods and…", "Formation by conduct · §…").
+  const LOOSE = /^(?:and|or|of|the|to|in|on|for|by|a|an|v\.?|vs\.?|[^\p{L}\p{N}]+)$/iu;
+  const cutAt = (words, n) => {
+    const kept = words.slice(0, n);
+    while (kept.length > 1 && LOOSE.test(kept[kept.length - 1])) kept.pop();
+    return kept.join(' ').replace(/[\s,;:·–—-]+$/u, '') + '…';
+  };
+  // A path longer than its room is shortened by design, never by the browser's clipping:
+  //   1. a level is shown whole or folded away, never squeezed. Levels fold from the one before the
+  //      last backwards, into one "…" control that opens the whole path: "Atlas › LRS › … › last",
+  //      then "Atlas › … › last". A level folds only where that gives real room back (folding "LRS"
+  //      into "…" would hide a name and gain nothing);
+  //   2. the last level, where you are, comes first. If no folding shows it whole, the command field
+  //      gives up room for it (down to 320 px wide; its right edge and everything right of it stay
+  //      where they are), and after that the first level folds too ("… › last");
+  //   3. only then is the last level cut, at a word, with "…" and its whole text as the tooltip.
   function fitTrail() {
     if (!trail) return;
-    const parts = [...trail.children];
-    for (const part of parts) part.classList.remove('v32-crumb-off');
-    trail.classList.remove('v32-trail-cut');
-    for (const crumb of trail.querySelectorAll('button')) {
-      const name = crumb.textContent.trim();
-      if (crumb.title !== name) crumb.title = name;
+    trailWatch?.disconnect();
+    try {
+      for (const el of trail.querySelectorAll('.v32-crumb-more, .v32-crumb-more-sep')) el.remove();
+      for (const part of trail.children) part.classList.remove('v32-crumb-off');
+      trail.classList.remove('v32-trail-cut');
+      const crumbs = (crumbsNow = [...trail.children].filter((part) => part.localName === 'button'));
+      for (const crumb of crumbs) {
+        if (crumb.dataset.v32Whole) {
+          crumb.textContent = crumb.dataset.v32Whole;
+          delete crumb.dataset.v32Whole;
+        }
+        const short = SHORT[crumb.dataset.studyScope];
+        if (short && crumb.textContent !== short) {
+          crumb.dataset.v32Name = crumb.dataset.studyScope;
+          crumb.textContent = short;
+        }
+        const name = fullName(crumb);
+        if (crumb.title !== name) crumb.title = name;
+        if (crumb.dataset.v32Name) crumb.setAttribute('aria-label', name);
+      }
+      const last = crumbs[crumbs.length - 1];
+      if (last) last.setAttribute('aria-current', 'location');
+      const inBar = header.contains(nav);
+      if (crumbs.length < 2 || !nav.getClientRects().length) return push(0);
+      // Where the path must end: the left group's inner edge in the bar (less whatever the field has
+      // already given up), or the map's gutter where the path sits on the map.
+      const style = getComputedStyle(nav);
+      const beside = !inBar && document.body.classList.contains('has-reader') ? $('inspector') : null;
+      const limit = inBar
+        ? left.getBoundingClientRect().right - parseFloat(getComputedStyle(left).paddingRight) - pushed
+        : nav.parentElement.getBoundingClientRect().right -
+          (beside?.offsetWidth || 0) -
+          (parseFloat(style.left) || 0) -
+          (parseFloat(style.paddingRight) || 0);
+      const give = inBar ? Math.max(0, field.getBoundingClientRect().width + pushed - FIELD_LEAST) : 0;
+      // Measured with every label at full length, so what does not fit is known before anything shrinks.
+      trail.classList.add('v32-trail-measure');
+      const over = () => last.getBoundingClientRect().right - limit;
+      // (A label a fraction of a pixel wider than its box already shows the browser's ellipsis, so
+      // fitting means no overhang at all, and room is taken a pixel over.)
+      if (over() <= 0) return push(0);
+      const more = make('button', 'v32-crumb-more'),
+        sep = make('span', 'v32-crumb-more-sep');
+      more.type = 'button';
+      more.textContent = '…';
+      more.title = 'Show the whole path';
+      more.setAttribute('aria-haspopup', 'menu');
+      if (popovers) more.setAttribute('popovertarget', 'v32Path');
+      sep.textContent = '›';
+      const before = crumbs.slice(0, -1);
+      const fold = (count) => {
+        before.forEach((crumb, i) => {
+          const off = i >= before.length - count;
+          crumb.classList.toggle('v32-crumb-off', off);
+          if (crumb.nextElementSibling?.localName === 'span')
+            crumb.nextElementSibling.classList.toggle('v32-crumb-off', off);
+        });
+        if (count) last.before(more, sep);
+        else {
+          more.remove();
+          sep.remove();
+        }
+        return over();
+      };
+      // The foldings worth having, least folded first: each must win back at least 40 px.
+      const tries = [{ count: 0, over: over() }];
+      for (let count = 1; count <= before.length; count++) {
+        const spill = fold(count);
+        if (spill < tries[tries.length - 1].over - 40) tries.push({ count, over: spill });
+      }
+      const middle = tries.filter((t) => t.count < before.length),
+        tightest = middle[middle.length - 1],
+        all = tries[tries.length - 1];
+      const pick =
+        middle.find((t) => t.over <= 0) || // whole, the field untouched
+        (tightest.over + 1 <= give && tightest) || // whole, the field gives room
+        all; // the first level folds too; whole if that is enough
+      fold(pick.count);
+      push(pick.over > 0 ? Math.min(give, pick.over + 1) : 0);
+      if (pick.count) {
+        more.setAttribute(
+          'aria-label',
+          'Show the whole path (folded here: ' + before.slice(-pick.count).map(fullName).join(', ') + ')',
+        );
+        trail.classList.add('v32-trail-cut');
+      }
+      if (pick.over > 0 && pick.over + 1 > give) {
+        // Still too long: the last level loses words from its end until it fits.
+        const whole = last.textContent.trim(),
+          words = whole.split(/\s+/),
+          end = limit + give;
+        if (!last.dataset.v32Name) last.dataset.v32Name = whole;
+        last.dataset.v32Whole = whole;
+        last.setAttribute('aria-label', fullName(last));
+        let n = words.length - 1;
+        for (; n >= 1; n--) {
+          const text = cutAt(words, n);
+          if (text === last.textContent) continue;
+          last.textContent = text;
+          if (last.getBoundingClientRect().right - end <= 0) break;
+        }
+        // Its first word alone is wider than the room (a very narrow window): the whole text goes
+        // back and the browser's own ellipsis is the last resort.
+        if (n < 1) last.textContent = whole;
+      }
+    } finally {
+      trail.classList.remove('v32-trail-measure');
+      trailWatch?.observe(trail, { childList: true });
     }
-    if (nav.parentElement !== left || !nav.getClientRects().length) return;
-    const crumbs = parts.filter((part) => part.localName === 'button');
-    // Measured at full length (no name shortened), so what does not fit is known before anything shrinks.
-    trail.classList.add('v32-trail-measure');
-    for (let i = 0; i < crumbs.length - 2 && trail.scrollWidth > trail.clientWidth + 1; i++) {
-      trail.classList.add('v32-trail-cut');
-      crumbs[i].classList.add('v32-crumb-off');
-      // The separator before it goes too; the one after it stays, after the ellipsis.
-      if (crumbs[i].previousElementSibling?.localName === 'span')
-        crumbs[i].previousElementSibling.classList.add('v32-crumb-off');
-    }
-    trail.classList.remove('v32-trail-measure');
   }
+  // The whole path, as a small menu under the "…" control: every level, the place you are marked.
+  function drawPath() {
+    path.innerHTML = crumbsNow
+      .map(
+        (crumb, i) =>
+          `<button type="button" class="v32-row" role="menuitem" data-v32-level="${i}"${i === crumbsNow.length - 1 ? ' aria-current="location"' : ''}>` +
+          `<span class="v32-row-label">${E(fullName(crumb))}</span></button>`,
+      )
+      .join('');
+    const at = trail.querySelector('.v32-crumb-more')?.getBoundingClientRect();
+    if (at) {
+      path.style.left = Math.max(8, Math.round(at.left - 8)) + 'px';
+      path.style.top = Math.round(header.getBoundingClientRect().bottom - 4) + 'px';
+    }
+  }
+  const closePath = () => {
+    if (popovers) path.matches(':popover-open') && path.hidePopover();
+    else path.hidden = true;
+  };
+  if (popovers)
+    path.addEventListener('beforetoggle', (event) => {
+      if (event.newState === 'open') drawPath();
+    });
+  else
+    document.addEventListener('click', (event) => {
+      // Without the Popover API the menu is an ordinary box: the control toggles it, a click elsewhere shuts it.
+      if (event.target.closest?.('.v32-crumb-more')) {
+        drawPath();
+        path.hidden = !path.hidden;
+      } else if (!path.contains(event.target)) path.hidden = true;
+    });
+  path.addEventListener('click', (event) => {
+    const row = event.target.closest('[data-v32-level]');
+    if (!row) return;
+    const crumb = crumbsNow[+row.dataset.v32Level];
+    closePath();
+    if (crumb?.isConnected) crumb.click();
+  });
+  path.addEventListener('keydown', (event) => {
+    if (!['ArrowDown', 'ArrowUp'].includes(event.key)) return;
+    const rows = [...path.querySelectorAll('button')],
+      at = rows.indexOf(document.activeElement);
+    event.preventDefault();
+    rows[(at + (event.key === 'ArrowDown' ? 1 : rows.length - 1)) % rows.length]?.focus();
+  });
   if (trail) {
-    new MutationObserver(fitTrail).observe(trail, { childList: true });
-    if (typeof ResizeObserver === 'function') new ResizeObserver(fitTrail).observe(left);
+    trailWatch = new MutationObserver(() => {
+      closePath();
+      fitTrail();
+    });
+    trailWatch.observe(trail, { childList: true });
+    if (typeof ResizeObserver === 'function') {
+      // Its room changes with the bar (a wide window) or with the map's area (a narrow one).
+      const sized = new ResizeObserver(fitTrail);
+      sized.observe(left);
+      if (main) sized.observe(main);
+    }
+    fitTrail();
   }
   root.classList.add('v32-chrome');
 
   // Home is the whole atlas at its resting size with nothing open. Anywhere else (zoomed in from it, a
   // course or subject, a reader or a panel) the breadcrumb shows, the splash line steps aside, and the
-  // hanging Dottie steps away so she never covers the map (ask.css). Looked at after every map draw
-  // and after anything a visitor does (DKLACalm.after), not on a timer.
+  // hanging Dottie steps away so she never covers the map (ask.css).
+  //
+  // Reading is a reader, a dialog or SCOTUS History open. Then nothing in the bar moves or glows unprompted
+  // (docs/DESIGN.md rule 14): the instrument cluster goes still and unlit (chrome.css, and clock.js stops
+  // flipping), so the only lit thing on the screen is what is being read.
+  //
+  // Both are looked at after every map draw and after anything a visitor does (DKLACalm.after, which also
+  // runs when a dialog opens or closes), not on a timer.
   function offHome() {
     if (typeof S === 'undefined' || !S) return;
+    const court = !!window.SCOTUSHistory?.state?.().open;
     const home =
       S.scope === 'Atlas' &&
       !S.region &&
@@ -250,13 +446,19 @@
       !S.panelOpen &&
       !(typeof selected !== 'undefined' && selected) &&
       // SCOTUS History is a view of its own under the bar: its trail (Atlas > SCOTUS History) shows.
-      !window.SCOTUSHistory?.state?.().open;
+      !court;
     const z = window.DKLAHomeFit?.homeZoom?.() || 0;
     const off = !home || (z > 0 && S.z > z * 1.04);
     if (root.classList.contains('dkla-off-home') !== off) {
       root.classList.toggle('dkla-off-home', off);
       // The trail has just come into the bar: its room is known only now.
       if (off) fitTrail();
+    }
+    const reading = !!S.panelOpen || court || (window.DKLACalm?.state().dialogs || 0) > 0;
+    if (root.classList.contains('v32-reading') !== reading) {
+      root.classList.toggle('v32-reading', reading);
+      // On the map the path's room ends where a reader begins.
+      if (!header.contains(nav)) fitTrail();
     }
   }
   (function install(tries) {
@@ -313,8 +515,8 @@
   /* ---------- the Library ---------- */
   // Data blocks in the page never change, so each is counted once.
   const counted = new Map();
-  function blockCount(id, measure = (value) => value.length) {
-    if (counted.has(id)) return counted.get(id);
+  function blockCount(id, measure = (value) => value.length, key = id) {
+    if (counted.has(key)) return counted.get(key);
     let n = null;
     try {
       const value = JSON.parse($(id)?.textContent || 'null');
@@ -322,7 +524,7 @@
     } catch {
       n = null;
     }
-    if (n != null) counted.set(id, n);
+    if (n != null) counted.set(key, n);
     return n;
   }
   const safe = (read) => {
@@ -337,23 +539,34 @@
   const COURSES = ['Contracts', 'Civil Procedure', 'Legislation and the Regulatory State'];
   // Every row: what it is called, one line for a newcomer where the name alone would not say, the
   // attribute its own feature listens for (so a click is handled exactly as it always was), and how
-  // many things are behind it. A count that is not known yet (data still arriving) shows nothing.
+  // many things are behind it, with what they are ("115 flowcharts · 975 steps": docs/DESIGN.md rule 8).
+  // A count that is not known yet (data still arriving) shows nothing, never a zero.
+  // One level, four labelled groups, none longer than eight rows.
   const COLLECTIONS = [
     {
       id: 'timelines',
       label: 'Doctrine timelines',
-      note: 'How a rule developed',
       glyph: 'timeline',
       attrs: 'data-r21-menu="1"',
       count: () => safe(() => window.DKLATimelines.list().length),
+      unit: ['timeline', 'timelines'],
     },
     {
       id: 'flowcharts',
       label: 'Flowcharts',
-      note: 'The steps of a test, in order',
       glyph: 'flowchart',
       attrs: 'data-flowcharts-menu',
       count: () => blockCount('dklaFlowchartsData'),
+      unit: ['flowchart', 'flowcharts'],
+      more: {
+        count: () =>
+          blockCount(
+            'dklaFlowchartsData',
+            (charts) => charts.reduce((sum, chart) => sum + chart.nodes.length, 0),
+            'dklaFlowchartsData steps',
+          ),
+        unit: ['step', 'steps'],
+      },
     },
     {
       id: 'canons',
@@ -361,6 +574,7 @@
       glyph: 'canon',
       attrs: 'data-canons-menu',
       count: () => blockCount('dklaCanonsData'),
+      unit: ['canon', 'canons'],
     },
     {
       id: 'dictionary',
@@ -368,18 +582,59 @@
       glyph: 'dictionary',
       attrs: 'data-v32-open="dictionary"',
       count: () => safe(() => window.DKLA.glossaryCount()),
+      unit: ['term', 'terms'],
     },
     {
-      id: 'lectures',
-      label: 'Lecture notes',
-      glyph: 'lecture',
-      attrs: 'data-v32-open="lectures"',
-      count: () => blockCount('dklaLecturesData'),
+      id: 'authorities',
+      label: 'Rules & authorities',
+      glyph: 'authority',
+      attrs: 'data-authority-menu="1"',
+      count: () => safe(() => window.DKLAAuthorities.data.entries.length),
+      unit: ['provision', 'provisions'],
     },
+    {
+      id: 'scotus',
+      label: 'SCOTUS History',
+      glyph: 'scotus',
+      attrs: 'data-sh-open="1"',
+      count: () => safe(() => Object.keys(window.SCOTUSHistory.data.people).length),
+      unit: ['justice', 'justices'],
+    },
+    {
+      id: 'supporting',
+      label: 'Supporting cases',
+      glyph: 'case',
+      attrs: () => `data-r19-list="${Math.max(0, COURSES.indexOf(typeof S === 'object' ? S.scope : ''))}"`,
+      count: () =>
+        safe(() => {
+          const d = window.DKLABriefs.data;
+          return d.entries.length - Object.keys(d.map).length;
+        }),
+      unit: ['case', 'cases'],
+      library: true,
+    },
+    {
+      // Another pass adds the Cold Call index; the row appears with it.
+      id: 'coldcalls',
+      label: 'Cold Calls',
+      glyph: 'cold',
+      attrs: 'data-v32-open="coldcalls"',
+      when: () => !!window.DKLAColdCallIndex,
+      count: () =>
+        safe(() => {
+          const index = window.DKLAColdCallIndex;
+          if (Number.isFinite(index.count)) return index.count;
+          if (typeof index.count === 'function') return index.count();
+          return window.DKLAColdCall.cases().length;
+        }),
+      unit: ['case', 'cases'],
+    },
+  ];
+  // What the app has called assignments, weeks and classes is one thing here: a class session.
+  const CLASSES = [
     {
       id: 'sessions',
       label: 'Class sessions',
-      note: 'The reading for each class',
       glyph: 'session',
       attrs: 'data-action="class"',
       count: () =>
@@ -391,35 +646,15 @@
             (g.nodes || []).filter((n) => /^cp-week-\d+$/.test(n.id)).length
           );
         }),
+      unit: ['session', 'sessions'],
     },
     {
-      id: 'authorities',
-      label: 'Rules & authorities',
-      note: 'Constitution, rules, codes',
-      glyph: 'authority',
-      attrs: 'data-authority-menu="1"',
-      count: () => safe(() => window.DKLAAuthorities.data.entries.length),
-    },
-    {
-      id: 'scotus',
-      label: 'SCOTUS History',
-      note: 'Every justice since 1789',
-      glyph: 'scotus',
-      attrs: 'data-sh-open="1"',
-      count: () => safe(() => Object.keys(window.SCOTUSHistory.data.people).length),
-    },
-    {
-      id: 'supporting',
-      label: 'Supporting cases',
-      note: 'Cited in the readings',
-      glyph: 'case',
-      attrs: () => `data-r19-list="${Math.max(0, COURSES.indexOf(typeof S === 'object' ? S.scope : ''))}"`,
-      count: () =>
-        safe(() => {
-          const d = window.DKLABriefs.data;
-          return d.entries.length - Object.keys(d.map).length;
-        }),
-      library: true,
+      id: 'lectures',
+      label: 'Lecture notes',
+      glyph: 'lecture',
+      attrs: 'data-v32-open="lectures"',
+      count: () => blockCount('dklaLecturesData'),
+      unit: ['lecture', 'lectures'],
     },
     {
       id: 'textbook',
@@ -427,23 +662,8 @@
       glyph: 'book',
       attrs: 'data-action="book"',
       count: () => safe(() => Number(graph().corpus?.sourcePageCount)),
+      unit: ['page', 'pages'],
       library: true,
-    },
-    {
-      // Another pass adds the Cold Call index; the row appears with it.
-      id: 'coldcalls',
-      label: 'Cold Calls',
-      note: 'Every case as a story you can retell',
-      glyph: 'cold',
-      attrs: 'data-v32-open="coldcalls"',
-      when: () => !!window.DKLAColdCallIndex,
-      count: () =>
-        safe(() => {
-          const index = window.DKLAColdCallIndex;
-          if (Number.isFinite(index.count)) return index.count;
-          if (typeof index.count === 'function') return index.count();
-          return window.DKLAColdCall.cases().length;
-        }),
     },
   ];
   const STUDY = [
@@ -454,6 +674,7 @@
       glyph: 'drill',
       attrs: 'data-r18-open="drill"',
       count: () => safe(() => window.DKLAStudy.entries().length),
+      unit: ['entry', 'entries'],
     },
     {
       id: 'pairs',
@@ -462,6 +683,7 @@
       glyph: 'pairs',
       attrs: 'data-r18-open="pairs"',
       count: () => safe(() => window.DKLAStudy.pairs().length),
+      unit: ['pair', 'pairs'],
     },
     {
       id: 'sheets',
@@ -481,12 +703,7 @@
   const YOURS = [
     { id: 'add', label: 'Add an entry', glyph: 'add', attrs: 'data-action="add"' },
     { id: 'connect', label: 'Add a connection', glyph: 'connect', attrs: 'data-action="connect"' },
-    {
-      id: 'path',
-      label: 'Find a connection path',
-      glyph: 'path',
-      attrs: 'data-action="path"',
-    },
+    { id: 'path', label: 'Find a connection path', glyph: 'path', attrs: 'data-action="path"' },
     {
       id: 'undo',
       label: 'Undo last edit',
@@ -494,12 +711,7 @@
       attrs: 'data-action="undo"',
       when: () => typeof undoStack !== 'undefined' && undoStack.length > 0,
     },
-    {
-      id: 'save',
-      label: 'Save and back up',
-      glyph: 'save',
-      attrs: 'data-action="save"',
-    },
+    { id: 'save', label: 'Save and back up', glyph: 'save', attrs: 'data-action="save"' },
     { id: 'guide', label: 'Guide', note: 'A short walkthrough', glyph: 'guide', attrs: 'data-r20-guide="1"' },
     {
       id: 'patch',
@@ -509,30 +721,45 @@
       meta: () => header.querySelector('.dkla-release')?.textContent.trim() || '',
     },
   ];
+  const GROUPS = [
+    ['Collections', COLLECTIONS],
+    ['Classes', CLASSES],
+    ['Study', STUDY],
+    ['Yours', YOURS],
+  ];
+  const EVERY = GROUPS.flatMap(([, list]) => list);
   const shown = (list, where) =>
     list.filter((row) => (!row.when || row.when()) && (where === 'library' || !row.library));
+  // "115 flowcharts · 975 steps": the number with what it counts; nothing while the number is not known.
+  const counting = (n, [one, many]) =>
+    Number.isFinite(n) && n > 0 ? `${count(n)} ${n === 1 ? one : many}` : '';
+  function metaOf(row) {
+    if (row.meta) return row.meta();
+    if (!row.count) return '';
+    const first = counting(row.count(), row.unit);
+    const second = first && row.more ? counting(row.more.count(), row.more.unit) : '';
+    return [first, second].filter(Boolean).join(' · ');
+  }
   function rowHTML(row, role) {
     const attrs = typeof row.attrs === 'function' ? row.attrs() : row.attrs;
-    const meta = row.meta ? row.meta() : count(row.count ? row.count() : null);
     return (
       `<button type="button" class="v32-row"${role ? ` role="${role}"` : ''} data-v32-row="${row.id}" ${attrs}>` +
       glyph(row.glyph) +
       `<span class="v32-row-label">${E(row.label)}</span>` +
       `<span class="v32-row-note">${E(row.note || '')}</span>` +
-      `<span class="v32-row-meta">${E(meta)}</span></button>`
+      `<span class="v32-row-meta">${E(metaOf(row))}</span></button>`
     );
   }
-  const groupHTML = (name, list) =>
+  const groupHTML = ([name, list]) =>
     `<section class="v32-lib-group" role="group" aria-label="${E(name)}"><h3>${E(name)}</h3>` +
-    list.map((row) => rowHTML(row, 'menuitem')).join('') +
+    shown(list, 'library')
+      .map((row) => rowHTML(row, 'menuitem'))
+      .join('') +
     '</section>';
   function library(menu) {
     menu.innerHTML =
-      groupHTML('Collections', shown(COLLECTIONS, 'library')) +
-      '<div class="v32-lib-side">' +
-      groupHTML('Study', shown(STUDY, 'library')) +
-      groupHTML('Yours', shown(YOURS, 'library')) +
-      '</div>' +
+      `<div class="v32-lib-side">${groupHTML(GROUPS[0])}${groupHTML(GROUPS[1])}</div>` +
+      `<div class="v32-lib-side">${groupHTML(GROUPS[2])}${groupHTML(GROUPS[3])}</div>` +
       '<footer class="v32-lib-foot">' +
       '<button type="button" class="v32-quiet" role="menuitem" data-action="help">How to use this map</button>' +
       '<button type="button" class="v32-quiet" role="menuitem" data-action="scope">Sources and coverage</button>' +
@@ -543,10 +770,10 @@
   // A count that arrives after the Library or the palette was drawn (the dictionary loads late).
   function recount() {
     for (const el of document.querySelectorAll('[data-v32-row]')) {
-      const row = [...COLLECTIONS, ...STUDY].find((r) => r.id === el.dataset.v32Row);
+      const row = EVERY.find((r) => r.id === el.dataset.v32Row);
       const meta = el.querySelector('.v32-row-meta');
       if (!row?.count || !meta) continue;
-      const text = count(row.count());
+      const text = metaOf(row);
       if (meta.textContent !== text) meta.textContent = text;
     }
   }
@@ -672,8 +899,9 @@
       ? `<div class="v32-section" role="group" aria-label="${E(name)}"><div class="v32-label">${E(name)}${note ? `<span class="v32-row-note">${E(note)}</span>` : ''}</div>${rows.join('')}</div>`
       : '';
   // What the open entry offers, if the reader says (window.DKLAReader.facets, added by the reader's
-  // own pass): rows such as Cold Call, Brief, Timeline 6. Each facet is { id, label, count?, glyph?,
-  // open() }; anything else it returns is left out rather than guessed at.
+  // own pass): rows such as Cold Call, Brief, Timeline. Each facet is { id, label, open(), and optionally
+  // note, glyph, and either meta (text such as "6 entries") or count with unit }; anything else it returns
+  // is left out rather than guessed at.
   let facets = [];
   function entryRows() {
     facets = [];
@@ -690,7 +918,7 @@
         `<button type="button" class="v32-row" data-v32-facet="${i}">` +
         glyph(GLYPH[f.glyph] ? f.glyph : GLYPH[f.id] ? f.id : 'dot') +
         `<span class="v32-row-label">${E(f.label)}</span><span class="v32-row-note">${E(f.note || '')}</span>` +
-        `<span class="v32-row-meta">${E(count(Number(f.count)))}</span></button>`,
+        `<span class="v32-row-meta">${E(typeof f.meta === 'string' ? f.meta : Number.isFinite(f.count) && typeof f.unit === 'string' ? count(f.count) + ' ' + f.unit : count(Number(f.count)))}</span></button>`,
     );
   }
   function recentRows() {
@@ -733,7 +961,7 @@
       section('On this entry', title ? entryRows() : [], title) +
       section(
         'Go to',
-        shown(COLLECTIONS, 'palette').map((row) => rowHTML(row)),
+        [...shown(COLLECTIONS, 'palette'), ...shown(CLASSES, 'palette')].map((row) => rowHTML(row)),
       ) +
       section('Recent', recentRows());
     const foot = make('div');
@@ -894,16 +1122,15 @@
     library,
     palette,
     rows: () =>
-      [
-        ...shown(COLLECTIONS, 'library').map((row) => ({ ...row, group: 'Collections' })),
-        ...shown(STUDY, 'library').map((row) => ({ ...row, group: 'Study' })),
-        ...shown(YOURS, 'library').map((row) => ({ ...row, group: 'Yours' })),
-      ].map((row) => ({
-        id: row.id,
-        group: row.group,
-        label: row.label,
-        count: row.count ? row.count() : null,
-      })),
+      GROUPS.flatMap(([group, list]) =>
+        shown(list, 'library').map((row) => ({
+          id: row.id,
+          group,
+          label: row.label,
+          count: row.count ? row.count() : null,
+          meta: metaOf(row),
+        })),
+      ),
     selected: () => chosen,
     mode: () => mode,
     recent: () => recent.slice(),

@@ -674,18 +674,26 @@
     const why = row.why;
     // A session's material says why it is listed ("Assigned for LRS class 22"), with the passage if there is one.
     if (row.reason) {
-      slot.innerHTML =
-        (why?.html ? `<span class="search-snippet">${why.html}</span>` : '') +
-        `<span class="search-where">${E(row.reason)}</span>`;
+      slot.innerHTML = `<span class="search-where">${E(row.reason)}</span>` + passage(why?.html);
       return;
     }
     if (!why || (!why.html && !why.missing.length)) {
       slot.remove();
       return;
     }
-    slot.innerHTML =
-      (why.html ? `<span class="search-snippet">${why.html}</span>` : '') +
-      `<span class="search-where">${whereLine(why)}</span>`;
+    slot.innerHTML = `<span class="search-where">${whereLine(why)}</span>` + passage(why.html);
+  }
+  // The passage, with the words before its first marked word in an element of their own. A result is one
+  // row (v3.2), so the passage has little room: the stylesheet cuts those leading words short from their
+  // start, and the marked word is always in sight. The passage's text is unchanged.
+  function passage(html) {
+    if (!html) return '';
+    const at = html.indexOf('<mark>');
+    return (
+      '<span class="search-snippet">' +
+      (at > 0 ? `<span class="search-lead"><bdi>${html.slice(0, at)}</bdi></span>${html.slice(at)}` : html) +
+      '</span>'
+    );
   }
   // Snippets for the first rows at once; the rest only as they scroll into view.
   const EAGER = 8;
@@ -893,11 +901,16 @@
   };
   function rowHTML(r) {
     const opens = r.type === 'node' || r.type === 'region' || r.type === 'district',
-      keyed = r.type !== 'region' && r.type !== 'district';
+      keyed = r.type !== 'region' && r.type !== 'district',
+      // A second line that only repeats the kind word ("Subject", "Subject") is not drawn (chrome.css).
+      same =
+        String(r.sub || '')
+          .trim()
+          .toLowerCase() === String(r.label).toLowerCase();
     return (
       `<button ${opens ? `data-search-type="${r.type}" data-search-id="${E(r.id)}"` : `data-search-open="${r.type}" data-search-ref="${E(r.ref)}"`}` +
       `${keyed ? ` data-search-key="${E(r.key)}"` : ''} data-result-type="${r.label}" data-terms="${E(r.terms.join(' '))}">` +
-      `<strong>${mark(r.title, r.terms)}</strong><small><span class="search-type">${r.label}</span><span class="search-sub">${E(r.sub)}</span></small>` +
+      `<strong>${mark(r.title, r.terms)}</strong><small><span class="search-type">${r.label}</span><span class="search-sub${same ? ' search-sub-same' : ''}">${E(r.sub)}</span></small>` +
       `${keyed ? '<span class="search-why"></span>' : ''}</button>`
     );
   }
