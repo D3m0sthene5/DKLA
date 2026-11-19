@@ -1,7 +1,7 @@
-/* A split-flap clock in the top bar, right of the search box, showing the
- * time and date in New York. The time comes from the visitor's device clock
- * (which phones and computers keep in step with atomic time servers),
- * converted to America/New_York, so it is right wherever the visitor is.
+/* A split-flap clock in the top bar's instrument cluster (src/features/v32/chrome.js puts it
+ * there), showing the time in New York, and the date where the bar is wide enough. The time comes
+ * from the visitor's device clock (which phones and computers keep in step with atomic time
+ * servers), converted to America/New_York, so it is right wherever the visitor is.
  *
  * Every character (hours, minutes, seconds, weekday, month, day) is its own
  * split-flap card, like the old Solari departure board at Penn Station: when
@@ -60,14 +60,15 @@
     `<span class="flip ${kind}" data-set="${set}"><span class="half top">${strip(set)}</span><span class="half bottom">${strip(set)}</span>` +
     `<span class="leaf"><span class="half top front">${strip(set)}</span><span class="half bottom back">${strip(set)}</span></span></span>`;
   const cards = (count, kind, set) => card(kind, set).repeat(count);
+  // One row (v3.2): the time, then the date and NYC where the bar has room for them (clock.css).
   clock.innerHTML =
     '<span class="ny-time" aria-hidden="true">' +
     cards(2, 'big', DIGITS) +
     '<span class="ny-colon"></span>' +
     cards(2, 'big', DIGITS) +
-    '<span class="ny-side"><span class="ny-meridiem"></span><span class="ny-seconds">' +
-    cards(2, 'small', DIGITS) +
-    '</span></span></span>' +
+    '<span class="ny-colon"></span>' +
+    `<span class="ny-seconds">${cards(2, 'big', DIGITS)}</span>` +
+    '<span class="ny-meridiem"></span></span>' +
     '<span class="ny-date" aria-hidden="true">' +
     `<span class="ny-word ny-weekday">${cards(3, 'tiny', LETTERS)}</span>` +
     `<span class="ny-word ny-month">${cards(3, 'tiny', LETTERS)}</span>` +

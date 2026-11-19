@@ -1,0 +1,1171 @@
+/* DKLA v3.2 "Instrument": the frame round everything (docs/DESIGN.md). Loaded last.
+
+   1. The top bar: 56 px, one hairline under it, three groups. Left, where you are (the mark and
+      wordmark, then the way back and the breadcrumb; on Home the splash line instead). Centre, the
+      command field. Right, the instrument cluster (the clock with its fuel ring, the version
+      readout), Ask Dottie and the Library.
+   2. The command palette under the field (the search list, drawn as rows).
+   3. The Library (the menu, as a dialog).
+   4. The map's own controls: zoom, the hint, the save readout, on the 24 px gutter.
+   5. Windows 850 px wide or less (phones): the breadcrumb stays on the map, search is a panel.
+
+   src/features/v32/chrome.js builds the groups and puts `v32-chrome` on <html>; every rule here
+   starts from it, so these rules outrank the older layers they replace. Where one of those layers
+   set a property with !important, the same property carries it here, and says so. */
+html.v32-chrome {
+  --top: 56px;
+  /* Readouts: the embedded bold face until a lighter JetBrains Mono is embedded under its own name. */
+  --v32c-mono: 'JetBrains Mono', 'DKLA JetBrains Mono', ui-monospace, monospace;
+  /* The least width of each side of the bar: the right group's own width, so the field is centred. */
+  --v32c-side: 236px;
+  --v32c-field: 520px;
+}
+@media (min-width: 1000px) {
+  html.v32-chrome {
+    --v32c-side: 292px;
+  }
+}
+@media (min-width: 1280px) {
+  html.v32-chrome {
+    --v32c-side: 440px;
+  }
+}
+@media (min-width: 1600px) {
+  html.v32-chrome {
+    --v32c-side: 548px;
+  }
+}
+
+/* Icons: 20 px, 1.5 px stroke, the text colour of whatever holds them. */
+.v32-icon,
+.v32-glyph {
+  flex: none;
+  width: var(--v32-icon);
+  height: var(--v32-icon);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: var(--v32-icon-stroke);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.v32-glyph {
+  width: 16px;
+  height: 16px;
+}
+
+/* ---------- 1. the top bar ---------- */
+html.v32-chrome .study-header {
+  display: grid;
+  grid-template-columns:
+    minmax(var(--v32c-side), 1fr) minmax(0, var(--v32c-field))
+    minmax(max-content, 1fr);
+  align-items: center;
+  column-gap: var(--v32-s5);
+  height: var(--top);
+  padding: 0 var(--v32-s5);
+  border-bottom: 1px solid var(--v32-hair);
+  background: var(--v31-ground);
+  color: var(--v31-text);
+  font: var(--v31-ui);
+}
+/* What the bar no longer shows (their handlers are still used: Save by the Library, the course
+   label and the launchers by older code that writes to them). */
+html.v32-chrome .study-header > .header-divider,
+html.v32-chrome .study-header > #courseHome,
+html.v32-chrome .study-header > #saveBtn,
+html.v32-chrome .study-header > .r18-launcher,
+html.v32-chrome .study-header > .sh-launcher,
+html.v32-chrome .study-header > .dkla-privacy-link {
+  display: none !important;
+}
+.v32-bar-left,
+.v32-bar-right {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+.v32-bar-left {
+  gap: var(--v32-s4);
+  overflow: hidden;
+  /* room for the focus ring of the first and last control, which the clip would cut */
+  margin: 0 calc(var(--v32-s1) * -1);
+  padding: var(--v32-s1);
+}
+.v32-bar-right {
+  justify-self: end;
+  gap: var(--v32-s2);
+}
+
+/* One button in the bar: the default control (hairline, 36 px, a 44 px hit area). */
+html.v32-chrome .study-header .ask-bar,
+html.v32-chrome .study-header #moreBtn {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: var(--v32-s2);
+  height: var(--v32-h-control);
+  min-width: 0;
+  margin: 0;
+  padding: 0 var(--v32-s3);
+  /* !important: r20.css sets the menu button's border with it */
+  border: 1px solid var(--v32-hair-strong) !important;
+  border-radius: var(--v32-r-control);
+  background: transparent;
+  color: var(--v31-text);
+  font: var(--v31-ui);
+  letter-spacing: 0;
+  white-space: nowrap;
+  cursor: pointer;
+}
+html.v32-chrome .study-header .ask-bar::after,
+html.v32-chrome .study-header #moreBtn::after,
+html.v32-chrome .study-header #atlasHome::after,
+html.v32-chrome .map-nav #studyBack::after,
+html.v32-chrome .map-nav #geoBreadcrumb button::after,
+html.v32-chrome .study-zoom button::after {
+  content: '';
+  position: absolute;
+  inset: calc((var(--v32-h-control) - var(--v32-hit)) / 2) 0;
+}
+@media (hover: hover) {
+  html.v32-chrome .study-header .ask-bar:hover,
+  html.v32-chrome .study-header #moreBtn:hover {
+    border-color: var(--v32-hair-strong) !important;
+    background: var(--v32-hair);
+  }
+}
+html.v32-chrome .study-header .ask-bar:focus-visible,
+html.v32-chrome .study-header #moreBtn:focus-visible {
+  border-color: var(--v32-hair-strong) !important;
+  background: transparent;
+}
+
+/* Left: the mark and wordmark are the way Home. */
+html.v32-chrome .study-header #atlasHome {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: var(--v32-s2);
+  height: var(--v32-h-control);
+  min-width: 0;
+  margin: 0;
+  /* !important: the base sheet pins the brand's left padding with it */
+  padding: 0 var(--v32-s1) !important;
+  border: 0;
+  border-radius: var(--v32-r-control);
+  background: none;
+  color: var(--v31-text);
+  cursor: pointer;
+}
+html.v32-chrome #atlasHome .dkla-mark {
+  flex: none;
+  width: 28px;
+  height: 28px;
+}
+html.v32-chrome #atlasHome .dkla-wordmark {
+  display: block;
+  font:
+    600 19px/24px var(--dkla-display, 'Exo 2'),
+    sans-serif;
+  letter-spacing: 0.1em;
+  /* the tracking after the last letter is not part of the word */
+  margin-right: -0.1em;
+}
+/* "Danny Kind Legal Atlas" is in the button's name and tooltip, and in the Library's footer. */
+html.v32-chrome #atlasHome .dkla-wordmark small {
+  display: none;
+}
+
+/* The way back and the breadcrumb, as quiet text. On Home (the whole atlas at its resting size)
+   they step aside for the splash line: the wordmark already says where you are. */
+html.v32-chrome .study-header .map-nav {
+  position: static;
+  display: flex;
+  flex: 0 1 auto;
+  align-items: center;
+  gap: var(--v32-s1);
+  min-width: 0;
+  max-width: none;
+  padding: 0;
+  /* !important: the r16 layer gives the map's controls a fill, an edge and a shadow with it */
+  border: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+  color: var(--v31-muted);
+}
+html.v32-chrome:not(.dkla-off-home) .study-header .map-nav {
+  display: none;
+}
+html.v32-chrome .map-nav #studyBack {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--v32-h-control);
+  height: var(--v32-h-control);
+  padding: 0;
+  border: 0;
+  border-radius: var(--v32-r-control);
+  background: none;
+  color: var(--v31-muted);
+  font-size: 0;
+  cursor: pointer;
+}
+html.v32-chrome .map-nav #studyBack:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+html.v32-chrome .map-nav #geoBreadcrumb {
+  display: flex;
+  flex: 0 1 auto;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0;
+  min-width: 0;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+}
+html.v32-chrome .map-nav #geoBreadcrumb button {
+  position: relative;
+  flex: 0 1 auto;
+  min-width: 24px;
+  height: var(--v32-h-control);
+  padding: 0 var(--v32-s1);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--v32-r-control);
+  background: none;
+  color: var(--v31-muted);
+  /* !important: typography.css sets the trail's family and weight with it */
+  font: var(--v31-ui) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+/* Where you are leads. A trail longer than its room drops its first crumbs (chrome.js marks
+   them), shows that with an ellipsis, and only then shortens the names that are left. */
+html.v32-chrome .map-nav #geoBreadcrumb button {
+  flex-shrink: 8;
+}
+html.v32-chrome .map-nav #geoBreadcrumb button:last-of-type {
+  flex-shrink: 1;
+  color: var(--v31-text);
+}
+html.v32-chrome .map-nav #geoBreadcrumb .v32-crumb-off {
+  display: none;
+}
+html.v32-chrome .map-nav #geoBreadcrumb.v32-trail-measure button {
+  flex-shrink: 0;
+}
+html.v32-chrome .map-nav #geoBreadcrumb.v32-trail-cut::before {
+  content: '\2026';
+  flex: none;
+  padding: 0 var(--v32-s1);
+  color: var(--v31-faint);
+  font: var(--v31-ui);
+}
+@media (hover: hover) {
+  html.v32-chrome .map-nav #studyBack:hover:not(:disabled),
+  html.v32-chrome .map-nav #geoBreadcrumb button:hover {
+    background: var(--v32-hair);
+    color: var(--v31-text);
+  }
+}
+/* The separators are drawn (a 12 px chevron), whatever character a layer wrote into the span. */
+html.v32-chrome .map-nav #geoBreadcrumb > span {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  overflow: hidden;
+  background: var(--v31-faint);
+  color: transparent;
+  font-size: 0;
+  -webkit-mask: var(--v32-g-chevron) center / 12px 12px no-repeat;
+  mask: var(--v32-g-chevron) center / 12px 12px no-repeat;
+}
+
+/* The splash line: Home only, attached to the wordmark the way a title-screen splash is. Its
+   yellow is its own; it tilts and pulses with transforms only (splash.css, splash.js). */
+html.v32-chrome .v32-bar-left {
+  container: v32-left / inline-size;
+}
+html.v32-chrome .v32-bar-left .dkla-splash {
+  flex: 0 1 auto;
+  min-width: 0;
+  transform: rotate(-3deg);
+  transform-origin: 16% 50%;
+}
+/* Too little room beside the wordmark for a line of up to 44 characters on two rows. */
+@container v32-left (max-width: 280px) {
+  .dkla-splash.dkla-splash-brand {
+    display: none;
+  }
+}
+
+/* Centre: the command field. */
+html.v32-chrome .study-header .study-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--v32-s2);
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  height: var(--v32-h-control);
+  margin: 0;
+  padding: 0 var(--v32-s3);
+  border: 0;
+  border-radius: var(--v32-r-control);
+  background: var(--v31-panel);
+  color: var(--v31-faint);
+  transition: background-color var(--v31-t-press) linear;
+}
+html.v32-chrome .study-header .study-search:focus-within {
+  background: var(--v31-raised);
+  box-shadow: var(--v31-focus);
+}
+/* !important: the r16 and polish layers set the box's fill, edge and corners with it */
+html.v32-chrome .study-header .study-search #search {
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 0;
+  height: var(--v32-h-control);
+  padding: 0;
+  border: 0 !important;
+  border-radius: 0 !important;
+  outline: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  color: var(--v31-text);
+  font: var(--v31-ui);
+  font-weight: 400;
+  text-overflow: ellipsis;
+}
+html.v32-chrome .study-header .study-search #search::placeholder {
+  color: var(--v31-faint);
+  opacity: 1;
+}
+/* The browser's own clear button, redrawn as the close icon. */
+html.v32-chrome .study-header .study-search #search::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  margin: 0 0 0 var(--v32-s2);
+  background: var(--v31-muted);
+  -webkit-mask: var(--v32-g-close) center / 16px 16px no-repeat;
+  mask: var(--v32-g-close) center / 16px 16px no-repeat;
+  cursor: pointer;
+}
+/* The shortcut, as a readout at the field's right end (Ctrl K, or the Mac's sign: chrome.js). */
+html.v32-chrome .study-header .study-search #searchKey {
+  flex: none;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--v31-faint);
+  font: 500 12px/16px var(--v32c-mono);
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+html.v32-chrome .study-header .study-search:focus-within #searchKey {
+  visibility: hidden;
+}
+
+/* Right: the instrument cluster. Mono, monochrome, one glow (the fuel line and the version). */
+.v32-cluster {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--v32-s3);
+  margin-right: var(--v32-s2);
+}
+html.v32-chrome .study-header .dkla-release {
+  display: none;
+}
+@media (min-width: 1000px) {
+  html.v32-chrome .study-header .dkla-release {
+    display: inline-block;
+  }
+}
+@media (min-width: 1280px) {
+  html.v32-chrome .study-header .ny-clock {
+    display: flex;
+  }
+  html.v32-chrome .study-header .ny-fuel-label {
+    display: block;
+  }
+}
+@media (min-width: 1600px) {
+  html.v32-chrome .study-header .ny-clock .ny-date {
+    display: flex;
+  }
+}
+
+/* Ask Dottie: her face, then the words. She still hangs by her tail from the bar on Home (ask.css),
+   now measured from her button. */
+.v32-ask-face {
+  display: block;
+  flex: none;
+  width: var(--v32-icon);
+  height: var(--v32-icon);
+}
+.v32-ask-face svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+html.v32-chrome .study-header .ask-bar-label {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip-path: none;
+}
+html.v32-chrome .study-header .ask-bar-dottie {
+  top: calc(100% + 2px);
+  left: auto;
+  right: var(--v32-s3);
+  margin: 0;
+}
+
+/* ---------- 2. the command palette ---------- */
+/* One panel under the field, centred on it: plane 3 (raised fill, the e2 elevation, radius 12). */
+html.v32-chrome .study-header .study-search .search-results {
+  --v32c-palette: min(640px, calc(100vw - var(--v32-s7)));
+  position: absolute;
+  top: calc(100% + var(--v32-s2));
+  left: calc(50% - var(--v32c-palette) / 2);
+  width: var(--v32c-palette);
+  max-height: min(72vh, 640px);
+  overflow: hidden auto;
+  overscroll-behavior: contain;
+  padding: var(--v32-s2);
+  border: 0;
+  border-radius: var(--v32-r-surface);
+  background: var(--v31-raised);
+  box-shadow: var(--v32-e2);
+  color: var(--v31-text);
+  font: var(--v31-ui);
+  scrollbar-width: thin;
+  scrollbar-color: var(--v32-hair-strong) transparent;
+  scroll-padding: var(--v32-s7) 0;
+}
+/* Section labels: label text, never capitals. A count sits beside it in mono. */
+html.v32-chrome #searchResults .search-label,
+.v32-label {
+  display: flex;
+  align-items: baseline;
+  gap: var(--v32-s2);
+  margin: 0;
+  padding: var(--v32-s2) var(--v32-s3) var(--v32-s1);
+  color: var(--v31-muted);
+  font: var(--v31-label);
+  letter-spacing: 0;
+  text-transform: none;
+}
+html.v32-chrome #searchResults > * + .search-label,
+html.v32-chrome #searchResults > * + .v32-section,
+html.v32-chrome #searchResults > * + :is(.search-glossary, .r19-search, .search-sources, .uscode-search) {
+  margin-top: var(--v32-s2);
+}
+/* The dictionary's rows sit inside the ranked list (after its third row): a hairline each side
+   says where that group starts and stops. */
+html.v32-chrome #searchResults .search-glossary:not(:last-child) {
+  margin: var(--v32-s2) 0;
+  padding: 0 0 var(--v32-s2);
+  border-top: 1px solid var(--v32-hair);
+  border-bottom: 1px solid var(--v32-hair);
+}
+/* The add-on groups (dictionary, supporting cases, authorities, files) are groups, not boxes. */
+html.v32-chrome #searchResults :is(.search-glossary, .r19-search, .search-sources, .uscode-search) {
+  margin-bottom: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+/* A row: a 16 px glyph for what kind of thing it is, the label, trailing meta in faint mono.
+   (The second selector outranks the older rules for buttons in the search list.) */
+.v32-row,
+html.v32-chrome #searchResults .v32-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--v32-s3);
+  width: 100%;
+  min-height: var(--v32-h-row);
+  margin: 0;
+  padding: 0 var(--v32-s3);
+  border: 0;
+  border-radius: var(--v32-r-control);
+  background: none;
+  color: var(--v31-text);
+  font: var(--v31-ui);
+  letter-spacing: 0;
+  text-align: left;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.v32-row .v32-glyph {
+  color: var(--v31-muted);
+}
+.v32-row-label {
+  flex: 0 0 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.v32-row-note {
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--v31-faint);
+  font: var(--v32-ui-small);
+  font-weight: 400;
+  text-overflow: ellipsis;
+}
+.v32-row-meta {
+  flex: none;
+  margin-left: auto;
+  color: var(--v31-faint);
+  font: 500 12px/16px var(--v32c-mono);
+  font-variant-numeric: tabular-nums;
+}
+.v32-row:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+@media (hover: hover) {
+  .v32-row:hover:not(:disabled) {
+    background: var(--v32-hair);
+  }
+}
+
+/* A result: the same row, two lines (the title; then where it is, or the passage that matched). */
+html.v32-chrome #searchResults button:not(.v32-row, .ask-search) {
+  position: relative;
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr) auto;
+  column-gap: var(--v32-s3);
+  align-items: center;
+  width: 100%;
+  min-height: var(--v32-h-row);
+  margin: 0;
+  padding: var(--v32-s2) var(--v32-s3);
+  border: 0;
+  border-radius: var(--v32-r-control);
+  background: none;
+  color: var(--v31-text);
+  font: var(--v31-ui);
+  letter-spacing: 0;
+  text-align: left;
+  cursor: pointer;
+}
+@media (hover: hover) {
+  html.v32-chrome #searchResults button:not(.v32-row, .ask-search):hover {
+    background: var(--v32-hair);
+    color: var(--v31-text);
+  }
+}
+html.v32-chrome #searchResults button:not(.v32-row, .ask-search)::before {
+  content: '';
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  align-self: start;
+  width: 16px;
+  height: 16px;
+  /* on the title's line: (20 - 16) / 2 */
+  margin-top: 2px;
+  background: var(--v31-muted);
+  -webkit-mask: var(--v32c-glyph, var(--v32-g-note)) center / 16px 16px no-repeat;
+  mask: var(--v32c-glyph, var(--v32-g-note)) center / 16px 16px no-repeat;
+}
+html.v32-chrome #searchResults button > strong {
+  grid-column: 2;
+  grid-row: 1;
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  font: var(--v31-ui);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* The second line: where the entry sits (or, for a dictionary row, how its definition starts). */
+html.v32-chrome #searchResults button > small,
+html.v32-chrome #searchResults .search-why {
+  grid-column: 2 / -1;
+  grid-row: 2;
+  display: block;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  color: var(--v31-faint);
+  font:
+    400 13px/16px var(--dkla-interface, Inter),
+    sans-serif;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* What it is: one quiet word at the right end of the title's line (the glyph says the same at a
+   glance). It is written inside the second line's element, so it is placed from the row. */
+html.v32-chrome #searchResults .search-type {
+  position: absolute;
+  top: var(--v32-s2);
+  right: var(--v32-s3);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: var(--v31-faint);
+  font: var(--v31-label);
+  line-height: 20px;
+}
+html.v32-chrome #searchResults button:not(.v32-row, .ask-search) {
+  grid-template-columns: 16px minmax(0, 1fr) 72px;
+}
+/* The passage that matched takes the second line when there is one; where the entry sits is then
+   in the row's tooltip. */
+html.v32-chrome #searchResults button:has(.search-why > *) .search-sub {
+  display: none;
+}
+html.v32-chrome #searchResults .search-why:empty {
+  display: none;
+}
+html.v32-chrome #searchResults .search-sub {
+  font: inherit;
+}
+html.v32-chrome #searchResults .search-snippet,
+html.v32-chrome #searchResults .search-where {
+  display: inline;
+  margin: 0;
+  color: var(--v31-faint);
+  font: inherit;
+  -webkit-line-clamp: none;
+  line-clamp: none;
+}
+html.v32-chrome #searchResults .search-snippet + .search-where::before {
+  content: '';
+  display: inline-block;
+  width: var(--v32-s3);
+}
+html.v32-chrome #searchResults .search-where {
+  color: var(--v31-muted);
+}
+html.v32-chrome #searchResults mark {
+  background: none;
+  color: var(--v31-text);
+  font-weight: 600;
+}
+html.v32-chrome #searchResults strong mark {
+  color: inherit;
+}
+html.v32-chrome #searchResults .search-empty {
+  margin: 0;
+  padding: var(--v32-s2) var(--v32-s3);
+  color: var(--v31-faint);
+  font: var(--v32-ui-small);
+  font-weight: 400;
+}
+
+/* The keyboard's row: one fill step up. Never an outline (the keyboard itself stays in the field,
+   which keeps the one focus ring). */
+html.v32-chrome #searchResults :is(button, a).v32-selected:not(:disabled) {
+  background: var(--v32-hair-strong);
+}
+
+/* Ask Dottie's row (ask.js): a command, one line, her face where the glyph goes. */
+html.v32-chrome #searchResults .ask-search {
+  position: relative;
+  top: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--v32-s3);
+  min-height: var(--v32-h-row);
+  padding: 0 var(--v32-s3);
+  border: 0;
+  background: none;
+  color: var(--v31-text);
+}
+html.v32-chrome #searchResults .ask-search strong {
+  display: contents;
+}
+html.v32-chrome #searchResults .ask-search .ask-launch-face {
+  width: 20px;
+  height: 20px;
+  /* the face is 20 px where other rows carry a 16 px glyph: centred on the same column */
+  margin: 0 -2px;
+}
+html.v32-chrome #searchResults .ask-search small {
+  display: block;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--v31-faint);
+  font: var(--v32-ui-small);
+  font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* The footer: the keys, quietly. It stays at the bottom while the list scrolls. */
+.v32-keys {
+  position: sticky;
+  bottom: calc(var(--v32-s2) * -1);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--v32-s4);
+  margin: var(--v32-s2) calc(var(--v32-s2) * -1) calc(var(--v32-s2) * -1);
+  padding: var(--v32-s2) var(--v32-s4);
+  border-top: 1px solid var(--v32-hair);
+  background: var(--v31-raised);
+  color: var(--v31-faint);
+  font: var(--v31-label);
+  font-weight: 400;
+}
+.v32-keys span {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--v32-s1);
+}
+.v32-keys kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 16px;
+  height: 16px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--v31-muted);
+  font: 500 12px/16px var(--v32c-mono);
+}
+.v32-keys kbd svg {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+@media (hover: none) {
+  .v32-keys {
+    display: none;
+  }
+}
+
+/* ---------- 3. the Library ---------- */
+/* The one dialog shell: radius 12, the e2 elevation, the flat scrim (calm.css), the title top left
+   in the display face at 22 px, one close button top right. It arrives with the calm pop. */
+dialog.v32-shell {
+  width: min(760px, calc(100vw - var(--v32-s7)));
+  max-width: none;
+  max-height: calc(100dvh - var(--v32-s7));
+  padding: 0;
+  overflow: hidden auto;
+  border: 0;
+  border-radius: var(--v32-r-surface);
+  background: var(--v31-raised);
+  box-shadow: var(--v32-e2);
+  color: var(--v31-text);
+  font: var(--v31-ui);
+}
+.v32-shell-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--v32-s4);
+  padding: var(--v32-s4) var(--v32-s4) 0 var(--v32-s5);
+}
+.v32-shell-head h2 {
+  margin: 0;
+  color: var(--v31-text);
+  font:
+    600 22px/28px var(--dkla-display, 'Exo 2'),
+    sans-serif;
+  letter-spacing: 0;
+}
+.v32-close {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--v32-h-control);
+  height: var(--v32-h-control);
+  padding: 0;
+  border: 0;
+  border-radius: var(--v32-r-control);
+  background: none;
+  color: var(--v31-muted);
+  cursor: pointer;
+}
+.v32-close::after {
+  content: '';
+  position: absolute;
+  inset: calc((var(--v32-h-control) - var(--v32-hit)) / 2);
+}
+@media (hover: hover) {
+  .v32-close:hover {
+    background: var(--v32-hair);
+    color: var(--v31-text);
+  }
+}
+.v32-library {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  column-gap: var(--v32-s6);
+  padding: var(--v32-s3) var(--v32-s5) var(--v32-s4);
+}
+.v32-lib-side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--v32-s4);
+  min-width: 0;
+}
+.v32-lib-group {
+  min-width: 0;
+}
+.v32-lib-group h3 {
+  margin: 0;
+  padding: var(--v32-s2) 0;
+  color: var(--v31-muted);
+  font: var(--v31-label);
+  letter-spacing: 0;
+  text-transform: none;
+}
+/* The hover fill reaches 12 px past the glyph on each side; the glyphs stay on the title's edge. */
+.v32-lib-group .v32-row {
+  width: calc(100% + var(--v32-s3) * 2);
+  margin: 0 calc(var(--v32-s3) * -1);
+}
+.v32-lib-foot {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: var(--v32-s2);
+  margin-top: var(--v32-s4);
+  padding-top: var(--v32-s2);
+  border-top: 1px solid var(--v32-hair);
+}
+.v32-quiet {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: var(--v32-h-control);
+  margin: 0 0 0 calc(var(--v32-s2) * -1);
+  padding: 0 var(--v32-s2);
+  border: 0;
+  border-radius: var(--v32-r-control);
+  background: none;
+  color: var(--v31-muted);
+  font: var(--v32-ui-small);
+  letter-spacing: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+.v32-quiet + .v32-quiet {
+  margin-left: 0;
+}
+@media (hover: hover) {
+  .v32-quiet:hover {
+    background: var(--v32-hair);
+    color: var(--v31-text);
+  }
+}
+.v32-lib-name {
+  margin-left: auto;
+  color: var(--v31-faint);
+  font: var(--v31-label);
+  font-weight: 400;
+}
+@media (max-width: 700px) {
+  .v32-library {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--v32-s4);
+  }
+  .v32-lib-foot {
+    flex-wrap: wrap;
+  }
+}
+
+/* The lecture notes index (opened from the Library into the atlas's own dialog). */
+.v32-index {
+  display: grid;
+  gap: var(--v32-s4);
+}
+.v32-index h3 {
+  margin: 0;
+  padding: var(--v32-s2) 0;
+  color: var(--v31-muted);
+  font: var(--v31-label);
+}
+.v32-index .v32-row {
+  color: var(--v31-text);
+}
+
+/* ---------- 4. the map's own controls ---------- */
+/* The course note (its two shortcuts) stood under the breadcrumb card; with the trail in the bar it
+   stands on the gutter, where the card was. */
+@media (min-width: 851px) {
+  html.v32-chrome #mapWelcome {
+    top: var(--v32-s5);
+    left: var(--v32-s5);
+  }
+}
+/* Zoom: one segmented control (out, fit, in) on the 24 px gutter. */
+html.v32-chrome .study-zoom {
+  left: var(--v32-s5);
+  bottom: var(--v32-s5);
+  display: flex;
+  align-items: center;
+  gap: 0;
+  height: var(--v32-h-control);
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: var(--v32-r-control);
+  background: var(--v31-panel);
+  box-shadow: var(--v32-e1);
+}
+html.v32-chrome .study-zoom button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--v32-h-control);
+  min-width: 0;
+  height: var(--v32-h-control);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--v31-muted);
+  font-size: 0;
+  cursor: pointer;
+}
+html.v32-chrome .study-zoom button:first-child {
+  border-radius: var(--v32-r-control) 0 0 var(--v32-r-control);
+}
+html.v32-chrome .study-zoom button:last-child {
+  border-radius: 0 var(--v32-r-control) var(--v32-r-control) 0;
+}
+html.v32-chrome .study-zoom button + button {
+  box-shadow: inset 1px 0 0 var(--v32-hair);
+}
+@media (hover: hover) {
+  html.v32-chrome .study-zoom button:hover {
+    background: var(--v32-hair);
+    color: var(--v31-text);
+  }
+}
+/* The hint and the save readout: quiet text on the zoom control's centre line. The hint fades at
+   the first thing done to the map and does not come back that session (chrome.js). */
+html.v32-chrome #mapHint,
+html.v32-chrome #saveStatus {
+  left: calc(var(--v32-s5) + var(--v32-h-control) * 3 + var(--v32-s4));
+  right: auto;
+  bottom: var(--v32-s5);
+  height: var(--v32-h-control);
+  display: flex;
+  align-items: center;
+  padding: 0;
+  /* !important: the r16 and r20 layers set these with it */
+  border: 0 !important;
+  border-radius: 0;
+  background: none !important;
+  box-shadow: none !important;
+  color: var(--v31-faint) !important;
+  font: var(--v32-ui-small);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-shadow:
+    0 0 2px var(--v31-ground),
+    0 0 6px var(--v31-ground);
+  pointer-events: none;
+  transition: opacity var(--v31-t-panel) linear;
+}
+html.v32-chrome.v32-hint-fading #mapHint {
+  opacity: 0;
+}
+html.v32-chrome.v32-hint-off #mapHint {
+  display: none;
+}
+/* The save readout shows only what is not routine ("Saving…", "Session only…"); the plain
+   "Saved locally" line stays out of sight, as the owner asked on 12 November 2026. It takes the
+   hint's place once the hint has gone, and sits after it until then. */
+html.v32-chrome #saveStatus {
+  display: none;
+  color: var(--v31-muted) !important;
+}
+html.v32-chrome.v32-save-note.v32-hint-off #saveStatus {
+  display: flex;
+}
+
+/* ---------- 5. windows 850 px wide or less ---------- */
+/* No room for three groups: the mark and wordmark, a Search button (dklaR13Search.js opens the
+   field as a panel over the window), Ask Dottie hanging from the bar as before, and the Library.
+   The breadcrumb stays on the map, in the same quiet style on a panel fill. */
+@media (max-width: 850px) {
+  html.v32-chrome .study-header {
+    display: flex;
+    gap: var(--v32-s2);
+    padding: 0 var(--v32-s3);
+  }
+  html.v32-chrome .v32-bar-left {
+    flex: 1 1 auto;
+  }
+  html.v32-chrome .v32-cluster {
+    display: none;
+  }
+  html.v32-chrome .study-header > button.search-open {
+    order: 2;
+    gap: var(--v32-s2);
+    height: var(--v32-h-control);
+    padding: 0 var(--v32-s3);
+    border: 1px solid var(--v32-hair-strong);
+    border-radius: var(--v32-r-control);
+    background: transparent;
+    color: var(--v31-text);
+  }
+  html.v32-chrome .v32-bar-right {
+    order: 3;
+  }
+  html.v32-chrome .study-header #moreBtn {
+    width: var(--v32-h-control);
+    padding: 0;
+    justify-content: center;
+  }
+  html.v32-chrome .study-header #moreBtn span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  /* Ask Dottie is Dottie herself here, hanging under the bar's right end (ask.css). */
+  html.v32-chrome .study-header .ask-bar {
+    position: absolute;
+    top: calc(100% - 6px);
+    right: var(--v32-s4);
+    width: 66px;
+    height: 100px;
+    padding: 0;
+    border: 0 !important;
+    background: none;
+  }
+  html.v32-chrome .study-header .ask-bar::after,
+  html.v32-chrome .v32-ask-face {
+    display: none;
+  }
+  html.v32-chrome .study-header .ask-bar-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  html.v32-chrome .study-header .ask-bar-dottie {
+    top: -4px;
+    left: var(--v32-s2);
+  }
+  /* The closed field is kept in the page out of sight (dklaR13Styles.css); the open one is the panel. */
+  html.v32-chrome:not(.dkla-search-panel) .study-header .study-search {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+  }
+  html.v32-chrome.dkla-search-panel .study-header .study-search {
+    position: fixed;
+    height: auto;
+    padding: var(--v32-s3) var(--v32-s3) 0;
+    border-radius: 0;
+    background: var(--v31-ground);
+    box-shadow: none;
+  }
+  html.v32-chrome.dkla-search-panel .study-header .study-search > .v32-icon,
+  html.v32-chrome.dkla-search-panel .study-header .study-search kbd {
+    display: none;
+  }
+  html.v32-chrome.dkla-search-panel .study-header .study-search #search {
+    height: var(--v32-hit);
+    padding: 0 var(--v32-s3);
+    border-radius: var(--v32-r-control) !important;
+    background: var(--v31-panel) !important;
+    font-size: 16px;
+  }
+  html.v32-chrome.dkla-search-panel .study-header .study-search #search:focus {
+    box-shadow: var(--v31-focus) !important;
+  }
+  html.v32-chrome.dkla-search-panel .study-header .study-search .search-close {
+    width: var(--v32-hit);
+    height: var(--v32-hit);
+    border: 0;
+    border-radius: var(--v32-r-control);
+    background: var(--v31-panel);
+    color: var(--v31-muted);
+  }
+  html.v32-chrome.dkla-search-panel .study-header .study-search .search-results {
+    position: static;
+    width: auto;
+    max-height: none;
+    margin: 0 calc(var(--v32-s3) * -1);
+    padding: var(--v32-s1) var(--v32-s2) var(--v32-s5);
+    border-top: 1px solid var(--v32-hair);
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+  }
+  /* A finger needs taller rows, and a passage may take two lines. */
+  html.v32-chrome #searchResults button:not(.v32-row),
+  html.v32-chrome #searchResults .v32-row,
+  html.v32-chrome #searchResults .ask-search {
+    min-height: var(--v32-s7);
+  }
+  html.v32-chrome #searchResults .search-why {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+  html.v32-chrome #searchResults .search-why:empty {
+    display: none;
+  }
+  /* The breadcrumb on the map: the same quiet text on one panel fill. */
+  html.v32-chrome #studyMain > .map-nav {
+    top: var(--v32-s3);
+    left: var(--v32-s3);
+    max-width: calc(100% - var(--v32-s5));
+    gap: 0;
+    padding: 0 var(--v32-s1) 0 0;
+    border: 0 !important;
+    border-radius: var(--v32-r-control);
+    background: var(--v31-panel) !important;
+    box-shadow: var(--v32-e1) !important;
+  }
+  html.v32-chrome .study-zoom {
+    left: var(--v32-s3);
+  }
+  html.v32-chrome #mapHint,
+  html.v32-chrome #saveStatus {
+    left: calc(var(--v32-s3) + var(--v32-h-control) * 3 + var(--v32-s3));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.v32-chrome #mapHint {
+    transition: none;
+  }
+}

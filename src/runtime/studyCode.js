@@ -3231,54 +3231,49 @@ function searchEntries() {
   $('searchResults').hidden = false;
   $('search').setAttribute('aria-expanded', 'true');
 }
+// The empty box is the command palette (src/features/v32/chrome.js: this entry, the Library, recent
+// entries and Ask Dottie); without that module it is Ask Dottie's row alone, as before v3.2.
+function showPalette() {
+  if (window.DKLAChrome?.palette) window.DKLAChrome.palette();
+  else window.DKLAAsk?.showInSearch();
+}
 $('search').oninput = () => {
   clearTimeout(searchTimer);
-  if (!$('search').value.trim() && window.DKLAAsk) window.DKLAAsk.showInSearch();
+  if (!$('search').value.trim()) showPalette();
   // v3.2: one frame, not 75 ms. A search takes about a hundredth of a second, so the results can follow the
   // keystroke at the next frame; keystrokes that arrive inside the same frame still fold into one search.
   else searchTimer = setTimeout(searchEntries, 16);
 };
 $('search').onfocus = () => {
   if ($('search').value.trim()) searchEntries();
-  else window.DKLAAsk?.showInSearch();
+  else showPalette();
 };
-$('search').onkeydown = (e) => {
-  if (e.key === 'ArrowDown') {
-    e.preventDefault();
-    $('searchResults').querySelector('button')?.focus();
-  }
-  if (e.key === 'Enter') {
-    e.preventDefault();
-    $('searchResults').querySelector('button:not(.ask-search)')?.click();
-  }
-  if (e.key === 'Escape') closeSearch();
-};
-$('searchResults').onkeydown = (e) => {
-  const a = [...$('searchResults').querySelectorAll('button')],
-    i = a.indexOf(document.activeElement);
-  if (e.key === 'ArrowDown') {
-    e.preventDefault();
-    a[(i + 1) % a.length]?.focus();
-  }
-  if (e.key === 'ArrowUp') {
-    e.preventDefault();
-    if (i === 0) $('search').focus();
-    else a[i - 1]?.focus();
-  }
-};
+// Up, Down, Enter and Escape in the box and its list: src/features/v32/chrome.js (the selection stays a
+// highlight on a row while the keyboard stays in the box, so typing and moving never fight).
+// The menu is the Library (v3.2): a dialog whose rows, groups and counts are drawn by
+// src/features/v32/chrome.js into #moreMenu each time it opens. Every row carries the same data attribute
+// its feature has always listened for (data-action, data-r18-open, data-r21-menu, ...), so the later layers
+// that used to add their own item find it already there and add nothing.
 function moreMenu() {
-  menuOpen = !menuOpen;
-  $('moreBtn').setAttribute('aria-expanded', menuOpen);
-  $('moreMenu').hidden = !menuOpen;
-  if (!menuOpen) return;
-  $('moreMenu').innerHTML =
-    `<small>Your notebook</small><button role="menuitem" data-action="courses">Choose a course</button><button role="menuitem" data-action="outline">Browse subjects</button><button role="menuitem" data-action="class">Reading assignments</button><button role="menuitem" data-action="book">Open textbook</button><hr><small>Add & organize</small><button role="menuitem" data-action="add">Add an entry</button><button role="menuitem" data-action="connect">Add a connection</button><button role="menuitem" data-action="path">Find a connection path</button><button role="menuitem" data-action="undo" ${undoStack.length ? '' : 'disabled'}>Undo last edit</button><hr><button role="menuitem" data-action="save">Save & import</button><button role="menuitem" data-action="scope">Sources and coverage</button><button role="menuitem" data-action="help">How to use this map</button>`;
+  const dialog = $('libraryDialog');
+  if (dialog.open) {
+    dismissMenu();
+    return;
+  }
+  menuOpen = true;
+  $('moreBtn').setAttribute('aria-expanded', 'true');
+  $('moreMenu').hidden = false;
+  window.DKLAChrome?.library($('moreMenu'));
+  dialog.showModal();
 }
 function dismissMenu() {
   menuOpen = false;
   $('moreMenu').hidden = true;
   $('moreBtn').setAttribute('aria-expanded', 'false');
+  if ($('libraryDialog').open) $('libraryDialog').close();
 }
+// Closed by Escape or by its own close button: the same tidy-up.
+$('libraryDialog').addEventListener('close', dismissMenu);
 function coursesDialog() {
   modal(
     'Your atlas',
@@ -3637,7 +3632,6 @@ document.addEventListener('click', (e) => {
 });
 document.addEventListener('pointerdown', (e) => {
   if (!e.target.closest('.study-search')) closeSearch();
-  if (!e.target.closest('#moreBtn,#moreMenu')) dismissMenu();
 });
 $('atlasHome').onclick = coursesDialog;
 $('courseHome').onclick = () => home(S.scope);

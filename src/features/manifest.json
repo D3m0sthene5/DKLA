@@ -37,7 +37,6 @@
     "src/features/sessions/sessions.js",
     "src/features/clock/clock.js",
     "src/features/fuel/fuel.js",
-    "src/features/topbar/topbar.js",
     "src/features/splash/lines.js",
     "src/features/splash/splash.js",
     "src/features/patchnotes/notes.js",
@@ -48,7 +47,7 @@
     "src/features/flowcharts/flowcharts.js",
     "src/features/canons/canons.js",
     "src/features/canons/lectures.js",
-    "src/features/topbar/menu-layout.js",
+    "src/features/v32/chrome.js",
     "src/features/v25/boot.js"
   ],
   "stylesheets": [
@@ -73,7 +72,6 @@
     "src/features/clock/clock.css",
     "src/features/fuel/fuel.css",
     "src/features/splash/splash.css",
-    "src/features/topbar/topbar.css",
     "src/features/v26/hud-font.css",
     "src/features/patchnotes/patchnotes.css",
     "src/features/flowcharts/flowcharts.css",
@@ -81,6 +79,7 @@
     "src/features/canons/lectures.css",
     "src/features/v31/tokens.css",
     "src/features/v31/uscode.css",
-    "src/features/calm/calm.css"
+    "src/features/calm/calm.css",
+    "src/features/v32/chrome.css"
   ]
 }

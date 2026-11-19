@@ -897,7 +897,7 @@
     return (
       `<button ${opens ? `data-search-type="${r.type}" data-search-id="${E(r.id)}"` : `data-search-open="${r.type}" data-search-ref="${E(r.ref)}"`}` +
       `${keyed ? ` data-search-key="${E(r.key)}"` : ''} data-result-type="${r.label}" data-terms="${E(r.terms.join(' '))}">` +
-      `<strong>${mark(r.title, r.terms)}</strong><small><span class="search-type">${r.label}</span>${E(r.sub)}</small>` +
+      `<strong>${mark(r.title, r.terms)}</strong><small><span class="search-type">${r.label}</span><span class="search-sub">${E(r.sub)}</span></small>` +
       `${keyed ? '<span class="search-why"></span>' : ''}</button>`
     );
   }
@@ -1322,13 +1322,21 @@
     },
     true,
   );
+  // Ctrl/Cmd+K puts the keyboard in the box from anywhere on the page, except while something is being typed
+  // into another field, and not through a dialog (the box is behind it). "/" does the same (appCode.js).
   document.addEventListener('keydown', (e) => {
-    if ((e.metaKey || e.ctrlKey) && !e.shiftKey && e.key.toLowerCase() === 'k') {
-      e.preventDefault();
-      const s = $('search');
-      s.focus();
-      s.select();
-    }
+    if (!(e.metaKey || e.ctrlKey) || e.shiftKey || e.altKey || e.key.toLowerCase() !== 'k') return;
+    const s = $('search'),
+      at = document.activeElement;
+    if (
+      at !== s &&
+      at?.matches?.('input, textarea, select, [contenteditable]:not([contenteditable="false"])')
+    )
+      return;
+    if (document.querySelector('dialog[open]:modal')) return;
+    e.preventDefault();
+    s.focus();
+    s.select();
   });
 
   /* ---------- phones: a Search button and a full-width panel ---------- */
@@ -1346,13 +1354,15 @@
     opener.id = 'searchOpen';
     opener.className = 'search-open';
     opener.setAttribute('aria-expanded', 'false');
-    opener.innerHTML = '<span aria-hidden="true">⌕</span>Search';
+    opener.innerHTML =
+      '<svg class="v32-icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="5.25"/><path d="M13 13l3.5 3.5"/></svg>Search';
     box.before(opener);
     const closer = document.createElement('button');
     closer.type = 'button';
     closer.className = 'search-close';
     closer.setAttribute('aria-label', 'Close search');
-    closer.textContent = '×';
+    closer.innerHTML =
+      '<svg class="v32-icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false"><path d="M5 5l10 10M15 5L5 15"/></svg>';
     input.after(closer);
     const isOpen = () => root.classList.contains('dkla-search-panel');
     const openPanel = () => {
