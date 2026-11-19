@@ -62,7 +62,65 @@
     animation: none;
   }
 }
-/* Home prototypes: the splash sits in the top bar, over the map's top edge. */
+/* In the top bar (v3.2 "Instrument"): attached to the DKLA wordmark on Home, the way a title-screen
+   splash is (src/features/v32/chrome.css hangs it just after the wordmark and tilts it), small, its
+   yellow its own; one row, or two balanced rows where the bar is narrower. It arrives and leaves with
+   a fade (`display` changes at the end of the way out), and pulses with a transform only. */
 .dkla-splash.dkla-splash-brand {
-  z-index: 3;
+  white-space: normal;
+  z-index: auto;
+  transition:
+    opacity 0.2s ease,
+    display 0.2s allow-discrete;
+}
+.dkla-splash.dkla-splash-brand[data-shown='false'] {
+  display: none;
+  transition:
+    opacity 0.2s ease,
+    display 0.2s allow-discrete;
+}
+@starting-style {
+  .dkla-splash.dkla-splash-brand[data-shown='true'] {
+    opacity: 0;
+  }
+}
+.dkla-splash-brand .dkla-splash-pop {
+  display: block;
+}
+.dkla-splash-brand .dkla-splash-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  /* room for the hard shadow inside the clip */
+  padding: 0 2px 2px 0;
+  font:
+    600 13px/16px var(--dkla-display, 'Exo 2'),
+    sans-serif;
+  letter-spacing: 0;
+  text-shadow: 1px 1px 0 #4a3800;
+  text-wrap: balance;
+  animation: dkla-splash-pulse-bar 1.4s ease-in-out infinite;
+}
+.dkla-splash-brand[data-shown='false'] .dkla-splash-text {
+  animation: none;
+}
+@keyframes dkla-splash-pulse-bar {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dkla-splash.dkla-splash-brand,
+  .dkla-splash.dkla-splash-brand[data-shown='false'] {
+    transition: none;
+  }
+  .dkla-splash-brand .dkla-splash-text {
+    animation: none;
+  }
 }

@@ -674,18 +674,35 @@
     const why = row.why;
     // A session's material says why it is listed ("Assigned for LRS class 22"), with the passage if there is one.
     if (row.reason) {
-      slot.innerHTML =
-        (why?.html ? `<span class="search-snippet">${why.html}</span>` : '') +
-        `<span class="search-where">${E(row.reason)}</span>`;
+      slot.innerHTML = `<span class="search-where">${E(row.reason)}</span>` + passage(why?.html);
       return;
     }
     if (!why || (!why.html && !why.missing.length)) {
       slot.remove();
       return;
     }
-    slot.innerHTML =
-      (why.html ? `<span class="search-snippet">${why.html}</span>` : '') +
-      `<span class="search-where">${whereLine(why)}</span>`;
+    slot.innerHTML = `<span class="search-where">${whereLine(why)}</span>` + passage(why.html);
+  }
+  // The passage, with the words before its first marked word in an element of their own. A result is one
+  // row (v3.2), so the passage has little room: only the last two or three of those words are shown (the
+  // last KEEP characters, cut at a word, never inside one), so the marked word is always in sight. The
+  // earlier words stay in the page, set apart for the stylesheet to keep out of sight: the passage's text
+  // is unchanged.
+  const KEEP = 18;
+  function passage(html) {
+    if (!html) return '';
+    const at = html.indexOf('<mark>');
+    if (at <= 0) return '<span class="search-snippet">' + html + '</span>';
+    const lead = html.slice(0, at),
+      cut = lead.length > KEEP ? lead.indexOf(' ', lead.length - KEEP - 1) + 1 : 0;
+    return (
+      '<span class="search-snippet"><span class="search-lead">' +
+      (cut > 0 ? `<span class="search-lead-far">${lead.slice(0, cut)}</span>` : '') +
+      lead.slice(cut) +
+      '</span>' +
+      html.slice(at) +
+      '</span>'
+    );
   }
   // Snippets for the first rows at once; the rest only as they scroll into view.
   const EAGER = 8;
@@ -893,11 +910,16 @@
   };
   function rowHTML(r) {
     const opens = r.type === 'node' || r.type === 'region' || r.type === 'district',
-      keyed = r.type !== 'region' && r.type !== 'district';
+      keyed = r.type !== 'region' && r.type !== 'district',
+      // A second line that only repeats the kind word ("Subject", "Subject") is not drawn (chrome.css).
+      same =
+        String(r.sub || '')
+          .trim()
+          .toLowerCase() === String(r.label).toLowerCase();
     return (
       `<button ${opens ? `data-search-type="${r.type}" data-search-id="${E(r.id)}"` : `data-search-open="${r.type}" data-search-ref="${E(r.ref)}"`}` +
       `${keyed ? ` data-search-key="${E(r.key)}"` : ''} data-result-type="${r.label}" data-terms="${E(r.terms.join(' '))}">` +
-      `<strong>${mark(r.title, r.terms)}</strong><small><span class="search-type">${r.label}</span>${E(r.sub)}</small>` +
+      `<strong>${mark(r.title, r.terms)}</strong><small><span class="search-type">${r.label}</span><span class="search-sub${same ? ' search-sub-same' : ''}">${E(r.sub)}</span></small>` +
       `${keyed ? '<span class="search-why"></span>' : ''}</button>`
     );
   }
@@ -1322,13 +1344,21 @@
     },
     true,
   );
+  // Ctrl/Cmd+K puts the keyboard in the box from anywhere on the page, except while something is being typed
+  // into another field, and not through a dialog (the box is behind it). "/" does the same (appCode.js).
   document.addEventListener('keydown', (e) => {
-    if ((e.metaKey || e.ctrlKey) && !e.shiftKey && e.key.toLowerCase() === 'k') {
-      e.preventDefault();
-      const s = $('search');
-      s.focus();
-      s.select();
-    }
+    if (!(e.metaKey || e.ctrlKey) || e.shiftKey || e.altKey || e.key.toLowerCase() !== 'k') return;
+    const s = $('search'),
+      at = document.activeElement;
+    if (
+      at !== s &&
+      at?.matches?.('input, textarea, select, [contenteditable]:not([contenteditable="false"])')
+    )
+      return;
+    if (document.querySelector('dialog[open]:modal')) return;
+    e.preventDefault();
+    s.focus();
+    s.select();
   });
 
   /* ---------- phones: a Search button and a full-width panel ---------- */
@@ -1346,13 +1376,15 @@
     opener.id = 'searchOpen';
     opener.className = 'search-open';
     opener.setAttribute('aria-expanded', 'false');
-    opener.innerHTML = '<span aria-hidden="true">⌕</span>Search';
+    opener.innerHTML =
+      '<svg class="v32-icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="5.25"/><path d="M13 13l3.5 3.5"/></svg>Search';
     box.before(opener);
     const closer = document.createElement('button');
     closer.type = 'button';
     closer.className = 'search-close';
     closer.setAttribute('aria-label', 'Close search');
-    closer.textContent = '×';
+    closer.innerHTML =
+      '<svg class="v32-icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false"><path d="M5 5l10 10M15 5L5 15"/></svg>';
     input.after(closer);
     const isOpen = () => root.classList.contains('dkla-search-panel');
     const openPanel = () => {

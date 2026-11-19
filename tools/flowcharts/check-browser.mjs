@@ -91,10 +91,17 @@ try {
   const { page } = desktop;
   const dialog = courseDialog(page);
   await page.locator('#moreBtn').click();
-  const explore = page.getByRole('group', { name: 'Explore' });
+  // The menu is the Library since v3.2: Flowcharts is one of its collections, with its count beside it.
+  const collections = page.getByRole('group', { name: 'Collections' });
   const menuItem = page.locator('#moreMenu [data-flowcharts-menu]');
-  await expect(menuItem).toHaveText('Flowcharts');
-  assert.equal(await explore.locator('[data-flowcharts-menu]').count(), 1, 'Flowcharts appears in Explore');
+  await expect(menuItem.locator('.v32-row-label')).toHaveText('Flowcharts');
+  // the count says what it counts (docs/DESIGN.md rule 8): "115 flowcharts · 975 steps"
+  await expect(menuItem.locator('.v32-row-meta')).toHaveText(/^\d+ flowcharts · [\d,]+ steps$/);
+  assert.equal(
+    await collections.locator('[data-flowcharts-menu]').count(),
+    1,
+    'Flowcharts appears among the collections',
+  );
   await menuItem.click();
   await expect(dialog).toBeVisible();
   await expect(page).toHaveURL(routeFor('#flowcharts'));

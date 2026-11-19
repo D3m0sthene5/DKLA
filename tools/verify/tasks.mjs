@@ -176,6 +176,15 @@ export const tasks = [
     node('tools/feel/check-calm.mjs', '{page}'),
     SERVER,
   ),
+  // v3.2: the frame. The bar's three groups, the breadcrumb whole or folded through a resize, the palette,
+  // the Library's rows and counts, the cluster quiet beside a reader, nothing moving between states, the
+  // composition lint at zero, and search results unchanged by the redrawing.
+  step(
+    'browser',
+    'the frame: bar, breadcrumb, palette, Library',
+    node('tools/v32/check-chrome.mjs', '{page}'),
+    SERVER,
+  ),
   // The fuel gauge round the clock: lit share, direction, colours, label, refresh after an answer.
   step(
     'browser',
