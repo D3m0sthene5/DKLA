@@ -1100,27 +1100,22 @@
   }
   inspector.addEventListener('click', onClick);
   document.addEventListener('keydown', onKey);
-  const onFacet = () => draw();
+  const onFacet = () => redraw();
   document.addEventListener('dkla:facet', onFacet);
   window.addEventListener('hashchange', onFacet);
 
-  // The reader is drawn again whenever the entry is (src/features/v25/reading.js puts the blocks in
-  // their tabs inside the same call): the plate is drawn after it.
-  let wrapped = null;
-  if (typeof renderInspector === 'function') {
-    const prior = renderInspector;
-    wrapped = function (...args) {
-      const out = prior.apply(this, args);
-      try {
-        draw();
-      } catch (error) {
-        console.error('doctrine-b', error);
-      }
-      return out;
-    };
-    wrapped.v32dbPrior = prior;
-    renderInspector = wrapped;
-  }
+  // The reader is drawn again whenever the entry is, by layers before and after this one. The plate is
+  // drawn once they have all finished: when the reader's own children have changed.
+  const redraw = () => {
+    try {
+      draw();
+    } catch (error) {
+      console.error('doctrine-b', error);
+    }
+  };
+  // (src/features/v25/reading.js puts the blocks in their tabs in a microtask of its own: this one follows it.)
+  const renders = new MutationObserver(() => queueMicrotask(redraw));
+  renders.observe(inspector, { childList: true });
   window.DKLADoctrineB = {
     draw,
     select,
@@ -1131,14 +1126,10 @@
       document.removeEventListener('dkla:facet', onFacet);
       window.removeEventListener('hashchange', onFacet);
       sizes?.disconnect();
-      if (wrapped && renderInspector === wrapped) renderInspector = wrapped.v32dbPrior;
+      renders.disconnect();
       document.body.classList.remove('v32db-on');
       inspector.querySelectorAll('.v32db, .v32db-mast').forEach((el) => el.remove());
     },
   };
-  try {
-    draw();
-  } catch (error) {
-    console.error('doctrine-b', error);
-  }
+  redraw();
 })();
