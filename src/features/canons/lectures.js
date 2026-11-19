@@ -121,14 +121,32 @@
     </details>`;
   }
 
+  // The Lecture facet of an entry (v3.2): each note with its heading (which opens the class at that
+  // topic), what the lecture said, and the class and slides it comes from.
+  function readerHTML(records) {
+    return `<section class="lecture-related" aria-label="Lecture notes">
+      <h3 class="v32-label">From the lectures <span class="v32-count">${records.length}</span></h3>
+      ${records
+        .map(
+          ({ deck, item, offset }) =>
+            `<article class="lecture-note">
+          <h4><a data-lecture-jump href="${hashFor(deck, offset)}">${esc(item.heading)}</a></h4>
+          <p>${esc(item.body)}</p>
+          <span class="lecture-pinpoint">${names[deck.course]} Class ${deck.number} · ${esc(formatSlides(item, deck))}</span>
+        </article>`,
+        )
+        .join('')}
+    </section>`;
+  }
+
   const inspector = document.getElementById('inspector');
   const beforeInspector = renderInspector;
   renderInspector = function (...args) {
     const result = beforeInspector.apply(this, args);
     const records = selected?.type === 'node' && byNode.get(selected.id);
-    const reading = records && inspector?.querySelector('.reader-body');
+    const reading = records?.length && inspector?.querySelector('.reader-body');
     if (reading && !reading.querySelector('.lecture-related')) {
-      reading.insertAdjacentHTML('afterbegin', relatedHTML(records));
+      reading.insertAdjacentHTML('beforeend', readerHTML(records));
     }
     return result;
   };

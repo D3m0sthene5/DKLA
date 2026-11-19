@@ -356,50 +356,7 @@
 /* DKLA tune-up · reading panel, upper part (area: reader-top)
    Everything is scoped to #inspector. CSS only; nothing hidden, moved or renamed. */
 
-/* 1. Header strip: its text sat 8px left of the body column. Match the body's
-      side padding at each breakpoint (32 / 40 wide / 24; the phone value, 18, is set in the phone area) so the strip
-      and the title share one edge. */
-#inspector .reader-top {
-  padding-left: 32px;
-  padding-right: 32px;
-}
-@media (min-width: 1700px) {
-  #inspector .reader-top {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-}
-@media (max-width: 1200px) {
-  #inspector .reader-top {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-}
-
-/* 2. Close button: a bare glyph with no hit area or states. Give it a square
-      32px target, the control radius, and hover / focus feedback. The negative
-      margin keeps the glyph itself on the body's right edge. Its resting colour
-      is left as it was (already the brightest thing in the strip). */
-#inspector .reader-top #closeInspector {
-  width: 32px;
-  height: 32px;
-  flex: 0 0 32px;
-  padding: 0;
-  margin: -2px -9px -2px 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 7px;
-  line-height: 1;
-  transition: background-color 0.14s ease;
-}
-#inspector .reader-top #closeInspector:hover {
-  background: #26333f;
-}
-#inspector .reader-top #closeInspector:focus-visible {
-  outline: 2px solid #d6b78e;
-  outline-offset: 2px;
-}
+/* 1 and 2 (the header strip's padding and the close button) are now src/features/v32/case.css. */
 
 /* 3. Small-caps labels: "Rule in one line" was 10px (under the 11px floor) at
       .12em while "Recall" was 11px at .1em. Same size and tracking for both;
@@ -532,7 +489,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #inspector .reader-top #closeInspector,
   #inspector .dkla-file-chips button,
   #inspector .r18-recall .r18-chip,
   #inspector .source-strip a,

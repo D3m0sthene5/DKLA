@@ -1,0 +1,1404 @@
+/* The reader (v3.2 "Instrument": docs/DESIGN.md; tokens in src/features/v31/tokens.css).
+
+   One entry, one facet at a time. From the top: a 44 px strip (where the entry sits, the close button), the
+   header (name, citation line, the line under its picture), the facet bar (Cold Call in the margin, then
+   the tabs with their counts), and the blocks of the open facet. src/features/v25/reading.js marks each
+   block with its facet and src/features/v32/case.js says which facet is open (data-v32-show on the body).
+
+   Two columns, each with one left edge: the margin (the Cold Call button, the rail of the brief) and the
+   reading column (the strip's line, the name, the tabs, every facet). Spacing 4 8 12 16 24 32 48 64; radii
+   6 and 12; text in three greys; weights 400, 500, 600; controls 36 px high; nothing boxed inside a box. */
+#inspector {
+  --v32-gutter: 24px;
+  --v32-margin: 132px;
+  --v32-left: calc(var(--v32-gutter) + var(--v32-margin) + 24px);
+  --v32-col: 720px;
+  --v32-measure: 640px;
+  --v32-mono: 500 12px/16px 'DKLA JetBrains Mono', 'JetBrains Mono', ui-monospace, monospace;
+  background: var(--v31-panel);
+  border-left: 0;
+  box-shadow: var(--v32-e1);
+  scrollbar-color: var(--v31-line-strong) transparent;
+}
+@media (max-width: 1319px) {
+  #inspector {
+    --v32-gutter: 16px;
+    --v32-margin: 104px;
+    --v32-left: calc(var(--v32-gutter) + var(--v32-margin) + 16px);
+  }
+}
+@media (max-width: 1023px) {
+  #inspector {
+    --v32-gutter: 24px;
+    --v32-left: var(--v32-gutter);
+  }
+}
+
+/* ---------- the top strip ---------- */
+#inspector .reader-top {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0 12px;
+  height: 44px;
+  padding: 0 16px 0 var(--v32-left);
+  border-bottom: 1px solid transparent;
+  background: var(--v31-panel);
+  transition: border-color var(--v31-t-pop) var(--v31-ease);
+}
+#inspector .reader-top.v32-scrolled {
+  border-bottom-color: var(--v32-hair);
+}
+#inspector .reader-top > span,
+#inspector .reader-top > .v32-now {
+  grid-area: 1 / 1;
+  min-width: 0;
+  overflow: hidden;
+  font: var(--v31-label);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--v31-muted);
+  transition:
+    opacity var(--v31-t-pop) var(--v31-ease),
+    transform var(--v31-t-pop) var(--v31-ease);
+}
+#inspector .reader-top > .v32-ident {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  /* Room for the dot that hangs left of the column's edge. */
+  margin-left: -16px;
+  padding-left: 16px;
+}
+#inspector .v32-ident > span {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#inspector .v32-ident > .v32-course {
+  flex: none;
+}
+#inspector .v32-ident > .v32-dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  margin: 0 4px 0 -16px;
+  border-radius: 999px;
+  background: var(--v32-dot, var(--v31-faint));
+}
+#inspector .v32-ident > .v32-sep {
+  flex: none;
+  color: var(--v31-faint);
+}
+#inspector .reader-top > .v32-now {
+  font: var(--v32-ui-small);
+  font-weight: 600;
+  color: var(--v31-text);
+  opacity: 0;
+  transform: translateY(4px);
+}
+#inspector .reader-top.v32-titled > .v32-now {
+  opacity: 1;
+  transform: none;
+}
+#inspector .reader-top.v32-titled > .v32-ident {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+#inspector #closeInspector {
+  all: unset;
+  box-sizing: border-box;
+  position: relative;
+  grid-area: 1 / 2;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  color: var(--v31-muted);
+  cursor: pointer;
+}
+/* A 44 px place to press round the 36 px button. */
+#inspector #closeInspector::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+}
+#inspector #closeInspector:hover {
+  background: var(--v31-raised);
+  color: var(--v31-text);
+}
+
+/* ---------- the page ---------- */
+#inspector .reader-body.v32,
+#inspector .reader-body.v32-plain {
+  position: relative;
+  box-sizing: border-box;
+  max-width: none;
+  margin: 0;
+  padding: 8px var(--v32-gutter) 96px var(--v32-left);
+  font: var(--v31-body-type);
+  color: var(--v31-text);
+}
+/* Blocks arrive together, once (case.js fades a facet in); the staggered rise of each block is gone. */
+#inspector .reader-body.v32 > *,
+#inspector .reader-body.v32-plain > * {
+  animation: none;
+}
+#inspector .reader-body.v32 > * {
+  max-width: var(--v32-col);
+}
+/* One facet at a time: the blocks of every other facet are out of the page. */
+#inspector .v32[data-v32-show='brief'] > [data-v32-facet]:not([data-v32-facet='brief']),
+#inspector .v32[data-v32-show='timeline'] > [data-v32-facet]:not([data-v32-facet='timeline']),
+#inspector .v32[data-v32-show='flowchart'] > [data-v32-facet]:not([data-v32-facet='flowchart']),
+#inspector .v32[data-v32-show='canons'] > [data-v32-facet]:not([data-v32-facet='canons']),
+#inspector .v32[data-v32-show='lecture'] > [data-v32-facet]:not([data-v32-facet='lecture']),
+#inspector .v32[data-v32-show='court'] > [data-v32-facet]:not([data-v32-facet='court']),
+#inspector .v32[data-v32-show='cases'] > [data-v32-facet]:not([data-v32-facet='cases']),
+#inspector .v32[data-v32-show='connections'] > [data-v32-facet]:not([data-v32-facet='connections']),
+#inspector .v32[data-v32-show='sources'] > [data-v32-facet]:not([data-v32-facet='sources']),
+#inspector .v32[data-v32-show='study'] > [data-v32-facet]:not([data-v32-facet='study']) {
+  display: none !important;
+}
+/* A change of facet fades the new blocks in. The two keyframes are the same; case.js alternates them so
+   each change starts afresh. Before the first change the blocks are simply there. */
+#inspector .v32[data-v32-tick='0'] > [data-v32-facet] {
+  animation: v32-in-a var(--v31-t-pop) var(--v31-ease) both;
+}
+#inspector .v32[data-v32-tick='1'] > [data-v32-facet] {
+  animation: v32-in-b var(--v31-t-pop) var(--v31-ease) both;
+}
+@keyframes v32-in-a {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@keyframes v32-in-b {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #inspector .v32 > [data-v32-facet] {
+    animation: none !important;
+  }
+  #inspector .reader-top > span,
+  #inspector .reader-top > .v32-now,
+  #inspector .v32-tab::after {
+    transition: none;
+  }
+}
+/* The headings that name each facet belong to the printed page. */
+#inspector .reader-body.v32 > h3.v32-fh,
+#inspector .reader-body.v32 > .brief-jump,
+#inspector .v32[data-v32-show] > details.v25-source-details,
+#inspector .v32[data-v32-show] > .authority-context,
+#inspector .v32[data-v32-show] > .dkla-file-chips,
+#inspector .v32[data-v32-show] > .source-strip,
+#inspector .v32[data-v32-show] > .r19-chiprow,
+#inspector .v32[data-v32-show] > .civil-source-scope:not(.source-caution),
+#inspector .v32 > .r19-brief > .r28-original-sources {
+  display: none;
+}
+
+/* ---------- shared pieces ---------- */
+#inspector .v32 .v32-label,
+#inspector .v32-plain .v32-label {
+  margin: 0 0 8px;
+  padding: 0;
+  border: 0;
+  font: var(--v31-label);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-muted);
+}
+#inspector .v32 .v32-count {
+  font: var(--v32-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  color: var(--v31-faint);
+}
+#inspector .v32 .v32-label > .v32-count {
+  margin-left: 4px;
+}
+/* Rows: 36 px, a 16 px mark, the name, a trailing readout. The fill on hover reaches 8 px past the text. */
+#inspector .v32 .v32-rows {
+  margin: 0 -8px;
+  padding: 0;
+  list-style: none;
+}
+#inspector .v32 .v32-rows > li {
+  margin: 0;
+  padding: 0;
+}
+#inspector .v32 .v32-row {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  height: 36px;
+  padding: 0 8px;
+  border-radius: 6px;
+  font: var(--v31-ui);
+  color: var(--v31-text);
+  cursor: pointer;
+}
+#inspector .v32 .v32-row > svg {
+  flex: none;
+  color: var(--v31-faint);
+}
+#inspector .v32 .v32-row-label {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#inspector .v32 .v32-row-meta {
+  flex: none;
+  font: var(--v32-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-faint);
+}
+#inspector .v32 .v32-row:hover {
+  background: var(--v31-raised);
+}
+/* A two- or three-way switch: one hairline round it, the chosen part one fill step up. */
+#inspector .v32 .v32-seg {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  border-radius: 6px;
+}
+#inspector .v32 .v32-seg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px var(--v32-hair-strong);
+  pointer-events: none;
+}
+#inspector .v32 .v32-seg > button {
+  all: unset;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  min-width: 64px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 6px;
+  font: var(--v31-ui);
+  color: var(--v31-muted);
+  cursor: pointer;
+}
+#inspector .v32 .v32-seg > button:hover {
+  color: var(--v31-text);
+}
+#inspector .v32 .v32-seg > button[aria-pressed='true'] {
+  background: var(--v31-raised);
+  color: var(--v31-text);
+}
+/* A quiet control: words in the link blue, 36 px high. */
+#inspector .v32 .v31-open,
+#inspector .v32 #showNeighborhood,
+#inspector .v32 .dkla-term-more,
+#inspector .v32 .text-button {
+  all: unset;
+  box-sizing: border-box;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 36px;
+  font: var(--v31-ui);
+  color: var(--v31-link);
+  cursor: pointer;
+}
+#inspector .v32 .v31-open:hover,
+#inspector .v32 #showNeighborhood:hover,
+#inspector .v32 .dkla-term-more:hover,
+#inspector .v32 .text-button:hover {
+  color: var(--v31-link-hover);
+}
+#inspector .v32 .text-button.danger {
+  color: var(--v31-muted);
+}
+/* A default control: one hairline, 36 px high. */
+#inspector .v32 .reading-actions button,
+#inspector .v32 .r19-line button,
+#inspector .v32 .r19-related button {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px var(--v32-hair-strong);
+  font: var(--v31-ui);
+  color: var(--v31-text);
+  cursor: pointer;
+}
+#inspector .v32 .reading-actions button:hover,
+#inspector .v32 .r19-line button:hover,
+#inspector .v32 .r19-related button:hover {
+  background: var(--v31-raised);
+}
+/* Links inside the reader: one colour. */
+#inspector .v32 a,
+#inspector .v32 .cite-link,
+#inspector .v32-plain a {
+  color: var(--v31-link);
+  text-decoration: none;
+}
+#inspector .v32 a:hover,
+#inspector .v32-plain a:hover {
+  color: var(--v31-link-hover);
+}
+/* The head of a block inside a facet: what it is and its count, its name, one way out. */
+#inspector .v32 .v31-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+#inspector .v32 .v31-card-head h3 {
+  margin: 4px 0 0;
+  font: var(--v31-heading);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-text);
+}
+#inspector .v32 .v31-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0;
+  font: var(--v31-label);
+  color: var(--v31-muted);
+}
+
+/* ---------- the header ---------- */
+#inspector .v32 > .v32-head {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 24px;
+  padding: 0;
+  border: 0;
+}
+#inspector .v32 .v32-head > .dkla-record-title {
+  display: block;
+  gap: 0;
+  margin: 0;
+}
+#inspector .v32 .v32-head h2 {
+  margin: 0;
+  font: var(--v31-title);
+  /* !important: src/features/v26/typography.css puts the interface face on every heading in the reader. */
+  font-family: var(--dkla-display, 'Exo 2'), sans-serif !important;
+  letter-spacing: 0;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+  color: var(--v31-text);
+}
+#inspector .v32 .v32-head > .v32-meta {
+  min-height: 16px;
+  margin: 8px 0 0;
+  font: var(--v32-mono);
+  font-variant-numeric: tabular-nums;
+  white-space: normal;
+  color: var(--v31-faint);
+}
+#inspector .v32 .v32-head > .v32-tag {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 12px 0 0;
+  font: var(--v31-body-type);
+  color: var(--v31-muted);
+}
+#inspector .v32 .v32-tag > svg {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  /* On the first line's centre: (27 - 20) / 2, rounded to the grid. */
+  margin: 4px 0 0;
+  color: var(--v32-course, var(--v31-muted));
+}
+#inspector .v32 .v32-tag > .dkla-icon-caption,
+#inspector .v32 .v32-tag > .v32-kind {
+  margin: 0;
+  max-width: none;
+  font: inherit;
+  font-style: normal;
+  letter-spacing: 0;
+  color: inherit;
+}
+#inspector .v32 > .dkla-course-tabs {
+  margin: 0 0 16px;
+}
+
+/* ---------- the facet bar ---------- */
+#inspector .v32 > .v32-bar {
+  position: sticky;
+  top: 44px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  max-width: none;
+  height: 60px;
+  margin: 0 calc(-1 * var(--v32-gutter)) 0 calc(-1 * var(--v32-left));
+  padding: 0 var(--v32-gutter) 0 var(--v32-left);
+  border-bottom: 1px solid var(--v32-hair);
+  background: var(--v31-panel);
+}
+/* An entry with one facet has no bar, only the line that closes its header. */
+#inspector .v32.v32-single > .v32-bar {
+  height: 0;
+}
+#inspector .v32.v32-single > .v32-bar > * {
+  display: none;
+}
+#inspector .v32 .v32-cc {
+  position: absolute;
+  left: var(--v32-gutter);
+  top: 12px;
+  display: flex;
+}
+#inspector .v32 .v32-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  height: 60px;
+  /* The first tab's words start on the column's edge. */
+  margin: 0 -12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+#inspector .v32 .v32-tabs::-webkit-scrollbar {
+  display: none;
+}
+#inspector .v32 .v32-tab {
+  all: unset;
+  box-sizing: border-box;
+  position: relative;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 6px;
+  font: var(--v31-ui);
+  white-space: nowrap;
+  color: var(--v31-muted);
+  cursor: pointer;
+}
+#inspector .v32 .v32-tab:hover {
+  background: var(--v31-raised);
+  color: var(--v31-text);
+}
+#inspector .v32 .v32-tab[aria-selected='true'] {
+  color: var(--v31-text);
+}
+#inspector .v32 .v32-tab[aria-selected='true'] > .v32-count {
+  color: var(--v31-muted);
+}
+#inspector .v32 .v32-tab > .v32-count:empty {
+  display: none;
+}
+/* The open tab's mark sits on the bar's hairline. */
+#inspector .v32 .v32-tab::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: -12px;
+  height: 2px;
+  background: var(--v31-text);
+  opacity: 0;
+  transform: scaleX(0.6);
+  transition:
+    opacity var(--v31-t-pop) var(--v31-ease),
+    transform var(--v31-t-pop) var(--v31-ease);
+}
+#inspector .v32 .v32-tab[aria-selected='true']::after {
+  opacity: 1;
+  transform: none;
+}
+/* The space between the bar and the facet (the element a screen reader is told is the open tab's panel). */
+#inspector .v32 > .v32-panel {
+  height: 32px;
+}
+
+/* ---------- the rail: the rule and the six parts, in the margin beside the short brief ---------- */
+#inspector .v32 > .v31-rail {
+  display: none;
+  position: sticky;
+  top: 104px;
+  z-index: 1;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+#inspector .v32[data-v32-show='brief'][data-v32-mode='short'] > .v31-rail {
+  display: block;
+}
+#inspector .v32 .v31-rail-inner {
+  position: absolute;
+  top: 0;
+  left: calc(var(--v32-gutter) - var(--v32-left));
+  display: flex;
+  flex-direction: column;
+  width: var(--v32-margin);
+}
+#inspector .v32 .v31-rail button {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  height: 36px;
+  margin: 0 -8px;
+  padding: 0 8px;
+  border-radius: 6px;
+  font: var(--v31-label);
+  color: var(--v31-faint);
+  cursor: pointer;
+}
+#inspector .v32 .v31-rail button > .v32-n {
+  flex: none;
+  width: 16px;
+  font: var(--v32-mono);
+  font-variant-numeric: tabular-nums;
+}
+#inspector .v32 .v31-rail button:hover {
+  color: var(--v31-text);
+}
+#inspector .v32 .v31-rail button[aria-current] {
+  color: var(--v31-text);
+}
+@media (max-width: 1023px) {
+  #inspector .v32 > .v31-rail {
+    display: none !important;
+  }
+  #inspector .v32-cc {
+    position: static;
+  }
+  #inspector .v32-cc:not(:empty) {
+    margin-right: 24px;
+  }
+}
+
+/* ---------- Brief ---------- */
+#inspector .v32 > .v32-brief-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 36px;
+  margin: 0 0 8px;
+}
+#inspector .v32 .v32-brief-head > .v32-label {
+  margin: 0;
+}
+#inspector .v32[data-v32-mode='full'] > .v32-brief-head > .v32-label {
+  visibility: hidden;
+}
+/* The rule in plain English: the hero. No box. */
+#inspector .v32 > .takeaway {
+  max-width: 704px;
+  margin: 0 0 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  font:
+    400 22px/32px var(--dkla-interface, Inter),
+    sans-serif;
+  letter-spacing: 0;
+  color: var(--v31-text);
+}
+#inspector .v32 > .takeaway::before {
+  content: none;
+}
+#inspector .v32 > .takeaway > * {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+#inspector .v32[data-v32-mode='full'] > .takeaway,
+#inspector .v32[data-v32-mode='full'] > .case-box,
+#inspector .v32[data-v32-mode='short'] > .r19-brief > .v32-full {
+  display: none;
+}
+#inspector .v32 > .source-caution {
+  max-width: var(--v32-measure);
+  margin: 0 0 24px;
+  padding: 0 0 0 16px;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: inset 2px 0 0 var(--v31-here);
+  font: var(--v31-ui);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+#inspector .v32 > .source-caution p {
+  margin: 4px 0 0;
+  font: inherit;
+  color: inherit;
+}
+#inspector .v32 > .jump-note {
+  margin: 0 0 24px;
+  font: var(--v31-ui);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+/* The six parts: a large faint numeral, the part's name, then the text at 17/28. */
+#inspector .v32 > .case-box {
+  counter-reset: v32-part;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  margin: 0 0 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+#inspector .v32 > .case-box > section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  scroll-margin-top: 128px;
+}
+#inspector .v32 > .case-box > section > h3 {
+  counter-increment: v32-part;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0 0 12px;
+  font: var(--v31-heading);
+  line-height: 32px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-text);
+}
+#inspector .v32 > .case-box > section > h3::before {
+  content: counter(v32-part);
+  font:
+    400 30px/32px var(--dkla-display, 'Exo 2'),
+    sans-serif;
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-faint);
+}
+#inspector .v32 :is(.case-box, .entry-sections, .note-text, .r19-text, .v32-loose) p,
+#inspector .v32 > section:not([class]) p {
+  max-width: var(--v32-measure);
+  margin: 0 0 16px;
+  font: var(--v32-reading);
+  letter-spacing: 0;
+  white-space: normal;
+  color: var(--v31-text);
+}
+#inspector .v32 :is(.case-box section, .entry-sections section, .note-text, .r19-text) > p:last-child {
+  margin-bottom: 0;
+}
+/* The readings a part of an LRS brief rests on: a quiet line under the part. */
+#inspector .v32 .case-box .source-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 16px;
+  margin: 8px 0 0;
+  padding: 0;
+  border: 0;
+}
+#inspector .v32 .case-box .source-strip :is(a, button) {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  font: var(--v32-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-faint);
+  cursor: pointer;
+}
+#inspector .v32 .case-box .source-strip :is(a, button):hover {
+  color: var(--v31-link-hover);
+}
+/* Headings of the looser parts of a brief (separate opinions, the sections of a concept). */
+#inspector .v32 > section:not([class]) > h3,
+#inspector .v32 > h3:not([class]),
+#inspector .v32 > .entry-sections h3,
+#inspector .v32 .r19-text h3,
+#inspector .v32 > .study-roadmap > h3,
+#inspector .v32 > .v32-notes > h3,
+#inspector .v32 > .course-case-index > h3 {
+  margin: 0 0 12px;
+  padding: 0;
+  border: 0;
+  font: var(--v31-heading);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-text);
+}
+#inspector .v32 > section:not([class]),
+#inspector .v32 > .entry-sections,
+#inspector .v32 > .note-text {
+  margin: 0 0 48px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+#inspector .v32 > .entry-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+#inspector .v32 > .entry-sections > section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+/* The full brief (the Short | Full switch), and what the audit says of it. */
+#inspector .v32 > .r19-brief {
+  margin: 0 0 48px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+#inspector .v32 > .r19-brief:not(:has(.r19-line > *, .r19-auditbox, .r19-related)) {
+  margin: 0;
+}
+#inspector .v32[data-v32-mode='full'] > .r19-brief > .v32-full {
+  margin: 0 0 48px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+#inspector .v32 .r19-text {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+#inspector .v32 .r19-text h3:not(:first-child) {
+  margin-top: 48px;
+}
+#inspector .v32 .r19-text h4 {
+  margin: 32px 0 8px;
+  font: var(--v31-body-type);
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-text);
+}
+#inspector .v32 .r19-text :is(ul, ol) {
+  max-width: var(--v32-measure);
+  margin: 0 0 16px;
+  padding: 0 0 0 24px;
+  font: var(--v32-reading);
+  color: var(--v31-text);
+}
+#inspector .v32 .r19-text li {
+  margin: 0 0 8px;
+  font: inherit;
+  color: inherit;
+}
+#inspector .v32 .r19-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin: 0;
+  font: var(--v31-label);
+  color: var(--v31-muted);
+}
+#inspector .v32 .r19-line:empty {
+  display: none;
+}
+#inspector .v32 .r19-status {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: var(--v31-label);
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: normal;
+  color: var(--v31-muted);
+}
+#inspector .v32 .r19-related {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0 0;
+}
+#inspector .v32 .r19-related > span {
+  flex: 1 0 100%;
+  font: var(--v31-label);
+  color: var(--v31-muted);
+}
+/* The text of a provision, in a rule's overview. */
+#inspector .v32 > .r19-prov {
+  margin: 0 0 32px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+/* Terms in this entry: three columns of rows. */
+#inspector .v32 > .dkla-terms {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+#inspector .v32 > .dkla-terms > h3 {
+  margin: 0 0 8px;
+  font: var(--v31-label);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-muted);
+}
+#inspector .v32 > .dkla-terms > h3 > span {
+  margin-left: 4px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: var(--v32-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-faint);
+}
+#inspector .v32 .dkla-term-chips {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 24px;
+  margin: 0 -8px;
+}
+#inspector .v32 .dkla-term-chips > button:not(.dkla-term-more) {
+  all: unset;
+  box-sizing: border-box;
+  display: block;
+  height: 36px;
+  padding: 0 8px;
+  overflow: hidden;
+  border-radius: 6px;
+  font: var(--v31-ui);
+  line-height: 36px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--v31-text);
+  cursor: pointer;
+}
+#inspector .v32 .dkla-term-chips > button[hidden] {
+  display: none;
+}
+#inspector .v32 .dkla-term-chips > button:not(.dkla-term-more):hover {
+  background: var(--v31-raised);
+}
+#inspector .v32 .dkla-term-chips > .dkla-term-more {
+  padding: 0 8px;
+}
+
+/* ---------- Timeline ---------- */
+#inspector .v32 > .v28-case-timelines {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  margin: 0;
+}
+#inspector .v32 .v31-tl {
+  margin: 0 0 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+#inspector .v32 > .v28-case-timelines > .v31-tl {
+  margin: 0;
+}
+#inspector .v32 > .r21-also {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 16px;
+  margin: 0;
+  font: var(--v31-label);
+  color: var(--v31-muted);
+}
+#inspector .v32 > .r21-also > button {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  font: var(--v31-ui);
+  color: var(--v31-link);
+  cursor: pointer;
+}
+/* A case on more than one timeline: one at a time. */
+#inspector .v32 .v32-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 100%;
+}
+#inspector .v32 .v32-switch.v32-seg > button {
+  max-width: 320px;
+  display: block;
+  overflow: hidden;
+  line-height: 36px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ---------- Flowchart ---------- */
+#inspector .v32 > .v31-chart-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  margin: 0;
+}
+#inspector .v32 .v31-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+#inspector .v32 .v31-chart > .v32-label {
+  margin: 16px 0 -8px;
+}
+#inspector .v32 .v32-path {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#inspector .v32 .v32-step {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+#inspector .v32 .v32-step > a {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  min-height: 36px;
+  margin: 0 -8px;
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  font: var(--v31-ui);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+#inspector .v32 .v32-step > a:hover {
+  background: var(--v31-raised);
+  color: var(--v31-text);
+}
+#inspector .v32 .v32-step-n {
+  flex: none;
+  width: 16px;
+  font: var(--v32-mono);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  color: var(--v31-faint);
+}
+#inspector .v32 .v32-step-q small {
+  margin-left: 8px;
+  font: var(--v31-label);
+  white-space: nowrap;
+  color: var(--v31-here);
+}
+/* The steps this entry decides: amber, in full. */
+#inspector .v32 .v32-step.v31-own > a {
+  font-weight: 600;
+  color: var(--v31-text);
+}
+#inspector .v32 .v32-step.v31-own .v32-step-n {
+  color: var(--v31-here);
+}
+#inspector .v32 .v32-step-detail {
+  max-width: 608px;
+  margin: 0 0 8px 32px;
+  font: var(--v31-ui);
+  font-weight: 400;
+  line-height: 24px;
+  white-space: normal;
+  color: var(--v31-muted);
+}
+/* The branch taken between two steps: a line down the numbers' column and the branch's words. */
+#inspector .v32 .v32-branch {
+  display: flex;
+  align-items: center;
+  min-height: 24px;
+  margin: 0;
+  padding: 0 0 0 32px;
+  font: var(--v31-label);
+  color: var(--v31-faint);
+  background: linear-gradient(var(--v31-line-strong), var(--v31-line-strong)) 11px 0 / 1px 100% no-repeat;
+}
+
+/* ---------- Canons, Sources and other lists of rows ---------- */
+#inspector .v32 > .canons-related,
+#inspector .v32 > .v32-sources {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+#inspector .v32 > .v32-sources > .v32-rows + .v32-label {
+  margin-top: 32px;
+}
+/* Record details: one quiet drawer at the end of Sources. */
+#inspector .v32 > details.quiet-details {
+  margin: 32px 0 0;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid var(--v32-hair);
+  border-radius: 0;
+  background: none;
+}
+#inspector .v32 > details.quiet-details > summary {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font: var(--v31-ui);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-muted);
+  cursor: pointer;
+}
+#inspector .v32 > details.quiet-details > summary::-webkit-details-marker {
+  display: none;
+}
+#inspector .v32 > details.quiet-details > summary:hover {
+  color: var(--v31-text);
+}
+#inspector .v32 > details.quiet-details :is(h4, a.source-link, a.source-link + p:empty) {
+  display: none;
+}
+#inspector .v32 > details.quiet-details p {
+  max-width: var(--v32-measure);
+  margin: 0 0 16px;
+  font: var(--v31-ui);
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--v31-muted);
+}
+#inspector .v32 .metadata-grid {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 8px 24px;
+  margin: 0 0 16px;
+  font: var(--v31-ui);
+  font-weight: 400;
+}
+#inspector .v32 .metadata-grid dt {
+  margin: 0;
+  font: inherit;
+  color: var(--v31-muted);
+}
+#inspector .v32 .metadata-grid dd {
+  margin: 0;
+  font: inherit;
+  overflow-wrap: anywhere;
+  color: var(--v31-text);
+}
+#inspector .v32 #originalMetadata {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+#inspector .v32 #originalMetadata > summary {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  list-style: none;
+  font: var(--v31-ui);
+  color: var(--v31-link);
+  cursor: pointer;
+}
+#inspector .v32 #originalMetadata > summary::-webkit-details-marker {
+  display: none;
+}
+#inspector .v32 #originalMetadata pre {
+  margin: 8px 0 16px;
+  padding: 16px;
+  overflow: auto;
+  border: 0;
+  border-radius: 6px;
+  background: var(--v31-ground);
+  font: var(--v32-mono);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+#inspector .v32 > details.quiet-details > button.text-button {
+  margin-right: 24px;
+}
+
+/* ---------- Lecture ---------- */
+#inspector .v32 > .lecture-related {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+#inspector .v32 .lecture-note {
+  max-width: var(--v32-measure);
+  margin: 0;
+  padding: 8px 0 24px;
+  border: 0;
+  background: none;
+}
+#inspector .v32 .lecture-note + .lecture-note {
+  border-top: 1px solid var(--v32-hair);
+}
+#inspector .v32 .lecture-note h4 {
+  margin: 0;
+  font: var(--v31-body-type);
+  font-weight: 600;
+  letter-spacing: 0;
+}
+#inspector .v32 .lecture-note h4 > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  line-height: 24px;
+}
+#inspector .v32 .lecture-note p {
+  margin: 0 0 8px;
+  font: var(--v31-body-type);
+  white-space: normal;
+  color: var(--v31-text);
+}
+#inspector .v32 .lecture-pinpoint {
+  font: var(--v32-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-faint);
+}
+
+/* ---------- Connections ---------- */
+#inspector .v32 > .r6-connections {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+#inspector .v32 > .r6-connections > .related-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 36px;
+  margin: 0;
+  padding: 0;
+}
+#inspector .v32 > .r6-connections > .related-heading > .v32-label {
+  margin: 0;
+}
+#inspector .v32 .related-heading .case-count {
+  margin-left: 4px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+#inspector .v32 .study-connection {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0 24px;
+  max-width: none;
+  margin: 0;
+  padding: 8px 0 16px;
+  border: 0;
+  border-top: 1px solid var(--v32-hair);
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+#inspector .v32 .study-connection .connection-destination {
+  all: unset;
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  min-height: 36px;
+  font: var(--v31-body-type);
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--v31-link);
+  cursor: pointer;
+}
+#inspector .v32 .study-connection .connection-destination:hover {
+  color: var(--v31-link-hover);
+}
+#inspector .v32 .study-connection .dkla-location {
+  grid-column: 1;
+  margin: -4px 0 8px;
+  font: var(--v31-label);
+  color: var(--v31-faint);
+}
+#inspector .v32 .study-connection > p {
+  grid-column: 1;
+  max-width: var(--v32-measure);
+  margin: 0;
+  font: var(--v31-ui);
+  font-weight: 400;
+  line-height: 24px;
+  white-space: normal;
+  color: var(--v31-muted);
+}
+#inspector .v32 .study-connection > .text-button {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  align-self: start;
+  font: var(--v32-ui-small);
+}
+/* "Questions this case helps answer": rows. */
+#inspector .v32 > .case-topics {
+  display: flex;
+  flex-direction: column;
+  margin: 32px 0 0;
+  padding: 0;
+  border: 0;
+}
+#inspector .v32 > .case-topics > h3 {
+  margin: 0 0 8px;
+  font: var(--v31-label);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-muted);
+}
+#inspector .v32 > .case-topics > p {
+  display: none;
+}
+#inspector .v32 > .case-topics > button {
+  all: unset;
+  box-sizing: border-box;
+  display: block;
+  height: 36px;
+  margin: 0 -8px;
+  padding: 0 8px;
+  overflow: hidden;
+  border-radius: 6px;
+  font: var(--v31-ui);
+  line-height: 36px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--v31-text);
+  cursor: pointer;
+}
+#inspector .v32 > .case-topics > button:hover {
+  background: var(--v31-raised);
+}
+
+/* ---------- Study ---------- */
+#inspector .v32 > .r18-recall {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  margin: 0 0 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+#inspector .v32 > .r18-recall::before {
+  content: none;
+}
+#inspector .v32 > .r18-recall > .v32-label::after {
+  content: ' · how well do you know it?';
+}
+#inspector .v32 .r18-recall .r18-chip {
+  border: 0;
+}
+#inspector .v32 > .v32-notes {
+  margin: 0 0 48px;
+}
+#inspector .v32 > .v32-notes > h3 {
+  margin: 0 0 8px;
+  font: var(--v31-label);
+  color: var(--v31-muted);
+}
+#inspector .v32 > details.quiet-details:has(.reading-actions) {
+  margin: 0;
+  border: 0;
+}
+#inspector .v32 > details.quiet-details:has(.reading-actions) > summary {
+  height: 36px;
+  font: var(--v31-label);
+  pointer-events: none;
+}
+#inspector .v32 .reading-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Cases (a concept's cases across the course) ---------- */
+#inspector .v32 > .course-case-index {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+/* ---------- print: every facet, in order, each under its name ---------- */
+@media print {
+  #inspector .reader-body.v32[data-v32-show] > [data-v32-facet]:not(.brief-jump) {
+    display: block !important;
+    animation: none !important;
+  }
+  #inspector .reader-body.v32 > h3.v32-fh {
+    display: block !important;
+    margin: 24pt 0 8pt;
+    font:
+      600 14pt/1.3 Georgia,
+      serif;
+    break-after: avoid;
+  }
+  #inspector .v32 > .v32-bar,
+  #inspector .v32 > .v31-rail,
+  #inspector .v32 > .v32-brief-head .v32-seg,
+  #inspector .reader-top {
+    display: none !important;
+  }
+  #inspector .reader-body.v32 {
+    min-height: 0 !important;
+    padding: 0 !important;
+  }
+  #inspector .v32[data-v32-mode] > .takeaway,
+  #inspector .v32[data-v32-mode] > .case-box {
+    display: block !important;
+  }
+}
+
+/* A citation inside prose keeps its place in the line and gets a 36 px place to press. */
+#inspector .v32 a.cite-link {
+  display: inline-block;
+  margin: -8px 0;
+  padding: 8px 0;
+  text-decoration: none;
+}

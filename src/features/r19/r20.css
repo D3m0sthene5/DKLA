@@ -16,10 +16,6 @@
   height: 36px;
   flex-basis: 36px;
 }
-#inspector .dkla-icon-caption {
-  margin-left: 46px !important;
-  font-size: 12px !important;
-}
 /* the timeline fades at its edges, so it reads as scrollable */
 #inspector .reader-body .dkla-timeline-track {
   -webkit-mask-image: linear-gradient(

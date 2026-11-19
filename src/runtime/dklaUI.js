@@ -326,7 +326,9 @@
       top = focusEdges(n.id, 4),
       used = new Set(top.map((e) => e.id)),
       rest = all.filter((e) => !used.has(e.id));
-    return `<section class="r6-connections"><div class="related-heading"><h3>Connections <span class="case-count">${all.length}</span></h3><button id="showNeighborhood">Show all</button></div>${top.map((e) => connectionCard(e, n.id)).join('')}${rest.length ? `<details id="remainingConnections" class="quiet-details" ${S.connectionsExpanded ? 'open' : ''}><summary>More connections (${rest.length})</summary>${rest.map((e) => connectionCard(e, n.id)).join('')}</details>` : ''}</section>`;
+    // v3.2: the Connections facet lists every relationship (the map still draws four at a time, and
+    // "Show all on the map" draws the rest); the "More connections" drawer is gone.
+    return `<section class="r6-connections"><div class="related-heading"><h3 class="v32-label">Connections <span class="case-count v32-count">${all.length}</span></h3><button id="showNeighborhood" title="Draw every connection of this entry on the map">Show all on the map</button></div>${[...top, ...rest].map((e) => connectionCard(e, n.id)).join('')}</section>`;
   };
   r6RenderLens = function () {
     const show = r6LensOpen && S.panelOpen && selected?.type === 'node';

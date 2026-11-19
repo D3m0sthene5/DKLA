@@ -471,7 +471,7 @@
       })
       .join(
         '',
-      )}${slugs.length > SHOW ? `<button type="button" class="dkla-term-more">+${slugs.length - SHOW} more</button>` : ''}</div>`;
+      )}${slugs.length > SHOW ? `<button type="button" class="dkla-term-more">Show all ${slugs.length} terms</button>` : ''}</div>`;
     const more = sec.querySelector('.dkla-term-more');
     if (more)
       more.onclick = (e) => {

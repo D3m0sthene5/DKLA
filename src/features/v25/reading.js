@@ -1,7 +1,16 @@
-/* v2.5 reading layout. Explicit DOM adapters retain original nodes and delegated handlers.
- * The introduction is one explanation; legal analysis and source text remain farther down.
- * Case headers only: rule/concept panels keep their provision-placement contract.
- * No source, graph, case prose, saved edits or map geometry is changed here.
+/* The reader's structure (v3.2 "Instrument": docs/DESIGN.md).
+ *
+ * Every layer of the atlas draws its own block into the reader (the brief, timelines, flowchart steps,
+ * canons, lecture notes, connections, sources, study). This file owns where each block goes. An entry
+ * is read one facet at a time: Brief, Timeline, Flowchart, Canons, Lecture, Court, Cases, Connections,
+ * Sources, Study. Each block is a direct child of .reader-body, marked with the facet it belongs to
+ * (data-v32-facet) and kept in one order; src/features/v32/case.css shows the blocks of the facet that
+ * is open and src/features/v32/case.js runs the facet bar (window.DKLAReader).
+ *
+ * The blocks stay direct children on purpose: the layers that draw them find and place them there, and
+ * a wrapper per facet would make several of them draw their block again. Nothing is removed from an
+ * entry, no source, graph, case prose, saved edit or map geometry is changed here, and the order is
+ * applied only when it differs, so the layers' observers settle.
  */
 (() => {
   'use strict';
@@ -86,163 +95,246 @@
     const tail = [...body.children].slice(-footer.length);
     // Keep this idempotent: observers also watch the original source and term controls.
     if (footer.length && !footer.every((node, i) => tail[i] === node))
-      footer.forEach((node) => moveToEnd(node, body));
-  }
-  function moveToEnd(node, parent) {
-    parent.appendChild(node);
+      footer.forEach((node) => body.appendChild(node));
   }
   function mainIntro() {
     if (!inspector || inspector.hidden) return;
     const body = inspector.querySelector('.reader-body');
     if (body) polishIntro(body);
   }
-  function mainCase() {
-    if (!inspector || inspector.hidden) return;
-    const body = inspector.querySelector('.reader-body');
-    if (!body || !body.querySelector(':scope > .case-box')) return;
-    const title = body.querySelector('.dkla-record-title');
-    if (!title) return;
-    body.classList.add('v25-case-reader');
-    let header = body.querySelector(':scope > .v25-record-header');
-    if (!header) {
-      header = element('header', 'v25-record-header');
-      title.before(header);
-    }
-    move(title, header);
-    // The factual icon caption belongs with the title, before the action row.
-    const caption = body.querySelector('.dkla-icon-caption');
-    let actions = header.querySelector('.v25-record-actions');
-    if (!actions) {
-      actions = element('div', 'v25-record-actions');
-      header.appendChild(actions);
-    }
-    if (caption && caption.parentElement !== header) header.insertBefore(caption, actions);
-    move(body.querySelector('[data-cold-call]'), actions);
-    const original = body.querySelector('.r28-original-sources [data-dkla-file]');
-    const selectedId = typeof selected !== 'undefined' && selected?.type === 'node' ? selected.id : null;
-    const registry = window.DKLABriefs?.data;
-    const registered = registry?.sourceLinks?.[registry?.map?.[selectedId] || selectedId]?.find(
-      (s) => s.path,
-    );
-    if ((original || registered) && !actions.querySelector('[data-v28-source]')) {
-      const button = element('button', 'v28-source', 'Original source');
-      button.type = 'button';
-      button.dataset.v28Source = '';
-      button.dataset.dklaFile = original?.dataset.dklaFile || registered.path + '#page=' + registered.page;
-      button.title = original?.title || registered.label;
-      actions.appendChild(button);
-    }
-    if (
-      body.querySelector('.r19-brief .r19-full:not(.r19-auditbox)') &&
-      !actions.querySelector('[data-v25-full-brief]')
-    ) {
-      const button = element('button', 'v25-full-brief', 'Full brief');
-      button.type = 'button';
-      button.dataset.v25FullBrief = '';
-      actions.appendChild(button);
-    }
-    polishIntro(body);
-    // Timelines are the main reading feature, directly after the short summary.
-    // Keep every timeline and its controls in their original order.
-    const timelines = [...body.querySelectorAll(':scope > .dkla-timeline')];
-    let group = body.querySelector(':scope > .v28-case-timelines');
-    if (timelines.length) {
-      if (!group) {
-        group = element('section', 'v28-case-timelines');
-        body.appendChild(group);
-      }
-      timelines.forEach((timeline) => move(timeline, group));
-    }
-    // caseOrder() places the timelines under "Where this case sits".
-    const sourceRows = [
-      ...body.querySelectorAll(
-        ':scope > .dkla-file-chips,:scope > .source-strip,:scope > .r19-chiprow,:scope > .civil-source-scope:not(.source-caution)',
-      ),
-    ];
-    let sources = body.querySelector(':scope > .v25-source-details');
-    if (sourceRows.length) {
-      sources ||= disclosure(body, 'v25-source-details', 'Sources and assigned reading');
-      sourceRows.forEach((row) => move(row, sources));
-    }
-    unwrap(body.querySelector(':scope > .v25-study-tools'));
-    unwrap(body.querySelector(':scope > .v25-term-details'));
-    const recall = body.querySelector('.r18-recall');
-    const terms = body.querySelector('.dkla-terms');
-    caseOrder(body, header, group, sources, recall, terms);
+
+  /* ---------- the facets ---------- */
+  // The order of the facet bar and of the page when it is printed.
+  const FACETS = [
+    'brief',
+    'timeline',
+    'flowchart',
+    'canons',
+    'lecture',
+    'court',
+    'cases',
+    'connections',
+    'sources',
+    'study',
+  ];
+  // What each facet is called when the whole entry is printed (case.css shows these only in print).
+  const PRINT = {
+    timeline: 'Timeline',
+    flowchart: 'Flowchart',
+    canons: 'Canons',
+    lecture: 'Lecture',
+    court: 'The Court',
+    cases: 'Cases',
+    connections: 'Connections',
+    sources: 'Sources',
+    study: 'Study',
+  };
+  // Parts of the page that belong to no facet: the rail, the header and the facet bar.
+  const HEAD = ['v32-head', 'dkla-course-tabs', 'v32-bar', 'v32-panel', 'v31-rail'];
+  // [class, facet, place within the facet]. A block no rule names is part of the brief, after the six
+  // parts, in the order its layer drew it, so nothing a later layer adds is ever lost.
+  const RULES = [
+    ['source-caution', 'brief', 0],
+    ['v32-brief-head', 'brief', 1],
+    ['takeaway', 'brief', 2],
+    ['jump-note', 'brief', 3],
+    ['study-roadmap', 'brief', 4],
+    ['r19-prov', 'brief', 4],
+    ['entry-sections', 'brief', 5],
+    ['case-box', 'brief', 5],
+    ['r19-brief', 'brief', 8],
+    ['dkla-terms', 'brief', 9],
+    ['v28-case-timelines', 'timeline', 0],
+    ['dkla-timeline', 'timeline', 0],
+    ['r21-also', 'timeline', 1],
+    ['v31-chart-steps', 'flowchart', 0],
+    ['fc-entry-links', 'flowchart', 0],
+    ['canons-related', 'canons', 0],
+    ['lecture-related', 'lecture', 0],
+    ['sh-case-panel', 'court', 0],
+    ['course-case-index', 'cases', 0],
+    ['r6-connections', 'connections', 0],
+    ['v32-sources', 'sources', 0],
+    ['v25-source-details', 'sources', 2],
+    ['dkla-file-chips', 'sources', 2],
+    ['source-strip', 'sources', 2],
+    ['r19-chiprow', 'sources', 2],
+    ['civil-source-scope', 'sources', 2],
+    ['authority-context', 'sources', 3],
+    ['r18-recall', 'study', 0],
+    ['v32-notes', 'study', 1],
+    ['reading-actions', 'study', 2],
+  ];
+  function place(el, isCase) {
+    const classes = el.classList;
+    if (HEAD.some((name) => classes.contains(name))) return null;
+    if (classes.contains('v32-fh')) return [el.dataset.v32Facet, -1];
+    // "Questions this case helps answer" belongs with a case's connections; on a concept the same block
+    // lists the further subjects, which belong with its cases.
+    if (classes.contains('case-topics')) return [isCase ? 'connections' : 'cases', 1];
+    if (classes.contains('quiet-details'))
+      return el.querySelector('.metadata-grid') ? ['sources', 4] : ['study', 2];
+    // The warning that a source is missing or partial stays at the top of the brief.
+    if (classes.contains('civil-source-scope') && classes.contains('source-caution')) return ['brief', 0];
+    // The section links gave way to the rail (case.css hides them); they stay with the brief.
+    if (classes.contains('brief-jump')) return ['brief', 5];
+    for (const [name, facet, rank] of RULES) if (classes.contains(name)) return [facet, rank];
+    return ['brief', 6];
   }
-  /* v3.1 case page (owner-approved audit, 18 November 2026). One order, owned here, so no two
-     modules move the same blocks: the header, the rule, "Where this case sits" (timelines and the
-     flowchart steps flowcharts.js draws), the brief, connections, then every source and record
-     drawer, then study. Nothing is removed: the separate Notes block moves into a drawer, and the
-     section links give way to the rail. Blocks this list does not know stay between connections
-     and sources. The order is applied only when it differs, so the observers settle. */
-  function heading(body, key, text) {
-    let h = body.querySelector(`:scope > h3.v31-h[data-v31-h="${key}"]`);
+  function printHeading(body, facet) {
+    let h = body.querySelector(`:scope > h3.v32-fh[data-v32-facet="${facet}"]`);
     if (!h) {
-      h = element('h3', 'v31-h', text);
-      h.dataset.v31H = key;
-      h.tabIndex = -1;
+      h = element('h3', 'v32-fh', PRINT[facet]);
+      h.dataset.v32Facet = facet;
     }
     return h;
   }
-  function notesDrawer(body) {
-    let drawer = body.querySelector(':scope > .v31-notes');
+  // A case's notes ("Qualifications and further discussion") are one section of the Study facet.
+  function notesSection(body) {
+    let section = body.querySelector(':scope > .v32-notes');
     const label = [...body.querySelectorAll(':scope > h3')].find((h) =>
       /^Notes$/i.test(h.textContent.trim()),
     );
     const text = label?.nextElementSibling?.classList.contains('note-text') ? label.nextElementSibling : null;
-    if (!text) return drawer;
-    drawer ||= element('details', 'v25-disclosure v31-notes');
-    if (!drawer.querySelector(':scope > summary')) drawer.appendChild(element('summary', '', 'Case notes'));
-    drawer.appendChild(text);
-    label.remove();
-    return drawer;
+    if (!text) return section;
+    section ||= element('section', 'v32-notes');
+    section.appendChild(label);
+    section.appendChild(text);
+    if (section.parentElement !== body) body.appendChild(section);
+    return section;
   }
+  // The header of every entry that is a record of the map: its name, then (case.js) the citation line,
+  // then the line that says what its picture shows. The rule and concept readers share it with cases.
+  function header(body) {
+    const title = body.querySelector('.dkla-record-title');
+    if (!title) return null;
+    let head = body.querySelector(':scope > .v32-head');
+    if (!head) {
+      head = element('header', 'v25-record-header v32-head');
+      title.before(head);
+    }
+    move(title, head);
+    if (!head.querySelector(':scope > .v32-meta')) head.appendChild(element('p', 'v32-meta'));
+    // The entry's picture and the line that says what it shows are one row. An entry whose picture
+    // only says what kind of entry it is (a concept, a rule) gets that word beside it.
+    const symbol = title.querySelector(':scope > svg') || head.querySelector(':scope > .v32-tag > svg');
+    const caption = body.querySelector('.dkla-icon-caption');
+    let tag = head.querySelector(':scope > .v32-tag');
+    if (symbol || caption) {
+      if (!tag) {
+        tag = element('div', 'v32-tag');
+        head.appendChild(tag);
+      }
+      if (symbol && symbol.parentElement !== tag) tag.prepend(symbol);
+      if (caption && caption.parentElement !== tag) tag.appendChild(caption);
+      const kind = tag.querySelector(':scope > .v32-kind');
+      const word = caption ? '' : kindWord();
+      if (word && !kind) tag.appendChild(element('span', 'v32-kind', word));
+      else if (kind && kind.textContent !== word) kind.remove();
+    }
+    return head;
+  }
+  function kindWord() {
+    try {
+      const kind = selected?.type === 'node' ? nodesById.get(selected.id)?.kind : '';
+      return { Hypothetical: 'Problem', Case: '' }[kind] ?? (kind || '');
+    } catch {
+      return '';
+    }
+  }
+  // The facet bar: the Cold Call button's place, then the tabs (case.js fills and runs them).
+  function facetBar(body) {
+    let bar = body.querySelector(':scope > .v32-bar');
+    if (!bar) {
+      bar = element('div', 'v32-bar');
+      bar.appendChild(element('div', 'v32-cc'));
+      const tabs = element('div', 'v32-tabs');
+      tabs.setAttribute('role', 'tablist');
+      tabs.setAttribute('aria-label', 'Parts of this entry');
+      bar.appendChild(tabs);
+      body.appendChild(bar);
+    }
+    let panel = body.querySelector(':scope > .v32-panel');
+    if (!panel) {
+      panel = element('div', 'v32-panel');
+      panel.setAttribute('role', 'tabpanel');
+      panel.id = 'v32Panel';
+      body.appendChild(panel);
+    }
+    return [bar, panel];
+  }
+  // The Brief facet's first line: what the hero is ("The rule in plain English") and, where an audited
+  // full brief exists, the one switch between the short brief and the full one.
+  function briefHead(body, isCase) {
+    let row = body.querySelector(':scope > .v32-brief-head');
+    const rule = body.querySelector(':scope > .takeaway');
+    const full = body.querySelector(':scope > .r19-brief [data-r19-fill]');
+    if (!isCase || (!rule && !full)) {
+      row?.remove();
+      return;
+    }
+    if (!row) {
+      row = element('div', 'v32-brief-head');
+      row.appendChild(element('p', 'v32-label', 'The rule in plain English'));
+      body.appendChild(row);
+    }
+    let pick = row.querySelector('.v32-seg');
+    if (full && !pick) {
+      pick = element('div', 'v32-seg');
+      pick.setAttribute('role', 'group');
+      pick.setAttribute('aria-label', 'Which brief to read');
+      for (const [mode, text, title] of [
+        ['short', 'Short', 'The rule and the six parts'],
+        ['full', 'Full', 'The complete audited brief'],
+      ]) {
+        const button = element('button', '', text);
+        button.type = 'button';
+        button.title = title;
+        button.dataset.v32Mode = mode;
+        button.setAttribute('aria-pressed', String(mode === 'short'));
+        pick.appendChild(button);
+      }
+      row.appendChild(pick);
+    } else if (!full && pick) pick.remove();
+  }
+
+  /* One order, owned here, so no two layers move the same block: the rail, the header, the facet bar,
+     then every facet's blocks in the order of the bar. It is applied only when it differs, and at
+     most a few times a frame (a guard against two layers fighting over one block). */
   let reorders = 0;
-  function caseOrder(body, header, group, sources, recall, terms) {
-    body.classList.add('v31-case');
-    const one = (selector) => body.querySelector(':scope > ' + selector);
-    const quiet = [...body.querySelectorAll(':scope > details.quiet-details')];
-    const record = quiet.find((d) => d.querySelector('.metadata-grid'));
-    const editing = quiet.find((d) => d.querySelector('.reading-actions'));
-    const charts = one('.v31-chart-steps') || one('.fc-entry-links');
-    // Sol's canon index (canons.js) and lecture notes (lectures.js) draw their own blocks; the canons
-    // a case illustrates belong with where it sits, the lecture notes with its sources.
-    const canons = one('.canons-related');
-    const lectures = one('.lecture-related');
-    const where = group || charts || canons ? heading(body, 'where', 'Where this case sits') : null;
-    const head = [
-      one('.v31-rail'),
-      header,
-      one('.takeaway'),
-      where,
-      group,
-      charts,
-      canons,
-      heading(body, 'brief', 'The brief'),
-      one('.brief-jump'),
-      one('.case-box'),
-      one('.r6-connections'),
-      one('.case-topics'),
-    ].filter(Boolean);
-    const tail = [
-      heading(body, 'sources', 'Sources'),
-      lectures,
-      record,
-      notesDrawer(body),
-      one('.r19-brief'),
-      one('.authority-context'),
-      editing,
-      sources,
-      recall,
-      terms,
-    ].filter(Boolean);
-    const known = new Set([...head, ...tail]);
-    const rest = [...body.children].filter((child) => !known.has(child));
-    const wanted = [...head, ...rest, ...tail];
+  function arrange(body, isCase) {
+    const [bar, panel] = facetBar(body);
+    const rank = new Map();
+    const used = new Set();
+    [...body.children].forEach((el, i) => {
+      const at = place(el, isCase);
+      if (!at) {
+        const head = HEAD.findIndex((name) => el.classList.contains(name));
+        rank.set(el, [-1, head, i]);
+        return;
+      }
+      const [facet, order] = at;
+      if (el.dataset.v32Facet !== facet) el.dataset.v32Facet = facet;
+      if (order >= 0) used.add(facet);
+      rank.set(el, [FACETS.indexOf(facet), order, i]);
+    });
+    // A heading per facet for the printed page (never one for a facet with nothing in it).
+    for (const facet of FACETS) {
+      if (!PRINT[facet]) continue;
+      const h = printHeading(body, facet);
+      if (used.has(facet)) rank.set(h, [FACETS.indexOf(facet), -1, 0]);
+      else {
+        rank.delete(h);
+        h.remove();
+      }
+    }
+    const wanted = [...rank.keys()].sort((a, b) => {
+      const x = rank.get(a),
+        y = rank.get(b);
+      return x[0] - y[0] || x[1] - y[1] || x[2] - y[2];
+    });
     const now = [...body.children];
     if (wanted.length !== now.length || wanted.some((node, i) => node !== now[i])) {
-      // A guard against two modules fighting over one block: at most a few reorders per frame.
       if (++reorders > 8) return;
       if (reorders === 1) {
         const later = globalThis.requestAnimationFrame || globalThis.setTimeout;
@@ -251,66 +343,125 @@
       }
       body.append(...wanted);
     }
-    rail(body);
+    return [bar, panel];
   }
-  // "On this page": the rule, timeline, flowchart steps, the six brief parts, connections,
-  // sources and study. Rebuilt only when the list of places changes.
+  function entryKind() {
+    if (typeof selected === 'undefined' || !selected) return null;
+    return selected.type;
+  }
+  function mainEntry() {
+    if (!inspector || inspector.hidden) return;
+    const body = inspector.querySelector('.reader-body');
+    if (!body) return;
+    const isCase = !!body.querySelector(':scope > .case-box');
+    // Rule and authority pages, a connection and a subject's reader have one facet and no record header.
+    const head = header(body);
+    if (!head) {
+      body.classList.add('v32-plain');
+      return;
+    }
+    // Only an entry of the map has facets (in the page; a test page has no selection and is a case).
+    if (!isCase && entryKind() !== 'node' && entryKind() !== null) {
+      body.classList.add('v32-plain');
+      return;
+    }
+    body.classList.add('v32');
+    if (isCase) body.classList.add('v25-case-reader', 'v31-case', 'v32-case');
+    polishIntro(body);
+    // Timelines keep their own order inside one group.
+    const timelines = [...body.querySelectorAll(':scope > .dkla-timeline')];
+    if (isCase && timelines.length) {
+      let group = body.querySelector(':scope > .v28-case-timelines');
+      if (!group) {
+        group = element('section', 'v28-case-timelines');
+        body.appendChild(group);
+      }
+      timelines.forEach((timeline) => move(timeline, group));
+    }
+    // Every source row an earlier layer drew stays in one place; case.js lists them once.
+    if (isCase) {
+      const sourceRows = [
+        ...body.querySelectorAll(
+          ':scope > .dkla-file-chips,:scope > .source-strip,:scope > .r19-chiprow,:scope > .civil-source-scope:not(.source-caution)',
+        ),
+      ];
+      if (sourceRows.length) {
+        const sources = disclosure(body, 'v25-source-details', 'Sources and assigned reading');
+        sourceRows.forEach((row) => move(row, sources));
+      }
+      notesSection(body);
+    }
+    unwrap(body.querySelector(':scope > .v25-study-tools'));
+    unwrap(body.querySelector(':scope > .v25-term-details'));
+    briefHead(body, isCase);
+    rail(body, isCase);
+    const made = arrange(body, isCase);
+    if (made) move(body.querySelector('[data-cold-call]'), made[0].querySelector('.v32-cc'));
+    markPlace();
+  }
+
+  /* The rail: the rule and the six parts of the brief, in the margin beside it. It exists only while
+     the Brief facet shows the short brief (case.css). Rebuilt only when the list of places changes. */
   const BRIEF_SHORT = { 'Procedural History': 'Procedure', 'Material Facts': 'Facts' };
   function places(body) {
     const list = [];
-    const add = (label, target) => target && list.push([label, target]);
+    const add = (label, target, number) => target && list.push([label, target, number]);
     add('The rule', body.querySelector(':scope > .takeaway'));
-    add('Timeline', body.querySelector(':scope > .v28-case-timelines'));
-    add('Flowchart steps', body.querySelector(':scope > .v31-chart-steps'));
-    add('Canons', body.querySelector(':scope > .canons-related'));
     body.querySelectorAll(':scope > .case-box > section > h3').forEach((h, i) => {
       const text = h.textContent.trim();
-      add(`${i + 1} ${BRIEF_SHORT[text] || text}`, h);
+      add(BRIEF_SHORT[text] || text, h, i + 1);
     });
-    add('Connections', body.querySelector(':scope > .r6-connections'));
-    add('Sources', body.querySelector(':scope > h3.v31-h[data-v31-h="sources"]'));
-    add('Study', body.querySelector(':scope > .r18-recall'));
     return list;
   }
-  function rail(body) {
-    watchBody(body);
-    const list = places(body);
-    const signature = list.map(([label]) => label).join('|');
+  function rail(body, isCase) {
     let nav = body.querySelector(':scope > .v31-rail');
+    const list = isCase ? places(body) : [];
+    if (list.length < 2) {
+      nav?.remove();
+      return;
+    }
+    watchBody(body);
+    const signature = list.map(([label]) => label).join('|');
     if (nav && nav.dataset.v31Places === signature) {
       nav.v31Targets = list.map(([, target]) => target);
       return;
     }
     if (!nav) {
       nav = element('nav', 'v31-rail');
-      nav.setAttribute('aria-label', 'On this page');
-      body.prepend(nav);
+      nav.setAttribute('aria-label', 'Parts of the brief');
+      body.appendChild(nav);
     }
     nav.dataset.v31Places = signature;
     nav.v31Targets = list.map(([, target]) => target);
     const inner = element('div', 'v31-rail-inner');
-    inner.appendChild(element('p', 'v31-rail-label', 'On this page'));
-    list.forEach(([label], i) => {
-      const button = element('button', '', label);
+    list.forEach(([label, , number], i) => {
+      const button = element('button', '');
       button.type = 'button';
       button.dataset.v31Place = String(i);
-      if (/^\d/.test(label)) button.classList.add('v31-rail-brief');
+      // The number is its own element so the names line up; together they read "5 Holding".
+      button.appendChild(element('span', 'v32-n', number ? String(number) + ' ' : ''));
+      button.appendChild(element('span', '', label));
       inner.appendChild(button);
     });
     nav.replaceChildren(inner);
-    markPlace();
   }
-  /* Which place the rail marks: the one a reader is at. That is the first heading in the top
-     third of the reading area (below the sticky strip); when no heading is there, the part whose
-     text fills the top of the area; and at the very end of the page, the last heading in view.
-     (Before v3.2 it was the last heading above a line 120 px down, which stayed on the part
-     before until the next heading had almost left the screen.) */
+  /* Which place the rail marks: the one a reader is at. That is the first heading in the top third of
+     the reading area (below the sticky strip and facet bar); when no heading is there, the part whose
+     text fills the top of the area; and at the very end of the page, the last heading in view. */
   let pinned = -1,
     pinTimer = 0,
     markFrame = 0;
+  // Where the reading area starts: under the top strip and, on an entry with facets, the facet bar.
+  function readingTop() {
+    const box = inspector.getBoundingClientRect();
+    let top = box.top + (inspector.querySelector('.reader-top')?.offsetHeight || 0);
+    const bar = inspector.querySelector('.reader-body > .v32-bar');
+    if (bar?.getClientRects().length) top += bar.offsetHeight;
+    return top;
+  }
   function placeNow(nav) {
     const box = inspector.getBoundingClientRect();
-    const top = box.top + (inspector.querySelector('.reader-top')?.offsetHeight || 0),
+    const top = readingTop(),
       height = box.bottom - top,
       band = top + Math.max(96, height * 0.3);
     const tops = nav.v31Targets.map((target) =>
@@ -335,7 +486,7 @@
   function markPlace() {
     markFrame = 0;
     const nav = inspector?.querySelector('.reader-body > .v31-rail');
-    if (!nav?.v31Targets) return;
+    if (!nav?.v31Targets || !nav.getClientRects().length) return;
     const current = pinned >= 0 && pinned < nav.v31Targets.length ? pinned : placeNow(nav);
     nav.querySelectorAll('[data-v31-place]').forEach((button, i) => {
       if (i === current) {
@@ -360,7 +511,7 @@
     for (const type of ['wheel', 'touchstart', 'keydown'])
       inspector.addEventListener(type, unpin, { passive: true });
   }
-  // The page under the rail can change height without scrolling (a drawer, a late brief): the
+  // The page under the rail can change height without scrolling (a late brief, another facet): the
   // reader's body is watched for its size, the one that is open now.
   const sizes = typeof ResizeObserver === 'function' ? new ResizeObserver(markSoon) : null;
   let watched = null;
@@ -369,28 +520,34 @@
     sizes.disconnect();
     sizes.observe((watched = body));
   }
+  /* Bring a block of the reader to the top of the reading area: used by the rail, and by anything that
+     used to scroll the one long page to a part (case.js switches to the block's facet first). */
+  function scrollToBlock(target, pin) {
+    if (!target?.isConnected) return;
+    // Asked again on every frame of the scroll, so it lands on the block even if the page above it
+    // changes height on the way.
+    const top = () =>
+      inspector.scrollTop +
+      target.getBoundingClientRect().top -
+      readingTop() -
+      (inspector.querySelector('.reader-body > .v32-bar') ? 24 : 16);
+    if (pin >= 0) {
+      // The clicked place is marked at once and stays marked while the page travels to it (about a
+      // quarter of a second; src/features/calm/calm.js stops the travel if the visitor scrolls).
+      pinned = pin;
+      markPlace();
+      clearTimeout(pinTimer);
+      pinTimer = setTimeout(unpin, 320);
+    }
+    if (window.DKLACalm?.scrollTo) window.DKLACalm.scrollTo(inspector, top, 250);
+    else inspector.scrollTo({ top: top() });
+  }
   if (inspector?.addEventListener)
     inspector.addEventListener('click', (event) => {
       const button = event.target.closest('.v31-rail [data-v31-place]');
       if (!button) return;
       const target = button.closest('.v31-rail').v31Targets?.[Number(button.dataset.v31Place)];
-      if (!target?.isConnected) return;
-      const offset = (inspector.querySelector('.reader-top')?.offsetHeight || 0) + 16;
-      // Asked again on every frame of the scroll, so it lands on the heading even if the page above
-      // it changes height on the way.
-      const top = () =>
-        inspector.scrollTop +
-        target.getBoundingClientRect().top -
-        inspector.getBoundingClientRect().top -
-        offset;
-      // The clicked place is marked at once and stays marked while the page travels to it (about a
-      // quarter of a second; src/features/calm/calm.js stops the travel if the visitor scrolls).
-      pinned = Number(button.dataset.v31Place);
-      markPlace();
-      clearTimeout(pinTimer);
-      pinTimer = setTimeout(unpin, 320);
-      if (window.DKLACalm?.scrollTo) window.DKLACalm.scrollTo(inspector, top, 250);
-      else inspector.scrollTo({ top: top() });
+      scrollToBlock(target, Number(button.dataset.v31Place));
     });
   function supportingCase() {
     if (!supporting) return;
@@ -422,8 +579,10 @@
   }
   function paint() {
     mainIntro();
-    mainCase();
+    mainEntry();
     supportingCase();
+    // The facet bar, the header's lines and the one list of sources (src/features/v32/case.js).
+    window.DKLAReader?.sync?.();
   }
   let queued = false;
   function schedule() {
@@ -438,15 +597,6 @@
     if (panel) {
       new MutationObserver(schedule).observe(panel, { childList: true, subtree: true });
     }
-  document.addEventListener('click', (event) => {
-    const button = event.target.closest('[data-v25-full-brief]');
-    if (!button || !inspector?.contains(button)) return;
-    const details = inspector.querySelector('.r19-brief .r19-full:not(.r19-auditbox)');
-    if (!details) return;
-    details.open = true;
-    details.scrollIntoView({ block: 'start', behavior: 'instant' });
-    details.querySelector('summary')?.focus({ preventScroll: true });
-  });
-  window.DKLAReading = { paint };
+  window.DKLAReading = { paint, FACETS, scrollToBlock, readingTop };
   paint();
 })();
