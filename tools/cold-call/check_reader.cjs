@@ -29,8 +29,23 @@ class Element {
     this.scrollTop = 0;
     this.open = false;
     this.innerHTML = '';
+    this.attributes = new Map();
+    this.classList = { toggle() {}, add() {}, remove() {} };
   }
-  setAttribute() {}
+  setAttribute(name, value) {
+    this.attributes.set(name, String(value));
+  }
+  removeAttribute(name) {
+    this.attributes.delete(name);
+  }
+  toggleAttribute(name, on = !this.attributes.has(name)) {
+    if (on) this.attributes.set(name, '');
+    else this.attributes.delete(name);
+  }
+  hasAttribute(name) {
+    return this.attributes.has(name);
+  }
+  focus() {}
   addEventListener(type, listener) {
     // Several features listen on the reader; calling the event runs them all in order.
     const listeners = (this.listeners ||= {});
@@ -76,6 +91,9 @@ const document = {
     return elements.find((e) => e.id === id) || null;
   },
   addEventListener() {},
+  querySelector() {
+    return null;
+  },
 };
 const window = {
   LegalAtlas: { ready: true },
@@ -117,12 +135,11 @@ assert.equal(
   'function',
   'this Node has no Intl.Segmenter: long paragraphs would not be split',
 );
-// The definitions layer loads first, exactly as in src/features/manifest.json.
-for (const file of ['glossary.js', 'reader.js'])
-  vm.runInContext(
-    fs.readFileSync(path.join(__dirname, '../../src/features/cold-call', file), 'utf8'),
-    context,
-  );
+// The definitions layer loads first, exactly as in src/features/manifest.json; captions are composed by
+// src/features/v32/caption.js, which the reader looks for when it draws.
+for (const file of ['cold-call/glossary.js', 'cold-call/reader.js', 'v32/caption.js'])
+  vm.runInContext(fs.readFileSync(path.join(__dirname, '../../src/features', file), 'utf8'), context);
+assert.ok(window.DKLACaption, 'the caption composer did not install');
 const gloss = window.DKLAColdCallGloss;
 assert.ok(gloss, 'Cold Call definitions did not install');
 const compiled = gloss.compile(glossary);
@@ -149,9 +166,78 @@ const escape = (value) =>
     (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c],
   );
 const dialog = document.getElementById('coldCallDialog');
+const listOf = (value) => (Array.isArray(value) ? value : value ? [value] : []);
+// Markup with its tags taken out and its entities read: what the words on the page are.
+const wordsOf = (markup) => words(unescape(markup.replace(/<[^>]*>/g, '')));
+const setup = { leads: 0, actors: 0, steps: 0, cues: 0 };
 for (const account of data.cases) {
   window.DKLAColdCall.open(account.id);
   assert.equal(dialog.open, true, `${account.id}: reader did not open`);
+  // The setup (v3.2): the caption composed without changing a word, the citation, the lead, every actor
+  // with their role, every step through the courts; then each episode under its own prompt.
+  {
+    const html = dialog.innerHTML;
+    const head = html.match(/<h2 class="cc-caption"[^>]*>([\s\S]*?)<\/h2>/);
+    assert.ok(head, `${account.id}: no caption`);
+    assert.equal(
+      wordsOf(head[1]),
+      words(account.title),
+      `${account.id}: the composed caption changed the title`,
+    );
+    assert.ok(
+      !/(^|\s)v\.?<\/span>\s*<\/span>/.test(head[1]),
+      `${account.id}: "v." is not tied to the party it introduces`,
+    );
+    assert.ok(
+      html.includes(`<span class="cc-cite">${escape(account.citation)}</span>`),
+      `${account.id}: citation`,
+    );
+    assert.ok(
+      html.includes(`<p class="cc-lead">${escape(account.lead)}</p>`),
+      `${account.id}: the lead is not shown`,
+    );
+    setup.leads++;
+    for (const actor of account.actors) {
+      assert.ok(
+        html.includes(`<dt>${escape(actor.name)}</dt><dd>${escape(actor.role)}</dd>`),
+        `${account.id}: ${actor.name} is not in the cast`,
+      );
+      setup.actors++;
+    }
+    const steps = listOf(account.proceedings);
+    for (const step of steps) {
+      assert.ok(
+        html.includes(
+          steps.length > 1 ? `<li>${escape(step)}</li>` : `<p class="cc-path-one">${escape(step)}</p>`,
+        ),
+        `${account.id}: a step through the courts is missing`,
+      );
+      setup.steps++;
+    }
+    account.sections.forEach((section, i) => {
+      assert.ok(
+        html.includes(
+          `<h3 class="cc-cue" id="cc-cue-${escape(section.id)}"${section.cue.length > 80 ? ' data-cc-long' : ''} tabindex="-1">${escape(section.cue)}</h3>`,
+        ),
+        `${account.id}: episode ${i + 1} does not lead with its prompt`,
+      );
+      assert.ok(
+        html.includes(
+          `<h4 class="cc-title" id="cc-heading-${escape(section.id)}" tabindex="-1">${escape(section.title)}</h4>`,
+        ),
+        `${account.id}: episode ${i + 1} has no title`,
+      );
+      setup.cues++;
+    });
+    // One action at the foot, one switch, and the frost over each narration (shown only while rehearsing).
+    assert.equal((html.match(/data-cc-act/g) || []).length, 1, `${account.id}: one action at the foot`);
+    assert.equal((html.match(/data-cc-mode-set=/g) || []).length, 2, `${account.id}: one switch`);
+    assert.equal(
+      (html.match(/class="cc-cover"/g) || []).length,
+      account.sections.length,
+      `${account.id}: a cover for every narration`,
+    );
+  }
   assert.equal(
     (dialog.innerHTML.match(/class="cc-section"/g) || []).length,
     account.sections.length,
@@ -258,8 +344,8 @@ for (const account of data.cases) {
       `${account.id}: ${key} has no screen-reader description`,
     );
   assert.ok(
-    !/ccPractice|ccRehearsal|ccRating|cc-lead|cc-orientation/.test(dialog.innerHTML),
-    `${account.id}: retired practice controls or redundant introduction rendered`,
+    !/ccPractice|ccRehearsal|ccRating/.test(dialog.innerHTML),
+    `${account.id}: retired practice controls rendered`,
   );
   if (account.notice)
     assert.ok(dialog.innerHTML.includes(escape(account.notice)), `${account.id}: missing source notice`);
@@ -311,6 +397,66 @@ assert.deepEqual(
   );
   window.DKLAColdCall.close();
 }
+// An account with fields missing draws without them and without their headings (none of the 742 lacks any
+// today, so the fields are taken away here, from this copy of the data, and put back).
+{
+  const account = data.cases[0];
+  const copy = JSON.parse(match[1]);
+  const bare = copy.cases[0];
+  delete bare.lead;
+  bare.actors = [];
+  delete bare.proceedings;
+  bare.limits = '';
+  bare.citation = '';
+  bare.sections[0].cue = '';
+  const bareContext = {
+    ...context,
+    window: { ...window, DKLAColdCall: undefined, DKLAColdCallGloss: undefined },
+  };
+  const bareElements = [];
+  bareContext.document = {
+    ...document,
+    body: { appendChild: (element) => bareElements.push(element) },
+    getElementById: (id) =>
+      id === 'dklaColdCallData'
+        ? { textContent: JSON.stringify(copy) }
+        : id.startsWith('dkla')
+          ? document.getElementById(id)
+          : bareElements.find((e) => e.id === id) || null,
+  };
+  vm.createContext(bareContext);
+  vm.runInContext(chunker[0], bareContext);
+  for (const file of ['cold-call/glossary.js', 'cold-call/reader.js', 'v32/caption.js'])
+    vm.runInContext(fs.readFileSync(path.join(__dirname, '../../src/features', file), 'utf8'), bareContext);
+  bareContext.window.DKLAColdCall.open(account.id);
+  const html = bareElements.find((e) => e.id === 'coldCallDialog').innerHTML;
+  assert.ok(html.includes('class="cc-setup"'), 'bare account: no setup');
+  assert.ok(html.includes('data-cc-bare'), 'bare account: the setup still claims a whole screen');
+  for (const gone of [
+    'cc-lead',
+    'cc-cast',
+    'cc-path',
+    'cc-briefing',
+    'cc-cite',
+    'Who is involved',
+    'How it got here',
+  ])
+    assert.ok(!html.includes(gone), `bare account: ${gone} is drawn with nothing in it`);
+  assert.ok(
+    !html.includes('What this case does not decide'),
+    'bare account: a heading for limits with no limits',
+  );
+  assert.ok(
+    /<h3 class="cc-cue"[^>]*>Episode 1<\/h3>/.test(html),
+    'bare account: an episode with no prompt has no heading',
+  );
+  assert.equal(
+    (html.match(/class="cc-section"/g) || []).length,
+    account.sections.length,
+    'bare account: episodes',
+  );
+  bareContext.window.DKLAColdCall.close();
+}
 // Exercise the nested source view and return, keyboard isolation, and reopening position.
 const account = data.cases.find((c) => c.sources.some((s) => s.briefId));
 assert.ok(account, 'No source-brief fixture in compiled narratives');
@@ -348,6 +494,8 @@ window.DKLAColdCall.close();
 console.log(
   JSON.stringify({
     rendered: data.cases.length,
+    setup,
+    bareAccount: true,
     followUpExplanations: data.cases.reduce((n, c) => n + c.sections.filter((s) => s.followUp).length, 0),
     arrayLimits: data.cases.filter((c) => Array.isArray(c.limits)).length,
     sourceReturn: true,

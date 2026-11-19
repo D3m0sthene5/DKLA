@@ -772,7 +772,7 @@
   display: none;
 }
 /* While rehearsing the question is all there is to read: it takes the title's size. */
-#coldCallDialog[data-cc-mode='rehearse'] .cc-cue {
+#coldCallDialog[data-cc-mode='rehearse'] .cc-cue:not([data-cc-long]) {
   font-size: 30px;
   line-height: 38px;
 }
@@ -1342,7 +1342,7 @@
     font-size: 19px;
     line-height: 28px;
   }
-  #coldCallDialog[data-cc-mode='rehearse'] .cc-cue {
+  #coldCallDialog[data-cc-mode='rehearse'] .cc-cue:not([data-cc-long]) {
     font-size: 22px;
     line-height: 30px;
   }

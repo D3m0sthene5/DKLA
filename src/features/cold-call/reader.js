@@ -225,13 +225,16 @@
     const term = plain ? null : glossing?.section();
     return `<h4 class="cc-title" id="cc-heading-${esc(s.id)}" tabindex="-1">${esc(s.title)}</h4>${paragraphs(s, i, term)}${s.followUp ? `<details class="cc-followup"><summary>${esc(s.followUp.question)}</summary><p>${term ? term.text(s.followUp.answer, `${i}.followUp-answer`) : esc(s.followUp.answer)}</p>${citations(s.followUp.sources)}</details>` : ''}${citations(s.sources)}`;
   }
+  // While rehearsing a prompt is set large, on two lines at most; one too long for that (some eighty of the
+  // 4,097) keeps the size it has when read, rather than standing three lines tall beside empty space.
+  const LONG_CUE = 80;
   function sectionHTML(s, i, plain = false) {
     const n = current.sections.length,
       id = esc(s.id),
       kind = cueKind(s.cue);
     // The cover is the frost over a narration not yet asked for. Pressing it shows the narration, as the
     // action at the foot does; it is not a second control for the keyboard or a screen reader.
-    return `<section class="cc-section" id="cc-section-${id}" data-cc-section="${i}" data-cc-step="${i + 1}" data-cc-cue="${kind}" aria-labelledby="cc-cue-${id}"><p class="cc-count"><span class="cc-sr">${kind === 'question' ? 'Question' : 'Episode'} </span>${i + 1} of ${n}</p><h3 class="cc-cue" id="cc-cue-${id}" tabindex="-1">${kind === 'none' ? `Episode ${i + 1}` : esc(s.cue)}</h3><div class="cc-cover" data-cc-reveal="${i}" aria-hidden="true"><span class="cc-cover-hint" id="cc-hint-${id}">${kind === 'question' ? 'Answer from memory, then check.' : 'Tell this part from memory, then check.'}</span></div><div class="cc-answer" id="cc-answer-${id}">${answerHTML(s, i, plain)}</div></section>`;
+    return `<section class="cc-section" id="cc-section-${id}" data-cc-section="${i}" data-cc-step="${i + 1}" data-cc-cue="${kind}" aria-labelledby="cc-cue-${id}"><p class="cc-count"><span class="cc-sr">${kind === 'question' ? 'Question' : 'Episode'} </span>${i + 1} of ${n}</p><h3 class="cc-cue" id="cc-cue-${id}"${(s.cue || '').length > LONG_CUE ? ' data-cc-long' : ''} tabindex="-1">${kind === 'none' ? `Episode ${i + 1}` : esc(s.cue)}</h3><div class="cc-cover" data-cc-reveal="${i}" aria-hidden="true"><span class="cc-cover-hint" id="cc-hint-${id}">${kind === 'question' ? 'Answer from memory, then check.' : 'Tell this part from memory, then check.'}</span></div><div class="cc-answer" id="cc-answer-${id}">${answerHTML(s, i, plain)}</div></section>`;
   }
   /* ---------- the end: what the case leaves open, the sources, the ways out ---------- */
   // The next case with an account in the same topic group of the map, or in the groups after it in the same
@@ -441,6 +444,10 @@
       </div>
       <p class="cc-sr" id="ccLive" role="status"></p>`;
     $('ccClose').onclick = close;
+    aim = null;
+    // A wheel, a touch, a press or a key takes the scroll over (DKLACalm.scrollTo stops for the same four).
+    for (const type of ['wheel', 'touchstart', 'pointerdown', 'keydown'])
+      $('ccScroll').addEventListener(type, () => (aim = null), { passive: true });
     $('ccScroll').addEventListener(
       'scroll',
       () => {
@@ -523,7 +530,10 @@
     delete dialog.dataset.ccMarked;
     for (const resolve of markWaiters.splice(0)) resolve();
     if (waiting) waiting = 0;
-    else if (current) memory.set(current.id, { top: mode === 'read' ? $('ccScroll').scrollTop : 0 });
+    // Where the reading stopped, for the next opening in this session; an account read to its end, or
+    // rehearsed, opens again at the setup.
+    else if (current)
+      memory.set(current.id, { top: mode === 'read' && step <= count() ? $('ccScroll').scrollTop : 0 });
     current = null;
     dialog.close();
     dialog.replaceChildren();
@@ -614,6 +624,11 @@
     const box = scroller();
     dialog.toggleAttribute('data-cc-scrolled', box.scrollTop > 4);
     if (mode !== 'read') return;
+    // On the way to a step that was asked for, the steps passed on the way are not where the reader is.
+    if (aim !== null) {
+      if (Math.abs(box.scrollTop - aim) > 2) return;
+      aim = null;
+    }
     const top = box.getBoundingClientRect().top + 96;
     let next = 0;
     for (const el of all('[data-cc-step]'))
@@ -625,9 +640,13 @@
       sync();
     }
   }
-  const glide = (box, top) =>
-    window.DKLACalm?.scrollTo ? DKLACalm.scrollTo(box, top) : (box.scrollTop = top);
-  function go(k, how = {}) {
+  let aim = null; // where a scroll that go() began is heading, until it arrives or the reader takes over
+  function glide(box, top) {
+    aim = Math.max(0, Math.min(box.scrollHeight - box.clientHeight, top));
+    if (window.DKLACalm?.scrollTo) DKLACalm.scrollTo(box, top);
+    else box.scrollTop = top;
+  }
+  function go(k) {
     if (!current) return;
     const n = count();
     k = Math.max(0, Math.min(n + 1, k));
@@ -641,8 +660,7 @@
       // An episode's own space above it is twice this: the text before it ends out of sight.
       const top =
         k === 0 ? 0 : box.scrollTop + el.getBoundingClientRect().top - box.getBoundingClientRect().top + 32;
-      if (how.instant) box.scrollTop = top;
-      else glide(box, top);
+      glide(box, top);
     }
     dialog.toggleAttribute('data-cc-scrolled', mode === 'read' && k > 0);
     // Focus goes to what is to be read or pressed next, so a screen reader says it and Tab starts there.
@@ -699,8 +717,13 @@
     else if (d.ccAct === 'reveal') reveal(step - 1);
     else if (d.ccAct === 'next') go(step + 1);
     else if (d.ccAct === 'close') close();
-    else if (d.ccModeSet) setMode(d.ccModeSet);
-    else if (d.ccSourceBrief) openSourceBrief(d.ccSourceBrief, control);
+    else if (d.ccModeSet) {
+      setMode(d.ccModeSet);
+      // Chosen with the pointer: the keys go on from here (Space begins, or shows the answer), so focus
+      // moves to what they act on. Chosen from the keyboard, focus stays on the switch.
+      if (event.detail && step <= count())
+        (step ? stepElement(step).querySelector('.cc-cue') : $('ccAct')).focus({ preventScroll: true });
+    } else if (d.ccSourceBrief) openSourceBrief(d.ccSourceBrief, control);
     else if (d.ccClose !== undefined) close();
     else if (d.ccOpen && cases.has(d.ccOpen)) {
       // The next account, in the same reader; "back" still leads where this one was opened from.
