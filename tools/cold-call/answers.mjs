@@ -26,9 +26,13 @@
                                                  count the questions with no stored answer; with a file name,
                                                  write a worksheet: one line per question, its episode's
                                                  sentences numbered
-     node tools/cold-call/answers.mjs --fill file.jsonl [--by "who, when"]
+     node tools/cold-call/answers.mjs --fill file.jsonl [--by "who, when"] [--checked "how, by whom"]
                                                  take the lines of a worksheet that carry "pick": [numbers]
-                                                 and store those sentences as verbatim answers
+                                                 and store those sentences as verbatim answers; or that
+                                                 carry "say": [one or two sentences] and "from":
+                                                 [[paragraph, sentence], ...] (both counted from 0) and
+                                                 store a paraphrase linked to those sentences. A paraphrase
+                                                 is refused without `checked`, and its own words are printed
 
    What the check holds, for every stored answer: the case and the episode exist; the stored cue is still
    the episode's cue and is a question; the link names sentences that exist in the episode, in order, none
@@ -373,7 +377,8 @@ if (args.includes('--write')) {
   let added = 0;
   for (const line of fs.readFileSync(arg('--fill'), 'utf8').split('\n').filter(Boolean)) {
     const row = JSON.parse(line);
-    if (!Array.isArray(row.pick) || !row.pick.length) continue;
+    if (!(Array.isArray(row.pick) && row.pick.length) && !(Array.isArray(row.say) && row.say.length))
+      continue;
     const section = cases.get(row.case)?.sections.find((s) => s.id === row.section);
     assert.ok(section, `${row.case} ${row.section}: no such episode`);
     assert.equal(
@@ -381,6 +386,43 @@ if (args.includes('--write')) {
       section.cue,
       `${row.case} ${row.section}: the worksheet's question is not the episode's`,
     );
+    if (Array.isArray(row.say) && row.say.length) {
+      // A paraphrase: its wording, and the sentences it rests on as [paragraph, sentence] pairs.
+      const sentences = paragraphSentences(section);
+      const link = ([p, n], where) => {
+        assert.ok(
+          where[p]?.[n] !== undefined,
+          `${row.case} ${row.section}: no paragraph ${p}, sentence ${n}`,
+        );
+        return { p, s: n, text: where[p][n] };
+      };
+      const entry = {
+        cue: section.cue,
+        kind: 'paraphrase',
+        say: row.say,
+        from: (row.from || []).map((pair) => link(pair, sentences)),
+        ...(row.context?.length
+          ? {
+              context: row.context.map(([episode, p, n]) => {
+                const other = cases.get(row.case).sections.find((s) => s.id === episode);
+                assert.ok(other, `${row.case} ${row.section}: no episode ${episode} for context`);
+                return { episode, ...link([p, n], paragraphSentences(other)) };
+              }),
+            }
+          : {}),
+        ownWords: [],
+        by: row.by || by,
+        checked: row.checked || arg('--checked') || '',
+      };
+      // Its own words are recorded as found, and printed: whoever checks the answer reads this list.
+      entry.ownWords = strangers(entry).own;
+      if (entry.ownWords.length)
+        console.log(`${row.case} ${row.section}: own words: ${entry.ownWords.join(', ')}`);
+      (data.answers[row.case] ||= {})[row.section] = entry;
+      added++;
+      continue;
+    }
+    if (!Array.isArray(row.pick) || !row.pick.length) continue;
     const placed = placedSentences(section);
     const from = [...row.pick]
       .sort((a, b) => a - b)
