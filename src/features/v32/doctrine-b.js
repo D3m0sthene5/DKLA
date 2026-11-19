@@ -51,11 +51,30 @@
       ? `<time class="${cls}" datetime="${esc(s.date)}">${yearOf(s)}</time>`
       : `<span class="${cls}">${esc(yearOf(s))}</span>`;
 
-  // On the plate a label opens with its verb. Entries rewritten after a rule ended open with
-  // "Historically"; the plate says that with the span's dates and its end, so the word is left to the
-  // account and the list, where the stored text is shown whole.
+  // What a decision held is said in the past tense. A stored line that opens "Historically accepts ..."
+  // is the same holding with a word that leaves the reader guessing which part still matters: here it
+  // reads "Accepted ...", and what later changed is named beside it from the entry's stored later
+  // development. Only the opening verb (and a verb that depends on it) changes; a verb this table does
+  // not know leaves the stored line whole.
+  const PAST = {
+    accepts: 'Accepted',
+    requires: 'Required',
+    permits: 'Permitted',
+    limits: 'Limited',
+    lets: 'Let',
+    applies: 'Applied',
+    recognizes: 'Recognized',
+    excludes: 'Excluded',
+  };
+  function held(text) {
+    const said = String(text || '');
+    const found = /^Historically,?\s+([a-z]+)\b/.exec(said);
+    if (!found || !PAST[found[1]]) return said;
+    return PAST[found[1]] + said.slice(found[0].length).replace(/\b(which \w+) receive\b/, '$1 received');
+  }
+  // A stored note that opens "Historically, clear statutory text controlled ..." is already in the past.
   const onPlate = (text) =>
-    String(text || '').replace(/^Historically,?\s+(\S)/, (all, first) => first.toUpperCase());
+    String(text || '').replace(/^Historically,\s+(\S)/, (all, first) => first.toUpperCase());
   // The sentences of a stored note. A full stop ends one only before a capital, and not after an
   // initial or an abbreviation of a case name.
   function sentences(text) {
@@ -191,7 +210,7 @@
       .join(' ');
   const plain = (pair) => pair.join(' v. ');
   const words = (text) => text.split(/\s+/).filter(Boolean);
-  const bare = (word) => word.replace(/[,;:]$/, '');
+  const bare = (word) => word.replace(/[,;:]$/, '').replace(/’/g, "'");
   // The words an object ("Chevron", "Pennoyer's territorial test") opens with, if they open a party's name.
   function namedBy(item, object) {
     const said = words(object);
@@ -274,8 +293,13 @@
       return '';
     }
   }
+  // Does a stored "later development" name this entry ("Overruled by Loper Bright (2024)")?
+  const namesEntry = (text, item) => !!text && !!shortFrom(text, item);
   function build(t, current) {
     const subject = subjectLine(current);
+    // A timeline whose entries each carry a stored, sourced relationship to the rule they bear on
+    // (tools/r19/data/timelines.json: `lines` on the timeline, `bears` on each step).
+    const settled = Array.isArray(t.lines) && t.lines.length > 0;
     const items = t.steps.filter(P.live).map((s, i) => {
       const full = P.name(s);
       const cases = casesOf(full);
@@ -297,36 +321,71 @@
         words: '',
         short: '',
         artId: s.id || s.link || null,
-        span: null,
-        hung: null,
-        ends: null,
+        bears: settled ? s.bears || null : null,
+        span: null, // the rule this entry set
+        ends: null, // the rule this entry ended
+        hung: null, // the rule this entry was decided under and acted on
+        rail: null, // the named line this entry is drawn on, where that is not a rule set on this timeline
+        rails: [],
       };
     });
-    // A rule's span: an entry that overrules or replaces, by name, an earlier entry of this timeline.
-    const spans = [];
-    for (const b of items) {
-      if (!['overrules', 'displaces'].includes(b.turn) || !b.s.object) continue;
-      let found = null;
-      for (let k = b.i - 1; k >= 0; k--) {
-        const short = namedBy(items[k], b.s.object);
-        if (short && (!found || short.length > found.short.length)) found = { a: items[k], short };
-      }
-      if (!found || found.a.span) continue;
-      const span = { a: found.a, b, short: found.short, hung: [] };
-      found.a.span = span;
-      found.a.short = found.short;
-      b.ends = span;
-      spans.push(span);
-    }
-    // On a span: an entry between its ends whose stored account names the rule.
-    for (const span of spans) {
-      const named = new RegExp('(^|[^\\w])' + reEsc(span.short) + '([^\\w]|$)');
-      for (const item of items) {
-        if (item.i <= span.a.i || item.i >= span.b.i || item.hung || item.span) continue;
-        if (named.test([item.s.effect, item.s.note, item.s.fate, item.s.context].join(' '))) {
-          item.hung = span;
-          span.hung.push(item);
+    const spans = [],
+      rails = [];
+    if (settled) {
+      const byLine = new Map();
+      for (const line of t.lines) {
+        const on = items.filter((item) => [].concat(item.bears?.on ?? []).includes(line.id));
+        const a = on.find((item) => item.bears.as === 'sets'),
+          b = on.find((item) => item.bears.as === 'ends') || null;
+        if (a) {
+          // A rule set on this timeline: a span from the entry that set it to the entry that ended it,
+          // or running on where nothing here ended it.
+          const span = { a, b, short: line.name, line, hung: [], rails: [] };
+          a.span = span;
+          a.short = line.name;
+          if (b) b.ends = span;
+          for (const item of on) {
+            if (item === a || item === b) continue;
+            item.hung = span;
+            span.hung.push(item);
+          }
+          spans.push(span);
+          byLine.set(line.id, span);
+        } else {
+          // A named line with no entry here that set it: a question under a rule (`of`), a standing
+          // alternative, or a different rule this timeline only touches.
+          const rail = { line, items: on, of: null };
+          for (const item of on) item.rails.push(rail);
+          rails.push(rail);
+          byLine.set(line.id, rail);
         }
+      }
+      for (const rail of rails) {
+        const parent = rail.line.of && byLine.get(rail.line.of);
+        if (parent?.a) {
+          rail.of = parent;
+          parent.rails.push(rail);
+        }
+      }
+      // An entry on two lines is labelled on the lower one and marked on both.
+      for (const item of items) item.rail = item.rails[item.rails.length - 1] || null;
+    } else {
+      // No stored relationships yet. A rule's span is still drawn where a later entry overrules or
+      // replaces an earlier one by name (its stored `object`), but no entry between the two is placed
+      // on it: where each belongs is a sourced fact, not something to infer from a word.
+      for (const b of items) {
+        if (!['overrules', 'displaces'].includes(b.turn) || !b.s.object) continue;
+        let found = null;
+        for (let k = b.i - 1; k >= 0; k--) {
+          const short = namedBy(items[k], b.s.object);
+          if (short && (!found || short.length > found.short.length)) found = { a: items[k], short };
+        }
+        if (!found || found.a.span) continue;
+        const span = { a: found.a, b, short: found.short, line: null, hung: [], rails: [] };
+        found.a.span = span;
+        found.a.short = found.short;
+        b.ends = span;
+        spans.push(span);
       }
     }
     for (const item of items) {
@@ -343,8 +402,18 @@
       if (!item.short && plain(item.first).length > 34)
         item.short = calledBy(item, prose(t, items, item, subject));
     }
-    for (const item of items) item.words = item.s.effect || item.kind;
-    return { t, items, spans, here: items.findIndex((item) => item.here) };
+    for (const item of items) item.words = held(item.s.effect || item.kind);
+    // What became of entries: an entry's stored later development that names another entry of this
+    // timeline ties the two; one that names none of them is said on the entry's own label.
+    for (const item of items) {
+      item.became = items.filter((x) => x.i < item.i && namesEntry(x.s.fate, item));
+      item.later = item.s.fate ? items.find((x) => x.i > item.i && namesEntry(item.s.fate, x)) || null : null;
+    }
+    // Every entry on a named line and none on the axis: the lines are the chart (a comparison).
+    const free = rails.filter((rail) => !rail.of);
+    const form =
+      free.length && !spans.length && items.every((item) => item.rail && !item.rail.of) ? 'lanes' : 'axis';
+    return { t, items, spans, rails, form, settled, here: items.findIndex((item) => item.here) };
   }
 
   /* ---------- the plate ---------- */
@@ -356,17 +425,31 @@
     HGAP = 18, // between two labels side by side
     SGAP = 8, // between a label and another entry's stem
     MINGAP = 16, // the least distance between two marks
-    BREAK = 136; // the least width of a marked break
+    BREAK = 136, // the least width of a marked break
+    NAME = 22, // a named line's lettering above its rail
+    DROP = 34, // from the axis down to a line that stands apart from it
+    SIDE = DROP - STEM - 11; // what that adds above such an entry's label
+  // An entry on a line that stands apart from the axis (a different rule the timeline only touches).
+  const aside = (model, item) => !!item.rail && !item.rail.of && model.form !== 'lanes';
 
   // The label of an entry: its year and kind of move, then its name. Applications and comparisons are one
   // line; an entry on a span carries its shape (it has no mark on the line).
-  function tagHTML(item) {
-    const small = (item.cls === 'steady' || item.cls === 'aside') && !item.here;
+  function tagHTML(item, model) {
+    const apart = aside(model, item);
+    const small = (item.cls === 'steady' || item.cls === 'aside') && !item.here && !apart;
     const big = item.cls === 'rule' || item.here;
     const here = item.here ? '<span class="v32db-here">You are here</span>' : '';
     const year = timeHTML(item.s, 'v32db-yr');
     const mark = item.hung ? glyph(item.turn, 12) : '';
-    const title = `${item.full} (${yearOf(item.s)}). ${item.kind}. ${item.s.effect || ''}`;
+    const title = `${item.full} (${yearOf(item.s)}). ${item.kind}. ${held(item.s.effect || '')}`;
+    // The line it stands on, lettered where it stands: its name, and what the line concerns where the
+    // label has no room for the entry's own words.
+    const line = apart
+      ? `<span class="v32db-rail-title"><b>${esc(item.rail.line.name)}</b>${item.rail.line.concerns ? `<i>${esc(item.rail.line.concerns)}</i>` : ''}</span>`
+      : '';
+    // A later change that no entry of this timeline made is named on the label itself.
+    const fate =
+      item.s.fate && !item.later && !item.hung ? `<span class="v32db-tag-fate">${esc(item.s.fate)}</span>` : '';
     // A turn of the rule with a long caption is named a party to a line; every other name is one line,
     // and gives way party by party where it is too long (fitName).
     const name = item.short
@@ -374,7 +457,7 @@
       : big && item.first.length === 2 && plain(item.first).length > 30
         ? `<span class="v32db-tag-name v32db-tag-caption"><span class="v32db-line">${esc(item.first[0])}</span><span class="v32db-line">v. ${esc(item.first[1])}</span></span>`
         : `<span class="v32db-tag-name" data-a="${esc(item.first[0])}"${item.first[1] ? ` data-b="${esc(item.first[1])}"` : ''}>${esc(plain(item.first))}</span>`;
-    return `<button type="button" class="v32db-tag v32db-c-${item.cls} v32db-f-${item.fam}${big ? ' v32db-big' : ''}${small ? ' v32db-small' : ''}${item.here ? ' v32db-is-here' : ''}${item.hung ? ' v32db-hung' : ''}" data-v32db-i="${item.i}" title="${esc(title)}"><span class="v32db-tag-top">${mark}${year}${name}${here}</span><span class="v32db-tag-fx">${esc(onPlate(item.words))}</span></button>`;
+    return `<button type="button" class="v32db-tag v32db-c-${item.cls} v32db-f-${item.fam}${big ? ' v32db-big' : ''}${small ? ' v32db-small' : ''}${item.here ? ' v32db-is-here' : ''}${item.hung ? ' v32db-hung' : ''}${apart ? ' v32db-apart' : ''}" data-v32db-i="${item.i}" title="${esc(title)}">${line}<span class="v32db-tag-top">${mark}${year}${name}${here}</span><span class="v32db-tag-fx">${esc(item.words)}</span>${fate}</button>`;
   }
   // A name too long for its label gives way party by party: the longer one first, never the "v.".
   function fitName(el) {
@@ -397,8 +480,9 @@
   function deckHTML(span) {
     const a = span.a,
       b = span.b;
-    const title = `${a.full} (${yearOf(a.s)}). ${a.s.effect || ''}`;
-    return `<button type="button" class="v32db-deck v32db-f-${a.fam}${a.here ? ' v32db-is-here' : ''}" data-v32db-i="${a.i}" title="${esc(title)}">${art(a.artId)}<span class="v32db-deck-words"><span class="v32db-deck-top"><span class="v32db-deck-name">${esc(span.short)}</span><span class="v32db-yr">${esc(yearOf(a.s))}–${esc(yearOf(b.s))}</span>${a.here ? '<span class="v32db-here">You are here</span>' : ''}</span><span class="v32db-deck-fx">${glyph(a.turn, 12)}<span class="v32db-deck-said" data-rule="${esc(onPlate(sentences(a.s.note || '')[0] || ''))}" data-did="${esc(onPlate(a.s.effect || a.kind))}">${esc(onPlate(a.s.effect || a.kind))}</span></span></span></button>`;
+    const title = `${a.full} (${yearOf(a.s)}). ${held(a.s.effect || '')}`;
+    // A rule nothing on this timeline ended runs on: its years are open and so is its far end.
+    return `<button type="button" class="v32db-deck v32db-f-${a.fam}${a.here ? ' v32db-is-here' : ''}${b ? '' : ' v32db-open-end'}" data-v32db-i="${a.i}" title="${esc(title)}">${art(a.artId)}<span class="v32db-deck-words"><span class="v32db-deck-top"><span class="v32db-deck-name">${esc(span.short)}</span><span class="v32db-yr">${esc(yearOf(a.s))}–${b ? esc(yearOf(b.s)) : ''}</span>${a.here ? '<span class="v32db-here">You are here</span>' : ''}</span><span class="v32db-deck-fx">${glyph(a.turn, 12)}<span class="v32db-deck-said" data-rule="${esc(onPlate(sentences(a.s.note || '')[0] || ''))}" data-did="${esc(a.words)}">${esc(a.words)}</span></span></span></button>`;
   }
 
   // Each entry's place along the line. Time is true to scale inside a stretch; a gap longer than three
@@ -420,7 +504,7 @@
     const whole = n ? ts[n - 1] - ts[0] : 0;
     const isBreak = (i) => n >= 4 && ts[i] - ts[i - 1] > 0.3 * whole && ts[i] - ts[i - 1] >= 15;
     const widthOf = (i) =>
-      model.spans.some((span) => span.a.i <= i - 1 && span.b.i >= i)
+      model.spans.some((span) => span.a.i <= i - 1 && (span.b ? span.b.i : n - 1) >= i)
         ? Math.max(gap, Math.min(deckNeed + 48, (x1 - x0) * 0.36))
         : gap;
     let room = x1 - x0;
@@ -506,12 +590,19 @@
               if (!loose && (from < opt.min || from + sz.w > opt.max)) continue;
               if (loose && flip && from < (last ? 0 : opt.min)) continue;
               if (flip && opt.noFlip?.(item) && !loose) continue;
-              if (
-                strict &&
-                [...left].some((o) => o !== item && opt.x(o) > from - SGAP && opt.x(o) < from + sz.w + SGAP)
-              )
-                continue;
               for (const side of only ? [only] : ['up', 'down']) {
+                // (An entry that can only be labelled on the other side has no stem on this one.)
+                if (
+                  strict &&
+                  [...left].some(
+                    (o) =>
+                      o !== item &&
+                      (!opt.only(o) || opt.only(o) === side) &&
+                      opt.x(o) > from - SGAP &&
+                      opt.x(o) < from + sz.w + SGAP,
+                  )
+                )
+                  continue;
                 let level = 0;
                 for (const o of sides[side]) {
                   const over = o.left < from + sz.w + HGAP && from < o.left + o.w + HGAP;
@@ -635,13 +726,51 @@
     const xOf = (item) => xs[item.i];
 
     // Spans, in lanes from the top. On each, the entries drawn on it: a widening stands on the beam,
-    // anything else hangs under it.
+    // anything else hangs under it; then the named lines that belong to the rule (the questions it
+    // divides into), each with its own entries.
     const lanes = [];
     const rects = []; // everything placed so far that a label on the line must not touch
     const placed = new Map(); // entry -> its label's box, where its stem starts, which way it runs
+    const railsAt = []; // each named line drawn as a rail: where it runs
+    const placeRails = (list, from, left, right) => {
+      let y = from;
+      for (const rail of list) {
+        const own = rail.items.filter((item) => item.rail === rail);
+        const on = fan(own, {
+          x: xOf,
+          size: sizeOf,
+          prefers: () => '',
+          only: () => 'down',
+          forms: formsOf,
+          formCost,
+          ok: () => true,
+          min: left + 4,
+          max: W - 4,
+        });
+        const at = y + NAME;
+        for (const [i, a] of on.out) {
+          const box = { x: a.left, y: at + STEM + a.level, w: a.w, h: a.h };
+          placed.set(i, { box, from: at, side: 'down', stemX: a.x, flip: a.flip, form: a.form, markY: at });
+        }
+        railsAt.push({ rail, y: at, x0: left, x1: right });
+        y = at + (on.downMost ? STEM + on.downMost : 8) + 10;
+      }
+      return y;
+    };
     let top = PAD;
+    if (model.form === 'lanes') {
+      const bottom = placeRails(
+        model.rails.filter((rail) => !rail.of),
+        top,
+        0,
+        W,
+      );
+      rects.push({ x: 0, y: top, w: W, h: bottom - top });
+      top = bottom + 4;
+    }
     for (const span of model.spans) {
-      const one = { span, x: xs[span.a.i], w: Math.max(40, xs[span.b.i] - xs[span.a.i]), h: DECK };
+      const x = xs[span.a.i];
+      const one = { span, x, w: Math.max(40, (span.b ? xs[span.b.i] : W) - x), h: DECK };
       const on = fan(span.hung, {
         x: xOf,
         size: sizeOf,
@@ -672,29 +801,41 @@
         });
         rects.push(box);
       }
-      rects.push({ x: one.x, y: one.y - upRoom, w: one.w, h: upRoom + one.h, ends: span.b.i });
+      rects.push({ x: one.x, y: one.y - upRoom, w: one.w, h: upRoom + one.h, ends: span.b?.i });
       one.bottom = one.y + one.h + (on.downMost ? on.downMost + STEM : 0);
+      if (span.rails.length) {
+        const under = one.bottom;
+        one.bottom = placeRails(span.rails, under, one.x, one.x + one.w);
+        rects.push({ x: one.x, y: under, w: one.w, h: one.bottom - under });
+      }
       top = one.bottom + 12;
       lanes.push(one);
     }
-    const lanesBottom = lanes.length ? Math.max(...lanes.map((one) => one.bottom)) : 0;
+    const lanesBottom = Math.max(model.form === 'lanes' ? top - 16 : 0, ...lanes.map((one) => one.bottom));
     // A span's piers run down to the line: no label crosses one.
     for (const one of lanes) {
       rects.push({ x: one.x - 1, y: one.y, w: 2, h: 10000 });
-      rects.push({ x: one.x + one.w - 2, y: one.y, w: 4, h: 10000, ends: one.span.b.i, pier: true });
+      if (one.span.b)
+        rects.push({ x: one.x + one.w - 2, y: one.y, w: 4, h: 10000, ends: one.span.b.i, pier: true });
     }
 
     // Entries on the line. A widening and a turn of the rule would sooner stand above it, a narrowing
-    // hang below; the entry that ends a span is labelled first, past the span's end.
-    const free = items.filter((item) => !item.span && !item.hung);
+    // hang below; the entry that ends a span is labelled first, past the span's end. An entry on a
+    // line of its own hangs below the axis, on that line.
+    const free = items.filter((item) => !item.span && !item.hung && (!item.rail || aside(model, item)));
+    const sizeOnLine = (item) =>
+      aside(model, item) ? { w: sizeOf(item).w, h: sizeOf(item).h + SIDE } : sizeOf(item);
     const onLine = (spineY) =>
       fan(free, {
         x: xOf,
-        size: sizeOf,
+        size: sizeOnLine,
         prefers: (item) =>
           item.fam === 'narrow' ? 'down' : item.cls === 'rule' || item.fam === 'wide' ? 'up' : '',
-        only: (item) => (lanes.some((one) => xs[item.i] > one.x && xs[item.i] < one.x + one.w) ? 'down' : ''),
-        forms: formsOf,
+        only: (item) =>
+          aside(model, item) || lanes.some((one) => xs[item.i] > one.x && xs[item.i] < one.x + one.w)
+            ? 'down'
+            : '',
+        forms: (item) => (aside(model, item) ? null : formsOf(item)),
         formCost,
         noFlip: (item) => !!item.ends,
         first: free.filter((item) => item.ends),
@@ -712,7 +853,7 @@
     // Where the line sits: under the spans, and as far under them as makes the whole plate shortest
     // (room above the line lets labels stand there that would otherwise stack below it), give or
     // take a row for each label kept off the side its move prefers.
-    const least = lanes.length ? lanesBottom + 20 : PAD + 12;
+    const least = lanes.length || model.form === 'lanes' ? lanesBottom + 20 : PAD + 12;
     let spineY = least,
       line = null,
       best = Infinity;
@@ -726,16 +867,26 @@
       }
     }
     for (const [i, at] of line.out) {
+      const apart = aside(model, items[i]);
       const box = {
         x: at.left,
-        y: at.side === 'up' ? spineY - STEM - at.level - at.h : spineY + STEM + at.level,
+        y: (at.side === 'up' ? spineY - STEM - at.level - at.h : spineY + STEM + at.level) + (apart ? SIDE : 0),
         w: at.w,
-        h: at.h,
+        h: at.h - (apart ? SIDE : 0),
       };
-      placed.set(i, { box, from: spineY, side: at.side, stemX: at.x, flip: at.flip, form: at.form });
+      placed.set(i, {
+        box,
+        from: apart ? box.y + 11 : spineY,
+        side: at.side,
+        stemX: at.x,
+        flip: at.flip,
+        form: at.form,
+        markY: apart ? box.y + 11 : undefined,
+        apart,
+      });
     }
-    const height = Math.round(spineY + (line.downMost ? STEM + line.downMost : 16) + PAD);
-    return { level, W, height, xs, geo, lanes, placed, spineY, tagOf, deckOf };
+    const height = Math.round(spineY + (line.downMost ? STEM + line.downMost : 20) + PAD);
+    return { level, W, height, xs, geo, lanes, placed, spineY, tagOf, deckOf, railsAt };
   }
 
   function layout(root, model) {
@@ -744,16 +895,17 @@
     const W = plate.clientWidth;
     if (!W) return;
     const items = model.items;
-    // As much as the plate can say while the account under it still opens in view.
+    // As much as the plate can say while the account under it still opens in view: its date, its name
+    // and the first lines of its note.
     const above =
       plate.getBoundingClientRect().top - inspector.getBoundingClientRect().top + inspector.scrollTop;
-    const budget = Math.max(260, inspector.clientHeight - above - 240);
+    const budget = Math.max(260, inspector.clientHeight - above - 176);
     let plan = null;
     for (const level of [3, 2, 1]) {
       plan = arrange(plate, model, level, W);
       if (plan.height <= budget) break;
     }
-    const { height, xs, geo, lanes, placed, spineY, tagOf, deckOf } = plan;
+    const { height, xs, geo, lanes, placed, spineY, tagOf, deckOf, railsAt } = plan;
 
     // Put everything where it goes.
     plate.style.height = height + 'px';
@@ -780,8 +932,18 @@
         if (line.scrollWidth > line.clientWidth + 1) said.textContent = said.dataset.did;
       }
     }
+    const nameOf = new Map(
+      [...plate.querySelectorAll('.v32db-lane-name')].map((el) => [el.dataset.v32dbLine, el]),
+    );
+    for (const one of railsAt) {
+      const el = nameOf.get(one.rail.line.id);
+      if (!el) continue;
+      el.style.left = one.x0 + (one.rail.of ? 10 : 0) + 'px';
+      el.style.top = one.y - NAME + 'px';
+    }
 
-    // The ink: the line, its breaks and decade marks, the spans' piers, each label's stem, each mark.
+    // The ink: the line, its breaks and decade marks, the spans' piers, the named lines, each label's
+    // stem, each mark.
     const ink = [];
     const line1 = xs[xs.length - 1];
     // A break is a gap in the line with the years it leaves out set in it.
@@ -803,21 +965,63 @@
     }
     for (const tick of geo.ticks)
       ink.push(`<path class="v32db-tick" d="M${Math.round(tick.x) + 0.5} ${spineY - 3}v6"/>`);
+    // With every entry on a named line the axis is the scale alone: its decades are numbered.
+    if (model.form === 'lanes')
+      for (const tick of geo.ticks)
+        ink.push(
+          `<text class="v32db-tick-year" x="${Math.round(tick.x)}" y="${spineY + 18}" text-anchor="middle">${tick.year}</text>`,
+        );
+    for (const one of railsAt)
+      ink.push(
+        `<path class="v32db-rail${one.rail.of ? ' v32db-rail-of' : ''}" d="M${one.x0} ${one.y}H${one.x1}"/>`,
+      );
     for (const one of lanes) {
       const a = one.span.a,
         b = one.span.b;
       // The pier a span rests on at each end: from the beam to the line, at the entry's own date.
       ink.push(
         `<path class="v32db-pier v32db-f-${a.fam}${a.here ? ' v32db-is-here' : ''}" data-v32db-i="${a.i}" d="M${one.x + 0.5} ${one.y + one.h}V${spineY}"/>`,
-        `<path class="v32db-pier v32db-pier-end${b.here ? ' v32db-is-here' : ''}" data-v32db-i="${b.i}" d="M${one.x + one.w} ${one.y - 6}V${spineY}"/>`,
+        b
+          ? `<path class="v32db-pier v32db-pier-end${b.here ? ' v32db-is-here' : ''}" data-v32db-i="${b.i}" d="M${one.x + one.w} ${one.y - 6}V${spineY}"/>`
+          : '',
         `<g class="v32db-mark v32db-c-rule v32db-f-${a.fam}${a.here ? ' v32db-is-here' : ''}" data-v32db-i="${a.i}" transform="translate(${one.x - 9} ${spineY - 9})"><circle class="v32db-mark-bed" cx="9" cy="9" r="11"/><svg viewBox="0 0 16 16" width="18" height="18">${GLYPH[a.turn] || GLYPH.applies}</svg></g>`,
       );
     }
+    const railY = new Map(railsAt.map((one) => [one.rail, one.y]));
+    const markAt = (item, x, y) => {
+      const r = { rule: 9, reach: 7, steady: 5.5, aside: 6 }[item.cls];
+      return `<g class="v32db-mark v32db-c-${item.cls} v32db-f-${item.fam}${item.here ? ' v32db-is-here' : ''}" data-v32db-i="${item.i}" transform="translate(${x - r} ${y - r})"><circle class="v32db-mark-bed" cx="${r}" cy="${r}" r="${r + 2.5}"/><svg viewBox="0 0 16 16" width="${2 * r}" height="${2 * r}">${GLYPH[item.turn] || GLYPH.applies}</svg></g>`;
+    };
+    const plateBox = plate.getBoundingClientRect();
     for (const [i, at] of placed) {
       const item = items[i];
       const x = at.stemX + 0.5;
       const far = at.side === 'up' ? at.box.y : at.box.y + at.box.h;
-      // The stem runs from the line (or the beam) along the label's edge.
+      if (at.apart) {
+        // A line of its own beside the axis: a short dashed rail through the entry's mark, open at both
+        // ends, with the line's name lettered on it.
+        const name = tagOf.get(i).querySelector('.v32db-rail-title > b')?.getBoundingClientRect();
+        const y = at.markY;
+        const a = name ? name.left - plateBox.left : at.stemX,
+          b = name ? name.right - plateBox.left : at.stemX;
+        // (It runs the width of the entry's label, a little past each end.)
+        const l = Math.min(at.stemX, at.box.x) - 36,
+          r = Math.max(at.stemX, at.box.x + at.box.w) + 12;
+        const gaps = [
+          [at.stemX - 11, at.stemX + 11],
+          [a - 8, b + 8],
+        ].sort((p, q) => p[0] - q[0]);
+        let d = '',
+          x0 = l;
+        for (const [g0, g1] of gaps) {
+          if (g0 > x0) d += `M${x0} ${y}H${g0}`;
+          x0 = Math.max(x0, g1);
+        }
+        if (r > x0) d += `M${x0} ${y}H${r}`;
+        ink.push(`<path class="v32db-siding" d="${d}"/>`, markAt(item, at.stemX, y));
+        continue;
+      }
+      // The stem runs from the line (or the beam, or the entry's rail) along the label's edge.
       ink.push(
         `<path class="v32db-stem v32db-f-${item.fam}${item.here ? ' v32db-is-here' : ''}${item.hung ? ' v32db-hung' : ''}" data-v32db-i="${i}" d="M${x} ${at.from}V${far}"/>`,
       );
@@ -826,10 +1030,15 @@
           `<circle class="v32db-knot v32db-f-${item.fam}" data-v32db-i="${i}" cx="${x}" cy="${at.from}" r="3"/>`,
         );
       else {
-        const r = { rule: 9, reach: 7, steady: 5.5, aside: 6 }[item.cls];
-        ink.push(
-          `<g class="v32db-mark v32db-c-${item.cls} v32db-f-${item.fam}${item.here ? ' v32db-is-here' : ''}" data-v32db-i="${i}" transform="translate(${at.stemX - r} ${spineY - r})"><circle class="v32db-mark-bed" cx="${r}" cy="${r}" r="${r + 2.5}"/><svg viewBox="0 0 16 16" width="${2 * r}" height="${2 * r}">${GLYPH[item.turn] || GLYPH.applies}</svg></g>`,
-        );
+        const y = at.markY ?? spineY;
+        // An entry on two lines is marked on both, the two marks joined.
+        const also = item.rails.filter((rail) => rail !== item.rail && railY.has(rail));
+        for (const rail of also)
+          ink.push(
+            `<path class="v32db-link" d="M${x} ${railY.get(rail)}V${y}"/>`,
+            markAt(item, at.stemX, railY.get(rail)),
+          );
+        ink.push(markAt(item, at.stemX, y));
       }
     }
     const svg = plate.querySelector('.v32db-ink');
@@ -860,9 +1069,11 @@
     const inner = `<span class="v32db-caption">${captionHTML(item.first)}</span>`;
     return `<${tag} class="${cls}">${to ? `<a class="v32db-open" role="link" tabindex="0" ${to} title="Open this entry">${inner}</a>` : inner}${also}</${tag}>`;
   }
-  // A neighbour: when, who, and its stored account (what its label on the plate has no room for).
-  function nearHTML(item, relation) {
-    return `<button type="button" class="v32db-near v32db-f-${item.fam}${item.here ? ' v32db-is-here' : ''}" data-v32db-i="${item.i}" title="Show this entry"><span class="v32db-near-rel">${esc(relation)}</span><span class="v32db-near-top">${glyph(item.turn, 12)}${timeHTML(item.s, 'v32db-yr')}<span class="v32db-near-name"><span class="v32db-caption">${captionHTML(item.first)}</span></span>${item.here ? '<span class="v32db-here">You are here</span>' : ''}</span><span class="v32db-near-note" title="${esc(item.s.note || '')}">${esc(item.s.note || item.s.effect || '')}</span></button>`;
+  // Another entry of the timeline, named beside the selected one: when, who, and one stored line about it.
+  // (It goes by the name its label has on the plate, so the eye can find it there.)
+  function rowHTML(item, words) {
+    const name = item.short ? esc(item.short) : `<span class="v32db-caption">${captionHTML(item.first)}</span>`;
+    return `<button type="button" class="v32db-row v32db-f-${item.fam}${item.here ? ' v32db-is-here' : ''}" data-v32db-i="${item.i}" title="Show ${esc(item.full)} (${esc(yearOf(item.s))})"><span class="v32db-row-top">${glyph(item.turn, 12)}${timeHTML(item.s, 'v32db-yr')}<span class="v32db-row-name">${name}</span></span><span class="v32db-row-words">${esc(words)}</span></button>`;
   }
   // Does the plate already say, on this entry's label, what the entry did?
   function saidOnPlate(item) {
@@ -873,40 +1084,68 @@
     const said = root?.querySelector(`.v32db-tag[data-v32db-i="${item.i}"] > .v32db-tag-fx`);
     return !!said && said.getClientRects().length > 0;
   }
+  // What stands beside the selected entry, and why. Nothing is there because it is next in time: each
+  // part is a stored relationship of this entry, under a heading that says which.
+  //   - what became of earlier entries: each earlier entry whose stored later development names this one;
+  //   - what became of it: this entry's own later development, and the entry that made it if it is here;
+  //   - why it is drawn where it is: the stored sentence of the Atlas's own account that places it.
+  function besideHTML(model, item) {
+    const parts = [];
+    if (item.became.length)
+      parts.push(
+        `<section class="v32db-rel"><h4>What became of earlier entries</h4><div class="v32db-rows">${item.became.map((x) => rowHTML(x, x.s.fate)).join('')}</div></section>`,
+      );
+    if (item.s.fate)
+      parts.push(
+        `<section class="v32db-rel"><h4>What became of it</h4><p class="v32db-rel-said">${esc(item.s.fate)}</p>${item.later ? `<div class="v32db-rows">${rowHTML(item.later, item.later.words)}</div>` : ''}</section>`,
+      );
+    const bears = item.bears;
+    if (bears?.basis && !['sets', 'ends'].includes(bears.as)) {
+      const bands = model.spans.map((span) => span.short);
+      const where = item.hung
+        ? `on ${item.hung.short}`
+        : item.rail && aside(model, item)
+          ? `apart, on ${item.rail.line.name}`
+          : item.rail
+            ? `on “${item.rail.line.name}”`
+            : `on the line${bands.length ? `, not on ${bands.join(' or ')}` : ''}`;
+      const concerns =
+        item.rail?.line.concerns && aside(model, item)
+          ? `<p class="v32db-rel-line"><b>${esc(item.rail.line.name)}</b> ${esc(item.rail.line.concerns)}</p>`
+          : '';
+      parts.push(
+        `<section class="v32db-rel v32db-rel-why"><h4>Why it is drawn ${esc(where)}</h4>${concerns}<blockquote class="v32db-rel-basis">${esc(bears.basis)}</blockquote><p class="v32db-rel-source">${esc(bears.source || '')}</p></section>`,
+      );
+    }
+    return parts.join('');
+  }
   function accountHTML(model, index) {
     const items = model.items,
       item = items[index];
     if (!item) return '';
-    // Its neighbours: the entries just before and after it on the line and, for an entry that set a
-    // rule, the entry that ended it. (The rule an entry ends or works within is the span on the plate,
-    // which says what that rule was; it is not said again here.) Each is named once.
-    const near = [];
-    const add = (other, relation) => {
-      if (other && other !== item && near.length < 3 && !near.some((n) => n[0] === other))
-        near.push([other, relation]);
-    };
-    add(items[index - 1], 'Before it');
-    add(items[index + 1], 'After it');
-    if (item.span) add(item.span.b, 'Later');
+    const beside = besideHTML(model, item);
     const picture = art(item.artId, 'v32db-art-lg');
-    return `<article class="v32db-sel v32db-f-${item.fam}${item.here ? ' v32db-is-here' : ''}" data-v32db-i="${item.i}">
+    const fx = saidOnPlate(item) ? '' : `<p class="v32db-sel-fx">${esc(item.words)}</p>`;
+    return `<article class="v32db-sel v32db-f-${item.fam}${item.here ? ' v32db-is-here' : ''}${beside ? '' : ' v32db-sel-wide'}" data-v32db-i="${item.i}">
         <div class="v32db-sel-art">${picture}</div>
         <div class="v32db-sel-main">
           <p class="v32db-sel-top">${dateLine(item)}${item.here ? '<span class="v32db-here">You are here</span>' : ''}<span class="v32db-step"><button type="button" data-v32db-go="${index - 1}" aria-label="The entry before" title="The entry before (Left)"${index ? '' : ' disabled'}>${CHEVRON.replace('<svg', '<svg class="v32db-back"')}</button><span class="v32db-place">${index + 1} of ${items.length}</span><button type="button" data-v32db-go="${index + 1}" aria-label="The entry after" title="The entry after (Right)"${index < items.length - 1 ? '' : ' disabled'}>${CHEVRON}</button></span></p>
           ${nameHTML(item, 'h3', 'v32db-sel-name', true)}
-          ${saidOnPlate(item) ? '' : `<p class="v32db-sel-fx">${esc(item.s.effect || '')}</p>`}
-          <p class="v32db-sel-note">${esc(item.s.note || '')}</p>
-          ${item.s.context ? `<p class="v32db-sel-context">${esc(item.s.context)}</p>` : ''}
-          ${item.s.fate ? `<p class="v32db-later"><b>Later development</b>${esc(item.s.fate)}</p>` : ''}
+          <div class="v32db-sel-text">
+            <div>${fx}<p class="v32db-sel-note">${esc(item.s.note || '')}</p></div>
+            ${item.s.context ? `<p class="v32db-sel-context">${esc(item.s.context)}</p>` : ''}
+          </div>
         </div>
       </article>
-      <div class="v32db-nears" data-v32db-n="${near.length}">${near.map(([other, relation]) => nearHTML(other, relation)).join('')}</div>`;
+      ${beside ? `<aside class="v32db-side" aria-label="How this entry relates to the others">${beside}</aside>` : ''}`;
   }
 
   /* ---------- every entry, in order ---------- */
   function unitHTML(item, model) {
     const s = item.s;
-    const inSpan = model.spans.find((span) => item.i >= span.a.i && item.i <= span.b.i);
+    const inSpan = model.spans.find(
+      (span) => item.i >= span.a.i && item.i <= (span.b ? span.b.i : model.items.length - 1),
+    );
     const flags = [
       `v32db-c-${item.cls}`,
       `v32db-f-${item.fam}`,
@@ -923,9 +1162,9 @@
         <div class="v32db-unit-date">${timeHTML(s, 'v32db-yr')}${dayOf(s) ? `<span class="v32db-day">${esc(dayOf(s))}</span>` : ''}</div>
         <div class="v32db-unit-mark">${glyph(item.turn, { rule: 18, reach: 14, steady: 11, aside: 12 }[item.cls])}</div>
         <div class="v32db-unit-main">
-          ${kindLine(item, item.here ? '<span class="v32db-here">You are here</span>' : '')}
+          ${kindLine(item, (item.rail ? `<span class="v32db-authority">On ${esc(item.rail.line.name)}</span>` : '') + (item.here ? '<span class="v32db-here">You are here</span>' : ''))}
           ${nameHTML(item, 'h4', 'v32db-unit-name', true)}
-          <p class="v32db-unit-fx">${esc(s.effect || '')}</p>
+          <p class="v32db-unit-fx">${esc(item.words)}</p>
           <p class="v32db-unit-note">${esc(s.note || '')}</p>
           ${s.context ? `<p class="v32db-unit-context">${esc(s.context)}</p>` : ''}
           ${s.fate ? `<p class="v32db-later"><b>Later development</b>${esc(s.fate)}</p>` : ''}
@@ -987,14 +1226,21 @@
         ${model.spans.map(deckHTML).join('')}
         ${model.items
           .filter((item) => !item.span)
-          .map(tagHTML)
+          .map((item) => tagHTML(item, model))
+          .join('')}
+        ${model.rails
+          .filter((rail) => rail.of || model.form === 'lanes')
+          .map(
+            (rail) =>
+              `<span class="v32db-lane-name${rail.of ? ' v32db-lane-of' : ''}" data-v32db-line="${esc(rail.line.id)}">${esc(rail.line.name)}</span>`,
+          )
           .join('')}
       </div>
       <div class="v32db-under">
         <p class="v32db-legend">${legendHTML(model)}</p>
         <p class="v32db-vh" id="v32dbHint">${model.items.length} entries${range ? `, ${range}` : ''}. Select an entry on the drawing, or press the Left and Right keys.</p>
       </div>
-      <section class="v32db-account" aria-live="polite" aria-label="The selected entry and its neighbours"></section>
+      <section class="v32db-account" aria-live="polite" aria-label="The selected entry and how it relates to the others"></section>
       <section class="v32db-all" aria-label="Every entry, in order">
         <header class="v32db-all-head">
           <h3>Every entry, in order</h3>
@@ -1024,6 +1270,7 @@
     state.sel = index;
     const account = root.querySelector('.v32db-account');
     account.innerHTML = accountHTML(model, index);
+    account.dataset.v32dbSide = account.querySelector('.v32db-side') ? '1' : '0';
     fitArt(account);
     mark(root);
     if (focus)
@@ -1140,7 +1387,7 @@
       root.querySelector('.v32db-step > button:not(:disabled)')?.focus({ preventScroll: true });
       return;
     }
-    const pick = event.target.closest('.v32db-plate [data-v32db-i], .v32db-near[data-v32db-i]');
+    const pick = event.target.closest('.v32db-plate [data-v32db-i], .v32db-row[data-v32db-i]');
     if (pick) select(Number(pick.dataset.v32dbI));
   }
   function onKey(event) {

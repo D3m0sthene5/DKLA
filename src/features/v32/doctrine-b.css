@@ -281,6 +281,7 @@ html:root body #inspector .v32db-plate:focus-visible {
 }
 html:root body #inspector .v32db-ink {
   position: absolute;
+  z-index: 1;
   left: 0;
   top: 0;
   overflow: visible;
@@ -395,8 +396,7 @@ html:root body #inspector .v32db-tag.v32db-is-here.v32db-is-sel {
   background: var(--v31-here-bg);
 }
 html:root body #inspector .v32db-tag:focus-visible,
-html:root body #inspector .v32db-deck:focus-visible,
-html:root body #inspector .v32db-near:focus-visible {
+html:root body #inspector .v32db-deck:focus-visible {
   box-shadow: var(--v31-focus);
 }
 html:root body #inspector .v32db-tag-top {
@@ -465,7 +465,7 @@ html:root body #inspector .v32db-tag.v32db-small {
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0 12px;
-  max-width: 660px;
+  max-width: 720px;
 }
 html:root body #inspector .v32db-tag.v32db-small > .v32db-tag-top {
   max-width: 290px;
@@ -571,6 +571,99 @@ html:root body #inspector .v32db-deck-fx {
   font: var(--v32-ui-small);
   text-overflow: ellipsis;
   color: var(--v31-soft);
+}
+
+/* A rule nothing here ended: the beam runs off the plate's edge. */
+html:root body #inspector .v32db-deck.v32db-open-end {
+  -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 56px), transparent);
+  mask-image: linear-gradient(90deg, #000 calc(100% - 56px), transparent);
+}
+/* A later change no entry here made, named on the label of the entry it changed. */
+html:root body #inspector .v32db-tag-fate {
+  flex: 0 0 100%;
+  max-width: 100%;
+  font: var(--v32-ui-small);
+  white-space: normal;
+  text-wrap: pretty;
+  color: var(--v31-muted);
+}
+html:root body #inspector .v32db-tag-fate::before {
+  content: 'Later: ';
+  font-weight: 600;
+  color: var(--v31-soft);
+}
+html:root body #inspector .v32db-plate:not([data-v32db-level='3']) .v32db-tag-fate,
+html:root body #inspector .v32db-tag.v32db-bare > .v32db-tag-fate {
+  display: none;
+}
+/* A named line: a question a rule divides into, or one of the standing answers a timeline compares.
+   Its name is lettered above its start; its entries stand on it. */
+html:root body #inspector .v32db-rail {
+  fill: none;
+  stroke: color-mix(in srgb, var(--v32db-span) 62%, var(--v31-panel));
+  stroke-width: 2;
+}
+html:root body #inspector .v32db-link {
+  fill: none;
+  stroke: color-mix(in srgb, var(--v32db-span) 62%, var(--v31-panel));
+  stroke-width: 2;
+}
+html:root body #inspector .v32db-lane-name {
+  position: absolute;
+  font:
+    600 14px/20px var(--dkla-interface, Inter),
+    sans-serif;
+  white-space: nowrap;
+  color: var(--v31-text);
+}
+html:root body #inspector .v32db-tick-year {
+  font: var(--v32-readout);
+  font-size: 12px;
+  fill: var(--v31-faint);
+}
+/* A line apart from the axis: a different rule, which this timeline only touches. A short dashed rail
+   through the entry's mark, open at both ends, with the rule's name lettered on it. */
+html:root body #inspector .v32db-siding {
+  fill: none;
+  stroke: var(--v31-soft);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 4;
+}
+html:root body #inspector .v32db-tag.v32db-apart {
+  margin-left: 12px;
+  padding-left: 6px;
+  border-radius: 6px;
+}
+html:root body #inspector .v32db-tag.v32db-apart.v32db-flip {
+  margin-left: -12px;
+  padding-left: 10px;
+  padding-right: 6px;
+}
+html:root body #inspector .v32db-rail-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 2px;
+}
+html:root body #inspector .v32db-tag.v32db-flip .v32db-rail-title {
+  align-items: flex-end;
+}
+html:root body #inspector .v32db-rail-title > b {
+  font:
+    600 17px/22px var(--dkla-display, 'Exo 2'),
+    sans-serif;
+  color: var(--v31-text);
+}
+/* What the line concerns is said where the entry's own words are not. */
+html:root body #inspector .v32db-rail-title > i {
+  display: none;
+  font: var(--v32-ui-small);
+  font-style: normal;
+  color: var(--v31-muted);
+}
+html:root body #inspector .v32db-plate[data-v32db-level='1'] .v32db-tag:not(.v32db-big) .v32db-rail-title > i,
+html:root body #inspector .v32db-tag.v32db-bare .v32db-rail-title > i {
+  display: block;
 }
 
 /* ---------- under the plate: what the shapes say ---------- */
@@ -751,6 +844,9 @@ html:root body #inspector .v32db-sel-context {
   text-wrap: pretty;
   color: var(--v31-soft);
 }
+html:root body #inspector .v32db-sel-wide .v32db-sel-context {
+  margin-top: 8px;
+}
 html:root body #inspector .v32db-later {
   max-width: 600px;
   margin-top: 12px;
@@ -768,83 +864,126 @@ html:root body #inspector .v32db-later > b {
   font-weight: 600;
   color: var(--v31-muted);
 }
-/* Its neighbours: each is its date, its name and what it changed. One column, a hairline between. */
-html:root body #inspector .v32db-nears {
+/* What stands beside it: stored relationships of the selected entry, each under a heading that says
+   which. One column; a hairline between parts. */
+html:root body #inspector .v32db-side {
   display: flex;
   flex-direction: column;
+  gap: 20px;
   align-self: start;
   min-width: 0;
-  margin-top: -10px;
 }
-html:root body #inspector .v32db-near {
+html:root body #inspector .v32db-rel + .v32db-rel {
+  padding-top: 16px;
+  border-top: 1px solid var(--v32-hair);
+}
+html:root body #inspector .v32db-rel > h4 {
+  margin: 0 0 4px;
+  font:
+    600 15px/22px var(--dkla-interface, Inter),
+    sans-serif !important;
+  text-wrap: balance;
+  color: var(--v31-text);
+}
+/* Other entries named here: a mark, a year and a name, then one stored line. The names share a column. */
+html:root body #inspector .v32db-rows {
+  display: grid;
+  grid-template-columns: fit-content(260px) minmax(0, 1fr);
+  column-gap: 24px;
+  margin: 0 -12px;
+}
+html:root body #inspector .v32db-row {
   all: unset;
   box-sizing: border-box;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 10px 12px 12px;
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  align-items: baseline;
+  padding: 5px 12px;
   border-radius: 6px;
   cursor: pointer;
 }
-html:root body #inspector .v32db-near + .v32db-near {
-  margin-top: 1px;
-}
-html:root body #inspector .v32db-near + .v32db-near::before {
-  content: '';
-  position: absolute;
-  left: 12px;
-  right: 12px;
-  top: -1px;
-  height: 1px;
-  background: var(--v32-hair);
-}
-html:root body #inspector .v32db-near:hover {
+html:root body #inspector .v32db-row:hover {
   background: var(--v32-hover);
 }
-html:root body #inspector .v32db-near-rel {
-  font: var(--v32-ui-small);
-  color: var(--v31-muted);
+html:root body #inspector .v32db-row:focus-visible {
+  box-shadow: var(--v31-focus);
 }
-html:root body #inspector .v32db-near-top {
+html:root body #inspector .v32db-row-top {
   display: flex;
   align-items: baseline;
   gap: 8px;
   min-width: 0;
-  margin-top: 2px;
 }
-html:root body #inspector .v32db-near-top > .v32db-glyph {
+html:root body #inspector .v32db-row-top > .v32db-glyph {
   align-self: flex-start;
-  margin-top: 6px;
+  margin-top: 5px;
 }
-html:root body #inspector .v32db-near-name {
+html:root body #inspector .v32db-row-name {
   min-width: 0;
   font:
-    600 17px/24px var(--dkla-interface, Inter),
+    600 15px/22px var(--dkla-interface, Inter),
     sans-serif;
-  color: var(--v31-text);
+  color: var(--v31-link);
 }
-html:root body #inspector .v32db-near-note {
-  max-width: 560px;
-  margin-top: 4px;
+html:root body #inspector .v32db-row:hover .v32db-row-name {
+  color: var(--v31-link-hover);
+}
+html:root body #inspector .v32db-row-words {
   font:
     400 15px/22px var(--dkla-interface, Inter),
     sans-serif;
   text-wrap: pretty;
   color: var(--v31-body);
 }
-html:root body #inspector .v32db-near-later {
-  margin-top: 2px;
+html:root body #inspector .v32db-rel-said {
+  max-width: 560px;
   font:
-    400 14px/20px var(--dkla-interface, Inter),
+    400 15px/22px var(--dkla-interface, Inter),
     sans-serif;
   text-wrap: pretty;
+  color: var(--v31-body);
+}
+html:root body #inspector .v32db-rel-said + .v32db-row {
+  margin-top: 4px;
+}
+html:root body #inspector .v32db-rel-line {
+  font:
+    400 15px/22px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-soft);
 }
-html:root body #inspector .v32db-near-later > b {
+html:root body #inspector .v32db-rel-line > b {
   margin-right: 6px;
-  font: var(--v32-ui-small);
   font-weight: 600;
+  color: var(--v31-text);
+}
+html:root body #inspector .v32db-rel-basis {
+  max-width: 560px;
+  margin: 4px 0 0;
+  padding: 0 0 0 12px;
+  border-left: 2px solid var(--v31-line-strong);
+  font:
+    400 15px/22px var(--dkla-interface, Inter),
+    sans-serif;
+  text-wrap: pretty;
+  color: var(--v31-body);
+}
+html:root body #inspector .v32db-rel-source {
+  margin-top: 4px;
+  padding-left: 14px;
+  font: var(--v32-ui-small);
   color: var(--v31-muted);
+}
+/* Nothing beside it: the account has the room. Its note and its context stand side by side. */
+html:root body #inspector .v32db-account[data-v32db-side='0'] {
+  grid-template-columns: minmax(0, 1fr);
+}
+html:root body #inspector .v32db-sel-wide .v32db-sel-text {
+  display: grid;
+  grid-template-columns: minmax(0, 600px) minmax(0, 520px);
+  gap: 8px 48px;
+  align-items: start;
 }
 
 /* ---------- every entry, in order ---------- */

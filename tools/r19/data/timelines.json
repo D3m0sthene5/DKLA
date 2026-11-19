@@ -4637,7 +4637,14 @@
           "turn": "origin",
           "note": "In this historical decision, the Court accepted the agency’s reasoned application of “producer” after fair proceedings. Read that approach alongside the later change in Loper Bright.",
           "authorityKind": "Court decision",
-          "effect": "Historically accepts the agency’s statutory classification"
+          "effect": "Historically accepts the agency’s statutory classification",
+          "bears": {
+            "on": null,
+            "as": "line",
+            "basis": "The assigned material uses Gray in contrasting accounts of deference: the later Loper Bright majority emphasizes a factbound delegated classification and distinguishes the independently construed other-disposal question; Kagan’s dissent stresses the agency’s interpretive responsibility and the significance of pre-APA practice.",
+            "source": "Atlas brief of Gray v. Powell",
+            "brief": "LRS-ATLAS-I-GRAY-POWELL"
+          }
         },
         {
           "id": "lrs-i-hearst",
@@ -4647,7 +4654,14 @@
           "note": "The Court accepted the labor Board’s classification of these workers as employees because the record and law reasonably supported it. Congress later changed the statutory treatment of independent contractors.",
           "fate": "Its 'employee' ruling was overridden by the Taft-Hartley Act (1947), which excluded independent contractors",
           "authorityKind": "Court decision",
-          "effect": "Historically accepts the Board’s employee classification"
+          "effect": "Historically accepts the Board’s employee classification",
+          "bears": {
+            "on": null,
+            "as": "line",
+            "basis": "The majority distinguished New Deal cases such as Gray and Hearst as involving delegated or factbound applications, rather than a general requirement to accept agency statutory constructions.",
+            "source": "Atlas brief of Loper Bright Enterprises v. Raimondo",
+            "brief": "LRS-MAX-LOPER"
+          }
         },
         {
           "id": "lrs-i-skidmore",
@@ -4656,7 +4670,14 @@
           "turn": "sharpens",
           "note": "An agency’s interpretation does not bind the court. It earns weight through careful analysis, sound reasons, consistency, and its ability to persuade.",
           "authorityKind": "Court decision",
-          "effect": "Gives agency views persuasive rather than binding weight"
+          "effect": "Gives agency views persuasive rather than binding weight",
+          "bears": {
+            "on": null,
+            "as": "line",
+            "basis": "An agency's informed interpretation remains relevant under Skidmore, particularly when contemporaneous with enactment and consistent over time.",
+            "source": "Atlas brief of Loper Bright Enterprises v. Raimondo",
+            "brief": "LRS-MAX-LOPER"
+          }
         },
         {
           "id": "lrs-i-chevron",
@@ -4667,7 +4688,14 @@
           "fate": "Overruled by Loper Bright (2024)",
           "authorityKind": "Court decision",
           "effect": "Historically requires Chevron deference",
-          "context": "This is the historical rule that later cases in this line refined and Loper Bright overruled. A timeline includes superseded rules to show the change, not to recommend applying them now."
+          "context": "This is the historical rule that later cases in this line refined and Loper Bright overruled. A timeline includes superseded rules to show the change, not to recommend applying them now.",
+          "bears": {
+            "on": "chevron",
+            "as": "sets",
+            "basis": "Second, when Congress had not directly resolved the issue, the historical Chevron framework asked whether the agency’s answer was a permissible construction.",
+            "source": "Atlas brief of Chevron U.S.A. Inc. v. Natural Resources Defense Council, Inc.",
+            "brief": "LRS-ATLAS-I-CHEVRON"
+          }
         },
         {
           "id": "lrs-i-mead-note",
@@ -4678,7 +4706,14 @@
           "fate": "Its Chevron threshold lapsed with Loper Bright (2024); Skidmore respect remains",
           "authorityKind": "Court decision",
           "effect": "Historically limits which acts receive Chevron deference",
-          "context": "“Step zero” was shorthand for asking whether Chevron applied at all before using its two steps. After Loper Bright, agency reasoning can still be persuasive without that deference framework."
+          "context": "“Step zero” was shorthand for asking whether Chevron applied at all before using its two steps. After Loper Bright, agency reasoning can still be persuasive without that deference framework.",
+          "bears": {
+            "on": "chevron",
+            "as": "under",
+            "basis": "The Supreme Court granted review to address the limits of Chevron deference, rather than simply substitute its preferred tariff classification.",
+            "source": "Atlas brief of United States v. Mead Corp.",
+            "brief": "LRS-SUP-MEAD"
+          }
         },
         {
           "id": "lrs-i-brand-x",
@@ -4688,7 +4723,14 @@
           "note": "Under the former Chevron system, a reasonable agency interpretation could displace an earlier judicial reading unless the court had found the statute unambiguous. Read this mechanism as historical.",
           "fate": "Fell with Chevron in Loper Bright (2024)",
           "authorityKind": "Court decision",
-          "effect": "Historically lets an agency displace some judicial readings"
+          "effect": "Historically lets an agency displace some judicial readings",
+          "bears": {
+            "on": "chevron",
+            "as": "under",
+            "basis": "The Court held that a prior judicial construction displaced an otherwise Chevron-eligible agency interpretation only when the precedent held that the statute unambiguously required the judicial reading.",
+            "source": "Atlas brief of National Cable & Telecommunications Association v. Brand X Internet Services",
+            "brief": "LRS-ATLAS-I-BRAND-X"
+          }
         },
         {
           "sup": "LRS-CLOSURE-031",
@@ -4698,7 +4740,14 @@
           "note": "Under the former Chevron system, a court deferred even on some questions about the agency’s own authority. Loper Bright later ended Chevron’s statutory-deference framework.",
           "fate": "Fell with Chevron in Loper Bright (2024)",
           "authorityKind": "Court decision",
-          "effect": "Historically applies Chevron to agency authority"
+          "effect": "Historically applies Chevron to agency authority",
+          "bears": {
+            "on": "chevron",
+            "as": "under",
+            "basis": "On May 20, 2013, the Supreme Court affirmed the Fifth Circuit and held that the then-governing Chevron framework applied to an agency’s interpretation of a statutory ambiguity concerning the scope of its authority.",
+            "source": "Atlas brief of City of Arlington v. FCC",
+            "brief": "LRS-CLOSURE-031"
+          }
         },
         {
           "id": "lrs-i-king-burwell",
@@ -4707,7 +4756,14 @@
           "turn": "limits",
           "note": "The Court treated the tax-credit question as too important to assume Congress had left it to the IRS. It decided the statutory meaning itself.",
           "authorityKind": "Court decision",
-          "effect": "Reserves a major statutory question for the Court"
+          "effect": "Reserves a major statutory question for the Court",
+          "bears": {
+            "on": "chevron",
+            "as": "under",
+            "basis": "King therefore illustrates a historical limitation on the presumed delegation underlying Chevron that nonetheless produced a result agreeing with the agency.",
+            "source": "Atlas brief of King v. Burwell",
+            "brief": "LRS-ATLAS-I-KING-BURWELL"
+          }
         },
         {
           "id": "lrs-i-kisor",
@@ -4722,7 +4778,14 @@
               "url": "https://supreme.justia.com/cases/federal/us/588/18-15/",
               "label": "Majority Part II-B, slip pp. 11–19; Chief Justice Roberts concurrence."
             }
-          ]
+          ],
+          "bears": {
+            "on": "auer",
+            "as": "under",
+            "basis": "The Court declined to overrule Auer and Seminole Rock deference to agency interpretations of their own regulations.",
+            "source": "Atlas brief of Kisor v. Wilkie",
+            "brief": "LRS-MAX-KISOR"
+          }
         },
         {
           "id": "lrs-i-loper-bright",
@@ -4732,7 +4795,14 @@
           "object": "Chevron",
           "note": "Courts must determine statutes’ meaning independently. They still respect discretion Congress actually delegated and consider persuasive agency reasoning; ambiguity alone does not require deference.",
           "authorityKind": "Court decision",
-          "effect": "Ends Chevron deference to statutory interpretations"
+          "effect": "Ends Chevron deference to statutory interpretations",
+          "bears": {
+            "on": "chevron",
+            "as": "ends",
+            "basis": "The Court overruled Chevron's requirement that courts defer to reasonable agency interpretations merely because a statute is ambiguous.",
+            "source": "Atlas brief of Loper Bright Enterprises v. Raimondo",
+            "brief": "LRS-MAX-LOPER"
+          }
         }
       ],
       "guide": "Deference means accepting an agency’s reading instead of choosing the court’s own best reading. Distinguish a statute Congress passed from a regulation the agency wrote. Chevron’s statutory framework is historical after Loper Bright. Skidmore gives agency views persuasive weight; Kisor concerns limited deference to an agency’s own regulation.",
@@ -4742,6 +4812,17 @@
         {
           "url": "https://supreme.justia.com/cases/federal/us/603/22-451/",
           "label": "Majority Part II, slip pp. 16–18; Part III-C, slip pp. 34–35."
+        }
+      ],
+      "lines": [
+        {
+          "id": "chevron",
+          "name": "Chevron"
+        },
+        {
+          "id": "auer",
+          "name": "Auer deference",
+          "concerns": "agency interpretations of their own regulations"
         }
       ]
     },
