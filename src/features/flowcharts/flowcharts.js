@@ -705,7 +705,7 @@
       const byId = new Map(chart.nodes.map((node) => [node.id, node]));
       const step = (node) => {
         const own = decided.has(node.id);
-        return `<li class="v32-step${own ? ' v31-own' : ''}"><a class="v31-route-step${own ? ' v31-own' : ''}" href="${stepURL(chart.id, node.id, id)}" data-flowchart-id="${esc(chart.id)}"><span class="v32-step-n">${number.get(node.id)}</span><span class="v32-step-q">${esc(node.label)}${own ? ' <small>You are here</small>' : ''}</span></a>${own && node.detail ? `<p class="v32-step-detail">${esc(node.detail)}</p>` : ''}</li>`;
+        return `<li class="v32-step${own ? ' v31-own' : ''}"><a class="v31-route-step${own ? ' v31-own' : ''}" href="${stepURL(chart.id, node.id, id)}" data-flowchart-id="${esc(chart.id)}"><span class="v32-step-n">${number.get(node.id)}</span><span class="v32-step-q">${esc(node.label)}${own ? ' <small>(this entry decides this step)</small>' : ''}</span></a>${own && node.detail ? `<p class="v32-step-detail">${esc(node.detail)}</p>` : ''}</li>`;
       };
       const walked = new Set(path.map((at) => at.id));
       const route = path

@@ -147,7 +147,10 @@
       let h = base(n);
       const note = (geoPlacement(n.id) || {}).reviewNote;
       if (note && JUNK_NOTE.test(note)) h = h.replace(`<p>${E(note)}`, '<p>');
-      return h.replace('<p></p>', '');
+      // v3.2: the sources are one list in the Sources facet; this drawer is the record itself.
+      return h
+        .replace('<p></p>', '')
+        .replace('<summary>Sources & record details</summary>', '<summary>Record details</summary>');
     };
   }
   if (typeof toast === 'function') {

@@ -433,54 +433,12 @@
 #inspector .dkla-file-chips button:focus-visible,
 #inspector .r18-recall .r18-chip:focus-visible,
 #inspector .source-strip a:focus-visible,
-#inspector .source-strip button:focus-visible,
-#inspector .r19-prov-src a:focus-visible {
+#inspector .source-strip button:focus-visible {
   outline: 2px solid #d6b78e;
   outline-offset: 2px;
 }
 
-/* 6. "Text of the provision". The generic `#inspector p` rule (higher
-      specificity) was overriding this block's own type: the source note
-      rendered at body size (larger than the provision it annotates; now its
-      intended 12.5px, colour unchanged) and the paragraphs carried stray outer
-      margins. The section number beside the heading was 10px; now 12px.
-      The global `details{margin:15px 0}` also leaked in, leaving 15px of dead
-      space inside the card above the heading and below the note. */
-#inspector .r19-prov details {
-  margin: 0;
-}
-#inspector .r19-prov summary {
-  padding: 12px 16px;
-  font-size: 14px;
-  line-height: 1.4;
-}
-#inspector .r19-prov summary small {
-  font-size: 12px;
-  letter-spacing: 0.02em;
-}
-#inspector .r19-prov .r19-prov-text {
-  padding: 2px 16px 6px;
-}
-#inspector .r19-prov .r19-prov-text p {
-  margin-top: 0;
-  margin-bottom: 10px;
-  line-height: 1.6;
-  color: #dfe7ee;
-}
-#inspector .r19-prov .r19-prov-src {
-  margin: 0;
-  padding: 10px 16px 12px;
-  font-size: 12.5px;
-  line-height: 1.55;
-}
-#inspector .r19-prov .r19-prov-src a {
-  white-space: nowrap;
-  text-underline-offset: 2px;
-  text-decoration-thickness: 1px;
-}
-#inspector .r19-prov .r19-prov-src a:hover {
-  color: #ecd3ac;
-}
+/* 6 ("Text of the provision") is now src/features/v32/case.css. */
 
 /* 7. Scope line: its fallback grey (#989baa) leaned purple; use the atlas's
       muted tone, which is also slightly brighter. */

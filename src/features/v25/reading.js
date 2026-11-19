@@ -203,6 +203,17 @@
     if (section.parentElement !== body) body.appendChild(section);
     return section;
   }
+  // "Your notes and editing" was a drawer; its buttons are the last line of the Study facet now, and the
+  // Supreme Court's voting record, which an earlier layer draws beside those buttons, is its own facet.
+  function editing(body) {
+    for (const drawer of body.querySelectorAll(':scope > details.quiet-details')) {
+      if (drawer.querySelector('.metadata-grid')) continue;
+      const parts = drawer.querySelectorAll(':scope > .reading-actions, :scope > .sh-case-panel');
+      if (!parts.length) continue;
+      parts.forEach((part) => body.appendChild(part));
+      if ([...drawer.children].every((child) => child.tagName === 'SUMMARY')) drawer.remove();
+    }
+  }
   // The header of every entry that is a record of the map: its name, then (case.js) the citation line,
   // then the line that says what its picture shows. The rule and concept readers share it with cases.
   function header(body) {
@@ -391,6 +402,7 @@
       }
       notesSection(body);
     }
+    editing(body);
     unwrap(body.querySelector(':scope > .v25-study-tools'));
     unwrap(body.querySelector(':scope > .v25-term-details'));
     briefHead(body, isCase);

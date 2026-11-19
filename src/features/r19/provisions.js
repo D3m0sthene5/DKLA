@@ -35,7 +35,7 @@
         ? `${esc(p.source)}, read ${esc(p.fetched)}.`
         : `${esc(p.source.replace(/, on file\)/, ')'))}.`;
     box.innerHTML = `<details${size < 2600 ? ' open' : ''}><summary>Text of the provision <small>${esc(p.cite)}</small></summary>
-      <div class="r19-prov-text">${p.lines.map((l) => `<p style="margin-left:${Math.min(l[0], 5) * 1.25}em">${esc(l[1])}</p>`).join('')}</div>
+      <div class="r19-prov-text">${p.lines.map((l) => `<p style="--v32-indent:${Math.min(l[0], 5)}">${esc(l[1])}</p>`).join('')}</div>
       <p class="r19-prov-src">${note} ${open}</p></details>`;
     body.appendChild(box);
   }

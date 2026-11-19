@@ -13,7 +13,9 @@
   --v32-margin: 132px;
   --v32-left: calc(var(--v32-gutter) + var(--v32-margin) + 24px);
   --v32-col: 720px;
-  --v32-measure: 640px;
+  /* About 70 characters of the reading size, and about 62 of the rule's. */
+  --v32-measure: 576px;
+  --v32-hero: 656px;
   --v32-mono: 500 12px/16px 'DKLA JetBrains Mono', 'JetBrains Mono', ui-monospace, monospace;
   background: var(--v31-panel);
   border-left: 0;
@@ -391,7 +393,7 @@
 #inspector .v32 > .v32-head {
   display: flex;
   flex-direction: column;
-  margin: 0 0 24px;
+  margin: 0 0 16px;
   padding: 0;
   border: 0;
 }
@@ -619,7 +621,7 @@
 }
 /* The rule in plain English: the hero. No box. */
 #inspector .v32 > .takeaway {
-  max-width: 704px;
+  max-width: var(--v32-hero);
   margin: 0 0 48px;
   padding: 0;
   border: 0;
@@ -631,10 +633,14 @@
   letter-spacing: 0;
   color: var(--v31-text);
 }
+#inspector .v32 > .takeaway.takeaway {
+  display: block;
+  gap: 0;
+}
 #inspector .v32 > .takeaway::before {
   content: none;
 }
-#inspector .v32 > .takeaway > * {
+#inspector .v32 > .takeaway.takeaway > * {
   margin: 0;
   font: inherit;
   color: inherit;
@@ -853,12 +859,71 @@
   font: var(--v31-label);
   color: var(--v31-muted);
 }
-/* The text of a provision, in a rule's overview. */
+/* The text of a provision, in a rule's overview: a drawer that is open when the text is short. */
 #inspector .v32 > .r19-prov {
-  margin: 0 0 32px;
+  margin: 0 0 48px;
   padding: 0;
   border: 0;
+  border-radius: 0;
   background: none;
+}
+#inspector .v32 > .r19-prov > details {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+#inspector .v32 > .r19-prov summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+  font: var(--v31-label);
+  color: var(--v31-muted);
+  cursor: pointer;
+}
+#inspector .v32 > .r19-prov summary::-webkit-details-marker {
+  display: none;
+}
+#inspector .v32 > .r19-prov summary small {
+  margin: 0;
+  font: var(--v32-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  color: var(--v31-faint);
+}
+#inspector .v32 > .r19-prov .r19-prov-text {
+  padding: 0;
+  font: var(--v32-reading);
+}
+#inspector .v32 > .r19-prov .r19-prov-text p,
+#inspector .v32-plain .authority-text p {
+  max-width: var(--v32-measure);
+  margin: 0 0 12px calc(var(--v32-indent, var(--authority-indent, 0)) * 24px);
+  font: var(--v32-reading);
+  white-space: normal;
+  color: var(--v31-text);
+}
+#inspector .v32 > .r19-prov .r19-prov-src {
+  max-width: var(--v32-measure);
+  margin: 8px 0 0;
+  padding: 0;
+  border: 0;
+  font: var(--v31-label);
+  font-weight: 400;
+  color: var(--v31-faint);
+}
+#inspector .v32 > .r19-prov .r19-prov-src :is(a, button) {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  margin-left: 8px;
+  font: var(--v31-label);
+  color: var(--v31-link);
+  cursor: pointer;
 }
 /* Terms in this entry: three columns of rows. */
 #inspector .v32 > .dkla-terms {
@@ -1021,10 +1086,22 @@
   color: var(--v31-faint);
 }
 #inspector .v32 .v32-step-q small {
-  margin-left: 8px;
-  font: var(--v31-label);
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
   white-space: nowrap;
-  color: var(--v31-here);
+}
+/* The same amber mark beside the count of the steps this entry decides. */
+#inspector .v32 .v31-chart .v31-meta > .v32-count::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  border-radius: 999px;
+  background: var(--v31-here);
 }
 /* The steps this entry decides: amber, in full. */
 #inspector .v32 .v32-step.v31-own > a {
@@ -1091,6 +1168,20 @@
 }
 #inspector .v32 > details.quiet-details > summary::-webkit-details-marker {
   display: none;
+}
+#inspector .v32 > details.quiet-details > summary::before {
+  content: '';
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  background: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7.5 4.5L13 10l-5.5 5.5'/%3E%3C/svg%3E")
+    center / 20px no-repeat;
+  transition: transform var(--v31-t-press) var(--v31-ease);
+}
+#inspector .v32 > details.quiet-details[open] > summary::before {
+  transform: rotate(90deg);
 }
 #inspector .v32 > details.quiet-details > summary:hover {
   color: var(--v31-text);
@@ -1272,6 +1363,10 @@
   grid-row: 1 / span 3;
   align-self: start;
   font: var(--v32-ui-small);
+  color: var(--v31-muted);
+}
+#inspector .v32 .study-connection > .text-button:hover {
+  color: var(--v31-text);
 }
 /* "Questions this case helps answer": rows. */
 #inspector .v32 > .case-topics {
@@ -1340,21 +1435,267 @@
   font: var(--v31-label);
   color: var(--v31-muted);
 }
-#inspector .v32 > details.quiet-details:has(.reading-actions) {
-  margin: 0;
-  border: 0;
-}
-#inspector .v32 > details.quiet-details:has(.reading-actions) > summary {
-  height: 36px;
-  font: var(--v31-label);
-  pointer-events: none;
-}
-#inspector .v32 .reading-actions {
+#inspector .v32 > .reading-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin: 0;
   padding: 0;
+}
+#inspector .v32 > .reading-actions::before {
+  content: 'This entry';
+  flex: 1 0 100%;
+  font: var(--v31-label);
+  color: var(--v31-muted);
+}
+
+/* ---------- Court: the Supreme Court's vote ---------- */
+/* The record is drawn by the Supreme Court history layer, which paints it the same way in its own view
+   with !important; inside the reader it takes the reader's type, loses its box, and the nine sit in one
+   row. A justice who dissented is shown in grey, one who took no part faded: no colour carries it. */
+#inspector .v32 > .sh-case-panel {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--v31-text);
+}
+#inspector .v32 > .sh-case-panel .sh-kicker {
+  margin: 0 0 8px;
+  font: var(--v31-label);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-muted);
+}
+#inspector .v32 > .sh-case-panel > h3 {
+  margin: 0;
+  font: var(--v31-heading) !important;
+  letter-spacing: 0;
+  color: var(--v31-text);
+}
+/* The tally ("6–2") is the facet's large numeral. */
+#inspector .v32 > .sh-case-panel:not(.r17-scotus-alias) > h3 {
+  font:
+    600 30px/32px var(--dkla-display, 'Exo 2'),
+    sans-serif !important;
+  font-family: var(--dkla-display, 'Exo 2'), sans-serif !important;
+  font-variant-numeric: tabular-nums;
+}
+#inspector .v32 > .sh-case-panel .sh-case-meta {
+  margin: 4px 0 16px;
+  font: var(--v32-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-faint);
+}
+#inspector .v32 > .sh-case-panel .sh-question,
+#inspector .v32 > .sh-case-panel .r17-alias-tally,
+#inspector .v32 > .sh-case-panel .sh-note {
+  max-width: var(--v32-measure);
+  margin: 0 0 4px;
+  font: var(--v31-body-type) !important;
+  color: var(--v31-muted);
+}
+#inspector .v32 > .sh-case-panel .sh-question:first-of-type {
+  color: var(--v31-text);
+}
+#inspector .v32 > .sh-case-panel select {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--v32-measure);
+  height: 36px;
+  margin: 12px 0 0;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px var(--v32-hair-strong);
+  background: none;
+  font: var(--v31-ui);
+  color: var(--v31-text);
+}
+/* The order of the bench: one switch. */
+#inspector .v32 > .sh-case-panel .sh-sort {
+  position: relative;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: 0;
+  margin: 16px 0;
+  border-radius: 6px;
+}
+#inspector .v32 > .sh-case-panel .sh-sort::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px var(--v32-hair-strong);
+  pointer-events: none;
+}
+#inspector .v32 > .sh-case-panel .sh-sort > span {
+  display: none;
+}
+#inspector .v32 > .sh-case-panel .sh-sort > button {
+  all: unset;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 6px;
+  font: var(--v31-ui);
+  color: var(--v31-muted);
+  cursor: pointer;
+}
+#inspector .v32 > .sh-case-panel .sh-sort > button:hover {
+  color: var(--v31-text);
+}
+#inspector .v32 > .sh-case-panel .sh-sort > button[aria-pressed='true'] {
+  background: var(--v31-raised);
+  color: var(--v31-text);
+}
+#inspector .v32 > .sh-case-panel .sh-votes {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0 0 24px;
+}
+#inspector .v32 > .sh-case-panel .sh-vote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 8px;
+  border: 0 !important;
+  border-radius: 6px;
+  background: none !important;
+  color: var(--v31-text) !important;
+}
+#inspector .v32 > .sh-case-panel .sh-vote:hover {
+  background: var(--v31-raised) !important;
+}
+#inspector .v32 > .sh-case-panel .sh-vote::after {
+  content: none;
+}
+#inspector .v32 > .sh-case-panel .sh-vote strong {
+  margin: 8px 0 0;
+  font: var(--v31-label);
+  color: var(--v31-text);
+}
+#inspector .v32 > .sh-case-panel .sh-vote[data-opinion='majority'] strong,
+#inspector .v32 > .sh-case-panel .sh-vote[data-opinion='plurality'] strong {
+  font-weight: 600;
+}
+#inspector .v32 > .sh-case-panel .sh-vote small {
+  min-height: 32px;
+  margin: 0;
+  font: var(--v31-label);
+  font-weight: 400;
+  color: var(--v31-faint);
+}
+#inspector .v32 > .sh-case-panel .sh-vote[data-align='dissent'] .sh-portrait {
+  filter: grayscale(1) brightness(0.8);
+}
+#inspector .v32 > .sh-case-panel .sh-vote[data-align='dissent'] small {
+  color: var(--v31-text);
+}
+#inspector .v32 > .sh-case-panel .sh-vote[data-align='nonparticipation'] {
+  opacity: 1;
+}
+#inspector .v32 > .sh-case-panel .sh-vote[data-align='nonparticipation'] .sh-portrait {
+  filter: grayscale(1);
+  opacity: 0.4;
+}
+/* A case whose vote is recorded under another entry: the same record as rows. */
+#inspector .v32 > .sh-case-panel .r17-alias-votes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 24px;
+  margin: 8px 0 24px;
+}
+#inspector .v32 > .sh-case-panel .r17-alias-vote {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  opacity: 1;
+}
+#inspector .v32 > .sh-case-panel .r17-alias-vote strong {
+  font: var(--v31-ui);
+  color: var(--v31-text);
+}
+#inspector .v32 > .sh-case-panel .r17-alias-vote span {
+  font: var(--v31-label);
+  font-weight: 400;
+  color: var(--v31-faint);
+}
+#inspector .v32 > .sh-case-panel .r17-alias-vote[data-align='dissent'] span {
+  color: var(--v31-text);
+}
+#inspector .v32 > .sh-case-panel .sh-panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 24px;
+  margin: 0;
+}
+#inspector .v32 > .sh-case-panel .sh-panel-actions button {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  font: var(--v31-ui);
+  color: var(--v31-link) !important;
+  background: none !important;
+  border: 0 !important;
+  cursor: pointer;
+}
+#inspector .v32 > .sh-case-panel .sh-panel-actions button:hover {
+  color: var(--v31-link-hover) !important;
+}
+#inspector .v32 > .sh-case-panel .sh-vote-details {
+  margin: 16px 0 0;
+  font: var(--v31-ui);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+#inspector .v32 > .sh-case-panel .sh-vote-details > summary {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  color: var(--v31-link);
+  cursor: pointer;
+}
+#inspector .v32 > .sh-case-panel .sh-vote-details p {
+  margin: 0 0 8px !important;
+  font: var(--v31-ui) !important;
+  font-weight: 400 !important;
+  line-height: 24px !important;
+  color: var(--v31-muted);
+}
+#inspector .v32 > .sh-case-panel .sh-legend {
+  display: none;
+}
+#inspector .v32 > .sh-case-panel .sh-source {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 24px;
+  margin: 8px 0 0;
+  padding: 0;
+  border: 0;
+  font: var(--v31-label);
+  color: var(--v31-faint);
+}
+#inspector .v32 > .sh-case-panel .sh-source a {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  font: var(--v31-label);
+  color: var(--v31-muted);
+}
+#inspector .v32 > .sh-case-panel .sh-source a:hover {
+  color: var(--v31-text);
 }
 
 /* ---------- Cases (a concept's cases across the course) ---------- */
@@ -1401,4 +1742,173 @@
   margin: -8px 0;
   padding: 8px 0;
   text-decoration: none;
+}
+
+/* ---------- readers with one facet: a rule or authority page, a connection, a subject ---------- */
+/* The same strip, the same left edge, the same title; no bar. */
+#inspector .v32-plain > *,
+#inspector .v32-plain .authority-reading > * {
+  max-width: var(--v32-col);
+}
+#inspector .v32-plain h2 {
+  margin: 0 0 16px;
+  font: var(--v31-title);
+  /* !important: src/features/v26/typography.css puts the interface face on every heading in the reader. */
+  font-family: var(--dkla-display, 'Exo 2'), sans-serif !important;
+  letter-spacing: 0;
+  text-wrap: balance;
+  color: var(--v31-text);
+}
+#inspector .v32-plain .authority-reading h2 span {
+  display: block;
+  margin: 8px 0 0;
+  font: var(--v31-heading);
+  color: var(--v31-muted);
+}
+#inspector .v32-plain .authority-reading > header {
+  margin: 0 0 24px;
+}
+#inspector .v32-plain .authority-reading :is(.authority-status, .authority-note) {
+  max-width: var(--v32-measure);
+  margin: 8px 0 0;
+  font: var(--v31-ui);
+  font-weight: 400;
+  color: var(--v31-muted);
+}
+#inspector .v32-plain .authority-subsections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 24px;
+}
+#inspector .v32-plain .authority-subsections button,
+#inspector .v32-plain .authority-next button,
+#inspector .v32-plain .authority-reading > button,
+#inspector .v32-plain .authority-related button,
+#inspector .v32-plain .reading-actions button {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px var(--v32-hair-strong);
+  font: var(--v31-ui);
+  color: var(--v31-text);
+  cursor: pointer;
+}
+#inspector .v32-plain .authority-reading button:hover:not(:disabled) {
+  background: var(--v31-raised);
+}
+#inspector .v32-plain .authority-next button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+#inspector .v32-plain .authority-text {
+  margin: 0 0 48px;
+}
+#inspector .v32-plain .authority-text h3,
+#inspector .v32-plain .authority-reading h3,
+#inspector .v32-plain > h3 {
+  margin: 32px 0 12px;
+  font: var(--v31-heading);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-text);
+}
+#inspector .v32-plain :is(.authority-case-links, .authority-related, .authority-provenance) {
+  margin: 0 0 32px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+#inspector .v32-plain .authority-related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+#inspector .v32-plain .authority-related > h3 {
+  flex: 1 0 100%;
+  margin: 0;
+}
+#inspector .v32-plain .authority-case-links .related-heading h3 {
+  margin: 0 0 8px;
+}
+#inspector .v32-plain .authority-case-links ul {
+  margin: 0 -8px;
+  padding: 0;
+  list-style: none;
+}
+#inspector .v32-plain .authority-case-links li {
+  margin: 0;
+}
+#inspector .v32-plain .authority-case-links li button {
+  all: unset;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 36px;
+  padding: 0 8px;
+  overflow: hidden;
+  border-radius: 6px;
+  font: var(--v31-ui);
+  line-height: 36px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--v31-text);
+  cursor: pointer;
+}
+#inspector .v32-plain :is(.authority-case-links, .authority-provenance) summary,
+#inspector .v32-plain details > summary {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  font: var(--v31-ui);
+  color: var(--v31-link);
+  cursor: pointer;
+}
+#inspector .v32-plain .authority-provenance :is(p, h4) {
+  max-width: var(--v32-measure);
+  margin: 0 0 8px;
+  font: var(--v31-ui);
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-muted);
+}
+#inspector .v32-plain .authority-next {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 48px 0 0;
+  padding: 24px 0 0;
+  border-top: 1px solid var(--v32-hair);
+}
+/* A connection or a subject: the summary, then the entries it leads to. */
+#inspector .v32-plain > .takeaway {
+  max-width: var(--v32-hero);
+  margin: 0 0 32px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font:
+    400 22px/32px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-text);
+}
+#inspector .v32-plain > :is(p, .context-text) {
+  max-width: var(--v32-measure);
+  font: var(--v31-body-type);
+  color: var(--v31-muted);
+}
+#inspector .v32-plain .reading-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 32px;
 }

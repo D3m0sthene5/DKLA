@@ -445,7 +445,11 @@
       ':scope > .v25-source-details .dkla-file-chips > *, :scope > .dkla-file-chips > *, :scope > .r19-chiprow > *',
     );
     all(':scope > .authority-context [data-authority-open]');
-    return [...rows.values()];
+    // The reading the brief was written from (what "Original source" used to open) leads the list.
+    const first = host.querySelector(':scope > .r19-brief > .r28-original-sources > *');
+    const original = first && rows.get(sourceOf(first)?.key);
+    if (original) original.original = true;
+    return [...rows.values()].sort((a, b) => (b.original ? 1 : 0) - (a.original ? 1 : 0));
   }
   function sources(host) {
     const rows = sourceRows(host);
@@ -454,7 +458,7 @@
       list?.remove();
       return;
     }
-    const signature = rows.map((r) => r.key + '|' + r.label + '|' + (r.meta || '')).join('\n');
+    const signature = rows.map((r) => [r.key, r.label, r.meta || '', r.original ? 1 : 0].join('|')).join('\n');
     if (
       list &&
       list.dataset.v32Rows === signature &&
@@ -481,10 +485,11 @@
         } else row.type = 'button';
         for (const [name, value] of Object.entries(r.attrs || {})) row.setAttribute(name, value);
         row.dataset.v32Source = r.kind;
+        if (r.original) row.dataset.v32Original = '';
         row.innerHTML = ICON[r.kind];
         row.append(element('span', 'v32-row-label', r.label));
         if (r.meta) row.append(element('span', 'v32-row-meta', r.meta));
-        row.title = r.label;
+        row.title = (r.original ? 'Original source: ' : '') + r.label;
         const li = element('li');
         li.appendChild(row);
         ul.appendChild(li);
