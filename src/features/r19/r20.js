@@ -14,14 +14,10 @@
      Zoomed in on one course, the other courses' titles, tallies, tiles and blocks used to hang in at the edges
      ("…edure", "324 entries · 11 subjects"). They now fade out as the camera moves from the atlas to a course,
      continuously with the zoom, so the animation still reads as one map. */
-  function fadeOthers() {
-    if (!svg || typeof galaxy !== 'function') return;
-    const blocks = galaxy().blocks || {},
-      mine = blocks[S.scope];
-    // v3.2: how far the view has gone from the atlas (0) to this course alone (1): the layers that paint
-    // after this one (Rules & authorities, the Court's figures) fade by the same amount
-    if (typeof R18 !== 'undefined') R18.courseFade = 0;
-    if (!mine) return;
+  // v3.2: how far the view has gone from the atlas (0) to one course alone (1). The layers that paint the
+  // Home blocks (Rules & authorities, SCOTUS History and its figures) fade by the same amount.
+  function courseFade() {
+    if (typeof galaxy !== 'function' || !(galaxy().blocks || {})[S.scope]) return 0;
     // 0 at the atlas, 1 by the time this course fills the screen (courses differ in how far that zoom is)
     const zf = zoomFloor() * 1.12;
     let zc = zf * 1.6;
@@ -32,7 +28,16 @@
     } catch {
       /* default span */
     }
-    const f = zc <= zf * 1.05 ? (S.z >= zc ? 1 : 0) : Math.max(0, Math.min(1, (S.z - zf) / (zc - zf)));
+    return zc <= zf * 1.05 ? (S.z >= zc ? 1 : 0) : Math.max(0, Math.min(1, (S.z - zf) / (zc - zf)));
+  }
+  if (typeof R18 !== 'undefined') R18.courseFadeNow = courseFade;
+  function fadeOthers() {
+    if (!svg || typeof galaxy !== 'function') return;
+    const blocks = galaxy().blocks || {},
+      mine = blocks[S.scope];
+    if (typeof R18 !== 'undefined') R18.courseFade = 0;
+    if (!mine) return;
+    const f = courseFade();
     if (typeof R18 !== 'undefined') R18.courseFade = f;
     if (f <= 0) return;
     // this course's own frame: its block plus its own supporting-cases tile, with a small margin
@@ -157,6 +162,25 @@
       if (measure(line, fs, weight) > maxW) return null;
     }
     if (line) out.push(line);
+    // v3.2: the same number of lines, broken where they come out nearest in length (a designer would not
+    // leave one short word on a line of its own)
+    const words = String(text).split(/\s+/).filter(Boolean),
+      n = out.length;
+    if (n > 1 && n <= 3 && words.length <= 9) {
+      const wide = (i, j) => measure(words.slice(i, j).join(' '), fs, weight);
+      let best = null;
+      const cuts = (from, left, at, widest) => {
+        if (left === 1) {
+          const w = Math.max(widest, wide(from, words.length));
+          if (w <= maxW && (!best || w < best.w)) best = { w, at: [...at, from] };
+          return;
+        }
+        for (let k = from + 1; k <= words.length - (left - 1); k++)
+          cuts(k, left - 1, [...at, from], Math.max(widest, wide(from, k)));
+      };
+      cuts(0, n, [], 0);
+      if (best) return best.at.map((from, i) => words.slice(from, best.at[i + 1] ?? words.length).join(' '));
+    }
     return out;
   }
   function tileLabels() {
@@ -186,7 +210,7 @@
     };
     // v3.2: on a course view (tiles from 130 px wide) each subject of the course also says what is inside
     // it, its cases and rules as a readout under its name; its name is fitted in the room that leaves.
-    const cfs = 10.5 / z,
+    const cfs = Math.min(13, Math.max(10.5, 13 * (z / 0.0627))) / z, // 13 px on a course view in a 1440 px window
       part = (n, one) => (n ? n + ' ' + one + (n === 1 ? '' : 's') : '');
     for (const t of tiles) {
       t.line = '';
@@ -196,13 +220,13 @@
         line =
           [part(c.cases, 'case'), part(c.rules, 'rule')].filter(Boolean).join(' · ') ||
           part(c.concepts, 'concept');
-      if (line && t.ph >= 44 && textWidth(line, cfs, 700, V32_MONO) <= t.r.w - 16 / z) t.line = line;
+      if (line && t.ph >= 44 && textWidth(line, cfs, 500) * 1.08 <= t.r.w - 16 / z) t.line = line;
     }
     const fit = (t, px) => {
       const fs = px / z,
         // v3.2: a tile from 70 to 90 px wide keeps 4 px a side (it kept 7, which set the longest names at 8.5 px)
         maxW = (t.pw - (t.pw < 70 ? 6 : t.pw < 90 ? 8 : 14)) / z,
-        maxLines = Math.max(1, Math.min(3, Math.floor((t.ph - 8 - (t.line ? 20 : 0)) / (px * 1.22))));
+        maxLines = Math.max(1, Math.min(3, Math.floor((t.ph - 8 - (t.line ? 22 : 0)) / (px * 1.22))));
       for (const name of names(t)) {
         const rows = wrapPlain(name, maxW, fs, 600);
         if (rows && rows.length <= maxLines) return rows;
@@ -232,7 +256,7 @@
         fs = t.size / z,
         lh = fs * 1.22,
         counted = !!t.line,
-        up = counted ? 9 / z : 0,
+        up = counted ? 10 / z : 0,
         cx = t.r.x + t.r.w / 2,
         y0 = t.r.y + t.r.h / 2 - ((rows.length - 1) * lh) / 2 + fs * 0.35 - up;
       for (const old of svg.querySelectorAll('text.region-title[data-map-region="' + t.id + '"]'))
@@ -243,7 +267,7 @@
       );
       if (counted)
         parts.push(
-          `<text class="v32-mono v32-faint" x="${cx}" y="${y0 + (rows.length - 1) * lh + 19 / z}" font-size="${cfs}" text-anchor="middle" opacity="${t.g.getAttribute('opacity') || 1}">${esc(t.line)}</text>`,
+          `<text class="v32-count" x="${cx}" y="${y0 + (rows.length - 1) * lh + 21 / z}" font-size="${cfs}" text-anchor="middle" opacity="${t.g.getAttribute('opacity') || 1}">${countSpans(t.line)}</text>`,
         );
     }
     if (parts.length) svg.insertAdjacentHTML('beforeend', parts.join(''));

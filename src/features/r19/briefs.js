@@ -454,7 +454,7 @@
       );
       if (fs * z >= 8)
         parts.push(
-          `<text x="${t.x + w / 2}" y="${t.y + h / 2 + fs * 0.35}" font-size="${fs}" text-anchor="middle">Supporting cases<tspan class="v32-count" dx="${fs * 0.7}">${counts[i]}</tspan></text>`,
+          `<text x="${t.x + w / 2}" y="${t.y + h / 2 + fs * 0.35}" font-size="${fs}" text-anchor="middle"><tspan class="v32-num">${counts[i]}</tspan> supporting cases</text>`,
         );
       parts.push('</g>');
     });

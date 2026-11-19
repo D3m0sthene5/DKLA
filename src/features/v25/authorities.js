@@ -1720,10 +1720,10 @@
       labelW = widthOf(label, fs, 500, 'authority-volume-title'),
       terms = window.DKLA?.glossaryCount?.() || 0,
       count = terms ? terms.toLocaleString('en-US') : '',
-      cfs = 19 * u,
+      cfs = 21 * u,
       // the count is drawn only where it stands clear of the name and is large enough to read
-      showCount = !!count && cfs * S.z >= 9 && labelX + labelW + cfs * 4.6 + 16 * u <= x + w;
-    return `<g class="map-region dictionary-spine v32-dictionary" role="button" tabindex="0" data-dictionary-spine aria-label="Open legal dictionary${count ? ': ' + count + ' terms' : ''}"><title>Open legal dictionary${count ? ' · ' + count + ' terms' : ''}</title><path class="dictionary-spine-cover" data-map-region="dictionary-region" d="M${x + r} ${y}H${x + w - r}Q${x + w} ${y} ${x + w} ${y + r}V${y + h - r}Q${x + w} ${y + h} ${x + w - r} ${y + h}H${x + r}Q${x} ${y + h} ${x} ${y + h - r}V${y + r}Q${x} ${y} ${x + r} ${y}Z" stroke-width="${1 / S.z}"/><g class="v32-glyph" transform="translate(${x + 16 * u} ${y + (h - gs) / 2}) scale(${gs / 16})"><path d="M8 4.4C6.8 3.5 5 3 2.5 3v9c2.5 0 4.3.5 5.5 1.4 1.2-.9 3-1.4 5.5-1.4V3C11 3 9.2 3.5 8 4.4ZM8 4.4v9"/></g><text class="region-title dictionary-spine-title" data-map-region="dictionary-region" x="${labelX}" y="${y + h / 2 + fs * 0.35}" font-size="${fs}" font-weight="500" pointer-events="none">${label}</text>${showCount ? `<text class="v32-mono v32-faint" x="${x + w - 16 * u}" y="${y + h / 2 + cfs * 0.36}" font-size="${cfs}" text-anchor="end" pointer-events="none">${count}</text>` : ''}</g>`;
+      showCount = !!count && cfs * S.z >= 9 && labelX + labelW + cfs * 7.4 + 16 * u <= x + w;
+    return `<g class="map-region dictionary-spine v32-dictionary" role="button" tabindex="0" data-dictionary-spine aria-label="Open legal dictionary${count ? ': ' + count + ' terms' : ''}"><title>Open legal dictionary${count ? ' · ' + count + ' terms' : ''}</title><path class="dictionary-spine-cover" data-map-region="dictionary-region" d="M${x + r} ${y}H${x + w - r}Q${x + w} ${y} ${x + w} ${y + r}V${y + h - r}Q${x + w} ${y + h} ${x + w - r} ${y + h}H${x + r}Q${x} ${y + h} ${x} ${y + h - r}V${y + r}Q${x} ${y} ${x + r} ${y}Z" stroke-width="${1 / S.z}"/><g class="v32-glyph" transform="translate(${x + 16 * u} ${y + (h - gs) / 2}) scale(${gs / 16})"><path d="M8 4.4C6.8 3.5 5 3 2.5 3v9c2.5 0 4.3.5 5.5 1.4 1.2-.9 3-1.4 5.5-1.4V3C11 3 9.2 3.5 8 4.4ZM8 4.4v9"/></g><text class="region-title dictionary-spine-title" data-map-region="dictionary-region" x="${labelX}" y="${y + h / 2 + fs * 0.35}" font-size="${fs}" font-weight="500" pointer-events="none">${label}</text>${showCount ? `<text class="v32-count" x="${x + w - 16 * u}" y="${y + h / 2 + cfs * 0.36}" font-size="${cfs}" text-anchor="end" pointer-events="none"><tspan class="v32-num">${count}</tspan> terms</text>` : ''}</g>`;
   }
   function entrance() {
     if (active() || window.SCOTUSHistory?.state?.().open) return;
@@ -1739,7 +1739,7 @@
     // v3.2: this block belongs to Home. It fades as a course takes over the view (r19/r20.js fadeOthers) and
     // is not drawn at all once the course is alone, so it never shows under a course view's controls.
     const fade = (typeof R18 !== 'undefined' && R18.courseFade) || 0;
-    if (fade >= 0.97) return;
+    if (fade >= 0.85) return;
     let out = `<g class="authority-map-entrance" data-map-region="${ROOT}" role="group" aria-label="Rules and authorities"${fade > 0 ? ` opacity="${(1 - fade).toFixed(3)}"` : ''}><title>Constitution, federal rules, codes and Restatements</title>${frame(root, g, true)}<g class="authority-title-control" data-map-region="${ROOT}" role="button" tabindex="0" aria-label="Explore rules and authorities"><rect x="${(g.panels?.[0] || g.box).x + 26 * g.unit}" y="${g.box.y + 14 * g.unit}" width="${(g.panels?.[0] || g.box).w - 52 * g.unit}" height="${g.header - 24 * g.unit}" fill="transparent" pointer-events="all"/></g>`;
     for (const card of g.cards.values()) out += tile(card, true);
     out += dictionarySpine(g) + '</g>';

@@ -446,6 +446,9 @@
       for (const [course, source] of Object.entries(G.courseDesign)) {
         const design = copy(source),
           a = T[course];
+        // v3.2: a tree line that names a subject no longer on the map (three in the dataset) is left out
+        if (design.spine)
+          design.spine = design.spine.filter((sp) => sourceRegion.has(sp.a) && sourceRegion.has(sp.b));
         for (const item of [...(design.zones || []), ...(design.labels || [])]) {
           item.x += a[0];
           item.y += a[1];

@@ -31,7 +31,20 @@ html #geoCanvas text.v32-muted {
 html #geoCanvas text.v32-faint {
   fill: var(--v31-faint);
 }
-/* Readouts: counts, years, section numbers. */
+/* A count: its number in the readout face and its unit in the interface face, 13 px at reading zoom in
+   the muted colour (rule 8: a count says what it counts and is easy to read). */
+html #geoCanvas text.v32-count {
+  font-weight: 500;
+  fill: var(--v31-muted);
+}
+html #geoCanvas tspan.v32-num {
+  font-family: 'DKLA JetBrains Mono', 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  font-weight: 700;
+  font-size: 0.94em;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+/* Readouts: years, section numbers. */
 html #geoCanvas text.v32-mono {
   font-family: 'DKLA JetBrains Mono', 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
   font-weight: 700;
@@ -165,10 +178,12 @@ html #geoCanvas .v32-row.is-here text.v32-faint {
   cursor: pointer;
   transition: fill-opacity var(--v31-t-press) linear;
 }
-#geoCanvas .v32-tile:hover .v32-tile-hit {
+#geoCanvas .v32-tile:hover .v32-tile-hit,
+#geoCanvas .v32-tile.is-over .v32-tile-hit {
   fill-opacity: 0.05;
 }
 #geoCanvas .v32-tile:hover .v32-tile-bg,
+#geoCanvas .v32-tile.is-over .v32-tile-bg,
 #geoCanvas .v32-tile.is-lit .v32-tile-bg {
   stroke-opacity: 0.9;
 }
@@ -214,11 +229,13 @@ html #studyMain #geoCanvas text.zone-title {
   pointer-events: none;
   transition: stroke-opacity var(--v31-t-press) linear;
 }
+/* At rest the map shows only each course's tree. The curves of association between subjects are there
+   for one tile at a time: the one under the pointer or the one that is open (rule 15). */
 #geoCanvas .v32-thread {
-  stroke-opacity: 0.1;
+  stroke-opacity: 0;
 }
 /* While a tile is under the pointer its own lines are lit and the rest step back. */
-#geoCanvas.has-lit .v32-link:not(.is-hover, .is-lit) {
+#geoCanvas.has-lit .v32-link:not(.is-hover, .is-lit, .v32-thread) {
   stroke-opacity: 0.06;
 }
 #geoCanvas .v32-link.is-hover,
@@ -226,7 +243,7 @@ html #studyMain #geoCanvas text.zone-title {
   stroke-opacity: 1;
 }
 
-/* ---- "Supporting cases": a plain control with its count ---- */
+/* ---- "524 supporting cases": a plain control that says how many ---- */
 #studyMain #geoCanvas .r19-tile.v32-control > rect {
   fill: var(--v31-panel);
   fill-opacity: 1;
@@ -243,12 +260,8 @@ html #geoCanvas .r19-tile.v32-control text {
   font-weight: 500;
   fill: var(--v31-text);
 }
-html #geoCanvas .r19-tile.v32-control .v32-count {
-  font-family: 'DKLA JetBrains Mono', 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-  font-weight: 700;
-  font-size: 0.86em;
-  font-variant-numeric: tabular-nums;
-  fill: var(--v31-faint);
+html #geoCanvas .r19-tile.v32-control .v32-num {
+  fill: var(--v31-muted);
 }
 
 /* ---- the note under the breadcrumb on a course view: quiet controls ---- */
@@ -391,17 +404,15 @@ html #geoCanvas .dkla-court-seat .dkla-seat-label {
 }
 
 /* ---- the ground ---- */
-/* Light falls on the middle of the map and the edges fall away (the map's own background, so it costs
-   nothing while the map moves); a fine grid of dots is drawn with the map. */
-html #studyMain #geoCanvas {
-  background: radial-gradient(ellipse 80% 78% at 50% 42%, #14222c 0%, #0d171f 52%, #070d13 100%) !important;
-}
+/* A fine grid of dots drawn with the map: landmarks while it moves. It is kept very quiet (it adds under
+   one percent to the size of a JPEG of Home, the measure of visual complexity used to judge it). The ground
+   is not darkened toward the edges: a dark surround costs legibility. */
 #geoCanvas .v32-ground {
   pointer-events: none;
 }
 #geoCanvas .v32-dot-ground {
   fill: #cfe0ee;
-  fill-opacity: 0.11;
+  fill-opacity: 0.07;
 }
 
 /* ---- the strip of sessions at the foot of a course view ---- */

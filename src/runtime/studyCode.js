@@ -1868,7 +1868,7 @@ function fadeOuts() {
      rows from 54 px                the name on one line and the entry's summary under it
    Sizes are screen px at the zoom a subject opens at in a 1440 px window (V32.z0); they follow the zoom
    between the limits given, and a line that does not fit ends in an ellipsis and carries a title. */
-const V32 = { z0: 1350 / 2400, tileMin: 200 };
+const V32 = { z0: 1350 / 2400, tileMin: 200, pictMax: 44 };
 const V32_CARD = {
   padX: 40,
   inset: 14,
@@ -1920,7 +1920,9 @@ function mapIcons() {
 function rowGlyph(n, kind, x, y, size, badge) {
   const I = kind === 'case' ? mapIcons() : null,
     rec = I && I.records?.[n.id],
-    own = rec && I.paths?.[rec.motif];
+    art = rec && I.paths?.[rec.motif],
+    // close in (badge) there is room for any drawing
+    own = art && (badge || pictReads(rec.motif, art)) ? art : null;
   if (own) {
     const mod = badge && rec.modifier && I.modifiers?.[rec.modifier];
     return `<g class="v32-glyph v32-pict" transform="translate(${x} ${y}) scale(${size / 24})">${own}${mod ? `<g transform="translate(14.5 14.5) scale(.42)"><circle cx="12" cy="12" r="13" class="v32-pict-badge"/>${mod}</g>` : ''}</g>`;
@@ -2042,6 +2044,9 @@ function textWidth(s, fs, weight = 400, family = '') {
   return ((w + (words.length - 1) * wordWidth(' ', weight, family)) * fs) / 100;
 }
 // → { rows, cut }: at most `lines` rows no wider than maxW; cut says the text did not all fit.
+// Lines break where an editor would break them: a case caption never ends a line on "v." (the "v." goes
+// down with the party it introduces), and a name that takes two lines is split where the two come out
+// nearest in length, so no word is left alone on the second.
 function fitText(s, maxW, fs, weight = 400, lines = 1, family = '') {
   s = String(s || '').replace(/­/g, '');
   const key = lines + '|' + weight + '|' + family + '|' + Math.round((maxW / fs) * 40) + '|' + s;
@@ -2049,43 +2054,85 @@ function fitText(s, maxW, fs, weight = 400, lines = 1, family = '') {
   if (out) return out;
   const unit = fs / 100,
     space = wordWidth(' ', weight, family) * unit,
-    words = s.split(/\s+/).filter(Boolean),
+    words = [];
+  for (const word of s.split(/\s+/).filter(Boolean)) {
+    // "v." and the word after it are one piece; so are a dash and the word before it
+    const last = words[words.length - 1];
+    if (last && (/^(v\.?|vs\.?)$/.test(last.split(' ').pop()) || /^[—–·]$/.test(word)))
+      words[words.length - 1] = last + ' ' + word;
+    else words.push(word);
+  }
+  const widths = words.map((w) => textWidth(w, fs, weight, family)),
+    span = (from, to) => {
+      let w = 0;
+      for (let i = from; i < to; i++) w += widths[i] + (i > from ? space : 0);
+      return w;
+    },
     rows = [];
-  let line = '',
-    width = 0,
-    cut = false,
-    i = 0;
-  for (; i < words.length; i++) {
-    const w = wordWidth(words[i], weight, family) * unit;
-    if (line && width + space + w > maxW) {
-      if (rows.length === lines - 1) break;
-      rows.push(line);
-      line = words[i];
-      width = w;
-    } else {
-      width = line ? width + space + w : w;
-      line = line ? line + ' ' + words[i] : words[i];
+  let cut = false;
+  if (span(0, words.length) <= maxW) rows.push(words.join(' '));
+  else {
+    let best = -1,
+      bestW = Infinity;
+    if (lines >= 2)
+      for (let k = 1; k < words.length; k++) {
+        const w = Math.max(span(0, k), span(k, words.length));
+        if (w <= maxW && w < bestW) {
+          bestW = w;
+          best = k;
+        }
+      }
+    if (best > 0) rows.push(words.slice(0, best).join(' '), words.slice(best).join(' '));
+    else {
+      // more than fits: fill the lines, and the last one is cut on a letter and ends in an ellipsis
+      cut = true;
+      let i = 0;
+      while (rows.length < lines - 1 && i < words.length) {
+        let k = i + 1;
+        while (k < words.length && span(i, k + 1) <= maxW) k++;
+        rows.push(words.slice(i, k).join(' '));
+        i = k;
+      }
+      const rest = words.slice(i).join(' '),
+        dots = wordWidth('…', weight, family) * unit;
+      let lo = 0,
+        hi = rest.length;
+      while (lo < hi) {
+        const mid = (lo + hi + 1) >> 1;
+        if (textWidth(rest.slice(0, mid), fs, weight, family) + dots <= maxW) lo = mid;
+        else hi = mid - 1;
+      }
+      rows.push(
+        rest
+          .slice(0, lo)
+          .replace(/[\s,;:·—–(-]+$/, '')
+          .replace(/\s+v\.?$/, '') + '…',
+      );
     }
   }
-  if (i < words.length || width > maxW) {
-    // the last line takes what is left and is cut to fit, on a letter, with an ellipsis
-    cut = true;
-    let rest = line + (i < words.length ? ' ' + words.slice(i).join(' ') : '');
-    const dots = wordWidth('…', weight, family) * unit;
-    let lo = 0,
-      hi = rest.length;
-    while (lo < hi) {
-      const mid = (lo + hi + 1) >> 1;
-      if (textWidth(rest.slice(0, mid), fs, weight, family) + dots <= maxW) lo = mid;
-      else hi = mid - 1;
-    }
-    line = rest.slice(0, lo).replace(/[\s,;:·—–-]+$/, '') + '…';
-  }
-  if (line) rows.push(line);
   out = { rows, cut };
   if (fitted.size > 12000) fitted.clear();
   fitted.set(key, out);
   return out;
+}
+// A count is read as a number and its unit: the number in the readout face, the words in the interface face.
+function countSpans(text) {
+  return E(text).replace(/\d[\d,]*/g, (n) => `<tspan class="v32-num">${n}</tspan>`);
+}
+/* A case's own pictogram echoes the large one in the reader. It is drawn in a row only where the drawing
+   still reads at glyph size: a pictogram with more detail than a 16 px box can hold (many strokes) is a
+   smudge there, and the plain case glyph says "a case" better. Detail is counted from the drawing itself. */
+const pictDetail = new Map();
+function pictReads(key, markup) {
+  let ok = pictDetail.get(key);
+  if (ok === undefined) {
+    const strokes =
+      (markup.match(/[MmLlHhVvCcSsQqTtAa]/g) || []).length +
+      (markup.match(/<(circle|rect|ellipse|line)/g) || []).length * 3;
+    ok = strokes <= V32.pictMax;
+    pictDetail.set(key, ok);
+  }
+  return ok;
 }
 // A group's entries: those with a row of their own, in place order, and those behind "Notes and questions".
 let memberKey = '',
@@ -2281,8 +2328,9 @@ function draw() {
         avoidBoxes: true,
       });
     }
+    // The course's tree: the few lines its design draws between subjects. They are what the map shows at
+    // rest, on Home and on a course view; the curves of association appear for one tile at a time.
     for (const sp of dz.spine || []) {
-      if (S.scope === 'Atlas') break;
       const ra = regionFor(sp.a),
         rb = regionFor(sp.b);
       if (!ra || !rb) continue;
@@ -2401,12 +2449,12 @@ function draw() {
     K = {
       title: px(30, 13, 34),
       ask: px(15, 11, 16),
-      readout: px(12, 9.5, 12.5),
+      readout: px(13, 10.5, 13.5),
       head: px(19, 11.5, 20),
       question: px(13, 10.5, 14),
       summary: px(12.5, 11, 13),
       label: px(13, 11, 15.5),
-      meta: px(11, 9.5, 12),
+      meta: px(12, 10, 12.5),
       glyph: px(16, 11, 20),
       radius: Math.max(20, 6 / z),
       rowRadius: px(6, 3, 8),
@@ -2473,9 +2521,9 @@ function draw() {
         );
         const ry = r.y + pad + fs * 0.8 + rows.length * fs * 1.2 + 2 / z,
           rfs = 10.5 / z;
-        if (readout && ry + rfs < box.y + box.h && textWidth(readout, rfs, 700, V32_MONO) <= r.w - pad * 2)
+        if (readout && ry + rfs < box.y + box.h && textWidth(readout, rfs, 500) * 1.08 <= r.w - pad * 2)
           parts.push(
-            `<text class="v32-mono v32-faint" x="${r.x + pad}" y="${ry}" font-size="${rfs}">${E(readout)}</text>`,
+            `<text class="v32-count" x="${r.x + pad}" y="${ry}" font-size="${rfs}">${countSpans(readout)}</text>`,
           );
         parts.push('</g>');
         continue;
@@ -2484,7 +2532,7 @@ function draw() {
         rb = px(11, 8.5, 12),
         hasStep = !!r.step,
         tx = hasStep ? x0 + rb * 2 + px(10, 6, 11) : x0,
-        readoutW = readout ? textWidth(readout, K.readout, 700, V32_MONO) : 0,
+        readoutW = readout ? textWidth(readout, K.readout, 500) * 1.08 : 0,
         titleFit = fitText(title, right - tx, K.title, 600, 1, V32_DISPLAY),
         titleW = textWidth(titleFit.rows[0] || '', K.title, 600, V32_DISPLAY),
         showReadout = !!readout && tx + titleW + px(24, 12, 24) + readoutW <= right,
@@ -2504,7 +2552,7 @@ function draw() {
         );
       if (showReadout)
         parts.push(
-          `<text class="v32-mono v32-faint" x="${right}" y="${yT}" font-size="${K.readout}" text-anchor="end">${E(readout)}</text>`,
+          `<text class="v32-count" x="${right}" y="${yT}" font-size="${K.readout}" text-anchor="end">${countSpans(readout)}</text>`,
         );
       parts.push('</g>');
       // Groups: a heading, a question, rows. No boxes.
@@ -2539,11 +2587,11 @@ function draw() {
         } else if (!showRows) {
           // rows would be too small to read here: say what the group holds
           const line = countText(dc, true),
-            fs = px(11, 9.5, 12),
+            fs = px(13, 10.5, 13.5),
             ly = hy + K.head * 0.5 + fs * 1.1;
-          if (line && ly + fs * 0.4 <= d.y + d.h && textWidth(line, fs, 700, V32_MONO) <= hw)
+          if (line && ly + fs * 0.4 <= d.y + d.h && textWidth(line, fs, 500) * 1.08 <= hw)
             g.push(
-              `<text class="v32-mono v32-faint" x="${hx}" y="${ly}" font-size="${fs}">${E(line)}</text>`,
+              `<text class="v32-count" x="${hx}" y="${ly}" font-size="${fs}">${countSpans(line)}</text>`,
             );
         }
         g.push('</g>');
@@ -2594,18 +2642,13 @@ function draw() {
         }
         const nc = members.notes.length ? homeFor(members.notes[0].id) : null;
         if (nc && intersects(nc, B, 40)) {
-          // every note and question of the group, behind one quiet row
-          const count = String(members.notes.length),
-            cw = textWidth(count, K.meta, 700, V32_MONO),
-            lab = fitText(
-              'Notes and questions',
-              nc.w - labelX - C.inset - cw - K.glyph * 0.75,
-              K.label,
-              500,
-              1,
-            );
+          // every note and question of the group, behind one quiet row that says how many there are
+          const count = members.notes.length,
+            words = count === 1 ? 'note or question' : 'notes and questions',
+            numW = textWidth(String(count), K.label, 700, V32_MONO) + K.label * 0.3,
+            lab = fitText(words, nc.w - labelX - C.inset - numW, K.label, 500, 1);
           rows.push(
-            `<g class="v32-row v32-notes${hereNote ? ' is-here' : ''}" data-map-district="${E(d.id)}" data-map-notes="1" role="button" tabindex="0"${hereNote ? ' aria-current="true"' : ''} aria-label="Notes and questions in ${E(d.title)}: ${count}"><title>Open the ${count} ${members.notes.length === 1 ? 'note or question' : 'notes and questions'} filed under ${E(d.title)}</title><rect class="v32-row-bg" x="${nc.x}" y="${nc.y + K.hair}" width="${nc.w}" height="${nc.h - K.hair * 2}" rx="${K.rowRadius}"/>${hereNote ? `<rect class="v32-here" x="${nc.x + 1 / z}" y="${nc.y + nc.h * 0.22}" width="${2.5 / z}" height="${nc.h * 0.56}" rx="${1.25 / z}"/>` : ''}<g class="v32-glyph" transform="translate(${nc.x + gx} ${nc.y + (nc.h - K.glyph) / 2}) scale(${K.glyph / 16})">${V32_GLYPHS.note}</g><text class="v32-label v32-quiet" x="${nc.x + labelX}" y="${nc.y + nc.h / 2 + K.label * 0.35}" font-size="${K.label}">${E(lab.rows[0] || '')}</text><text class="v32-mono v32-faint" x="${nc.x + nc.w - C.inset}" y="${nc.y + nc.h / 2 + K.meta * 0.36}" font-size="${K.meta}" text-anchor="end">${count}</text></g>`,
+            `<g class="v32-row v32-notes${hereNote ? ' is-here' : ''}" data-map-district="${E(d.id)}" data-map-notes="1" data-count="${count}" role="button" tabindex="0"${hereNote ? ' aria-current="true"' : ''} aria-label="${count} ${words} in ${E(d.title)}"><title>Open the ${count} ${words} filed under ${E(d.title)}</title><rect class="v32-row-bg" x="${nc.x}" y="${nc.y + K.hair}" width="${nc.w}" height="${nc.h - K.hair * 2}" rx="${K.rowRadius}"/>${hereNote ? `<rect class="v32-here" x="${nc.x + 1 / z}" y="${nc.y + nc.h * 0.22}" width="${2.5 / z}" height="${nc.h * 0.56}" rx="${1.25 / z}"/>` : ''}<g class="v32-glyph" transform="translate(${nc.x + gx} ${nc.y + (nc.h - K.glyph) / 2}) scale(${K.glyph / 16})">${V32_GLYPHS.note}</g><text class="v32-label v32-quiet" x="${nc.x + labelX}" y="${nc.y + nc.h / 2 + K.label * 0.35}" font-size="${K.label}"><tspan class="v32-num">${count}</tspan> ${E(lab.rows[0] || '')}</text></g>`,
           );
         }
         if (rows.length) {
@@ -3749,11 +3792,12 @@ $('inspector').addEventListener('scroll', deferPersist, { passive: true });
 let litTile = null;
 function lightTile(id, again = false) {
   if (id === litTile && !again) return;
-  for (const el of svg.querySelectorAll('.is-near, .v32-link.is-hover'))
-    el.classList.remove('is-near', 'is-hover');
+  for (const el of svg.querySelectorAll('.is-near, .is-over, .v32-link.is-hover'))
+    el.classList.remove('is-near', 'is-over', 'is-hover');
   litTile = id;
   svg.classList.toggle('has-lit', !!id);
   if (!id) return;
+  svg.querySelector(`.v32-tile[data-tile="${CSS.escape(id)}"]`)?.classList.add('is-over');
   for (const line of svg.querySelectorAll('.v32-link')) {
     const [a, b] = line.dataset.link.split(' ');
     if (a !== id && b !== id) continue;
@@ -3762,7 +3806,12 @@ function lightTile(id, again = false) {
   }
 }
 svg.addEventListener('pointerover', (e) => {
-  if (!S.pointers.size) lightTile(e.target.closest?.('.v32-tile')?.dataset.tile || null);
+  if (S.pointers.size) return;
+  // a tile, or its name (the name is drawn over the tile, in the labels' layer)
+  const id =
+    e.target.closest?.('.v32-tile')?.dataset.tile ||
+    e.target.closest?.('text.region-title[data-map-region]')?.dataset.mapRegion;
+  lightTile(id && svg.querySelector(`.v32-tile[data-tile="${CSS.escape(id)}"]`) ? id : null);
 });
 svg.addEventListener('pointerleave', () => lightTile(null));
 // "Notes and questions" on a group opens the group in the reader with that list unfolded and in view.

@@ -206,7 +206,47 @@ for (const id of subjects) {
       off,
       cut,
       wrong,
-      readout: [...el.querySelectorAll('text.v32-mono')].map((t) => t.textContent).join(' | '),
+      readout: [...el.querySelectorAll('text.v32-count')].map((t) => t.textContent).join(' | '),
+      // counts: their size on screen and their colour
+      counts: [
+        ...el.querySelectorAll('text.v32-count'),
+        ...notes.map((g) => g.querySelector('.v32-num')),
+      ].map((t) => {
+        const m = t.getScreenCTM(),
+          cs = getComputedStyle(t.tagName === 'tspan' ? t.parentNode : t);
+        return { px: Math.round(parseFloat(cs.fontSize) * Math.hypot(m.a, m.b) * 10) / 10, fill: cs.fill };
+      }),
+      muted: getComputedStyle(document.documentElement).getPropertyValue('--v31-muted').trim(),
+      // gaps: between one group and the next below it, and inside a group (its heading band to its first row)
+      gaps: (() => {
+        const rects = groups.map((g) => {
+          const d = districtFor(g.querySelector('[data-map-district]').dataset.mapDistrict);
+          return { x: d.x, y: d.y, b: d.y + d.h, inside: window.DKLAGeography.card.headGap || 0 };
+        });
+        let between = Infinity;
+        for (const a of rects)
+          for (const b of rects)
+            if (a !== b && a.x === b.x && b.y >= a.b) between = Math.min(between, b.y - a.b);
+        return {
+          between: between * z,
+          inside: (rects[0]?.inside || 0) * z,
+          columns: window.DKLAGeography.card.colGap / window.DKLAGeography.card.cellGap,
+        };
+      })(),
+      // composition: a caption never ends a line on "v.", and no word is left alone on a second line
+      dangling: rows
+        .map((g) => [...g.querySelectorAll('text.v32-label tspan')].map((t) => t.textContent.trim()))
+        .filter((lines) => lines.length > 1 && /(^|\s)v\.?$/.test(lines[0]))
+        .map((lines) => lines.join(' / ')),
+      stranded: rows
+        .map((g) => [...g.querySelectorAll('text.v32-label tspan')])
+        .filter(
+          (lines) =>
+            lines.length > 1 &&
+            !/\s/.test(lines[1].textContent.trim()) &&
+            lines[1].getComputedTextLength() < lines[0].getComputedTextLength() * 0.34,
+        )
+        .map((lines) => lines.map((t) => t.textContent).join(' / ')),
       title: el.querySelector('text.v32-title')?.textContent || '',
       titleFace: getComputedStyle(el.querySelector('text.v32-title'))
         .fontFamily.split(',')[0]
@@ -220,7 +260,8 @@ for (const id of subjects) {
         ),
       ],
       notes: notes.map((g) => ({
-        count: g.querySelector('text.v32-mono')?.textContent,
+        count: g.querySelector('.v32-num')?.textContent,
+        label: g.querySelector('text.v32-label').textContent,
         want: String(
           Object.values(mapData().homes).filter((h) => h.district === g.dataset.mapDistrict && h.support)
             .length,
@@ -263,7 +304,23 @@ for (const id of subjects) {
     ['DKLA Inter 600'],
     `${id}: group names are Inter 600 (${card.headFaces})`,
   );
-  for (const n of card.notes) assert.equal(n.count, n.want, `${id}: a notes row shows how many it holds`);
+  for (const n of card.notes) {
+    assert.equal(n.count, n.want, `${id}: a notes row shows how many it holds`);
+    assert.match(n.label, /^\d+ notes? (and|or) questions?$/, `${id}: and says what it counts (${n.label})`);
+  }
+  const rgbOf = (hex) =>
+    `rgb(${parseInt(hex.slice(1, 3), 16)}, ${parseInt(hex.slice(3, 5), 16)}, ${parseInt(hex.slice(5, 7), 16)})`;
+  for (const c of card.counts) {
+    assert.equal(c.fill, rgbOf(card.muted), `${id}: counts are in the muted colour`);
+    if (card.z >= 0.56) assert.ok(c.px >= 12.2, `${id}: counts are 13 px at reading zoom (${c.px})`);
+  }
+  assert.ok(
+    card.groups < 2 || !isFinite(card.gaps.between) || card.gaps.between >= card.gaps.inside * 2,
+    `${id}: the gap between groups (${card.gaps.between.toFixed(1)} px) is at least twice the gap inside one (${card.gaps.inside.toFixed(1)} px)`,
+  );
+  assert.ok(card.gaps.columns >= 2, `${id}: and so is the gap between the two columns of groups`);
+  assert.deepEqual(card.dangling, [], `${id}: no caption ends a line on "v."`);
+  assert.deepEqual(card.stranded, [], `${id}: no word is left alone on a second line`);
   assert.ok(card.fits, `${id}: the contents fit the place the subject has on the map`);
   assert.ok(
     card.panel.x >= card.frame.x - 1 &&
@@ -346,7 +403,11 @@ const notes = await page.evaluate(() => {
     label: g.querySelector('text.v32-label').textContent,
   };
 });
-assert.equal(notes.label, 'Notes and questions', 'a group’s notes and questions are one row');
+assert.match(
+  notes.label,
+  /^\d+ notes and questions$/,
+  'a group’s notes and questions are one row that says how many',
+);
 await page.mouse.click(notes.x, notes.y);
 await page.waitForFunction(() => selected?.type === 'district' && selected.id === 'exchange');
 await page.waitForFunction(() =>
@@ -387,6 +448,7 @@ await legible('close in');
 
 /* ---- 5. the course views ---- */
 for (const course of ['Contracts', 'Civil Procedure', 'Legislation and the Regulatory State']) {
+  await page.mouse.move(5, 5); // off the map: nothing is under the pointer
   await go((course) => home(course, false), course);
   const view = await page.evaluate((course) => {
     const canvas = document.getElementById('geoCanvas'),
@@ -412,8 +474,17 @@ for (const course of ['Contracts', 'Civil Procedure', 'Legislation and the Regul
     return {
       tiles: tiles.length,
       unnamed: tiles.filter((g) => !named(g.dataset.tile)).map((g) => g.dataset.tile),
-      counted: [...canvas.querySelectorAll('text.v32-mono')].filter((t) =>
+      counted: [...canvas.querySelectorAll('text.v32-count')].filter((t) =>
         /^\d+ (case|rule|concept)/.test(t.textContent),
+      ).length,
+      // lines at rest: the course's tree only
+      tree: [...canvas.querySelectorAll('.v32-link:not(.v32-thread)')].filter(
+        (e) =>
+          parseFloat(getComputedStyle(e).strokeOpacity) > 0.01 &&
+          regionCourse(regionFor(e.dataset.link.split(' ')[0])) === course,
+      ).length,
+      curves: [...canvas.querySelectorAll('.v32-thread')].filter(
+        (e) => parseFloat(getComputedStyle(e).strokeOpacity) > 0.01,
       ).length,
       stepped: stepped.length,
       over,
@@ -486,6 +557,11 @@ for (const course of ['Contracts', 'Civil Procedure', 'Legislation and the Regul
     `${course}: the course's name is not under the top bar`,
   );
   assert.equal(view.dashed, 0, `${course}: the course's parts have no outline`);
+  assert.equal(view.curves, 0, `${course}: at rest no curve of association is drawn (${view.curves})`);
+  assert.ok(
+    view.tree >= 8 && view.tree <= 14,
+    `${course}: at rest the course's tree is drawn (${view.tree} lines)`,
+  );
   assert.ok(view.strip, `${course}: the strip of sessions is shown`);
   assert.deepEqual(view.under, [], `${course}: nothing the map draws lies under the controls at its foot`);
   assert.equal(view.capitals, 0, `${course}: the strip has no capitals-only label`);
@@ -503,10 +579,18 @@ const homeView = await page.evaluate(() => {
   return {
     tiles: canvas.querySelectorAll('g.map-region.v32-tile path[data-map-region]').length,
     support: [...canvas.querySelectorAll('.r19-tile')].map((g) => ({
-      count: g.querySelector('.v32-count')?.textContent || '',
+      count: g.querySelector('.v32-num')?.textContent || '',
+      label: g.querySelector('text')?.textContent || '',
       dash: getComputedStyle(g.querySelector('rect')).strokeDasharray,
     })),
-    dictionary: canvas.querySelector('.v32-dictionary text.v32-mono')?.textContent || '',
+    dictionary: canvas.querySelector('.v32-dictionary text.v32-count')?.textContent || '',
+    curves: [...canvas.querySelectorAll('.v32-thread')].filter(
+      (e) => parseFloat(getComputedStyle(e).strokeOpacity) > 0.01,
+    ).length,
+    tree: [...canvas.querySelectorAll('.v32-link:not(.v32-thread)')].filter(
+      (e) => parseFloat(getComputedStyle(e).strokeOpacity) > 0.01,
+    ).length,
+    ground: getComputedStyle(canvas).backgroundImage,
     books: [
       ...new Set(
         [...canvas.querySelectorAll('.authority-volume-cover .authority-cover-bg')].map(
@@ -520,17 +604,45 @@ const homeView = await page.evaluate(() => {
 assert.ok(homeView.tiles >= 40, `Home: every subject is a tile (${homeView.tiles})`);
 assert.equal(homeView.support.length, 3, 'Home: three supporting-cases controls');
 for (const s of homeView.support) {
-  assert.match(s.count, /^\d+$/, 'Home: a supporting-cases control shows its number');
+  assert.match(
+    s.label,
+    /^\d+ supporting cases$/,
+    `Home: a supporting-cases control says how many (${s.label})`,
+  );
   assert.equal(s.dash, 'none', 'Home: a supporting-cases control has a plain outline');
 }
 assert.match(
   homeView.dictionary,
-  /^\d[\d,]*$/,
+  /^\d[\d,]* terms$/,
   `Home: the dictionary shows its number of terms (${homeView.dictionary})`,
 );
+assert.equal(homeView.curves, 0, `Home: at rest no curve of association is drawn (${homeView.curves})`);
+assert.ok(homeView.tree >= 25, `Home: at rest the three course trees are drawn (${homeView.tree} lines)`);
 assert.equal(homeView.covers, 6, 'Home: six books');
 assert.equal(homeView.books.length, 1, 'Home: the six books share one outline');
 await legible('Home');
+// a tile under the pointer shows its own links, and only those
+const over = await page.evaluate(() => {
+  const g = document.querySelector('#geoCanvas .v32-tile[data-tile="consideration"] .v32-tile-hit'),
+    b = g.getBoundingClientRect();
+  return { x: b.left + b.width / 2, y: b.top + b.height / 2 };
+});
+await page.mouse.move(over.x, over.y);
+await page.waitForFunction(() => document.querySelector('#geoCanvas .v32-link.is-hover'));
+const lit = await page.evaluate(() => {
+  const shown = [...document.querySelectorAll('#geoCanvas .v32-thread')].filter(
+    (e) => parseFloat(getComputedStyle(e).strokeOpacity) > 0.5,
+  );
+  return {
+    shown: shown.length,
+    own: shown.filter((e) => e.dataset.link.split(' ').includes('consideration')).length,
+  };
+});
+assert.ok(
+  lit.shown >= 1 && lit.shown === lit.own,
+  `Home: a tile under the pointer shows its own links only (${lit.own} of ${lit.shown})`,
+);
+await page.mouse.move(5, 5);
 report.push(
   `Home: ${homeView.tiles} tiles; supporting cases ${homeView.support.map((s) => s.count).join(', ')}; dictionary ${homeView.dictionary} terms`,
 );

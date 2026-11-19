@@ -502,6 +502,8 @@
     draw = function () {
       if (H.open) return;
       oldDraw();
+      // v3.2: the block belongs to Home; once a course has the view it is not drawn (r19/r20.js courseFade)
+      if ((typeof R18 !== 'undefined' && R18.courseFadeNow ? R18.courseFadeNow() : 0) >= 0.85) return;
       $h('geoCanvas').insertAdjacentHTML('beforeend', mapOverlay());
     };
     priorHome = home;
