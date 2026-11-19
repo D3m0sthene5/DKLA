@@ -714,14 +714,14 @@
       when: () => typeof undoStack !== 'undefined' && undoStack.length > 0,
     },
     { id: 'save', label: 'Save and back up', glyph: 'save', attrs: 'data-action="save"' },
-    { id: 'guide', label: 'Guide', note: 'A short walkthrough', glyph: 'guide', attrs: 'data-r20-guide="1"' },
-    {
-      id: 'patch',
-      label: 'Patch notes',
-      glyph: 'patch',
-      attrs: 'data-dkla-patch="1"',
-      meta: () => header.querySelector('.dkla-release')?.textContent.trim() || '',
-    },
+  ];
+  // About the atlas itself, not the reader's own work: quiet links in the Library's footer.
+  const version = () => header.querySelector('.dkla-release')?.textContent.trim() || '';
+  const ABOUT = [
+    { id: 'guide', label: 'Guide', attrs: 'data-r20-guide="1"', title: 'A short walkthrough of the atlas' },
+    { id: 'help', label: 'How to use this map', attrs: 'data-action="help"' },
+    { id: 'scope', label: 'Sources and coverage', attrs: 'data-action="scope"' },
+    { id: 'patch', label: 'Patch notes', attrs: 'data-dkla-patch="1"', meta: version },
   ];
   const GROUPS = [
     ['Collections', COLLECTIONS],
@@ -748,6 +748,9 @@
     const [first = '', second] = metaParts(row);
     return E(first) + (second ? `<span class="v32-row-more"> · ${E(second)}</span>` : '');
   };
+  // The dotted line an index draws from a name to its figure (chrome.css shows it in the Library, where
+  // the two stand a column apart; in the palette the count follows the name instead).
+  const LEADER = '<span class="v32-row-lead" aria-hidden="true"></span>';
   function rowHTML(row, role) {
     const attrs = typeof row.attrs === 'function' ? row.attrs() : row.attrs;
     return (
@@ -755,6 +758,7 @@
       glyph(row.glyph) +
       `<span class="v32-row-label">${E(row.label)}</span>` +
       `<span class="v32-row-note">${E(row.note || '')}</span>` +
+      LEADER +
       `<span class="v32-row-meta">${metaHTML(row)}</span></button>`
     );
   }
@@ -769,11 +773,51 @@
       `<div class="v32-lib-side">${groupHTML(GROUPS[0])}${groupHTML(GROUPS[1])}</div>` +
       `<div class="v32-lib-side">${groupHTML(GROUPS[2])}${groupHTML(GROUPS[3])}</div>` +
       '<footer class="v32-lib-foot">' +
-      '<button type="button" class="v32-quiet" role="menuitem" data-action="help">How to use this map</button>' +
-      '<button type="button" class="v32-quiet" role="menuitem" data-action="scope">Sources and coverage</button>' +
+      ABOUT.map(
+        (link) =>
+          `<button type="button" class="v32-quiet" role="menuitem" data-v32-row="${link.id}" ${link.attrs}${link.title ? ` title="${E(link.title)}"` : ''}>` +
+          E(link.label) +
+          (link.meta ? ` <span class="v32-quiet-meta">${E(link.meta())}</span>` : '') +
+          '</button>',
+      ).join('') +
       '<a class="v32-quiet" role="menuitem" href="/privacy.html" target="_blank" rel="noopener">Privacy</a>' +
       '<span class="v32-lib-name">Danny Kind Legal Atlas</span>' +
       '</footer>';
+    measure();
+  }
+  // Under the Library's title, what the map itself holds, so the collections below read as what stands
+  // beside it: "On the map  392 cases · 333 concepts · 75 rules · 235 notes · 17 hypotheticals". Counted
+  // from the open graph each time the Library opens (an entry added a minute ago is in it).
+  const ON_MAP = [
+    ['Case', 'case', 'cases'],
+    ['Concept', 'concept', 'concepts'],
+    ['Rule', 'rule', 'rules'],
+    ['Note', 'note', 'notes'],
+    ['Hypothetical', 'hypothetical', 'hypotheticals'],
+  ];
+  const onMap = () => {
+    const kinds = new Map();
+    for (const node of graph().nodes || []) kinds.set(node.kind, (kinds.get(node.kind) || 0) + 1);
+    return ON_MAP.map(([kind, one, many]) => counting(kinds.get(kind), [one, many])).filter(Boolean);
+  };
+  function measure() {
+    const head = dialog?.querySelector('.v32-shell-head'),
+      title = head?.querySelector('h2');
+    if (!title) return;
+    let block = head.querySelector('.v32-shell-title');
+    if (!block) {
+      block = make('div', 'v32-shell-title');
+      title.before(block);
+      block.append(title);
+    }
+    const line = block.querySelector('.v32-shell-sum') || make('p', 'v32-shell-sum');
+    const parts = onMap();
+    line.innerHTML = parts.length
+      ? // (a narrow Library may break the line after a "·", never inside a count)
+        `<span class="v32-shell-sum-label">On the map</span> <span class="v32-shell-sum-counts">${E(parts.map((part) => part.replace(' ', '\u00a0')).join('\u00a0· '))}</span>`
+      : '';
+    line.hidden = !parts.length;
+    block.append(line);
   }
   // A count that arrives after the Library or the palette was drawn (the dictionary loads late).
   function recount() {
@@ -817,6 +861,7 @@
                 glyph('lecture') +
                 `<span class="v32-row-label">Class ${deck.number}</span>` +
                 `<span class="v32-row-note">${E(deck.title || '')}</span>` +
+                LEADER +
                 `<span class="v32-row-meta">${E([day(deck.date), deck.topics.length + ' notes'].filter(Boolean).join(' · '))}</span></a>`,
             )
             .join('') +
@@ -1146,6 +1191,7 @@
           meta: metaOf(row),
         })),
       ),
+    onMap,
     selected: () => chosen,
     mode: () => mode,
     recent: () => recent.slice(),

@@ -684,14 +684,23 @@
     slot.innerHTML = `<span class="search-where">${whereLine(why)}</span>` + passage(why.html);
   }
   // The passage, with the words before its first marked word in an element of their own. A result is one
-  // row (v3.2), so the passage has little room: the stylesheet cuts those leading words short from their
-  // start, and the marked word is always in sight. The passage's text is unchanged.
+  // row (v3.2), so the passage has little room: only the last two or three of those words are shown (the
+  // last KEEP characters, cut at a word, never inside one), so the marked word is always in sight. The
+  // earlier words stay in the page, set apart for the stylesheet to keep out of sight: the passage's text
+  // is unchanged.
+  const KEEP = 18;
   function passage(html) {
     if (!html) return '';
     const at = html.indexOf('<mark>');
+    if (at <= 0) return '<span class="search-snippet">' + html + '</span>';
+    const lead = html.slice(0, at),
+      cut = lead.length > KEEP ? lead.indexOf(' ', lead.length - KEEP - 1) + 1 : 0;
     return (
-      '<span class="search-snippet">' +
-      (at > 0 ? `<span class="search-lead"><bdi>${html.slice(0, at)}</bdi></span>${html.slice(at)}` : html) +
+      '<span class="search-snippet"><span class="search-lead">' +
+      (cut > 0 ? `<span class="search-lead-far">${lead.slice(0, cut)}</span>` : '') +
+      lead.slice(cut) +
+      '</span>' +
+      html.slice(at) +
       '</span>'
     );
   }

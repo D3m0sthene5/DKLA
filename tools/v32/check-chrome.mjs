@@ -19,8 +19,11 @@
    5. Up and Down move one highlight, Enter opens the highlighted row, Escape closes and hands the keyboard
       back to where it was.
    6. The Library is one dialog in four groups of at most eight; every row says how much is behind it and of
-      what ("115 flowcharts · 975 steps") in the muted colour at 13 px, and opens the right thing; a count
-      that is not known yet shows nothing (not zero) and fills in when its data arrives.
+      what ("115 flowcharts · 975 steps") in the muted colour at 13 px, with a leader from its name to that
+      count, and opens the right thing; a count that is not known yet shows nothing (not zero) and fills in
+      when its data arrives. Under the title, what the map itself holds ("On the map 392 cases · ..."),
+      counted from the open graph; in the footer, what is about the atlas (Guide, How to use this map,
+      Sources and coverage, Patch notes with the version, Privacy).
    7. The splash line shows on Home only, and steps out while a dialog is open.
    8. No control in the bar, the palette or the Library is under 36 px.
    9. A fixed list of searches returns exactly the rows it returned before the frame was redrawn
@@ -34,6 +37,10 @@
       and close button sit at the same offsets.
   13. No control without a word on it lacks a name: the few drawn-only controls (back, the three zoom
       buttons, close, and the path's "…") each carry a title and an aria-label.
+  15. One instrument: from 1280 px the clock's frame holds the time and the version, the fuel gauge runs
+      round both, and the small type stands on the digits' baseline.
+  16. A result's name is cut only when its place would be left under 120 px; the words before a marked
+      word are dropped at a word, never inside one, and the earlier ones stay in the page.
   14. The composition lint (tools/v32/composition.mjs) finds nothing in the bar, the breadcrumb, the Library
       or the palette through a resize from 1680 px to a phone. (A phone's result rows are two lines by
       design, a title over its place, which the lint reads as a wrapped label: they are not counted.) */
@@ -312,8 +319,10 @@ const LIBRARY = {
   Collections: ['timelines', 'flowcharts', 'canons', 'dictionary', 'authorities', 'scotus', 'supporting'],
   Classes: ['sessions', 'lectures', 'textbook'],
   Study: ['drill', 'pairs', 'sheets', 'progress'],
-  Yours: ['add', 'connect', 'path', 'save', 'guide', 'patch'],
+  Yours: ['add', 'connect', 'path', 'save'],
 };
+// The footer: what is about the atlas itself. (Then the Privacy link.)
+const ABOUT = ['guide', 'help', 'scope', 'patch'];
 // The longest path in the data ("Atlas › Legislation and the Regulatory State › Legislative process and
 // statutory interpretation › Katzmann: methods and legislative context", found by walking every entry),
 // and the one the owner's critique named.
@@ -368,6 +377,125 @@ try {
     assert.deepEqual(library, [], 'the Library');
     assert.deepEqual(await small('.study-zoom'), [], 'the zoom control');
   });
+
+  /* ---------- 15. one instrument ---------- */
+  await check(
+    'the instrument: one frame holds the time and the version, and the gauge runs round both',
+    async () => {
+      await page.waitForFunction(() => document.querySelector('.ny-clock .ny-fuel-track')?.getAttribute('d'));
+      const i = await page.evaluate(() => {
+        const box = (selector) => document.querySelector(selector).getBoundingClientRect();
+        const clock = box('.study-header .ny-clock'),
+          time = box('.ny-clock .ny-time'),
+          version = box('.study-header .dkla-release'),
+          gauge = box('.ny-clock .ny-fuel-track'),
+          cluster = box('.v32-cluster'),
+          // where a line of type stands: the bottom of a box as tall as its capitals would be
+          base = (selector) => {
+            const el = document.querySelector(selector),
+              range = document.createRange();
+            range.selectNodeContents(el);
+            const r = range.getBoundingClientRect(),
+              style = getComputedStyle(el),
+              // JetBrains Mono: ascent 1.02, descent 0.3 of the size, set in a line of its line-height
+              size = parseFloat(style.fontSize);
+            return r.top + (r.height - 1.32 * size) / 2 + 1.02 * size;
+          };
+        return {
+          frame: [clock.left, clock.right].map(Math.round),
+          cluster: [cluster.left, cluster.right].map(Math.round),
+          gauge: [gauge.left, gauge.right].map(Math.round),
+          height: clock.height,
+          timeIn: time.left > clock.left && time.right < version.left,
+          versionIn: version.left > clock.left && version.right < clock.right && version.top > clock.top,
+          rule: getComputedStyle(document.querySelector('.study-header .ny-clock'), '::after').width,
+          baselines: [
+            '.ny-clock .ny-time .flip .half.top',
+            '.ny-clock .ny-meridiem',
+            '.study-header .dkla-release',
+          ].map((selector) => Math.round(base(selector) * 10) / 10),
+        };
+      });
+      assert.deepEqual(i.frame, i.cluster, 'the frame is the whole cluster');
+      assert.equal(i.height, 36, 'the frame is one control high');
+      assert.ok(i.timeIn, 'the time stands left of the version, inside the frame');
+      assert.ok(i.versionIn, 'the version stands inside the frame: ' + JSON.stringify(i));
+      assert.equal(i.rule, '1px', 'a hairline between the time and the version');
+      assert.ok(
+        Math.abs(i.gauge[0] - i.frame[0]) <= 1 && Math.abs(i.gauge[1] - i.frame[1]) <= 1,
+        `the gauge runs round the whole frame: ${i.gauge} of ${i.frame}`,
+      );
+      const [, meridiem, version] = i.baselines;
+      assert.ok(
+        Math.abs(meridiem - version) <= 1,
+        `"PM" and the version stand on one line: ${i.baselines.join(', ')}`,
+      );
+    },
+  );
+
+  /* ---------- 16. a result's name and the words before its match ---------- */
+  await check(
+    "a result's name is whole wherever it fits; the words before a match are cut at a word",
+    async () => {
+      const rows = async (words) => {
+        await rowsFor(page, words);
+        await page.locator('#searchResults .search-snippet').first().waitFor();
+        return page.evaluate(() =>
+          [...document.querySelectorAll('#searchResults button[data-result-type]')].map((row) => {
+            const name = row.querySelector('strong'),
+              style = getComputedStyle(row),
+              room = row.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight),
+              far = row.querySelector('.search-lead-far'),
+              lead = row.querySelector('.search-lead');
+            return {
+              name: name.textContent,
+              cut: name.scrollWidth > name.clientWidth,
+              width: name.getBoundingClientRect().width,
+              room,
+              lead: lead
+                ? {
+                    far: far ? far.textContent : '',
+                    farWidth: far ? far.getBoundingClientRect().width : 0,
+                    shown: [...lead.childNodes]
+                      .filter((node) => node.nodeType === 3)
+                      .map((node) => node.textContent)
+                      .join(''),
+                    mark: getComputedStyle(lead, '::before').content,
+                  }
+                : null,
+            };
+          }),
+        );
+      };
+      const chevron = await rows('chevron');
+      assert.ok(chevron.length > 8, 'results for "chevron"');
+      for (const row of chevron)
+        if (row.cut)
+          assert.ok(
+            row.width >= row.room - 133,
+            `"${row.name}" is cut at ${Math.round(row.width)}px of ${Math.round(row.room)}px: its place took more than 120px`,
+          );
+      const whole = chevron.find(
+        (row) => row.name === 'What the assigned empirical studies say about Chevron',
+      );
+      assert.ok(whole && !whole.cut, 'a name of 53 letters is shown whole in a wide window');
+      const leads = (await rows('redundant, imperti')).concat(chevron).filter((row) => row.lead?.far);
+      assert.ok(leads.length > 0, 'a passage with more words before its match than a row can show');
+      for (const { name, lead } of leads) {
+        assert.match(lead.far, /\s$/, `${name}: the words out of sight end inside a word: "${lead.far}"`);
+        assert.match(lead.shown, /^\S/, `${name}: the words in sight start mid-way: "${lead.shown}"`);
+        assert.ok(lead.shown.length <= 18, `${name}: ${lead.shown.length} letters before the match`);
+        assert.ok(lead.farWidth <= 1, name + ': the earlier words are in sight');
+        assert.match(lead.mark, /…/, name + ': an ellipsis says words were left out');
+      }
+      await settle(page);
+      await page.evaluate(() => {
+        const field = document.getElementById('search');
+        field.value = '';
+        field.dispatchEvent(new Event('input', { bubbles: true }));
+      });
+    },
+  );
 
   /* ---------- 7. the splash line ---------- */
   await check(
@@ -802,10 +930,28 @@ try {
               metaSize: parseFloat(getComputedStyle(row.querySelector('.v32-row-meta')).fontSize),
               metaInk: getComputedStyle(row.querySelector('.v32-row-meta')).color,
               height: row.getBoundingClientRect().height,
+              // the leader: how long it is drawn, and whether it lies between the name and the count
+              leader: (() => {
+                const lead = row.querySelector('.v32-row-lead');
+                if (!lead || getComputedStyle(lead).visibility === 'hidden' || !lead.getClientRects().length)
+                  return null;
+                const box = lead.getBoundingClientRect(),
+                  before = row.querySelector('.v32-row-note:not(:empty), .v32-row-label'),
+                  note = row.querySelector('.v32-row-note:not(:empty)') || before,
+                  meta = row.querySelector('.v32-row-meta').getBoundingClientRect();
+                return {
+                  width: box.width,
+                  between: note.getBoundingClientRect().right <= box.left && box.right <= meta.left,
+                };
+              })(),
             })),
           ]),
         ),
         fill: style.backgroundColor,
+        sum: text(dialog.querySelector('.v32-shell-sum')),
+        sumSize: parseFloat(getComputedStyle(dialog.querySelector('.v32-shell-sum-counts')).fontSize),
+        sumInk: getComputedStyle(dialog.querySelector('.v32-shell-sum-counts')).color,
+        about: [...dialog.querySelectorAll('.v32-lib-foot [data-v32-row]')].map((el) => el.dataset.v32Row),
         foot: [...dialog.querySelectorAll('.v32-lib-foot .v32-quiet')].map(text),
         expanded: document.getElementById('moreBtn').getAttribute('aria-expanded'),
         menuHidden: document.getElementById('moreMenu').hidden,
@@ -853,6 +999,12 @@ try {
       assert.equal(row.height, 36, row.label + ' is one row high');
       if (want[row.id]) assert.equal(row.meta, want[row.id], row.label + ': its count, and what it counts');
       // Never a bare number, never small and faint (docs/DESIGN.md rule 8).
+      // A leader runs from the name to the count, and only where there is a count.
+      if (row.meta) {
+        assert.ok(row.leader, row.label + ': no leader to its count');
+        assert.ok(row.leader.width >= 16, `${row.label}: its leader is ${row.leader.width}px`);
+        assert.ok(row.leader.between, row.label + ': its leader is not between the name and the count');
+      } else assert.equal(row.leader, null, row.label + ': a leader to nothing');
       if (row.meta) {
         assert.doesNotMatch(row.meta, /^[\d,]+$/, row.label + ': a bare number');
         assert.ok(row.metaSize >= 13, `${row.label}: its count is ${row.metaSize}px`);
@@ -870,8 +1022,32 @@ try {
     const version = await page.evaluate(() =>
       document.querySelector('.study-header .dkla-release').textContent.trim(),
     );
-    assert.equal(l.groups.Yours.find((r) => r.id === 'patch').meta, version);
-    assert.deepEqual(l.foot, ['How to use this map', 'Sources and coverage', 'Privacy']);
+    assert.deepEqual(l.about, ABOUT);
+    assert.deepEqual(l.foot, [
+      'Guide',
+      'How to use this map',
+      'Sources and coverage',
+      'Patch notes ' + version,
+      'Privacy',
+    ]);
+    // Under the title: what the map holds, counted here from the open graph.
+    const onMap = await page.evaluate(() =>
+      [
+        ['Case', 'cases'],
+        ['Concept', 'concepts'],
+        ['Rule', 'rules'],
+        ['Note', 'notes'],
+        ['Hypothetical', 'hypotheticals'],
+      ]
+        .map(([kind, many]) => [data.nodes.filter((node) => node.kind === kind).length, many])
+        .filter(([n]) => n > 1)
+        .map(([n, many]) => `${n.toLocaleString('en-US')} ${many}`)
+        .join(' · '),
+    );
+    assert.match(onMap, /^\d+ cases · \d+ concepts · \d+ rules/);
+    assert.equal(l.sum, 'On the map ' + onMap);
+    assert.ok(l.sumSize >= 13, `the readout under the title is ${l.sumSize}px`);
+    assert.ok(contrast(l.sumInk, l.fill) >= 4.5, 'the readout under the title is too faint');
     // Nothing that only repeats the map.
     const labels = Object.values(l.groups)
       .flat()
@@ -937,8 +1113,7 @@ try {
     'the Library: every row opens the right thing, and the Library is gone when it does',
     async () => {
       const wrong = [];
-      for (const id of Object.values(LIBRARY).flat()) {
-        if (id === 'guide') continue; // leaves the page: checked last
+      for (const id of [...Object.values(LIBRARY).flat(), 'patch']) {
         await goHome(page);
         await openLibrary();
         await page.locator(`#libraryDialog [data-v32-row="${id}"]`).click();

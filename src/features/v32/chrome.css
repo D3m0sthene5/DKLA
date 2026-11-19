@@ -460,6 +460,60 @@ html.v32-chrome .study-header .study-search:focus-within #searchKey {
     display: flex;
   }
 }
+/* One instrument, not three readouts in a row: from 1280 px the clock's frame holds the time and,
+   after a hairline, the version, and the fuel gauge (which is that frame: fuel.css) runs round both.
+   The cluster is a grid of two columns (three with the date); the clock spans them and lends them to
+   its own parts (subgrid), and the version, which stays the clock's sibling so that it keeps its own
+   name and tooltip, sits in the last column, inside the frame. Small type stands on the digits'
+   baseline (a 16 px digit and a 12 px "PM" centred on one line sit a pixel and a half apart).
+   A browser without subgrid keeps the row above: the frame round the time, the version beside it. */
+@supports (grid-template-columns: subgrid) {
+  @media (min-width: 1280px) {
+    .v32-cluster {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 0;
+    }
+    html.v32-chrome .study-header .v32-cluster .ny-clock {
+      grid-area: 1 / 1 / 2 / -1;
+      display: grid;
+      grid-template-columns: subgrid;
+      gap: 0;
+    }
+    .v32-cluster .ny-clock .ny-time {
+      grid-column: 1;
+    }
+    .v32-cluster .ny-clock .ny-meridiem {
+      translate: 0 1px;
+    }
+    /* the hairline between the time and the version: 10 px of air each side */
+    .v32-cluster .ny-clock::after {
+      content: '';
+      grid-area: 1 / -2 / 2 / -1;
+      justify-self: start;
+      width: 1px;
+      height: var(--v32-s4);
+      margin-left: 10px;
+      background: var(--v32-hair-strong);
+    }
+    /* (above the gauge's line and its bright band, which are the clock's own layers 4 and 5) */
+    html.v32-chrome .study-header .v32-cluster .dkla-release {
+      grid-area: 1 / -2 / 2 / -1;
+      z-index: 6;
+      margin: 0 var(--v32-s2) 0 17px;
+      translate: 0 1px;
+    }
+  }
+  @media (min-width: 1720px) {
+    .v32-cluster {
+      grid-template-columns: auto auto auto;
+    }
+    .v32-cluster .ny-clock .ny-date {
+      grid-column: 2;
+      margin-left: var(--v32-s3);
+    }
+  }
+}
 
 /* Quiet beside the reading (docs/DESIGN.md rule 14). With a reader or a dialog open
    (html.v32-reading, chrome.js) the cluster is still and unlit: the fuel line and the version lose
@@ -613,7 +667,7 @@ html.v32-chrome #searchResults .v32-row {
 /* One line for a newcomer, where the name alone would not say. Muted, not faint: a row under the
    pointer or the keyboard is one fill step lighter, and faint text would fall under 4.5:1 there. */
 .v32-row-note {
-  flex: 1 1 0;
+  flex: 0 1 auto;
   min-width: 0;
   overflow: hidden;
   color: var(--v31-muted);
@@ -623,7 +677,25 @@ html.v32-chrome #searchResults .v32-row {
   text-overflow: ellipsis;
 }
 .v32-row-note:empty {
-  flex: 1 1 0;
+  display: none;
+}
+/* The leader: the dotted line an index draws from a name to its figure, on the name's baseline. It
+   takes whatever room lies between them, so the eye crosses a column without losing its row. Drawn
+   only where there is a figure to lead to. */
+.v32-row-lead {
+  flex: 1 1 var(--v32-s4);
+  min-width: var(--v32-s4);
+  height: 1px;
+  background: linear-gradient(90deg, var(--v32-hair-strong) 1px, transparent 1px) 0 0 / 4px 1px repeat-x;
+  translate: 0 4px;
+}
+.v32-row:has(.v32-row-meta:empty) .v32-row-lead {
+  visibility: hidden;
+}
+/* Not in the palette: there the row under the pointer or the keyboard is lit from end to end, which
+   ties a name to its count, and eight dotted lines 400 px long would be the loudest thing in it. */
+html.v32-chrome #searchResults .v32-row-lead {
+  display: none;
 }
 /* How much is behind the row, and of what: "115 flowcharts · 975 steps" (rule 8: mono, 13 px, muted). */
 .v32-row-meta {
@@ -686,7 +758,10 @@ html.v32-chrome #searchResults button > strong {
   flex: 0 1 auto;
   display: block;
   min-width: 0;
-  max-width: 62%;
+  /* The name comes first: it is cut only when it would leave its place (or the passage that matched)
+     less than 120 px. (At 62% of the row, as before, one caption in three lost its last words to a
+     place that was itself cut.) */
+  max-width: calc(100% - 132px);
   overflow: hidden;
   font: var(--v31-ui);
   text-overflow: ellipsis;
@@ -752,15 +827,19 @@ html.v32-chrome #searchResults .search-where + .search-snippet::before {
   display: inline-block;
   width: var(--v32-s3);
 }
-/* The words before the marked word give way first, from their start, so the match is in sight. */
-html.v32-chrome #searchResults .search-lead {
-  display: inline-block;
-  max-width: 12ch;
+/* The words before the marked word: the last two or three are shown, after an ellipsis, so the
+   match is in sight; the earlier ones (dklaR13Search.js sets them apart, at a word) stay in the page
+   for a screen reader, out of sight. Never cut inside a word. */
+html.v32-chrome #searchResults .search-lead-far {
+  position: absolute;
+  width: 1px;
+  height: 1px;
   overflow: hidden;
-  direction: rtl;
-  text-overflow: ellipsis;
-  vertical-align: bottom;
-  white-space: pre;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+html.v32-chrome #searchResults .search-lead:has(> .search-lead-far)::before {
+  content: '…';
 }
 html.v32-chrome #searchResults mark {
   background: none;
@@ -900,6 +979,33 @@ dialog.v32-shell {
     sans-serif;
   letter-spacing: 0;
 }
+/* A dialog's title may carry one line under it that says what the dialog holds (the Library: what is
+   on the map). The close button keeps its place, level with the title. */
+.v32-shell-head:has(.v32-shell-title) {
+  align-items: flex-start;
+}
+.v32-shell-title {
+  display: flex;
+  flex-direction: column;
+  gap: var(--v32-s1);
+  min-width: 0;
+  padding-top: var(--v32-s1);
+}
+.v32-shell-sum {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 var(--v32-s2);
+  margin: 0;
+  color: var(--v31-muted);
+  font:
+    400 13px/18px var(--dkla-interface, Inter),
+    sans-serif;
+}
+.v32-shell-sum-counts {
+  font: 500 13px/18px var(--v32c-mono);
+  font-variant-numeric: tabular-nums;
+}
 .v32-close {
   position: relative;
   display: inline-flex;
@@ -982,6 +1088,12 @@ dialog.v32-shell {
 .v32-quiet + .v32-quiet {
   margin-left: 0;
 }
+/* A readout on a quiet link ("Patch notes v3.1"). */
+.v32-quiet-meta {
+  margin-left: var(--v32-s1);
+  font: 500 13px/18px var(--v32c-mono);
+  font-variant-numeric: tabular-nums;
+}
 @media (hover: hover) {
   .v32-quiet:hover {
     background: var(--v32-hair);
@@ -1025,7 +1137,8 @@ dialog.v32-shell {
   }
 }
 @media (max-width: 340px) {
-  .v32-library .v32-row-meta {
+  .v32-library .v32-row-meta,
+  .v32-library .v32-row-lead {
     display: none;
   }
 }
