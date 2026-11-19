@@ -51,7 +51,7 @@ const outFile = path.resolve(
   root,
   flag('--out', 'work/feel/result' + (flag('--label') ? '-' + flag('--label') : '') + '.json'),
 );
-const instrument = fs.readFileSync(path.join(here, 'instrument.js'), 'utf8');
+const instrument = fs.readFileSync(path.join(here, 'instrument.js'), 'utf8').trim().replace(/;$/, '');
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const log = (...a) => console.error('[feel]', ...a);
 

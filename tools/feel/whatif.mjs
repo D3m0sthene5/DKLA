@@ -21,7 +21,7 @@ const target = new URL(argv.find((a) => /^https?:/.test(a)) || 'http://127.0.0.1
 assert.ok(['127.0.0.1', 'localhost'].includes(target.hostname), 'local preview only');
 const cpu = Number(flag('--cpu', 1));
 const outFile = path.resolve(root, flag('--out', `work/feel/whatif${cpu > 1 ? '-' + cpu + 'x' : ''}.json`));
-const instrument = fs.readFileSync(path.join(here, 'instrument.js'), 'utf8');
+const instrument = fs.readFileSync(path.join(here, 'instrument.js'), 'utf8').trim().replace(/;$/, '');
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const VARIANTS = {
