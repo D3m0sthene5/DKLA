@@ -418,7 +418,7 @@
 
   /* ---------- the plate ---------- */
   const PAD = 8, // above and below the drawing
-    X0 = 20, // the first entry's place from the plate's left edge
+    X_FIRST = 20, // the first entry's place from the plate's left edge
     DECK = 50, // a span's height
     STEM = 12, // from the line (or a span's edge) to the nearest label
     TIER = 10, // between two labels of a stack
@@ -554,7 +554,8 @@
   //   only(item) -> a side it must take, or ''; ok(side, left, sz, level, item) -> may it sit there;
   //   first: entries labelled before the rest, to the right of their stems; min, max: the room.
   function fan(list, opt) {
-    const sides = { up: [], down: [] };
+    // (posts: upright lines already drawn below the baseline, which no label there may cross.)
+    const sides = { up: [], down: (opt.posts || []).map((x) => ({ left: x, w: 0, level: 0, h: 4000, x })) };
     const out = new Map();
     let upMost = 0,
       downMost = 0,
@@ -710,6 +711,15 @@
     // Words under a name cost little; going without them costs two rows.
     const formCost = (item) => ((item.cls === 'steady' || item.cls === 'aside') && !item.here ? 8 : 56);
 
+    // A named line's name is lettered at its start. Where the lines are the chart, the names stand in a
+    // column and every entry lies to the right of it.
+    const nameOf = new Map(
+      [...plate.querySelectorAll('.v32db-lane-name')].map((el) => [el.dataset.v32dbLine, el]),
+    );
+    const nameW = (rail) => Math.ceil(nameOf.get(rail.line.id)?.getBoundingClientRect().width || 0);
+    const column =
+      model.form === 'lanes' ? Math.max(0, ...model.rails.filter((rail) => !rail.of).map(nameW)) + 12 : 0;
+    const X0 = column ? column + 28 : X_FIRST;
     // The line ends where the last entry's label still fits to the right of its mark.
     const gap = Math.round(Math.min(190, Math.max(BREAK, W * 0.13)));
     let x1 = W - 24;
@@ -734,8 +744,14 @@
     const railsAt = []; // each named line drawn as a rail: where it runs
     const placeRails = (list, from, left, right) => {
       let y = from;
+      // A line's name is lettered on the line itself, the rail running on from it, unless an entry of
+      // one of these lines falls where its name would be: then every name stands above its rail.
+      const startOf = (rail) => (column ? column : left + 10 + nameW(rail) + 10);
+      const inline = list.every((rail) => rail.items.every((item) => xs[item.i] >= startOf(rail) + 24));
       for (const rail of list) {
         const own = rail.items.filter((item) => item.rail === rail);
+        const start = startOf(rail);
+        const at = y + (inline ? 11 : NAME);
         const on = fan(own, {
           x: xOf,
           size: sizeOf,
@@ -744,16 +760,24 @@
           forms: formsOf,
           formCost,
           ok: () => true,
+          // An entry also marked on a line further down is joined to that mark: no label crosses the join.
+          posts: rail.items.filter((item) => item.rail !== rail).map(xOf),
           min: left + 4,
           max: W - 4,
         });
-        const at = y + NAME;
         for (const [i, a] of on.out) {
           const box = { x: a.left, y: at + STEM + a.level, w: a.w, h: a.h };
           placed.set(i, { box, from: at, side: 'down', stemX: a.x, flip: a.flip, form: a.form, markY: at });
         }
-        railsAt.push({ rail, y: at, x0: left, x1: right });
-        y = at + (on.downMost ? STEM + on.downMost : 8) + 10;
+        railsAt.push({
+          rail,
+          y: at,
+          x0: inline ? start : left,
+          x1: right,
+          nameX: column ? 0 : left + 10,
+          nameY: inline ? at - 10 : at - NAME,
+        });
+        y = at + (on.downMost ? STEM + on.downMost : 10) + 10;
       }
       return y;
     };
@@ -805,7 +829,7 @@
       one.bottom = one.y + one.h + (on.downMost ? on.downMost + STEM : 0);
       if (span.rails.length) {
         const under = one.bottom;
-        one.bottom = placeRails(span.rails, under, one.x, one.x + one.w);
+        one.bottom = placeRails(span.rails, under + 6, one.x, one.x + one.w - (span.b ? 0 : 28));
         rects.push({ x: one.x, y: under, w: one.w, h: one.bottom - under });
       }
       top = one.bottom + 12;
@@ -886,7 +910,7 @@
       });
     }
     const height = Math.round(spineY + (line.downMost ? STEM + line.downMost : 20) + PAD);
-    return { level, W, height, xs, geo, lanes, placed, spineY, tagOf, deckOf, railsAt };
+    return { level, W, height, xs, geo, lanes, placed, spineY, tagOf, deckOf, railsAt, nameOf, X0 };
   }
 
   function layout(root, model) {
@@ -899,13 +923,24 @@
     // and the first lines of its note.
     const above =
       plate.getBoundingClientRect().top - inspector.getBoundingClientRect().top + inspector.scrollTop;
-    const budget = Math.max(260, inspector.clientHeight - above - 176);
-    let plan = null;
-    for (const level of [3, 2, 1]) {
-      plan = arrange(plate, model, level, W);
-      if (plan.height <= budget) break;
+    const room = inspector.clientHeight - above;
+    // Every label with its words may squeeze the account to its opening lines; a plate that has
+    // already given words up leaves the account more. Where nothing fits, the fullest of the shortest.
+    const heights = new Map();
+    let level = 0;
+    for (const one of [3, 2, 1]) {
+      heights.set(one, arrange(plate, model, one, W).height);
+      if (heights.get(one) <= Math.max(260, room - (one === 3 ? 176 : 240))) {
+        level = one;
+        break;
+      }
     }
-    const { height, xs, geo, lanes, placed, spineY, tagOf, deckOf, railsAt } = plan;
+    if (!level) {
+      const least = Math.min(...heights.values());
+      level = [3, 2, 1].find((one) => heights.get(one) <= least + 24);
+    }
+    const plan = arrange(plate, model, level, W);
+    const { height, xs, geo, lanes, placed, spineY, tagOf, deckOf, railsAt, nameOf, X0 } = plan;
 
     // Put everything where it goes.
     plate.style.height = height + 'px';
@@ -932,14 +967,11 @@
         if (line.scrollWidth > line.clientWidth + 1) said.textContent = said.dataset.did;
       }
     }
-    const nameOf = new Map(
-      [...plate.querySelectorAll('.v32db-lane-name')].map((el) => [el.dataset.v32dbLine, el]),
-    );
     for (const one of railsAt) {
       const el = nameOf.get(one.rail.line.id);
       if (!el) continue;
-      el.style.left = one.x0 + (one.rail.of ? 10 : 0) + 'px';
-      el.style.top = one.y - NAME + 'px';
+      el.style.left = one.nameX + 'px';
+      el.style.top = one.nameY + 'px';
     }
 
     // The ink: the line, its breaks and decade marks, the spans' piers, the named lines, each label's
@@ -1107,7 +1139,7 @@
         : item.rail && aside(model, item)
           ? `apart, on ${item.rail.line.name}`
           : item.rail
-            ? `on “${item.rail.line.name}”`
+            ? `on ${item.rails.map((rail) => `“${rail.line.name}”`).join(' and ')}`
             : `on the line${bands.length ? `, not on ${bands.join(' or ')}` : ''}`;
       const concerns =
         item.rail?.line.concerns && aside(model, item)
@@ -1204,10 +1236,16 @@
           : '';
       })
       .join('');
+    const closed = model.spans.some((one) => one.b),
+      open = model.spans.some((one) => !one.b);
     const span = model.spans.length
-      ? `<span class="v32db-key-group"><span class="v32db-key v32db-key-span" title="Drawn where a later entry overrules or replaces an earlier one by name. An entry between the two whose account names that rule is drawn on the span."><i></i>A rule, from the entry that set it to the entry that ended it</span></span>`
+      ? `<span class="v32db-key-group"><span class="v32db-key v32db-key-span" title="Drawn from the entry that set a rule to the entry that overruled or replaced it. An entry decided under the rule is drawn on it."><i></i>${closed ? 'A rule, from the entry that set it to the entry that ended it' : 'A rule, running on from the entry that set it'}${closed && open ? ', or running on' : ''}</span></span>`
       : '';
-    return groups + span;
+    // Named lines say what they are where they stand; only a case on two of them needs a word.
+    const joined = model.items.some((item) => item.rails.length > 1)
+      ? `<span class="v32db-key-group"><span class="v32db-key v32db-key-join"><svg viewBox="0 0 12 22" width="12" height="22" aria-hidden="true"><path d="M6 6v10"/><circle cx="6" cy="4" r="2.6"/><circle cx="6" cy="18" r="2.6"/></svg>One entry, marked on both lines it bears on</span></span>`
+      : '';
+    return groups + span + joined;
   }
   function html(model, lines) {
     const t = model.t;

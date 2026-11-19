@@ -508,7 +508,14 @@
               "url": "https://supreme.justia.com/cases/federal/us/119/149/",
               "label": "119 U.S. 151–152"
             }
-          ]
+          ],
+          "bears": {
+            "on": null,
+            "as": "line",
+            "basis": "A response proposing different terms rejects the original offer unless the offeror renews it or assents to the proposed change.",
+            "source": "Atlas brief of Minneapolis & St. Louis Railway Co. v. Columbus Rolling-Mill Co.",
+            "brief": "CT-ADDITIONAL-CM-B1-077"
+          }
         },
         {
           "id": "ucc207",
@@ -517,7 +524,13 @@
           "object": "the mirror-image rule",
           "note": "For sales of goods the Code drops the mirror-image rule: an acceptance can form a contract though it adds or changes terms.",
           "authorityKind": "Model UCC text",
-          "effect": "Allowing agreement despite different forms"
+          "effect": "Allowing agreement despite different forms",
+          "bears": {
+            "on": "ucc207",
+            "as": "sets",
+            "basis": "For sales of goods the Code drops the mirror-image rule: an acceptance can form a contract though it adds or changes terms.",
+            "source": "This entry’s own stored note"
+          }
         },
         {
           "id": "dorton",
@@ -526,7 +539,14 @@
           "turn": "sharpens",
           "note": "An acceptance is expressly conditional only if it clearly says the offeree will not proceed without assent to its terms; 'subject to' is not enough.",
           "authorityKind": "Court decision",
-          "effect": "Testing conditional acceptance"
+          "effect": "Testing conditional acceptance",
+          "bears": {
+            "on": "form",
+            "as": "under",
+            "basis": "Did the seller's acknowledgments make acceptance expressly conditional on the buyer's assent to additional terms, so that the writings failed to form a contract and § 2-207(3) governed?",
+            "source": "Atlas brief of Dorton v. Collins & Aikman Corp.",
+            "brief": "CTR-032"
+          }
         },
         {
           "id": "citoh",
@@ -535,7 +555,14 @@
           "turn": "sharpens",
           "note": "When forms do not form a contract but both sides perform, § 2-207(3) supplies the terms the writings share plus Code gap-fillers.",
           "authorityKind": "Court decision",
-          "effect": "Finding a contract through conduct"
+          "effect": "Finding a contract through conduct",
+          "bears": {
+            "on": "conduct",
+            "as": "under",
+            "basis": "The parties' subsequent performance nevertheless established a contract under § 2-207(3).",
+            "source": "Atlas brief of C. Itoh & Co. (America) Inc. v. Jordan International Co.",
+            "brief": "CTR-033"
+          }
         },
         {
           "id": "northrop",
@@ -544,7 +571,14 @@
           "turn": "sharpens",
           "note": "Different terms in offer and acceptance knock each other out and Code gap-fillers replace them: the majority rule, predicted for Illinois.",
           "authorityKind": "Court decision",
-          "effect": "Canceling conflicting warranty terms"
+          "effect": "Canceling conflicting warranty terms",
+          "bears": {
+            "on": "terms",
+            "as": "under",
+            "basis": "It predicted that Illinois would adopt the majority knockout approach: the conflicting ninety-day and unlimited warranty provisions drop out, leaving a reasonable period supplied through the Code.",
+            "source": "Atlas brief of Northrop Corp. v. Litronic Industries",
+            "brief": "CT-CB-0290"
+          }
         },
         {
           "id": "bayway",
@@ -554,12 +588,40 @@
           "note": "Between merchants, an additional term may enter the contract; the party opposing it had to prove material alteration.",
           "authorityKind": "Court decision",
           "effect": "Testing an additional merchant term",
-          "context": "Section 2-207(2) excludes an additional term if the offer limits acceptance, the term materially alters the bargain, or a timely objection occurs. Bayway addressed the material-alteration branch."
+          "context": "Section 2-207(2) excludes an additional term if the offer limits acceptance, the term materially alters the bargain, or a timely objection occurs. Bayway addressed the material-alteration branch.",
+          "bears": {
+            "on": "terms",
+            "as": "under",
+            "basis": "Between merchants, the statute presumptively incorporates additional terms unless one of the specified exceptions applies.",
+            "source": "Atlas brief of Bayway Refining Co. v. Oxygenated Marketing & Trading A.G.",
+            "brief": "CT-CB-0285"
+          }
         }
       ],
       "guide": "Keep three questions separate: do the writings form a contract, which added or conflicting terms enter, and did conduct create a contract despite the writings? Dorton addresses conditional acceptance; C. Itoh addresses conduct; Northrop and Bayway address different kinds of terms.",
       "summaryLabel": "What these sources establish",
-      "reviewedAt": "2026-10-11"
+      "reviewedAt": "2026-10-11",
+      "lines": [
+        {
+          "id": "ucc207",
+          "name": "UCC § 2-207"
+        },
+        {
+          "id": "form",
+          "name": "Do the writings form a contract?",
+          "of": "ucc207"
+        },
+        {
+          "id": "terms",
+          "name": "Which added or conflicting terms enter?",
+          "of": "ucc207"
+        },
+        {
+          "id": "conduct",
+          "name": "Did conduct create a contract despite the writings?",
+          "of": "ucc207"
+        }
+      ]
     },
     {
       "id": "standard-terms",
@@ -1371,7 +1433,14 @@
           "turn": "origin",
           "note": "When replacing innocent defective work would cost far more than the value it adds, the measure is diminution in value (New York).",
           "authorityKind": "Court decision",
-          "effect": "Using lost value for trivial deviation"
+          "effect": "Using lost value for trivial deviation",
+          "bears": {
+            "on": "value",
+            "as": "under",
+            "basis": "But where that cost is grossly and unfairly disproportionate to the benefit obtained, diminution in value supplies the allowance.",
+            "source": "Atlas brief of Jacob & Youngs, Inc. v. Kent",
+            "brief": "CT-NEXT-CM-0127"
+          }
         },
         {
           "id": "groves",
@@ -1380,7 +1449,14 @@
           "object": "Groves",
           "note": "Minnesota awards the cost of the promised grading for a deliberate breach, though it far exceeds the value the work would add to the land.",
           "authorityKind": "Court decision",
-          "effect": "Awarding the promised completion cost"
+          "effect": "Awarding the promised completion cost",
+          "bears": {
+            "on": "cost",
+            "as": "under",
+            "basis": "Stone’s prevailing opinion held that cost of performance was the appropriate measure for this deliberate failure to perform a construction obligation, subject to determining exactly what work the contract required on remand.",
+            "source": "Atlas brief of Groves v. John Wunder Co.",
+            "brief": "CT-NEXT-CM-0147"
+          }
         },
         {
           "id": "plante",
@@ -1388,7 +1464,17 @@
           "turn": "sharpens",
           "note": "Repair cost for defects reasonably fixable; diminution in value where the fix would mean tearing out work, as with the misplaced wall (Wisconsin).",
           "authorityKind": "Court decision",
-          "effect": "Separating repair cost from waste"
+          "effect": "Separating repair cost from waste",
+          "bears": {
+            "on": [
+              "cost",
+              "value"
+            ],
+            "as": "under",
+            "basis": "Small, separable defects that can reasonably be corrected without destroying substantial completed work may be measured by correction cost. The court treated the applicable diminution measure as contemplating that the wall would remain.",
+            "source": "Atlas brief of Plante v. Jacobs",
+            "brief": "CT-NEXT-CM-0146"
+          }
         },
         {
           "id": "peevyhouse",
@@ -1397,7 +1483,14 @@
           "turn": "limits",
           "note": "Oklahoma caps damages at diminution in value when the broken term was incidental and its cost grossly exceeds the value it would add.",
           "authorityKind": "Court decision",
-          "effect": "Limiting incidental restoration damages"
+          "effect": "Limiting incidental restoration damages",
+          "bears": {
+            "on": "value",
+            "as": "under",
+            "basis": "In that combination of circumstances, recovery is limited to diminution in value caused by the omitted work.",
+            "source": "Atlas brief of Peevyhouse v. Garland Coal & Mining Co.",
+            "brief": "CT-NEXT-CM-0148"
+          }
         },
         {
           "sup": "CT-ADDITIONAL-CM-B3-108",
@@ -1407,12 +1500,33 @@
           "object": "English law",
           "note": "England's middle course: rebuilding cost is out when unreasonable, but the owner may recover for loss of amenity rather than nothing.",
           "authorityKind": "Court decision",
-          "effect": "Compensating lost enjoyment without rebuilding"
+          "effect": "Compensating lost enjoyment without rebuilding",
+          "bears": {
+            "on": "enjoyment",
+            "as": "under",
+            "basis": "Forsyth could not recover the £21,560 cost of demolishing and rebuilding his usable swimming pool merely because that was the only way to attain the specified depth. Restoration preserved the trial judge’s £2,500 loss-of-amenity award.",
+            "source": "Atlas brief of Ruxley Electronics & Construction Ltd. v. Forsyth",
+            "brief": "CT-ADDITIONAL-CM-B3-108"
+          }
         }
       ],
       "guide": "Compare what was promised, why it mattered, and the cost of correcting the failure. Groves and Peevyhouse reach contrasting results in different states. Ruxley adds an English example of compensation for lost enjoyment without rebuilding.",
       "summaryLabel": "What these sources establish",
-      "reviewedAt": "2026-10-11"
+      "reviewedAt": "2026-10-11",
+      "lines": [
+        {
+          "id": "cost",
+          "name": "Completion cost"
+        },
+        {
+          "id": "value",
+          "name": "Lost market value"
+        },
+        {
+          "id": "enjoyment",
+          "name": "Lost enjoyment"
+        }
+      ]
     },
     {
       "id": "damages-limits",

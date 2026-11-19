@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "reviewedAt": "2026-11-17",
   "dataPath": "tools/r19/data/timelines.json",
-  "timelinesSha256": "09f1bf2abc69e163b4fd6aa1842c51dd711da977975232ffc84519b344db2eaa",
+  "timelinesSha256": "bbaf05cb0deda2414427fd76b134f444848eb98b07d239d851252a54aebf738c",
   "baselineGitRevision": "347d2e9759a7b5429f24825c521a967ce2b14eb9",
   "scope": "All timeline memberships and navigation were inventoried against the canonical cases and original assigned-source locations. New lines and selected corrections were compared with original casebook passages and case-specific accounts. Prior complete-opinion limitations remain; this does not certify every proposition or all current law. November 17: all 685 timeline steps screened editorially; targeted primary-source corrections are recorded separately. This is not a complete primary-source audit of every step or brief.",
   "limitations": [
@@ -47045,5 +47045,16 @@
     "allMapCasesHaveDoctrinalMembership": true,
     "courseChronologies": "tools/v28/case-chronologies.json",
     "originalSourceRegistry": "tools/v28/source-links.json"
+  },
+  "placementFields": {
+    "addedAt": "2026-11-19",
+    "timelines": [
+      "deference",
+      "forms",
+      "damages"
+    ],
+    "what": "Added `lines` to these three timelines and `bears` to each of their 21 steps (which named line the step bears on, as sets, under, ends or on the timeline's own line, with the supporting sentence and its source). No existing field of any step or timeline was changed: titles, notes, effects, fates, turns, objects, contexts, guides and summaries are byte-for-byte as reviewed.",
+    "basis": "Each `basis` is a verbatim sentence of the named Atlas brief (one, UCC § 2-207, is the step's own stored note), checked by script when written. The names of the forms and damages lines are words of each timeline's stored guide or summary. This records where the Atlas's own accounts place each entry; it is not a fresh primary-source review, and the 2026-11-17 review above did not cover these fields.",
+    "usedBy": "src/features/v32/doctrine-b.js (the Doctrine view's chart)"
   }
 }

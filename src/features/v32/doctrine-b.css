@@ -601,8 +601,9 @@ html:root body #inspector .v32db-tag.v32db-bare > .v32db-tag-fate {
 html:root body #inspector .v32db-rail {
   fill: none;
   stroke: color-mix(in srgb, var(--v32db-span) 62%, var(--v31-panel));
-  stroke-width: 2;
+  stroke-width: 1.5;
 }
+
 html:root body #inspector .v32db-link {
   fill: none;
   stroke: color-mix(in srgb, var(--v32db-span) 62%, var(--v31-panel));
@@ -611,7 +612,7 @@ html:root body #inspector .v32db-link {
 html:root body #inspector .v32db-lane-name {
   position: absolute;
   font:
-    600 14px/20px var(--dkla-interface, Inter),
+    600 15px/22px var(--dkla-display, 'Exo 2'),
     sans-serif;
   white-space: nowrap;
   color: var(--v31-text);
@@ -694,6 +695,12 @@ html:root body #inspector .v32db-key {
   gap: 6px;
   color: var(--v31-soft);
 }
+html:root body #inspector .v32db-key-join > svg {
+  flex: none;
+  fill: var(--v31-panel);
+  stroke: color-mix(in srgb, var(--v32db-span) 62%, var(--v31-soft));
+  stroke-width: 1.5;
+}
 html:root body #inspector .v32db-key-span > i {
   flex: none;
   width: 24px;
@@ -719,6 +726,9 @@ html:root body #inspector .v32db-sel {
 }
 html:root body #inspector .v32db-sel-art:empty {
   display: none;
+}
+html:root body #inspector .v32db-sel:has(> .v32db-sel-art:empty) {
+  grid-template-columns: minmax(0, 1fr);
 }
 html:root body #inspector .v32db-art-note {
   display: none;
