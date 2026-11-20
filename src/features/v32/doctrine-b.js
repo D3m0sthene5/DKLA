@@ -464,21 +464,32 @@
         : `<span class="v32db-tag-name" data-a="${esc(item.first[0])}"${item.first[1] ? ` data-b="${esc(item.first[1])}"` : ''}>${esc(plain(item.first))}</span>`;
     return `<button type="button" class="v32db-tag v32db-c-${item.cls} v32db-f-${item.fam}${big ? ' v32db-big' : ''}${small ? ' v32db-small' : ''}${item.here ? ' v32db-is-here' : ''}${item.hung ? ' v32db-hung' : ''}${apart ? ' v32db-apart' : ''}" data-v32db-i="${item.i}" title="${esc(title)}">${line}<span class="v32db-tag-top">${mark}${year}${name}${here}</span><span class="v32db-tag-fx">${esc(item.words)}</span>${fate}</button>`;
   }
-  // A name too long for its label gives way party by party: the longer one first, never the "v.".
+  // A name too long for its label gives way party by party, never the "v.": first the party the case
+  // is not known by (the second; the first where that is a government or "In re"), word by word down
+  // to its first word, and only then the other.
+  const GOVERNMENT = /^(United States|State|People|Commonwealth|In re|Ex parte)\b/;
   function fitName(el) {
     if (!el.dataset.a) return;
-    el.textContent = el.dataset.b ? `${el.dataset.a} v. ${el.dataset.b}` : el.dataset.a;
-    if (!el.dataset.b || el.scrollWidth <= el.clientWidth + 1) return;
-    let a = el.dataset.a,
-      b = el.dataset.b;
-    // By whole words while there are words to give; then by letters.
-    const trim = (text) =>
-      (/\s/.test(text.trim()) ? text.replace(/\s+\S*$/, '') : text.slice(0, -1)).replace(/[\s,.&(-]+$/, '');
-    for (let n = 0; n < 80 && el.scrollWidth > el.clientWidth + 1; n++) {
-      if (a.length >= b.length && a.length > 6) a = trim(a);
-      else if (b.length > 6) b = trim(b);
-      else break;
-      el.textContent = `${a}${a === el.dataset.a ? '' : '…'} v. ${b}${b === el.dataset.b ? '' : '…'}`;
+    const A = el.dataset.a,
+      B = el.dataset.b;
+    el.textContent = B ? `${A} v. ${B}` : A;
+    if (!B || el.scrollWidth <= el.clientWidth + 1) return;
+    let a = A,
+      b = B;
+    const trim = (text) => text.replace(/\s+\S*$/, '').replace(/[\s,.&(-]+$/, '');
+    const show = () => {
+      el.textContent = `${a}${a === A ? '' : '…'} v. ${b}${b === B ? '' : '…'}`;
+      return el.scrollWidth <= el.clientWidth + 1;
+    };
+    const order = GOVERNMENT.test(A) ? ['a', 'b'] : ['b', 'a'];
+    for (const which of order) {
+      for (let n = 0; n < 12; n++) {
+        const now = which === 'a' ? a : b;
+        if (!/\s/.test(now.trim())) break;
+        if (which === 'a') a = trim(a);
+        else b = trim(b);
+        if (show()) return;
+      }
     }
   }
   // A span: the rule's name as the lettering of a beam, the years it ran, and what the entry that set it did.
@@ -517,17 +528,31 @@
   }
 
   // Each entry's place along the line. Time is true to scale inside a stretch; a break has a fixed
-  // width; two marks never touch.
-  function placeX(model, x0, x1, deckNeed, gap = BREAK) {
+  // width; two marks never touch (the least gap is what the two shapes need); and a rule's band is
+  // never narrower than its own lettering (`need`: span -> width), the years inside it taking room
+  // from the years outside.
+  const RADIUS = { rule: 9, reach: 7, steady: 5.5, aside: 6 };
+  function placeX(model, x0, x1, need, gap = BREAK) {
     const items = model.items,
       n = items.length;
     const { ts, whole, isBreak } = gaps(items);
-    const widthOf = (i) =>
-      model.spans.some((span) => span.a.i <= i - 1 && (span.b ? span.b.i : n - 1) >= i)
-        ? Math.max(gap, Math.min(deckNeed + 48, (x1 - x0) * 0.36))
-        : gap;
-    let room = x1 - x0;
+    const least = (i) =>
+      Math.max(
+        MINGAP,
+        Math.ceil(
+          (items[i - 1].here ? 13 : RADIUS[items[i - 1].cls]) +
+            (items[i].here ? 13 : RADIUS[items[i].cls]) +
+            4,
+        ),
+      );
+    const inSpan = (span, i) => span.a.i <= i - 1 && (span.b ? span.b.i : n - 1) >= i;
+    const needOf = (span) => Math.min(need.get(span) || 0, (x1 - x0) * 0.46);
+    const widthOf = (i) => {
+      const span = model.spans.find((one) => inSpan(one, i));
+      return span ? Math.max(gap, Math.min(needOf(span) + 48, (x1 - x0) * 0.36)) : gap;
+    };
     let xs = [];
+    let room = x1 - x0;
     for (let pass = 0; pass < 4; pass++) {
       let broken = 0,
         years = 0;
@@ -539,11 +564,45 @@
       xs = [x0];
       for (let i = 1; i < n; i++) {
         const step = isBreak(i) ? widthOf(i) : whole > 0 ? (ts[i] - ts[i - 1]) * perYear : room / (n - 1);
-        xs.push(xs[i - 1] + Math.max(MINGAP, step));
+        xs.push(xs[i - 1] + Math.max(least(i), step));
       }
       const over = xs[n - 1] - x1;
       if (over <= 0.5) break;
       room -= over;
+    }
+    // A band too short for its lettering takes what it lacks from the stretches outside it, each
+    // giving in proportion to what it can spare.
+    const d = xs.map((x, i) => (i ? x - xs[i - 1] : 0));
+    const sum = (list) => list.reduce((total, i) => total + d[i], 0);
+    const grown = new Set();
+    for (const span of model.spans) {
+      if (!span.b) continue;
+      const within = [];
+      for (let i = span.a.i + 1; i <= span.b.i; i++) within.push(i);
+      const lack = needOf(span) - sum(within);
+      if (lack <= 1) continue;
+      const flex = within.filter((i) => !isBreak(i));
+      const use = flex.length ? flex : within;
+      const base = sum(use);
+      const share = use.map((i) => (base > 0 ? d[i] / base : 1 / use.length));
+      use.forEach((i, k) => {
+        d[i] += lack * share[k];
+        grown.add(i);
+      });
+    }
+    if (grown.size) {
+      const all = d.map((_, i) => i).slice(1);
+      const spare = (i) => Math.max(0, d[i] - (isBreak(i) ? BREAK * 0.75 : least(i)));
+      let over = sum(all) - (x1 - x0);
+      for (const group of [all.filter((i) => !grown.has(i)), all.filter((i) => grown.has(i))]) {
+        if (over <= 0.5) break;
+        const spares = group.map(spare);
+        const total = spares.reduce((p, q) => p + q, 0);
+        const take = Math.min(over, total);
+        if (total > 0) group.forEach((i, k) => (d[i] -= (take * spares[k]) / total));
+        over -= take;
+      }
+      for (let i = 1; i < n; i++) xs[i] = xs[i - 1] + d[i];
     }
     const breaks = [];
     for (let i = 1; i < n; i++)
@@ -566,120 +625,198 @@
     a.x < b.x + b.w + gap && b.x < a.x + a.w + gap && a.y < b.y + b.h + gap && b.y < a.y + a.h + gap;
 
   // Labels round a baseline. Each starts at its entry's stem and runs right, or ends at it and runs
-  // left, as near the baseline as it can sit without covering another entry's stem or label. The
-  // entries at the edges of a cluster are placed first, so a cluster opens like a fan: the outer
-  // labels nearest the baseline, the inner ones stepping away from it.
+  // left, as near the baseline as it can sit. No stem runs through another entry's label: a label may
+  // lie across the place of an entry that has no label yet only on a side that entry can leave, and
+  // the entry is then labelled on the other side; a label goes further from the baseline than every
+  // label whose stem falls within its width. So a cluster opens like a fan, on both sides of the line:
+  // the outer labels nearest the baseline, the inner ones stepping away from it.
   //   list: the entries; x(item), size(item) -> {w, h}; prefers(item) -> 'up' | 'down' | '';
   //   only(item) -> a side it must take, or ''; ok(side, left, sz, level, item) -> may it sit there;
-  //   first: entries labelled before the rest, to the right of their stems; min, max: the room.
+  //   first: entries labelled before the rest, to the right of their stems where they can be;
+  //   column(item): an entry whose label keeps everything below it clear (a line of its own);
+  //   pad(item) -> {l, r}: what its drawing needs beyond its label; min, max: the room.
   function fan(list, opt) {
     // (posts: upright lines already drawn below the baseline, which no label there may cross.)
-    const sides = { up: [], down: (opt.posts || []).map((x) => ({ left: x, w: 0, level: 0, h: 4000, x })) };
+    const sides = {
+      up: [],
+      down: (opt.posts || []).map((x) => ({ left: x, w: 0, level: 0, h: 4000, x, post: true })),
+    };
     const out = new Map();
     let upMost = 0,
       downMost = 0,
       missed = 0,
+      crossed = 0, // labels placed where a stem has to run through one (the last resort)
       gaveUp = 0; // what the labels that gave up their words cost
     const left = new Set(list);
-    const put = (item, side, flip, from, level, sz, x) => {
+    const forced = new Map(); // an entry whose place a label lies across on one side takes the other
+    const onlyOf = (item) => opt.only(item) || forced.get(item) || '';
+    const other = (side) => (side === 'up' ? 'down' : 'up');
+    // The unlabelled entries whose stems would rise where a label lies (a line of its own has no stem).
+    const under = (item, from, w) =>
+      [...left].filter(
+        (o) => o !== item && !opt.column?.(o) && opt.x(o) > from - SGAP && opt.x(o) < from + w + SGAP,
+      );
+    // Could an entry be labelled on a side at all (its room there, whatever else is placed)?
+    const able = new Map();
+    const can = (item, side) => {
+      const key = item.i + side;
+      if (!able.has(key)) {
+        const x = opt.x(item);
+        able.set(
+          key,
+          (opt.forms?.(item) || [opt.size(item)]).some((sz) =>
+            [x, x - sz.w].some(
+              (from) => from >= opt.min && from + sz.w <= opt.max && opt.ok(side, from, sz, 0, item),
+            ),
+          ),
+        );
+      }
+      return able.get(key);
+    };
+    const put = (pick) => {
+      const { item, side, flip, from, level, sz, x } = pick;
       left.delete(item);
-      sides[side].push({ left: from, w: sz.w, level, h: sz.h, x });
-      out.set(item.i, { side, flip, left: from, level, w: sz.w, h: sz.h, x });
+      forced.delete(item);
+      for (const o of under(item, pick.span0, pick.span1 - pick.span0))
+        if (!onlyOf(o)) forced.set(o, other(side));
+      sides[side].push({
+        left: pick.span0,
+        w: pick.span1 - pick.span0,
+        level,
+        h: sz.h,
+        x,
+        column: !!opt.column?.(item),
+      });
+      out.set(item.i, { side, flip, left: from, level, w: sz.w, h: sz.h, x, form: pick.form });
       if (side === 'up') upMost = Math.max(upMost, level + sz.h);
       else downMost = Math.max(downMost, level + sz.h);
+      missed += pick.miss;
+      crossed += pick.crossing;
+      gaveUp += pick.form * (opt.formCost?.(item) ?? 8);
     };
-    for (const item of opt.first || []) {
-      if (!left.has(item)) continue;
-      const sz = opt.size(item),
-        x = opt.x(item);
-      if (x + sz.w > opt.max) continue;
-      put(item, opt.ok('up', x, sz, 0, item) ? 'up' : 'down', false, x, 0, sz, x);
-    }
-    while (left.size) {
+    // The best place for one of `among`. strict: across no unlabelled entry that must use that side,
+    // and its own stem through no label. loose: the last resort, counted in `crossed`.
+    const consider = (among, strict, loose, side0 = '') => {
       let pick = null;
-      // strict: not over the stem of an entry that has no label yet. loose: its own stem may run
-      // through a label (the last resort; nothing is left without a place).
-      const consider = (strict, loose, last) => {
-        for (const item of left) {
-          const forms = opt.forms?.(item) || [opt.size(item)];
-          for (const [form, sz] of forms.entries()) {
-            const x = opt.x(item);
-            const prefers = opt.prefers(item),
-              only = opt.only(item);
-            for (const flip of [false, true]) {
-              const from = flip ? x - sz.w : x;
-              if (!loose && (from < opt.min || from + sz.w > opt.max)) continue;
-              if (loose && flip && from < (last ? 0 : opt.min)) continue;
-              if (flip && opt.noFlip?.(item) && !loose) continue;
-              for (const side of only ? [only] : ['up', 'down']) {
-                // (An entry that can only be labelled on the other side has no stem on this one.)
-                if (
-                  strict &&
-                  [...left].some(
-                    (o) =>
-                      o !== item &&
-                      (!opt.only(o) || opt.only(o) === side) &&
-                      opt.x(o) > from - SGAP &&
-                      opt.x(o) < from + sz.w + SGAP,
-                  )
-                )
-                  continue;
-                let level = 0;
-                for (const o of sides[side]) {
-                  const over = o.left < from + sz.w + HGAP && from < o.left + o.w + HGAP;
-                  const stem = o.x > from - SGAP && o.x < from + sz.w + SGAP;
-                  if ((over || stem) && o.level + o.h + TIER > level) level = o.level + o.h + TIER;
-                }
-                // Its own stem must not run through a label already there.
-                if (
-                  !loose &&
-                  sides[side].some(
-                    (o) =>
-                      o.x !== x &&
-                      x > o.left - SGAP &&
-                      x < o.left + o.w + SGAP &&
-                      level + sz.h + TIER > o.level,
-                  )
-                )
-                  continue;
-                if (!opt.ok(side, from, sz, level, item)) continue;
-                const miss = prefers && side !== prefers ? 1 : 0;
-                const cost =
-                  level +
-                  miss * 34 +
-                  (flip ? 3 : 0) +
-                  (side === 'up' ? 1 : 0) +
-                  form * (opt.formCost?.(item) ?? 8);
-                // The cheapest place first; between entries whose places cost about the same, the later one.
-                const better = !pick
-                  ? true
-                  : pick.item === item
-                    ? cost < pick.cost - 0.01
-                    : Math.abs(cost - pick.cost) <= 4
-                      ? item.i > pick.item.i
-                      : cost < pick.cost;
-                if (better) pick = { item, side, flip, from, level, sz, cost, x, miss, form };
+      for (const item of among) {
+        const forms = opt.forms?.(item) || [opt.size(item)];
+        const x = opt.x(item),
+          prefers = opt.prefers(item),
+          only = onlyOf(item);
+        for (const [form, sz] of forms.entries()) {
+          for (const flip of [false, true]) {
+            if (flip && opt.noFlip?.(item) && !loose) continue;
+            const from = flip ? x - sz.w : x;
+            // (What the entry draws: its label and, for a line of its own, the rail past both ends.)
+            const pad = opt.pad?.(item, flip) || { l: 0, r: 0 };
+            const span0 = from - pad.l,
+              span1 = from + sz.w + pad.r;
+            if (span0 < opt.min || span1 > opt.max) continue;
+            for (const side of only ? [only] : side0 ? [side0] : ['up', 'down']) {
+              const across = under(item, span0, span1 - span0);
+              const blocked = across.filter((o) => onlyOf(o) === side || !can(o, other(side))).length;
+              if (strict && blocked) continue;
+              let level = 0,
+                shut = false;
+              for (const o of sides[side]) {
+                const over = o.left < span1 + HGAP && span0 < o.left + o.w + HGAP;
+                const stem = !o.post && o.x > span0 - SGAP && o.x < span1 + SGAP;
+                if (!over && !stem) continue;
+                // (Nothing goes under a line of its own: a stem there would cross it.)
+                // (Two lines of their own that cannot stand side by side: the second goes under the first.)
+                if (o.column && !loose) shut = true;
+                if (o.level + o.h + TIER > level) level = o.level + o.h + TIER;
               }
+              if (shut) continue;
+              // Its own stem must not run through a label already there.
+              const through = sides[side].filter(
+                (o) =>
+                  o.x !== x && x > o.left - SGAP && x < o.left + o.w + SGAP && level + sz.h + TIER > o.level,
+              ).length;
+              if (through && !loose) continue;
+              if (!opt.ok(side, from, sz, level, item)) continue;
+              const miss = prefers && side !== prefers ? 1 : 0;
+              const moved = across.filter((o) => !onlyOf(o));
+              const cost =
+                level +
+                miss * 34 +
+                (flip ? 3 : 0) +
+                (side === 'up' ? 1 : 0) +
+                form * (opt.formCost?.(item) ?? 8) +
+                moved.length * 3 +
+                moved.filter((o) => opt.prefers(o) === side).length * 20 +
+                (blocked + through) * 400;
+              // The cheapest place first; between entries whose places cost about the same, the later one.
+              const better = !pick
+                ? true
+                : pick.item === item
+                  ? cost < pick.cost - 0.01
+                  : Math.abs(cost - pick.cost) <= 4
+                    ? item.i > pick.item.i
+                    : cost < pick.cost;
+              if (better)
+                pick = {
+                  item,
+                  side,
+                  flip,
+                  from,
+                  level,
+                  sz,
+                  cost,
+                  x,
+                  miss,
+                  form,
+                  span0,
+                  span1,
+                  crossing: blocked + through,
+                };
             }
           }
         }
-      };
-      consider(true, false);
-      if (!pick) consider(false, false);
-      if (!pick) consider(false, true);
-      if (!pick) consider(false, true, true);
-      if (!pick) break;
-      missed += pick.miss;
-      gaveUp += pick.form * (opt.formCost?.(pick.item) ?? 8);
-      put(pick.item, pick.side, pick.flip, pick.from, pick.level, pick.sz, pick.x);
-      out.get(pick.item.i).form = pick.form;
+      }
+      return pick;
+    };
+    for (const item of opt.first || []) {
+      if (!left.has(item)) continue;
+      // (On the side it prefers, if it can stand there; otherwise wherever is best.)
+      const pick = consider([item], true, false, opt.prefers(item)) || consider([item], true, false);
+      if (pick) put(pick);
     }
-    return { out, upMost, downMost, missed, gaveUp };
+    // Every other entry; then a line of its own that could not stand next to the baseline goes
+    // furthest from it, so that nothing has to pass under it.
+    const rest = () => [...left].filter((item) => !opt.column?.(item));
+    for (let among = rest(); left.size; among = rest()) {
+      const from = among.length ? among : left;
+      const pick = consider(from, true, false) || consider(from, false, false) || consider(from, false, true);
+      if (!pick) break;
+      put(pick);
+    }
+    // (An entry no place could be found for is labelled below everything, inside the plate.)
+    for (const item of [...left]) {
+      const sz = opt.size(item),
+        x = opt.x(item);
+      const from = Math.max(opt.min, Math.min(x, opt.max - sz.w));
+      put({
+        item,
+        side: 'down',
+        flip: from < x,
+        from,
+        level: downMost + TIER,
+        sz,
+        x,
+        miss: 0,
+        form: 0,
+        span0: from,
+        span1: from + sz.w,
+        crossing: 3,
+      });
+    }
+    return { out, upMost, downMost, missed, gaveUp, crossed };
   }
 
   // One arrangement of the plate at a level of detail: 3, every label says what its entry did; 2, the
   // applications and comparisons are named only; 1, only the turns of the rule and the open case say more.
-  function arrange(plate, model, level, W) {
+  function arrange(plate, model, level, W, whole = level < 3) {
     const items = model.items;
     const tagOf = new Map(
       [...plate.querySelectorAll('.v32db-tag')].map((el) => [Number(el.dataset.v32dbI), el]),
@@ -695,8 +832,8 @@
       el.classList.remove('v32db-flip');
     }
     plate.dataset.v32dbLevel = String(level);
-    // A short timeline has room for its names whole.
-    plate.toggleAttribute('data-v32db-roomy', items.length <= 8);
+    // A short timeline has room for its names whole; so has any plate that is tried with them whole.
+    plate.toggleAttribute('data-v32db-roomy', items.length <= 8 || whole);
     for (const el of plate.querySelectorAll('.v32db-tag-name[data-a]')) fitName(el);
     // What an entry did is set to the width of its date and name (and no narrower than a short line).
     for (const el of tagOf.values()) {
@@ -726,9 +863,21 @@
       forms.set(i, [size.get(i), box(el)]);
       el.classList.remove(other);
     }
-    let deckNeed = 0;
-    for (const el of deckOf.values())
-      deckNeed = Math.max(deckNeed, Math.ceil(el.getBoundingClientRect().width));
+    // What each rule's band needs for its own lettering: its picture, name and years, and what the
+    // entry that set it did where that is short. (A long sentence does not stretch the band.)
+    const need = new Map(
+      model.spans.map((span) => {
+        const el = deckOf.get(span.a.i);
+        if (!el) return [span, 0];
+        el.classList.remove('v32db-deck-plain', 'v32db-deck-tight');
+        const whole = Math.ceil(el.getBoundingClientRect().width) + 8;
+        const top = el.querySelector('.v32db-deck-top');
+        const lettering =
+          Math.ceil(top.lastElementChild.getBoundingClientRect().right - el.getBoundingClientRect().left) +
+          28;
+        return [span, whole <= 360 ? whole : lettering];
+      }),
+    );
     const sizeOf = (item) => size.get(item.i);
     const formsOf = (item) => forms.get(item.i) || null;
     // Words under a name cost little; going without them costs two rows.
@@ -743,17 +892,33 @@
     const column =
       model.form === 'lanes' ? Math.max(0, ...model.rails.filter((rail) => !rail.of).map(nameW)) + 12 : 0;
     const X0 = column ? column + 28 : X_FIRST;
-    // The line ends where the last entry's label still fits to the right of its mark.
+    // The line runs the width of the plate. It stops short only by what the last entry's label needs to
+    // the right of its mark (set on two lines, where it can be); where that is more than a fifth of the
+    // plate the line runs on to the edge and the label reads up to its mark from the left instead.
     const gap = Math.round(Math.min(190, Math.max(BREAK, W * 0.13)));
-    let x1 = W - 24;
-    let geo = placeX(model, X0, x1, deckNeed, gap);
-    for (let pass = 0; pass < 4; pass++) {
-      const last = items[items.length - 1];
-      const sz = size.get(last.i);
-      const over = sz ? geo.xs[last.i] + sz.w + 4 - W : 0;
-      if (over <= 0.5) break;
-      x1 = Math.max(X0 + (items.length - 1) * MINGAP, x1 - over);
-      geo = placeX(model, X0, x1, deckNeed, gap);
+    const last = items[items.length - 1];
+    const narrow = last
+      ? Math.min(
+          ...(forms.get(last.i) || [size.get(last.i)])
+            .filter((sz, k) => !k || last.cls === 'steady' || last.cls === 'aside')
+            .map((sz) => sz.w),
+        )
+      : 0;
+    const most = last?.here || last?.cls === 'rule' ? 0.26 : 0.2;
+    let x1 = W - (narrow + 6 <= W * most ? Math.max(24, narrow + 6) : 24);
+    let geo = placeX(model, X0, x1, need, gap);
+    // (An entry that ends a rule keeps its label past the rule's end, wherever on the line it falls:
+    // the line stops short by what that label needs, up to a third of the plate.)
+    for (let pass = 0; pass < 3; pass++) {
+      const over = Math.max(
+        0,
+        ...items
+          .filter((item) => item.ends && !item.hung && size.get(item.i))
+          .map((item) => geo.xs[item.i] + size.get(item.i).w + 6 - W),
+      );
+      if (over <= 0.5 || W - (x1 - over) > W * 0.36) break;
+      x1 -= over;
+      geo = placeX(model, X0, x1, need, gap);
     }
     const xs = geo.xs.map((x) => Math.round(x));
     const xOf = (item) => xs[item.i];
@@ -872,54 +1037,85 @@
     const free = items.filter((item) => !item.span && !item.hung && (!item.rail || aside(model, item)));
     const sizeOnLine = (item) =>
       aside(model, item) ? { w: sizeOf(item).w, h: sizeOf(item).h + SIDE } : sizeOf(item);
+    const least = lanes.length || model.form === 'lanes' ? lanesBottom + 20 : PAD + 12;
     const onLine = (spineY) =>
       fan(free, {
         x: xOf,
         size: sizeOnLine,
+        // (A line of its own hangs below the axis, unless only the room above it is free.)
         prefers: (item) =>
-          item.fam === 'narrow' ? 'down' : item.cls === 'rule' || item.fam === 'wide' ? 'up' : '',
-        only: (item) =>
-          aside(model, item) || lanes.some((one) => xs[item.i] > one.x && xs[item.i] < one.x + one.w)
+          aside(model, item) || item.fam === 'narrow'
             ? 'down'
-            : '',
+            : item.cls === 'rule' || item.fam === 'wide'
+              ? 'up'
+              : '',
+        only: (item) => (lanes.some((one) => xs[item.i] > one.x && xs[item.i] < one.x + one.w) ? 'down' : ''),
         forms: (item) => (aside(model, item) ? null : formsOf(item)),
         formCost,
         noFlip: (item) => !!item.ends,
+        // The entry that ends a rule is labelled first, past the rule's end; a line of its own last,
+        // below whatever else is labelled there, so that no stem passes through it.
         first: free.filter((item) => item.ends),
+        column: (item) => aside(model, item),
+        pad: (item, flip) =>
+          aside(model, item) ? (flip ? { l: 50, r: 14 } : { l: 40, r: 26 }) : { l: 0, r: 0 },
         min: 0,
         max: W,
         ok(side, left, sz, lvl, item) {
           if (side !== 'up') return true;
-          const box = { x: left, y: spineY - STEM - lvl - sz.h, w: sz.w, h: sz.h };
+          // (The rules' bands come down with the line: they stand just above it, wherever it is.)
+          const dy = spineY - least;
+          const box = { x: left, y: spineY - STEM - lvl - sz.h - dy, w: sz.w, h: sz.h };
           return (
-            box.y >= PAD - 0.5 &&
-            !rects.some((r) => r.y < spineY && hits(box, r, r.ends === item.i ? (r.pier ? -100 : -2) : 12))
+            box.y + dy >= PAD - 0.5 &&
+            !rects.some(
+              (r) => r.y + dy < spineY && hits(box, r, r.ends === item.i ? (r.pier ? -100 : -2) : 12),
+            )
           );
         },
       });
     // Where the line sits: under the spans, and as far under them as makes the whole plate shortest
     // (room above the line lets labels stand there that would otherwise stack below it), give or
     // take a row for each label kept off the side its move prefers.
-    const least = lanes.length || model.form === 'lanes' ? lanesBottom + 20 : PAD + 12;
     let spineY = least,
       line = null,
       best = Infinity;
     for (let y = least; y <= least + 264; y += 12) {
       const tried = onLine(y);
-      const total = y + (tried.downMost ? STEM + tried.downMost : 16) + tried.missed * 26 + tried.gaveUp;
+      const total =
+        y +
+        (tried.downMost ? STEM + tried.downMost : 16) +
+        tried.missed * 26 +
+        tried.gaveUp +
+        tried.crossed * 400;
       if (total < best - 0.5) {
         best = total;
         spineY = y;
         line = tried;
       }
     }
+    // Where room was made above the line, the bands and what hangs on them come down with it.
+    const drop = spineY - least;
+    if (drop > 0) {
+      for (const at of placed.values()) {
+        at.box.y += drop;
+        at.from += drop;
+        if (at.markY !== undefined) at.markY += drop;
+      }
+      for (const one of lanes) {
+        one.y += drop;
+        one.bottom += drop;
+      }
+      for (const one of railsAt) {
+        one.y += drop;
+        one.nameY += drop;
+      }
+    }
     for (const [i, at] of line.out) {
       const apart = aside(model, items[i]);
       const box = {
         x: at.left,
-        y:
-          (at.side === 'up' ? spineY - STEM - at.level - at.h : spineY + STEM + at.level) +
-          (apart ? SIDE : 0),
+        y: at.side === 'up' ? spineY - STEM - at.level - at.h : spineY + STEM + at.level + (apart ? SIDE : 0),
         w: at.w,
         h: at.h - (apart ? SIDE : 0),
       };
@@ -1047,22 +1243,29 @@
     const above =
       plate.getBoundingClientRect().top - inspector.getBoundingClientRect().top + inspector.scrollTop;
     const room = inspector.clientHeight - above;
-    // Every label with its words may squeeze the account to its opening lines; a plate that has
-    // already given words up leaves the account more. Where nothing fits, the fullest of the shortest.
-    const heights = new Map();
-    let level = 0;
-    for (const one of [3, 2, 1]) {
-      heights.set(one, arrange(plate, model, one, W).height);
-      if (heights.get(one) <= Math.max(260, room - (one === 3 ? 176 : 240))) {
-        level = one;
-        break;
-      }
+    // The fullest plate that leaves the account its opening lines (date, name, the start of its note):
+    // every label with its words and every name whole; then long names giving way party by party;
+    // then the applications and comparisons named only; then only the turns of the rule and the open
+    // case saying more than their names. Where none fits, the fullest of the shortest: words are not
+    // given up to save a few rows.
+    const LADDER = [
+      { level: 3, whole: true },
+      { level: 3, whole: false },
+      { level: 2, whole: true },
+      { level: 1, whole: true },
+    ];
+    const budget = Math.max(260, room - 128);
+    const heights = LADDER.map(() => Infinity);
+    let rung = LADDER.findIndex((one, k) => {
+      heights[k] = arrange(plate, model, one.level, W, one.whole).height;
+      return heights[k] <= budget;
+    });
+    if (rung < 0) {
+      const least = Math.min(...heights);
+      rung = heights.findIndex((h) => h <= least + 56);
     }
-    if (!level) {
-      const least = Math.min(...heights.values());
-      level = [3, 2, 1].find((one) => heights.get(one) <= least + 24);
-    }
-    const plan = arrange(plate, model, level, W);
+    const { level, whole } = LADDER[rung];
+    const plan = arrange(plate, model, level, W, whole);
     const { height, xs, geo, lanes, placed, spineY, tagOf, deckOf, railsAt, nameOf, X0 } = plan;
 
     // Put everything where it goes.
@@ -1084,10 +1287,19 @@
       el.style.width = one.w + 'px';
       el.style.height = one.h + 'px';
       const said = el.querySelector('.v32db-deck-said');
-      if (said?.dataset.rule) {
-        said.textContent = said.dataset.rule;
+      // What the band says: the rule in a sentence; where that is too long, what the entry did; where
+      // even that is, its name and years alone (the account and the list say the rest). Nothing is cut.
+      if (said) {
         const line = said.parentElement;
-        if (line.scrollWidth > line.clientWidth + 1) said.textContent = said.dataset.did;
+        el.classList.remove('v32db-deck-plain', 'v32db-deck-tight');
+        const fits = () => line.scrollWidth <= line.clientWidth + 1;
+        said.textContent = said.dataset.rule || said.dataset.did;
+        if (!fits()) said.textContent = said.dataset.did;
+        if (!fits()) el.classList.add('v32db-deck-plain');
+        const top = el.querySelector('.v32db-deck-top');
+        const over = () =>
+          top.lastElementChild.getBoundingClientRect().right > el.getBoundingClientRect().right - 6;
+        if (over()) el.classList.add('v32db-deck-tight');
       }
     }
     for (const one of railsAt) {
