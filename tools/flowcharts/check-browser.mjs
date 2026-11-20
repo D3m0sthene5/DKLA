@@ -66,7 +66,9 @@ async function verifyZoom(dialog) {
       return {
         overflow:
           element.scrollWidth > element.clientWidth + 2 || element.scrollHeight > element.clientHeight + 2,
-        contained: [...element.querySelectorAll('[data-fc-cell]')].every((node) => {
+        contained: [
+          ...element.querySelectorAll(element.querySelector('.fc-ov') ? '.fc-ov-mark' : '[data-fc-cell]'),
+        ].every((node) => {
           const box = node.getBoundingClientRect();
           return (
             box.left >= view.left - 2 &&
@@ -81,6 +83,11 @@ async function verifyZoom(dialog) {
   await dialog.locator('[data-flowcharts-zoom="fit"]').click();
   await expect(scale).not.toHaveText('100%');
   assert.deepEqual(await measure(), { overflow: false, contained: true }, 'Fit shows the complete chart');
+  assert.equal(
+    await area.locator('.fc-ov-mark, [data-fc-cell]').filter({ visible: true }).count(),
+    await area.locator('[data-fc-cell]').count(),
+    'every step is there at Fit, as itself or as a mark',
+  );
   await dialog.locator('[data-flowcharts-zoom="reset"]').click();
   await expect(scale).toHaveText('100%');
   assert.ok((await measure()).overflow, '100% restores the full-size scrollable chart');
@@ -327,42 +334,81 @@ async function drawings(page, tap) {
   await expect(activeHeading(page)).toHaveText('Which adjudication statute applies?');
 }
 
-/* Fitted to the window, the chart's words are too small to read: every step is listed in the room the
-   chart leaves, beside it on a wide window, with its number and its words in full. */
-async function fitted(page, tap) {
+/* Fit, on a chart that cannot be read at the size it fits: recomposed for the window from its data.
+   On LRS-15: every step is a mark inside the view; the first question, the major join and all five
+   outcomes carry their words in full; the first question's two answers and the answer that leads
+   into the join name three regions that do not overlap; a bare mark names itself on focus; selecting
+   a mark or a region goes into the full-size map there without moving the reader. */
+async function fitted(page) {
   const dialog = courseDialog(page);
-  const act = (target) => (tap ? target.tap() : target.click());
   await page.goto(routeFor('#flowchart=LRS-15'));
-  await act(dialog.locator('[data-flowcharts-view="map"]'));
-  await expect(dialog.locator('.fc-index')).toBeHidden();
-  await act(dialog.locator('[data-flowcharts-zoom="fit"]'));
-  const rows = dialog.locator('.fc-index [data-fc-row]');
-  await expect(rows).toHaveCount(23);
-  await expect(rows.first()).toBeVisible();
-  const state = await dialog.locator('.fc-map').evaluate((map) => {
-    const scroll = map.querySelector('.fc-map-scroll').getBoundingClientRect();
-    const index = map.querySelector('.fc-index').getBoundingClientRect();
+  await dialog.locator('[data-flowcharts-view="map"]').click();
+  await expect(dialog.locator('.fc-ov')).toHaveCount(0);
+  await dialog.locator('[data-flowcharts-zoom="fit"]').click();
+  const overview = dialog.locator('.fc-ov');
+  await expect(overview).toBeVisible();
+  await expect(dialog.locator('.fc-zoom-value')).toHaveText('Overview');
+  await expect(overview.locator('.fc-ov-mark')).toHaveCount(23);
+  await expect(overview.locator('.fc-ov-title')).toHaveText([
+    'Rulemaking or broad policy',
+    'Adjudication or licensing',
+    'Check constitutional hearing rights',
+  ]);
+  await expect(overview.locator('.fc-ov-first')).toHaveText(
+    'Does the action prescribe a rule or decide a case?',
+  );
+  await expect(overview.locator('.fc-ov-major')).toHaveText(
+    'Is there a protected interest and a deprivation?',
+  );
+  await expect(overview.locator('.fc-ov-outcome')).toHaveText([
+    'Give renewed notice when required',
+    'Goldberg required an evidentiary hearing before cutoff',
+    'Loudermill required a chance to respond before termination',
+    'Mathews allowed the hearing after disability benefits ended',
+    'Apply the procedures supplied by governing law',
+  ]);
+  const state = await overview.evaluate((ov) => {
+    const view = ov.closest('.fc-map-scroll').getBoundingClientRect();
+    const inside = (el) => {
+      const at = el.getBoundingClientRect();
+      return (
+        at.left >= view.left - 1 &&
+        at.right <= view.right + 1 &&
+        at.top >= view.top - 1 &&
+        at.bottom <= view.bottom + 1
+      );
+    };
+    const hit = (a, b) =>
+      a.left < b.right - 1 && a.right > b.left + 1 && a.top < b.bottom - 1 && a.bottom > b.top + 1;
+    const boxes = (selector) => [...ov.querySelectorAll(selector)].map((el) => el.getBoundingClientRect());
+    const regions = boxes('.fc-ov-region'),
+      labels = boxes('.fc-ov-label');
     return {
-      beside: index.left >= scroll.right - 1,
-      below: index.top >= scroll.bottom - 1,
-      cut: [...map.querySelectorAll('.fc-index-q')].filter((q) => q.scrollWidth > q.clientWidth + 1).length,
-      labels: [...map.querySelectorAll('.fc-overview .fc-over')].every((label) => {
-        const at = label.getBoundingClientRect();
-        return !at.width || (at.left >= scroll.left - 1 && at.right <= scroll.right + 1);
-      }),
+      inside: [...ov.querySelectorAll('.fc-ov-mark, .fc-ov-label, .fc-ov-region')].every(inside),
+      regionsApart: regions.every((a, i) => regions.every((b, j) => i === j || !hit(a, b))),
+      labelsApart: labels.every((a, i) => labels.every((b, j) => i === j || !hit(a, b))),
+      joinsRinged: ov.querySelectorAll('.fc-ov-mark.fc-ov-join').length,
     };
   });
-  assert.equal(state.beside, !tap, 'on a wide window the steps are listed beside the fitted chart');
-  assert.equal(state.below, !!tap, 'on a phone they are listed under it');
-  assert.equal(state.cut, 0, 'no step in the list is cut short');
-  assert.ok(state.labels, "the first fork's answers are whole beside the fitted chart");
-  // Selecting a step in the overview goes into the detailed map there, at full size, with that step
-  // in view and ringed; the reader's own step is not changed.
+  assert.deepEqual(state, { inside: true, regionsApart: true, labelsApart: true, joinsRinged: 6 });
+  // A mark with no words beside it names itself when focused.
+  const bare = overview.locator('[data-fc-mark="comment"]');
+  await bare.focus();
+  await expect(bare.locator('.fc-ov-name')).toBeVisible();
+  await expect(bare.locator('.fc-ov-name')).toHaveText('Give a meaningful opportunity to comment');
+  // Into the detailed map with bearings intact.
   const before = await activeHeading(page).textContent();
-  await act(rows.nth(0).locator('button'));
+  await overview.locator('[data-fc-mark="order"]').click();
   await expect(dialog.locator('.fc-zoom-value')).toHaveText('100%');
-  await expect(dialog.locator('.fc-index')).toBeHidden();
-  await expect(dialog.locator('[data-fc-cell="start"].fc-looked')).toBeInViewport();
+  await expect(dialog.locator('.fc-ov')).toHaveCount(0);
+  await expect(dialog.locator('[data-fc-cell="order"].fc-looked')).toBeInViewport();
+  await expect(activeHeading(page)).toHaveText(before);
+  await dialog.locator('[data-flowcharts-zoom="fit"]').click();
+  await dialog
+    .locator('.fc-ov-region')
+    .last()
+    .click({ position: { x: 200, y: 12 } });
+  await expect(dialog.locator('[data-fc-cell="interest"].fc-looked')).toBeInViewport();
   await expect(activeHeading(page)).toHaveText(before);
 }
 
@@ -512,7 +558,7 @@ try {
   await trip(page, '#flowchart=LRS-15', false);
   await trip(page, '#flowchart=LRS-15&step=order', false);
   await drawings(page, false);
-  await fitted(page, false);
+  await fitted(page);
   await decidingSentences(page);
   assert.deepEqual(desktop.errors, []);
   await desktop.context.close();

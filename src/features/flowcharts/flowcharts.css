@@ -1026,14 +1026,24 @@
     display: none;
   }
 }
-/* Fitted to the window: every step listed in the room the chart leaves (see indexHTML). */
-.fc-index {
+/* Under the composed overview, closed until asked for: every step, listed (see indexHTML). */
+.fc-all {
   display: none;
 }
-.fc-indexed > .fc-index {
+.fc-composed > .fc-all {
   display: block;
+  margin-top: 10px;
+}
+#dklaFlowcharts .fc-all > summary {
+  width: max-content;
+  padding: 6px 0;
+  font: var(--v32-ui-small, 13px/18px sans-serif);
+  color: var(--v31-link);
+  cursor: pointer;
+}
+.fc-index {
   margin: 0;
-  padding: 12px 0 0;
+  padding: 8px 0 0;
   list-style: none;
   columns: 280px;
   column-gap: 24px;
@@ -1524,4 +1534,203 @@
     font-size: 16px;
     line-height: 21px;
   }
+}
+
+/* ---------- Fit: the chart recomposed for the window (composeOverview) ---------- */
+.fc-composed .fc-graph {
+  display: none;
+}
+.fc-composed .fc-map-scroll {
+  overflow: hidden;
+}
+.fc-ov {
+  position: relative;
+  --fc-wire: color-mix(in srgb, var(--fc-course, var(--v31-link)) 62%, var(--v31-ground));
+}
+#dklaFlowcharts .fc-ov-region {
+  all: unset;
+  box-sizing: border-box;
+  position: absolute;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--v31-raised) 55%, transparent);
+  box-shadow: inset 0 0 0 1px var(--v32-hair, rgb(255 255 255 / 0.07));
+  cursor: zoom-in;
+}
+#dklaFlowcharts .fc-ov-region:hover,
+#dklaFlowcharts .fc-ov-region:focus-visible {
+  background: var(--v31-raised);
+  box-shadow: inset 0 0 0 1px var(--v31-line-strong, rgb(255 255 255 / 0.2));
+}
+#dklaFlowcharts .fc-ov-region:focus-visible {
+  outline: 2px solid var(--v31-link);
+  outline-offset: 1px;
+}
+.fc-ov-title {
+  position: absolute;
+  left: 14px;
+  right: 10px;
+  top: 7px;
+  overflow: hidden;
+  font:
+    600 13px/18px var(--dkla-interface, Inter),
+    sans-serif;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--v31-link);
+}
+.fc-ov-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  color: var(--fc-wire);
+}
+.fc-ov-lines marker path {
+  fill: context-stroke;
+}
+.fc-ov-line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4px;
+}
+.fc-ov-back {
+  stroke-dasharray: 4 4;
+}
+.fc-ov-line.fc-path-wire {
+  stroke: var(--v31-text);
+  stroke-width: 2.4px;
+}
+.fc-tracing .fc-ov-line:not(.fc-trace, .fc-path-wire) {
+  opacity: 0.3;
+}
+.fc-ov-line.fc-trace {
+  stroke: var(--v31-link-hover, #9fd0ff);
+  stroke-width: 2.4px;
+}
+#dklaFlowcharts .fc-ov-mark {
+  all: unset;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin: -12px 0 0 -12px;
+  border-radius: 999px;
+  cursor: zoom-in;
+}
+#dklaFlowcharts .fc-ov-mark::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+}
+.fc-ov-mark > .fc-number {
+  zoom: 0.8;
+}
+/* Where routes meet: ringed. */
+.fc-ov-mark.fc-ov-join::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border: 1.5px solid var(--fc-course, var(--v31-link));
+  border-radius: 999px;
+  pointer-events: none;
+}
+.fc-ov-mark.fc-path::after {
+  border-color: var(--v31-text);
+}
+.fc-ov-mark[aria-current='step'] > .fc-number > svg {
+  fill: var(--v31-here);
+}
+.fc-ov-mark[aria-current='step'] {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--v31-here) 35%, transparent);
+}
+#dklaFlowcharts .fc-ov-mark:focus-visible {
+  outline: 2px solid var(--v31-link);
+  outline-offset: 5px;
+}
+.fc-ov-mark.fc-trace,
+#dklaFlowcharts .fc-ov-mark:hover {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--v31-link-hover, #9fd0ff) 55%, transparent);
+}
+/* A mark with no words beside it gives its name when pointed at, focused or pressed. */
+.fc-ov-name {
+  display: none;
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  bottom: calc(100% + 9px);
+  width: max-content;
+  max-width: 240px;
+  padding: 5px 9px;
+  border-radius: 6px;
+  background: var(--v31-ground);
+  box-shadow: 0 0 0 1px var(--v31-line-strong, rgb(255 255 255 / 0.2));
+  transform: translateX(-50%);
+  font:
+    500 13px/17px var(--dkla-interface, Inter),
+    sans-serif;
+  text-align: start;
+  white-space: normal;
+  color: var(--v31-text);
+  pointer-events: none;
+}
+.fc-ov-mark:hover > .fc-ov-name,
+.fc-ov-mark:focus > .fc-ov-name,
+.fc-ov-named > .fc-ov-name {
+  display: block;
+}
+.fc-ov-mark:hover,
+.fc-ov-mark:focus,
+.fc-ov-named {
+  z-index: 5;
+}
+.fc-ov-label {
+  position: absolute;
+  z-index: 1;
+  /* (A halo in the ground's colour, so a line passing behind a word does not strike it through.) */
+  text-shadow:
+    0 0 3px var(--v31-panel),
+    0 0 3px var(--v31-panel),
+    0 0 4px var(--v31-panel),
+    0 0 5px var(--v31-panel);
+  font:
+    500 12.5px/16px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-soft);
+  pointer-events: none;
+}
+.fc-ov-end {
+  text-align: end;
+}
+.fc-ov-centre {
+  text-align: center;
+}
+.fc-ov-first {
+  font:
+    600 15px/19px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-text);
+}
+.fc-ov-major {
+  font:
+    600 14px/18px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-text);
+}
+.fc-ov-outcome {
+  color: var(--v31-text);
+}
+.fc-ov-label.fc-ov-join {
+  font-size: 12px;
+  line-height: 15px;
+  color: var(--v31-muted);
+}
+.fc-ov-here {
+  color: var(--v31-here);
+}
+.fc-ov-label.fc-ov-answer {
+  font-size: 12px;
+  line-height: 15px;
+  color: var(--v31-link);
 }
