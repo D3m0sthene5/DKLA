@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "reviewedAt": "2026-11-17",
   "dataPath": "tools/r19/data/timelines.json",
-  "timelinesSha256": "09f1bf2abc69e163b4fd6aa1842c51dd711da977975232ffc84519b344db2eaa",
+  "timelinesSha256": "7874c2d2533dacb9db3f51566a602177257feab628d58f579c608d5120f691d5",
   "baselineGitRevision": "347d2e9759a7b5429f24825c521a967ce2b14eb9",
   "scope": "All timeline memberships and navigation were inventoried against the canonical cases and original assigned-source locations. New lines and selected corrections were compared with original casebook passages and case-specific accounts. Prior complete-opinion limitations remain; this does not certify every proposition or all current law. November 17: all 685 timeline steps screened editorially; targeted primary-source corrections are recorded separately. This is not a complete primary-source audit of every step or brief.",
   "limitations": [
@@ -23,11 +23,11 @@
     "savedProvisionOrAccountSteps": 38,
     "completeSavedBriefsRead": 3,
     "dividedCasesHoldingReasoningRead": 7,
-    "freshPrimaryDocuments": 94,
-    "stepsWithFreshPrimaryComparison": 86,
+    "freshPrimaryDocuments": 98,
+    "stepsWithFreshPrimaryComparison": 90,
     "rewrittenGuides": 66,
     "rewrittenSyntheses": 37,
-    "changedSteps": 61,
+    "changedSteps": 64,
     "courseTimelineCounts": {
       "Contracts": 32,
       "Civil Procedure": 40,
@@ -1123,6 +1123,54 @@
       ],
       "basis": "Printed decision-date header; no full-opinion substantive review",
       "checkedIssues": "Decided January 12, 1988"
+    },
+    {
+      "id": "cp-week2-shoe",
+      "title": "International Shoe Co. v. Washington",
+      "url": "https://www.law.cornell.edu/supremecourt/text/326/310",
+      "pinpoints": "326 U.S. 310, 313–20, 320–22. CivPro.pdf, printed 95–100, physical 75–78.",
+      "targets": [
+        "CP-015"
+      ],
+      "basis": "Assigned excerpt and selected primary-opinion passages compared for this week 2 issue.",
+      "checkedIssues": "The wage-based assessment arose from the local sales operation. The Court separately examined service on a salesman and mailing to headquarters.",
+      "accessedAt": "2026-11-20"
+    },
+    {
+      "id": "cp-week2-hanson",
+      "title": "Hanson v. Denckla",
+      "url": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep357/usrep357235/usrep357235.pdf",
+      "pinpoints": "357 U.S. 235, 250–55. CivPro.pdf, printed 103–107, physical 80–81 for the caption and text.",
+      "targets": [
+        "CP-ATLAS-HANSON"
+      ],
+      "basis": "Assigned excerpt and selected primary-opinion passages compared for this week 2 issue.",
+      "checkedIssues": "Florida could not bind this trustee on the basis of the settlor’s Florida activities. The course chronology is confined to that issue. The original-source control opens physical 80, which contains the case caption.",
+      "accessedAt": "2026-11-20"
+    },
+    {
+      "id": "cp-week2-gray",
+      "title": "Gray v. American Radiator & Standard Sanitary Corp.",
+      "url": "https://law.justia.com/cases/illinois/supreme-court/1961/35872-5.html",
+      "pinpoints": "22 Ill. 2d 432, 435–37, 441–44. CivPro.pdf, printed 107–113, physical 81–84.",
+      "targets": [
+        "CPR-001"
+      ],
+      "basis": "Assigned excerpt and selected primary-opinion passages compared for this week 2 issue.",
+      "checkedIssues": "The Illinois injury completed the alleged tort for statutory purposes. For due process the court inferred substantial Illinois use despite the absence of sales figures and noted Titan did not assert an isolated use.",
+      "accessedAt": "2026-11-20"
+    },
+    {
+      "id": "cp-week2-hess",
+      "title": "Hess v. Pawloski",
+      "url": "https://www.law.cornell.edu/supremecourt/text/274/352",
+      "pinpoints": "274 U.S. 352, 353–57. CivPro.pdf, printed 90–93, physical 73–75. The caption is on physical 74.",
+      "targets": [
+        "CP-014"
+      ],
+      "basis": "Assigned excerpt and selected primary-opinion passages compared for this week 2 issue.",
+      "checkedIssues": "The Massachusetts statute tied the registrar’s appointment to the highway accident, required receipt of the mailed papers, and allowed time for a defense.",
+      "accessedAt": "2026-11-20"
     }
   ],
   "timelineReviews": [
@@ -12036,8 +12084,14 @@
         "links",
         "authority type"
       ],
-      "changedFields": [],
-      "independentPrimaryChecks": [],
+      "changedFields": [
+        "object",
+        "effect",
+        "context"
+      ],
+      "independentPrimaryChecks": [
+        "cp-week2-shoe"
+      ],
       "freshCompleteOpinionReview": false,
       "basis": {
         "kind": "Inherited canonical rule comparison in complete timeline context",
@@ -12075,6 +12129,13 @@
           "date": "2026-11-17",
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
+          "freshCompleteOpinionReview": false
+        },
+        {
+          "date": "2026-11-20",
+          "register": "docs/history/corpus-audit-2026-11/cp-week-2.md",
+          "scope": "The wage-based assessment arose from the local sales operation. The Court separately examined service on a salesman and mailing to headquarters.",
+          "pinpoints": "326 U.S. 310, 313–20, 320–22. CivPro.pdf, printed 95–100, physical 75–78.",
           "freshCompleteOpinionReview": false
         }
       ]
@@ -12158,7 +12219,9 @@
         "authority type"
       ],
       "changedFields": [],
-      "independentPrimaryChecks": [],
+      "independentPrimaryChecks": [
+        "cp-week2-hanson"
+      ],
       "freshCompleteOpinionReview": false,
       "basis": {
         "kind": "Inherited canonical rule comparison in complete timeline context",
@@ -12184,9 +12247,9 @@
       "originalSourceLinks": [
         {
           "path": "added-sources/CivPro.pdf",
-          "page": 79,
-          "label": "CivPro.pdf · PDF p. 79",
-          "basis": "Existing assigned source reference",
+          "page": 80,
+          "label": "CivPro.pdf · printed p. 103, PDF p. 80",
+          "basis": "Opening of assigned case located in the original PDF",
           "sourceSha256": "eaa3a7d6798c382dc2edd63d5c043e96ffe1e3139e5278dd7e45996ca52376db"
         }
       ],
@@ -12195,6 +12258,13 @@
           "date": "2026-11-17",
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
+          "freshCompleteOpinionReview": false
+        },
+        {
+          "date": "2026-11-20",
+          "register": "docs/history/corpus-audit-2026-11/cp-week-2.md",
+          "scope": "Florida could not bind this trustee on the basis of the settlor’s Florida activities. The course chronology is confined to that issue. The original-source control opens physical 80, which contains the case caption.",
+          "pinpoints": "357 U.S. 235, 250–55. CivPro.pdf, printed 103–107, physical 80–81 for the caption and text.",
           "freshCompleteOpinionReview": false
         }
       ]
@@ -12217,8 +12287,12 @@
         "links",
         "authority type"
       ],
-      "changedFields": [],
-      "independentPrimaryChecks": [],
+      "changedFields": [
+        "note"
+      ],
+      "independentPrimaryChecks": [
+        "cp-week2-gray"
+      ],
       "freshCompleteOpinionReview": false,
       "basis": {
         "kind": "Inherited canonical rule comparison in complete timeline context",
@@ -12262,6 +12336,13 @@
           "date": "2026-11-17",
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
+          "freshCompleteOpinionReview": false
+        },
+        {
+          "date": "2026-11-20",
+          "register": "docs/history/corpus-audit-2026-11/cp-week-2.md",
+          "scope": "The Illinois injury completed the alleged tort for statutory purposes. For due process the court inferred substantial Illinois use despite the absence of sales figures and noted Titan did not assert an isolated use.",
+          "pinpoints": "22 Ill. 2d 432, 435–37, 441–44. CivPro.pdf, printed 107–113, physical 81–84.",
           "freshCompleteOpinionReview": false
         }
       ]
@@ -13909,8 +13990,12 @@
         "links",
         "authority type"
       ],
-      "changedFields": [],
-      "independentPrimaryChecks": [],
+      "changedFields": [
+        "note"
+      ],
+      "independentPrimaryChecks": [
+        "cp-week2-hess"
+      ],
       "freshCompleteOpinionReview": false,
       "basis": {
         "kind": "Inherited canonical rule comparison in complete timeline context",
@@ -13936,9 +14021,9 @@
       "originalSourceLinks": [
         {
           "path": "added-sources/CivPro.pdf",
-          "page": 73,
-          "label": "CivPro.pdf · PDF p. 73",
-          "basis": "Existing assigned source reference",
+          "page": 74,
+          "label": "CivPro.pdf · printed p. 91, PDF p. 74",
+          "basis": "Opening of assigned case located in the original PDF",
           "sourceSha256": "eaa3a7d6798c382dc2edd63d5c043e96ffe1e3139e5278dd7e45996ca52376db"
         }
       ],
@@ -13948,6 +14033,13 @@
           "date": "2026-11-17",
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
+          "freshCompleteOpinionReview": false
+        },
+        {
+          "date": "2026-11-20",
+          "register": "docs/history/corpus-audit-2026-11/cp-week-2.md",
+          "scope": "The Massachusetts statute tied the registrar’s appointment to the highway accident, required receipt of the mailed papers, and allowed time for a defense.",
+          "pinpoints": "274 U.S. 352, 353–57. CivPro.pdf, printed 90–93, physical 73–75. The caption is on physical 74.",
           "freshCompleteOpinionReview": false
         }
       ]
@@ -46928,6 +47020,57 @@
       "after": {
         "note": "A buyer of goods may obtain specific performance for unique goods or other proper circumstances. Inability to obtain substitutes can support relief beyond a uniqueness label; damages’ adequacy and equitable discretion still matter."
       }
+    },
+    {
+      "timelineId": "pj",
+      "step": 2,
+      "key": "shoe",
+      "fields": [
+        "object",
+        "effect",
+        "context"
+      ],
+      "before": {
+        "object": "Pennoyer's territorial test",
+        "effect": "Minimum contacts replace territorial presence",
+        "context": "Minimum contacts replace physical presence: suit is allowed if it does not offend traditional notions of fair play and substantial justice."
+      },
+      "after": {
+        "object": "corporate presence as a test for this claim",
+        "effect": "Forum sales support a claim tied to those sales",
+        "context": "Washington sought contributions based on the work of the company’s local sales force. That same work connected the company to Washington for this claim. The Court separately upheld notice to a salesman and by registered mail to headquarters."
+      },
+      "register": "docs/history/corpus-audit-2026-11/cp-week-2.md"
+    },
+    {
+      "timelineId": "pj",
+      "step": 5,
+      "key": "cp-gray",
+      "fields": [
+        "note"
+      ],
+      "before": {
+        "note": "Stream of commerce in a state court: a component maker can be sued where its product, sold through ordinary distribution, causes injury."
+      },
+      "after": {
+        "note": "Illinois treated the local injury as completing the alleged tort under its statute. For due process, the court inferred substantial Illinois use of heaters containing Titan’s valves, although the record gave no sales figures."
+      },
+      "register": "docs/history/corpus-audit-2026-11/cp-week-2.md"
+    },
+    {
+      "timelineId": "pj-traditional",
+      "step": 3,
+      "key": "cp-hess",
+      "fields": [
+        "note"
+      ],
+      "before": {
+        "note": "Implied consent: driving on a state's roads appoints a state official to receive service in suits about the driving, with notice to the driver."
+      },
+      "after": {
+        "note": "Massachusetts treated a nonresident’s highway use as appointing its registrar to accept service for a suit over an accident there. Its statute required the driver’s receipt for the mailed papers and allowed time to defend."
+      },
+      "register": "docs/history/corpus-audit-2026-11/cp-week-2.md"
     }
   ],
   "followupRuleAccountComparisons": [

@@ -5363,8 +5363,8 @@
       "courses": [
         "Civil Procedure"
       ],
-      "takeaway": "A state can say that driving on its roads counts as agreeing to be served through a state official. So a nonresident driver who causes a crash can be sued there. The law was fair because the driver was told about the suit and had time to defend.",
-      "takeawaySha256": "b0caaeee7cc30d9f65a03918c02319867ebc73f3f913d7659221f22bdfe97a08",
+      "takeaway": "Hess drove on Massachusetts highways. Under state law that made the registrar his agent for a suit over an accident there. The plaintiff had to send the papers by registered mail and file Hess’s signed receipt. The court could give him time to defend.",
+      "takeawaySha256": "5e0320f65b90001f1e839851382f64c3dcbf1c41019ca64ff8d0d18753ad6a47",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -5417,6 +5417,18 @@
             "freshCompleteOpinionReview": false,
             "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
           }
+        },
+        {
+          "date": "2026-11-20",
+          "changedFields": [
+            "takeaway"
+          ],
+          "priorTakeaway": "A state can say that driving on its roads counts as agreeing to be served through a state official. So a nonresident driver who causes a crash can be sued there. The law was fair because the driver was told about the suit and had time to defend.",
+          "scope": "The accident-related appointment of the registrar, statutory receipt for the mailed papers, and time to defend explain why the Court upheld this service.",
+          "pinpoints": "274 U.S. 352, 353–57; casebook printed 91–93.",
+          "sourceUrl": "https://www.law.cornell.edu/supremecourt/text/274/352",
+          "correctionRegister": "docs/history/corpus-audit-2026-11/cp-week-2.md",
+          "freshCompleteOpinionReview": false
         }
       ]
     },
@@ -5426,8 +5438,8 @@
       "courses": [
         "Civil Procedure"
       ],
-      "takeaway": "One insurance policy sold into a state can be enough to let that state's courts hear a suit over that policy. The insurer's only California tie was a single policy sold by mail, but the suit was about that very policy, so California could hear it.",
-      "takeawaySha256": "0c83fb222e3f16db86fb36ad5f185d098d4f8627b88647ae1b73408c6e95a007",
+      "takeaway": "The Texas insurer offered to continue Franklin’s life insurance while he lived in California. He accepted and sent premiums from there. That single policy gave California enough of a tie to hear the beneficiary’s claim for payment.",
+      "takeawaySha256": "b4c3f50f8e3cacd5d9c8fa4c67a422abdcd21f0e60509ab04d5c47856eb74b61",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -5457,7 +5469,21 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "deltaReviews": [
+        {
+          "date": "2026-11-20",
+          "changedFields": [
+            "takeaway"
+          ],
+          "priorTakeaway": "One insurance policy sold into a state can be enough to let that state's courts hear a suit over that policy. The insurer's only California tie was a single policy sold by mail, but the suit was about that very policy, so California could hear it.",
+          "scope": "The Texas reinsurer offered to continue the California resident’s existing policy. The beneficiary sued for payment under that policy. The revised takeaway distinguishes the offer from an original policy sale.",
+          "pinpoints": "355 U.S. 220, 221–24; casebook printed 102–103.",
+          "sourceUrl": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep355/usrep355220/usrep355220.pdf",
+          "correctionRegister": "docs/history/corpus-audit-2026-11/cp-week-2.md",
+          "freshCompleteOpinionReview": false
+        }
+      ]
     },
     {
       "id": "cp-hanson",
@@ -5504,8 +5530,8 @@
       "courses": [
         "Civil Procedure"
       ],
-      "takeaway": "The Illinois Supreme Court in 1961 allowed suit over a valve that entered ordinary distribution and injured someone in Illinois, where its use was contemplated. That was Illinois’s stream-of-commerce approach; later Supreme Court decisions divided over what additional forum-directed conduct, if any, is necessary.",
-      "takeawaySha256": "4acab748248cd232ef385161c258274b0a3bc600088cdf64c155bc228fc35a8b",
+      "takeaway": "The valve was made in Ohio, but the injury that completed the alleged wrong happened in Illinois. That brought the suit within Illinois law. To decide whether Illinois could also require Titan to defend there, the court inferred that heaters containing its valves regularly reached Illinois customers.",
+      "takeawaySha256": "1a6b5f61529b95c9ef20520c0bc4b71cd353e50a902a209bf770c9493fbb3721",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding identifies the state court; complete Asahi and Nicastro Holdings provide the distinct later divided branch.",
@@ -5535,7 +5561,21 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "deltaReviews": [
+        {
+          "date": "2026-11-20",
+          "changedFields": [
+            "takeaway"
+          ],
+          "priorTakeaway": "The Illinois Supreme Court in 1961 allowed suit over a valve that entered ordinary distribution and injured someone in Illinois, where its use was contemplated. That was Illinois’s stream-of-commerce approach; later Supreme Court decisions divided over what additional forum-directed conduct, if any, is necessary.",
+          "scope": "Illinois injury completed the alleged statutory tort. Separately, the court inferred substantial use from commercial distribution. The record contained no sales figures, and no merits judgment had been entered.",
+          "pinpoints": "22 Ill. 2d 432, 435–37, 441–44; casebook printed 108–109, 112–113.",
+          "sourceUrl": "https://law.justia.com/cases/illinois/supreme-court/1961/35872-5.html",
+          "correctionRegister": "docs/history/corpus-audit-2026-11/cp-week-2.md",
+          "freshCompleteOpinionReview": false
+        }
+      ]
     },
     {
       "id": "cp-keeton",
