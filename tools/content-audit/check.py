@@ -84,6 +84,7 @@ POINTER_FILES = {
     "tools/cold-call/glossary-terms.json",
     "tools/r19/data/rlcc.json",
     "tools/r19/data/rules22.json",
+    "tools/r19/data/r21-audit.json",
 }
 
 
