@@ -151,7 +151,7 @@
       },
       {
         "id": "budget",
-        "label": "Did Congress adopt a budget resolution with reconciliation instructions?",
+        "label": "What follows from the adopted budget resolution?",
         "detail": "Class 2, slides 11–12. The concurrent resolution is an internal congressional decision. It can direct committees to propose changes to spending, revenue or the debt limit. It receives no presidential signature and changes no statute by itself.",
         "sources": [
           "lrs-k-lawmaking",
@@ -169,7 +169,7 @@
             "to": "reconcile"
           },
           {
-            "label": "Resolution alone; no implementing bill",
+            "label": "Resolution alone, without an implementing bill",
             "to": "budgetend"
           }
         ]
@@ -191,7 +191,7 @@
       },
       {
         "id": "budgetend",
-        "label": "Congress set budget terms; existing statutes still govern",
+        "label": "The budget resolution leaves existing statutes in force",
         "detail": "A budget resolution alone grants no new spending authority and does not amend spending, revenue or debt-limit law. Those changes require legislation.",
         "sources": [
           "lrs-k-congress"
