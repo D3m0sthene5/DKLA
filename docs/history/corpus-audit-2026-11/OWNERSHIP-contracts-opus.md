@@ -54,9 +54,15 @@ file does not claim it.
 | OP-CT-24 | Class 24, Limitations on damages (C&M 992–997, 1009–1021, 1024–1040) | **in progress** | casebook; no slide deck located (K-24-DECK-01) |
 | OP-CT-25 | Class 25, Stipulated remedies (C&M 1043–1064; Supp. 129–138) | **in progress** | casebook, supplement; no deck record |
 | OP-CT-26 | Class 26, Third-party beneficiaries, delegation and assignment (C&M 1163–1178, 1194–1196, 1200–1206, 1215–1216, 1226–1227) | **in progress** | casebook; no deck record |
+| OP-CT-05 | Class 5, Promissory estoppel and restitution (C&M 69–74, 120–130, 135–146; Rest. § 90) | **in progress** | casebook, selections, slides (Class 5 deck, 21 slides) |
+| OP-CT-06 | Class 6, Assent and intent to be legally bound (C&M 169–191; Supp. 2–20; RLCC § 2(a), (c)) | **in progress** | casebook, supplement, selections, slides (16) |
+| OP-CT-07 | Class 7, Offer and acceptance (C&M 191–192, 198–205, 213–225, 227–229, 235–242, 261–263) | **in progress** | casebook, slides (15) |
+| OP-CT-08 | Class 8, Formation under §§ 45, 90 and UCC Article 2 (C&M 246–259, 269–283; UCC §§ 2-204–2-207; N.Y. G.O.L. § 5-1109) | **in progress** | casebook, supplement, selections, slides (30) |
+| OP-CT-09 | Class 9, Battle of the forms; pay now, terms later (C&M 284–304; UCC § 2-207; RLCC § 2(b), (c)) | **in progress** | casebook, selections, slides (9) |
+| OP-CT-10 | Class 10, Definiteness, precontractual liability and preliminary agreements (C&M 190–191, 326–327, 333–370; Supp. 21) | **in progress** | casebook, supplement, slides (21) |
 
 Claimed 19 November 2026, 20:30 ET, after checking `STATUS.md`, `v32-wave.md` and Astra's wave branches
-(Contracts assignments 1–4 are Astra's). Open after this wave: Classes 21–26 and 5–10. This session also holds
+(Contracts assignments 1–4 are Astra's). Classes 5–10 claimed 19 November 2026, 23:40 ET, after re-checking `STATUS.md`, `v32-wave.md`, `pairing.md` and Astra's branches (no Astra activity after 20:24; Astra holds assignments 1–4). This session also holds
 the cross-class findings from Classes 11–15 until an owner accepts each one; see
 `contracts/CROSS-CLASS.md` on the corrections branch. Astra may assign any Contracts session not marked in progress or done,
 and may move a queued session to another worker by editing its row.
