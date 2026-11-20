@@ -4,7 +4,7 @@ This session holds each finding until the named owner accepts it. "Fixed here" m
 `audit/contracts-opus-2026-11-19`. Routes are traced from the entry a student actually uses: the chart's entry
 node, or the case page, which shows each chart step that cites the case (`flowcharts.js` `stepsCiting`).
 
-## Fixed here (cross-class commit, registered in `tools/content-audit/2026-11-19-contracts-opus.json`)
+## Fixed here (commit `ab4819b8`, registered in `tools/content-audit/2026-11-19-contracts-opus.json`)
 
 **1. K-22 sent Columbia Nitrogen's evidence to the vacated result.**
 - *Facts entered:* a sale of goods on a writing the trial court held complete; the buyer offers course of
@@ -41,13 +41,16 @@ trade".
 
 | # | Finding | Owner | Record and expected behavior | Accepted? |
 |---|---|---|---|---|
-| 5 | **"Authorities cited" lists authorities a case never cites.** The case-page box (`src/features/v25/authorities.js` `contextual()`) shows `authorities.json` `byNode`, which includes the builder's one-hop "Case connected to cited atlas rule or concept" links. Restatement § 21 reaches 55 cases through the concept `assent-consent-intent`; Frigaliment, Nanakuli and Swinton each show § 21 as their only "cited" authority. Across the atlas, 208 of 694 case-to-authority pairs in `byNode` are not citations, and 65 cases show only uncited authorities; next after § 21 come Art. III (28), § 209 and UCC § 2-202 (10 each), FRCP 12 (9). | Astra (`tools/v25/authorities_build.py` is changed on `audit/wave32-contracts`) | Build `byNode` for Case entries from links whose basis starts "Explicit citation", matching the builder's own `automaticRibbonPolicy`, or relabel the box. Context links can stay on the authority's page. Then link the assigned provisions that the briefs actually cite (Class 15: §§ 20, 201, UCC § 1-303). | Not yet |
+| 5 | **"Authorities cited" lists authorities a case never cites.** The case-page box (`src/features/v25/authorities.js` `contextual()`) shows `authorities.json` `byNode`, which includes the builder's one-hop "Case connected to cited atlas rule or concept" links. Restatement § 21 reaches 55 cases through the concept `assent-consent-intent`; Frigaliment, Nanakuli and Swinton each show § 21 as their only "cited" authority. Across the atlas, 208 of 694 case-to-authority pairs in `byNode` are not citations, and 65 cases show only uncited authorities; next after § 21 come Art. III (28), § 209 and UCC § 2-202 (10 each), FRCP 12 (9). | Astra (`tools/v25/authorities_build.py` is changed on `audit/wave32-contracts`) | Build `byNode` for Case entries from links whose basis starts "Explicit citation", matching the builder's own `automaticRibbonPolicy`, or relabel the box. Context links can stay on the authority's page. Then link the assigned provisions that the briefs actually cite (Class 15: §§ 20, 201, UCC § 1-303; Class 16: § 205 for Dalton, UCC §§ 1-201, 1-302, 1-304; Class 17: § 211 for Graham; Class 20: §§ 84, 224–229, 234, 237, 240). Classes 16–20 confirmed the pattern: Dalton, Carnival, Graham, Doe, Peacock and McKenna each show § 21. | Not yet |
 | 6 | **Walker ≈ 2.1 renders § 275(e) as "bad faith" and drops (c)'s "preparations".** | Astra (CT-WALKER packet) | Exact replacement in `../opus-02.md`. | Not yet |
 | 7 | **CP-14 (§ 1367) does not say the anchor is judged on the operative pleading** (Royal Canin). | Astra (Civil Procedure) | Route table and expected behavior in `../opus-02.md`. | Not yet |
 | 8 | **Mattei slide guide: "Slide 6 shows drafting that does".** | Astra (Class 4, `audit/wave32-contracts`) | Qualified wording in `../opus-k04-disposition.md`. | Not yet |
 | 9 | **Timeline placement and turn labels.** Frigaliment sits after the 1952 UCC step marked "sharpens", though it applied pre-Code New York law. Bollinger is marked "widens", though Gianni had already recognized the mistake route. | Fable, with the timeline redesign | `OP-CT-15/handoff.md`, `OP-CT-13/handoff.md`. | Not yet |
 
 ## Still with this session (open)
+
+Classes 16–20 add their own open items; see `WAVE-16-20.md`. Routing errors found there were fixed in those class commits (K-24, K-25, K-26, K-27, K-08).
+
 
 - K-20 node a cites `ucc204` (UCC § 2-204), and the Atlas has no map entry for § 2-209. A map entry for § 2-209
   needs a run-time graph addition (OP-CT-11).

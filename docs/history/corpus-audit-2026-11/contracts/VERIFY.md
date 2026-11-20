@@ -12,6 +12,7 @@ Playwright's Chromium build 1243 standing in for the expected 1248, which the wo
 | `96ebee23` | OP-CT-14 corrections and their re-pinned records | 76 of 76 passed |
 | `b767c567` | OP-CT-15 corrections | 74 of 76: `generated rule connections` (its ledger pins the Nanakuli rule line) and `search shows where it matched` (desktop only: a null element while the map redrew; the phone half passed) |
 | `900b8ca5` | that ledger re-pinned | 76 of 76 passed, including the search check, which needed no change |
+| `a3d17e4c` | cross-class fixes (`ab4819b8`) and OP-CT-16 to OP-CT-20 | 76 of 76 passed |
 
 The records pin hashes of text that earlier passes reviewed: `tools/v25/timeline-audit.json`
 (the timeline file and the compared rule lines of five steps), `tools/v25/explanation-audit.json`
