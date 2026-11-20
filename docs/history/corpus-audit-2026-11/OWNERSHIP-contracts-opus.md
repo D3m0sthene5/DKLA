@@ -43,11 +43,11 @@ file does not claim it.
 | OP-CT-13 | Class 13, Parol evidence rule (C&M 527–530, 535–547; Supp. 37–45) | **done**: `4f5c9c47` (22 corrections); [handoff](contracts/OP-CT-13/handoff.md) on the corrections branch | casebook, supplement, slides |
 | OP-CT-14 | Class 14, Plain meaning and extrinsic evidence (C&M 548–569, 574–575; Supp. 46–52) | **done**: `96ebee23` (15 corrections); [handoff](contracts/OP-CT-14/handoff.md) on the corrections branch | casebook, supplement, slides |
 | OP-CT-15 | Class 15, Extrinsic evidence of past dealings (C&M 575–599) | **done**: `b767c567` (11 corrections); [handoff](contracts/OP-CT-15/handoff.md) on the corrections branch; slides missing | casebook, selections; deck K-15-DECK-01 absent from `added-sources/` |
-| OP-CT-16 | Class 16, Performing in good faith (C&M 719–744; Supp. 53–75) | **in progress** | casebook, supplement; deck K-16-DECK-01 absent |
-| OP-CT-17 | Class 17, Standard form and adhesion contracts (C&M 653–655, 661–679; Supp. 76–93) | **in progress** | casebook, supplement; deck K-17-DECK-01 absent |
-| OP-CT-18 | Class 18, Unconscionability (C&M 679–706; Supp. 94–101) | **in progress** | casebook, supplement; deck K-18-DECK-01 absent |
-| OP-CT-19 | Class 19, Public policy (C&M 744–764, 769–780; Supp. 102–107) | **in progress** | casebook, supplement; deck K-19-DECK-01 absent |
-| OP-CT-20 | Class 20, Express and constructive conditions (C&M 805–809, 814–824, 828–832, 846–855, 871–875, 883–893) | **in progress** | casebook; deck K-20-DECK-01 absent |
+| OP-CT-16 | Class 16, Performing in good faith (C&M 719–744; Supp. 53–75) | **done**: `43f7fded` (25) corrections; see `contracts/WAVE-16-20.md` on the corrections branch | casebook, supplement; deck K-16-DECK-01 absent |
+| OP-CT-17 | Class 17, Standard form and adhesion contracts (C&M 653–655, 661–679; Supp. 76–93) | **done**: `769664ea` (12) corrections; see `contracts/WAVE-16-20.md` on the corrections branch | casebook, supplement; deck K-17-DECK-01 absent |
+| OP-CT-18 | Class 18, Unconscionability (C&M 679–706; Supp. 94–101) | **done**: `47ff6221` (21) corrections; see `contracts/WAVE-16-20.md` on the corrections branch | casebook, supplement; deck K-18-DECK-01 absent |
+| OP-CT-19 | Class 19, Public policy (C&M 744–764, 769–780; Supp. 102–107) | **done**: `cb4b0d92` (19) corrections; see `contracts/WAVE-16-20.md` on the corrections branch | casebook, supplement; deck K-19-DECK-01 absent |
+| OP-CT-20 | Class 20, Express and constructive conditions (C&M 805–809, 814–824, 828–832, 846–855, 871–875, 883–893) | **done**: `a3d17e4c` (22) corrections; see `contracts/WAVE-16-20.md` on the corrections branch | casebook; deck K-20-DECK-01 absent |
 
 Claimed 19 November 2026, 20:30 ET, after checking `STATUS.md`, `v32-wave.md` and Astra's wave branches
 (Contracts assignments 1–4 are Astra's). Open after this wave: Classes 21–26 and 5–10. This session also holds
@@ -55,7 +55,7 @@ the cross-class findings from Classes 11–15 until an owner accepts each one; s
 `contracts/CROSS-CLASS.md` on the corrections branch. Astra may assign any Contracts session not marked in progress or done,
 and may move a queued session to another worker by editing its row.
 
-Corrections branch `audit/contracts-opus-2026-11-19` passes `pnpm verify` (76 of 76) at `41d6d02e` (91 corrections across Classes 11–15).
+Corrections branch `audit/contracts-opus-2026-11-19` passes `pnpm verify` (76 of 76) at `a3d17e4c`: 190 class corrections across Classes 11–20 plus the cross-class routing fixes (`ab4819b8`).
 It also extends `tools/content-audit/check.py` (`a5bbc289`) so that registered edits to Cold Call,
 flowchart and lecture files are checked, and adds the read-only `tools/content-audit/session_surfaces.py`.
 
