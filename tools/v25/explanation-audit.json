@@ -18553,7 +18553,7 @@
       "basis": {
         "kind": "Complete assigned seed account plus complete supplied machine-translated excerpt comparison.",
         "sourceLocator": "DKLA-r18.html :: seedData.nodes[swiss-2024]; suppArchive printed pp. 129–138.",
-        "savedAccountSha256": "2fa054c41d511d17a138977ef6f0c7bd9ff93a75318da3bc901e6e21da41b07b",
+        "savedAccountSha256": "a93128bb1b7c82cf93c0441fc8f596d1e3dd1d67789a3ff0c4bb47e46f9268f0",
         "sourcePages": [
           129,
           130,
@@ -18575,6 +18575,12 @@
           "register": "tools/content-audit/2026-11-19-contracts-opus.json",
           "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
           "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "savedAccountSha256"
         },
         {
           "date": "2026-11-19",

@@ -1371,6 +1371,12 @@
       "iteration": 0
     },
     {
+      "id": "force-majeure",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
       "id": "ftc-noncompete-removal",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
@@ -1840,6 +1846,12 @@
     },
     {
       "id": "sun-printing",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "swiss-1988-penalty",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
@@ -2505,13 +2517,31 @@
       "iteration": 0
     },
     {
+      "id": "delegation",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
       "id": "assignment",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
     },
     {
+      "id": "vesting-beneficiary",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
       "id": "third-party-beneficiaries",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "lawrence-fox",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
@@ -2595,6 +2625,12 @@
       "iteration": 0
     },
     {
+      "id": "french-specific-performance",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
       "id": "reading-notes-22",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
@@ -2663,6 +2699,18 @@
     {
       "id": "dave-gustafson",
       "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "wassermans",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "swiss-2024",
+      "field": "sections.Reasoning",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
     },
@@ -20169,8 +20217,8 @@
       "id": "wassermans",
       "title": "Wasserman’s Inc. v. Township of Middletown",
       "field": "notes",
-      "text": "The printed total has a one-cent variation between the narrative and arithmetic display. The court expressly reserved consumer-contract enforcement rather than generalizing its commercial presumption to all parties.",
-      "textSha256": "4d7001e0d15482d2ff7b836afef1d5568e51c374990d4c3c528e019f7cf21024",
+      "text": "The printed total has a one-cent variation between the narrative and arithmetic display. The court expressly reserved consumer-contract enforcement rather than generalizing its commercial presumption to all parties. The notes add that California presumes a liquidated-damages clause valid unless the challenger shows it was unreasonable when made, but not against a consumer (Cal. Civ. Code § 1671), and that Dodd-Frank restricts mortgage prepayment penalties. They also contrast Kelly v. Marx (Mass. 1999), which rejected the 'second look' and let a house seller keep a 5% deposit although it suffered no loss.",
+      "textSha256": "dd1dead9a052cb4411caaa5a4f20495a9419e3b0c937a5e3af0c76373a5c56c4",
       "source": {
         "briefId": "CT-NEXT-CM-0163",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0163.rule (effective assembler overlays)",
@@ -20231,8 +20279,8 @@
       "id": "lawrence-fox",
       "title": "Lawrence v. Fox",
       "field": "notes",
-      "text": "The editors’ historical account questions the reported name “Holly” and explores the loan’s gambling background.",
-      "textSha256": "e08655bfe43f61b63f55a17bb26cf7daea8752722855d234acf357f1fb41e248",
+      "text": "A note reports Professor Anthony Waters's research suggesting that the promisee was actually one Samuel Hawley, not “Holly,” and that the loan was for gambling.",
+      "textSha256": "b467bd51958e7ab8adf8602c101486921ce4e60d53488c5fd608ccf4cd4b5cb9",
       "source": {
         "briefId": "CT-NEXT-CM-0180",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0180.rule (effective assembler overlays)",
@@ -21018,8 +21066,8 @@
       "id": "swiss-2024",
       "title": "Swiss Federal Supreme Court: contractual penalty decision of September 24, 2024",
       "field": "sections.Reasoning",
-      "text": "The translated Swiss rule permits parties to stipulate a penalty while requiring judicial reduction of an excessive amount. Courts exercise restraint in recognition of contractual freedom, but assess gross disproportion by reference to the creditor’s legitimate interest at breach, the seriousness and fault of the violation, the relationship, and the parties’ circumstances. The 1988 decision that opens the supplement places on the debtor the burden of raising and proving the basis for reduction; in 2024 the defendant had argued excessiveness, and the creditor then had to show, at least in broad terms, damage or a risk of damage.\n\nHere, the claimant could not merely assert the value of its trademarks or the parties’ sophistication without answering the substantiated account of a minor, nonrecurring breach. The court could consider lack of damage in assessing amount while recognizing that a penalty can become due without compensable damage. The continued CHF 10,000 award reflected the punitive function and the significance of the transaction. The analysis therefore differs from the domestic rule that invalidates a penalty and leaves ordinary breach damages.",
-      "textSha256": "5996c954c8fa439c86771addfd91023813074ab31ae4f64f5b557054125dddf0",
+      "text": "The translated Swiss rule permits parties to stipulate a penalty while requiring judicial reduction of an excessive amount. Courts exercise restraint in recognition of contractual freedom, but assess gross disproportion by reference to the creditor’s legitimate interest at breach, the seriousness and fault of the violation, the relationship, and the parties’ circumstances. The 1988 decision that opens the supplement places on the debtor the burden of raising and proving the basis for reduction; in 2024 the defendant had argued excessiveness, and the creditor then had to show, at least in broad terms, damage or a risk of damage.\n\nHere, the claimant could not merely assert the value of its trademarks or the parties’ sophistication without answering the substantiated account of a minor, nonrecurring breach. The court could consider lack of damage in assessing amount while recognizing that a penalty can become due without compensable damage. The continued CHF 10,000 award reflected the punitive function and the significance of the transaction. The analysis therefore differs from the domestic rule that invalidates a penalty and leaves ordinary breach damages. The closest American rule in the selections concerns bonds: a bond penalty is enforced up to the actual loss (Restatement § 356(2), Illus. 6, a $10,000 bond limited to a $500 default).",
+      "textSha256": "dad2ebe805ad4be37686b542896f81945664e7a67a415f0356bc75a150990ed6",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: swiss-2024",
@@ -22602,8 +22650,8 @@
       "id": "force-majeure",
       "title": "Force-majeure clauses",
       "field": "notes",
-      "text": "Identify the listed events, any general catchall, the required effect on performance, notice requirements, mitigation duties, and the stated consequence. A clause may permit delay, suspension, or termination rather than erase all obligations. Causation matters: occurrence of an event does not by itself show that the event prevented the performance in dispute.\n\nThe syllabus calls for a force-majeure clause alongside the excuse cases. The casebook’s discussion supplies the conceptual setting. The clause assigned for class 21 was handed out in class.",
-      "textSha256": "888d4bc07abb85695a4ae4733ccf22c41dfbd861178a420aec03ed358bf1f6a6",
+      "text": "Identify the listed events, any general catchall, the required effect on performance, notice requirements, mitigation duties, and the stated consequence. A clause may permit delay, suspension, or termination rather than erase all obligations. Causation matters: occurrence of an event does not by itself show that the event prevented the performance in dispute. In the casebook's examples, a clause naming terrorism did not cover a cancellation the court attributed to the economic downturn after September 11 (OWBR, C&M 1117–1118); general words after a list may be confined to events like those listed (ejusdem generis, Kama Rippa, C&M 1118); and a clause excusing delay but providing that it shall not relieve the tenant of rent placed COVID-19 closure risk on the tenant (1600 Walnut v. Cole Haan), while a similar clause without that proviso excused rent (BP Prucenter v. Saks) (C&M 1119).\n\nThe syllabus calls for a force-majeure clause alongside the excuse cases. The casebook’s discussion supplies the conceptual setting. The clause assigned for class 21 was handed out in class.",
+      "textSha256": "ae3e30f6da95a0de935f24661a64a751ea805544ae87ee9fb4308d44acbd473e",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: force-majeure",
@@ -22928,8 +22976,8 @@
       "id": "vesting-beneficiary",
       "title": "When a beneficiary’s rights become protected",
       "field": "notes",
-      "text": "First establish that the person is an intended beneficiary with a right under the contract. Then examine the governing rule about events such as assent, reliance, or suit, and any reservation in the agreement. The assigned introductory materials distinguish the existence of a third-party benefit from the point at which the original parties can no longer freely alter it.\n\nThe syllabus assigns an introduction rather than every later case in the chapter. The complete Restatement text is in the Contracts Selections.",
-      "textSha256": "361c653d648cfb87ee3de1e9086f61618dabab26613a723ae5726f14eda772a3",
+      "text": "First establish that the person is an intended beneficiary with a right under the contract. Absent a term forbidding change, promisor and promisee may change or cancel the beneficiary's right by later agreement; the power ends when, before notice of the change, the beneficiary materially relies, sues, or assents at the request of either party (§ 311(2)–(3)). If the promisee is paid for an ineffective discharge, the beneficiary can claim that payment (§ 311(4)). Under the First Restatement a donee beneficiary's right vested at once unless a power to change was reserved; the Second drops that distinction, and in Detroit Bank a rescission before vesting left the beneficiary nothing (C&M 1195). The assigned introductory materials distinguish the existence of a third-party benefit from the point at which the original parties can no longer freely alter it.\n\nThe syllabus assigns an introduction rather than every later case in the chapter. The complete Restatement text is in the Contracts Selections.",
+      "textSha256": "74af233668b85dca3729f921f72cd883bae710840646ca53f72e6e85d4d0d40c",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: vesting-beneficiary",
@@ -22970,8 +23018,8 @@
       "id": "delegation",
       "title": "Delegating performance of a duty",
       "field": "notes",
-      "text": "Identify who originally owed the duty, what performance was promised, and whether the obligee has an important interest in that particular person’s performance. Personal skill, trust, contractual restrictions, and the governing law may matter. Delegation does not discharge the delegating party: unless the obligee agrees otherwise, the original obligor remains liable even if the delegate has promised to perform (§ 318(3); UCC § 2-210(1)), and the obligee's agreement to a substitution produces a novation. A money debt is the standard delegable duty; a performance that depends on who performs is not, so an airport could refuse a substitute singer for Pavarotti though not a substitute tenant's rent (Metropolitan Airports Comm'n, C&M 1216).\n\nThe assigned pages introduce delegation. Their scope should not be mistaken for a complete treatment of all exceptions or of every later case in the chapter.",
-      "textSha256": "479f30d4ce54bee10792b74b6f9581cb23bb54bef21306a439f8596616faeef5",
+      "text": "Identify who originally owed the duty, what performance was promised, and whether the obligee has a substantial interest in having that particular person perform or control the acts promised (§ 318(2)). Personal skill, trust, contractual restrictions, and the governing law may matter. Delegation does not discharge the delegating party: unless the obligee agrees otherwise, the original obligor remains liable even if the delegate has promised to perform (§ 318(3); UCC § 2-210(1)), and the obligee's agreement to a substitution produces a novation. A money debt is the standard delegable duty; a performance that depends on who performs is not, so an airport could refuse a substitute singer for Pavarotti though not a substitute tenant's rent (Metropolitan Airports Comm'n, C&M 1216).\n\nThe assigned pages introduce delegation. Their scope should not be mistaken for a complete treatment of all exceptions or of every later case in the chapter.",
+      "textSha256": "40a2ad47c6c68de5e0ebdfe70fbf7d2f5ecc73d9fb5c526507d00882b51855b2",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: delegation",
@@ -23406,8 +23454,8 @@
       "id": "french-specific-performance",
       "title": "Rowan: specific enforcement in French contract law",
       "field": "notes",
-      "text": "The reading places the revised Civil Code provisions in the context of earlier French law and distinguishes performance in kind from monetary compensation. It examines Article 1221, including the significance of good faith and the comparison between the cost to the debtor and the creditor’s interest. It also discusses Article 1222’s route for arranging performance by another and the coercive payment mechanism known as an astreinte.\n\nThese mechanisms serve different functions. A coercive payment intended to induce compliance is not simply the same measure as damages for loss. Compare the source’s institutional and remedial assumptions with Klein and Walgreen, and preserve its distinctions between versions of the legislation.",
-      "textSha256": "4a0e87c50138ee978c250e3bcf4b7cadb2e55d1873a2fa9ec8832a3806c6f8d5",
+      "text": "The reading places the revised Civil Code provisions in the context of earlier French law and distinguishes performance in kind from monetary compensation. It examines Article 1221, including the significance of good faith and the comparison between the cost to the debtor and the creditor’s interest. It also discusses Article 1222’s route for arranging performance by another and the coercive payment mechanism known as an astreinte.\n\nThese mechanisms serve different functions. A coercive payment intended to induce compliance is not simply the same measure as damages for loss. Compare the source’s institutional and remedial assumptions with Klein and Walgreen, and preserve its distinctions between versions of the legislation.\n\nSpecific enforcement is the central French remedy: for goods it does not matter whether they are unique, and there is no duty to mitigate (supp. 117). A creditor may claim the price itself, subject to a court's power to defer payment for up to two years (the délai de grâce). The astreinte, a mounting periodic penalty supporting an order to act, is 'unequivocally punitive' (supp. 121), whereas the editors describe American specific relief as primarily compensatory (C&M 929).",
+      "textSha256": "7260e9099d0358b24b3b0fe395a8095f6ea8101ffaac2b9044cec3610d2a1811",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: french-specific-performance",
@@ -23448,8 +23496,8 @@
       "id": "swiss-1988-penalty",
       "title": "Swiss penalty-clause discussion: 1988 authority",
       "field": "notes",
-      "text": "The decision distinguishes the parties’ agreement to a penalty from the court’s power to reduce an excessive amount. Its discussion supplies a comparative point of reference for the U.S. cases’ treatment of liquidated damages and penalties.\n\nThe later 2024 decision in the same packet is separately indexed because its concrete facts and application should not be attributed to this earlier authority. Only the court’s statement of the reduction power is reproduced; the facts are not.",
-      "textSha256": "06d02242783fa3515c15249a8614d29bb6ce37994f4e8ea2c68b1dbf0d34ea99",
+      "text": "The decision distinguishes the parties’ agreement to a penalty from the court’s power to reduce an excessive amount. Under Art. 163 OR the parties may fix any amount, but the judge must reduce an excessive penalty, with restraint, chiefly where the amount is grossly disproportionate to the creditor's interest in full enforcement. Because a penalty's justification can be judged only after breach, the inquiry looks past formation. A penalty is not excessive merely because it exceeds recoverable damages: the maximum possible damage, not the actual damage, indicates excess. The penalty falls due even without damage (Art. 161(1) OR); the debtor must assert and prove the grounds for reduction, and reduction is more justifiable for an employee or other economically weaker party.\n\nThe later 2024 decision in the same packet is separately indexed because its concrete facts and application should not be attributed to this earlier authority. Only the court’s statement of the reduction power is reproduced; the facts are not.",
+      "textSha256": "5a704f2d40c9620e475d4b3aa228f6669069774d1226b9de2c7e1ed1eecf7a5d",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: swiss-1988-penalty",
