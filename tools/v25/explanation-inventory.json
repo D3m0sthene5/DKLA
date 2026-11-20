@@ -1833,6 +1833,12 @@
       "iteration": 0
     },
     {
+      "id": "stipulated-remedies",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
       "id": "sun-printing",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
@@ -2644,6 +2650,30 @@
     },
     {
       "id": "certainty-damages",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "figgie",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "dave-gustafson",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "swiss-2024",
+      "field": "sections.Reasoning",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "reading-notes-25",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
@@ -19924,8 +19954,8 @@
       "id": "figgie",
       "title": "Figgie International, Inc. v. Destileria Serralles, Inc.",
       "field": "summary",
-      "text": "Under the UCC, a trade usage may supply an exclusive limitation of remedies as part of the parties' agreement, and a limited remedy that includes return and refund does not fail of its essential purpose merely because repair attempts were unsuccessful.",
-      "textSha256": "aa251ef391e5a4b7394ac99b3d1973a10fb4b4c436b297a63e44a66fb9ddf336",
+      "text": "Under the UCC, a trade usage may supply an exclusive limitation of remedies as part of the parties' agreement, and a limited remedy that includes return and refund does not fail of its essential purpose merely because repair attempts failed, where the return and refund were carried out.",
+      "textSha256": "f152d631fc67322395a31f06b10a4ffb37ca5a1abb89d49b732119fb5c4f777e",
       "source": {
         "briefId": "CT-CB-0593",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-CB-0593.rule (effective assembler overlays)",
@@ -19949,8 +19979,8 @@
       "id": "figgie",
       "title": "Figgie International, Inc. v. Destileria Serralles, Inc.",
       "field": "notes",
-      "text": "The printed standard-terms language is awkward. The court’s analysis consistently identifies the operative alternatives as repair, replacement, or return with repayment. The notes separately question broad exclusions of incidental and consequential damages and the distinction between commercial and consumer losses; they do not establish that every disclaimer is enforceable.",
-      "textSha256": "10b0d67443f014514ef25329d3401d62cb59f6d749c5814d31205a552b71caf9",
+      "text": "The printed standard-terms language is awkward. The court’s analysis consistently identifies the operative alternatives as repair, replacement, or return with repayment. The notes ask whether excluding incidental damages (the buyer's expenses of inspecting, shipping, storing, or covering) is judged by § 2-719(3)'s unconscionability standard, which names only consequential damages. They quote Anderson's point that consequential exposure, usually the buyer's lost profits, is open-ended while direct damages are capped by the contract or market price, and Kearney & Trecker's view of a commercial seller's exclusion as 'a beneficial risk-allocation device', and ask whether that reasoning applies to consumers. They do not establish that every disclaimer is enforceable.",
+      "textSha256": "2ccfc509cfd257e5b7973e0b84d44050368d9326c3d3031b154c60000565cc28",
       "source": {
         "briefId": "CT-CB-0593",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-CB-0593.rule (effective assembler overlays)",
@@ -19973,8 +20003,8 @@
       "id": "dave-gustafson",
       "title": "Dave Gustafson & Co. v. State",
       "field": "takeaway",
-      "text": "A per-day charge for finishing a highway late was enforceable because delay damages were genuinely hard to measure and the graduated amounts were a fair estimate. Actual loss became irrelevant once the clause was valid.",
-      "textSha256": "5d84d6163ecc420f570ed1f4d608a057606a94ba9000fa281d431600f389541c",
+      "text": "A per-day charge for finishing a highway late was enforceable because delay damages were genuinely hard to measure and the graduated amounts were a fair estimate when the contract was made. Under South Dakota’s statutes a valid clause replaced proof of actual loss, but under Restatement § 356 a substantial sum is unenforceable if it is clear the breach caused no loss at all.",
+      "textSha256": "c454ed16cca56577969a5a66a6e3ca1682d5c3af3a3a6e1c4654a43ce1dcded5",
       "source": {
         "briefId": "CT-NEXT-CM-0161",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0161.rule (effective assembler overlays)",
@@ -20015,8 +20045,8 @@
       "id": "dave-gustafson",
       "title": "Dave Gustafson & Co. v. State",
       "field": "notes",
-      "text": "The notes ask whether an independently delayed bridge would change the result and compare legitimate alternative performances with penalty labels. The hypothetical bridge was not a fact of Gustafson itself.\n\n83 S.D. 160, 156 N.W.2d 185, decided February 13, 1968. The October 1963 contract recited that time was essential because of the costs and public inconvenience of delay, and the graduated schedule set $210 per day for contracts between $500,001 and $1,000,000.",
-      "textSha256": "40a33f5f87facdc4de5960ebdcf1ba2905df56300865b1524e1739d504746611",
+      "text": "Problem 1 asks whether the result would change if another contractor's bridge had also been closed for the same 67 days, so that the highway could not have been used anyway; the editors cite Massman (5th Cir. 1945) against Sun Ship (9th Cir. 1986) and Southwest Engineering (8th Cir. 1965). Under Restatement § 356 cmt. b, the harder loss is to prove, the more latitude the estimate receives, and a substantial sum is unenforceable if it is clear that no loss at all occurred (Illus. 4). Problem 2 compares a $10,000 'penalty', $10,000 'liquidated damages', and a seller's option to deliver or pay $10,000. The hypothetical bridge was not a fact of Gustafson itself.\n\n83 S.D. 160, 156 N.W.2d 185, decided February 13, 1968. The October 1963 contract recited that time was essential because of the costs and public inconvenience of delay, and the graduated schedule set $210 per day for contracts between $500,001 and $1,000,000.",
+      "textSha256": "7222be9d3998c0eca6adafbc3b0d6f3361fc318bd1b78e558429afca911616ad",
       "source": {
         "briefId": "CT-NEXT-CM-0161",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0161.rule (effective assembler overlays)",
@@ -20820,8 +20850,8 @@
       "id": "swiss-2024",
       "title": "Swiss Federal Supreme Court: contractual penalty decision of September 24, 2024",
       "field": "takeaway",
-      "text": "In this Swiss decision, a CHF 100,000 contractual penalty was reduced to CHF 10,000 for a minor, nonrecurring breach without demonstrated harm. Commercial experience did not prevent reduction, and lack of damage did not require eliminating the penalty. The comparison is reduction of an excessive penalty, rather than the domestic rule of refusing an unenforceable penalty.",
-      "textSha256": "84ca361a0411615d57d6666a30fd34ac5a4b9ff0d99b82d4611ad5b5af248227",
+      "text": "In this Swiss decision, the court upheld reducing a penalty of CHF 100,000 per violation to CHF 10,000 for a minor, single-occasion breach without demonstrated harm; business experience did not bar reduction, and lack of damage did not require eliminating the penalty. Swiss law reduces an excessive penalty, whereas the assigned American cases refuse to enforce a penalty and award ordinary damages.",
+      "textSha256": "c634a70e249615d5c6a9f10c641e54d403ea34a3d857912f09f2e55c0bafa16b",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: swiss-2024",
@@ -20988,8 +21018,8 @@
       "id": "swiss-2024",
       "title": "Swiss Federal Supreme Court: contractual penalty decision of September 24, 2024",
       "field": "sections.Reasoning",
-      "text": "The translated Swiss rule permits parties to stipulate a penalty while requiring judicial reduction of an excessive amount. Courts exercise restraint in recognition of contractual freedom, but assess gross disproportion by reference to the creditor’s legitimate interest at breach, the seriousness and fault of the violation, the relationship, and the parties’ circumstances. The debtor generally must raise and prove the basis for reduction.\n\nHere, the claimant could not merely assert the value of its trademarks or the parties’ sophistication without answering the substantiated account of a minor, nonrecurring breach. The court could consider lack of damage in assessing amount while recognizing that a penalty can become due without compensable damage. The continued CHF 10,000 award reflected the punitive function and the significance of the transaction. The analysis therefore differs from the domestic rule that invalidates a penalty and leaves ordinary breach damages.",
-      "textSha256": "b7e2a207d110e869c7d40ae500255c22d0666cd9cc1b4e4c2dc0ba2a8daf50e0",
+      "text": "The translated Swiss rule permits parties to stipulate a penalty while requiring judicial reduction of an excessive amount. Courts exercise restraint in recognition of contractual freedom, but assess gross disproportion by reference to the creditor’s legitimate interest at breach, the seriousness and fault of the violation, the relationship, and the parties’ circumstances. The 1988 decision that opens the supplement places on the debtor the burden of raising and proving the basis for reduction; in 2024 the defendant had argued excessiveness, and the creditor then had to show, at least in broad terms, damage or a risk of damage.\n\nHere, the claimant could not merely assert the value of its trademarks or the parties’ sophistication without answering the substantiated account of a minor, nonrecurring breach. The court could consider lack of damage in assessing amount while recognizing that a penalty can become due without compensable damage. The continued CHF 10,000 award reflected the punitive function and the significance of the transaction. The analysis therefore differs from the domestic rule that invalidates a penalty and leaves ordinary breach damages.",
+      "textSha256": "5996c954c8fa439c86771addfd91023813074ab31ae4f64f5b557054125dddf0",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: swiss-2024",
@@ -22798,8 +22828,8 @@
       "id": "stipulated-remedies",
       "title": "Agreed damages and penalty limits",
       "field": "notes",
-      "text": "Dave Gustafson considers a daily delay amount. Lake River examines a minimum-quantity shortfall formula that could recover the bagging contractor’s full contract charges for the unshipped quantity without subtracting costs saved. Wasserman’s separates compensation for improvements from a gross-receipts-based cancellation amount requiring further examination. Figgie concerns an agreed refund or replacement arrangement and its interaction with limitations on liability.\n\nAsk what event triggers the clause, what losses it was designed to address, the difficulty of estimating those losses, the relation between the amount and compensable harm, and the applicable timing of that evaluation. A limitation on recovery is not the same as a clause imposing liquidated damages. The Swiss supplement provides a distinct comparative approach permitting reduction of an excessive penalty; that approach should remain attributed to Swiss law rather than silently merged with the American rules.",
-      "textSha256": "439c4d57cfe21f2d7592f9c18a03adbd8c52af73ea92a079ed3d6e1e477d8560",
+      "text": "Dave Gustafson considers a daily delay amount. Lake River examines a minimum-quantity shortfall formula that could recover the bagging contractor’s full contract charges for the unshipped quantity without subtracting costs saved. Wasserman’s separates compensation for improvements from a gross-receipts-based cancellation amount requiring further examination. Figgie concerns an agreed refund or replacement arrangement and its interaction with limitations on liability.\n\nAsk what event triggers the clause, what losses it was designed to address, the difficulty of estimating those losses, the relation between the amount and compensable harm, and the applicable timing of that evaluation. A limitation on recovery is not the same as a clause imposing liquidated damages: for goods, a limitation is tested under UCC § 2-719 and a fixed sum under § 2-718(1), which adds a third factor to Restatement § 356's two, the inconvenience or non-feasibility of otherwise obtaining an adequate remedy. Courts differ on timing: Wasserman’s and § 2-718(1) (“anticipated or actual harm”) allow a second look at actual loss, while Kelly v. Marx and UCC § 2A-504(1) (“anticipated harm”) look only at formation. An unreasonably small sum is not a penalty but may be unconscionable (§ 356 cmt. d). A valid liquidated-damages clause does not by itself bar specific performance (§ 361). A buyer in breach recovers payments exceeding the seller's valid liquidated damages or, absent such a term, the lesser of 20% of the total price or $500, subject to offsets (§ 2-718(2)–(3)). The Swiss supplement provides a distinct comparative approach permitting reduction of an excessive penalty; that approach should remain attributed to Swiss law rather than silently merged with the American rules.",
+      "textSha256": "bcb1aa9982e60fced200afae65dfb3b1731832da6bd9dad1889241ef15ed3368",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: stipulated-remedies",
@@ -25334,8 +25364,8 @@
       "id": "reading-notes-25",
       "title": "Stipulated remedies: editorial notes and questions",
       "field": "notes",
-      "text": "Figgie International, Inc. v. Destileria Serralles, Inc.: Figgie connects interpretation and remedies: first identify the remedy the parties’ agreement contains, including trade usage, and only then decide whether that remedy remains enforceable. It demonstrates why a case needs to appear in more than one topic index.\n\nDave Gustafson & Co. v. State: This decision supplies a successful example of advance damages estimation. Compare its size-and-duration formula with the saved-cost problem in Lake River and the gross-receipts problem in Wasserman’s.\n\nLake River Corp. v. Carborundum Co.: Lake River makes the relationship between revenue, saved expenses, and lost profit concrete. It also illustrates how a federal court separates its policy preferences from its responsibility to apply state contract law.\n\nWasserman’s Inc. v. Township of Middletown: Wasserman’s shows why concern about a formula does not always justify deciding its validity on summary judgment. The lease’s economic value and the nature of the loss matter alongside sales figures.\n\nSwiss Federal Supreme Court: contractual penalty decision of September 24, 2024: This comparison prevents the word “penalty” from silently carrying the same legal consequence across jurisdictions.",
-      "textSha256": "1a3d91c718bfd967412fee7a9342a1f98cf8afb6897a5241c2f8301bc201a6b3",
+      "text": "Figgie International, Inc. v. Destileria Serralles, Inc.: Figgie connects interpretation and remedies: first identify the remedy the parties’ agreement contains, including trade usage, and only then decide whether that remedy remains enforceable. It demonstrates why a case needs to appear in more than one topic index.\n\nDave Gustafson & Co. v. State: This decision supplies a successful example of advance damages estimation. Compare its size-and-duration formula with the saved-cost problem in Lake River and the gross-receipts problem in Wasserman’s.\n\nLake River Corp. v. Carborundum Co.: Lake River makes the relationship between revenue, saved expenses, and lost profit concrete. It also illustrates how a federal court separates its policy preferences from its responsibility to apply state contract law.\n\nWasserman’s Inc. v. Township of Middletown: Wasserman’s shows why concern about a formula does not always justify deciding its validity on summary judgment. The lease’s economic value and the nature of the loss matter alongside sales figures.\n\nSwiss Federal Supreme Court: contractual penalty decision of September 24, 2024: This comparison prevents the word “penalty” from silently carrying the same legal consequence across jurisdictions.\n\nOther notes and problems: A California highway study describes completion assessments as deliberate pressure to finish fast and finds that high assessments raise bid prices; Note 1 after Lake River asks whether a promisor paid for accepting that risk is unjustly enriched when the clause is struck (C&M 1046–1047, 1054). New York enforced an arbitration award upholding a damages clause because the parties chose arbitrators to decide whether it was a penalty (Associated General Contractors, 1975; C&M 1063). The closing problems test labels (Circle B, a delay charge the contract itself called a “penalty”), a consumer setting (Turner-Schraeter, 100% forfeiture for cancelling 13 days before departure), and actual loss (Yockey, a $50,000 clause where the firm suffered no harm) (C&M 1063–1064).",
+      "textSha256": "1c1002406afb06e820c061d3b707afb7915bc1f5ef1b85c7c5752205e0b688a4",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: reading-notes-25",
@@ -104898,8 +104928,8 @@
       "id": "liquidated-damages:3",
       "title": "Agreed damages or an unenforceable penalty?",
       "field": "note",
-      "text": "New Jersey tests reasonableness in all the circumstances and presumes a clause between commercial equals valid; the challenger bears the burden.",
-      "textSha256": "2b5d4d9b3bee270c15d0a083a151596a31742cab37ce36dbe12143a02cdf69af",
+      "text": "New Jersey tests reasonableness in all the circumstances, at formation or at breach, and presumes a clause between commercial equals valid; the challenger bears the burden.",
+      "textSha256": "9b31bc2993fc78101b40255a85a4bafe9ef5a5c916d47392a3cb68af3fc35324",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "liquidated-damages",

@@ -8415,6 +8415,767 @@
       ],
       "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
       "packet": "OP-CT-24"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/32/title",
+      "old": "Is the agreed sum liquidated damages or a penalty?",
+      "new": "Will the court enforce an agreed remedy or sum for breach?",
+      "reason": "Figgie's clause limited the buyer to repair, replacement, or return and refund and excluded consequential damages; that is tested under UCC § 2-719 (exclusivity, failure of essential purpose, unconscionability), but K-33 sent every clause into the liquidated-damages test. Figgie: no failure of essential purpose because 'the equipment was returned and the purchase price refunded' (C&M 1045).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1051-1313.pdf",
+          "printedPages": [
+            1043,
+            1044,
+            1045,
+            1046
+          ],
+          "pdfPages": [
+            36,
+            37,
+            38,
+            39
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "UCC § 2-719 and Official Comments 1–3"
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "UCC § 2-715(1)–(2)"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/32/nodes/0/detail",
+      "old": "Identify the trigger, formula, and governing law. Compare the resulting sum with the losses the chosen regime regards as relevant. The parties’ description is not conclusive.",
+      "new": "Identify the trigger, formula, and governing law. A sales clause that limits or replaces remedies, such as repair, replacement, or refund, or that excludes consequential damages, is tested under UCC § 2-719, not as liquidated damages. For a fixed sum or formula, compare the resulting amount with the losses the chosen regime regards as relevant. The parties’ label is not conclusive (Restatement § 356 cmt. c).",
+      "reason": "Figgie's clause limited the buyer to repair, replacement, or return and refund and excluded consequential damages; that is tested under UCC § 2-719 (exclusivity, failure of essential purpose, unconscionability), but K-33 sent every clause into the liquidated-damages test. Figgie: no failure of essential purpose because 'the equipment was returned and the purchase price refunded' (C&M 1045).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1051-1313.pdf",
+          "printedPages": [
+            1043,
+            1044,
+            1045,
+            1046
+          ],
+          "pdfPages": [
+            36,
+            37,
+            38,
+            39
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "UCC § 2-719 and Official Comments 1–3"
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "UCC § 2-715(1)–(2)"
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 356 and comments a–e, Illus. 1–6"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/32/nodes/0/edges",
+      "old": [
+        {
+          "label": "Assigned U.S. approach",
+          "to": "b"
+        },
+        {
+          "label": "Swiss comparison",
+          "to": "e"
+        }
+      ],
+      "new": [
+        {
+          "label": "Clause limits or replaces remedies (repair, replacement, refund) or excludes damages, in a sale of goods",
+          "to": "h"
+        },
+        {
+          "label": "Clause fixes a sum or formula as damages (U.S. law)",
+          "to": "b"
+        },
+        {
+          "label": "Payment drafted as an alternative performance, bonus, or discount",
+          "to": "i"
+        },
+        {
+          "label": "Sum fixed is unreasonably small",
+          "to": "m"
+        },
+        {
+          "label": "Swiss comparison",
+          "to": "e"
+        }
+      ],
+      "reason": "Figgie's clause limited the buyer to repair, replacement, or return and refund and excluded consequential damages; that is tested under UCC § 2-719 (exclusivity, failure of essential purpose, unconscionability), but K-33 sent every clause into the liquidated-damages test. Figgie: no failure of essential purpose because 'the equipment was returned and the purchase price refunded' (C&M 1045). Restatement § 356 cmt. c (alternative performances) and cmts. a, d (unreasonably small sums) also need their own exits.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1051-1313.pdf",
+          "printedPages": [
+            1043,
+            1044,
+            1045,
+            1046
+          ],
+          "pdfPages": [
+            36,
+            37,
+            38,
+            39
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "UCC § 2-719 and Official Comments 1–3"
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "UCC § 2-715(1)–(2)"
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 356 and comments a–e, Illus. 1–6"
+        },
+        {
+          "file": "added-sources/C&M Textbook 1051-1313.pdf",
+          "printedPages": [
+            1049,
+            1055
+          ],
+          "pdfPages": [
+            42,
+            48
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/32/nodes/1/detail",
+      "old": "Dave Gustafson upheld graduated highway-delay charges as a reasonable estimate of hard-to-measure loss. Apply the relevant regime’s treatment of anticipated or actual loss and the difficulty of proving it.",
+      "new": "Dave Gustafson upheld graduated highway-delay charges as a reasonable estimate of hard-to-measure loss. South Dakota (Gustafson) and Illinois (Lake River) require that damages be difficult to estimate; New Jersey (Wasserman’s) and Restatement § 356 cmt. b treat difficulty as a factor, allowing more latitude the harder loss is to prove. Timing also differs: Kelly v. Marx (Mass.) tests the sum only at formation, while Wasserman’s, § 356(1) and UCC § 2-718(1) (“anticipated or actual” loss) let actual loss bear on reasonableness. Under § 356 a substantial sum is a penalty if it is clear that the breach caused no loss at all (Illus. 4).",
+      "reason": "Restatement § 356 cmt. b: 'if ... it is clear that no loss at all has occurred, a provision fixing a substantial sum as damages is unenforceable' (Illus. 4), and Gustafson Problem 1 (C&M 1049) poses that case; Illinois holds a clause a penalty 'If damages would be easy to determine' (C&M 1052) and South Dakota requires harm 'incapable or very difficult of accurate estimation' (C&M 1047). Node b had no exit for either.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1051-1313.pdf",
+          "printedPages": [
+            1047,
+            1049,
+            1052,
+            1059,
+            1060,
+            1062
+          ],
+          "pdfPages": [
+            40,
+            42,
+            45,
+            52,
+            53,
+            55
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 356 and comments a–e, Illus. 1–6"
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "UCC § 2-718(1)–(3)"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/32/nodes/1/edges",
+      "old": [
+        {
+          "label": "Reasonable estimate established",
+          "to": "f"
+        },
+        {
+          "label": "Formula appears excessive or unusual",
+          "to": "c"
+        },
+        {
+          "label": "Record insufficient",
+          "to": "d"
+        }
+      ],
+      "new": [
+        {
+          "label": "Reasonable estimate, not refuted by actual loss where actual loss counts",
+          "to": "f"
+        },
+        {
+          "label": "Formula appears excessive or unusual",
+          "to": "c"
+        },
+        {
+          "label": "Loss was easy to measure, where difficulty is required (Illinois, South Dakota)",
+          "to": "g"
+        },
+        {
+          "label": "Clearly no loss at all, where actual loss counts (§ 356 Illus. 4)",
+          "to": "g"
+        },
+        {
+          "label": "Record insufficient",
+          "to": "d"
+        }
+      ],
+      "reason": "Restatement § 356 cmt. b: 'if ... it is clear that no loss at all has occurred, a provision fixing a substantial sum as damages is unenforceable' (Illus. 4), and Gustafson Problem 1 (C&M 1049) poses that case; Illinois holds a clause a penalty 'If damages would be easy to determine' (C&M 1052) and South Dakota requires harm 'incapable or very difficult of accurate estimation' (C&M 1047). Node b had no exit for either.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1051-1313.pdf",
+          "printedPages": [
+            1047,
+            1049,
+            1052,
+            1059,
+            1060,
+            1062
+          ],
+          "pdfPages": [
+            40,
+            42,
+            45,
+            52,
+            53,
+            55
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 356 and comments a–e, Illus. 1–6"
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "UCC § 2-718(1)–(3)"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/32/nodes/2/detail",
+      "old": "Lake River’s minimum charge paid the full amount without crediting saved service expenses. Wasserman’s gross-receipts provision needed evidence of reasonableness under New Jersey’s rule for a commercial clause.",
+      "new": "Lake River’s minimum charge paid the full amount without crediting saved service expenses, and Posner added that a formula “invariant to the gravity of the breach” is not a reasonable effort to estimate damages. Wasserman’s remanded its gross-receipts provision for findings; because New Jersey presumes a commercial clause between parties of comparable bargaining power reasonable, the Township as challenger bore the burdens of production and persuasion.",
+      "reason": "Wasserman's: 'Because stipulated damages clauses are presumptively reasonable the burden of production and of persuasion rests on the Township' (C&M 1062, page image); node c said the clause 'needed evidence of reasonableness', and node d, reached on an inconclusive record, had no result. Illinois resolves 'doubtful cases in favor of classification as a penalty' (C&M 1052). Lake River: the formula 'is invariant to the gravity of the breach' (C&M 1052).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1051-1313.pdf",
+          "printedPages": [
+            1052,
+            1060,
+            1062
+          ],
+          "pdfPages": [
+            45,
+            53,
+            55
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/32/nodes/3/detail",
+      "old": "Examine probable or actual harm, costs avoided and difficulty of estimation under the chosen test. Wasserman’s remanded the gross-receipts issue while preserving reimbursement for improvements.",
+      "new": "Examine probable or actual harm, costs avoided and difficulty of estimation under the chosen test. If the record stays inconclusive, the allocation of the burden decides: in New Jersey a commercial clause between parties of comparable bargaining power is presumed reasonable and the challenger bears the burdens of production and persuasion, a presumption the court did not extend to consumer contracts; Illinois resolves doubtful cases as penalties. Wasserman’s remanded the gross-receipts issue while preserving reimbursement for improvements.",
+      "reason": "Wasserman's: 'Because stipulated damages clauses are presumptively reasonable the burden of production and of persuasion rests on the Township' (C&M 1062, page image); node c said the clause 'needed evidence of reasonableness', and node d, reached on an inconclusive record, had no result. Illinois resolves 'doubtful cases in favor of classification as a penalty' (C&M 1052).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1051-1313.pdf",
+          "printedPages": [
+            1052,
+            1060,
+            1062
+          ],
+          "pdfPages": [
+            45,
+            53,
+            55
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/32/nodes/3/edges",
+      "old": [],
+      "new": [
+        {
+          "label": "Challenger proves the clause unreasonable",
+          "to": "g"
+        },
+        {
+          "label": "Challenger fails to carry its burden (New Jersey commercial presumption)",
+          "to": "f"
+        },
+        {
+          "label": "Doubt remains where doubtful cases are penalties (Illinois)",
+          "to": "g"
+        }
+      ],
+      "reason": "Wasserman's: 'Because stipulated damages clauses are presumptively reasonable the burden of production and of persuasion rests on the Township' (C&M 1062, page image); node c said the clause 'needed evidence of reasonableness', and node d, reached on an inconclusive record, had no result. Illinois resolves 'doubtful cases in favor of classification as a penalty' (C&M 1052).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1051-1313.pdf",
+          "printedPages": [
+            1052,
+            1060,
+            1062
+          ],
+          "pdfPages": [
+            45,
+            53,
+            55
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/32/nodes/4/detail",
+      "old": "The assigned authorities address statutory reduction rather than automatic rejection of all punitive character. In the 2024 excerpt a minor breach and no demonstrated damage or risk supported CHF 10,000, even though sophistication and lack of loss did not require full enforcement or zero.",
+      "new": "The assigned authorities address statutory reduction rather than automatic rejection of all punitive character. The court reduces only where the amount is grossly disproportionate to the creditor’s interest in full enforcement at the time of breach. The 1988 decision measures excess against the maximum possible damage, not the actual damage, and puts on the debtor the burden to assert and prove grounds for reduction. In the 2024 excerpt a minor, single-occasion breach with no demonstrated damage or risk supported CHF 10,000; business experience did not bar reduction, and lack of loss did not require reducing the penalty to zero.",
+      "reason": "The Swiss node ended without an outcome for a penalty that is not excessive, and its last clause misread the holding: the 2024 court held that business experience did not justify CHF 50,000–100,000 and that lack of damage did not require zero (supp. 136–137). The 1988 decision measures excess by 'the maximum possible damage' and puts the burden on the debtor (supp. 130).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/FA26 Contracts Supplement.pdf",
+          "pages": [
+            129,
+            130,
+            134,
+            136,
+            137
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/32/nodes/4/edges",
+      "old": [],
+      "new": [
+        {
+          "label": "Debtor raises and proves gross disproportion to the creditor’s interest at breach",
+          "to": "o"
+        },
+        {
+          "label": "Gross disproportion not shown or not raised",
+          "to": "p"
+        }
+      ],
+      "reason": "The Swiss node ended without an outcome for a penalty that is not excessive, and its last clause misread the holding: the 2024 court held that business experience did not justify CHF 50,000–100,000 and that lack of damage did not require zero (supp. 136–137). The 1988 decision measures excess by 'the maximum possible damage' and puts the burden on the debtor (supp. 130).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/FA26 Contracts Supplement.pdf",
+          "pages": [
+            129,
+            130,
+            134,
+            136,
+            137
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "target": "takeaway",
+      "id": "dave-gustafson",
+      "old": "A per-day charge for finishing a highway late was enforceable because delay damages were genuinely hard to measure and the graduated amounts were a fair estimate. Actual loss became irrelevant once the clause was valid.",
+      "new": "A per-day charge for finishing a highway late was enforceable because delay damages were genuinely hard to measure and the graduated amounts were a fair estimate when the contract was made. Under South Dakota’s statutes a valid clause replaced proof of actual loss, but under Restatement § 356 a substantial sum is unenforceable if it is clear the breach caused no loss at all.",
+      "reason": "C&M 1047–1048 never discusses actual loss; the 'actual loss irrelevant' rule comes from South Dakota's statutes (brief Reasoning). Stated generally it answers Problem 1 (C&M 1049) and the Yockey problem (C&M 1064) wrongly under § 356 cmt. b, Illus. 4.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1051-1313.pdf",
+          "printedPages": [
+            1047,
+            1048,
+            1049,
+            1064
+          ],
+          "pdfPages": [
+            40,
+            41,
+            42,
+            57
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 356 and comments a–e, Illus. 1–6"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CT-CB-0593",
+      "field": "rule",
+      "old": "does not fail of its essential purpose merely because repair attempts were unsuccessful.",
+      "new": "does not fail of its essential purpose merely because repair attempts failed, where the return and refund were carried out.",
+      "reason": "Figgie relied on the fact that 'the equipment was returned and the purchase price refunded' and found no evidence that return and refund, 'once invoked, failed of its essential purpose' (C&M 1045); refund was 'at seller's option' (C&M 1044), so a seller who refuses to refund is not covered.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1051-1313.pdf",
+          "printedPages": [
+            1044,
+            1045
+          ],
+          "pdfPages": [
+            37,
+            38
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "file": "tools/v28/case-chronologies.json",
+      "pointer": "/0/steps/481/note",
+      "old": "Under the UCC, a trade usage may supply an exclusive limitation of remedies as part of the parties' agreement, and a limited remedy that includes return and refund does not fail of its essential purpose merely because repair attempts were unsuccessful.",
+      "new": "Under the UCC, a trade usage may supply an exclusive limitation of remedies as part of the parties' agreement, and a limited remedy that includes return and refund does not fail of its essential purpose merely because repair attempts failed, where the return and refund were carried out.",
+      "reason": "Figgie relied on the fact that 'the equipment was returned and the purchase price refunded' and found no evidence that return and refund, 'once invoked, failed of its essential purpose' (C&M 1045); refund was 'at seller's option' (C&M 1044), so a seller who refuses to refund is not covered.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1051-1313.pdf",
+          "printedPages": [
+            1044,
+            1045
+          ],
+          "pdfPages": [
+            37,
+            38
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/figgie/1/plain",
+      "old": "Figgie claimed its standard sales conditions made repair, replacement, or return with reimbursement the exclusive remedies. It said they also excluded consequential, incidental, \"contingent,\" and delay damages, meaning money for losses flowing from a defect, such as lost production.",
+      "new": "Figgie claimed its standard sales conditions made repair, replacement, or return with reimbursement the exclusive remedies. It said they also excluded \"consequential\" damages (losses the defect caused in the buyer's business, such as lost production), \"incidental\" damages (the buyer's expenses of dealing with the defective goods, such as inspection, shipping, and storage), and \"contingent\" and delay damages.",
+      "reason": "UCC § 2-715(1): incidental damages are expenses of 'inspection, receipt, transportation and care and custody of goods rightfully rejected' and of cover; lost production is consequential (§ 2-715(2)(a)). Figgie Note 1 asks whether § 2-719(3)'s standard is the same for both (C&M 1046).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1051-1313.pdf",
+          "printedPages": [
+            1044,
+            1046
+          ],
+          "pdfPages": [
+            37,
+            39
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "UCC § 2-715(1)–(2)"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/lake-river/6/plain",
+      "old": "Posner observed that penalties could make promises more trustworthy and encourage parties to enter deals. But they could also discourage \"efficient\" breaches, meaning breaches that leave everyone better off economically.",
+      "new": "Posner observed that penalties could make promises more trustworthy and encourage parties to enter deals. But they could also discourage \"efficient\" breaches: breaches that leave the breaching party better off while the victim, once fully compensated, is no worse off than if the contract had been performed.",
+      "reason": "Posner: after full compensation the promisee 'would be no worse off than if the contract had been performed, while the promisor would be better off by $8,000' (C&M 1051). The victim is not made better off.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1051-1313.pdf",
+          "printedPages": [
+            1051
+          ],
+          "pdfPages": [
+            44
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/dave-gustafson/5/plain",
+      "old": "Justice Hanson called that earlier discussion unnecessary \"dictum,\" remarks not needed to decide the case and so not binding. He also found it unrealistic about how delays affect cities, travelers, and neighboring owners.",
+      "new": "Presiding Judge Hanson called that earlier discussion unnecessary \"dictum,\" remarks not needed to decide the case and so not binding. He also found it unrealistic about how delays affect cities, travelers, and neighboring owners.",
+      "reason": "The casebook prints 'HANSON, PRESIDING JUDGE' (C&M 1047); the brief and narrative say Presiding Judge Hanson.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1051-1313.pdf",
+          "printedPages": [
+            1047
+          ],
+          "pdfPages": [
+            40
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/wassermans/8/plain",
+      "old": "How hard it was to estimate \"damages\" when signing was part of judging reasonableness, not a mechanically separate test.",
+      "new": "How hard it was to estimate \"damages\" was part of judging reasonableness, not a mechanically separate test.",
+      "reason": "Wasserman's assesses reasonableness 'either at the time of contract formation or at the time of the breach' (C&M 1060); 'when signing' narrowed it to the single look the court declined to adopt.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1051-1313.pdf",
+          "printedPages": [
+            1059,
+            1060
+          ],
+          "pdfPages": [
+            52,
+            53
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "liquidated-damages",
+      "stepKey": "wassermans",
+      "field": "note",
+      "old": "New Jersey tests reasonableness in all the circumstances and presumes a clause between commercial equals valid; the challenger bears the burden.",
+      "new": "New Jersey tests reasonableness in all the circumstances, at formation or at breach, and presumes a clause between commercial equals valid; the challenger bears the burden.",
+      "reason": "Wasserman's assesses reasonableness 'either at the time of contract formation or at the time of the breach' (C&M 1060); 'when signing' narrowed it to the single look the court declined to adopt.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1051-1313.pdf",
+          "printedPages": [
+            1060,
+            1062
+          ],
+          "pdfPages": [
+            53,
+            55
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "target": "takeaway",
+      "id": "swiss-2024",
+      "old": "In this Swiss decision, a CHF 100,000 contractual penalty was reduced to CHF 10,000 for a minor, nonrecurring breach without demonstrated harm. Commercial experience did not prevent reduction, and lack of damage did not require eliminating the penalty. The comparison is reduction of an excessive penalty, rather than the domestic rule of refusing an unenforceable penalty.",
+      "new": "In this Swiss decision, the court upheld reducing a penalty of CHF 100,000 per violation to CHF 10,000 for a minor, single-occasion breach without demonstrated harm; business experience did not bar reduction, and lack of damage did not require eliminating the penalty. Swiss law reduces an excessive penalty, whereas the assigned American cases refuse to enforce a penalty and award ordinary damages.",
+      "reason": "Clause 5.3 set CHF 100,000 'for each individual instance of a breach' (supp. 131), and the defendant's figure was 'CHF 500 per violation—i.e., CHF 1,000' (supp. 137–138). The takeaway had three sentences.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/FA26 Contracts Supplement.pdf",
+          "pages": [
+            131,
+            134,
+            136,
+            137,
+            138
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "file": "tools/cold-call/narratives/swiss-2024.json",
+      "pointer": "/sections/6/paragraphs/1",
+      "old": "The debtor generally had to raise and establish a basis for reduction. Here, it was undisputed that the defendant had argued that the amount was excessive. Reducing it did not offend the principle that parties define the matters for decision. The claimant’s references to registered trademarks, the mutual character of the restrictions, and commercial sophistication did not establish why CHF 50,000 to CHF 100,000 was justified for the breach actually found.",
+      "new": "Under the 1988 decision that opens the supplement, the debtor had to assert and prove the grounds for a reduction. Here, it was undisputed that the defendant had argued that the amount was excessive. Reducing it did not offend the principle that parties define the matters for decision. The claimant’s references to registered trademarks, the mutual character of the restrictions, and commercial sophistication did not establish why CHF 50,000 to CHF 100,000 was justified for the breach actually found.",
+      "reason": "'The debtor ... must assert and prove the conditions for a reduction' appears in the 1988 decision (supp. 130); the 2024 excerpt says only that the defendant undisputedly argued excessiveness and that the creditor had to show 'at least in broad terms' damage or a risk of damage (supp. 134, 136).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/FA26 Contracts Supplement.pdf",
+          "pages": [
+            130,
+            134,
+            136
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/swiss-2024/12/sentence",
+      "old": "The debtor generally had to raise and establish a basis for reduction.",
+      "new": "Under the 1988 decision that opens the supplement, the debtor had to assert and prove the grounds for a reduction.",
+      "reason": "'The debtor ... must assert and prove the conditions for a reduction' appears in the 1988 decision (supp. 130); the 2024 excerpt says only that the defendant undisputedly argued excessiveness and that the creditor had to show 'at least in broad terms' damage or a risk of damage (supp. 134, 136).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/FA26 Contracts Supplement.pdf",
+          "pages": [
+            130,
+            134,
+            136
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/swiss-2024/12/plain",
+      "old": "The \"debtor\", here the party owing the penalty, generally had to ask for a reduction and prove a basis for it.",
+      "new": "Under the 1988 decision at the start of the supplement, the \"debtor\", here the party owing the penalty, had to ask for a reduction and prove the grounds for it.",
+      "reason": "'The debtor ... must assert and prove the conditions for a reduction' appears in the 1988 decision (supp. 130); the 2024 excerpt says only that the defendant undisputedly argued excessiveness and that the creditor had to show 'at least in broad terms' damage or a risk of damage (supp. 134, 136).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/FA26 Contracts Supplement.pdf",
+          "pages": [
+            130,
+            134,
+            136
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "file": "tools/cold-call/glossary-terms.json",
+      "pointer": "/terms/604/gloss",
+      "old": "The only remedy the law allows for a type of claim, as when workers' compensation replaces an injury lawsuit against the employer.",
+      "new": "The only remedy allowed for a claim. In a sale of goods, an agreed remedy such as repair or refund is exclusive only if the parties expressly agree so (UCC § 2-719(1)(b)); a statute can also make a remedy exclusive, as workers' compensation replaces an injury lawsuit against the employer.",
+      "reason": "The only gloss for 'exclusive remedy' described workers' compensation, which is wrong in Figgie; UCC § 2-719(1)(b) makes an agreed remedy exclusive only if 'expressly agreed to be exclusive' (C&M 1044).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1051-1313.pdf",
+          "printedPages": [
+            1044,
+            1045
+          ],
+          "pdfPages": [
+            37,
+            38
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "UCC § 2-719 and Official Comments 1–3"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "file": "tools/cold-call/glossary-terms.json",
+      "pointer": "/terms/970/gloss",
+      "old": "Damages for breach set in the contract in advance. Courts enforce them if they were a reasonable estimate of the likely harm; otherwise they are an unenforceable penalty.",
+      "new": "Damages for breach set in the contract in advance. Courts enforce them if the amount is reasonable in light of the anticipated or actual loss and the difficulty of proving loss (Restatement § 356(1)); otherwise they are an unenforceable penalty.",
+      "reason": "Restatement § 356(1) tests the sum against 'the anticipated or actual loss caused by the breach and the difficulties of proof of loss'; the gloss mentioned only a reasonable estimate of likely harm.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 356 and comments a–e, Illus. 1–6"
+        },
+        {
+          "file": "added-sources/C&M Textbook 1051-1313.pdf",
+          "printedPages": [
+            1059,
+            1060
+          ],
+          "pdfPages": [
+            52,
+            53
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/31/nodes/0/detail",
+      "old": "Start with the promised position less actual performance and identify every claimed item. These limits can reduce an otherwise supported figure or exclude an item that never met the proof requirement. Confirm that the breach caused each item in fact; causation in fact is a bare minimum, and some courts require the breach to be a substantial causal factor.",
+      "new": "Start with the promised position less actual performance and identify every claimed item. If the contract limits the remedy or excludes consequential damages, test that clause first (UCC § 2-719; chart K-33): in Figgie, an exclusive refund remedy that was actually performed and a valid exclusion barred Serralles's lost-production losses. These limits can reduce an otherwise supported figure or exclude an item that never met the proof requirement. Confirm that the breach caused each item in fact; causation in fact is a bare minimum, and some courts require the breach to be a substantial causal factor.",
+      "reason": "On Figgie's facts K-32 awarded the lost-production losses the court barred; an agreed exclusive remedy and a consequential-damages exclusion come before the damages limits (UCC § 2-719(1)(b), (3); C&M 1044–1045). Cross-chart item from OP-CT-25.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1051-1313.pdf",
+          "printedPages": [
+            1044,
+            1045
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "UCC § 2-719"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-25b"
     }
   ]
 }

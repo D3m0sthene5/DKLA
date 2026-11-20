@@ -4774,7 +4774,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-CB-0593",
         "sourceLocator": "tools/r19/data/sections.json :: CT-CB-0593.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "aa251ef391e5a4b7394ac99b3d1973a10fb4b4c436b297a63e44a66fb9ddf336",
+        "ruleSha256": "f152d631fc67322395a31f06b10a4ffb37ca5a1abb89d49b732119fb5c4f777e",
         "comparedSections": {
           "Holding": "175686d6b3f754786c996ba60e438409b2a883868faa6897575da693a4abe2da"
         },
@@ -4795,7 +4795,15 @@
           "https://static.case.law/f3d/190/cases/0252-01.json."
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "dave-gustafson",
@@ -4804,7 +4812,7 @@
         "Contracts"
       ],
       "takeaway": "A per-day charge for finishing a highway late was enforceable because delay damages were genuinely hard to measure and the graduated amounts were a fair estimate. Actual loss became irrelevant once the clause was valid.",
-      "takeawaySha256": "5d84d6163ecc420f570ed1f4d608a057606a94ba9000fa281d431600f389541c",
+      "takeawaySha256": "c454ed16cca56577969a5a66a6e3ca1682d5c3af3a3a6e1c4654a43ce1dcded5",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -4834,7 +4842,15 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        }
+      ]
     },
     {
       "id": "lake-river",
@@ -18527,7 +18543,7 @@
         "Contracts"
       ],
       "takeaway": "In this Swiss decision, a CHF 100,000 contractual penalty was reduced to CHF 10,000 for a minor, nonrecurring breach without demonstrated harm. Commercial experience did not prevent reduction, and lack of damage did not require eliminating the penalty. The comparison is reduction of an excessive penalty, rather than the domestic rule of refusing an unenforceable penalty.",
-      "takeawaySha256": "84ca361a0411615d57d6666a30fd34ac5a4b9ff0d99b82d4611ad5b5af248227",
+      "takeawaySha256": "c634a70e249615d5c6a9f10c641e54d403ea34a3d857912f09f2e55c0bafa16b",
       "changed": true,
       "outcome": "New individually authored explanation",
       "changeReason": "Read the complete assigned machine-translated supplement pp. 129–138 and the complete seed account; pp. 130–138 concern the 2024 decision, distinct from the 1988 introductory principles.",
@@ -18537,7 +18553,7 @@
       "basis": {
         "kind": "Complete assigned seed account plus complete supplied machine-translated excerpt comparison.",
         "sourceLocator": "DKLA-r18.html :: seedData.nodes[swiss-2024]; suppArchive printed pp. 129–138.",
-        "savedAccountSha256": "ad949d3776719aa98f1280928f2f414e29cd9b76a6060d88c4f772bbaaebff61",
+        "savedAccountSha256": "2fa054c41d511d17a138977ef6f0c7bd9ff93a75318da3bc901e6e21da41b07b",
         "sourcePages": [
           129,
           130,
@@ -18552,7 +18568,21 @@
         ],
         "freshOriginalForeignOpinionReview": false,
         "scope": "The supplied translation separates 1988 principles from 2024 facts beginning on p. 130. The complete foreign original and docket were not independently obtained; no subsequent-treatment certification."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "savedAccountSha256"
+        }
+      ]
     }
   ],
   "followUpReviews": [

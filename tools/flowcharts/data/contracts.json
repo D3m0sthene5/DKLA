@@ -4701,7 +4701,7 @@
       {
         "id": "a",
         "label": "What is the provisional damages calculation?",
-        "detail": "Start with the promised position less actual performance and identify every claimed item. These limits can reduce an otherwise supported figure or exclude an item that never met the proof requirement. Confirm that the breach caused each item in fact; causation in fact is a bare minimum, and some courts require the breach to be a substantial causal factor.",
+        "detail": "Start with the promised position less actual performance and identify every claimed item. If the contract limits the remedy or excludes consequential damages, test that clause first (UCC § 2-719; chart K-33): in Figgie, an exclusive refund remedy that was actually performed and a valid exclusion barred Serralles's lost-production losses. These limits can reduce an otherwise supported figure or exclude an item that never met the proof requirement. Confirm that the breach caused each item in fact; causation in fact is a bare minimum, and some courts require the breach to be a substantial causal factor.",
         "sources": [
           "expectation-interest",
           "remedial-overview",
@@ -4842,21 +4842,33 @@
   },
   {
     "id": "K-33",
-    "title": "Is the agreed sum liquidated damages or a penalty?",
+    "title": "Will the court enforce an agreed remedy or sum for breach?",
     "entry": "a",
     "nodes": [
       {
         "id": "a",
         "label": "What consequence does the clause impose for breach?",
-        "detail": "Identify the trigger, formula, and governing law. Compare the resulting sum with the losses the chosen regime regards as relevant. The parties’ description is not conclusive.",
+        "detail": "Identify the trigger, formula, and governing law. A sales clause that limits or replaces remedies, such as repair, replacement, or refund, or that excludes consequential damages, is tested under UCC § 2-719, not as liquidated damages. For a fixed sum or formula, compare the resulting amount with the losses the chosen regime regards as relevant. The parties’ label is not conclusive (Restatement § 356 cmt. c).",
         "sources": [
           "stipulated-remedies",
           "reading-notes-25"
         ],
         "edges": [
           {
-            "label": "Assigned U.S. approach",
+            "label": "Clause limits or replaces remedies (repair, replacement, refund) or excludes damages, in a sale of goods",
+            "to": "h"
+          },
+          {
+            "label": "Clause fixes a sum or formula as damages (U.S. law)",
             "to": "b"
+          },
+          {
+            "label": "Payment drafted as an alternative performance, bonus, or discount",
+            "to": "i"
+          },
+          {
+            "label": "Sum fixed is unreasonably small",
+            "to": "m"
           },
           {
             "label": "Swiss comparison",
@@ -4867,7 +4879,7 @@
       {
         "id": "b",
         "label": "Was loss hard to measure and reasonably estimated?",
-        "detail": "Dave Gustafson upheld graduated highway-delay charges as a reasonable estimate of hard-to-measure loss. Apply the relevant regime’s treatment of anticipated or actual loss and the difficulty of proving it.",
+        "detail": "Dave Gustafson upheld graduated highway-delay charges as a reasonable estimate of hard-to-measure loss. South Dakota (Gustafson) and Illinois (Lake River) require that damages be difficult to estimate; New Jersey (Wasserman’s) and Restatement § 356 cmt. b treat difficulty as a factor, allowing more latitude the harder loss is to prove. Timing also differs: Kelly v. Marx (Mass.) tests the sum only at formation, while Wasserman’s, § 356(1) and UCC § 2-718(1) (“anticipated or actual” loss) let actual loss bear on reasonableness. Under § 356 a substantial sum is a penalty if it is clear that the breach caused no loss at all (Illus. 4).",
         "sources": [
           "dave-gustafson",
           "stipulated-remedies",
@@ -4875,12 +4887,20 @@
         ],
         "edges": [
           {
-            "label": "Reasonable estimate established",
+            "label": "Reasonable estimate, not refuted by actual loss where actual loss counts",
             "to": "f"
           },
           {
             "label": "Formula appears excessive or unusual",
             "to": "c"
+          },
+          {
+            "label": "Loss was easy to measure, where difficulty is required (Illinois, South Dakota)",
+            "to": "g"
+          },
+          {
+            "label": "Clearly no loss at all, where actual loss counts (§ 356 Illus. 4)",
+            "to": "g"
           },
           {
             "label": "Record insufficient",
@@ -4891,7 +4911,7 @@
       {
         "id": "c",
         "label": "Does the formula approximate net rather than gross loss?",
-        "detail": "Lake River’s minimum charge paid the full amount without crediting saved service expenses. Wasserman’s gross-receipts provision needed evidence of reasonableness under New Jersey’s rule for a commercial clause.",
+        "detail": "Lake River’s minimum charge paid the full amount without crediting saved service expenses, and Posner added that a formula “invariant to the gravity of the breach” is not a reasonable effort to estimate damages. Wasserman’s remanded its gross-receipts provision for findings; because New Jersey presumes a commercial clause between parties of comparable bargaining power reasonable, the Township as challenger bore the burdens of production and persuasion.",
         "sources": [
           "lake-river",
           "wassermans"
@@ -4914,22 +4934,44 @@
       {
         "id": "d",
         "label": "Develop the reasonableness record",
-        "detail": "Examine probable or actual harm, costs avoided and difficulty of estimation under the chosen test. Wasserman’s remanded the gross-receipts issue while preserving reimbursement for improvements.",
+        "detail": "Examine probable or actual harm, costs avoided and difficulty of estimation under the chosen test. If the record stays inconclusive, the allocation of the burden decides: in New Jersey a commercial clause between parties of comparable bargaining power is presumed reasonable and the challenger bears the burdens of production and persuasion, a presumption the court did not extend to consumer contracts; Illinois resolves doubtful cases as penalties. Wasserman’s remanded the gross-receipts issue while preserving reimbursement for improvements.",
         "sources": [
           "wassermans",
           "reading-notes-25"
         ],
-        "edges": []
+        "edges": [
+          {
+            "label": "Challenger proves the clause unreasonable",
+            "to": "g"
+          },
+          {
+            "label": "Challenger fails to carry its burden (New Jersey commercial presumption)",
+            "to": "f"
+          },
+          {
+            "label": "Doubt remains where doubtful cases are penalties (Illinois)",
+            "to": "g"
+          }
+        ]
       },
       {
         "id": "e",
         "label": "Would Swiss law reduce an excessive penalty?",
-        "detail": "The assigned authorities address statutory reduction rather than automatic rejection of all punitive character. In the 2024 excerpt a minor breach and no demonstrated damage or risk supported CHF 10,000, even though sophistication and lack of loss did not require full enforcement or zero.",
+        "detail": "The assigned authorities address statutory reduction rather than automatic rejection of all punitive character. The court reduces only where the amount is grossly disproportionate to the creditor’s interest in full enforcement at the time of breach. The 1988 decision measures excess against the maximum possible damage, not the actual damage, and puts on the debtor the burden to assert and prove grounds for reduction. In the 2024 excerpt a minor, single-occasion breach with no demonstrated damage or risk supported CHF 10,000; business experience did not bar reduction, and lack of loss did not require reducing the penalty to zero.",
         "sources": [
           "swiss-2024",
           "swiss-1988-penalty"
         ],
-        "edges": []
+        "edges": [
+          {
+            "label": "Debtor raises and proves gross disproportion to the creditor’s interest at breach",
+            "to": "o"
+          },
+          {
+            "label": "Gross disproportion not shown or not raised",
+            "to": "p"
+          }
+        ]
       },
       {
         "id": "f",
@@ -4948,6 +4990,148 @@
         "sources": [
           "lake-river",
           "stipulated-remedies"
+        ],
+        "edges": []
+      },
+      {
+        "id": "h",
+        "label": "Is the limited remedy exclusive, and has it failed of its essential purpose?",
+        "detail": "An agreed remedy such as repair, replacement, or return and refund is optional unless the parties expressly agree that it is exclusive (UCC § 2-719(1)(b)); comment 2 presumes remedies cumulative unless exclusivity is clearly expressed. In Figgie, unrebutted trade usage supplied the exclusivity. If circumstances cause an exclusive remedy to fail of its essential purpose, or to deprive either party of the substantial value of the bargain, the Code's ordinary remedies return (§ 2-719(2); cmt. 1). A repair-only remedy can fail when repairs do not succeed. Figgie's remedy did not fail, because after the repairs failed the machine was returned and the price refunded (C&M 1045).",
+        "sources": [
+          "figgie",
+          "stipulated-remedies"
+        ],
+        "edges": [
+          {
+            "label": "Not expressly agreed to be exclusive",
+            "to": "k"
+          },
+          {
+            "label": "Exclusive, but it failed of its essential purpose",
+            "to": "k"
+          },
+          {
+            "label": "Exclusive, and it worked (as when the refund was made)",
+            "to": "j"
+          }
+        ]
+      },
+      {
+        "id": "i",
+        "label": "Is the payment a genuine alternative performance?",
+        "detail": "Courts look to substance: a clause drafted as an alternative performance, a discount for prompt performance, or a valuation may disguise a penalty, and the relative value of the alternatives may be decisive (Restatement § 356 cmt. c, Illus. 5). In the casebook's note after Lake River, Prenalta (10th Cir. 1991) explains that courts distinguish a take-or-pay 'pay' provision from liquidated damages because paying money is one of the alternative performances (C&M 1055). Problem 2(c) asks whether a seller's option to deliver a machine or pay $10,000, when the buyer could buy it elsewhere for $1,000 more than the price, is such an alternative (C&M 1049).",
+        "sources": [
+          "stipulated-remedies",
+          "lake-river"
+        ],
+        "edges": [
+          {
+            "label": "Genuine alternative of comparable value",
+            "to": "n"
+          },
+          {
+            "label": "Disguised payment for breach",
+            "to": "b"
+          }
+        ]
+      },
+      {
+        "id": "j",
+        "label": "Does the clause validly exclude consequential or incidental damages?",
+        "detail": "Consequential damages, such as lost production, may be limited or excluded unless the exclusion is unconscionable; excluding them for personal injury from consumer goods is prima facie unconscionable, but excluding commercial loss is not (UCC § 2-719(3)). Comment 3 calls such terms an allocation of unknown or undeterminable risks. Section 2-719(3) does not mention incidental damages, the buyer's expenses of inspecting, shipping, storing, or covering (§ 2-715(1)), and the casebook asks whether the same standard applies to them (C&M 1046, Note 1).",
+        "sources": [
+          "figgie",
+          "unconscionability"
+        ],
+        "edges": [
+          {
+            "label": "Exclusion unconscionable",
+            "to": "k"
+          },
+          {
+            "label": "Exclusion valid (commercial loss)",
+            "to": "l"
+          }
+        ]
+      },
+      {
+        "id": "k",
+        "label": "Measure damages under the Code's ordinary remedies",
+        "detail": "The buyer may use the Code's remedies (§ 2-719(1)(b), (2)); a clause struck as unconscionable is treated as if it never existed (cmt. 1). Compute the loss and apply the damages limits on the remedy charts. Where an exclusive remedy failed but a separate exclusion of consequential damages remains, the assigned pages do not decide whether the exclusion survives; test it under § 2-719(3).",
+        "sources": [
+          "figgie",
+          "stipulated-remedies"
+        ],
+        "edges": [],
+        "related": [
+          {
+            "id": "K-30",
+            "label": "Which monetary remedy fits the injury?"
+          },
+          {
+            "id": "K-32",
+            "label": "Which losses survive the damages limits?"
+          }
+        ]
+      },
+      {
+        "id": "l",
+        "label": "Enforce the limitation: the buyer gets only the agreed remedy",
+        "detail": "The agreed remedy is the sole remedy (§ 2-719(1)(b)), and excluded losses cannot be added on a damages chart. In Figgie, Serralles, having received the refund, could not recover its claimed losses from unsuccessful operation and delay.",
+        "sources": [
+          "figgie"
+        ],
+        "edges": [],
+        "related": [
+          {
+            "id": "K-32",
+            "label": "Which losses survive the damages limits?"
+          }
+        ]
+      },
+      {
+        "id": "m",
+        "label": "Test a small sum for unconscionability, not as a penalty",
+        "detail": "Restatement § 356 polices only unreasonably large sums. A term fixing an unreasonably small amount as damages is not a penalty, but a court may refuse to enforce it as unconscionable under § 208 (§ 356 cmts. a, d).",
+        "sources": [
+          "stipulated-remedies",
+          "unconscionability"
+        ],
+        "edges": [],
+        "related": [
+          {
+            "id": "K-25",
+            "label": "Can a court decline to enforce a standard term?"
+          }
+        ]
+      },
+      {
+        "id": "n",
+        "label": "Enforce the payment as an agreed performance",
+        "detail": "A genuine alternative performance is what the promisor agreed to render, not damages for breach, so the penalty test does not apply (§ 356 cmt. c; Prenalta, C&M 1055).",
+        "sources": [
+          "stipulated-remedies",
+          "lake-river"
+        ],
+        "edges": []
+      },
+      {
+        "id": "o",
+        "label": "Reduce the penalty in the court's discretion",
+        "detail": "The court sets a lower sum after weighing the nature and duration of the contract, the severity of fault and breach, the creditor's interest in compliance, the parties' economic situation, any dependence, and business experience; reduction is more readily justified for an employee or economically weaker party (supp. 129–130). The reduced sum may keep a punitive function: the 2024 court upheld CHF 10,000 against a stipulated CHF 100,000 per violation.",
+        "sources": [
+          "swiss-2024",
+          "swiss-1988-penalty"
+        ],
+        "edges": []
+      },
+      {
+        "id": "p",
+        "label": "Enforce the agreed penalty in full",
+        "detail": "The penalty is an independent obligation that falls due even if the creditor suffered no damage (Art. 161(1) OR), and a penalty is not excessive merely because it exceeds the damages the creditor could claim. Courts reduce with restraint out of respect for freedom of contract, and the debtor must assert and prove the grounds for reduction (1988 decision, supp. 129–130).",
+        "sources": [
+          "swiss-1988-penalty",
+          "swiss-2024"
         ],
         "edges": []
       }
