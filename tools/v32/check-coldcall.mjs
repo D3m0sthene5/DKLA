@@ -16,9 +16,13 @@
    - resume: a case left mid-read opens at the same place after a reload; finishing it clears the place;
    - Rehearse: one prompt at a time, with the control that shows the narration directly under it and
      nothing imitating hidden text; Space and Enter show and move on; the reveal leads with the stored
-     answer, each sentence found word for word in the episode, then the title and the narration; a sentence
-     that is not in the episode is never shown, and an episode with no stored answer shows its narration and
-     nothing more; the list at the side shows prompts before and after a reveal; the case stays in the bar;
+     answer, then the title and the narration. A stored answer records its kind: tightened wording is
+     labelled "Answer" and only an answer that is the episode's own sentences carries the word-for-word
+     label. Each is linked to sentences of its own episode, and its link tints exactly those sentences in
+     the narration without touching it; an answer whose passage is not in the episode is never shown, and
+     an episode with no stored answer shows its narration and nothing more. Episodes whose prompt is not a
+     question stay in the narrative's order with "Tell this part from memory first." and "Show the
+     episode". The list at the side shows prompts before and after a reveal; the case stays in the bar;
      narrations marked a slice at a time equal those marked at once;
    - keys: Left and Right move between steps, Escape closes, Tab stays inside, and focus goes back to the
      control that opened the reader;

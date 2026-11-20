@@ -37,23 +37,50 @@ removed at the owner's request have not come back, and the reader still never re
 
 ## Direct answers (rehearsal)
 
-`answers.json` holds, for an episode whose cue is a question, the sentences of that episode's own
-paragraphs that answer it: whole sentences, word for word, in the order they should be said, the first
-one answering the question by itself where one sentence can. When the narration is revealed in a
-rehearsal these come first, then the episode as it is told. An episode with no entry shows its narration
-as before. Nothing is written for the page by hand:
+`answers.json` holds, for an episode whose cue is a question, the answer a student would say. Each entry
+records its `kind`:
+
+- `verbatim`: sentences of the episode's own paragraphs, word for word. Shown under "The answer, in this
+  episode's own words".
+- `paraphrase`: tightened wording, which the owner allowed for these answers and nothing else (decision
+  13 of 3.2: the exact legal term; the actor, the object and the condition named; one sentence, two for
+  a two-part question). Shown under "Answer". The word-for-word label never sits on a paraphrase.
+
+Every entry is linked (`from`) to the sentences of its own episode it rests on, by paragraph and
+sentence, both counted from 0, with the sentence's text. In a rehearsal the answer comes first, and
+"Where the episode says this" tints those sentences in the narration below and brings the first into
+view; the narration, its defined words and its plain-English markers are not touched. `context` may
+name a sentence of another episode of the same case that fixes what a word refers to. `ownWords` lists a
+paraphrase's words that are in neither the linked sentences nor the question. `checked` says how the
+answer was checked after it was written. An episode with no entry shows its narration as before.
+Nothing is written for the page by hand:
 
 ```sh
 node tools/cold-call/answers.mjs                  # check every entry against its episode
 node tools/cold-call/answers.mjs --write          # write src/features/v32/coldcall-answers.js
+node tools/cold-call/answers.mjs --own            # each paraphrase's own words
+node tools/cold-call/answers.mjs --review packet.md [--only case:episode,...]   # what a second reader is given
 node tools/cold-call/answers.mjs --todo work.jsonl   # the questions without an answer, sentences numbered
-node tools/cold-call/answers.mjs --fill work.jsonl --by "who, when"   # store picks made by sentence number
+node tools/cold-call/answers.mjs --fill work.jsonl --by "who, when" [--checked "how, by whom"]
 ```
 
-The check refuses an entry whose case or episode does not exist, whose stored question is no longer the
-episode's (the narrative was revised: choose again), whose cue is not a question, or any sentence that is
-not found whole in the episode. `answers.json` is a pinned content file: after a reviewed change run
+A worksheet line is stored word for word if it carries `"pick": [sentence numbers]`, and as a paraphrase
+if it carries `"say": [one or two sentences]` and `"from": [[paragraph, sentence], ...]`.
+
+The check refuses an entry whose case or episode does not exist; whose stored question is no longer the
+episode's (the narrative was revised: write it again); whose cue is not a question; whose linked
+sentence is not, word for word, at the place named; a verbatim answer that is not exactly its linked
+sentences; and a paraphrase of more than two sentences, with a number, section number or proper name
+that is not in its linked sentences, with a word of its own that `ownWords` does not list, or without
+`checked`. That is all a script can hold a paraphrase to. Whether it is true to its passage and answers
+the question is a reading, by someone or something other than its writer: `--review` writes what that
+reader needs and nothing of the writer's reasoning. In the pilot that reading failed three of eleven
+drafts the script had passed. `answers.json` is a pinned content file: after a reviewed change run
 `python tools/verify/content.py --update`.
+
+The pilot is eleven answers (C. Itoh 5, Loper Bright 6) and stays at eleven for 3.2. The other 2,406
+questions are a separate content campaign; its scope, ids and worksheet were handed to the owner's
+content audit on 19 November 2026 (`coldcall-answers-scope.md`, `.json`, and the worksheet).
 
 ## Definitions (hover links)
 
