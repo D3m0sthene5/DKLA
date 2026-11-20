@@ -112,6 +112,11 @@
   flex: none;
   color: var(--v31-faint);
 }
+/* The entry's name waits, unseen, over the path until the title has scrolled away. It is words, not
+   a control: it must not take the presses meant for the way back and the "…" under it. */
+#inspector .reader-top > .v32-now {
+  pointer-events: none;
+}
 /* The way back and the "…" that opens the whole path: for a narrow reader only (below). */
 #inspector .v32-back,
 #inspector .v32-more,
