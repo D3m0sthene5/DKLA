@@ -2599,7 +2599,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-CB-0553",
         "sourceLocator": "tools/r19/data/sections.json :: CT-CB-0553.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "8d2f8949cc0b696e0a76b951ee9c2c8795cfcc6243b950404ede931e780bb29b",
+        "ruleSha256": "7072e08724a91a4117f39e09354f9a9e49ea86dcde300dfc902d12abe98381ae",
         "comparedSections": {
           "Holding": "173e023d6b72173cf48b73beed022dcd295e89b114c567fb62371e5990c32d9e"
         },
@@ -2620,7 +2620,15 @@
           "https://static.case.law/ny-2d/77/cases/0157-01.json."
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "greenfield",
@@ -2629,7 +2637,7 @@
         "Contracts"
       ],
       "takeaway": "A contract that transfers ownership of recordings without limit covers new uses the parties never mentioned. Silence about a particular use does not create an ambiguity, so the artists could not read in a reserved right.",
-      "takeawaySha256": "53bd5004c5686ed135ed018e53835d45d788562e8d8d4f142a73d825a0da6e56",
+      "takeawaySha256": "f4cffec506566a184e975836d3faba39df5100ead9f8cb46d1b6411b8285c9a9",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -2661,7 +2669,15 @@
           "https://static.case.law/ny-2d/98/cases/0562-01.json."
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        }
+      ]
     },
     {
       "id": "trident",
@@ -2683,7 +2699,7 @@
         "sourceLocator": "tools/r19/data/sections.json :: CT-CB-0560.rule and sections.Holding (effective assembler overlays)",
         "ruleSha256": "3f16022109b320a65893702e9023c4ff5b8e6c7600f1f4d477ea8c393d964fbd",
         "comparedSections": {
-          "Holding": "66301ce82bfad2a70136bab16c7c09077be56aa385ddd10b1153a291421f1fe1"
+          "Holding": "762ce09e10448410be783f8dc086d8b02ba49fe19be87db785499f1a0609be81"
         },
         "sectionsReadCompletely": [
           "Holding"
@@ -2720,6 +2736,14 @@
           "scope": "Current takeaway and rule read against the complete current canonical Holding; relevant Cold Call passages checked for the corrected distinction. Previously recorded source reading remains historical. No fresh complete-opinion review.",
           "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.comparedSections.Holding"
         }
       ]
     },

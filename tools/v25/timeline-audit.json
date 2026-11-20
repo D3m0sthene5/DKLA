@@ -8151,7 +8151,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CT-CB-0553.md",
         "sourceLocator": "tools/r19/data/sections.json :: CT-CB-0553.rule (effective assembler overlays included)",
         "comparedRule": "A complete, clear and unambiguous written contract is enforced according to its terms, and extrinsic evidence of what the parties intended may not be used to create an ambiguity in it or to add to or vary it.",
-        "comparedRuleSha256": "8d2f8949cc0b696e0a76b951ee9c2c8795cfcc6243b950404ede931e780bb29b",
+        "comparedRuleSha256": "7072e08724a91a4117f39e09354f9a9e49ea86dcde300dfc902d12abe98381ae",
         "effectiveFullBriefSha256": "cffec9c0d876963d1ed38c8c1b84491ed275bc84aabe4aceecdcd167b7b1a670",
         "inheritedCitation": "77 N.Y.2d 157, 566 N.E.2d 639 (N.Y. 1990) | Contracts | Plain meaning, reciprocal cancellation, and extrinsic evidence",
         "inheritedBriefPdfLocator": {
@@ -8183,6 +8183,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
