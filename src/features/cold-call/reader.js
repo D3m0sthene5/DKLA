@@ -237,15 +237,31 @@
     const term = plain ? null : glossing?.section();
     return `${paragraphs(s, i, term)}${s.followUp ? `<details class="cc-followup"><summary>${esc(s.followUp.question)}</summary><p>${term ? term.text(s.followUp.answer, `${i}.followUp-answer`) : esc(s.followUp.answer)}</p>${citations(s.followUp.sources)}</details>` : ''}${citations(s.sources)}`;
   }
-  /* The direct answer to an episode's question, where one has been stored: sentences of this episode's own
-     paragraphs, word for word. A stored sentence that is no longer in the episode (the narrative was revised
-     since) is not shown: the reveal then leads with the narration, as it does for every episode without one. */
+  /* The direct answer to an episode's question, where one has been stored (tools/cold-call/answers.json).
+     It is either sentences of this episode's own paragraphs, word for word ("verbatim"), or tightened
+     wording the owner allowed for these answers ("paraphrase", shown under the plain label "Answer"). Either
+     way it is linked to the sentences of the episode it rests on. An answer whose linked sentences are no
+     longer in the episode (the narrative was revised since) is not shown: the reveal then leads with the
+     narration, as it does for every episode without one. */
   const squash = (text) => String(text).replace(/\s+/g, ' ').trim();
   function directAnswer(c, s) {
     const stored = window.DKLAColdCallAnswers?.answers?.[c.id]?.[s.id];
-    if (!Array.isArray(stored) || !stored.length || cueKind(s.cue) !== 'question') return null;
-    const text = squash(s.paragraphs.join(' '));
-    return stored.every((sentence) => sentence && text.includes(squash(sentence))) ? stored : null;
+    if (!stored || cueKind(s.cue) !== 'question') return null;
+    const { kind, say, from } = stored;
+    if (!['verbatim', 'paraphrase'].includes(kind)) return null;
+    if (!Array.isArray(say) || !say.length || !say.every((sentence) => sentence && squash(sentence)))
+      return null;
+    if (
+      !Array.isArray(from) ||
+      !from.length ||
+      !from.every((link) => link?.text && squash(s.paragraphs[link.p] ?? '').includes(squash(link.text)))
+    )
+      return null;
+    if (kind === 'verbatim') {
+      const text = squash(s.paragraphs.join(' '));
+      if (!say.every((sentence) => text.includes(squash(sentence)))) return null;
+    }
+    return stored;
   }
   // While rehearsing a prompt is set large, on two lines at most; one too long for that (some eighty of the
   // 4,097) keeps a smaller size, rather than standing three lines tall beside empty space.
@@ -259,7 +275,7 @@
       kind = cueKind(s.cue),
       asked = kind === 'question',
       direct = directAnswer(current, s);
-    return `<section class="cc-section" id="cc-section-${id}" data-cc-section="${i}" data-cc-step="${i + 1}" data-cc-cue="${kind}"${direct ? ' data-cc-direct' : ''}><p class="cc-count"><span class="cc-sr">Episode </span>${i + 1} of ${n}</p><h3 class="cc-title" id="cc-heading-${id}" tabindex="-1">${esc(s.title)}</h3><p class="cc-cue" id="cc-cue-${id}"${(s.cue || '').length > LONG_CUE ? ' data-cc-long' : ''} tabindex="-1"><span class="cc-cue-label">If called on</span> ${kind === 'none' ? `Episode ${i + 1}` : esc(s.cue)}</p><div class="cc-cover"><button type="button" class="cc-reveal" data-cc-reveal="${i}" aria-describedby="cc-hint-${id}">${asked ? 'Show the answer' : 'Show the episode'}<kbd class="cc-act-key" aria-hidden="true">Space</kbd></button><span class="cc-cover-hint" id="cc-hint-${id}">${asked ? 'Answer aloud from memory first.' : 'Tell this part from memory first.'}</span></div>${direct ? `<div class="cc-direct" id="cc-direct-${id}" tabindex="-1"><p class="cc-direct-label">The answer, in this episode’s own words</p>${direct.map((sentence) => `<p class="cc-direct-say">${esc(squash(sentence))}</p>`).join('')}</div>` : ''}<div class="cc-answer" id="cc-answer-${id}">${answerHTML(s, i, plain)}</div></section>`;
+    return `<section class="cc-section" id="cc-section-${id}" data-cc-section="${i}" data-cc-step="${i + 1}" data-cc-cue="${kind}"${direct ? ' data-cc-direct' : ''}><p class="cc-count"><span class="cc-sr">Episode </span>${i + 1} of ${n}</p><h3 class="cc-title" id="cc-heading-${id}" tabindex="-1">${esc(s.title)}</h3><p class="cc-cue" id="cc-cue-${id}"${(s.cue || '').length > LONG_CUE ? ' data-cc-long' : ''} tabindex="-1"><span class="cc-cue-label">If called on</span> ${kind === 'none' ? `Episode ${i + 1}` : esc(s.cue)}</p><div class="cc-cover"><button type="button" class="cc-reveal" data-cc-reveal="${i}" aria-describedby="cc-hint-${id}">${asked ? 'Show the answer' : 'Show the episode'}<kbd class="cc-act-key" aria-hidden="true">Space</kbd></button><span class="cc-cover-hint" id="cc-hint-${id}">${asked ? 'Answer aloud from memory first.' : 'Tell this part from memory first.'}</span></div>${direct ? `<div class="cc-direct" id="cc-direct-${id}" data-cc-answer-kind="${direct.kind}" tabindex="-1"><p class="cc-direct-label">${direct.kind === 'verbatim' ? 'The answer, in this episode’s own words' : 'Answer'}</p>${direct.say.map((sentence) => `<p class="cc-direct-say">${esc(squash(sentence))}</p>`).join('')}<button type="button" class="cc-passage-link" data-cc-passage="${i}">Where the episode says this</button></div>` : ''}<div class="cc-answer" id="cc-answer-${id}">${answerHTML(s, i, plain)}</div></section>`;
   }
   /* ---------- the end: what the case leaves open, the sources, the ways out ---------- */
   // The next case with an account in the same topic group of the map, or in the groups after it in the same
@@ -663,6 +679,7 @@
   function close() {
     if (!dialog.open) return;
     gloss?.close();
+    clearPassage();
     marking++;
     delete dialog.dataset.ccMarked;
     for (const resolve of markWaiters.splice(0)) resolve();
@@ -799,6 +816,7 @@
     if (!current) return;
     const n = count();
     k = Math.max(0, Math.min(n + 1, k));
+    if (k !== step) clearPassage();
     step = k;
     sync();
     if (!wide.matches) $('ccList').open = false;
@@ -823,6 +841,69 @@
           ? $('ccLimitsLabel')
           : el.querySelector(mode === 'rehearse' ? '.cc-cue' : '.cc-title');
     target?.focus({ preventScroll: true });
+  }
+  /* From a stored answer to the sentences of the narration it rests on. The sentences are tinted (CSS Custom
+     Highlight API: the narration's text, its defined words and its plain-English markers are not touched)
+     and the first is brought into view if it is not already; a screen reader is read the passage. The tint
+     stays until the reader moves to another step, changes mode or closes. */
+  const PASSAGE = 'cc-passage';
+  function rangeOf(paragraph, wanted) {
+    const walker = document.createTreeWalker(paragraph, NodeFilter.SHOW_TEXT, {
+      acceptNode: (n) =>
+        n.parentElement?.closest('.cc-gloss-card') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT,
+    });
+    const at = [];
+    let text = '',
+      node;
+    while ((node = walker.nextNode()))
+      for (let k = 0; k < node.data.length; k++) {
+        const ch = /\s/.test(node.data[k]) ? ' ' : node.data[k];
+        if (ch === ' ' && (!text || text.endsWith(' '))) continue;
+        text += ch;
+        at.push([node, k]);
+      }
+    const start = text.indexOf(wanted);
+    if (start < 0) return null;
+    const range = document.createRange(),
+      last = at[start + wanted.length - 1];
+    range.setStart(at[start][0], at[start][1]);
+    range.setEnd(last[0], last[1] + 1);
+    return range;
+  }
+  function passageRanges(i) {
+    const s = current?.sections[i],
+      direct = s && directAnswer(current, s),
+      narration = s && $('cc-answer-' + s.id);
+    if (!direct || !narration) return [];
+    const own = [...narration.children].filter((el) => el.tagName === 'P');
+    return direct.from
+      .map((link) => {
+        const wanted = squash(link.text);
+        for (const paragraph of own) {
+          const range = rangeOf(paragraph, wanted);
+          if (range) return range;
+        }
+        return null;
+      })
+      .filter(Boolean);
+  }
+  const clearPassage = () => window.CSS?.highlights?.delete?.(PASSAGE);
+  function showPassage(i) {
+    const ranges = passageRanges(i);
+    if (!ranges.length) return;
+    if (window.CSS?.highlights && typeof window.Highlight === 'function')
+      window.CSS.highlights.set(PASSAGE, new window.Highlight(...ranges));
+    const box = scroller(),
+      frame = box.getBoundingClientRect(),
+      first = ranges[0].getBoundingClientRect();
+    if (first.top < frame.top + 8 || first.bottom > frame.bottom - 24) {
+      const top = box.scrollTop + first.top - frame.top - Math.min(140, box.clientHeight / 4);
+      if (window.DKLACalm?.scrollTo) window.DKLACalm.scrollTo(box, top);
+      else box.scrollTop = top;
+    }
+    $('ccLive').textContent = `The passage: ${directAnswer(current, current.sections[i])
+      .from.map((link) => squash(link.text))
+      .join(' ')}`;
   }
   function reveal(i) {
     if (!current || revealed.has(i) || !current.sections[i]) return;
@@ -851,6 +932,7 @@
   }
   function setMode(next) {
     if (!MODES.includes(next) || next === mode) return;
+    clearPassage();
     mode = next;
     try {
       localStorage.setItem(MODE_KEY, mode);
@@ -874,6 +956,7 @@
     const d = control.dataset;
     if (d.ccGo !== undefined) go(+d.ccGo);
     else if (d.ccReveal !== undefined) reveal(+d.ccReveal);
+    else if (d.ccPassage !== undefined) showPassage(+d.ccPassage);
     else if (d.ccAct === 'next') go(step + 1);
     else if (d.ccAct === 'close') close();
     else if (d.ccModeSet) {

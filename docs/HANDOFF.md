@@ -77,15 +77,27 @@ reach; the episode's own title, the case illustration, a way back in words and t
   and "Answer aloud from memory first". Nothing imitates hidden text. The reveal leads with the **stored
   direct answer** where there is one, then the episode's title and narration. The list at the side shows
   prompts before and after a reveal; a revealed row gains a tick. "Next question" is at the foot.
-- **Direct answers** are sentences of the episode's own paragraphs, whole and word for word, chosen so
-  that the first one spoken answers the question. Source of truth: `tools/cold-call/answers.json` (a
-  pinned content file). `node tools/cold-call/answers.mjs` checks every entry (the case and episode exist,
-  the stored question is still the episode's and is a question, one to four whole sentences each found in
-  the episode), `--write` makes the page's copy `src/features/v32/coldcall-answers.js`, `--todo` counts and
-  lists what is missing, `--fill` stores picks made by sentence number (nothing can be typed in). The
-  reader checks again at draw time and shows no sentence it cannot find in the episode. **Pilot only:
-  C. Itoh (5) and Loper Bright (6), chosen by hand. 2,406 questions have none and show the narration as
-  before; the owner decides whether to fill them** (the scope is in the session report).
+- **Direct answers** (third round, the owner's decisions 12 to 14 of 3.2). He allowed tightened,
+  source-faithful wording for these answers and nothing else. Each entry in
+  `tools/cold-call/answers.json` (a pinned content file) records its `kind`: `paraphrase`, shown under
+  the label "Answer", or `verbatim`, shown under "The answer, in this episode's own words"; the
+  word-for-word label never sits on a paraphrase. Each is linked (`from`) to the sentences of its own
+  episode it rests on, by paragraph and sentence; under the answer "Where the episode says this" tints
+  those sentences in the narration (CSS Custom Highlight API, so the text, the definitions and the ≈
+  markers are untouched) and brings the first into view. `node tools/cold-call/answers.mjs` checks the
+  link, the kind, and for a paraphrase that every number, section number and name is in its linked
+  sentences and every other new word is listed in `ownWords`; `--review` writes the packet an
+  independent reader checks each answer against. The reader checks the link again at draw time and
+  shows no answer whose passage it cannot find. **The pilot is eleven (C. Itoh 5, Loper Bright 6), all
+  paraphrased, all checked by a different model (Opus 5.5) against their linked sentences; five were
+  revised on its findings. No person has read them against their passages yet. It stays at eleven for
+  3.2.** The other 2,406 questions are a separate content campaign: the scope, the stable ids and a
+  worksheet are in `/home/claude/handoff/coldcall-answers-scope.md`, `.json` and
+  `coldcall-answers-worksheet.jsonl` for the owner's content audit; `--fill` stores what comes back.
+- **Decision 14, confirmed by check and unchanged in code:** Read on first use with nothing stored; an
+  explicit switch to Rehearse is remembered (`dkla.coldCallMode.v1`); episodes whose prompt is not a
+  question stay in the narrative's order with "Tell this part from memory first." and "Show the
+  episode"; Read lands in the story and resumes the place.
 - **The inline reading tools** (`glossary.js`, unchanged) work in both modes: a definition and a
   plain-English card open by mouse, keyboard and touch, reading and after a reveal, and the reader is on
   the same episode, mode and scroll position afterwards (checked twelve ways).
@@ -111,11 +123,11 @@ reach; the episode's own title, the case illustration, a way back in words and t
   the margin question, resume across sessions, Rehearse, the next Cold Call at the end, the collection.
 - **Checks**: `tools/v32/check-coldcall.mjs` ("Cold Call rehearsal"), `tools/cold-call/answers.mjs`
   ("Cold Call direct answers"), `tools/v32/caption.test.mjs` ("case captions composed"),
-  `tools/cold-call/check_reader.cjs`; eighteen breakages in `tools/verify/break.mjs`.
+  `tools/cold-call/check_reader.cjs`; twenty-two breakages in `tools/verify/break.mjs`.
 - **For the owner's PC**: the `cold-call` picture changes; run `pnpm views:update` after looking at
   `work/views/`.
-- **Known and not done**: the remaining direct answers; a two-part question is rarely answered by one
-  whole sentence, so its answer is two or three; the next case at the end is the next in the same group
+- **Known and not done**: the remaining direct answers (a content campaign, see above); the stylesheet
+  `reader.css` held its collection section twice until the third round (removed; pictures identical); the next case at the end is the next in the same group
   of the map (the session cards do not expose which session a case belongs to); the collection's rail
   does not mark the group in view; only Chromium was used.
 

@@ -998,6 +998,44 @@
 #coldCallDialog .cc-direct-say + .cc-direct-say {
   margin-top: var(--v32-s2);
 }
+/* From the answer to the sentences of the narration it rests on: a quiet link under the answer, and a tint
+   on those sentences once it is pressed (the narration's own text and tools are not touched). */
+#coldCallDialog .cc-passage-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  margin-top: var(--v32-s2);
+  padding: 0;
+  border: 0;
+  background: none;
+  font: var(--v32-ui-small);
+  color: var(--v31-muted);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+#coldCallDialog .cc-passage-link::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 1.5v7M2 5.8l3 2.9 3-2.9'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+}
+#coldCallDialog .cc-passage-link:hover,
+#coldCallDialog .cc-passage-link:focus-visible {
+  color: var(--v31-text);
+}
+@media (pointer: coarse) {
+  #coldCallDialog .cc-passage-link {
+    min-height: 44px;
+  }
+}
+#coldCallDialog ::highlight(cc-passage) {
+  background-color: color-mix(in srgb, #8fc7e8 24%, transparent);
+}
 /* Then the episode as it is told: its title, at the weight of a heading inside the answer, and its narration. */
 #coldCallDialog[data-cc-mode='rehearse'] .cc-title {
   order: 4;
@@ -1575,283 +1613,11 @@
     linear-gradient(var(--v32-raised-2), var(--v32-raised-2)) 0 56px / 78% 12px no-repeat !important;
 }
 
-/* ---------- every Cold Call (src/features/v32/coldcall-index.js) ---------- */
-#coldCallIndexDialog .cc-bar-title {
-  align-items: baseline;
-}
-#coldCallIndexDialog .cc-ix-rail {
-  padding: var(--v32-s3);
-  overflow: auto;
-  overscroll-behavior: contain;
-  background: var(--v31-panel);
-}
-#coldCallIndexDialog .cc-ix-rail ol {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-/* A name in the rail is said whole: it wraps onto a second line where it must. */
-#coldCallIndexDialog .cc-ix-jump button {
-  display: flex;
-  align-items: center;
-  gap: var(--v32-s2);
-  width: 100%;
-  min-height: var(--v32-h-row);
-  padding: var(--v32-s2) var(--v32-s3) var(--v32-s2) calc(var(--v32-s3) + var(--v32-s4));
-  border: 0;
-  border-radius: var(--v32-r-control);
-  background: transparent;
-  color: var(--v31-muted);
-  font: var(--v31-ui);
-  text-align: left;
-  text-wrap: balance;
-  cursor: pointer;
-}
-#coldCallIndexDialog .cc-ix-jump button:hover {
-  background: var(--v32-hover);
-  color: var(--v31-text);
-}
-#coldCallIndexDialog .cc-ix-jump button > span {
-  flex: 1;
-  min-width: 0;
-}
-#coldCallIndexDialog .cc-ix-jump-course button {
-  padding-left: var(--v32-s3);
-  color: var(--v31-text);
-}
-#coldCallIndexDialog .cc-ix-jump-course:not(:first-child) {
-  margin-top: var(--v32-s4);
-}
-/* While searching, the rail lists only where the matches are. */
-#coldCallIndexDialog .cc-ix-jump[data-cc-empty] {
-  display: none;
-}
-/* The search field stays at the head of the list as it scrolls, on the list's own measure. */
-#coldCallIndexDialog .cc-ix-head {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  max-width: calc(792px + 2 * var(--v32-s3));
-  margin: 0 calc(-1 * var(--v32-s3));
-  padding: var(--v32-s1) var(--v32-s3) var(--v32-s3);
-  background: var(--v31-raised);
-}
-#coldCallIndexDialog .cc-ix-find {
-  display: flex;
-  align-items: center;
-  gap: var(--v32-s2);
-  height: var(--v32-h-control);
-  padding: 0 var(--v32-s3);
-  border: 1px solid var(--v32-hair-strong);
-  border-radius: var(--v32-r-control);
-  background: var(--v31-panel);
-  color: var(--v31-muted);
-}
-#coldCallIndexDialog .cc-ix-find:focus-within {
-  border-color: var(--v31-link);
-}
-#coldCallIndexDialog .cc-ix-find input {
-  flex: 1;
-  min-width: 0;
-  height: 100%;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  background: transparent;
-  color: var(--v31-text);
-  font: var(--v31-ui);
-  font-weight: 400;
-}
-#coldCallIndexDialog .cc-ix-find input::placeholder {
-  color: var(--v31-faint);
-}
-#coldCallIndexDialog .cc-ix-find input::-webkit-search-cancel-button {
-  display: none;
-}
-#coldCallIndexDialog .cc-ix-scroll {
-  flex: 1;
-  min-height: 0;
-  overflow: auto;
-  overscroll-behavior: contain;
-  scrollbar-gutter: stable;
-  padding: 0 var(--v32-s5) var(--v32-s7) var(--cc-gutter);
-}
-#coldCallIndexDialog #ccIxList {
-  max-width: 792px;
-}
-#coldCallIndexDialog .cc-ix-course + .cc-ix-course {
-  margin-top: var(--v32-s7);
-}
-#coldCallIndexDialog .cc-ix-course-title,
-#coldCallIndexDialog .cc-ix-group-title {
-  display: flex;
-  align-items: baseline;
-  gap: var(--v32-s3);
-  margin: 0;
-}
-#coldCallIndexDialog .cc-ix-course-title {
-  padding: var(--v32-s3) 0 var(--v32-s1);
-  font:
-    600 22px/28px var(--dkla-display, 'Exo 2'),
-    sans-serif;
-  letter-spacing: 0;
-  color: var(--cc-course-here, var(--v31-text));
-}
-#coldCallIndexDialog [data-course='Contracts'] {
-  --cc-course: var(--v31-contracts);
-  --cc-course-here: var(--v31-contracts);
-}
-#coldCallIndexDialog [data-course='Civil Procedure'] {
-  --cc-course: var(--v31-civil);
-  --cc-course-here: var(--v31-civil);
-}
-#coldCallIndexDialog [data-course='Legislation and the Regulatory State'] {
-  --cc-course: var(--v31-lrs);
-  --cc-course-here: var(--v31-lrs);
-}
-#coldCallIndexDialog .cc-ix-group {
-  margin-top: var(--v32-s5);
-}
-/* A group's heading stays under the search field while its cases scroll (the longest group has 152). */
-#coldCallIndexDialog .cc-ix-group-title {
-  position: sticky;
-  top: 52px;
-  z-index: 1;
-  margin: 0 calc(-1 * var(--v32-s3));
-  padding: var(--v32-s1) var(--v32-s3);
-  background: var(--v31-raised);
-  font:
-    600 14px/20px var(--dkla-interface, Inter),
-    sans-serif;
-  letter-spacing: 0;
-  color: var(--v31-text);
-}
-#coldCallIndexDialog .cc-ix-rows {
-  display: grid;
-  margin: 0 calc(-1 * var(--v32-s3));
-}
-/* A row: what stands for the case, the caption, the year, the episodes. A case on the map is known by its
-   drawing, at 40 px in a taller row; a supporting case has a small page in the same column and a row of the
-   ordinary height. Rows are one height within a group. */
-#coldCallIndexDialog .cc-ix-row {
-  display: grid;
-  grid-template-columns: 40px minmax(0, 1fr) 4ch 11ch;
-  align-items: center;
-  column-gap: var(--v32-s3);
-  width: 100%;
-  height: var(--v32-h-row);
-  padding: 0 var(--v32-s3);
-  border-radius: var(--v32-r-control);
-  color: var(--v31-text);
-  font: var(--v31-ui);
-  cursor: pointer;
-}
-#coldCallIndexDialog .cc-ix-row-art {
-  height: 56px;
-}
-#coldCallIndexDialog .cc-ix-row:hover {
-  background: var(--v32-hover);
-}
-#coldCallIndexDialog .cc-ix-row:active {
-  background: var(--v32-pressed);
-}
-#coldCallIndexDialog .cc-ix-row:focus-visible {
-  outline: 0;
-  box-shadow: var(--v31-focus);
-}
-#coldCallIndexDialog .cc-ix-art {
-  justify-self: center;
-  width: 16px;
-  height: 16px;
-  color: var(--v31-muted);
-}
-#coldCallIndexDialog .cc-ix-own {
-  width: 40px;
-  height: 40px;
-  color: var(--cc-course);
-}
-#coldCallIndexDialog .cc-ix-name {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-#coldCallIndexDialog .cc-ix-year,
-#coldCallIndexDialog .cc-ix-count {
-  font: var(--v32-readout);
-  font-variant-numeric: tabular-nums;
-  color: var(--v31-muted);
-  text-align: right;
-  white-space: nowrap;
-}
-#coldCallIndexDialog .cc-ix-none {
-  margin: var(--v32-s5) 0 0;
-  font: var(--v31-body-type);
-  color: var(--v31-muted);
-}
-
-/* ---------- the full brief, opened from an account ---------- */
-#ccBriefDialog {
-  width: min(900px, 100vw - 48px);
-}
-#ccBriefDialog .cc-brief-body {
-  flex: 1;
-  min-height: 0;
-  padding: var(--v32-s3) var(--v32-s7) var(--v32-s7);
-  overflow: auto;
-  overscroll-behavior: contain;
-  overflow-wrap: break-word;
-}
-#ccBriefDialog .cc-brief-body > * {
-  max-width: var(--cc-wide);
-}
-#ccBriefDialog p {
-  margin: 0 0 var(--v32-s4);
-}
-#ccBriefDialog h3 {
-  margin: 0 0 var(--v32-s4);
-  font-size: 22px;
-  line-height: 30px;
-}
-#ccBriefDialog h4 {
-  margin: var(--v32-s6) 0 var(--v32-s3);
-  font-size: 17px;
-  line-height: 28px;
-}
-
-/* ---------- narrower windows ---------- */
-@media (max-width: 1239px) {
-  .cc-shell {
-    --cc-gutter: var(--v32-s6);
-  }
-  .cc-shell .cc-layout {
-    grid-template-columns: 272px minmax(0, 1fr);
-  }
-  #coldCallDialog .cc-caption {
-    font-size: 30px;
-    line-height: 36px;
-  }
-}
-/* No margin to spare: the question is one quiet line under the headline. */
+/* ---------- narrower still: one column, then a phone ---------- */
+/* (With the question gone from the margin, the headline sits a little closer to its prose.) */
 @container (max-width: 739px) {
-  #coldCallDialog[data-cc-mode='read'] .cc-section {
-    grid-template-columns: minmax(0, var(--cc-measure));
-  }
   #coldCallDialog[data-cc-mode='read'] .cc-title {
     margin-bottom: var(--v32-s2);
-  }
-  #coldCallDialog[data-cc-mode='read'] .cc-cue {
-    grid-column: 1;
-    grid-row: 3;
-    max-width: none;
-    margin: 0 0 var(--v32-s4);
-  }
-  #coldCallDialog[data-cc-mode='read'] .cc-cue-label {
-    display: inline;
-  }
-  #coldCallDialog[data-cc-mode='read'] .cc-cue-label::after {
-    content: ':';
   }
   #coldCallDialog[data-cc-mode='read'] .cc-answer {
     grid-row: 4;
@@ -1995,8 +1761,22 @@
     font-size: 22px;
     line-height: 30px;
   }
+  /* A phone's row: a caption too long for one line takes a second, rather than losing its second party. */
   #coldCallIndexDialog .cc-ix-row {
     grid-template-columns: 40px minmax(0, 1fr) 4ch;
+    height: auto;
+    min-height: var(--v32-h-row);
+    padding-block: var(--v32-s1);
+  }
+  #coldCallIndexDialog .cc-ix-row-art {
+    min-height: 56px;
+  }
+  #coldCallIndexDialog .cc-ix-name {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    white-space: normal;
+    text-wrap: pretty;
   }
   #coldCallIndexDialog .cc-ix-count {
     display: none;
