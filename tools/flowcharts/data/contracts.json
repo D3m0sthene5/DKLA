@@ -4325,7 +4325,7 @@
       {
         "id": "f",
         "label": "Is there an independent basis for extraordinary relief?",
-        "detail": "Profits can be evidence of loss, but gain-based relief requires separate authorization. White held deliberate or malicious breach insufficient for punitive damages on the contract theory. Identify any separately actionable tort that authorizes punishment.",
+        "detail": "Naval Institute distinguishes using a defendant’s profits to estimate the claimant’s loss from awarding profits in their own right. White denied punishment for malicious breach on the contract claim and reinstated compensation for the proven inconvenience. Check separately for authority and proof supporting gains or punishment.",
         "sources": [
           "disgorgement",
           "punitive-contract",
@@ -4338,7 +4338,15 @@
             "to": "h"
           },
           {
-            "label": "Breach alone, no special remedy",
+            "label": "Gains help measure the claimant’s lost profits",
+            "to": "b"
+          },
+          {
+            "label": "No special remedy, other compensatory loss proved",
+            "to": "g"
+          },
+          {
+            "label": "Breach proved, no actual loss proved or special remedy",
             "to": "e"
           }
         ]
