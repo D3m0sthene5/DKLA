@@ -3326,9 +3326,9 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-NEXT-CM-0103",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0103.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "3598fbdc3fb3ccb486635d4aafc2bf7d6bacc8900da70be82a1e32bc39bbd501",
+        "ruleSha256": "bc6995b0f810af4cb8f4f2511319184cecb0a0efedc32b8a00a2ed7244b0e61b",
         "comparedSections": {
-          "Holding": "b972add3a79f201d791797041e7ecaa119f06a819c6cb47bd330187230e1cae4"
+          "Holding": "9d7e9c5f954a20937a78fa7766a4e3894b053ad356c7f98e2034c0a51394860a"
         },
         "sectionsReadCompletely": [
           "Holding"
@@ -3345,7 +3345,21 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.comparedSections.Holding"
+        }
+      ]
     },
     {
       "id": "stoll",
@@ -3354,7 +3368,7 @@
         "Contracts"
       ],
       "takeaway": "A hidden clause that forced land buyers who could not read English to supply chicken litter worth far more than the land price was unconscionable. No meaningful choice plus shockingly one-sided terms means the clause will not be enforced.",
-      "takeawaySha256": "3083c13644cb9a162076dc741b4b9aa639446bd3416f6c48024708507a560f9e",
+      "takeawaySha256": "77eed9e125b8c605c4b2d24a09cf01770fada3904150ef3d037cfa558dfc9db0",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -3365,7 +3379,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-NEXT-CM-0104",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0104.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "bd2d7930c474a134c0997bf9bb9f064cdd830c90b6011866b2c12374dd8262eb",
+        "ruleSha256": "2b29306a6225d869328a1b72d3efe95b84daa8b7c6ccc857e968b2addb891a28",
         "comparedSections": {
           "Holding": "f0edf3cb7ed11672d598a0decc36c0005e16bbe9da433b09416f8430e2e843a1"
         },
@@ -3384,7 +3398,21 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "blossom-farm",
@@ -5077,7 +5105,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-SUP-0094",
         "sourceLocator": "tools/r19/data/sections.json :: CT-SUP-0094.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "2030ecf55f8490eaf47e7def62e58d74f19ab69a153778b034a0a957d8bb6252",
+        "ruleSha256": "400c344c8576c501a9a60da921753d8a0c9b35c12f8a9e3382b4e153be532e74",
         "comparedSections": {
           "Parties": "72882d66ac40bfe78f02dc0e42474d0072ddd031470198f31559fcdfcc35effa",
           "Procedural History": "9118daa61ffb74a4545a38273b5e26c5be7b3db37734fa4b663caf150f204950",
@@ -5108,7 +5136,15 @@
           "https://cases.justia.com/federal/district-courts/new-york/nysdce/1%3A2020cv02803/535355/164/0.pdf."
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "klein-pepsico",

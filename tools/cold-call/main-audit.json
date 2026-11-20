@@ -8186,7 +8186,7 @@
     {
       "id": "williams-walker-thomas",
       "sourceSha256": "7ede42f5b49991bb1911aa174e9551add0dafdcf2a6e2bd4fb0d0c8d44d8f629",
-      "narrativeSha256": "8c8dd60dfe5f8f18f8443035817d7075e22161e21d772f745f6b1cfd40bb77fe",
+      "narrativeSha256": "1d0a02b0ab132ad7e8d04b4f93e291a060ae33f9d33ea0dcc6ff3b806c9c93d8",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
       "verdict": "retained",
@@ -8207,12 +8207,26 @@
       "title": "Williams v. Walker-Thomas Furniture Co.",
       "course": "Contracts",
       "briefId": "CT-NEXT-CM-0103",
-      "accountSha256": "2634195d39e684c5327fbe34878da59cedaa6e8fd80452f2b2b9d5648a161fe4",
+      "accountSha256": "b6bc8fff326d60a5eb0617e15e6e5cea1fbf79a5e29ffb4657a4f1e88cf60813",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 624,
-      "wordsAfter": 624
+      "wordsAfter": 624,
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "narrativeSha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "accountSha256"
+        }
+      ]
     },
     {
       "id": "wood-lucy",

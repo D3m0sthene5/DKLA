@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "reviewedAt": "2026-11-17",
   "dataPath": "tools/r19/data/timelines.json",
-  "timelinesSha256": "03ff2670ababea74db31e10643768a7501f4af8a2fde158871214cb2484d3720",
+  "timelinesSha256": "d08f05b5ce0d7fca488d9344e9984f4f01726e7e661e72ff50f624aa42ac3eb0",
   "baselineGitRevision": "347d2e9759a7b5429f24825c521a967ce2b14eb9",
   "scope": "All timeline memberships and navigation were inventoried against the canonical cases and original assigned-source locations. New lines and selected corrections were compared with original casebook passages and case-specific accounts. Prior complete-opinion limitations remain; this does not certify every proposition or all current law. November 17: all 685 timeline steps screened editorially; targeted primary-source corrections are recorded separately. This is not a complete primary-source audit of every step or brief.",
   "limitations": [
@@ -6433,7 +6433,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CT-SUP-0094.md",
         "sourceLocator": "tools/r19/data/sections.json :: CT-SUP-0094.rule (effective assembler overlays included)",
         "comparedRule": "Under ordinary state contract-formation principles, an online amendment adding an arbitration clause binds existing users only with actual or constructive notice, and a unilateral modification clause silent about accrued claims does not reach claims that accrued before the amendment.",
-        "comparedRuleSha256": "2030ecf55f8490eaf47e7def62e58d74f19ab69a153778b034a0a957d8bb6252",
+        "comparedRuleSha256": "400c344c8576c501a9a60da921753d8a0c9b35c12f8a9e3382b4e153be532e74",
         "effectiveFullBriefSha256": "70644da18dd79dda2f9d91495ac47a4e7655a569e324d959e3f598ca8981a082",
         "inheritedCitation": "2026 WL 538293 (S.D.N.Y. Feb. 26, 2026), No. 20-cv-02803 (ALC), ECF No. 164 | Contracts | Online amendments, notice, retroactivity, and an ambiguous class-action waiver",
         "inheritedBriefPdfLocator": {
@@ -6465,6 +6465,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -7304,7 +7312,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CT-NEXT-CM-0103.md",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0103.rule (effective assembler overlays included)",
         "comparedRule": "A court may refuse to enforce a contract that was unconscionable when made, meaning that one party lacked meaningful choice and the terms unreasonably favored the other party.",
-        "comparedRuleSha256": "3598fbdc3fb3ccb486635d4aafc2bf7d6bacc8900da70be82a1e32bc39bbd501",
+        "comparedRuleSha256": "bc6995b0f810af4cb8f4f2511319184cecb0a0efedc32b8a00a2ed7244b0e61b",
         "effectiveFullBriefSha256": "7ede42f5b49991bb1911aa174e9551add0dafdcf2a6e2bd4fb0d0c8d44d8f629",
         "inheritedCitation": "350 F.2d 445 (D.C. Cir. 1965) | Contracts",
         "inheritedBriefPdfLocator": {
@@ -7334,6 +7342,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -7509,7 +7525,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CT-NEXT-CM-0104.md",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0104.rule (effective assembler overlays included)",
         "comparedRule": "A contract term is unconscionable and unenforceable when, judged at formation, an absence of meaningful choice combines with terms so one-sided that they oppress or unfairly surprise a party; the question is one of law for the court.",
-        "comparedRuleSha256": "bd2d7930c474a134c0997bf9bb9f064cdd830c90b6011866b2c12374dd8262eb",
+        "comparedRuleSha256": "2b29306a6225d869328a1b72d3efe95b84daa8b7c6ccc857e968b2addb891a28",
         "effectiveFullBriefSha256": "6cf28f375d5196155eb36e2049054f819c0c180d069ea83e2afcb96a3fd7165d",
         "inheritedCitation": "2010 OK CIV APP 110, 241 P.3d 301 (Okla. Civ. App. 2010) | Contracts",
         "inheritedBriefPdfLocator": {
@@ -7539,6 +7555,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -47183,6 +47207,11 @@
     "originalSourceRegistry": "tools/v28/source-links.json"
   },
   "timelinesRereviews": [
+    {
+      "date": "2026-11-19",
+      "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+      "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review."
+    },
     {
       "date": "2026-11-19",
       "register": "tools/content-audit/2026-11-19-contracts-opus.json",

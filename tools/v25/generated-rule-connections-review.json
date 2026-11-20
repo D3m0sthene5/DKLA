@@ -215,10 +215,24 @@
     {
       "nodeId": "williams-walker-thomas",
       "briefId": "CT-NEXT-CM-0103",
-      "ruleSha256": "3598fbdc3fb3ccb486635d4aafc2bf7d6bacc8900da70be82a1e32bc39bbd501",
-      "holdingSha256": "b972add3a79f201d791797041e7ecaa119f06a819c6cb47bd330187230e1cae4",
+      "ruleSha256": "bc6995b0f810af4cb8f4f2511319184cecb0a0efedc32b8a00a2ed7244b0e61b",
+      "holdingSha256": "9d7e9c5f954a20937a78fa7766a4e3894b053ad356c7f98e2034c0a51394860a",
       "locator": "tools/r19/data/sections.json :: CT-NEXT-CM-0103 (effective canonical overlays)",
-      "readScope": "Complete canonical Holding and rule reread; inherited saved account, not a new complete-opinion audit."
+      "readScope": "Complete canonical Holding and rule reread; inherited saved account, not a new complete-opinion audit.",
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "ruleSha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "holdingSha256"
+        }
+      ]
     },
     {
       "nodeId": "columbia-nitrogen",
