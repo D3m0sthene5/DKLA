@@ -81,6 +81,8 @@ POINTER_FILES = {
     "tools/flowcharts/data/civil.json",
     "tools/flowcharts/data/lrs.json",
     "tools/canons/data/lectures.json",
+    "tools/cold-call/glossary-terms.json",
+    "tools/r19/data/rlcc.json",
 }
 
 

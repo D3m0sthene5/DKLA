@@ -3960,7 +3960,7 @@
           },
           {
             "label": "Material shortfall",
-            "to": "f"
+            "to": "k"
           }
         ]
       },
@@ -4032,6 +4032,34 @@
           "express-conditions",
           "constructive-conditions",
           "luttinger"
+        ],
+        "edges": []
+      },
+      {
+        "id": "k",
+        "label": "Has the material failure gone uncured long enough to treat it as total?",
+        "detail": "Whether a breach is material is judged by the Restatement § 241 factors and is not the injured party's choice; whether to treat a material breach as partial or total is. A non-material breach gives only damages for partial breach, and performance continues. For a material breach, the injured party may suspend its own performance; where circumstances make it appropriate it must allow a chance to cure before treating the breach as total, which discharges its remaining duties and supports damages for the whole contract (§§ 236(1), 237). Section 242 lists what decides how long it must wait: the § 241 factors, whether delay hinders substitute arrangements, and whether timely performance was important (cf. UCC § 2-508(2)). A trainer who cuts one session short commits a partial breach; one who misses four sessions without a word commits a material breach (C&M 854–855).",
+        "sources": [
+          "constructive-conditions",
+          "substantial-performance"
+        ],
+        "edges": [
+          {
+            "label": "Cure still possible and the waiting time has not run",
+            "to": "l"
+          },
+          {
+            "label": "Uncured past the time § 242 allows",
+            "to": "f"
+          }
+        ]
+      },
+      {
+        "id": "l",
+        "label": "Suspend performance and allow cure",
+        "detail": "The injured party may withhold its own performance and claim damages for partial breach while the breaching party can still cure. If the failure is cured in time, both continue. If it is not, the injured party may then treat the breach as total, end the contract and claim damages for all its remaining rights to performance (§§ 236(1), 242).",
+        "sources": [
+          "constructive-conditions"
         ],
         "edges": []
       }

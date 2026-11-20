@@ -1,0 +1,200 @@
+{
+ "registered": [
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/26/nodes/4/edges",
+   "old": [
+    {
+     "label": "Substantial",
+     "to": "h"
+    },
+    {
+     "label": "Material shortfall",
+     "to": "f"
+    }
+   ],
+   "new": [
+    {
+     "label": "Substantial",
+     "to": "h"
+    },
+    {
+     "label": "Material shortfall",
+     "to": "k"
+    }
+   ],
+   "reason": "C&M 854–855: a non-material breach gives only a claim for partial breach; a material breach gives the injured party a choice to continue and treat it as partial or to stop and treat it as total, after allowing cure where appropriate (Restatement §§ 236, 237, 241, 242; cf. UCC § 2-508(2)). The Atlas had no place for the distinction, and its definition of 'material breach' merged it with total breach.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      854,
+      855
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) §§ 236, 237, 241, 242"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "file": "tools/cold-call/glossary-terms.json",
+   "pointer": "/terms/1005/gloss",
+   "old": "A failure to perform so serious that it defeats the main purpose of the deal, letting the other side stop performing and sue.",
+   "new": "A failure to perform serious enough, judged by the Restatement § 241 factors, that the other party may suspend its own performance; if it is not cured in time (§ 242), the other party may treat it as a total breach, end the contract and sue for the whole loss. A breach that is not material gives only damages for partial breach.",
+   "reason": "C&M 854–855: a non-material breach gives only a claim for partial breach; a material breach gives the injured party a choice to continue and treat it as partial or to stop and treat it as total, after allowing cure where appropriate (Restatement §§ 236, 237, 241, 242; cf. UCC § 2-508(2)). The Atlas had no place for the distinction, and its definition of 'material breach' merged it with total breach.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      854,
+      855
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) §§ 236, 237, 241, 242"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "file": "tools/cold-call/glossary-terms.json",
+   "pointer": "/terms/4052/gloss",
+   "old": "A breach so serious that it substantially defeats the contract's purpose, letting the other side stop performing and seek full remedies such as restitution.",
+   "new": "Treating a breach as total means ending the contract and claiming damages based on all remaining rights to performance (Restatement § 236(1)). It is available for an uncured material breach, after any time for cure has passed.",
+   "reason": "C&M 854–855: a non-material breach gives only a claim for partial breach; a material breach gives the injured party a choice to continue and treat it as partial or to stop and treat it as total, after allowing cure where appropriate (Restatement §§ 236, 237, 241, 242; cf. UCC § 2-508(2)). The Atlas had no place for the distinction, and its definition of 'material breach' merged it with total breach.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      854,
+      855
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) §§ 236, 237, 241, 242"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "file": "tools/cold-call/glossary-terms.json",
+   "pointer": "/terms/6022",
+   "old": null,
+   "new": {
+    "key": "partial-breach",
+    "label": "partial breach",
+    "wex": null,
+    "match": [
+     "partial breaches",
+     "partial breach"
+    ],
+    "gloss": "A breach for which the injured party claims damages for only part of its remaining rights to performance while the contract continues (Restatement § 236(2)). Every breach that is not material is partial; the injured party may also choose to treat a material breach as partial."
+   },
+   "reason": "C&M 854–855: a non-material breach gives only a claim for partial breach; a material breach gives the injured party a choice to continue and treat it as partial or to stop and treat it as total, after allowing cure where appropriate (Restatement §§ 236, 237, 241, 242; cf. UCC § 2-508(2)). The Atlas had no place for the distinction, and its definition of 'material breach' merged it with total breach.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      854,
+      855
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) §§ 236, 237, 241, 242"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  }
+ ],
+ "mapEntryRunTimeEdits (tools/r19/data/r21-audit.json)": [],
+ "structuralAdditions (not registered: new flowchart nodes)": [
+  {
+   "packet": "OP-CT-20",
+   "kind": "set",
+   "reason": "C&M 854–855: a non-material breach gives only a claim for partial breach; a material breach gives the injured party a choice to continue and treat it as partial or to stop and treat it as total, after allowing cure where appropriate (Restatement §§ 236, 237, 241, 242; cf. UCC § 2-508(2)). The Atlas had no place for the distinction, and its definition of 'material breach' merged it with total breach.",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      854,
+      855
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) §§ 236, 237, 241, 242"
+    }
+   ],
+   "sources": [],
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/26/nodes/10",
+   "old": null,
+   "register": false,
+   "new": {
+    "id": "k",
+    "label": "Has the material failure gone uncured long enough to treat it as total?",
+    "detail": "Whether a breach is material is judged by the Restatement § 241 factors and is not the injured party's choice; whether to treat a material breach as partial or total is. A non-material breach gives only damages for partial breach, and performance continues. For a material breach, the injured party may suspend its own performance; where circumstances make it appropriate it must allow a chance to cure before treating the breach as total, which discharges its remaining duties and supports damages for the whole contract (§§ 236(1), 237). Section 242 lists what decides how long it must wait: the § 241 factors, whether delay hinders substitute arrangements, and whether timely performance was important (cf. UCC § 2-508(2)). A trainer who cuts one session short commits a partial breach; one who misses four sessions without a word commits a material breach (C&M 854–855).",
+    "sources": [
+     "constructive-conditions",
+     "substantial-performance"
+    ],
+    "edges": [
+     {
+      "label": "Cure still possible and the waiting time has not run",
+      "to": "l"
+     },
+     {
+      "label": "Uncured past the time § 242 allows",
+      "to": "f"
+     }
+    ]
+   }
+  },
+  {
+   "packet": "OP-CT-20",
+   "kind": "set",
+   "reason": "C&M 854–855: a non-material breach gives only a claim for partial breach; a material breach gives the injured party a choice to continue and treat it as partial or to stop and treat it as total, after allowing cure where appropriate (Restatement §§ 236, 237, 241, 242; cf. UCC § 2-508(2)). The Atlas had no place for the distinction, and its definition of 'material breach' merged it with total breach.",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      854,
+      855
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) §§ 236, 237, 241, 242"
+    }
+   ],
+   "sources": [],
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/26/nodes/11",
+   "old": null,
+   "register": false,
+   "new": {
+    "id": "l",
+    "label": "Suspend performance and allow cure",
+    "detail": "The injured party may withhold its own performance and claim damages for partial breach while the breaching party can still cure. If the failure is cured in time, both continue. If it is not, the injured party may then treat the breach as total, end the contract and claim damages for all its remaining rights to performance (§§ 236(1), 242).",
+    "sources": [
+     "constructive-conditions"
+    ],
+    "edges": []
+   }
+  }
+ ]
+}
