@@ -435,6 +435,11 @@ html:root body #inspector .v32db-tag-name {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+html:root body #inspector .v32db-tag-name.v32db-tag-plain {
+  overflow: visible;
+  white-space: normal;
+  text-wrap: balance;
+}
 html:root body #inspector .v32db-tag-caption > .v32db-line {
   display: block;
   overflow: hidden;

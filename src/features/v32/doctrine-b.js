@@ -470,10 +470,13 @@
     // A turn of the rule with a long caption is named a party to a line; every other name is one line,
     // and gives way party by party where it is too long (fitName).
     const name = item.short
-      ? `<span class="v32db-tag-name">${esc(item.short)}</span>`
+      ? `<span class="v32db-tag-name v32db-tag-plain">${esc(item.short)}</span>`
       : big && item.first.length === 2 && plain(item.first).length > 30
         ? `<span class="v32db-tag-name v32db-tag-caption"><span class="v32db-line">${esc(item.first[0])}</span><span class="v32db-line">v. ${esc(item.first[1])}</span></span>`
-        : `<span class="v32db-tag-name" data-a="${esc(item.first[0])}"${item.first[1] ? ` data-b="${esc(item.first[1])}"` : ''}>${esc(plain(item.first))}</span>`;
+        : item.first.length === 1
+          ? // (A name that is not a caption, a statute or an event, is never cut: it takes a second line.)
+            `<span class="v32db-tag-name v32db-tag-plain">${esc(item.first[0])}</span>`
+          : `<span class="v32db-tag-name" data-a="${esc(item.first[0])}" data-b="${esc(item.first[1])}">${esc(plain(item.first))}</span>`;
     return `<button type="button" class="v32db-tag v32db-c-${item.cls} v32db-f-${item.fam}${big ? ' v32db-big' : ''}${small ? ' v32db-small' : ''}${item.here ? ' v32db-is-here' : ''}${item.hung ? ' v32db-hung' : ''}${apart ? ' v32db-apart' : ''}" data-v32db-i="${item.i}" title="${esc(title)}">${line}<span class="v32db-tag-top">${mark}${year}${name}${here}</span><span class="v32db-tag-fx">${esc(item.words)}</span>${fate}</button>`;
   }
   // A name too long for its label gives way party by party, never the "v.": first the party the case
@@ -849,6 +852,14 @@
     // A short timeline has room for its names whole; so has any plate that is tried with them whole.
     plate.toggleAttribute('data-v32db-roomy', items.length <= 8 || whole);
     for (const el of plate.querySelectorAll('.v32db-tag-name[data-a]')) fitName(el);
+    // (A name on two lines is as wide as its longer line, so its year stays beside it.)
+    for (const el of plate.querySelectorAll('.v32db-tag-plain')) {
+      el.style.width = '';
+      if (el.getClientRects().length < 2 && el.offsetHeight < 40) continue;
+      const range = document.createRange();
+      range.selectNodeContents(el);
+      el.style.width = Math.ceil(range.getBoundingClientRect().width) + 1 + 'px';
+    }
     // What an entry did is set to the width of its date and name (and no narrower than a short line).
     for (const el of tagOf.values()) {
       const said = el.querySelector('.v32db-tag-fx');
