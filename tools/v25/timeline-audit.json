@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "reviewedAt": "2026-11-17",
   "dataPath": "tools/r19/data/timelines.json",
-  "timelinesSha256": "9b8efb7fe2a973f19ef1351195df69c4d39073131991ec15d6d9330803161d07",
+  "timelinesSha256": "b1290a917ba106231e30307ffd849ffbb5314328b919709d21c7a7c56f1f190b",
   "baselineGitRevision": "347d2e9759a7b5429f24825c521a967ce2b14eb9",
   "scope": "All timeline memberships and navigation were inventoried against the canonical cases and original assigned-source locations. New lines and selected corrections were compared with original casebook passages and case-specific accounts. Prior complete-opinion limitations remain; this does not certify every proposition or all current law. November 17: all 685 timeline steps screened editorially; targeted primary-source corrections are recorded separately. This is not a complete primary-source audit of every step or brief.",
   "limitations": [
@@ -7786,7 +7786,7 @@
         "briefId": "CT-CB-0575",
         "savedBriefPath": "tools/r19/data/briefs/CT-CB-0575.md",
         "comparedRule": "A party who asserts that an ambiguous contract term was used in the narrower of two possible senses bears the burden of proving that meaning, and a trade usage binds a newcomer only if actually known or so established that knowledge is chargeable.",
-        "comparedRuleSha256": "a941aead475ee2242f5f0f52796c9a2d504a91af2a7f39a96e9dad673d8c309e",
+        "comparedRuleSha256": "709ea8cc50c04f4af9bcbe3fd551ce45fd912e32801728e2e5bb101b0ded1eee",
         "effectiveFullBriefSha256": "c11cf0caf9ff22605e95b6ab9400ef92d49219fbc5c72555cfe4922e92e42f27",
         "sourceLocator": {
           "path": "added-sources/C&M Textbook 351-700.pdf",
@@ -7815,6 +7815,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -8027,7 +8035,7 @@
         "briefId": "CT-CB-0585",
         "savedBriefPath": "tools/r19/data/briefs/CT-CB-0585.md",
         "comparedRule": "Under the UCC, trade usage and course of performance are part of the parties' agreement and may qualify an express term, such as a posted-price term, so long as they can reasonably be construed as consistent with it, without any showing of ambiguity.",
-        "comparedRuleSha256": "a4c99e7281bc71bfa0ee2906bcbc95a7406034b6d2314796b2bb409d5e7cee15",
+        "comparedRuleSha256": "d874a9729a22a748d8d8a5ed80e4bc8fe347b8b016120ad0f06318119e24a442",
         "effectiveFullBriefSha256": "18b9f7c13f0790d6a8061bd411a7f04b103d9662ab2e092e18deb44050a686a0",
         "sourceLocator": {
           "path": "added-sources/C&M Textbook 351-700.pdf",
@@ -8056,6 +8064,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -8450,7 +8466,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CT-CB-0575.md",
         "sourceLocator": "tools/r19/data/sections.json :: CT-CB-0575.rule (effective assembler overlays included)",
         "comparedRule": "A party who asserts that an ambiguous contract term was used in the narrower of two possible senses bears the burden of proving that meaning, and a trade usage binds a newcomer only if actually known or so established that knowledge is chargeable.",
-        "comparedRuleSha256": "a941aead475ee2242f5f0f52796c9a2d504a91af2a7f39a96e9dad673d8c309e",
+        "comparedRuleSha256": "709ea8cc50c04f4af9bcbe3fd551ce45fd912e32801728e2e5bb101b0ded1eee",
         "effectiveFullBriefSha256": "c11cf0caf9ff22605e95b6ab9400ef92d49219fbc5c72555cfe4922e92e42f27",
         "inheritedCitation": "190 F.Supp. 116 (S.D.N.Y. 1960) | Contracts | Ambiguous description, trade usage, and burden of persuasion",
         "inheritedBriefPdfLocator": {
@@ -8482,6 +8498,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -8574,7 +8598,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CT-CB-0585.md",
         "sourceLocator": "tools/r19/data/sections.json :: CT-CB-0585.rule (effective assembler overlays included)",
         "comparedRule": "Under the UCC, trade usage and course of performance are part of the parties' agreement and may qualify an express term, such as a posted-price term, so long as they can reasonably be construed as consistent with it, without any showing of ambiguity.",
-        "comparedRuleSha256": "a4c99e7281bc71bfa0ee2906bcbc95a7406034b6d2314796b2bb409d5e7cee15",
+        "comparedRuleSha256": "d874a9729a22a748d8d8a5ed80e4bc8fe347b8b016120ad0f06318119e24a442",
         "effectiveFullBriefSha256": "18b9f7c13f0790d6a8061bd411a7f04b103d9662ab2e092e18deb44050a686a0",
         "inheritedCitation": "664 F.2d 772 (9th Cir. 1981) | Contracts | Price protection, commercial usage, performance, and good faith",
         "inheritedBriefPdfLocator": {
@@ -8606,6 +8630,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -47103,6 +47135,11 @@
     "originalSourceRegistry": "tools/v28/source-links.json"
   },
   "timelinesRereviews": [
+    {
+      "date": "2026-11-19",
+      "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+      "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review."
+    },
     {
       "date": "2026-11-19",
       "register": "tools/content-audit/2026-11-19-contracts-opus.json",

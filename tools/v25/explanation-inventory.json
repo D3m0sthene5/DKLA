@@ -2097,6 +2097,12 @@
       "iteration": 0
     },
     {
+      "id": "nanakuli",
+      "field": "learning.topics.course-dealing",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
       "id": "nelson-hazel",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
@@ -17385,8 +17391,8 @@
       "id": "frigaliment",
       "title": "Frigaliment Importing Co. v. B.N.S. International Sales Corp.",
       "field": "takeaway",
-      "text": "When a word like chicken has two trade meanings, the party claiming the narrower one has to prove it. Newcomers to a trade are bound by its usage only if they knew it or it was so settled they should have.",
-      "textSha256": "07873805b7b10170edd5e83fe257108b358f1dc99f6d705e64a8dbe265bb8e59",
+      "text": "When a word like chicken has two trade meanings, the plaintiff claiming the narrower one has to prove it. Under the New York law applied, newcomers to a trade are bound by its usage only if they knew it or it was so generally known that their knowledge could be inferred.",
+      "textSha256": "6dd3b2683aa7a15db678412c0678b3967eaf3f75911ea744370646eccf34bb10",
       "source": {
         "briefId": "CT-CB-0575",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-CB-0575.rule (effective assembler overlays)",
@@ -17406,8 +17412,8 @@
       "id": "frigaliment",
       "title": "Frigaliment Importing Co. v. B.N.S. International Sales Corp.",
       "field": "summary",
-      "text": "A party who asserts that an ambiguous contract term was used in the narrower of two possible senses bears the burden of proving that meaning, and a trade usage binds a newcomer only if actually known or so established that knowledge is chargeable.",
-      "textSha256": "a941aead475ee2242f5f0f52796c9a2d504a91af2a7f39a96e9dad673d8c309e",
+      "text": "A plaintiff who asserts that an ambiguous contract term was used in the narrower of two possible senses bears the burden of proving that meaning, and under New York law a trade usage binds a newcomer only if actually known or so established that knowledge is chargeable.",
+      "textSha256": "709ea8cc50c04f4af9bcbe3fd551ce45fd912e32801728e2e5bb101b0ded1eee",
       "source": {
         "briefId": "CT-CB-0575",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-CB-0575.rule (effective assembler overlays)",
@@ -17509,8 +17515,8 @@
       "id": "nanakuli",
       "title": "Nanakuli Paving & Rock Co. v. Shell Oil Co.",
       "field": "takeaway",
-      "text": "Under the Code, trade practice and the parties' own past performance are part of the contract. A posted-price term could be qualified by the paving trade's practice of price protection, with no need to first find the writing ambiguous.",
-      "textSha256": "99b41b64d1cbabd51a2c03e8554a69d11cf70ab011a497ceef98faf813b8623c",
+      "text": "Under the Code, a trade practice the parties know or should know of, and their own past performance, are part of the contract when reasonably consistent with its express terms. A posted-price term could be qualified by the paving trade's practice of price protection, with no need to first find the writing ambiguous.",
+      "textSha256": "c832b75a79329218978424b6b8bc4773c5f765819f24b33324e943deb28ba2ba",
       "source": {
         "briefId": "CT-CB-0585",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-CB-0585.rule (effective assembler overlays)",
@@ -17530,8 +17536,8 @@
       "id": "nanakuli",
       "title": "Nanakuli Paving & Rock Co. v. Shell Oil Co.",
       "field": "summary",
-      "text": "Under the UCC, trade usage and course of performance are part of the parties' agreement and may qualify an express term, such as a posted-price term, so long as they can reasonably be construed as consistent with it, without any showing of ambiguity.",
-      "textSha256": "a4c99e7281bc71bfa0ee2906bcbc95a7406034b6d2314796b2bb409d5e7cee15",
+      "text": "Under the UCC, trade usage of which the parties are or should be aware, and course of performance, are part of the agreement and may qualify an express posted-price term without a showing of ambiguity, if reasonably construed as consistent with it.",
+      "textSha256": "d874a9729a22a748d8d8a5ed80e4bc8fe347b8b016120ad0f06318119e24a442",
       "source": {
         "briefId": "CT-CB-0585",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-CB-0585.rule (effective assembler overlays)",
@@ -17571,8 +17577,8 @@
       "id": "columbia-nitrogen",
       "title": "Columbia Nitrogen Corp. v. Royster Co.",
       "field": "takeaway",
-      "text": "Evidence of trade usage and past dealings comes in to explain a written sales contract unless it flatly cannot be squared with the express terms. The old rule that the writing first had to be ambiguous is gone under the Code.",
-      "textSha256": "f41ec6f039ffa27045d8e8c178fc2ba9f4be89ab6452eeafc8afc4f563673ff3",
+      "text": "Evidence of trade usage and past dealings comes in to explain a written sales contract unless it cannot reasonably be construed as consistent with the express terms or the writing carefully negates it. The old rule that the writing first had to be ambiguous is gone under the Code.",
+      "textSha256": "8bfae07cb70b153165ae49e5e6d76e8c9a5dd6d2b6caab06cb33700de4a7129d",
       "source": {
         "briefId": "CT-CB-0596",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-CB-0596.rule (effective assembler overlays)",
@@ -103808,8 +103814,8 @@
       "id": "trade-usage:3",
       "title": "Contract meaning in business practice",
       "field": "note",
-      "text": "The party claiming the narrower meaning of an ambiguous term must prove it, and a usage binds a newcomer only if known or so general as to be presumed.",
-      "textSha256": "af28246ee14bc2cdffd11df7c7b397195cef798cc0430f922cbe3c81ee385178",
+      "text": "The plaintiff claiming the narrower meaning of an ambiguous term must prove it, and under New York law a usage binds a newcomer only if known or so general as to be presumed.",
+      "textSha256": "1d0c139488f76f98281e2a217745f4ef8c50b335e43e494972a02f9fb1ebb351",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "trade-usage",
@@ -103822,8 +103828,8 @@
       "id": "trade-usage:4",
       "title": "Contract meaning in business practice",
       "field": "note",
-      "text": "Under the Code, usage and dealing come in without ambiguity unless irreconcilable with the express terms; a merger clause must expressly negate them.",
-      "textSha256": "06c28c16356affea80874e20ee30473d6edecf5ef0bbf7a2e13923edc210125f",
+      "text": "Under the Code, usage and dealing come in without ambiguity unless they cannot reasonably be construed as consistent with the express terms; a merger clause must expressly negate them.",
+      "textSha256": "18c2af2520dc36de478c42754004680f658d7936194b811b81f4f94776916ce1",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "trade-usage",

@@ -2754,7 +2754,7 @@
         "Contracts"
       ],
       "takeaway": "When a word like chicken has two trade meanings, the party claiming the narrower one has to prove it. Newcomers to a trade are bound by its usage only if they knew it or it was so settled they should have.",
-      "takeawaySha256": "07873805b7b10170edd5e83fe257108b358f1dc99f6d705e64a8dbe265bb8e59",
+      "takeawaySha256": "6dd3b2683aa7a15db678412c0678b3967eaf3f75911ea744370646eccf34bb10",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -2765,7 +2765,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-CB-0575",
         "sourceLocator": "tools/r19/data/sections.json :: CT-CB-0575.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "a941aead475ee2242f5f0f52796c9a2d504a91af2a7f39a96e9dad673d8c309e",
+        "ruleSha256": "709ea8cc50c04f4af9bcbe3fd551ce45fd912e32801728e2e5bb101b0ded1eee",
         "comparedSections": {
           "Holding": "d023c7999e3dee26b59d285005a88db75b08b2f30d480228824e5b7898b9dd02"
         },
@@ -2786,7 +2786,21 @@
           "https://static.case.law/f-supp/190/cases/0116-01.json."
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "hurst",
@@ -2836,7 +2850,7 @@
         "Contracts"
       ],
       "takeaway": "Under the Code, trade practice and the parties' own past performance are part of the contract. A posted-price term could be qualified by the paving trade's practice of price protection, with no need to first find the writing ambiguous.",
-      "takeawaySha256": "99b41b64d1cbabd51a2c03e8554a69d11cf70ab011a497ceef98faf813b8623c",
+      "takeawaySha256": "c832b75a79329218978424b6b8bc4773c5f765819f24b33324e943deb28ba2ba",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -2847,7 +2861,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-CB-0585",
         "sourceLocator": "tools/r19/data/sections.json :: CT-CB-0585.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "a4c99e7281bc71bfa0ee2906bcbc95a7406034b6d2314796b2bb409d5e7cee15",
+        "ruleSha256": "d874a9729a22a748d8d8a5ed80e4bc8fe347b8b016120ad0f06318119e24a442",
         "comparedSections": {
           "Holding": "403b56e6d3174d03b3c35f40c70215fae48ce10e59adde491e23e8ff0ab201ac"
         },
@@ -2868,7 +2882,21 @@
           "https://static.case.law/f2d/664/cases/0772-01.json."
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "columbia-nitrogen",
@@ -2877,7 +2905,7 @@
         "Contracts"
       ],
       "takeaway": "Evidence of trade usage and past dealings comes in to explain a written sales contract unless it flatly cannot be squared with the express terms. The old rule that the writing first had to be ambiguous is gone under the Code.",
-      "takeawaySha256": "f41ec6f039ffa27045d8e8c178fc2ba9f4be89ab6452eeafc8afc4f563673ff3",
+      "takeawaySha256": "8bfae07cb70b153165ae49e5e6d76e8c9a5dd6d2b6caab06cb33700de4a7129d",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -2909,7 +2937,15 @@
           "https://static.case.law/f2d/451/cases/0003-01.json."
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        }
+      ]
     },
     {
       "id": "dalton",
