@@ -1089,7 +1089,7 @@
         ],
         "edges": [
           {
-            "label": "Commercial undertaking",
+            "label": "Commercial undertaking, including one later called a jest",
             "to": "b"
           },
           {
@@ -1097,7 +1097,7 @@
             "to": "c"
           },
           {
-            "label": "Domestic or social undertaking",
+            "label": "Domestic, social or professional undertaking, or a stated disclaimer of legal effect",
             "to": "d"
           }
         ]
@@ -1105,10 +1105,11 @@
       {
         "id": "b",
         "label": "Was the alleged joke apparent?",
-        "detail": "The signed farm-sale writing and surrounding negotiation reasonably conveyed a serious deal in Lucy. A private intent to joke could not displace that outward impression.",
+        "detail": "The signed farm-sale writing and surrounding negotiation reasonably conveyed a serious deal in Lucy. A private intent to joke could not displace that outward impression. A jest defeats assent if the other party actually knew of it, or if a reasonable person in that party's position would have recognized it, as with Leonard's Harrier-jet commercial (C&M 176–177).",
         "sources": [
           "lucy",
-          "notes-objective-debate"
+          "notes-objective-debate",
+          "note-leonard"
         ],
         "edges": [
           {
@@ -1116,7 +1117,11 @@
             "to": "f"
           },
           {
-            "label": "Both parties understood jest",
+            "label": "Other party knew it was a jest",
+            "to": "e"
+          },
+          {
+            "label": "Reasonable person would have recognized jest",
             "to": "e"
           }
         ]
@@ -1137,22 +1142,28 @@
           {
             "label": "Serious appearance despite private intent",
             "to": "f"
+          },
+          {
+            "label": "Reasonable person would have recognized jest",
+            "to": "e"
           }
         ]
       },
       {
         "id": "d",
-        "label": "Did the arrangement invite legal enforcement?",
-        "detail": "Balfour treated the temporary allowance between amicable spouses as domestic. An agreement with evidence of an exchange and an intention to bind, including in a personal relationship, requires its own analysis.",
+        "label": "Did the parties manifest an intention to be legally bound?",
+        "detail": "Balfour treated the temporary allowance between amicable spouses as domestic. The decisive facts were amity and expected reunion when the promise was made; Duke L.J. distinguished an agreement made on separation, which can supply consideration. Under Restatement (Second) § 21 comment c, a social or family agreement needs some unusual manifestation of intention to create a contract. Under § 21's second clause, a manifested intention that a promise shall not affect legal relations may prevent formation even in a business setting, as in a letter of intent disclaiming any legal obligation; Cohen (Minn. 1990) found no contract in reporters' promise of anonymity to a source because the parties intended none (C&M 183–185, 189). An agreement with evidence of an exchange and an intention to bind, including in a personal relationship, requires its own analysis.",
         "sources": [
           "social-intent",
           "balfour",
           "note-boland",
-          "notes-context"
+          "notes-context",
+          "notes-cohen",
+          "preliminary-agreements"
         ],
         "edges": [
           {
-            "label": "Only a social or domestic understanding",
+            "label": "No manifested intent to be legally bound (social, domestic or professional understanding, or legal effect disclaimed)",
             "to": "e"
           },
           {
@@ -1164,10 +1175,13 @@
       {
         "id": "e",
         "label": "No binding undertaking shown",
-        "detail": "A shared joke or a purely domestic understanding does not supply the contract alleged. Identify which premise failed because the two cases address distinct problems.",
+        "detail": "A jest the other party knew of or a reasonable person would have recognized (Keller, Leonard), a purely domestic understanding (Balfour), or a manifested intention not to be legally bound (Cohen) does not supply the contract alleged. Identify which premise failed; these situations raise distinct problems. A promise that fails as a contract because legal effect was not intended may still be enforced through promissory estoppel, as Cohen's promise later was (C&M 183; see K-07).",
         "sources": [
           "note-keller",
-          "balfour"
+          "balfour",
+          "note-leonard",
+          "notes-cohen",
+          "promissory-estoppel"
         ],
         "edges": []
       },
@@ -1216,7 +1230,7 @@
       {
         "id": "b",
         "label": "Did the interface give fair notice and link the act to assent?",
-        "detail": "Specht’s license terms sat below the download button and the user had no clear reason to scroll. A conspicuous notice tied to a clearly labeled click can have a different effect.",
+        "detail": "Specht’s only reference to the license sat below the download button, visible only after scrolling, and the terms themselves were on a linked page; the user had no clear reason to scroll. A conspicuous notice tied to a clearly labeled click can have a different effect. Also ask what this user actually saw: Specht's users testified without contradiction that they were unaware of the terms, and the California rule the court quoted protects an offeree from inconspicuous terms \"of which he is unaware\" (C&M 180, 182).",
         "sources": [
           "specht",
           "notice",

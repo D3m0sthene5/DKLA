@@ -10735,6 +10735,880 @@
       ],
       "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
       "packet": "OP-CT-05"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/lucy/4/plain",
+      "old": "A secret meaning, like 'I was only joking', does not count unless the other person knew about it.",
+      "new": "A secret meaning, like 'I was only joking,' does not override what the words and actions would reasonably mean to the other person, unless that person knew of the secret meaning.",
+      "reason": "Lucy quotes Restatement (First) § 71: an undisclosed intention is immaterial 'except when an unreasonable meaning which he attaches to his manifestations is known to the other party', and a jest is barred only 'when his conduct and words would warrant a reasonable person in believing that he intended a real agreement' (C&M 176). The plain version dropped 'the reasonable meaning conveyed', so a joke a reasonable person would see (Keller, Leonard, C&M 177) read as binding.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            176,
+            177
+          ],
+          "pdfPages": [
+            221,
+            222
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "target": "takeaway",
+      "id": "lucy",
+      "old": "What counts is how your words and actions would look to a reasonable person, not what you secretly meant. If you act like you are making a serious deal, you are, even if you thought it was a joke.",
+      "new": "What counts is how your words and actions would look to a reasonable person, not what you secretly meant. If you act like you are making a serious deal, you are bound even if you meant it as a joke, unless the other party knew it was a joke.",
+      "reason": "Lucy quotes Restatement (First) § 71: an undisclosed intention is immaterial 'except when an unreasonable meaning which he attaches to his manifestations is known to the other party', and a jest is barred only 'when his conduct and words would warrant a reasonable person in believing that he intended a real agreement' (C&M 176). Note 4 poses the case in which 'Lucy had actually known that the Zehmers were joking' (C&M 178); the takeaway said there was a contract.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            176,
+            178
+          ],
+          "pdfPages": [
+            221,
+            223
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/cold-call/narratives/lucy.json",
+      "pointer": "/sections/2/paragraphs/1",
+      "old": "Zehmer replied in a letter mailed January 13 that he had never agreed or intended to sell. That refusal created the need for legal enforcement. Lucy’s brother appears as a party because of the intervening transfer of half the purchase interest; he was not the person who negotiated with Zehmer in the restaurant.",
+      "new": "Lucy testified that the night after he hired the attorney, Zehmer told him for the first time that he would not sell. Zehmer later replied in a letter mailed January 13 that he had never agreed or intended to sell. Those refusals created the need for legal enforcement. Lucy’s brother appears as a party because of the intervening transfer of half the purchase interest; he was not the person who negotiated with Zehmer in the restaurant.",
+      "reason": "The cue asks when Zehmer refused; Lucy testified that 'The next night ... Zehmer told him for the first time ... that he wasn't going to sell' (C&M 175). The January 13 letter comes from the full opinion, not the excerpt.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            175
+          ],
+          "pdfPages": [
+            220
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/8/nodes/1/edges",
+      "old": [
+        {
+          "label": "Serious appearance reasonably understood",
+          "to": "f"
+        },
+        {
+          "label": "Both parties understood jest",
+          "to": "e"
+        }
+      ],
+      "new": [
+        {
+          "label": "Serious appearance reasonably understood",
+          "to": "f"
+        },
+        {
+          "label": "Other party knew it was a jest",
+          "to": "e"
+        },
+        {
+          "label": "Reasonable person would have recognized jest",
+          "to": "e"
+        }
+      ],
+      "reason": "Leonard: 'no objective person could reasonably have concluded that the commercial actually offered consumers a Harrier Jet' (C&M 177), and Lucy bars a jest only when the words 'would warrant a reasonable person in believing that he intended a real agreement' (C&M 176). K-09 had no route for a jest a reasonable person would recognize, so Leonard's facts reached 'Proceed to enforceability'. The knowledge branch now says what the quoted § 71 exception requires: the other party's knowledge (C&M 176, 178).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            176,
+            177,
+            178
+          ],
+          "pdfPages": [
+            221,
+            222,
+            223
+          ]
+        },
+        {
+          "file": "added-sources/Class 6_Assent - Copy (4).pptx",
+          "slides": [
+            8,
+            10
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/8/nodes/1/detail",
+      "old": "The signed farm-sale writing and surrounding negotiation reasonably conveyed a serious deal in Lucy. A private intent to joke could not displace that outward impression.",
+      "new": "The signed farm-sale writing and surrounding negotiation reasonably conveyed a serious deal in Lucy. A private intent to joke could not displace that outward impression. A jest defeats assent if the other party actually knew of it, or if a reasonable person in that party's position would have recognized it, as with Leonard's Harrier-jet commercial (C&M 176–177).",
+      "reason": "Leonard: 'no objective person could reasonably have concluded that the commercial actually offered consumers a Harrier Jet' (C&M 177), and Lucy bars a jest only when the words 'would warrant a reasonable person in believing that he intended a real agreement' (C&M 176). K-09 had no route for a jest a reasonable person would recognize, so Leonard's facts reached 'Proceed to enforceability'.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            176,
+            177,
+            178
+          ],
+          "pdfPages": [
+            221,
+            222,
+            223
+          ]
+        },
+        {
+          "file": "added-sources/Class 6_Assent - Copy (4).pptx",
+          "slides": [
+            8,
+            10
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/8/nodes/2/edges",
+      "old": [
+        {
+          "label": "Shared jest",
+          "to": "e"
+        },
+        {
+          "label": "Serious appearance despite private intent",
+          "to": "f"
+        }
+      ],
+      "new": [
+        {
+          "label": "Shared jest",
+          "to": "e"
+        },
+        {
+          "label": "Serious appearance despite private intent",
+          "to": "f"
+        },
+        {
+          "label": "Reasonable person would have recognized jest",
+          "to": "e"
+        }
+      ],
+      "reason": "Leonard: 'no objective person could reasonably have concluded that the commercial actually offered consumers a Harrier Jet' (C&M 177), and Lucy bars a jest only when the words 'would warrant a reasonable person in believing that he intended a real agreement' (C&M 176). K-09 had no route for a jest a reasonable person would recognize, so Leonard's facts reached 'Proceed to enforceability'.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            176,
+            177,
+            178
+          ],
+          "pdfPages": [
+            221,
+            222,
+            223
+          ]
+        },
+        {
+          "file": "added-sources/Class 6_Assent - Copy (4).pptx",
+          "slides": [
+            8,
+            10
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/8/nodes/0/edges",
+      "old": [
+        {
+          "label": "Commercial undertaking",
+          "to": "b"
+        },
+        {
+          "label": "Possible shared joke",
+          "to": "c"
+        },
+        {
+          "label": "Domestic or social undertaking",
+          "to": "d"
+        }
+      ],
+      "new": [
+        {
+          "label": "Commercial undertaking, including one later called a jest",
+          "to": "b"
+        },
+        {
+          "label": "Possible shared joke",
+          "to": "c"
+        },
+        {
+          "label": "Domestic, social or professional undertaking, or a stated disclaimer of legal effect",
+          "to": "d"
+        }
+      ],
+      "reason": "Cohen (Minn. 1990): 'we seemingly have all three, plus a breach' (C&M 184), yet 'a contract cause of action is inappropriate' because 'the law ... does not create a contract where the parties intended none' (C&M 185). § 21's second clause and the editors' second qualification (C&M 183) reach a business or professional promise, as in a letter of intent disclaiming 'any legal obligation' (C&M 189); K-09 sent such a promise through 'Commercial undertaking' to an agreement.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            183,
+            184,
+            185,
+            188,
+            189
+          ],
+          "pdfPages": [
+            228,
+            229,
+            230,
+            233,
+            234
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 21"
+        },
+        {
+          "file": "added-sources/Class 6_Assent - Copy (4).pptx",
+          "slides": [
+            5,
+            6
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/8/nodes/3/label",
+      "old": "Did the arrangement invite legal enforcement?",
+      "new": "Did the parties manifest an intention to be legally bound?",
+      "reason": "Cohen (Minn. 1990): 'we seemingly have all three, plus a breach' (C&M 184), yet 'a contract cause of action is inappropriate' because 'the law ... does not create a contract where the parties intended none' (C&M 185). § 21's second clause and the editors' second qualification (C&M 183) reach a business or professional promise, as in a letter of intent disclaiming 'any legal obligation' (C&M 189); K-09 sent such a promise through 'Commercial undertaking' to an agreement.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            183,
+            184,
+            185,
+            188,
+            189
+          ],
+          "pdfPages": [
+            228,
+            229,
+            230,
+            233,
+            234
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 21"
+        },
+        {
+          "file": "added-sources/Class 6_Assent - Copy (4).pptx",
+          "slides": [
+            5,
+            6
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/8/nodes/3/detail",
+      "old": "Balfour treated the temporary allowance between amicable spouses as domestic. An agreement with evidence of an exchange and an intention to bind, including in a personal relationship, requires its own analysis.",
+      "new": "Balfour treated the temporary allowance between amicable spouses as domestic. The decisive facts were amity and expected reunion when the promise was made; Duke L.J. distinguished an agreement made on separation, which can supply consideration. Under Restatement (Second) § 21 comment c, a social or family agreement needs some unusual manifestation of intention to create a contract. Under § 21's second clause, a manifested intention that a promise shall not affect legal relations may prevent formation even in a business setting, as in a letter of intent disclaiming any legal obligation; Cohen (Minn. 1990) found no contract in reporters' promise of anonymity to a source because the parties intended none (C&M 183–185, 189). An agreement with evidence of an exchange and an intention to bind, including in a personal relationship, requires its own analysis.",
+      "reason": "Cohen (Minn. 1990): 'we seemingly have all three, plus a breach' (C&M 184), yet 'a contract cause of action is inappropriate' because 'the law ... does not create a contract where the parties intended none' (C&M 185). § 21's second clause and the editors' second qualification (C&M 183) reach a business or professional promise, as in a letter of intent disclaiming 'any legal obligation' (C&M 189); K-09 sent such a promise through 'Commercial undertaking' to an agreement. Balfour turned on amity when the promise was made: Duke L.J. distinguished an agreement for separation, which 'does involve mutual considerations' (supp. p. 16, [1919] 2 K.B. 576).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            183,
+            184,
+            185,
+            188,
+            189
+          ],
+          "pdfPages": [
+            228,
+            229,
+            230,
+            233,
+            234
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 21"
+        },
+        {
+          "file": "added-sources/Class 6_Assent - Copy (4).pptx",
+          "slides": [
+            5,
+            6
+          ]
+        },
+        {
+          "file": "added-sources/FA26 Contracts Supplement.pdf",
+          "pages": [
+            16
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 21 comment c"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/8/nodes/3/edges",
+      "old": [
+        {
+          "label": "Only a social or domestic understanding",
+          "to": "e"
+        },
+        {
+          "label": "Evidence of legal undertaking",
+          "to": "f"
+        }
+      ],
+      "new": [
+        {
+          "label": "No manifested intent to be legally bound (social, domestic or professional understanding, or legal effect disclaimed)",
+          "to": "e"
+        },
+        {
+          "label": "Evidence of legal undertaking",
+          "to": "f"
+        }
+      ],
+      "reason": "Cohen (Minn. 1990): 'we seemingly have all three, plus a breach' (C&M 184), yet 'a contract cause of action is inappropriate' because 'the law ... does not create a contract where the parties intended none' (C&M 185). § 21's second clause and the editors' second qualification (C&M 183) reach a business or professional promise, as in a letter of intent disclaiming 'any legal obligation' (C&M 189); K-09 sent such a promise through 'Commercial undertaking' to an agreement.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            183,
+            184,
+            185,
+            188,
+            189
+          ],
+          "pdfPages": [
+            228,
+            229,
+            230,
+            233,
+            234
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 21"
+        },
+        {
+          "file": "added-sources/Class 6_Assent - Copy (4).pptx",
+          "slides": [
+            5,
+            6
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/8/nodes/4/detail",
+      "old": "A shared joke or a purely domestic understanding does not supply the contract alleged. Identify which premise failed because the two cases address distinct problems.",
+      "new": "A jest the other party knew of or a reasonable person would have recognized (Keller, Leonard), a purely domestic understanding (Balfour), or a manifested intention not to be legally bound (Cohen) does not supply the contract alleged. Identify which premise failed; these situations raise distinct problems. A promise that fails as a contract because legal effect was not intended may still be enforced through promissory estoppel, as Cohen's promise later was (C&M 183; see K-07).",
+      "reason": "Leonard: 'no objective person could reasonably have concluded that the commercial actually offered consumers a Harrier Jet' (C&M 177), and Lucy bars a jest only when the words 'would warrant a reasonable person in believing that he intended a real agreement' (C&M 176). K-09 had no route for a jest a reasonable person would recognize, so Leonard's facts reached 'Proceed to enforceability'. The bracketed introduction to Cohen records that the same promises were later enforced through promissory estoppel (C&M 183); slide 6 asks whether contract and promissory estoppel can get different answers.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            177,
+            183,
+            185
+          ],
+          "pdfPages": [
+            222,
+            228,
+            230
+          ]
+        },
+        {
+          "file": "added-sources/Class 6_Assent - Copy (4).pptx",
+          "slides": [
+            6
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CT-SUP-0011",
+      "field": "Reasoning",
+      "old": "The husband had undertaken an obligation of honour only.",
+      "new": "The husband had undertaken an obligation of honour only; the two, Warrington said, never intended to make a bargain enforceable in law.",
+      "reason": "Warrington L.J.: 'These two people never intended to make a bargain which could be enforced in law' (supp. p. 15, [1919] 2 K.B. 575). Two of the three judges relied on the absence of intention; the casebook states the ground that way (C&M 187).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/FA26 Contracts Supplement.pdf",
+          "pages": [
+            14,
+            15
+          ]
+        },
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            187
+          ],
+          "pdfPages": [
+            232
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/cold-call/narratives/balfour.json",
+      "pointer": "/sections/2/paragraphs/1",
+      "old": "The proposed implication would bind her to £30 however her needs changed and him to pay indefinitely however his circumstances changed. Ordinary domestic discussion did not support those terms. Treating it as a bargain would extend contractual enforcement throughout everyday married life. Warrington regarded the husband’s undertaking as an expression of intention and obligation of honour without a corresponding bargain by the wife.",
+      "new": "The proposed implication would bind her to £30 however her needs changed and him to pay indefinitely however his circumstances changed. Ordinary domestic discussion did not support those terms. Treating it as a bargain would extend contractual enforcement throughout everyday married life. Warrington regarded the husband’s undertaking as an expression of intention and obligation of honour without a corresponding bargain by the wife. He said the two never intended to make a bargain enforceable in law.",
+      "reason": "Warrington L.J.: 'These two people never intended to make a bargain which could be enforced in law' (supp. p. 15, [1919] 2 K.B. 575). Two of the three judges relied on the absence of intention; the casebook states the ground that way (C&M 187).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/FA26 Contracts Supplement.pdf",
+          "pages": [
+            14,
+            15
+          ]
+        },
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            187
+          ],
+          "pdfPages": [
+            232
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CT-SUP-0011",
+      "field": "Holding",
+      "old": "Warrington and Duke both accepted that they can.",
+      "new": "Warrington and Duke both declined to rule out that they can.",
+      "reason": "Warrington: 'It may be, and I do not for a moment say that it is not, possible' (supp. p. 14, K.B. 574); Duke: 'I do not dissent, as at present advised' (supp. p. 16, K.B. 576). Neither affirmatively accepted that spouses can contract.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/FA26 Contracts Supplement.pdf",
+          "pages": [
+            14,
+            16
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/cold-call/narratives/balfour.json",
+      "pointer": "/sections/2/paragraphs/0",
+      "old": "Warrington L.J. accepted that spouses could make a contract of this kind. But the wife needed to show express contractual terms or circumstances necessarily implying them. She had made no express promise to accept £30 in full satisfaction of her husband’s maintenance obligation regardless of changing needs. The spouses had simply estimated amicably what would maintain her during the medically necessary absence.",
+      "new": "Warrington L.J. did not rule out that spouses could make a contract of this kind. But the wife needed to show express contractual terms or circumstances necessarily implying them. She had made no express promise to accept £30 in full satisfaction of her husband’s maintenance obligation regardless of changing needs. The spouses had simply estimated amicably what would maintain her during the medically necessary absence.",
+      "reason": "Warrington: 'It may be, and I do not for a moment say that it is not, possible' (supp. p. 14, K.B. 574); Duke: 'I do not dissent, as at present advised' (supp. p. 16, K.B. 576). Neither affirmatively accepted that spouses can contract.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/FA26 Contracts Supplement.pdf",
+          "pages": [
+            14
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "target": "takeaway",
+      "id": "balfour",
+      "old": "Everyday arrangements between a husband and wife living together, like a promised allowance, are not contracts. Courts presume the couple did not intend legal consequences unless the party suing proves otherwise.",
+      "new": "Everyday arrangements between a husband and wife living together in harmony, like a promised allowance, are ordinarily not contracts, because courts presume the couple did not intend legal consequences. The spouse suing must prove a contract; the judges did not rule out that spouses can make one, and Duke L.J. distinguished an agreement made on separation.",
+      "reason": "Atkin: such agreements, 'or many of them, do not result in contracts' and 'the onus was upon the plaintiff' (supp. pp. 18, 20, K.B. 578, 580); Warrington and Duke did not rule out a spousal contract and Duke distinguished a separation agreement (supp. pp. 14, 16); § 21 cmt. c requires 'some unusual manifestation of intention', not impossibility.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/FA26 Contracts Supplement.pdf",
+          "pages": [
+            14,
+            16,
+            18,
+            20
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 21 comment c"
+        },
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            187
+          ],
+          "pdfPages": [
+            232
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/balfour/0/plain",
+      "old": "She won a \"decree nisi\" (a provisional divorce decree that becomes final later unless cause is shown) on July 30, and an alimony (spousal support) order on December 16. Those family-court steps were separate from the contract lawsuit here.",
+      "new": "She won a \"decree nisi\" (a provisional court order that becomes final later unless cause is shown against it) on July 30 in her suit for \"restitution of conjugal rights\" (a request that the court order her husband to resume married life with her), and an alimony (spousal support) order on December 16. Those family-court steps were separate from the contract lawsuit here.",
+      "reason": "The headnote reads 'a decree nisi for restitution of conjugal rights' (supp. p. 11, K.B. 571; also supp. p. 12, K.B. 572), not a divorce decree; the spouses' amity when the promise was made is the decisive fact. The gloss on restitution of conjugal rights is a general legal definition, not a quotation from the report.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/FA26 Contracts Supplement.pdf",
+          "pages": [
+            11,
+            12
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-026",
+      "field": "rule",
+      "old": "An online user's click manifests assent to contract terms only when the interface reasonably alerts the user that terms exist and that the click signifies agreement to them.",
+      "new": "Under California law, as the Second Circuit applied it, an online user's click manifests assent to contract terms only when the interface gives reasonably conspicuous notice that terms exist and the click unambiguously signifies agreement to them.",
+      "reason": "The district court held that 'California law governs the question of contract formation here; the parties do not appeal that determination' (C&M 180). The holding requires 'Reasonably conspicuous notice of the existence of contract terms and unambiguous manifestation of assent' (C&M 182).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            180,
+            182
+          ],
+          "pdfPages": [
+            225,
+            227
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/v28/case-chronologies.json",
+      "pointer": "/0/steps/509/note",
+      "old": "An online user's click manifests assent to contract terms only when the interface reasonably alerts the user that terms exist and that the click signifies agreement to them.",
+      "new": "Under California law, as the Second Circuit applied it, an online user's click manifests assent to contract terms only when the interface gives reasonably conspicuous notice that terms exist and the click unambiguously signifies agreement to them.",
+      "reason": "The district court held that 'California law governs the question of contract formation here; the parties do not appeal that determination' (C&M 180). The holding requires 'Reasonably conspicuous notice of the existence of contract terms and unambiguous manifestation of assent' (C&M 182).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            180,
+            182
+          ],
+          "pdfPages": [
+            225,
+            227
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "standard-terms",
+      "stepKey": "specht",
+      "field": "note",
+      "old": "Online terms bind only if the screen reasonably shows they exist and that clicking means assent; terms hidden below a download button did not.",
+      "new": "Online terms bind only if the screen reasonably shows they exist and that clicking means assent; terms hidden below a download button did not (Second Circuit, California law).",
+      "reason": "The district court held that 'California law governs the question of contract formation here; the parties do not appeal that determination' (C&M 180). The holding requires 'Reasonably conspicuous notice of the existence of contract terms and unambiguous manifestation of assent' (C&M 182).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            180,
+            182
+          ],
+          "pdfPages": [
+            225,
+            227
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/specht/12",
+      "old": null,
+      "new": {
+        "at": "4.2",
+        "sentence": "A scroll bar showed that more page content existed, not that important contractual notice lay below the apparent endpoint of the transaction.",
+        "plain": "The scroll bar showed only that the page went on. It did not tell users that notice of license terms lay below the download button, so a reasonably careful user had no reason to look there."
+      },
+      "reason": "Teaching gap: none of Specht's plain sentences rendered the notice holding. The court: the scroll bar's position 'does not mean that they reasonably should have concluded that this portion contained a notice of license terms' (C&M 182).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            182
+          ],
+          "pdfPages": [
+            227
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/9/nodes/1/detail",
+      "old": "Specht’s license terms sat below the download button and the user had no clear reason to scroll. A conspicuous notice tied to a clearly labeled click can have a different effect.",
+      "new": "Specht’s only reference to the license sat below the download button, visible only after scrolling, and the terms themselves were on a linked page; the user had no clear reason to scroll. A conspicuous notice tied to a clearly labeled click can have a different effect.",
+      "reason": "'The sole reference to SmartDownload's license terms ... would have become visible to plaintiffs only if they had scrolled down to the next screen', and the terms were on a separate 'License & Support Agreements' page (C&M 180). The court relied on unrefuted testimony that plaintiffs 'were in fact unaware' (C&M 182), and the California rule protects an offeree from inconspicuous provisions 'of which he is unaware' (C&M 180).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            180,
+            182
+          ],
+          "pdfPages": [
+            225,
+            227
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/9/nodes/1/detail",
+      "old": "Specht’s only reference to the license sat below the download button, visible only after scrolling, and the terms themselves were on a linked page; the user had no clear reason to scroll. A conspicuous notice tied to a clearly labeled click can have a different effect.",
+      "new": "Specht’s only reference to the license sat below the download button, visible only after scrolling, and the terms themselves were on a linked page; the user had no clear reason to scroll. A conspicuous notice tied to a clearly labeled click can have a different effect. Also ask what this user actually saw: Specht's users testified without contradiction that they were unaware of the terms, and the California rule the court quoted protects an offeree from inconspicuous terms \"of which he is unaware\" (C&M 180, 182).",
+      "reason": "'The sole reference to SmartDownload's license terms ... would have become visible to plaintiffs only if they had scrolled down to the next screen', and the terms were on a separate 'License & Support Agreements' page (C&M 180). The court relied on unrefuted testimony that plaintiffs 'were in fact unaware' (C&M 182), and the California rule protects an offeree from inconspicuous provisions 'of which he is unaware' (C&M 180).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            180,
+            182
+          ],
+          "pdfPages": [
+            225,
+            227
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 19(2)"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/canons/data/lectures.json",
+      "pointer": "/27/topics/0/body",
+      "old": "The class covers intent to be legally bound, alternatives to legal enforcement, the pros and cons of enforceability, and objective and subjective standards of assent. Slide 4 asks what the promise was, whether there was consideration, what other factors the court considered, whether the parties intended a contract, what the effects of unenforceable promises are, and how the parties could have avoided this result.",
+      "new": "The class covers intent to be legally bound, alternatives to legal enforcement, the pros and cons of enforceability, and objective and subjective standards of assent. Slide 4 asks what the promise was, whether there was consideration, what other factors the court considered, whether the parties intended a contract, what the effects of unenforceable promises are, what the pros and cons of legally enforceable promises are, and how the parties could have avoided this result.",
+      "reason": "Slide 4 also asks 'What are the pros and cons of legally enforceable promises?'; the note omitted it.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/Class 6_Assent - Copy (4).pptx",
+          "slides": [
+            4
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/canons/data/lectures.json",
+      "pointer": "/27/topics/1/body",
+      "old": "Slide 5 quotes § 21: neither real nor apparent intention that a promise be legally binding is essential, but a manifestation of intention that it shall not affect legal relations may prevent formation. Comment c says that for social engagements and agreements within a family the normal understanding is that no legal obligation arises.",
+      "new": "Slide 5 quotes § 21: neither real nor apparent intention that a promise be legally binding is essential, but a manifestation of intention that it shall not affect legal relations may prevent formation. Comment c says that for social engagements and agreements within a family the normal understanding is that no legal obligation arises, and some unusual manifestation of intention is necessary to create a contract.",
+      "reason": "Slide 5 and comment c continue: 'and some unusual manifestation of intention is necessary to create a contract.' The note dropped that condition, so it is corrected to the slide.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/Class 6_Assent - Copy (4).pptx",
+          "slides": [
+            5
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 21 comment c"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/canons/data/lectures.json",
+      "pointer": "/27/topics/2/body",
+      "old": "Slide 6 repeats Justice White's “generally applicable law” passage and asks whether the elements of a contract were present, whether the elements of promissory estoppel were present, and whether different answers to the two questions can be justified.",
+      "new": "Slide 6 repeats Justice White's “generally applicable law” passage and asks whether the elements of a contract were present, whether the elements of promissory estoppel were present, and whether different answers to the two questions can be justified. Legal qualification: Justice White's sentence comes from the U.S. Supreme Court's 1991 decision reversing the Minnesota court (501 U.S. 663; the slide prints \"50 U.S.\"). The contract question this class reads is the Minnesota Supreme Court's 1990 holding that the reporters' promise was not a contract because the parties did not intend a legally binding one (C&M 183–185).",
+      "reason": "C&M 169 n.a cites 'Cohen v. Cowles Media Co., 457 N.W.2d 199, 203 (Minn. 1990), rev'd, 501 U.S. 663'; the casebook's excerpt is the 1990 contract ruling (C&M 183–185).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/Class 6_Assent - Copy (4).pptx",
+          "slides": [
+            6
+          ]
+        },
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            169,
+            183,
+            184,
+            185
+          ],
+          "pdfPages": [
+            214,
+            228,
+            229,
+            230
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/canons/data/lectures.json",
+      "pointer": "/27/topics/7/body",
+      "old": "Slides 13 to 15 show sign-up screens from Cullinane v. Uber Technologies, 893 F.3d 53 (2018), where “Done” appears once payment information is entered, and Meyer v. Uber Technologies, 868 F.3d 66 (2d Cir. 2017), marked as applying California law. The screens themselves are images whose content is not in the slide text.",
+      "new": "Slides 13 to 15 show sign-up screens from Cullinane v. Uber Technologies, 893 F.3d 53 (2018), where “Done” appears once payment information is entered, and Meyer v. Uber Technologies, 868 F.3d 66 (2d Cir. 2017), marked as applying California law. The screens themselves are images whose content is not in the slide text. Legal qualification: Cullinane is a First Circuit decision holding that Uber's registration process did not form a contract because it did not give users reasonable notice of the terms and conditions (as reported in Kauders v. Uber Technologies, C&M 305).",
+      "reason": "Kauders reports 'Cullinane v. Uber Techs., Inc., 893 F.3d 53, 62 (1st Cir. 2018) (Cullinane II), concluding that Uber's registration process did not create a contract because it did not provide reasonable notice' (C&M 305). The slide gives the year but not the court or result.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/Class 6_Assent - Copy (4).pptx",
+          "slides": [
+            13,
+            15
+          ]
+        },
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            305
+          ],
+          "pdfPages": [
+            350
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/canons/data/lectures.json",
+      "pointer": "/27/topics/8/body",
+      "old": "Slide 16 quotes § 2(a): a standard term is adopted if the consumer manifests assent to the transaction after reasonable notice of the term and of the intent to include it, and a reasonable opportunity to review it. The quoted comment (Comment 3 of the 2024 Official Text; the sentence is not in the Selections' excerpt of the 2019 draft) says the section does not address formation or assent to nonstandard terms; once a contract is formed, it determines which standard terms are adopted.",
+      "new": "Slide 16 quotes § 2(a): a standard term is adopted if the consumer manifests assent to the transaction after reasonable notice of the term and of the intent to include it, and a reasonable opportunity to review it. The quoted comment (Comment 3 of the 2024 Official Text; the sentence is not in the Selections' excerpt of the 2019 draft) says the section does not address formation or assent to nonstandard terms; once a contract is formed, it determines which standard terms are adopted. Legal qualification: the slide's black letter matches the 2019 Tentative Draft printed in the Selections (p. 477), which does not say who must prove adoption; the 2024 Official Text begins \"if the business demonstrates that the consumer manifested assent,\" which puts that burden on the business. Subsection (c), also assigned, keeps the contract even if some standard terms are not adopted: its terms are the adopted terms and, if the consumer elects, the unadopted standard terms, with terms supplied by law (the 2024 text adds terms both parties agreed to and terms incorporated by law).",
+      "reason": "Edition crosswalk (docs/history/corpus-audit-2026-11/contracts/OP-CT-RLCC/crosswalk.md): 2024 § 2(a) adds 'if the business demonstrates that' and rewords (c). The Selections' 2019 (c): 'a contract exists even if some of the standard contract terms are not adopted' (p. 477).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/Class 6_Assent - Copy (4).pptx",
+          "slides": [
+            16
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement of Consumer Contracts (Tent. Draft 2019) § 2(a), (c), p. 477"
+        },
+        {
+          "file": "added-sources/Complete Restatement.pdf",
+          "provision": "Restatement of the Law, Consumer Contracts, Official Text (2024), § 2(a), (c)"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-06"
     }
   ]
 }

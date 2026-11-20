@@ -445,7 +445,7 @@
         "Contracts"
       ],
       "takeaway": "What counts is how your words and actions would look to a reasonable person, not what you secretly meant. If you act like you are making a serious deal, you are, even if you thought it was a joke.",
-      "takeawaySha256": "78afd29f0fbce486b3e21398f3270d44e46e7e796853c7295e91489e6498c147",
+      "takeawaySha256": "a6c33ea0a12155e3bf84f30802fc81c0ea2d57bf9c3287ddedeaed2d5d9e7f8e",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -475,7 +475,15 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        }
+      ]
     },
     {
       "id": "specht",
@@ -495,7 +503,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CTR-026",
         "sourceLocator": "tools/r19/data/sections.json :: CTR-026.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "f00d43f79d995746904bff4932590dcae5e377c1e3214292b5cee8eaa8e6ea84",
+        "ruleSha256": "b378a57f4e043fcfb8dd050dc917b5cd83addeee8c06e47ad23a26903768d97b",
         "comparedSections": {
           "Holding": "a15f3f423cafa00bb48a0755ee9600da2e1ea4f090a00553cd0e9349c1870bde"
         },
@@ -514,7 +522,15 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "drennan",
@@ -1308,7 +1324,7 @@
         "Contracts"
       ],
       "takeaway": "Everyday arrangements between a husband and wife living together, like a promised allowance, are not contracts. Courts presume the couple did not intend legal consequences unless the party suing proves otherwise.",
-      "takeawaySha256": "df06dfdd550ecbe6f348061de7c5b78727f119d28b46c90bff7358b57bc2770d",
+      "takeawaySha256": "7b60499b950c5741e99c913c863fc5a59b1bbc92c8d6f652e85144b1d4721c6f",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -1321,7 +1337,7 @@
         "sourceLocator": "tools/r19/data/sections.json :: CT-SUP-0011.rule and sections.Holding (effective assembler overlays)",
         "ruleSha256": "bdb81c57fc3a1715734f1bde9470b18db0801c21e81d284ad71361a2a9dea3ac",
         "comparedSections": {
-          "Holding": "101e33a7ab379b27fdd8389c1bc2528c08b57f2e5fa2ac04ea85c513a9990e06"
+          "Holding": "b917a72b8ae5df39fd8ba0058c7cb109f913e1dba6591061dd446510c42d8a2a"
         },
         "sectionsReadCompletely": [
           "Holding"
@@ -1340,7 +1356,21 @@
           "https://www.uni-trier.de/fileadmin/fb5/FFA/KURSUNTERLAGEN/Anglo-Amerikanisches_Recht/Contract_Law/Siry_WS_2015_16/contract_p1_balfour_v_balfour.pdf."
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.comparedSections.Holding"
+        }
+      ]
     },
     {
       "id": "lefkowitz",

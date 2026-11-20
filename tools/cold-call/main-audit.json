@@ -4986,7 +4986,7 @@
     {
       "id": "balfour",
       "sourceSha256": "0e138bde6c1e010e618d24a3bd8fc1fc1fef2fe64adebc84995978147da6a125",
-      "narrativeSha256": "9640e0746fa72b86ee30110ee1a0d051355f2a219f78ca0d070d97c3e4563964",
+      "narrativeSha256": "654c96a660cd68fe37576b9dc0903e1de05ac988fc319efe38b66983c3671976",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
       "verdict": "retained",
@@ -5007,12 +5007,26 @@
       "title": "Balfour v. Balfour",
       "course": "Contracts",
       "briefId": "CT-SUP-0011",
-      "accountSha256": "1f881e948e32655689c16619408043a780dfe67bb4807999a923d76b8f88138e",
+      "accountSha256": "1fd5cba7447ef087ee9e9feba5ac492c5674f4d135fae6a56c06235e1bf709d2",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 846,
-      "wordsAfter": 846
+      "wordsAfter": 846,
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "narrativeSha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "accountSha256"
+        }
+      ]
     },
     {
       "id": "bayliner",
@@ -6651,7 +6665,7 @@
     {
       "id": "lucy",
       "sourceSha256": "5ecef94ea0c414cd5821e673819d3f750283b5cf21ea712e4b235ba240a1e1ad",
-      "narrativeSha256": "ea513c68092b8027e1ff47565738c69e003f9411563312bf33669128dd6b75ad",
+      "narrativeSha256": "677bf78fcc3ee29ba117233ab9dcfc33892cb835bc00edbdf2f44b90f01a5a5a",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
       "verdict": "retained",
@@ -6672,12 +6686,26 @@
       "title": "Lucy v. Zehmer",
       "course": "Contracts",
       "briefId": "CTR-025",
-      "accountSha256": "7ab0b5d176f0c6f0cbaf9a295f273aff88cd414a599720268d8f4ae700077511",
+      "accountSha256": "738e5b256bfdb0452f3790bf50dce2604774ec6923a3751205d2ce678ce05506",
       "changed": false,
       "revisionBefore": 2,
       "revisionAfter": 2,
       "wordsBefore": 1075,
-      "wordsAfter": 1075
+      "wordsAfter": 1075,
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "narrativeSha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "accountSha256"
+        }
+      ]
     },
     {
       "id": "luttinger",

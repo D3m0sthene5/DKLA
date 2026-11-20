@@ -2091,6 +2091,12 @@
       "iteration": 0
     },
     {
+      "id": "balfour",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
       "id": "bayway",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
@@ -2422,6 +2428,12 @@
     },
     {
       "id": "quantum-meruit",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "assent-consent-intent",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
@@ -2806,6 +2818,30 @@
     },
     {
       "id": "notes-rest90-history",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "note-keller",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "note-leonard",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "notes-objective-debate",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "problem-social",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
@@ -3211,8 +3247,8 @@
       "id": "lucy",
       "title": "Lucy v. Zehmer",
       "field": "takeaway",
-      "text": "What counts is how your words and actions would look to a reasonable person, not what you secretly meant. If you act like you are making a serious deal, you are, even if you thought it was a joke.",
-      "textSha256": "78afd29f0fbce486b3e21398f3270d44e46e7e796853c7295e91489e6498c147",
+      "text": "What counts is how your words and actions would look to a reasonable person, not what you secretly meant. If you act like you are making a serious deal, you are bound even if you meant it as a joke, unless the other party knew it was a joke.",
+      "textSha256": "a6c33ea0a12155e3bf84f30802fc81c0ea2d57bf9c3287ddedeaed2d5d9e7f8e",
       "source": {
         "briefId": "CTR-025",
         "canonicalLocator": "tools/r19/data/sections.json :: CTR-025.rule (effective assembler overlays)",
@@ -3294,8 +3330,8 @@
       "id": "specht",
       "title": "Specht v. Netscape Communications Corp.",
       "field": "summary",
-      "text": "An online user's click manifests assent to contract terms only when the interface reasonably alerts the user that terms exist and that the click signifies agreement to them.",
-      "textSha256": "f00d43f79d995746904bff4932590dcae5e377c1e3214292b5cee8eaa8e6ea84",
+      "text": "Under California law, as the Second Circuit applied it, an online user's click manifests assent to contract terms only when the interface gives reasonably conspicuous notice that terms exist and the click unambiguously signifies agreement to them.",
+      "textSha256": "b378a57f4e043fcfb8dd050dc917b5cd83addeee8c06e47ad23a26903768d97b",
       "source": {
         "briefId": "CTR-026",
         "canonicalLocator": "tools/r19/data/sections.json :: CTR-026.rule (effective assembler overlays)",
@@ -6402,8 +6438,8 @@
       "id": "balfour",
       "title": "Balfour v. Balfour",
       "field": "takeaway",
-      "text": "Everyday arrangements between a husband and wife living together, like a promised allowance, are not contracts. Courts presume the couple did not intend legal consequences unless the party suing proves otherwise.",
-      "textSha256": "df06dfdd550ecbe6f348061de7c5b78727f119d28b46c90bff7358b57bc2770d",
+      "text": "Everyday arrangements between a husband and wife living together in harmony, like a promised allowance, are ordinarily not contracts, because courts presume the couple did not intend legal consequences. The spouse suing must prove a contract; the judges did not rule out that spouses can make one, and Duke L.J. distinguished an agreement made on separation.",
+      "textSha256": "7b60499b950c5741e99c913c863fc5a59b1bbc92c8d6f652e85144b1d4721c6f",
       "source": {
         "briefId": "CT-SUP-0011",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-SUP-0011.rule (effective assembler overlays)",
@@ -6444,8 +6480,8 @@
       "id": "balfour",
       "title": "Balfour v. Balfour",
       "field": "notes",
-      "text": "[1919] 2 K.B. 571 (C.A.), reported as 24 and 25 June 1919. Atkin L.J. reasoned that agreements between spouses living in amity are presumed not to be intended to create legal relations, and that enforcing them would flood the courts; Warrington L.J. rested on the absence of any bargain by the wife, and Duke L.J. warned that enforcing such domestic promises would be a fruitful source of dissension.",
-      "textSha256": "66cee923f4d07ed45455e602b45d1048d0fa5374950a3aa1b6ee1df9815a92dd",
+      "text": "[1919] 2 K.B. 571 (C.A.), reported as 24 and 25 June 1919. Atkin L.J. reasoned that agreements between spouses living in amity are presumed not to be intended to create legal relations, and that enforcing them would flood the courts; Warrington L.J. found no bargain by the wife and said the spouses never intended a bargain enforceable in law, and Duke L.J. warned that enforcing such domestic promises would be a fruitful source of dissension.",
+      "textSha256": "252042695f71c792124a402877b575df2d58df9da260d008cc3f8082c548de41",
       "source": {
         "briefId": "CT-SUP-0011",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-SUP-0011.rule (effective assembler overlays)",
@@ -8714,8 +8750,8 @@
       "id": "assent-consent-intent",
       "title": "Assent, consent, and legal enforceability",
       "field": "notes",
-      "text": "Separate communicated agreement to an exchange, voluntary participation, and manifested intention concerning legal enforcement. A coerced exchange can be understood by both parties yet remain defective; capacity and impermissible pressure concern consent. Restatement § 21 generally does not demand affirmative intent to incur legal obligation, but manifested intent to remain unbound can matter. Courts sometimes use “mutual assent” for more than one issue.\n\nLucy concerns seriousness, Specht notice and downloading, and the later fraud and duress cases bargaining defects. Interpretation asks what the agreement means. The course index connects these distinct applications without treating them as identical assent holdings.",
-      "textSha256": "8d57c44f33f4b2e63e4f63a572c1da20976111407f3c58cf3e2a42fea34a12ed",
+      "text": "Separate communicated agreement to an exchange, voluntary participation, and manifested intention concerning legal enforcement. A coerced exchange can be understood by both parties yet remain defective; capacity and impermissible pressure concern consent. Restatement § 21 generally does not demand affirmative intent to incur legal obligation, but manifested intent to remain unbound can matter. The editors draw two qualifications from § 21: social and family agreements need more to show intended legal effect, and a business agreement that would otherwise bind can be denied effect by a manifested intent not to be bound, as in a letter of intent that disclaims any legal obligation (C&M 183, 189). Professor Patterson's test is that a good rule lets non-lawyers who clarify what they want make contracts (\"freedom to contract\") without hooking \"the unwary signer or the casual promisor\" (\"freedom from contract\") (C&M 186). Courts sometimes use “mutual assent” for more than one issue.\n\nLucy concerns seriousness, Specht notice and downloading, and the later fraud and duress cases bargaining defects. Interpretation asks what the agreement means. The course index connects these distinct applications without treating them as identical assent holdings.",
+      "textSha256": "f0edbd86934a98a1da9cc879c885dab0a2e1f1c2f9a66756a05aee287c5129e3",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: assent-consent-intent",
@@ -11514,8 +11550,8 @@
       "id": "note-keller",
       "title": "Keller v. Holderman — a shared joke",
       "field": "notes",
-      "text": "That shared understanding distinguishes it from Zehmer’s undisclosed claim to be joking where Lucy took the sale seriously and reasonably. The contrast explains why actual knowledge can matter within an objective analysis.",
-      "textSha256": "b1aa0c18c82126e95f5e95e02f84fbfe32aef41b8e5c3f39bf0b8a8c913bc071",
+      "text": "That shared understanding distinguishes it from Zehmer’s undisclosed claim to be joking where Lucy took the sale seriously and reasonably. The contrast explains why actual knowledge can matter within an objective analysis. The notes also ask whether a bluff or dare differs from a jest: the Zehmers said the writing was meant to make Lucy admit he lacked $50,000, and the casebook asks, without answering, what result follows if Lucy had known this and called the bluff by raising the money (C&M 177).",
+      "textSha256": "49a80c704eab194584b410f526e684d7836346c841a521eb72d4180933ff47fe",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: note-keller",
@@ -11556,8 +11592,8 @@
       "id": "note-leonard",
       "title": "Leonard v. Pepsico — the Harrier advertisement",
       "field": "notes",
-      "text": "The Harrier offer was treated as a joke in its presentation. The notes compare its context, extreme disparity, catalog, and later changes to the advertisement with the farm-sale dispute. Price disparity here is evidence relevant to interpretation; it should not be confused with a general requirement of adequate consideration.",
-      "textSha256": "9889ee42115899852e97b7737bd5190b78e065927722dd9a2c1170e79cfb1b72",
+      "text": "The court held for Pepsico: no objective person could reasonably have concluded that the commercial actually offered a Harrier Jet, given its \"zany humor\" and the jet's military function. The notes compare that context and the extreme price disparity (a jet costing roughly $23 million for $700,000) with the farm-sale dispute, and ask whether a price too good to be true always shows that no offer was made (C&M 177–178). Price disparity here is evidence relevant to interpretation; it should not be confused with a general requirement of adequate consideration.",
+      "textSha256": "0febec9176fedb5f44f9e1d37476a026f08aca9ec40f859db01607c3bbc2b9d6",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: note-leonard",
@@ -14184,8 +14220,8 @@
       "id": "problem-social",
       "title": "Social promises, dinners, and preparation costs",
       "field": "notes",
-      "text": "When does the context communicate an intended legal commitment? What role do the scale of preparation, words of assurance, and the relationship play? The notes also ask how a lawyer should identify relevant facts while avoiding manufacturing a client’s account.",
-      "textSha256": "1582c22b23a4162051010b6a0e6bb42b885def2ebb06ab92b09baf31220ae436",
+      "text": "When does the context communicate an intended legal commitment? What role do the scale of preparation, words of assurance, and the relationship play? The notes extend the question to a broken promise to marry after the plaintiff paid for a wedding dress and a reception hall (Ferraro v. Singh, C&M 186); Cohen notes that Minnesota abolished the action for breach of contract to marry by statute (C&M 185). The notes also ask how a lawyer should identify relevant facts while avoiding manufacturing a client’s account.",
+      "textSha256": "86d3dcd74774567626beafd6d1c1113fdaf58850ecb3dc09a2927a8ac411f172",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: problem-social",
@@ -15728,8 +15764,8 @@
       "id": "notes-objective-debate",
       "title": "The objective approach and its critics",
       "field": "notes",
-      "text": "Hand’s formulation emphasizes what words ordinarily signify; Frank’s response resists excluding actual shared intent. Lucy, Keller, and Leonard then vary the evidence of serious commitment. The notes also ask what discovery and jury fact-finding can establish and how intentions are attributed to organizational parties. These are interpretive and evidentiary questions rather than a command to ignore every mental fact.",
-      "textSha256": "afa6fa055ab68f7dc00c8731efdbded4b6290aed24309eb5e215d57cce4f76a9",
+      "text": "Hand’s formulation emphasizes what words ordinarily signify; Frank’s response resists excluding the parties’ actual intention, whether shared or held by one party. Hand would hold a party to the usual meaning of his words even if \"twenty bishops\" proved he meant something else, and the Tenth Circuit's Navair says contracts \"are formed by what the parties communicate\" (C&M 171–172, 176). Lucy, Keller, and Leonard then vary the evidence of serious commitment. The notes also ask what discovery and jury fact-finding can establish and how intentions are attributed to organizational parties. These are interpretive and evidentiary questions rather than a command to ignore every mental fact.",
+      "textSha256": "2468e03faa4720977d6b952988eae0dfd0d1d87b4d719c19a51c9b5abab44c6b",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: notes-objective-debate",
@@ -103530,8 +103566,8 @@
       "id": "standard-terms:5",
       "title": "Standard terms: notice and agreement",
       "field": "note",
-      "text": "Online terms bind only if the screen reasonably shows they exist and that clicking means assent; terms hidden below a download button did not.",
-      "textSha256": "83aa9ea02f17d010ae86c10191c37a13d02d38d2291e19cf79c6a2ba5906a2ce",
+      "text": "Online terms bind only if the screen reasonably shows they exist and that clicking means assent; terms hidden below a download button did not (Second Circuit, California law).",
+      "textSha256": "70ef0283603d830588fd35e116e10a210f627e954009656ddad7524b4fb57ff7",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "standard-terms",
