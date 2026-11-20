@@ -365,6 +365,10 @@ STATE_CONSTITUTION=re.compile(rf'\bof\s+(?:the\s+)?(?:State\s+of\s+)?(?:{STATE_N
 
 def citation_matches(e,pattern,text):
     matches=list(pattern.finditer(text))
+    if e['collection']=='restatement':
+        # This catalogue holds the Second Restatement. The First uses different
+        # section numbers, e.g. its § 265 on satisfaction in Mattei.
+        matches=[m for m in matches if not re.search(r'\bFirst\s+$',text[:m.start()],re.I)]
     if e['id'].startswith('const-art-'):
         # An expressly identified state constitution is a different source.
         matches=[m for m in matches if not STATE_CONSTITUTION.search(re.split(r'[.!?;]',text[m.end():m.end()+140],maxsplit=1)[0])]
@@ -412,7 +416,7 @@ def _match_chunk(jobs):
         # for these collections, so a text without it cannot match.
         number=_number(e)
         if number is not None: ids=[id for id in ids if number in folded[id]]
-        out.append((index,sorted(id for id in ids if (candidate is None or candidate in folded[id]) and (bool(citation_matches(e,pattern,text[id])) if e['id'].startswith('const-art-') else pattern.search(text[id])))))
+        out.append((index,sorted(id for id in ids if (candidate is None or candidate in folded[id]) and (bool(citation_matches(e,pattern,text[id])) if e['collection']=='restatement' or e['id'].startswith('const-art-') else pattern.search(text[id])))))
     return out
 
 def direct_matches(entries,text_by_id,jobs):
@@ -465,6 +469,10 @@ def link_entries(entries):
     return reverse,links
 
 def check_citation_patterns():
+    frustration=dict(id='restatement-265',collection='restatement')
+    pattern=citation_pattern(frustration)
+    assert not citation_matches(frustration,pattern,'First Restatement Section 265, comment a (satisfaction).')
+    assert citation_matches(frustration,pattern,'Restatement (Second) of Contracts § 265 (supervening frustration).')
     for num in range(1,8):
         numeral=roman(num)
         p=citation_pattern(dict(id='const-art-'+str(num),collection='constitution'))
@@ -512,12 +520,17 @@ def relink():
     preserved={k:v for k,v in d.items() if k not in ['entries','byNode','audit']}
     preserved_entries=[{k:v for k,v in e.items() if k!='links'} for e in d['entries']]
     before_text=sha(json.dumps(preserved_entries,ensure_ascii=False,sort_keys=True).encode())
-    d['byNode'],links=link_entries(d['entries']); d['audit']['links']=links
+    reverse,links=link_entries(d['entries']); d['audit']['links']=links
+    prior_order=list(d['byNode'])
+    d['byNode']={k:reverse[k] for k in prior_order+sorted(reverse.keys()-d['byNode'].keys()) if k in reverse}
     assert preserved=={k:v for k,v in d.items() if k not in ['entries','byNode','audit']}
     assert preserved_entries==[{k:v for k,v in e.items() if k!='links'} for e in d['entries']]
-    audit=link_change_audit(d,old,before_text)
+    # The historical Article I–VII audit compares actual changed article links.
+    # Preserve its before/after evidence when relinking a different collection.
+    if any(e['links']!=old[e['id']] for e in d['entries'] if e['id'].startswith('const-art-')):
+        audit=link_change_audit(d,old,before_text)
+        (HERE/'authority-links-audit.json').write_text(json.dumps(audit,ensure_ascii=False,indent=1)+'\n',encoding='utf8',newline='\n')
     DATA.write_text(json.dumps(d,ensure_ascii=False,indent=1)+'\n',encoding='utf8',newline='\n')
-    (HERE/'authority-links-audit.json').write_text(json.dumps(audit,ensure_ascii=False,indent=1)+'\n',encoding='utf8',newline='\n')
     check(d)
 
 def refresh():
