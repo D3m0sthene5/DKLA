@@ -62,5 +62,5 @@ Classes 16–20 add their own open items; see `WAVE-16-20.md`. Routing errors fo
   RLCC § 3 "reject or terminate" (Class 11, slide 15). Annotating a slide summary is an owner decision.
 - Hall and Elliot map entry and the Class 14 hub (OP-CT-14). Glossary: the Wex contra proferentem entries say
   "always" (C&M 567: last resort). Watkins: "Burque, C.J." needs checking against the full opinion.
-- **Source gaps:** the slide decks for Classes 15–20 are not in `added-sources/`. Their lecture-notes records
+- **Source gaps:** no slide deck was located in the checked sources for Classes 15–20 (slide coverage stays open). Their lecture-notes records
   were checked only against the casebook and selections.
