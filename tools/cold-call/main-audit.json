@@ -5532,7 +5532,7 @@
     {
       "id": "dixon",
       "sourceSha256": "4fb18670e179858665c1998c3db005468e6db2e94aa0e79d9327c4f928af8eef",
-      "narrativeSha256": "952a20d6acbb77ff389a439b670fdac28e6f25a26c7c36a7587ab408345c5102",
+      "narrativeSha256": "8c0a000a69bd2033c4293a36cc8d952ae9f9424b041d4d1e473f1bb4b3236d66",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
       "verdict": "revised",
@@ -5553,12 +5553,26 @@
       "title": "Dixon v. Wells Fargo Bank, N.A.",
       "course": "Contracts",
       "briefId": "CT-CB-0333",
-      "accountSha256": "04562c4bedfd7328f4a456d8ab5a384876f624275d679dbbcd4357d21caff5b9",
+      "accountSha256": "faa2ee6edbe83b8ebf73df99b98b8d85ca70ff8888905bb15999513d751d0884",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
       "wordsBefore": 808,
-      "wordsAfter": 821
+      "wordsAfter": 821,
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "narrativeSha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "accountSha256"
+        }
+      ]
     },
     {
       "id": "doe-great-expectations",

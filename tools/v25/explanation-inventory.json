@@ -1701,6 +1701,12 @@
       "iteration": 0
     },
     {
+      "id": "note-tribune-types",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
       "id": "notes-acceptance",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
@@ -1737,6 +1743,12 @@
       "iteration": 0
     },
     {
+      "id": "oglebay",
+      "field": "learning.topics.course-dealing",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
       "id": "one-year-intro",
       "field": "title",
       "source": "tools/r19/data/r21-audit.json",
@@ -1756,6 +1768,12 @@
     },
     {
       "id": "precedent",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "preliminary-agreements",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
@@ -1877,6 +1895,12 @@
     {
       "id": "sun-printing",
       "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "sun-printing",
+      "field": "learning.topics.ucc204",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
     },
@@ -2135,6 +2159,30 @@
     {
       "id": "channel-home",
       "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "channel-home",
+      "field": "learning.topics.reliance",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "channel-home",
+      "field": "learning.topics.definiteness",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "channel-home",
+      "field": "learning.topics.precontractual-liability",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "channel-home",
+      "field": "learning.topics.good-faith",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
     },
@@ -3028,6 +3076,48 @@
     },
     {
       "id": "note-union-carbide",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "dixon",
+      "field": "learning.topics.definiteness",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "cyberchron",
+      "field": "learning.topics.reliance-interest",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "cyberchron",
+      "field": "learning.topics.precontractual",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "french-negotiations",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "precontractual-liability",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "definiteness",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "gap-filling",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
@@ -9066,8 +9156,8 @@
       "id": "preliminary-agreements",
       "title": "Preliminary agreements and reservations of a signed writing",
       "field": "notes",
-      "text": "The Tribune discussion distinguishes a settled transaction awaiting documentation from a limited commitment to negotiate remaining terms in good faith within an agreed framework. The latter does not guarantee a final deal. Relevant factors include an express reservation of execution, settled terms, partial performance, and whether that transaction usually receives a signed writing.\n\nA letter of intent can disclaim the ultimate bargain while binding a negotiating process. Channel Home later examines withdrawal of property from the market; Dixon and Cyberchron concern reliance before a final transaction. Identify whether the claim seeks the final bargain, performance of the process, or protection of a narrower assurance.",
-      "textSha256": "9b8575367dc3ebe7419b631757911516de64522d56658e7f367af0693a19caa8",
+      "text": "The Tribune discussion distinguishes a settled transaction awaiting documentation from a limited commitment to negotiate remaining terms in good faith within an agreed framework. The latter does not guarantee a final deal. Relevant factors include an express reservation of execution, settled terms, partial performance, and whether that transaction usually receives a signed writing. Some courts ask whether the open terms were 'deal breakers' (A/S Apothekernes), and the casebook asks how a party can make every open term one (Budget Marketing).\n\nA letter of intent can disclaim the ultimate bargain while binding a negotiating process. Channel Home later examines withdrawal of property from the market; Dixon and Cyberchron concern reliance before a final transaction. Identify whether the claim seeks the final bargain, performance of the process, or protection of a narrower assurance.",
+      "textSha256": "f14e9808192f61940fb80304f00c673e712ed026b1441d08b9fdd26b78b5357f",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: preliminary-agreements",
@@ -12034,8 +12124,8 @@
       "id": "note-tribune-types",
       "title": "Tribune preliminary-agreement types — introduction",
       "field": "notes",
-      "text": "The first type treats the later document as memorializing agreement. The second can bind a negotiating framework while leaving final terms open. The full Teachers’ Insurance & Annuity Association v. Tribune opinion is assigned later from the supplement.",
-      "textSha256": "416d68bca13002d53d6f572460ef1e3555683e6cebc4d559b10bcddc909a08bb",
+      "text": "The first type treats the later document as memorializing agreement. The second can bind a negotiating framework while leaving final terms open. A party to a Type II commitment has no right to demand the final transaction; if no final contract is agreed, either side may abandon the deal after a good-faith effort to close, provided it has not insisted on conditions that do not conform to the preliminary writing (Adjustrite, summarizing Tribune, C&M 190). The syllabus lists Teachers Insurance & Annuity Association v. Tribune for Class 10, but the casebook prints only that summary and the course supplement does not contain the opinion; slide 14 quotes its Type I passage.",
+      "textSha256": "f6163ef343929d0c1186b946dfc512b5399b6e3cb51f7c252a08c4065ab42c9e",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: note-tribune-types",
@@ -16896,8 +16986,8 @@
       "id": "dixon",
       "title": "Dixon v. Wells Fargo, N.A.",
       "field": "takeaway",
-      "text": "The complaint alleged that the bank told the borrowers to stop paying while it considered modification, then foreclosed. The district court predicted that Massachusetts law allowed this reliance claim to proceed despite indefinite modification terms. It denied dismissal; liability and damages still had to be proved.",
-      "textSha256": "a90bddab627fcc48e80dfab9fe6f15413fb49523f5dd430d9ff67a8b7cdc6967",
+      "text": "The complaint alleged that the bank told the borrowers to stop paying while it considered a modification, then used their default to foreclose. Predicting Massachusetts law, the district court let this reliance claim proceed although the promise was likely too indefinite, because the bank's conduct was designed to take advantage of the borrowers; liability and reliance damages still had to be proved.",
+      "textSha256": "e2e9c825ab03032d6a455a105790baa46fa693a6b1d4efac2919c8ef37091677",
       "source": {
         "briefId": "CT-CB-0333",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-CB-0333.rule (effective assembler overlays)",
@@ -16921,8 +17011,8 @@
       "id": "dixon",
       "title": "Dixon v. Wells Fargo, N.A.",
       "field": "summary",
-      "text": "As a federal court predicted Massachusetts law, a lender's promise to consider a borrower for a loan modification that induces the borrower to default can support a promissory-estoppel claim despite indefinite modification terms, with relief aimed at restoring the position lost through reliance.",
-      "textSha256": "87f8585ef44d2683fb9c27e6f46363674d59fd5c865fd09591ec18bb81ca2b23",
+      "text": "As a federal court predicted Massachusetts law, a lender's indefinite promise to consider a borrower for a loan modification can support promissory estoppel where the lender induced the borrower's default and then used it to foreclose, taking advantage of the borrower; recovery is confined to reliance expenditures.",
+      "textSha256": "b71e9649078c9bf1a68ce915f80aa5abcb9f211fd037bbfbff4892d0ecf149c8",
       "source": {
         "briefId": "CT-CB-0333",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-CB-0333.rule (effective assembler overlays)",
@@ -16970,8 +17060,8 @@
       "id": "cyberchron",
       "title": "Cyberchron Corp. v. Calldata Systems Development, Inc.",
       "field": "takeaway",
-      "text": "No final contract was ever signed, but a clear promise that led a supplier to keep building in reliance can still be enforced. The remedy is the money spent in reliance, including properly attributed overhead, not the profits of the deal that never happened.",
-      "textSha256": "2b2c9fb2743af77a2d65b6160227075d1a321fc66ca128e974786df107018003",
+      "text": "No final contract was ever signed, but a clear promise that led a supplier to keep building in reliance can still be enforced. Recovery covers money spent in reliance after the promise, including properly attributed overhead and reliance-caused shutdown costs; Cyberchron did not seek the deal's profits on appeal.",
+      "textSha256": "cb7063d3bba62c37e7615fcb91cee316ff5287f0b3abdecfe6e38738092e06b6",
       "source": {
         "briefId": "CT-CB-0340",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-CB-0340.rule (effective assembler overlays)",
@@ -17192,8 +17282,8 @@
       "id": "oglebay",
       "title": "Oglebay Norton Co. v. Armco, Inc.",
       "field": "takeaway",
-      "text": "When the parties clearly meant a long-term deal to continue and their agreed price formulas stop working, a court can set a reasonable price itself and can order the parties to keep performing and keep negotiating.",
-      "textSha256": "50bc1cc164053cc2e413b05814b57a3266b97a31f4ec968fc896a2143eb0ab78",
+      "text": "When the parties intended a long-term deal to continue even after their agreed price formulas stopped working, a court can set a reasonable price on the evidence. Because damages over the remaining decades would be too speculative, it can also order the parties to keep performing and to negotiate, then mediate, future rates.",
+      "textSha256": "7ffb3b2e88990c8dd72e3652e49fceabcd1558c93f595f3495ff582e66ae4491",
       "source": {
         "briefId": "CT-CB-0366",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-CB-0366.rule (effective assembler overlays)",
@@ -21682,8 +21772,8 @@
       "id": "precontractual-liability",
       "title": "Liability during negotiations",
       "field": "notes",
-      "text": "First determine whether a complete agreement already exists, with a writing intended only as a later record. If it does not, identify the narrower undertaking actually made. Dixon concerns assurances and alleged reliance during loan-modification discussions. Cyberchron concerns work performed while major commercial terms remained unresolved. Channel Home Centers examines a letter promising withdrawal from the market and good-faith negotiation.\n\nA duty to negotiate in good faith does not guarantee that negotiations will succeed. A reliance claim likewise does not automatically entitle the claimant to the profits of the hoped-for final bargain. The assurance, reasonable induced action, causation, and applicable remedy must each be established. The assigned French Civil Code provision supplies a comparative rule protecting freedom to negotiate while requiring good faith and limiting recovery for faulty negotiations. Keep that provision’s jurisdiction and remedy limits distinct from the American cases.",
-      "textSha256": "2d21f9370edd398a9602c3c72ba5998e97e87fa843ce53e634b243f812e0161a",
+      "text": "First determine whether a complete agreement already exists, with a writing intended only as a later record. If it does not, identify the narrower undertaking actually made. Dixon concerns assurances and alleged reliance during loan-modification discussions. Cyberchron concerns work performed while major commercial terms remained unresolved. Channel Home Centers examines a letter promising withdrawal from the market and good-faith negotiation.\n\nA duty to negotiate in good faith does not guarantee that negotiations will succeed. A reliance claim likewise does not automatically entitle the claimant to the profits of the hoped-for final bargain. The assurance, reasonable induced action, causation, and applicable remedy must each be established. The assigned French Civil Code provision supplies a comparative rule protecting freedom to negotiate while requiring good faith and limiting recovery for faulty negotiations. Keep that provision’s jurisdiction and remedy limits distinct from the American cases. When no contract or enforceable promise exists, restitution may still return a benefit conferred during negotiations, such as a down payment, but services that are the common grist of negotiations or that protect the claimant's own interests are rarely compensated (Songbird Jet); recovery succeeded where the work was designed to benefit the other party (Precision Testing). A party that misrepresents its intention to come to terms is liable for reliance losses, which in Markov included profits lost when the deceived lessee had to move without preparation.",
+      "textSha256": "4229a45b62b37998c273e25fd7a71d3d266410a449a7355d0ef585128c74091f",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: precontractual-liability",
@@ -21732,8 +21822,8 @@
       "id": "definiteness",
       "title": "Definiteness and open terms",
       "field": "notes",
-      "text": "The significance of a missing term depends on what the parties left open and what they intended. In Sun Printing, both future price and the period for which a price would apply remained unresolved. The court declined to impose the ongoing bargain urged by the buyer; the dissent offered a different reading. In Oglebay, a long relationship, a stated duration, and evidence of intended commitment supported supplying a price after specified pricing mechanisms failed.\n\nDistinguish an agreement to agree later from a present commitment with a workable method for completing details. An external benchmark, established practice, course of performance, or governing gap-filler can make an obligation manageable. Those tools cannot automatically override an express decision to remain unbound until further agreement. The transaction’s purpose, wording, and history must justify the completion.",
-      "textSha256": "1c2dcb8ec987112d1255ef35e9b8152e9c4a7f3e722e17190d4ee95c5d87dc8d",
+      "text": "The significance of a missing term depends on what the parties left open and what they intended. In Sun Printing, both future price and the period for which a price would apply remained unresolved. The court declined to impose the ongoing bargain urged by the buyer; the dissent offered a different reading. In Oglebay, a long relationship, a stated duration, and evidence of intended commitment supported supplying a price after specified pricing mechanisms failed.\n\nDistinguish an agreement to agree later from a present commitment with a workable method for completing details. An external benchmark, established practice, course of performance, or governing gap-filler can make an obligation manageable. Those tools cannot automatically override an express decision to remain unbound until further agreement. The transaction’s purpose, wording, and history must justify the completion. Definiteness lets a court decide whether a breach occurred and measure expectation damages; a promise of 'a fair share of my profits' failed because the amount was 'pure conjecture' (Varney v. Ditmars). Leaving terms open may show that no offer was intended (§ 33(3)); part performance may remove uncertainty, and reliance may make a remedy appropriate even when uncertainty remains (§ 34(2)–(3)). A party who confers a benefit under an agreement too indefinite to enforce may recover restitution (Varney; Pyeatte). The Problem at C&M 360 asks whether a promise conditioned on forbearing 'for a reasonable time' is definite enough; compare the rule that terms such as good faith and reasonable efforts are definite if an external standard fixes their content (353).",
+      "textSha256": "ed30d77688b8dfba754708ad0232f1dca615ccc3b7bd8d8e15f2561f4b757ee7",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: definiteness",
@@ -23500,8 +23590,8 @@
       "id": "french-negotiations",
       "title": "French Civil Code Article 1112: negotiations",
       "field": "notes",
-      "text": "The translation permits damages where negotiations are at fault but excludes compensation for the benefits expected from the unmade contract and for the lost chance of obtaining those benefits. This makes it useful to separate a freedom to decline a final transaction from responsibility for the way negotiations are conducted.\n\nCompare the provision with Dixon, Cyberchron, and Channel Home. Identify whether liability rests on reliance, an agreed negotiating commitment, or the regulation of negotiating conduct. Then identify the permissible measure of recovery. The translation is presented as comparative material, not as the rule governing a domestic U.S. dispute.",
-      "textSha256": "762c7e5c6bba7b824db34a8161fd6421f34cf1cdd8da9194aabb2185d09ff591",
+      "text": "The translation permits damages where negotiations are at fault but excludes compensation for the loss of benefits expected from the contract that was not concluded. This makes it useful to separate a freedom to decline a final transaction from responsibility for the way negotiations are conducted.\n\nCompare the provision with Dixon, Cyberchron, and Channel Home. Identify whether liability rests on reliance, an agreed negotiating commitment, or the regulation of negotiating conduct. Then identify the permissible measure of recovery. The translation is presented as comparative material, not as the rule governing a domestic U.S. dispute.",
+      "textSha256": "f83339fddbb5c86d915d616ac72cd7e3d538e4a11933a64467cafdd95b0a946a",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: french-negotiations",
@@ -25904,8 +25994,8 @@
       "id": "gap-filling",
       "title": "Terms supplied by law or implication",
       "field": "notes",
-      "text": "The existence of an omitted term does not always prevent enforcement. Identify the source and limits of the proposed term, the parties’ intention, and whether there is a sufficiently definite agreement to enforce. Northrop and the definiteness cases illustrate different problems; they do not authorize replacing every disagreement with a court’s preferred outcome.",
-      "textSha256": "3b82ad9e48f59e734ac4db32b27b64b97ea564cfa4821cfb08f645b7bc9aa725",
+      "text": "The existence of an omitted term does not always prevent enforcement. Identify the source and limits of the proposed term, the parties’ intention, and whether there is a sufficiently definite agreement to enforce. Northrop and the definiteness cases illustrate different problems; they do not authorize replacing every disagreement with a court’s preferred outcome. The casebook separates two kinds of incompleteness: missing terms, which courts often fill with default rules or implied terms, and failure to provide for future contingencies, which courts seldom repair (Ayres and Gertner). Oglebay's failed price mechanism raises the second kind, and slide 10 asks which reasons for leaving it unaddressed a court should condone.",
+      "textSha256": "8055f003fa1a22372b954983f794aeedfa3d4e130b8b10f9de774e0134adc6a7",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: gap-filling",
@@ -103902,8 +103992,8 @@
       "id": "incomplete-bargains:6",
       "title": "Open terms and unfinished negotiations",
       "field": "note",
-      "text": "New York promissory estoppel yields reliance damages, including attributable overhead, when talks never produced the contemplated contract.",
-      "textSha256": "9bbbec347eae831cfc34c61f128357480c3a3db646f6e5270735c4cae207f120",
+      "text": "A clear and unambiguous promise made during talks that never produced the contemplated contract supported New York promissory estoppel; recovery was reliance costs after the promise, including attributable overhead.",
+      "textSha256": "a7557fcb5fb5c0ef9b611cf8a820577c635640c508dbec4038a50e813eab108d",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "incomplete-bargains",
@@ -103916,8 +104006,8 @@
       "id": "incomplete-bargains:7",
       "title": "Open terms and unfinished negotiations",
       "field": "note",
-      "text": "The alleged promise to consider a loan modification supported allowing the reliance claim to proceed.",
-      "textSha256": "2ba8e7131ededfbca2c681c79892d73c7b31cce5557dcce0e24ab08e8c1b3a48",
+      "text": "The alleged promise to consider a loan modification, which induced the default the bank then used to foreclose, supported allowing the reliance claim to proceed.",
+      "textSha256": "0b268ff8f9baedc66fbd80613735160525c99ffc40cdcb90319f0e7fef6dd21e",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "incomplete-bargains",

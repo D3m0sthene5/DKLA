@@ -1955,7 +1955,7 @@
         "Contracts"
       ],
       "takeaway": "The complaint alleged that the bank told the borrowers to stop paying while it considered modification, then foreclosed. The district court predicted that Massachusetts law allowed this reliance claim to proceed despite indefinite modification terms. It denied dismissal; liability and damages still had to be proved.",
-      "takeawaySha256": "a90bddab627fcc48e80dfab9fe6f15413fb49523f5dd430d9ff67a8b7cdc6967",
+      "takeawaySha256": "e2e9c825ab03032d6a455a105790baa46fa693a6b1d4efac2919c8ef37091677",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding expressly resolves pleading sufficiency, not proven facts or an award.",
@@ -1966,9 +1966,9 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-CB-0333",
         "sourceLocator": "tools/r19/data/sections.json :: CT-CB-0333.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "87f8585ef44d2683fb9c27e6f46363674d59fd5c865fd09591ec18bb81ca2b23",
+        "ruleSha256": "b71e9649078c9bf1a68ce915f80aa5abcb9f211fd037bbfbff4892d0ecf149c8",
         "comparedSections": {
-          "Holding": "ed3ea5fa3d4074ae0440407b48c5ea15aee3d6c8d6a43f68b52183255dfe88ae"
+          "Holding": "5706539a86af951a83684a57f6ecf0050153b47e014cb111fbdfd9d8cc54b05f"
         },
         "sectionsReadCompletely": [
           "Holding"
@@ -1985,7 +1985,27 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.comparedSections.Holding"
+        }
+      ]
     },
     {
       "id": "cyberchron",
@@ -1994,7 +2014,7 @@
         "Contracts"
       ],
       "takeaway": "No final contract was ever signed, but a clear promise that led a supplier to keep building in reliance can still be enforced. The remedy is the money spent in reliance, including properly attributed overhead, not the profits of the deal that never happened.",
-      "takeawaySha256": "2b2c9fb2743af77a2d65b6160227075d1a321fc66ca128e974786df107018003",
+      "takeawaySha256": "cb7063d3bba62c37e7615fcb91cee316ff5287f0b3abdecfe6e38738092e06b6",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -2024,7 +2044,15 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        }
+      ]
     },
     {
       "id": "channel-home",
@@ -2122,7 +2150,7 @@
         "Contracts"
       ],
       "takeaway": "When the parties clearly meant a long-term deal to continue and their agreed price formulas stop working, a court can set a reasonable price itself and can order the parties to keep performing and keep negotiating.",
-      "takeawaySha256": "50bc1cc164053cc2e413b05814b57a3266b97a31f4ec968fc896a2143eb0ab78",
+      "takeawaySha256": "7ffb3b2e88990c8dd72e3652e49fceabcd1558c93f595f3495ff582e66ae4491",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -2152,7 +2180,15 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        }
+      ]
     },
     {
       "id": "alaska-packers",

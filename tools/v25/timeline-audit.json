@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "reviewedAt": "2026-11-17",
   "dataPath": "tools/r19/data/timelines.json",
-  "timelinesSha256": "544fb97b393607e0ffc14dc0687b28028442cd3f677d7da9ab2894ede3af72f7",
+  "timelinesSha256": "933171e2f7502046252a8ea8b778dbb3e3c12ec6d7506f28fc49e7dbe3937811",
   "baselineGitRevision": "347d2e9759a7b5429f24825c521a967ce2b14eb9",
   "scope": "All timeline memberships and navigation were inventoried against the canonical cases and original assigned-source locations. New lines and selected corrections were compared with original casebook passages and case-specific accounts. Prior complete-opinion limitations remain; this does not certify every proposition or all current law. November 17: all 685 timeline steps screened editorially; targeted primary-source corrections are recorded separately. This is not a complete primary-source audit of every step or brief.",
   "limitations": [
@@ -6943,7 +6943,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CT-CB-0333.md",
         "sourceLocator": "tools/r19/data/sections.json :: CT-CB-0333.rule (effective assembler overlays included)",
         "comparedRule": "As a federal court predicted Massachusetts law, a lender's promise to consider a borrower for a loan modification that induces the borrower to default can support a promissory-estoppel claim despite indefinite modification terms, with relief aimed at restoring the position lost through reliance.",
-        "comparedRuleSha256": "87f8585ef44d2683fb9c27e6f46363674d59fd5c865fd09591ec18bb81ca2b23",
+        "comparedRuleSha256": "b71e9649078c9bf1a68ce915f80aa5abcb9f211fd037bbfbff4892d0ecf149c8",
         "effectiveFullBriefSha256": "4fb18670e179858665c1998c3db005468e6db2e94aa0e79d9327c4f928af8eef",
         "inheritedCitation": "798 F. Supp. 2d 336 (D. Mass. 2011) | Contracts",
         "inheritedBriefPdfLocator": {
@@ -6980,6 +6980,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -47431,6 +47439,11 @@
     "originalSourceRegistry": "tools/v28/source-links.json"
   },
   "timelinesRereviews": [
+    {
+      "date": "2026-11-19",
+      "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+      "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review."
+    },
     {
       "date": "2026-11-19",
       "register": "tools/content-audit/2026-11-19-contracts-opus.json",

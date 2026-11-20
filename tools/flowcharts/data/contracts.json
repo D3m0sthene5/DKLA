@@ -2591,8 +2591,8 @@
       },
       {
         "id": "c",
-        "label": "Was a negotiation duty sufficiently definite?",
-        "detail": "Channel Home’s signed promise to withdraw the property and negotiate exclusively was sufficiently definite for possible enforcement, supported by the tenant’s letter useful for financing. That promise did not itself conclude the lease.",
+        "label": "Did both sides intend to be bound by a definite negotiation promise supported by consideration?",
+        "detail": "Channel Home asks three questions: intent to be bound (the letter and both sides' later conduct), definiteness (the promise to withdraw the store and negotiate exclusively, read with a detailed letter covering most significant lease terms), and consideration (the tenant's signed letter, which the owner wanted for financing). If consideration is missing, Channel did not decide whether promissory estoppel could enforce the promise; test that on the assurance route. That promise did not itself conclude the lease.",
         "sources": [
           "channel-home",
           "note-keystone",
@@ -2600,11 +2600,11 @@
         ],
         "edges": [
           {
-            "label": "Binding process commitment",
+            "label": "Intent, a definite promise and consideration shown",
             "to": "f"
           },
           {
-            "label": "Loose pledge or unresolved process",
+            "label": "No intent, too indefinite, or no consideration",
             "to": "h"
           }
         ]
@@ -2612,7 +2612,7 @@
       {
         "id": "d",
         "label": "Was there a specific, reasonably relied-on assurance?",
-        "detail": "Cyberchron continued production after assurances of payment. Dixon stopped paying after a promise of modification consideration. Ask if the assurance foreseeably caused the change and whether justice requires relief.",
+        "detail": "Cyberchron continued production after a clear and unambiguous direction to proceed as if the weights were approved, with assurances of payment. Dixon stopped paying after a promise to consider a modification. Ask if the assurance foreseeably caused the change and whether justice requires relief. Some states, including Massachusetts, also require a definite promise: Dixon allowed the claim on a likely indefinite promise to consider only because the bank's conduct was designed to take advantage of the borrowers, inducing the default it then used to foreclose.",
         "sources": [
           "cyberchron",
           "dixon",
@@ -2620,11 +2620,11 @@
         ],
         "edges": [
           {
-            "label": "Promise and induced loss proven",
+            "label": "Promise and induced loss proven, with any local definiteness requirement met or excused as in Dixon",
             "to": "g"
           },
           {
-            "label": "Predicates fail",
+            "label": "Predicates fail, or the promise is too indefinite under local law and was not used to take advantage of the promisee",
             "to": "h"
           }
         ]
@@ -2643,7 +2643,7 @@
       {
         "id": "f",
         "label": "Enforce the negotiation commitment",
-        "detail": "Test the promised exclusivity or good-faith process for breach. A negotiation duty does not confer the final transaction’s benefits as if it were concluded.",
+        "detail": "Test the promised exclusivity or good-faith process for breach. Under a Tribune Type II commitment neither side can demand the final transaction, and either may abandon it after a good-faith effort to close, but insisting on conditions that do not conform to the preliminary writing is a breach. A negotiation duty does not by itself bind the parties to the final transaction. Courts divide on damages: Goodstein refuses lost expectation because the final terms cannot be known, while Venture Associates allows the lost benefit as consequential damages if the claimant proves a final contract would have been made but for the bad faith; a court might even order specific performance.",
         "sources": [
           "channel-home",
           "note-keystone"
@@ -2653,7 +2653,7 @@
       {
         "id": "g",
         "label": "Compensate supported reliance",
-        "detail": "Measure losses incurred because of the assurance, such as reasonable post-promise production or shutdown costs. Separate pre-promise costs and profits expected from an unsigned final deal.",
+        "detail": "Measure losses incurred because of the assurance, such as post-promise labor and materials, shutdown costs caused by the reliance, and reasonable overhead allocated by standard cost accounting where the claimant has a demonstrable history of ongoing operations. Separate pre-promise costs and profits expected from an unsigned final deal: Cyberchron did not seek them on appeal, and Dixon confined any recovery to reliance expenditures.",
         "sources": [
           "cyberchron",
           "dixon",
@@ -2664,7 +2664,7 @@
       {
         "id": "h",
         "label": "No asserted obligation established on this route",
-        "detail": "Unsettled essential terms or an unfulfilled signature condition can bar enforcement of the final deal. Check any separately undertaken negotiation or reliance obligation and the governing regime’s approach.",
+        "detail": "Unsettled essential terms or an unfulfilled signature condition can bar enforcement of the final deal. Check any separately undertaken negotiation or reliance obligation and the governing regime’s approach. Restitution of a benefit conferred during negotiations, and liability for misrepresenting an intention to come to terms, remain possible (Songbird Jet, Precision Testing, Markov).",
         "sources": [
           "sun-printing",
           "preliminary-agreements",
@@ -2682,7 +2682,7 @@
       {
         "id": "a",
         "label": "Did the parties intend a present bargain?",
-        "detail": "Separate a missing term in a concluded deal from an essential point deliberately left for future agreement. An objective basis for identifying breach and remedy helps show what the parties undertook.",
+        "detail": "Separate a missing term in a concluded deal from an essential point deliberately left for future agreement. An objective basis for identifying breach and remedy helps show what the parties undertook. For a sale of goods, take the sale branch even if price was left to be agreed: §§ 2-204(3) and 2-305(1)(b) let the contract stand, at a reasonable price, if the parties intended to be bound and there is a reasonably certain basis for a remedy.",
         "sources": [
           "definiteness",
           "preliminary-agreements"
@@ -2693,11 +2693,11 @@
             "to": "b"
           },
           {
-            "label": "Future agreement reserved",
+            "label": "Essential term left to future agreement without an agreed standard (not a sale of goods)",
             "to": "e"
           },
           {
-            "label": "Qualifying sale with open terms",
+            "label": "Sale of goods with open terms, including a price left to be agreed",
             "to": "d"
           }
         ]
@@ -2717,7 +2717,7 @@
             "to": "f"
           },
           {
-            "label": "Benchmark failed but intent clear",
+            "label": "Benchmark failed but intent to stay bound found",
             "to": "c"
           },
           {
@@ -2729,7 +2729,7 @@
       {
         "id": "c",
         "label": "Can a reasonable term preserve the bargain?",
-        "detail": "Decades of dealing showed continuing commitment in Oglebay after two rate mechanisms failed. The court set a reasonable rate on the evidence and upheld negotiation or mediation for future rates where damages were speculative.",
+        "detail": "In Oglebay the trier of fact found, from the parties' long and close relationship (joint ventures, interlocking directorates, Armco's stock in Oglebay) and the contract's recognition of Armco's need for a dedicated fleet, that they intended to stay bound after both rate mechanisms failed. The court set a reasonable rate on the evidence and upheld negotiation or mediation for future rates where damages were speculative.",
         "sources": [
           "oglebay",
           "gap-filling"
@@ -2748,7 +2748,7 @@
       {
         "id": "d",
         "label": "Apply sales defaults if the parties intended a deal",
-        "detail": "Article 2 can supply a reasonable price when parties intend a contract without fixing price. Under the CISG, identify the applicable treaty provision and evidence of agreement before importing a domestic default.",
+        "detail": "Article 2 can supply a reasonable price when parties intend a contract without fixing price, including when the price was left to be agreed and they fail to agree (§ 2-305(1)(b)). Whether they intended to be bound is usually for the trier of fact (cmt. 2), and the more terms left open, the less likely that intent (§ 2-204 cmt.). Under the CISG, identify the applicable treaty provision and evidence of agreement before importing a domestic default.",
         "sources": [
           "ucc204",
           "gap-filling",
@@ -2757,11 +2757,11 @@
         ],
         "edges": [
           {
-            "label": "Relevant default applies",
+            "label": "Intent to be bound and a relevant default or reasonably certain basis for a remedy",
             "to": "f"
           },
           {
-            "label": "Open point reserved or no applicable default",
+            "label": "Parties intended no contract unless the term was agreed or fixed (§ 2-305(4)), or no applicable default",
             "to": "e"
           }
         ]
@@ -2769,7 +2769,7 @@
       {
         "id": "e",
         "label": "The court cannot choose the bargain",
-        "detail": "Sun Printing left both future price and its duration to later agreement. The Canadian price ceiling did not fix duration, and the court declined to impose the claimed delivery duty.",
+        "detail": "Sun Printing left both future price and its duration to later agreement. The Canadian price ceiling did not fix duration, and the court declined to impose the claimed delivery duty. For goods, this ending applies only where the parties intended not to be bound unless the price was fixed or agreed (§ 2-305(4)); goods already received must then be returned or paid for at their reasonable value.",
         "sources": [
           "sun-printing",
           "definiteness"
