@@ -179,7 +179,7 @@
     return { chart, byId, trail: [{ id: chart.entry }], lead: 0, view: 'walkthrough', zoom: 1 };
   }
 
-  function graphLayout({ chart, byId, sizes, variant }) {
+  function graphLayout({ chart, byId, sizes }) {
     const rows = [];
     const incoming = new Map(chart.nodes.map((node) => [node.id, []]));
     for (const node of chart.nodes)
@@ -220,18 +220,19 @@
     const lanePitch = 10;
     const trackPitch = 10;
     const beside = 28; // between an answer and an outcome set beside it
+    const pairWidth = 460; // an outcome set beside its answer: wide enough for its title in two lines
     const lines = (text, perLine) => Math.max(1, Math.ceil(String(text).length / perLine));
-    // (Arrangement b) An answer that leads to an outcome no other answer reaches has that outcome set
-    // beside it, on the answer's own line: a condition and what follows from it are read together.
+    // An answer that is the only way to an outcome has that outcome set beside it, on the answer's
+    // own line: a condition and what follows from it are read together. An outcome that several
+    // routes reach stays in one place, so the paths are seen to meet there.
     const inline = new Map(); // outcome -> { parent, index }
-    if (variant === 'b')
-      for (const node of chart.nodes) {
-        if (node.edges.length < 2) continue;
-        node.edges.forEach((edge, index) => {
-          if (!byId.get(edge.to).edges.length && incoming.get(edge.to).length === 1)
-            inline.set(edge.to, { parent: node.id, index });
-        });
-      }
+    for (const node of chart.nodes) {
+      if (node.edges.length < 2) continue;
+      node.edges.forEach((edge, index) => {
+        if (!byId.get(edge.to).edges.length && incoming.get(edge.to).length === 1)
+          inline.set(edge.to, { parent: node.id, index });
+      });
+    }
     const laid = rows.map((row) => row.filter((node) => !inline.has(node.id))).filter((row) => row.length);
     rows.length = 0;
     rows.push(...laid);
@@ -241,7 +242,7 @@
     const level = (id) => levelOf.get(id);
     const kids = (node) =>
       node.edges.map((edge) => (inline.get(edge.to)?.parent === node.id ? byId.get(edge.to) : null));
-    const wOf = (node) => cardWidth + (kids(node).some(Boolean) ? beside + cardWidth : 0);
+    const wOf = (node) => cardWidth + (kids(node).some(Boolean) ? beside + pairWidth : 0);
     // A step's parts: its question, each answer's line, what follows them. Measured once the chart
     // has been shown (sizes), estimated before.
     const parts = (node) =>
@@ -463,7 +464,7 @@
         x: xs.get(id),
         y: parent.y + sizeOf(byId.get(at.parent)).kidY[at.index],
         level: parent.level,
-        width: cardWidth,
+        width: pairWidth,
         height: natural(byId.get(id)),
       });
     }
@@ -603,21 +604,60 @@
   }
   const artSVG = (one) =>
     `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${one.path}</svg>`;
-  // On the map a drawing behaves the same on every step: pointed at, focused or tapped it shows a
-  // small card with its case's name, and the card is the way to open that case. It never moves the
-  // reader to another step. (named: an outcome set beside its answer has room for each case's name
-  // next to its drawing, and there the drawing and the name together are the link.)
+  /* A drawing on the map is a small control, the same on every step: pressed (click, Enter or Space,
+     tap) or pointed at, it shows a card with the case's name, what this step's own stored explanation
+     says of that case, and "Open case". It never moves the reader to another step.
+     Nothing on the card is composed. The sentences are those of the step's explanation that name the
+     case by a party; a step that does not name it shows the name and the way to open it, no more.
+     At an outcome whose title names one of the cases it cites, that case is marked as the one the
+     outcome names and the others as also cited; a case whose sentence says to compare or contrast it
+     is marked as cited for comparison. */
   const KIND = { Case: 'case', Rule: 'rule', Concept: 'concept', Statute: 'statute', Note: 'note' };
+  const GENERIC =
+    /^(?:United|States|State|National|Board|City|County|Department|Commissioner|Secretary|American|People|Commonwealth|Federal|Association|Company|Corp|Inc)$/;
+  const sentences = (text) =>
+    String(text || '')
+      .split(/(?<=[.!?])\s+(?=[A-Z“"(§])/)
+      .filter(Boolean);
+  const partiesOf = (id) =>
+    nodesById.get(id)?.kind === 'Case'
+      ? titleOf(id)
+          .replace(/\s*\(\d{4}\)\s*$/, '')
+          .split(/ v\.? /)
+          .map(
+            (party) =>
+              party
+                .replace(/^(?:In re|Ex parte) /, '')
+                .split(/[\s,]+/)
+                .find((word) => word.length > 3 && !GENERIC.test(word)) || '',
+          )
+          .filter(Boolean)
+      : [];
+  const names = (text, id) =>
+    partiesOf(id).some((word) =>
+      new RegExp(`(?<![\\p{L}])${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'u').test(text),
+    );
+  function standing(node, one) {
+    const said = sentences(node.detail).filter((sentence) => names(sentence, one.id));
+    const titled = !node.edges.length && artOf(node).filter((other) => names(node.label, other.id));
+    const role = said.some((sentence) => /\b(?:compare|contrast)/i.test(sentence))
+      ? 'Cited for comparison'
+      : titled?.length
+        ? titled.some((other) => other.id === one.id)
+          ? 'The case this outcome names'
+          : 'Also cited at this outcome'
+        : '';
+    return { said: said.join(' '), role };
+  }
   const artHTML = (node, named) => {
     const list = artOf(node);
-    const open = (one) => `Open the ${KIND[nodesById.get(one.id)?.kind] || 'entry'}`;
     return list.length
       ? `<div class="fc-art-row${named ? ' fc-art-named' : ''}">${list
-          .map((one) =>
-            named
-              ? `<a class="fc-art-item fc-art-linked" href="${sourceURL(one.id)}" data-flowchart-source="${esc(one.id)}" title="${open(one)}"><span class="fc-art">${artSVG(one)}</span><span class="fc-art-name">${esc(one.title)}</span></a>`
-              : `<span class="fc-art-item"><button type="button" class="fc-art" data-fc-art aria-expanded="false" aria-label="${esc(one.title)}, a source for step ${node.number}: show its name">${artSVG(one)}</button><a class="fc-art-card" href="${sourceURL(one.id)}" data-flowchart-source="${esc(one.id)}"><span class="fc-art-title">${esc(one.title)}</span><span class="fc-art-open">${open(one)} →</span></a></span>`,
-          )
+          .map((one) => {
+            const { said, role } = standing(node, one);
+            const kind = KIND[nodesById.get(one.id)?.kind] || 'entry';
+            return `<span class="fc-art-item"><button type="button" class="fc-art-press" data-fc-art aria-expanded="false" aria-label="${esc(one.title)}, a source for step ${node.number}: show what this step says of it"><span class="fc-art">${artSVG(one)}</span>${named ? `<span class="fc-art-name">${esc(one.title)}</span>` : ''}</button><span class="fc-art-card" role="group" aria-label="${esc(one.title)}">${role ? `<span class="fc-art-role">${role}</span>` : ''}<span class="fc-art-title">${esc(one.title)}</span>${said ? `<span class="fc-art-said">${esc(said)}</span>` : ''}<a class="fc-art-open" href="${sourceURL(one.id)}" data-flowchart-source="${esc(one.id)}">Open ${kind} →</a></span></span>`;
+          })
           .join('')}</div>`
       : '';
   };
@@ -672,6 +712,7 @@
     const { byId } = session;
     const { positions, wires, joins, merges, exitOf, shift, width, height, sizeOf, inline, measured } =
       graphLayout(session);
+    session.shape = { positions, inline }; // what the composed overview at Fit is drawn from
     const printScale = Math.min(1, 640 / width, 800 / height);
     // Outcomes side by side on one row: at Fit their names are wider than the plates, so every
     // other one is set a line lower.
@@ -696,7 +737,7 @@
         <output class="fc-zoom-value" aria-label="Diagram zoom level"></output>
       </div>
       <div class="fc-map-scroll" role="region" aria-label="Scrollable flowchart diagram" tabindex="0">
-        <div class="fc-graph fc-flow-${session.variant === 'b' ? 'b' : 'a'}" style="--fc-graph-width:${width}px;--fc-graph-height:${height}px;--fc-print-scale:${printScale}">
+        <div class="fc-graph" style="--fc-graph-width:${width}px;--fc-graph-height:${height}px;--fc-print-scale:${printScale}">
           <svg class="fc-wires" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" aria-hidden="true">
             <defs><marker id="fcArrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
               <path d="M 0 0 L 8 4 L 0 8 Z"></path></marker></defs>
@@ -742,8 +783,52 @@
             .join('')}
         </div>
       </div>
-      ${indexHTML(session)}
+      <details class="fc-all"><summary>All ${byId.size} steps, in the chart’s order</summary>${indexHTML(session)}</details>
+      ${outlineHTML(session, inline)}
     </section>`;
+  }
+  /* The map composed for a phone (under 700 px; the wired chart is for wider windows). One scroll,
+     downwards: every step in the chart's own order, full width. Under a step, each answer with the
+     number and title of the step it leads to; pressing it goes there. An answer that is the only way
+     to an outcome has that outcome, with its cases, directly under it, so the outcomes of one fork
+     are compared without leaving it. Over a step, the steps that lead to it ("3 routes meet here,
+     from 3 · 14 · 15"), each a way back to that branch. The step being read carries its stored
+     explanation and, when it was reached by an answer, the way back to where that answer was. */
+  function outlineHTML({ byId }, inline) {
+    const from = new Map();
+    for (const node of byId.values())
+      for (const edge of node.edges) from.set(edge.to, (from.get(edge.to) || new Set()).add(node));
+    // A step's own parts, in the order they are wanted on a small screen: how the reader got here
+    // (when it was by an answer), the question, the answers with what each leads to, and only then
+    // the explanation and the cases, so that a fork and its outcomes share one screen.
+    const head = (node) =>
+      `<p class="fc-line-came"></p><button type="button" class="fc-node-heading" data-flowchart-node="${esc(node.id)}">${badge(node)}<span><span class="fc-sr-only">Step ${node.number}. </span>${esc(node.label)}</span></button>`;
+    const foot = (node) =>
+      `<div class="fc-line-now"><p class="fc-line-detail">${esc(node.detail)}</p><button type="button" class="fc-line-sources" data-fc-sources>Sources and related charts for this step ↓</button></div>${artHTML(node, true)}`;
+    return `<ol class="fc-outline" aria-label="The chart, step by step">${[...byId.values()]
+      .filter((node) => !inline.has(node.id))
+      .map((node) => {
+        const met = [...(from.get(node.id) || [])];
+        return `<li class="fc-line fc-kind-${kindOf(node)}${node.edges.length ? '' : ' fc-outcome'}" data-fc-line="${esc(node.id)}">
+          ${met.length ? `<p class="fc-line-from${met.length > 1 ? ' fc-line-met' : ''}">${met.length > 1 ? `${met.length} routes meet here, from` : 'From'} ${met.map((one) => `<button type="button" data-fc-seek="${esc(one.id)}" aria-label="Go to step ${one.number}: ${esc(one.label)}">${one.number}</button>`).join('')}</p>` : ''}
+          ${head(node)}
+          ${
+            node.edges.length
+              ? `<ul class="fc-line-exits">${node.edges
+                  .map((edge, index) => {
+                    const to = byId.get(edge.to);
+                    const answer = `data-fc-map-branch="${index}" data-fc-from="${esc(node.id)}"`;
+                    return inline.get(edge.to)?.parent === node.id
+                      ? `<li class="fc-line-pair"><button type="button" class="fc-line-exit" ${answer}><span class="fc-answer">${esc(edge.label)}</span></button><div class="fc-line fc-outcome fc-kind-outcome" data-fc-line="${esc(to.id)}">${head(to)}${artHTML(to, true)}<div class="fc-line-now"><p class="fc-line-detail">${esc(to.detail)}</p><button type="button" class="fc-line-sources" data-fc-sources>Sources and related charts for this step ↓</button></div></div></li>`
+                      : `<li><button type="button" class="fc-line-exit" ${answer}><span class="fc-answer">${esc(edge.label)}</span><span class="fc-destination">→ ${to.number} ${esc(to.label)}</span></button></li>`;
+                  })
+                  .join('')}</ul>`
+              : ''
+          }
+          ${foot(node)}
+        </li>`;
+      })
+      .join('')}</ol>`;
   }
   // Fitted to the window a tall chart is a narrow column with the rest of the window empty, and no
   // question can be read on it. The room beside it (below it, on a narrow screen) lists every step:
@@ -751,19 +836,37 @@
   // the steps its answers lead to. Pointing at a row marks that step on the chart with the lines
   // into and out of it; selecting a row goes to the step.
   function indexHTML({ byId }) {
+    // (A step that several routes reach says so, and from which steps: the joins can be found
+    // without tracing a line.)
+    const from = new Map();
+    for (const node of byId.values())
+      for (const edge of node.edges) from.set(edge.to, (from.get(edge.to) || new Set()).add(node.number));
     return `<ol class="fc-index" aria-label="Every step of the chart">${[...byId.values()]
-      .map(
-        (node) =>
-          `<li class="fc-kind-${kindOf(node)}${node.edges.length ? '' : ' fc-outcome'}" data-fc-row="${esc(node.id)}"><button type="button" data-flowchart-node="${esc(node.id)}">${badge(node)}<span class="fc-index-q"><span class="fc-sr-only">Step ${node.number}. </span>${esc(node.label)}</span>${node.edges.length ? `<span class="fc-index-to"><span class="fc-sr-only">Leads to step </span>→ ${[...new Set(node.edges.map((edge) => byId.get(edge.to).number))].join(' · ')}</span>` : ''}</button></li>`,
-      )
+      .map((node) => {
+        const met = [...(from.get(node.id) || [])];
+        return `<li class="fc-kind-${kindOf(node)}${node.edges.length ? '' : ' fc-outcome'}" data-fc-row="${esc(node.id)}"><button type="button" data-flowchart-node="${esc(node.id)}">${badge(node)}<span class="fc-index-q"><span class="fc-sr-only">Step ${node.number}. </span>${esc(node.label)}</span>${
+          node.edges.length || met.length > 1
+            ? `<span class="fc-index-to">${met.length > 1 ? `<span class="fc-index-met">${met.length} routes meet here, from ${met.join(' · ')}</span>` : ''}${node.edges.length ? `<span><span class="fc-sr-only">Leads to step </span>→ ${[...new Set(node.edges.map((edge) => byId.get(edge.to).number))].join(' · ')}</span>` : ''}</span>`
+            : ''
+        }</button></li>`;
+      })
       .join('')}</ol>`;
   }
 
   const nth = (n) => n + (n % 100 > 10 && n % 100 < 14 ? 'th' : ['th', 'st', 'nd', 'rd'][n % 10] || 'th');
-  // The first sentence of an outcome's explanation. It is shown under an answer only where the
-  // answer ends the chart there: an outcome's account says when it applies, which helps choose
-  // between the answers; a further step's account says what comes after choosing, which does not.
-  const opening = (text) => String(text || '').split(/(?<=[.!?])\s+(?=[A-Z“"(])/)[0];
+  /* Under an answer in the walkthrough: the opening sentence of the stored explanation of the step
+     the answer leads to, when it states something (a fact, a holding, a condition) that can help
+     choose between the answers. When it opens with an instruction (what to do after choosing), it
+     is not shown here: it belongs at that step, where it is read in full. Nothing is composed; a
+     fork whose answers have no such sentence shows none, and tools/flowcharts/deciding-gaps.mjs
+     (the same rule) lists those forks for the owner's content audit. */
+  const INSTRUCTION =
+    /^(?:Identify|Apply|Check|Use|Consider|Read|Compare|Specify|Assess|Confirm|Test|Ask|Define|Examine|Give|Distinguish|Look|Tie|Enforce|Address|Evaluate|Measure|Explain|Determine|Award|Rely|Select|Require|Separate|Follow|Establish|Leave|Tailor|Complete|Return|Try|Weigh|Allow|Show|Verify|Cite|Treat|Start|Begin|Find|Decide|Classify|Note|Keep|Stop|Proceed|Raise|Move|File|Plead|Calculate|Limit|Reject|Deny|Grant|Dismiss|Analyze|Describe|List|Locate|Match|Name|Preserve|Resolve|Review|Seek|Sort|Trace|Turn|Then|(?:State|Record|Order|Place) (?:the|each|which|whether|what|why|how|any|every|a|an)) /;
+  const opening = (text) => String(text || '').split(/(?<=[.!?])\s+(?=[A-Z“"(§])/)[0];
+  const deciding = (to) => {
+    const first = opening(to.detail);
+    return first && !INSTRUCTION.test(first) ? first : '';
+  };
   function sourcesHTML(node) {
     // v3.1: each source says what kind of entry it is (case, rule, concept).
     const KIND = { Case: 'Case', Rule: 'Rule', Concept: 'Concept', Statute: 'Statute', Note: 'Note' };
@@ -836,8 +939,7 @@
     const y = frame.top + scroll.clientHeight / 2;
     // (Measured with the chart given the whole width, before any of it is given to the list of steps.)
     const map = scroll.closest('.fc-map');
-    map.classList.remove('fc-indexed', 'fc-index-beside');
-    map.style.removeProperty('--fc-fit-width');
+    map.classList.remove('fc-composed'); // (the chart itself is measured, so it must be laid out)
     const tall = Math.min(1, (scroll.clientHeight - 28) / graph.offsetHeight),
       wide = Math.min(1, (scroll.clientWidth - 4) / graph.offsetWidth);
     const scale = active.zoom === 'fit' ? Math.min(tall, wide) : active.zoom;
@@ -846,34 +948,37 @@
     // in the room the fitted chart leaves, beside it where that is at least a column wide.
     const overview = scale < 0.5;
     graph.classList.toggle('fc-overview', overview);
-    if (overview && active.zoom === 'fit') {
-      // The chart's column is as wide as the fitted chart and the words that stand beside its first
-      // fork, the same on both sides so the chart stays in the middle of it.
-      const box = graph.getBoundingClientRect();
-      let beyond = 0;
-      for (const label of graph.querySelectorAll('.fc-over')) {
-        const at = label.getBoundingClientRect();
-        if (at.width) beyond = Math.max(beyond, box.left - at.left, at.right - box.right);
-      }
-      const column = Math.ceil(box.width + 2 * beyond) + 32;
-      map.classList.add('fc-indexed');
-      if (tall <= wide && scroll.clientWidth - column >= 420) {
-        map.classList.add('fc-index-beside');
-        map.style.setProperty('--fc-fit-width', column + 'px');
-      }
-    }
-    body.querySelector('.fc-zoom-value').textContent = `${Math.round(scale * 100)}%`;
+    // At Fit such a chart is not shrunk: it is recomposed for the window (composeOverview).
+    const composed = overview && active.zoom === 'fit';
+    map.classList.toggle('fc-composed', composed);
+    scroll.querySelector('.fc-ov')?.remove();
+    if (composed)
+      scroll.insertAdjacentHTML('beforeend', composeOverview(scroll.clientWidth, scroll.clientHeight));
+    body.querySelector('.fc-zoom-value').textContent = composed ? 'Overview' : `${Math.round(scale * 100)}%`;
     body
       .querySelector('[data-flowcharts-zoom="fit"]')
       .setAttribute('aria-pressed', String(active.zoom === 'fit'));
     body.querySelector('[data-flowcharts-zoom="out"]').disabled = scale <= 0.12;
     body.querySelector('[data-flowcharts-zoom="in"]').disabled = scale >= 1.6;
+    if (composed) return;
     if (center) {
       const cell = scroll
         .querySelector('[aria-current="step"]')
         .closest('.fc-map-node')
         .getBoundingClientRect();
-      scroll.scrollBy({ left: cell.left + cell.width / 2 - x, top: cell.top + cell.height / 2 - y });
+      // In the middle of the window; but a tall step is set lower than its top would otherwise
+      // be cut, with up to 150 px above it kept for the foot of the step that leads into it.
+      const room = scroll.clientHeight;
+      const above = Math.max(
+        Math.min(150, room - cell.height - 16),
+        Math.min((room - cell.height) / 2, 150),
+        24,
+      );
+      const middle = (room - cell.height) / 2;
+      scroll.scrollBy({
+        left: cell.left + cell.width / 2 - x,
+        top: cell.top - frame.top - (middle > 150 ? middle : above),
+      });
     } else if (preserve) {
       const next = graph.getBoundingClientRect();
       scroll.scrollBy({
@@ -894,13 +999,17 @@
   function paintStep({ focus = false, center = false } = {}) {
     const { byId, trail, view } = active;
     const lead = (active.lead = Math.min(active.lead || 0, trail.length - 1));
+    // A decision is a step with more than one answer, on the reader's own part of the trail. A step
+    // with one way on, or a step on the route a link arrived by, is not one and is not counted.
+    const decides = (i) => i >= lead && byId.get(trail[i].id).edges.length > 1;
+    const decisionAt = (i) => trail.slice(0, i + 1).filter((step, j) => decides(j)).length;
     const current = trail.at(-1);
     const node = byId.get(current.id);
     const detail = dialog.querySelector('#flowchartDetail');
     // v3.1: the entry the chart was opened from is named on the steps that cite it.
     const from = active.from && node.sources.includes(active.from) ? active.from : null;
     detail.innerHTML = `
-      <div class="fc-step-label">${nodeType(node) ? 'Outcome · chart step' : 'Chart step'} ${node.number}${trail.length - lead > 1 ? ` · ${nth(trail.length - lead)} on your path` : ''}${from ? ` · decided by ${esc(titleOf(from))}` : ''}</div>
+      <div class="fc-step-label">${node.edges.length > 1 ? `Your ${nth(decisionAt(trail.length - 1))} decision · chart step` : nodeType(node) ? 'Outcome · chart step' : 'Chart step'} ${node.number}${from ? ` · decided by ${esc(titleOf(from))}` : ''}</div>
       <h3 tabindex="-1">${esc(node.label)}</h3>
       ${current.label ? `<p class="fc-selected-branch">From step ${byId.get(trail.at(-2).id).number} · ${esc(current.label)}</p>` : ''}
       <p class="fc-explanation">${esc(node.detail)}</p>
@@ -911,7 +1020,7 @@
                 const next = byId.get(edge.to);
                 const own = active.from && next.sources.includes(active.from);
                 return `<li><button type="button" data-flowchart-branch="${esc(edge.to)}" data-fc-branch-index="${index}"${own ? ' class="fc-own"' : ''}>
-          <span>${esc(edge.label)}</span><span class="fc-destination">→ ${nodeType(next) || 'Step'} ${next.number} · ${esc(next.label)}</span>${next.edges.length ? '' : `<span class="fc-leads">${esc(opening(next.detail))}</span>`}
+          <span>${esc(edge.label)}</span><span class="fc-destination">→ ${nodeType(next) || 'Step'} ${next.number} · ${esc(next.label)}</span>${deciding(next) ? `<span class="fc-leads">${esc(deciding(next))}</span>` : ''}
         </button></li>`;
               })
               .join('')}</ol>`
@@ -924,22 +1033,30 @@
     const path = dialog.querySelector('.fc-trail');
     if (path) {
       const endings = node.edges.map((edge) => byId.get(edge.to));
-      // A step is "chart step N" by the chart's own numbering, and "1st, 2nd, …" by the order the
-      // reader chose it in. Steps the reader did not choose (the way to a step the chart was opened
-      // at) are listed apart, as one route to it, and are not counted as the reader's.
+      // A step is "chart step N" by the chart's own numbering; a decision the reader made, or is
+      // making, is also "1st decision", "2nd decision" in the order made. The way a link arrived by
+      // is listed apart as one route to the step, and where the reader has gone on from there the
+      // second list says where the reader's own path starts.
       const row = (step, i) => {
         const at = byId.get(step.id);
         const taken = trail[i + 1]?.label;
-        const order = i < lead ? '' : `${nth(i - lead + 1)} · `;
+        const order = decides(i) ? `${nth(decisionAt(i))} decision · ` : '';
         return i === trail.length - 1
           ? `<li aria-current="step"><span class="fc-trail-n">${order}chart step ${at.number} · now</span><span class="fc-trail-q">${esc(at.label)}</span></li>`
           : `<li><button type="button" data-fc-trail="${i}"><span class="fc-trail-n">${order}chart step ${at.number}</span><span class="fc-trail-q">${esc(at.label)}</span>${taken ? `<span class="fc-trail-a">→ ${esc(taken)}</span>` : ''}</button></li>`;
       };
       const rows = trail.map(row);
-      const walked = trail.length - lead;
-      path.innerHTML = `${lead ? `<p class="fc-trail-label">One route to chart step ${byId.get(trail[lead].id).number}</p><ol class="fc-trail-route">${rows.slice(0, lead).join('')}</ol>` : ''}<p class="fc-trail-label">Your path: ${walked} ${walked === 1 ? 'step' : 'steps'} so far</p><ol>${rows.slice(lead).join('')}</ol>${endings.length ? `<p class="fc-trail-next">Then ${endings.length === 1 ? 'chart step' : 'one of chart steps'} ${endings.map((n) => n.number).join(', ')}</p>` : ''}`;
+      const made = trail.slice(0, -1).filter((step, i) => decides(i)).length;
+      const own = `Your path${lead && trail.length - lead > 1 ? ` from chart step ${byId.get(trail[lead].id).number}` : ''}${made ? `: ${made} ${made === 1 ? 'decision' : 'decisions'} so far` : ''}`;
+      const next = endings.length
+        ? `<p class="fc-trail-next">Then ${endings.length === 1 ? 'chart step' : 'one of chart steps'} ${endings.map((n) => n.number).join(', ')}</p>`
+        : '';
+      path.innerHTML =
+        lead && trail.length - lead === 1
+          ? `<p class="fc-trail-label">One route to this step</p><ol>${rows.join('')}</ol>${next}`
+          : `${lead ? `<p class="fc-trail-label">One route to chart step ${byId.get(trail[lead].id).number}</p><ol class="fc-trail-route">${rows.slice(0, lead).join('')}</ol>` : ''}<p class="fc-trail-label">${own}</p><ol>${rows.slice(lead).join('')}</ol>${next}`;
     }
-    dialog.querySelector('[data-flowcharts-back]').disabled = trail.length < 2;
+    dialog.querySelector('.fc-walk-controls [data-flowcharts-back]').disabled = trail.length < 2;
     dialog.querySelector('[data-flowcharts-reset]').disabled =
       trail.length < 2 && node.id === active.chart.entry;
     for (const button of dialog.querySelectorAll('[data-flowcharts-view]'))
@@ -948,6 +1065,7 @@
     map.hidden = view !== 'map';
     dialog.querySelector('.fc-board').classList.toggle('fc-board-map', view === 'map');
     const visited = new Set(trail.map((step) => step.id));
+    let outlined = null; // the step's line in the phone map, when that is what is shown
     for (const cell of map.querySelectorAll('[data-fc-cell]')) {
       cell.classList.toggle('fc-path', visited.has(cell.dataset.fcCell));
       const button = cell.querySelector('[data-flowchart-node]');
@@ -960,6 +1078,28 @@
       if (row.dataset.fcRow === node.id) row.setAttribute('aria-current', 'step');
       else row.removeAttribute('aria-current');
     }
+    for (const line of map.querySelectorAll('[data-fc-line]')) {
+      line.classList.toggle('fc-path', visited.has(line.dataset.fcLine));
+      const here = line.dataset.fcLine === node.id;
+      if (here) line.setAttribute('aria-current', 'step');
+      else line.removeAttribute('aria-current');
+      if (!here) {
+        line.querySelector('.fc-line-came').textContent = '';
+        continue;
+      }
+      // Reached by an answer: the way back to the step that answer is on, in the answer's words.
+      const before = current.label && byId.get(trail.at(-2).id);
+      line.querySelector('.fc-line-came').innerHTML = before
+        ? `<button type="button" data-flowcharts-back>← Back to step ${before.number}</button> <span>You chose “${esc(current.label)}”</span>`
+        : '';
+      // (Only the chart's own page is scrolled: scrollIntoView would also move the dialog under its
+      // heading.)
+      if (view === 'map' && line.getClientRects().length && (focus || center)) {
+        outlined = line;
+        const target = line.closest('.fc-outline > .fc-line');
+        body.scrollTop += target.getBoundingClientRect().top - body.getBoundingClientRect().top - 4;
+      }
+    }
     const route = new Set(trail.slice(1).map((step, i) => `${trail[i].id}/${step.edge}`));
     for (const wire of map.querySelectorAll('.fc-wire'))
       wire.classList.toggle('fc-path-wire', route.has(`${wire.dataset.fcFrom}/${wire.dataset.fcEdge}`));
@@ -969,7 +1109,7 @@
       join.classList.toggle('fc-path-wire', reached.has(join.dataset.fcTo));
     if (view === 'map') {
       fitArt(map);
-      if (!active.sizes) {
+      if (!active.sizes && map.querySelector('.fc-map-scroll').clientWidth) {
         // Shown for the first time: each step is measured (its height, and where each answer's line
         // sits in it) and the chart is laid out and its wires routed to those measures.
         const scale = currentZoom(map.querySelector('.fc-graph'));
@@ -994,7 +1134,8 @@
       }
       paintZoom({ center });
     }
-    if (focus) {
+    if (focus && outlined) outlined.querySelector('.fc-node-heading').focus({ preventScroll: true });
+    else if (focus) {
       const destination = detail.querySelector('h3');
       destination.focus({ preventScroll: true });
       if (view !== 'map' || matchMedia('(max-width: 850px)').matches)
@@ -1011,12 +1152,363 @@
       '#flowchart=' +
       encodeURIComponent(active.chart.id) +
       (step ? '&step=' + encodeURIComponent(step) : '') +
-      (active.from ? '&from=' + encodeURIComponent(active.from) : '') +
-      (active.variant === 'b' ? '&flow=b' : '');
+      (active.from ? '&from=' + encodeURIComponent(active.from) : '');
     active.opened = `${step}|${active.from || ''}`;
     if (location.hash === hash || !location.hash.startsWith('#flowchart=')) return;
     history.replaceState(history.state, '', hash);
     showing = hash;
+  }
+  /* Fit, for a chart that cannot be read at the size it fits (a chart that can be is left alone).
+     The chart is recomposed for the window from its own data, by rule:
+       - it runs left to right, a column for each rank of steps;
+       - the first step that forks is the first question, with its words; each of its answers that
+         has steps of its own names a framed region holding those steps;
+       - the step most routes meet at (three or more, reached from more than one of those answers)
+         and has steps after it is the major join; it and everything after it are a last region,
+         named by the answer that most often leads into it (a chart whose routes meet only at its
+         endings has no such region: those endings stand between the regions that reach them);
+       - words go to the first question, the major join, any other step where three routes or two
+         regions meet, every outcome (in full), and the step the reader is on; on a chart of a
+         dozen steps or fewer, to every step they can be set beside clear of everything else.
+         Every other step is a mark, its number in its shape, and gives its name when pointed at,
+         focused or pressed;
+       - a step where routes meet is ringed.
+     Selecting a mark or a region goes into the detailed map there (look). */
+  function composeOverview(W, H) {
+    const { chart, byId, trail } = active;
+    const { positions, inline } = active.shape;
+    const level = (id) => positions.get(id).level + (inline.has(id) ? 1 : 0);
+    const middle = (id) => positions.get(id).x + positions.get(id).width / 2;
+    const nodes = [...byId.values()];
+    const into = new Map(nodes.map((node) => [node.id, []]));
+    for (const node of nodes)
+      node.edges.forEach((edge) => into.get(edge.to).push({ from: node.id, label: edge.label }));
+    // (A step is "after" another only by an answer that goes forward.)
+    const reach = (start) => {
+      const seen = new Set([start]);
+      for (const id of seen)
+        for (const edge of byId.get(id).edges) if (level(edge.to) > level(id)) seen.add(edge.to);
+      return seen;
+    };
+    let fork = byId.get(chart.entry);
+    for (let guard = nodes.length; fork.edges.length === 1 && guard; guard--)
+      fork = byId.get(fork.edges[0].to);
+    const starts = fork.edges.length > 1 ? [...new Set(fork.edges.map((edge) => edge.to))] : [];
+    const sets = starts.map(reach);
+    const shared = (id) => sets.filter((set) => set.has(id)).length;
+    const major = nodes
+      .filter((node) => node.edges.length && into.get(node.id).length >= 3 && shared(node.id) >= 2)
+      .sort((a, b) => into.get(b.id).length - into.get(a.id).length || level(a.id) - level(b.id))[0];
+    const tail = major ? reach(major.id) : new Set();
+    const lane = (id) => (tail.has(id) ? 'T' : shared(id) === 1 ? sets.findIndex((set) => set.has(id)) : 'S');
+    const members = (which) => nodes.filter((node) => lane(node.id) === which);
+    // Columns: the last region starts after everything before it.
+    const before = nodes.filter((node) => !tail.has(node.id));
+    const shift = major ? Math.max(0, 1 + Math.max(...before.map((n) => level(n.id))) - level(major.id)) : 0;
+    const col = (id) => level(id) + (tail.has(id) ? shift : 0);
+    const last = Math.max(1, ...nodes.map((node) => col(node.id)));
+    const padL = 204,
+      padR = 206,
+      top = 30,
+      foot = 14;
+    // (The columns of the last region are wider: its steps carry the most words.)
+    const wide = (c) => (major && c >= col(major.id) ? 1.8 : 1);
+    const run = [0];
+    for (let c = 0; c < last; c++) run.push(run[c] + wide(c));
+    // (And it starts far enough right that an outcome inside an earlier region has room for its
+    // words before it: found in three passes, since that room narrows every column.)
+    let step = 0,
+      push = 0;
+    for (let pass = 0; pass < 3; pass++) {
+      step = Math.min(120, (W - padL - padR - push) / run[last]);
+      const edge = major ? padL + run[col(major.id)] * step - 34 : Infinity;
+      const wanted = Math.max(
+        0,
+        ...before.filter((node) => !node.edges.length).map((node) => padL + run[col(node.id)] * step + 214),
+      );
+      push = major ? Math.max(0, wanted - edge) : 0;
+    }
+    const x = (id) => padL + run[col(id)] * step + (tail.has(id) ? push : 0);
+    const weight = (node) => (node.edges.length ? 1 : 1.75); // an outcome has its words beside it
+    const heaviest = (list) => {
+      const sums = new Map();
+      for (const node of list) sums.set(col(node.id), (sums.get(col(node.id)) || 0) + weight(node));
+      return Math.max(1, ...sums.values());
+    };
+    // Bands, top to bottom as the regions lie left to right in the detailed map; what is shared
+    // (the first question, a step reached from two regions) runs between them.
+    const regions = starts
+      .map((start, i) => ({ i, list: members(i) }))
+      .filter((one) => one.list.length)
+      .sort(
+        (a, b) =>
+          a.list.reduce((sum, n) => sum + middle(n.id), 0) / a.list.length -
+          b.list.reduce((sum, n) => sum + middle(n.id), 0) / b.list.length,
+      );
+    const order = regions.map((one) => one.i);
+    order.splice(Math.ceil(order.length / 2), 0, 'S');
+    const need = new Map(order.map((which) => [which, heaviest(members(which)) + (which === 'S' ? 0 : 0.6)]));
+    const all = [...need.values()].reduce((sum, n) => sum + n, 0);
+    const room = H - top - foot - (order.length - 1) * 12;
+    const bands = new Map();
+    let at = top;
+    for (const which of order) {
+      const tall = (room * need.get(which)) / all;
+      bands.set(which, {
+        lo: at + (which === 'S' ? 0 : 26),
+        hi: at + tall,
+        top: at,
+        unit: Math.min(56, tall / need.get(which)),
+      });
+      at += tall + 12;
+    }
+    bands.set('T', {
+      lo: top + 26,
+      hi: H - foot,
+      top,
+      unit: Math.min(60, (H - top - foot - 26) / heaviest(members('T'))),
+    });
+    // Each step: near what leads to it in its own region; the major join on the shared line.
+    const y = new Map();
+    const columns = [...new Set(nodes.map((node) => col(node.id)))].sort((a, b) => a - b);
+    for (const c of columns)
+      for (const which of [...order, 'T']) {
+        const band = bands.get(which);
+        const group = nodes.filter((node) => col(node.id) === c && lane(node.id) === which);
+        if (!group.length) continue;
+        const mid = (band.lo + band.hi) / 2;
+        const axis = (bands.get('S').lo + bands.get('S').hi) / 2;
+        const wish = new Map(
+          group.map((node) => {
+            const from = into
+              .get(node.id)
+              .filter((one) => y.has(one.from) && (lane(one.from) === which || which === 'T'));
+            return [
+              node.id,
+              node === major
+                ? axis
+                : from.length
+                  ? from.reduce((sum, one) => sum + y.get(one.from), 0) / from.length
+                  : mid,
+            ];
+          }),
+        );
+        group.sort((a, b) => wish.get(a.id) - wish.get(b.id) || middle(a.id) - middle(b.id));
+        const total = group.reduce((sum, node) => sum + weight(node), 0) * band.unit;
+        const mean = group.reduce((sum, node) => sum + wish.get(node.id), 0) / group.length;
+        // (In the last region a column's steps are spread over its whole height, which leaves the
+        // major join's words clear; elsewhere they keep close to what leads to them.)
+        const spread = which === 'T' && group.length > 1;
+        const unit = spread ? (band.hi - band.lo) / (total / band.unit) : band.unit;
+        let cursor = spread ? band.lo : Math.max(band.lo, Math.min(mean - total / 2, band.hi - total));
+        for (const node of group) {
+          y.set(node.id, cursor + (weight(node) * unit) / 2);
+          cursor += weight(node) * unit;
+        }
+      }
+    // Words: where they fit clear of the marks, of each other and of the window.
+    const here = trail.at(-1).id;
+    const walked = new Set(trail.map((one) => one.id));
+    const boxes = nodes.map((node) => ({
+      l: x(node.id) - 14,
+      r: x(node.id) + 14,
+      t: y.get(node.id) - 14,
+      b: y.get(node.id) + 14,
+      id: node.id,
+    }));
+    const tailEdge = major ? x(major.id) - 34 : Infinity;
+    // Where the lines will run (the curves drawn below, sampled), so that words are set clear of them.
+    const tracks = nodes.flatMap((node) =>
+      node.edges
+        .filter((edge) => x(edge.to) > x(node.id) + 1)
+        .map((edge) => {
+          const x1 = x(node.id) + 12,
+            y1 = y.get(node.id),
+            x2 = x(edge.to) - 14,
+            y2 = y.get(edge.to),
+            bend = (x2 - x1) / 2;
+          return Array.from({ length: 17 }, (unused, i) => {
+            const t = i / 16,
+              u = 1 - t;
+            return {
+              x: u * u * u * x1 + 3 * u * u * t * (x1 + bend) + 3 * u * t * t * (x2 - bend) + t * t * t * x2,
+              y: u * u * u * y1 + 3 * u * u * t * y1 + 3 * u * t * t * y2 + t * t * t * y2,
+            };
+          });
+        }),
+    );
+    const labels = [];
+    const say = (node, kind, width, size, lineHeight, sides, must) => {
+      const lines = Math.min(4, Math.ceil((node.label.length * size * 0.54) / width));
+      const tall = lines * lineHeight;
+      const cx = x(node.id),
+        cy = y.get(node.id);
+      const spots = {
+        right: { l: cx + 20, t: cy - tall / 2 },
+        left: { l: cx - 20 - width, t: cy - tall / 2, end: true },
+        above: { l: cx - width / 2, t: cy - 18 - tall, centre: true },
+        below: { l: cx - width / 2, t: cy + 18, centre: true },
+      };
+      // How badly a place is taken: outside the window or its own region counts most.
+      const taken = (spot) => {
+        const box = { l: spot.l, r: spot.l + width, t: spot.t, b: spot.t + tall };
+        const hit = (other) => box.l < other.r && box.r > other.l && box.t < other.b && box.b > other.t;
+        const crossed = (track) =>
+          track.some((at) => at.x > box.l - 2 && at.x < box.r + 2 && at.y > box.t - 1 && at.y < box.b + 1);
+        return (
+          (box.l < 4 || box.r > W - 4 || box.t < 4 || box.b > H - 4 ? 32 : 0) +
+          (lane(node.id) !== 'T' && box.r > tailEdge - 6 ? 32 : 0) +
+          4 * boxes.filter((mark) => mark.id !== node.id && hit(mark)).length +
+          8 * labels.filter((one) => hit(one.box)).length +
+          tracks.filter(crossed).length
+        );
+      };
+      const least = Math.min(...sides.map((name) => taken(spots[name])));
+      if (least > 1 && !must) return;
+      const side = sides.find((name) => taken(spots[name]) === least);
+      const spot = spots[side];
+      labels.push({
+        id: node.id,
+        kind,
+        width,
+        spot,
+        box: { l: spot.l, r: spot.l + width, t: spot.t, b: spot.t + tall },
+      });
+    };
+    say(fork, 'first', 172, 15, 19, ['left', 'above', 'below'], true);
+    if (major) say(major, 'major', 190, 14, 18, ['right', 'below', 'above'], true);
+    for (const node of nodes)
+      if (!node.edges.length && !labels.some((one) => one.id === node.id))
+        say(node, 'outcome', 178, 12.5, 16, ['right', 'left', 'below', 'above'], true);
+    for (const node of nodes) {
+      if (labels.some((one) => one.id === node.id)) continue;
+      const from = into.get(node.id);
+      const meets = from.length >= 3 || new Set(from.map((one) => lane(one.from))).size > 1;
+      if (node.id === here) say(node, 'here', 160, 12.5, 16, ['above', 'below', 'right', 'left'], true);
+      else if (meets && from.length > 1) say(node, 'join', 160, 12, 15, ['above', 'below', 'right']);
+    }
+    // A small chart (a dozen steps or fewer) has room for more: every other step gets its words
+    // too, wherever they stand clear of everything else.
+    if (nodes.length <= 12)
+      for (const node of nodes)
+        if (!labels.some((one) => one.id === node.id)) say(node, 'step', 150, 12, 15, ['above', 'below']);
+    // An answer of the first question that has no region of its own (it leads straight to a step
+    // other answers reach too): its words on its line, where there is room for them.
+    const asides = fork.edges
+      .filter((edge) => !regions.some((one) => starts[one.i] === edge.to))
+      .map((edge) => {
+        const width = 150,
+          tall = Math.min(3, Math.ceil((edge.label.length * 12 * 0.54) / width)) * 15;
+        const l = (x(fork.id) + x(edge.to)) / 2 - width / 2,
+          t = (y.get(fork.id) + y.get(edge.to)) / 2 - tall - 5;
+        const box = { l, r: l + width, t, b: t + tall };
+        const hit = (other) => box.l < other.r && box.r > other.l && box.t < other.b && box.b > other.t;
+        if (box.t < 4 || boxes.some(hit) || labels.some((one) => hit(one.box))) return '';
+        labels.push({ id: '', box });
+        return `<span class="fc-ov-label fc-ov-answer fc-ov-centre" style="left:${l.toFixed(1)}px;top:${t.toFixed(1)}px;width:${width}px" aria-hidden="true">${esc(edge.label)}</span>`;
+      })
+      .join('');
+    // Regions: a band of its own for each, as wide as its steps and their words.
+    const region = (l, band, right, title, to) =>
+      `<button type="button" class="fc-ov-region" data-fc-look="${esc(to)}" style="left:${l.toFixed(1)}px;top:${band.top.toFixed(1)}px;width:${(right - l).toFixed(1)}px;height:${(band.hi - band.top).toFixed(1)}px"><span class="fc-ov-title">${esc(title)}</span><span class="fc-sr-only">: show this part of the chart at full size</span></button>`;
+    // (A region with no room for its own name before the last region is not framed: the answer's
+    // words stand over its first step instead.)
+    const narrow = [];
+    const frames = regions.map((one) => {
+      const ids = new Set(one.list.map((node) => node.id));
+      const title = fork.edges.find((edge) => edge.to === starts[one.i]).label;
+      const l = Math.min(...one.list.map((node) => x(node.id))) - 30;
+      // As wide as its steps and their words, and at least as wide as its own name; never into the
+      // last region.
+      const named = l + title.length * 7.7 + 36;
+      const right = Math.min(
+        Math.max(
+          named,
+          ...one.list.map((node) => x(node.id) + 26),
+          ...labels.filter((label) => ids.has(label.id)).map((label) => label.box.r + 10),
+        ),
+        major ? tailEdge - 8 : W - 6,
+      );
+      if (right >= named) return region(l, bands.get(one.i), right, title, starts[one.i]);
+      const width = 150,
+        tall = Math.min(3, Math.ceil((title.length * 12 * 0.54) / width)) * 15;
+      const cx = x(starts[one.i]),
+        cy = y.get(starts[one.i]);
+      const spots = [cy - 18 - tall, cy + 18].map((t) => ({
+        l: cx - width / 2,
+        r: cx + width / 2,
+        t,
+        b: t + tall,
+      }));
+      const hit = (box) => (other) =>
+        box.l < other.r && box.r > other.l && box.t < other.b && box.b > other.t;
+      const spot =
+        spots.find(
+          (box) => box.t > 4 && !boxes.some(hit(box)) && !labels.some((label) => hit(box)(label.box)),
+        ) || spots[0];
+      labels.push({ id: '', box: spot });
+      narrow.push(
+        `<span class="fc-ov-label fc-ov-answer fc-ov-centre" style="left:${spot.l.toFixed(1)}px;top:${spot.t.toFixed(1)}px;width:${width}px" aria-hidden="true">${esc(title)}</span>`,
+      );
+      return '';
+    });
+    if (major) {
+      const counts = new Map();
+      for (const one of into.get(major.id)) counts.set(one.label, (counts.get(one.label) || 0) + 1);
+      frames.push(
+        region(tailEdge, bands.get('T'), W - 6, [...counts].sort((a, b) => b[1] - a[1])[0][0], major.id),
+      );
+    }
+    const route = new Set(trail.slice(1).map((one, i) => `${trail[i].id}/${one.edge}`));
+    const lines = nodes
+      .flatMap((node) =>
+        node.edges.map((edge, index) => {
+          const x1 = x(node.id),
+            y1 = y.get(node.id),
+            x2 = x(edge.to),
+            y2 = y.get(edge.to);
+          const forward = x2 > x1 + 1;
+          const bend = (x2 - x1 - 26) / 2;
+          const d = forward
+            ? `M ${x1 + 12} ${y1} C ${x1 + 12 + bend} ${y1} ${x2 - 14 - bend} ${y2} ${x2 - 14} ${y2}`
+            : `M ${x1} ${y1 - 12} C ${x1} ${y1 - 64} ${x2} ${y2 - 64} ${x2} ${y2 - 15}`;
+          return `<path class="fc-ov-line${forward ? '' : ' fc-ov-back'}${route.has(`${node.id}/${index}`) ? ' fc-path-wire' : ''}" data-fc-from="${esc(node.id)}" data-fc-to="${esc(edge.to)}" d="${d.replace(/(\.\d)\d+/g, '$1')}" marker-end="url(#fcOvArrow)"></path>`;
+        }),
+      )
+      .join('');
+    const marks = nodes
+      .map((node) => {
+        const said = labels.some((one) => one.id === node.id);
+        const cls = `fc-ov-mark fc-kind-${kindOf(node)}${into.get(node.id).length > 1 ? ' fc-ov-join' : ''}${said ? ' fc-ov-labelled' : ''}${walked.has(node.id) ? ' fc-path' : ''}`;
+        return `<button type="button" class="${cls}" data-fc-mark="${esc(node.id)}" data-fc-look="${esc(node.id)}"${node.id === here ? ' aria-current="step"' : ''} style="left:${x(node.id).toFixed(1)}px;top:${y.get(node.id).toFixed(1)}px" aria-label="Step ${node.number}: ${esc(node.label)}. Show it on the chart at full size">${badge(node)}${said ? '' : `<span class="fc-ov-name">${esc(node.label)}</span>`}</button>`;
+      })
+      .join('');
+    const words = labels
+      .filter((one) => one.id)
+      .map(
+        (one) =>
+          `<span class="fc-ov-label fc-ov-${one.kind}${one.spot.end ? ' fc-ov-end' : ''}${one.spot.centre ? ' fc-ov-centre' : ''}" data-fc-says="${esc(one.id)}" style="left:${one.spot.l.toFixed(1)}px;top:${one.spot.t.toFixed(1)}px;width:${one.width}px" aria-hidden="true">${esc(byId.get(one.id).label)}</span>`,
+      )
+      .join('');
+    return `<div class="fc-ov" style="width:${W}px;height:${H}px" role="group" aria-label="The chart at a glance">${frames.join('')}<svg class="fc-ov-lines" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" aria-hidden="true"><defs><marker id="fcOvArrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 8 4 L 0 8 Z"></path></marker></defs>${lines}</svg>${words}${asides}${narrow.join('')}${marks}</div>`;
+  }
+  // From the fitted overview into the detailed map at one step: full size, that step in the middle
+  // and ringed. The reader's own step and path are not changed, and stay marked as they were.
+  function look(id) {
+    active.zoom = 1;
+    paintZoom();
+    const scroll = body.querySelector('.fc-map-scroll');
+    for (const cell of scroll.querySelectorAll('.fc-looked')) cell.classList.remove('fc-looked');
+    const cell = scroll.querySelector(`[data-fc-cell="${CSS.escape(id)}"]`);
+    if (!cell) return;
+    cell.classList.add('fc-looked');
+    const frame = scroll.getBoundingClientRect(),
+      at = cell.getBoundingClientRect();
+    scroll.scrollBy({
+      left: at.left + at.width / 2 - frame.left - scroll.clientWidth / 2,
+      top: at.top - frame.top - Math.max(24, Math.min(150, (scroll.clientHeight - at.height) / 2)),
+    });
+    cell.querySelector('.fc-node-heading').focus({ preventScroll: true });
   }
   // Going to a step other than by choosing an answer on the step being shown: back along the trail
   // if it is on it; by the answer that leads there if there is one; otherwise one route to it from
@@ -1034,7 +1526,7 @@
     paintStep({ focus: true, center: true });
   }
 
-  function renderChart(chart, { step, from, flow } = {}) {
+  function renderChart(chart, { step, from } = {}) {
     if (!sessions.has(chart.id)) sessions.set(chart.id, makeSession(chart));
     active = sessions.get(chart.id);
     // Opened at a step (from a case page, a copied link, a reload): one route to it is shown, as a
@@ -1046,12 +1538,6 @@
       active.lead = active.trail.length - 1;
     }
     active.opened = opened;
-    // Two arrangements of the whole map can be opened side by side while they are compared: flow=b.
-    const variant = flow === 'b' ? 'b' : 'a';
-    if (active.variant !== variant) {
-      active.variant = variant;
-      active.sizes = null;
-    }
     active.from = from && nodesById.has(from) ? from : null;
     const id = courseOf(chart.id);
     dialog.dataset.fcCourse = id;
@@ -1227,7 +1713,10 @@
     }
   });
   window.addEventListener('resize', () => {
-    if (active?.view === 'map' && active.zoom === 'fit') paintZoom();
+    if (active?.view !== 'map') return;
+    // (A window widened past the phone layout: the wired map is measured and laid out now.)
+    if (!active.sizes) paintStep();
+    else if (active.zoom === 'fit') paintZoom();
   });
   // Pointing at an answer on the map, or reaching it with the keyboard, traces its wire to the step
   // it leads to.
@@ -1259,12 +1748,15 @@
     for (const el of map.querySelectorAll('.fc-trace')) el.classList.remove('fc-trace');
     map.classList.toggle('fc-tracing', !!id);
     if (!id) return;
-    for (const el of map.querySelectorAll('.fc-wire, .fc-join, [data-fc-cell], [data-fc-row]')) {
+    for (const el of map.querySelectorAll(
+      '.fc-wire, .fc-join, .fc-ov-line, [data-fc-cell], [data-fc-row], [data-fc-mark]',
+    )) {
       const d = el.dataset;
-      if (d.fcFrom === id || d.fcTo === id || d.fcCell === id || d.fcRow === id) el.classList.add('fc-trace');
+      if ([d.fcFrom, d.fcTo, d.fcCell, d.fcRow, d.fcMark].includes(id)) el.classList.add('fc-trace');
     }
   }
   const stepAt = (target) =>
+    target.closest?.('[data-fc-mark]')?.dataset.fcMark ||
     target.closest?.('[data-fc-row]')?.dataset.fcRow ||
     target.closest?.('.fc-overview [data-fc-cell]')?.dataset.fcCell;
   dialog.addEventListener('pointerover', (event) => {
@@ -1297,7 +1789,7 @@
     const button = event.target.closest('button');
     // A drawing's card stays open until something else is pressed.
     for (const item of dialog.querySelectorAll('.fc-art-shown'))
-      if (!button || item !== button.parentNode) {
+      if (!item.contains(event.target)) {
         item.classList.remove('fc-art-shown');
         item.querySelector('[data-fc-art]').setAttribute('aria-expanded', 'false');
       }
@@ -1329,6 +1821,17 @@
       paintStep({ focus: true, center: true });
     } else if ('flowchartBranch' in d) follow(active.trail.at(-1).id, Number(d.fcBranchIndex));
     else if ('fcMapBranch' in d) follow(d.fcFrom, Number(d.fcMapBranch));
+    else if ('fcSeek' in d) visit(d.fcSeek);
+    else if ('fcSources' in d) {
+      const sources = dialog.querySelector('#flowchartDetail');
+      body.scrollTop += sources.getBoundingClientRect().top - body.getBoundingClientRect().top - 4;
+    } else if ('fcLook' in d) {
+      // A mark with no words beside it, on a touch screen: the first press names it, the next goes in.
+      const bare = button.matches('.fc-ov-mark:not(.fc-ov-labelled, .fc-ov-named)');
+      for (const named of dialog.querySelectorAll('.fc-ov-named')) named.classList.remove('fc-ov-named');
+      if (bare && matchMedia('(hover: none)').matches) button.classList.add('fc-ov-named');
+      else look(d.fcLook);
+    } else if ('flowchartNode' in d && button.closest('.fc-overview, .fc-index')) look(d.flowchartNode);
     else if ('flowchartNode' in d && active.trail.at(-1).id !== d.flowchartNode) visit(d.flowchartNode);
   });
   dialog.addEventListener('keydown', (event) => {

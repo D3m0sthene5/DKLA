@@ -783,3 +783,48 @@ record nothing reads.
 - Playwright empties its output folder when it starts. Two Playwright steps
   must not share one (the Home check uses `test-results/`, the picture check
   `work/views/`).
+
+## Flowcharts in 3.2 (flowchart engineer's block; branch `v32-comp-b`)
+
+What the flowcharts do now, and where each part lives. All of it is in
+`src/features/flowcharts/flowcharts.js` and `.css`; the check is `tools/flowcharts/check-browser.mjs`.
+
+- **One arrangement of the whole map** (`graphLayout`, `graphHTML`). Answers share the left reading
+  edge; each carries "→ 16 title" for the step it leads to. An answer that is the *only* way to an
+  outcome has that outcome beside it, 460 px wide, with its cases named; an outcome several routes
+  reach stays in one place. The `flow=a` / `flow=b` switch used while the two were compared is gone.
+- **Fit** (`composeOverview`). A chart that cannot be read at the size it fits is not shrunk: it is
+  recomposed left to right for the window, by rule from its data (the rule is the comment over the
+  function). 93 of the 115 charts at 1440 × 900; the other 22 fit at reading size and are untouched.
+  Selecting a mark or a region calls `look`, which goes into the full-size map there without changing
+  the reader's step. Lines in the overview are plain curves, not routed.
+- **Phones** (`outlineHTML`, under 700 px). "Whole map" is one list read downwards: named
+  destinations, "N routes meet here, from …", the way back to the step an answer was on. There is no
+  zoom on a phone. The wired chart and its checks run at wider widths.
+- **Walkthrough words.** "Your 2nd decision · chart step 14": only steps with more than one answer, on
+  the reader's own part of the trail, are counted (`decides`). A chart opened at a step shows "One
+  route to this step"; "Your path" is only what the reader chose (`active.lead`).
+- **A sentence under an answer** (`deciding`): the opening sentence stored for the step the answer
+  leads to, only when it states something; an instruction is not shown there. The same rule is in
+  `tools/flowcharts/deciding-gaps.mjs`, which writes the packet of forks left with nothing
+  (`node tools/flowcharts/deciding-gaps.mjs <folder>`). If you change one, change both: the browser
+  check compares them on LRS-15.
+- **Case card** (`artHTML`, `standing`). A drawing is a button; its card shows the case, the sentences
+  of the step's own stored explanation that name the case (verbatim, found by party name), and "Open
+  case". Nothing on the card is composed. Where the step's text does not name the case the card has
+  no sentence: that is a content gap.
+- **Back.** Leaving a chart for a cited entry records the place (`active.left`); the browser's Back
+  and the app's own arrow (`#studyBack`, and the phone strip's `[data-v32-back]`) both return to the
+  same chart, step, view, zoom and scroll. The address follows the step (`settle`, by
+  `history.replaceState`), so a reload returns to it.
+- **The check** measures from what is drawn: on every chart each answer's wire starts at its answer
+  and lands on the step the data names (directly or through the bar where routes meet) and passes
+  behind no other step; on every chart the phone list names every answer's step; at Fit no name or
+  label is cut or outside the view.
+
+Known and left: `tools/v32/check-chrome.mjs` fails on the joined build at "the empty palette" (the
+palette has a `coldcalls` row the check does not expect); `tools/v32/check-cards.mjs` and
+`tools/timelines/browser.mjs` also fail there. None is in the flowchart files; see the lead.
+The frame's path menu is styled by its id (`#v32Path`), not the class `.v32-path`, because the case
+page's list of flowchart steps is also a `.v32-path` (a rule on the class once took that list out of
+the page).

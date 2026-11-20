@@ -848,15 +848,15 @@
 .fc-overview .fc-map-node.fc-outcome {
   background: color-mix(in srgb, var(--fc-course, var(--v31-link)) 42%, var(--v31-ground));
 }
-/* Arrangement b (flow=b), while the two are compared. The answers share one reading edge: each is set
+/* The answers share one reading edge: each is set
    from the left whichever side its wire leaves by, and under it a short cue names the step it leads
    to, so a destination can be read without following the wire and two answers that reach the same
    step are seen to. An answer that leads to an outcome nothing else reaches has that outcome beside
    it on its own line. */
-#dklaFlowcharts .fc-flow-b .fc-map-node .fc-exit-R {
+#dklaFlowcharts .fc-map-node .fc-exit-R {
   text-align: start;
 }
-#dklaFlowcharts .fc-flow-b .fc-map-node .fc-destination {
+#dklaFlowcharts .fc-map-node .fc-destination {
   position: static;
   width: auto;
   height: auto;
@@ -868,13 +868,13 @@
     sans-serif;
   color: var(--v31-muted);
 }
-#dklaFlowcharts .fc-flow-b .fc-map-node .fc-exit-I > .fc-destination {
+#dklaFlowcharts .fc-map-node .fc-exit-I > .fc-destination {
   display: none;
 }
-#dklaFlowcharts .fc-flow-b .fc-map-node li + li > .fc-exit {
+#dklaFlowcharts .fc-map-node li + li > .fc-exit {
   border-top: 1px solid var(--v32-hair, rgba(255, 255, 255, 0.08));
 }
-#dklaFlowcharts .fc-flow-b .fc-map-node .fc-exit {
+#dklaFlowcharts .fc-map-node .fc-exit {
   padding-top: 6px;
   padding-bottom: 6px;
 }
@@ -886,10 +886,8 @@
   padding-bottom: 6px;
 }
 #dklaFlowcharts .fc-art-row.fc-art-named {
-  display: grid;
-  grid-template-columns: 28px minmax(0, 1fr);
-  gap: 4px 8px;
-  align-items: center;
+  flex-flow: row wrap;
+  gap: 4px 20px;
 }
 #dklaFlowcharts .fc-art-name {
   font:
@@ -922,15 +920,33 @@
   background: none;
   color: var(--fc-course, var(--v31-link));
 }
-#dklaFlowcharts button.fc-art:hover,
-#dklaFlowcharts button.fc-art:focus-visible,
-#dklaFlowcharts .fc-art-shown > .fc-art,
-#dklaFlowcharts a.fc-art-linked:hover > .fc-art {
+/* A drawing is pressed through a plain control round it (and round its name, where the name is
+   printed beside it). */
+#dklaFlowcharts .fc-art-press {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+#dklaFlowcharts .fc-art-press:hover > .fc-art,
+#dklaFlowcharts .fc-art-press:focus-visible > .fc-art,
+#dklaFlowcharts .fc-art-shown > .fc-art-press > .fc-art {
   color: var(--v31-text);
 }
-/* A drawing, on any step: pointed at, focused or pressed it shows a card with its case's name, and the
-   card opens the case. The card hangs from the drawing with no gap, so the pointer can travel onto
-   it; the plate it belongs to comes forward so the card lies over the plates and wires below. */
+#dklaFlowcharts .fc-art-press:hover > .fc-art-name,
+#dklaFlowcharts .fc-art-shown > .fc-art-press > .fc-art-name {
+  color: var(--v31-text);
+}
+#dklaFlowcharts .fc-art-press:focus-visible {
+  outline: 2px solid var(--v31-link);
+  outline-offset: 2px;
+}
+/* The case card: the case's name, what this step's stored explanation says of it, and the way to
+   open it. It hangs from the drawing with no gap, so the pointer can travel onto it; the plate it
+   belongs to comes forward so the card lies over the plates and wires below. */
 .fc-art-item {
   position: relative;
   display: inline-flex;
@@ -939,21 +955,17 @@
   display: none;
   position: absolute;
   z-index: 3;
-  left: -8px;
+  left: -12px;
   top: 100%;
   width: max-content;
-  max-width: 264px;
-  padding: 8px 12px;
-  border: 0;
+  max-width: 320px;
+  padding: 10px 14px 12px;
   border-top: 6px solid transparent;
-  border-radius: 8px;
+  border-radius: 10px;
   background: var(--v31-raised, var(--v31-ground)) padding-box;
-  box-shadow: 0 6px 20px rgb(0 0 0 / 0.45);
-  font:
-    500 13px/18px var(--dkla-interface, Inter),
-    sans-serif;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.5);
   text-align: start;
-  text-decoration: none;
+  white-space: normal;
   color: var(--v31-text);
 }
 #dklaFlowcharts .fc-art-item:hover > .fc-art-card,
@@ -961,31 +973,47 @@
 #dklaFlowcharts .fc-art-shown > .fc-art-card {
   display: block;
 }
-.fc-art-title,
-.fc-art-open {
+#dklaFlowcharts .fc-art-card > * {
   display: block;
 }
-.fc-art-open {
-  margin-top: 2px;
-  font-weight: 400;
+.fc-art-role {
+  margin-bottom: 2px;
+  font: var(--v31-label);
+  color: var(--fc-course, var(--v31-link));
+}
+.fc-art-title {
+  font:
+    600 15px/20px var(--dkla-interface, Inter),
+    sans-serif;
+}
+.fc-art-said {
+  margin-top: 6px;
+  font:
+    400 14px/20px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-soft);
+}
+#dklaFlowcharts a.fc-art-open {
+  width: max-content;
+  margin-top: 8px;
+  padding: 4px 0;
+  font:
+    500 14px/20px var(--dkla-interface, Inter),
+    sans-serif;
+  text-decoration: none;
   color: var(--v31-link);
 }
-#dklaFlowcharts .fc-art-card:hover > .fc-art-open,
-#dklaFlowcharts .fc-art-card:focus-visible > .fc-art-open {
+#dklaFlowcharts a.fc-art-open:hover,
+#dklaFlowcharts a.fc-art-open:focus-visible {
   color: var(--v31-link-hover, #9fd0ff);
   text-decoration: underline;
 }
 .fc-map-node:has(.fc-art-item:hover, .fc-art-item:focus-within, .fc-art-shown) {
   z-index: 6;
 }
-#dklaFlowcharts a.fc-art-linked {
-  display: contents;
-  text-decoration: none;
-}
-#dklaFlowcharts a.fc-art-linked:hover > .fc-art-name,
-#dklaFlowcharts a.fc-art-linked:focus-visible > .fc-art-name {
-  color: var(--v31-text);
-  text-decoration: underline;
+/* Looked at from the fitted overview: ringed until something else is done. */
+.fc-map-node.fc-looked {
+  box-shadow: 0 0 0 2px var(--v31-link-hover, #9fd0ff);
 }
 /* The line of help says "point" only where there is something to point with. */
 @media (hover: hover) {
@@ -998,14 +1026,24 @@
     display: none;
   }
 }
-/* Fitted to the window: every step listed in the room the chart leaves (see indexHTML). */
-.fc-index {
+/* Under the composed overview, closed until asked for: every step, listed (see indexHTML). */
+.fc-all {
   display: none;
 }
-.fc-indexed > .fc-index {
+.fc-composed > .fc-all {
   display: block;
+  margin-top: 10px;
+}
+#dklaFlowcharts .fc-all > summary {
+  width: max-content;
+  padding: 6px 0;
+  font: var(--v32-ui-small, 13px/18px sans-serif);
+  color: var(--v31-link);
+  cursor: pointer;
+}
+.fc-index {
   margin: 0;
-  padding: 12px 0 0;
+  padding: 8px 0 0;
   list-style: none;
   columns: 280px;
   column-gap: 24px;
@@ -1058,6 +1096,12 @@
     400 12px/16px var(--dkla-mono, 'JetBrains Mono'),
     monospace;
   color: var(--v31-muted);
+}
+.fc-index-to > span {
+  display: block;
+}
+.fc-index-met {
+  color: var(--fc-course, var(--v31-link));
 }
 .fc-index > .fc-outcome .fc-index-q {
   color: var(--v31-soft);
@@ -1304,4 +1348,393 @@
   #flowchartDetail {
     padding: 16px;
   }
+}
+
+/* ---------- the map on a phone (under 700 px): one list, read downwards (outlineHTML) ---------- */
+.fc-outline {
+  display: none;
+}
+@media (max-width: 699px) {
+  #dklaFlowcharts .fc-map .fc-zoom,
+  #dklaFlowcharts .fc-map .fc-zoom-value,
+  #dklaFlowcharts .fc-map .fc-map-scroll,
+  #dklaFlowcharts .fc-map .fc-index {
+    display: none;
+  }
+  .fc-outline {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--fc-line);
+  }
+  .fc-outline > .fc-line {
+    margin: 0 -12px;
+    padding: 14px 12px 16px;
+    border-bottom: 1px solid var(--fc-line);
+    scroll-margin-top: 4px;
+  }
+  .fc-outline .fc-line[aria-current='step'] {
+    background: var(--v31-here-bg);
+    box-shadow: inset 3px 0 0 var(--v31-here);
+  }
+  /* Where routes meet, and the ways back to each branch. */
+  .fc-line-from {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin: 0 0 8px 38px;
+    font: var(--v31-label);
+    color: var(--v31-muted);
+  }
+  #dklaFlowcharts .fc-line-from > button {
+    all: unset;
+    box-sizing: border-box;
+    position: relative;
+    min-width: 30px;
+    height: 26px;
+    padding: 0 8px;
+    border-radius: 6px;
+    background: var(--v32-hair, rgb(255 255 255 / 0.08));
+    text-align: center;
+    font:
+      600 12px/26px var(--dkla-mono, 'JetBrains Mono'),
+      monospace;
+    color: var(--v31-link);
+    cursor: pointer;
+  }
+  #dklaFlowcharts .fc-line-from > button::after {
+    content: '';
+    position: absolute;
+    inset: -9px -3px;
+  }
+  #dklaFlowcharts .fc-outline .fc-node-heading {
+    padding: 0;
+    font:
+      600 17px/22px var(--dkla-interface, Inter),
+      sans-serif;
+  }
+  .fc-outline .fc-line.fc-path > .fc-node-heading > span:last-child {
+    color: var(--v31-text);
+  }
+  .fc-line-now {
+    display: none;
+    margin: 12px 0 0 38px;
+  }
+  .fc-line[aria-current='step'] > .fc-line-now {
+    display: block;
+  }
+  /* On the step being read, how the reader got here stands for the plain "From" line; where
+     several routes meet, both are shown. */
+  .fc-line-came:not(:empty) ~ .fc-line-from:not(.fc-line-met),
+  .fc-line-from:not(.fc-line-met):has(~ .fc-line-came:not(:empty)) {
+    display: none;
+  }
+  .fc-line-came {
+    margin: 0 0 8px 38px;
+    font: var(--v32-ui-small, 13px/18px sans-serif);
+    color: var(--v31-muted);
+  }
+  .fc-line-came:empty {
+    display: none;
+  }
+  #dklaFlowcharts .fc-line-came > button,
+  #dklaFlowcharts .fc-line-sources {
+    all: unset;
+    padding: 6px 0;
+    font:
+      500 14px/20px var(--dkla-interface, Inter),
+      sans-serif;
+    color: var(--v31-link);
+    cursor: pointer;
+  }
+  .fc-line-pair .fc-line-came {
+    margin-left: 0;
+  }
+  .fc-line-detail {
+    margin: 0 0 4px;
+    font:
+      400 15px/22px var(--dkla-interface, Inter),
+      sans-serif;
+    color: var(--v31-soft);
+  }
+  #dklaFlowcharts .fc-outline .fc-art-row {
+    flex-flow: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin: 0;
+    padding: 8px 0 0 38px;
+  }
+  #dklaFlowcharts .fc-outline .fc-art-name {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .fc-line-exits {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 12px 0 0 38px;
+    padding: 0;
+    list-style: none;
+  }
+  .fc-line-exits > li {
+    margin: 0;
+    padding: 0;
+    border-radius: 8px;
+    background: var(--v31-raised);
+  }
+  #dklaFlowcharts .fc-line-exit {
+    all: unset;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  #dklaFlowcharts .fc-line-exit:active {
+    background: var(--v32-hair, rgb(255 255 255 / 0.08));
+  }
+  #dklaFlowcharts .fc-line-exit:focus-visible,
+  #dklaFlowcharts .fc-line-from > button:focus-visible {
+    outline: 2px solid var(--v31-link);
+    outline-offset: 1px;
+  }
+  .fc-line-exit > .fc-answer {
+    display: block;
+    font:
+      500 15px/20px var(--dkla-interface, Inter),
+      sans-serif;
+    color: var(--v31-text);
+  }
+  #dklaFlowcharts .fc-line-exit > .fc-destination {
+    display: block;
+    margin-top: 3px;
+    font:
+      400 13px/18px var(--dkla-interface, Inter),
+      sans-serif;
+    color: var(--v31-muted);
+  }
+  /* An answer that is the only way to an outcome: the outcome and its cases directly under it. */
+  #dklaFlowcharts .fc-line-pair > .fc-line-exit {
+    padding-bottom: 6px;
+  }
+  .fc-line-pair > .fc-line {
+    margin: 0 6px 6px;
+    padding: 8px 10px 10px;
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--fc-course, var(--v31-link)) 16%, var(--v31-raised));
+    scroll-margin-top: 96px;
+  }
+  .fc-line-pair > .fc-line[aria-current='step'] {
+    box-shadow: 0 0 0 2px var(--v31-here);
+  }
+  #dklaFlowcharts .fc-line-pair .fc-node-heading {
+    font-size: 16px;
+    line-height: 21px;
+  }
+}
+
+/* ---------- Fit: the chart recomposed for the window (composeOverview) ---------- */
+.fc-composed .fc-graph {
+  display: none;
+}
+.fc-composed .fc-map-scroll {
+  overflow: hidden;
+}
+.fc-ov {
+  position: relative;
+  --fc-wire: color-mix(in srgb, var(--fc-course, var(--v31-link)) 62%, var(--v31-ground));
+}
+#dklaFlowcharts .fc-ov-region {
+  all: unset;
+  box-sizing: border-box;
+  position: absolute;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--v31-raised) 55%, transparent);
+  box-shadow: inset 0 0 0 1px var(--v32-hair, rgb(255 255 255 / 0.07));
+  cursor: zoom-in;
+}
+#dklaFlowcharts .fc-ov-region:hover,
+#dklaFlowcharts .fc-ov-region:focus-visible {
+  background: var(--v31-raised);
+  box-shadow: inset 0 0 0 1px var(--v31-line-strong, rgb(255 255 255 / 0.2));
+}
+#dklaFlowcharts .fc-ov-region:focus-visible {
+  outline: 2px solid var(--v31-link);
+  outline-offset: 1px;
+}
+/* (A region is made at least as wide as its name: the name is never cut.) */
+.fc-ov-title {
+  position: absolute;
+  left: 14px;
+  right: 10px;
+  top: 7px;
+  font:
+    600 13px/18px var(--dkla-interface, Inter),
+    sans-serif;
+  white-space: nowrap;
+  color: var(--v31-link);
+}
+.fc-ov-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  color: var(--fc-wire);
+}
+.fc-ov-lines marker path {
+  fill: context-stroke;
+}
+.fc-ov-line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4px;
+}
+.fc-ov-back {
+  stroke-dasharray: 4 4;
+}
+.fc-ov-line.fc-path-wire {
+  stroke: var(--v31-text);
+  stroke-width: 2.4px;
+}
+.fc-tracing .fc-ov-line:not(.fc-trace, .fc-path-wire) {
+  opacity: 0.3;
+}
+.fc-ov-line.fc-trace {
+  stroke: var(--v31-link-hover, #9fd0ff);
+  stroke-width: 2.4px;
+}
+#dklaFlowcharts .fc-ov-mark {
+  all: unset;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin: -12px 0 0 -12px;
+  border-radius: 999px;
+  cursor: zoom-in;
+}
+#dklaFlowcharts .fc-ov-mark::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+}
+.fc-ov-mark > .fc-number {
+  zoom: 0.8;
+}
+/* Where routes meet: ringed. */
+.fc-ov-mark.fc-ov-join::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border: 1.5px solid var(--fc-course, var(--v31-link));
+  border-radius: 999px;
+  pointer-events: none;
+}
+.fc-ov-mark.fc-path::after {
+  border-color: var(--v31-text);
+}
+.fc-ov-mark[aria-current='step'] > .fc-number > svg {
+  fill: var(--v31-here);
+}
+.fc-ov-mark[aria-current='step'] {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--v31-here) 35%, transparent);
+}
+#dklaFlowcharts .fc-ov-mark:focus-visible {
+  outline: 2px solid var(--v31-link);
+  outline-offset: 5px;
+}
+.fc-ov-mark.fc-trace,
+#dklaFlowcharts .fc-ov-mark:hover {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--v31-link-hover, #9fd0ff) 55%, transparent);
+}
+/* A mark with no words beside it gives its name when pointed at, focused or pressed. */
+.fc-ov-name {
+  display: none;
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  bottom: calc(100% + 9px);
+  width: max-content;
+  max-width: 240px;
+  padding: 5px 9px;
+  border-radius: 6px;
+  background: var(--v31-ground);
+  box-shadow: 0 0 0 1px var(--v31-line-strong, rgb(255 255 255 / 0.2));
+  transform: translateX(-50%);
+  font:
+    500 13px/17px var(--dkla-interface, Inter),
+    sans-serif;
+  text-align: start;
+  white-space: normal;
+  color: var(--v31-text);
+  pointer-events: none;
+}
+.fc-ov-mark:hover > .fc-ov-name,
+.fc-ov-mark:focus > .fc-ov-name,
+.fc-ov-named > .fc-ov-name {
+  display: block;
+}
+.fc-ov-mark:hover,
+.fc-ov-mark:focus,
+.fc-ov-named {
+  z-index: 5;
+}
+.fc-ov-label {
+  position: absolute;
+  z-index: 1;
+  /* (A halo in the ground's colour, so a line passing behind a word does not strike it through.) */
+  text-shadow:
+    0 0 3px var(--v31-panel),
+    0 0 3px var(--v31-panel),
+    0 0 4px var(--v31-panel),
+    0 0 5px var(--v31-panel);
+  font:
+    500 12.5px/16px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-soft);
+  pointer-events: none;
+}
+.fc-ov-end {
+  text-align: end;
+}
+.fc-ov-centre {
+  text-align: center;
+}
+.fc-ov-first {
+  font:
+    600 15px/19px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-text);
+}
+.fc-ov-major {
+  font:
+    600 14px/18px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-text);
+}
+.fc-ov-outcome {
+  color: var(--v31-text);
+}
+.fc-ov-label.fc-ov-join {
+  font-size: 12px;
+  line-height: 15px;
+  color: var(--v31-muted);
+}
+.fc-ov-here {
+  color: var(--v31-here);
+}
+.fc-ov-label.fc-ov-step {
+  font-size: 12px;
+  line-height: 15px;
+  color: var(--v31-muted);
+}
+.fc-ov-label.fc-ov-answer {
+  font-size: 12px;
+  line-height: 15px;
+  color: var(--v31-link);
 }
