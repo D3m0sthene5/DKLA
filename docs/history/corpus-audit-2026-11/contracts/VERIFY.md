@@ -10,11 +10,14 @@ Playwright's Chromium build 1243 standing in for the expected 1248, which the wo
 | `05fa132a` | the four records re-pinned | 76 of 76 passed |
 | `4f5c9c47` | OP-CT-13 corrections and their re-pinned records | 76 of 76 passed |
 | `96ebee23` | OP-CT-14 corrections and their re-pinned records | 76 of 76 passed |
+| `b767c567` | OP-CT-15 corrections | 74 of 76: `generated rule connections` (its ledger pins the Nanakuli rule line) and `search shows where it matched` (desktop only: a null element while the map redrew; the phone half passed) |
+| `900b8ca5` | that ledger re-pinned | 76 of 76 passed, including the search check, which needed no change |
 
-The four records pin hashes of text that earlier passes reviewed: `tools/v25/timeline-audit.json`
+The records pin hashes of text that earlier passes reviewed: `tools/v25/timeline-audit.json`
 (the timeline file and the compared rule lines of five steps), `tools/v25/explanation-audit.json`
 (takeaways and rule lines of Watkins, Austin, Swinton, Speakers of Sport and Vokes),
 `tools/cold-call/main-audit.json` (the Alaska Packers, Austin and Watkins narratives) and
+`tools/v25/generated-rule-connections-review.json` (canonical case comparisons; from OP-CT-15) and
 `tools/v25/geography.json` (rebuilt; only source and summary hashes changed, with no placement moved).
 Each re-pinned record carries a `rereviews` note naming the 19 November register.
 The regenerated `tools/v25/explanation-inventory.json` came from its own `--write`.
