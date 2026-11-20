@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "reviewedAt": "2026-11-17",
   "dataPath": "tools/r19/data/timelines.json",
-  "timelinesSha256": "97805bf8c833166b991dbf993d1e94141b1f00ed23fe2eb21f06c5a567a50d3f",
+  "timelinesSha256": "13a28667aba2da96993fa96023f0068cb826906bc3daec794f89d58fc8bd916e",
   "baselineGitRevision": "347d2e9759a7b5429f24825c521a967ce2b14eb9",
   "scope": "All timeline memberships and navigation were inventoried against the canonical cases and original assigned-source locations. New lines and selected corrections were compared with original casebook passages and case-specific accounts. Prior complete-opinion limitations remain; this does not certify every proposition or all current law. November 17: all 685 timeline steps screened editorially; targeted primary-source corrections are recorded separately. This is not a complete primary-source audit of every step or brief.",
   "limitations": [
@@ -10224,7 +10224,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CT-NEXT-CM-0147.md",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0147.rule (effective assembler overlays included)",
         "comparedRule": "When a contractor deliberately fails to perform a construction obligation, the owner's damages are the reasonable cost of performing the promised work, even if that cost exceeds the value of the completed land; economic waste concerns only destroying a completed or substantially completed structure.",
-        "comparedRuleSha256": "24a3d1e9abfc2aeff6d22d9e0fa24233101cb3c51cf50bf17695c3e6eaab7d01",
+        "comparedRuleSha256": "8895ca7eadd4863c0b9b8af07e1dcbd71746868190b55b5f23f843d897994200",
         "effectiveFullBriefSha256": "7508e9e591e84872c90e964279507acf6ae2f56c83463f7fb846e2ca98818f77",
         "inheritedCitation": "205 Minn. 163, 286 N.W. 235 (1939) | Contracts",
         "inheritedBriefPdfLocator": {
@@ -10267,6 +10267,14 @@
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
         }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
+        }
       ]
     },
     {
@@ -10296,7 +10304,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CT-NEXT-CM-0146.md",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0146.rule (effective assembler overlays included)",
         "comparedRule": "A builder who substantially performs, judged by the essential purpose of the contract, recovers the contract price less damages for defects, measured by cost of repair for defects that can reasonably be corrected and by diminution in value where correction would cause unreasonable economic waste.",
-        "comparedRuleSha256": "d49999284b2e5c3c2a6ea16748a2c6d0bf468692b808ba69e6ef9292ec3a00dc",
+        "comparedRuleSha256": "37f5c2d097f1032ed4cfaad3d0a9d947c4e24afb67cbf4b22f23f1b62e2f055d",
         "effectiveFullBriefSha256": "2c4aa824c20646302959a305fa7b2e8215055afd9f01dbf76d6bc4636c87a8c5",
         "inheritedCitation": "10 Wis. 2d 567, 103 N.W.2d 296 (1960) | Contracts",
         "inheritedBriefPdfLocator": {
@@ -10328,6 +10336,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -47327,6 +47343,11 @@
     "originalSourceRegistry": "tools/v28/source-links.json"
   },
   "timelinesRereviews": [
+    {
+      "date": "2026-11-19",
+      "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+      "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review."
+    },
     {
       "date": "2026-11-19",
       "register": "tools/content-audit/2026-11-19-contracts-opus.json",

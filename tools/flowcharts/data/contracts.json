@@ -4526,13 +4526,13 @@
   },
   {
     "id": "K-31",
-    "title": "How much can a contractor recover after breach?",
+    "title": "How much can a contractor or owner recover after a construction breach?",
     "entry": "a",
     "nodes": [
       {
         "id": "a",
-        "label": "Who breached and what was supplied?",
-        "detail": "Separate a builder’s defective work from an owner’s material breach that stops the builder early. Identify work completed, payments made, costs avoided and any benefit accepted.",
+        "label": "Who is suing, who breached, and what was supplied?",
+        "detail": "Identify who is suing. A builder whose work is defective or incomplete seeks payment subject to the owner’s damages. An owner suing the builder for defective or unperformed work, as in Groves and Peevyhouse, recovers its own damages. A contractor stopped early by the other side’s material breach may claim expectation or restitution. A contractor that has performed all its duties and is owed only a definite sum of money sues for the price, with no restitution alternative (§ 373(2)). Identify work completed, payments made, costs avoided and any benefit accepted.",
         "sources": [
           "completion-damages",
           "substantial-performance",
@@ -4541,12 +4541,20 @@
         ],
         "edges": [
           {
-            "label": "Defective or incomplete work",
+            "label": "Builder whose work is defective or incomplete seeks payment",
             "to": "b"
+          },
+          {
+            "label": "Owner sues the builder for defective or unperformed work",
+            "to": "c"
           },
           {
             "label": "Other side stopped performance",
             "to": "d"
+          },
+          {
+            "label": "Contractor fully performed and is owed only the price",
+            "to": "f"
           }
         ]
       },
@@ -4572,8 +4580,8 @@
       },
       {
         "id": "c",
-        "label": "What amount should be deducted for the defect?",
-        "detail": "Use reasonable correction cost where supported. Weigh waste, proportionality and whether the breached undertaking was central. Groves favored restoration cost. Peevyhouse used $300 diminution for restoration it treated as incidental. Plante selected repair costs by defect.",
+        "label": "What are the owner’s damages for the defect or omission?",
+        "detail": "Start from the loss in value to this owner (§ 347(a)). If that loss is not proved with sufficient certainty, § 348(2) allows damages based on the drop in market price or on the reasonable cost to complete or repair, but cost only if it is not clearly disproportionate to the probable loss in value to the owner. Plante (Wisconsin) allowed repair cost for small defects fixable without unreasonable economic waste, but valued the misplaced wall by diminution, which was zero: moving it ($4,000) would destroy finished work, and it did not affect market price. Groves (Minnesota) gave the reasonable cost of grading wilfully left undone, even above the graded land’s value, treating economic waste as only the wrecking of a completed structure and citing precedent that applies repair cost to remediable defects even after good-faith substantial performance. Peevyhouse (Oklahoma) held that reasonable cost of performance ordinarily governs, but limited the owners to the $300 diminution because both conditions held: the restoration term was merely incidental to the lease’s main purpose, and its economic benefit was grossly disproportionate to its cost.",
         "sources": [
           "completion-damages",
           "groves",
@@ -4582,8 +4590,12 @@
         ],
         "edges": [
           {
-            "label": "Appropriate deduction quantified",
+            "label": "Builder sues for the price: deduct these damages",
             "to": "f"
+          },
+          {
+            "label": "Owner sues the builder: award these damages",
+            "to": "i"
           }
         ]
       },
@@ -4610,7 +4622,7 @@
       {
         "id": "e",
         "label": "Is reasonable value of accepted work available instead?",
-        "detail": "Under Algernon Blair’s rule a nonbreaching contractor may recover reasonable value despite a losing deal. If the work in the illustration was worth $55 to supply at reasonable rates, that measure may be $55, with no duplicate recovery and subject to proof.",
+        "detail": "Under Algernon Blair’s rule a nonbreaching contractor that justifiably stopped after part performance may recover reasonable value despite a losing deal. If the work in the illustration was worth $55 to supply at reasonable rates, that measure may be $55, with no duplicate recovery and subject to proof. Restitution is not available to a contractor that has performed all its duties when only a definite sum of money remains due; it recovers the unpaid price, and a full performer cannot recover more than the price (§ 373(2); C&M 992).",
         "sources": [
           "algernon-blair",
           "restitution-interest"
@@ -4650,7 +4662,7 @@
       {
         "id": "g",
         "label": "Award reasonable value on this route",
-        "detail": "Find the value received or reasonable service value under the governing standard and account for payments already made. The contract price can be evidence without necessarily capping recovery.",
+        "detail": "Find the value received or reasonable service value under the governing standard and account for payments already made. Algernon Blair treated the contract price as evidence of value but not a ceiling. Courts divide on that point after part performance: Johnson v. Bovee and Restatement (Third) of Restitution and Unjust Enrichment § 38(2)(b) make the price a ceiling, while Southern Painting and, as the casebook reads it, Restatement (Second) § 373 do not (C&M 992).",
         "sources": [
           "algernon-blair",
           "restitution-interest",
@@ -4665,6 +4677,17 @@
         "sources": [
           "nelson-hazel",
           "restitution-interest"
+        ],
+        "edges": []
+      },
+      {
+        "id": "i",
+        "label": "Award the owner’s damages",
+        "detail": "The owner recovers the loss in value fixed under the test for choosing a measure, plus any incidental or consequential loss, less any cost it avoided (§ 347). Groves reversed a market-value judgment and ordered a new trial at the reasonable cost of the grading Wunder wilfully left undone, first deciding what the grading covenant actually required (C&M 977–978). Peevyhouse reduced the judgment to the $300 diminution in value (C&M 981).",
+        "sources": [
+          "completion-damages",
+          "groves",
+          "peevyhouse"
         ],
         "edges": []
       }
@@ -5194,10 +5217,11 @@
       {
         "id": "f",
         "label": "Track the release price and costs",
-        "detail": "The parties can bargain over the value unlocked by reallocating the machine. A release protecting the original buyer’s $400 while leaving the seller above $300 is possible on the assumed figures before bargaining costs.",
+        "detail": "The parties can bargain over the value unlocked by reallocating the machine. A release protecting the original buyer’s $400 while leaving the seller above $300 is possible on the assumed figures before bargaining costs. The casebook runs the same bargain on Peevyhouse: if a court would award $30,000 for grading worth $8,000 to the owners, Garland might offer to split the $22,000 difference, paying $19,000, or threaten to grade if refused, so a cost-of-performance rule can produce a negotiated payment instead of either figure (C&M 982).",
         "sources": [
           "efficient-breach",
-          "remedies-in-action"
+          "remedies-in-action",
+          "peevyhouse"
         ],
         "edges": [
           {

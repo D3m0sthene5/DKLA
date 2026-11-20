@@ -1,0 +1,798 @@
+{
+ "registered": [
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/30/title",
+   "old": "How much can a contractor recover after breach?",
+   "new": "How much can a contractor or owner recover after a construction breach?",
+   "reason": "Groves is 'distinctly the opposite' of substantial performance (C&M 975), so an owner's suit entered at node a reached node h, Nelson's restitution for a breaching builder; K-31 had no route for an owner's affirmative claim (Groves, C&M 977–978; Peevyhouse, $300, C&M 981). A full performer owed only the price also had no fitting edge (§ 373(2)).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      974,
+      975,
+      977,
+      978,
+      980,
+      981
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 373(1)–(2)"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-23"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/30/nodes/0/label",
+   "old": "Who breached and what was supplied?",
+   "new": "Who is suing, who breached, and what was supplied?",
+   "reason": "Groves is 'distinctly the opposite' of substantial performance (C&M 975), so an owner's suit entered at node a reached node h, Nelson's restitution for a breaching builder; K-31 had no route for an owner's affirmative claim (Groves, C&M 977–978; Peevyhouse, $300, C&M 981). A full performer owed only the price also had no fitting edge (§ 373(2)).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      974,
+      975,
+      977,
+      978,
+      980,
+      981
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 373(1)–(2)"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-23"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/30/nodes/0/detail",
+   "old": "Separate a builder’s defective work from an owner’s material breach that stops the builder early. Identify work completed, payments made, costs avoided and any benefit accepted.",
+   "new": "Identify who is suing. A builder whose work is defective or incomplete seeks payment subject to the owner’s damages. An owner suing the builder for defective or unperformed work, as in Groves and Peevyhouse, recovers its own damages. A contractor stopped early by the other side’s material breach may claim expectation or restitution. A contractor that has performed all its duties and is owed only a definite sum of money sues for the price, with no restitution alternative (§ 373(2)). Identify work completed, payments made, costs avoided and any benefit accepted.",
+   "reason": "Groves is 'distinctly the opposite' of substantial performance (C&M 975), so an owner's suit entered at node a reached node h, Nelson's restitution for a breaching builder; K-31 had no route for an owner's affirmative claim (Groves, C&M 977–978; Peevyhouse, $300, C&M 981). A full performer owed only the price also had no fitting edge (§ 373(2)).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      974,
+      975,
+      977,
+      978,
+      980,
+      981
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 373(1)–(2)"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-23"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/30/nodes/0/edges",
+   "old": [
+    {
+     "label": "Defective or incomplete work",
+     "to": "b"
+    },
+    {
+     "label": "Other side stopped performance",
+     "to": "d"
+    }
+   ],
+   "new": [
+    {
+     "label": "Builder whose work is defective or incomplete seeks payment",
+     "to": "b"
+    },
+    {
+     "label": "Owner sues the builder for defective or unperformed work",
+     "to": "c"
+    },
+    {
+     "label": "Other side stopped performance",
+     "to": "d"
+    },
+    {
+     "label": "Contractor fully performed and is owed only the price",
+     "to": "f"
+    }
+   ],
+   "reason": "Groves is 'distinctly the opposite' of substantial performance (C&M 975), so an owner's suit entered at node a reached node h, Nelson's restitution for a breaching builder; K-31 had no route for an owner's affirmative claim (Groves, C&M 977–978; Peevyhouse, $300, C&M 981). A full performer owed only the price also had no fitting edge (§ 373(2)).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      974,
+      975,
+      977,
+      978,
+      980,
+      981
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 373(1)–(2)"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-23"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/30/nodes/2/label",
+   "old": "What amount should be deducted for the defect?",
+   "new": "What are the owner’s damages for the defect or omission?",
+   "reason": "Groves is 'distinctly the opposite' of substantial performance (C&M 975), so an owner's suit entered at node a reached node h, Nelson's restitution for a breaching builder; K-31 had no route for an owner's affirmative claim (Groves, C&M 977–978; Peevyhouse, $300, C&M 981). A full performer owed only the price also had no fitting edge (§ 373(2)).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      974,
+      975,
+      977,
+      978,
+      980,
+      981
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 373(1)–(2)"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-23"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/30/nodes/2/edges",
+   "old": [
+    {
+     "label": "Appropriate deduction quantified",
+     "to": "f"
+    }
+   ],
+   "new": [
+    {
+     "label": "Builder sues for the price: deduct these damages",
+     "to": "f"
+    },
+    {
+     "label": "Owner sues the builder: award these damages",
+     "to": "i"
+    }
+   ],
+   "reason": "Groves is 'distinctly the opposite' of substantial performance (C&M 975), so an owner's suit entered at node a reached node h, Nelson's restitution for a breaching builder; K-31 had no route for an owner's affirmative claim (Groves, C&M 977–978; Peevyhouse, $300, C&M 981). A full performer owed only the price also had no fitting edge (§ 373(2)).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      974,
+      975,
+      977,
+      978,
+      980,
+      981
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 373(1)–(2)"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-23"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/30/nodes/2/detail",
+   "old": "Use reasonable correction cost where supported. Weigh waste, proportionality and whether the breached undertaking was central. Groves favored restoration cost. Peevyhouse used $300 diminution for restoration it treated as incidental. Plante selected repair costs by defect.",
+   "new": "Start from the loss in value to this owner (§ 347(a)). If that loss is not proved with sufficient certainty, § 348(2) allows damages based on the drop in market price or on the reasonable cost to complete or repair, but cost only if it is not clearly disproportionate to the probable loss in value to the owner. Plante (Wisconsin) allowed repair cost for small defects fixable without unreasonable economic waste, but valued the misplaced wall by diminution, which was zero: moving it ($4,000) would destroy finished work, and it did not affect market price. Groves (Minnesota) gave the reasonable cost of grading wilfully left undone, even above the graded land’s value, treating economic waste as only the wrecking of a completed structure and citing precedent that applies repair cost to remediable defects even after good-faith substantial performance. Peevyhouse (Oklahoma) held that reasonable cost of performance ordinarily governs, but limited the owners to the $300 diminution because both conditions held: the restoration term was merely incidental to the lease’s main purpose, and its economic benefit was grossly disproportionate to its cost.",
+   "reason": "For Plante's wall the $4,000 relocation cost was proved, yet the court allowed nothing: the wall fell 'clearly under the diminished-value rule' and did not affect market price (C&M 970–971). The node also omitted § 348(2)(b)'s 'not clearly disproportionate' limit, Peevyhouse's two conjunctive conditions (C&M 980–981) and Groves's wilfulness and Snider grounds (C&M 975, 977).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      970,
+      971,
+      974,
+      975,
+      977,
+      980,
+      981
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 348(2) and comment c, Illustrations 3–4"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-23"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/30/nodes/4/detail",
+   "old": "Under Algernon Blair’s rule a nonbreaching contractor may recover reasonable value despite a losing deal. If the work in the illustration was worth $55 to supply at reasonable rates, that measure may be $55, with no duplicate recovery and subject to proof.",
+   "new": "Under Algernon Blair’s rule a nonbreaching contractor that justifiably stopped after part performance may recover reasonable value despite a losing deal. If the work in the illustration was worth $55 to supply at reasonable rates, that measure may be $55, with no duplicate recovery and subject to proof. Restitution is not available to a contractor that has performed all its duties when only a definite sum of money remains due; it recovers the unpaid price, and a full performer cannot recover more than the price (§ 373(2); C&M 992).",
+   "reason": "§ 373(2): 'The injured party has no right to restitution if he has performed all of his duties under the contract and no performance by the other party remains due other than payment of a definite sum of money'; Note 2: a full performer 'cannot recover more than the contract price', and courts divide on a ceiling after part performance (C&M 992).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      989,
+      991,
+      992
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 373(1)–(2)"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-23"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/30/nodes/7/detail",
+   "old": "Find the value received or reasonable service value under the governing standard and account for payments already made. The contract price can be evidence without necessarily capping recovery.",
+   "new": "Find the value received or reasonable service value under the governing standard and account for payments already made. Algernon Blair treated the contract price as evidence of value but not a ceiling. Courts divide on that point after part performance: Johnson v. Bovee and Restatement (Third) of Restitution and Unjust Enrichment § 38(2)(b) make the price a ceiling, while Southern Painting and, as the casebook reads it, Restatement (Second) § 373 do not (C&M 992).",
+   "reason": "§ 373(2): 'The injured party has no right to restitution if he has performed all of his duties under the contract and no performance by the other party remains due other than payment of a definite sum of money'; Note 2: a full performer 'cannot recover more than the contract price', and courts divide on a ceiling after part performance (C&M 992).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      989,
+      991,
+      992
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 373(1)–(2)"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-23"
+  },
+  {
+   "target": "takeaway",
+   "id": "plante",
+   "old": "A builder who substantially completed a house gets the price minus the cost of fixing defects. For a misplaced wall that did not change the home's value, the measure is the lost value, because tearing it out would be economic waste.",
+   "new": "A builder who substantially completed a house gets the price minus the owners' damages: the drop in the house's value, or repair cost for small defects fixable without tearing out finished work. The misplaced wall caused no market loss and moving it would be economic waste, so it earned no deduction.",
+   "reason": "Plante states the measure as the diminished-value rule; 'the cost of replacement or repair is not the measure of such damage' and is used for small defects remediable without reconstruction or great sacrifice of finished work (C&M 970–971).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      970,
+      971
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-23"
+  },
+  {
+   "target": "effectiveBrief",
+   "id": "CT-NEXT-CM-0146",
+   "field": "Holding",
+   "old": "Denial of the builder's disputed extras was also affirmed.",
+   "new": "The court noted that it had not itself allowed repair-cost items of such magnitude, but viewing the house as a whole and its cost it could not say the trial court erred. Denial of the builder's disputed extras was also affirmed.",
+   "reason": "C&M 971: 'This court has not allowed items of such magnitude under the cost-of-repair rule as the trial court did,' though viewing the house as a whole and its cost it could not say the trial court erred.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      971
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-23"
+  },
+  {
+   "target": "effectiveBrief",
+   "id": "CT-NEXT-CM-0147",
+   "field": "rule",
+   "old": "When a contractor deliberately fails to perform a construction obligation, the owner's damages are the reasonable cost of performing the promised work, even if that cost exceeds the value of the completed land; economic waste concerns only destroying a completed or substantially completed structure.",
+   "new": "When a contractor deliberately fails to perform a construction obligation, the owner recovers the reasonable cost of the promised work even if it exceeds the completed land's value; economic waste means only wrecking completed structures, and cited precedent applies cost to remediable defects even after good-faith substantial performance.",
+   "reason": "Groves's second and third grounds do not depend on wilfulness: Snider, 'Even in case of substantial performance in good faith, the resulting defects being remediable', makes cost 'the \"proper\" measure' (C&M 975), and economic waste is 'only that which would come from wrecking a physical structure, completed, or nearly so' (C&M 977).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      975,
+      977
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-23"
+  },
+  {
+   "file": "tools/v28/case-chronologies.json",
+   "pointer": "/0/steps/109/note",
+   "old": "When a contractor deliberately fails to perform a construction obligation, the owner's damages are the reasonable cost of performing the promised work, even if that cost exceeds the value of the completed land; economic waste concerns only destroying a completed or substantially completed structure.",
+   "new": "When a contractor deliberately fails to perform a construction obligation, the owner recovers the reasonable cost of the promised work even if it exceeds the completed land's value; economic waste means only wrecking completed structures, and cited precedent applies cost to remediable defects even after good-faith substantial performance.",
+   "reason": "Groves's second and third grounds do not depend on wilfulness: Snider, 'Even in case of substantial performance in good faith, the resulting defects being remediable', makes cost 'the \"proper\" measure' (C&M 975), and economic waste is 'only that which would come from wrecking a physical structure, completed, or nearly so' (C&M 977).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      975,
+      977
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-23"
+  },
+  {
+   "file": "tools/cold-call/plain-sentences.json",
+   "pointer": "/sentences/groves/5/plain",
+   "old": "Stone called the breach \"willful\" (deliberate) and in \"bad faith\" (dishonest). He set it apart from \"good-faith\" substantial-performance cases, where a builder honestly finishes nearly all the job with small defects.",
+   "new": "Stone called the breach \"willful\" and in \"bad faith\": Wunder deliberately left the promised grading undone, and there was \"nothing of good faith about it.\" He set it apart from \"good-faith\" substantial-performance cases, where a builder honestly finishes nearly all the job with small defects.",
+   "reason": "C&M 975: 'Defendant breached the contract deliberately' and 'There was nothing of good faith about it'; the court made no finding of dishonesty, and the editors ask whether a considered refusal to spend $60,000 would be 'wilful' (C&M 979).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      974,
+      975,
+      979
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-23"
+  },
+  {
+   "target": "takeaway",
+   "id": "algernon-blair",
+   "old": "A subcontractor driven off the job by the other side's serious breach can ask for the value of the work it did instead of contract damages. That value is not capped by the contract price, even if finishing the job would have lost money.",
+   "new": "A subcontractor that justifiably stopped after the other side's material breach could recover the reasonable value of the work it had supplied, less payments received, with no deduction for the loss that finishing would have caused. The Fourth Circuit also refused to cap that value at the contract price, a point on which courts and Restatements divide.",
+   "reason": "The no-deduction holding and the no-ceiling holding are separate (C&M 991), and Note 2 reports authority both ways on a price ceiling after part performance and says a full performer cannot recover more than the price (C&M 992; § 373(2)).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      991,
+      992
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-23"
+  },
+  {
+   "file": "tools/r19/data/timelines.json",
+   "timelineId": "remedy-interests",
+   "stepKey": "algernon-blair",
+   "field": "fate",
+   "old": "Restatement (Third) of Restitution § 38 (2011) proposes a contract-price limit. A Restatement does not itself overrule this Fourth Circuit holding.",
+   "new": "Restatement (Third) of Restitution and Unjust Enrichment § 38(2)(b) (2011) states a contract-price ceiling. A Restatement does not itself overrule this Fourth Circuit holding.",
+   "reason": "C&M 992: 'Restatement (Third) of Restitution and Unjust Enrichment § 38(2)(b) states that it is' a ceiling; 'proposes' describes a draft.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      992
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-23"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/34/nodes/5/detail",
+   "old": "The parties can bargain over the value unlocked by reallocating the machine. A release protecting the original buyer’s $400 while leaving the seller above $300 is possible on the assumed figures before bargaining costs.",
+   "new": "The parties can bargain over the value unlocked by reallocating the machine. A release protecting the original buyer’s $400 while leaving the seller above $300 is possible on the assumed figures before bargaining costs. The casebook runs the same bargain on Peevyhouse: if a court would award $30,000 for grading worth $8,000 to the owners, Garland might offer to split the $22,000 difference, paying $19,000, or threaten to grade if refused, so a cost-of-performance rule can produce a negotiated payment instead of either figure (C&M 982).",
+   "reason": "Teaching gap: the casebook's Peevyhouse variation (C&M 982), $30,000 award against $8,000 of value, Garland's offer of $19,000 and threat to grade, shows bargaining in the shadow of a cost-of-performance rule.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      982
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-23"
+  },
+  {
+   "target": "takeaway",
+   "id": "peevyhouse",
+   "old": "The coal company failed to restore the farm as promised. Oklahoma's court awarded the small drop in the land's value rather than the much larger restoration cost, because restoration was incidental to the lease's main purpose. That differs from the Minnesota approach in Groves.",
+   "new": "The coal company failed to restore the farm as promised, and Oklahoma's court awarded only the $300 drop in the land's value, not the roughly $29,000 restoration cost, because restoration was incidental to the lease's main purpose and its cost was grossly disproportionate to its benefit. That differs from the Minnesota approach in Groves.",
+   "reason": "Peevyhouse limits damages to diminution only 'where the contract provision breached was merely incidental to the main purpose in view, and where the economic benefit ... is grossly disproportionate to the cost of performance'; otherwise cost is 'ordinarily' the measure (C&M 980–981). No prior correction touched this takeaway.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      979,
+      980,
+      981
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-23"
+  },
+  {
+   "target": "effectiveBrief",
+   "id": "CT-NEXT-CM-0146",
+   "field": "rule",
+   "old": "A builder who substantially performs, judged by the essential purpose of the contract, recovers the contract price less damages for defects, measured by cost of repair for defects that can reasonably be corrected and by diminution in value where correction would cause unreasonable economic waste.",
+   "new": "A builder who substantially performs, judged by the essential purpose of the contract, recovers the contract price less damages for defects: diminution in value generally, but reasonable repair cost for small defects correctable without reconstructing substantial work or unreasonable economic waste.",
+   "reason": "Plante: diminished value is 'the correct rule'; 'the cost of replacement or repair is not the measure of such damage', and repair cost is allowed for small defects remediable without reconstructing a substantial part of the building or a great sacrifice of work, applied as 'unreasonable economic waste' (C&M 970–971).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      970,
+      971
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-23"
+  },
+  {
+   "file": "tools/v28/case-chronologies.json",
+   "pointer": "/0/steps/158/note",
+   "old": "A builder who substantially performs, judged by the essential purpose of the contract, recovers the contract price less damages for defects, measured by cost of repair for defects that can reasonably be corrected and by diminution in value where correction would cause unreasonable economic waste.",
+   "new": "A builder who substantially performs, judged by the essential purpose of the contract, recovers the contract price less damages for defects: diminution in value generally, but reasonable repair cost for small defects correctable without reconstructing substantial work or unreasonable economic waste.",
+   "reason": "Plante: diminished value is 'the correct rule'; 'the cost of replacement or repair is not the measure of such damage', and repair cost is allowed for small defects remediable without reconstructing a substantial part of the building or a great sacrifice of work, applied as 'unreasonable economic waste' (C&M 970–971).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      970,
+      971
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-23"
+  }
+ ],
+ "mapEntryRunTimeEdits (tools/r19/data/r21-audit.json)": [
+  {
+   "packet": "OP-CT-23",
+   "kind": "node",
+   "reason": "Plante valued the misplaced wall by diminution, zero, not by correction cost (C&M 971); § 348(2)(b) limits cost to what is 'not clearly disproportionate to the probable loss in value to him', and cmt. c calls 'economic waste' 'a misleading expression'. Teaching gaps: the § 348(2) test, and value to the particular owner with Note 3's floor and ceiling (§ 347 cmt. b; C&M 972).",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      970,
+      971,
+      972
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 348(2) and comment c, Illustrations 3–4"
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 347 comment b"
+    }
+   ],
+   "sources": [],
+   "id": "completion-damages",
+   "path": "notes",
+   "fullOld": "Plante evaluates substantial construction and the cost of correcting particular deficiencies. Groves and Peevyhouse reach different results about restorative work whose cost greatly exceeded the resulting market-value increase. The significance of the promise, the character of the breach, proportionality, and the court’s understanding of the contract matter.\n\nCost of completion is not automatically a windfall merely because the owner has not yet done the work. Loss in value is not automatically adequate merely because it is cheaper for the breacher. Identify the interest the promise protected, the evidence of valuation and cost, and the legal limits the relevant court applied. Preserve dissents and procedural outcomes rather than converting these cases into a single arithmetic formula.",
+   "fullNew": "Expectation measures what the performance was worth to this owner, not to a hypothetical reasonable person or a market (§ 347 cmt. b). Diminution in market price usually sets a floor, since property is worth at least its sale price to its owner, and the cost to remedy sets a ceiling, since that sum lets the owner complete; a court may limit property held solely for investment to diminution and allow repair cost above it where the property has special significance and repair seems likely (Advanced, Inc. v. Wilks, C&M 972). When the owner cannot prove his own loss in value with sufficient certainty, § 348(2) allows damages based on the drop in market price or on the reasonable cost to complete or repair, but cost only if it is not clearly disproportionate to the probable loss in value to him. Comment c calls “economic waste” a misleading expression, because an owner awarded excessive damages will not usually spend them on the repair; Illustration 3 allows $30,000 to make cracked foundations safe though it adds $20,000 of market value, and Illustration 4 allows only nominal damages for equally good Cohoes pipe that would cost $20,000 to replace. Plante evaluates substantial performance and then values each defect: repair cost for small defects fixable without unreasonable economic waste, and diminution in value, here zero, for a misplaced wall whose relocation would destroy finished work. Groves and Peevyhouse reach different results about restorative work whose cost greatly exceeded the resulting market-value increase. The significance of the promise, the character of the breach, proportionality, and the court’s understanding of the contract matter.\n\nCost of completion is not automatically a windfall merely because the owner has not yet done the work. Loss in value is not automatically adequate merely because it is cheaper for the breacher. Identify the interest the promise protected, the evidence of valuation and cost, and the legal limits the relevant court applied. Preserve dissents and procedural outcomes rather than converting these cases into a single arithmetic formula.",
+   "old": "Plante evaluates substantial construction and the cost of correcting particular deficiencies.",
+   "new": "Expectation measures what the performance was worth to this owner, not to a hypothetical reasonable person or a market (§ 347 cmt. b). Diminution in market price usually sets a floor, since property is worth at least its sale price to its owner, and the cost to remedy sets a ceiling, since that sum lets the owner complete; a court may limit property held solely for investment to diminution and allow repair cost above it where the property has special significance and repair seems likely (Advanced, Inc. v. Wilks, C&M 972). When the owner cannot prove his own loss in value with sufficient certainty, § 348(2) allows damages based on the drop in market price or on the reasonable cost to complete or repair, but cost only if it is not clearly disproportionate to the probable loss in value to him. Comment c calls “economic waste” a misleading expression, because an owner awarded excessive damages will not usually spend them on the repair; Illustration 3 allows $30,000 to make cracked foundations safe though it adds $20,000 of market value, and Illustration 4 allows only nominal damages for equally good Cohoes pipe that would cost $20,000 to replace. Plante evaluates substantial performance and then values each defect: repair cost for small defects fixable without unreasonable economic waste, and diminution in value, here zero, for a misplaced wall whose relocation would destroy finished work."
+  },
+  {
+   "packet": "OP-CT-23",
+   "kind": "node",
+   "reason": "Teaching gaps: Note 1's explanations and Posner (C&M 978) and Note 2's wilfulness debate with Droher, Holmes and Advising Wunder (C&M 978–979) had no home.",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      978,
+      979
+     ]
+    }
+   ],
+   "sources": [],
+   "id": "groves",
+   "path": "notes",
+   "fullOld": "The editors report a later $55,000 settlement and subsequent limited grading and sale of part of the land. Those later events inform the policy questions in the notes; they are not the court’s damages judgment or facts that supplied its original rationale.\n\nThe number that drives the debate: had Wunder graded the land as promised, the property would have been worth only $12,160, against a restoration cost above $60,000 (Groves v. John Wunder Co., 205 Minn. 163, 286 N.W. 235 (1939)).\n\nThe majority's rule: the proper measure of damages is the reasonable cost of performing the part of the contract that the defendant wilfully failed to complete; the dissent objected that a $60,000 award would enrich Groves beyond the value of his bargain.",
+   "fullNew": "The editors report a later $55,000 settlement and subsequent limited grading and sale of part of the land. Those later events inform the policy questions in the notes; they are not the court’s damages judgment or facts that supplied its original rationale. The editors ask why the burden was so large and the benefit so slight (underestimated or rising cost, falling Depression land values, or value to Groves above market), and Posner argues that enforcement gave Groves an unintended cushion against the Depression’s effect on land values.\n\nThe notes ask whether wilfulness should change the measure. A later Minnesota decision, H.P. Droher & Sons v. Toushin (1957), distinguished Groves as resting in part on wilful, bad-faith breach; Holmes said the measure of contract damages is generally the same whatever the cause of the breach; and the editors ask whether Wunder’s liability above $47,000 is a penalty for wilfulness and whether a considered refusal to spend $60,000 for a benefit under $13,000 would be wilful.\n\nThe number that drives the debate: had Wunder graded the land as promised, the property would have been worth only $12,160, against a restoration cost above $60,000 (Groves v. John Wunder Co., 205 Minn. 163, 286 N.W. 235 (1939)).\n\nThe majority's rule: the proper measure of damages is the reasonable cost of performing the part of the contract that the defendant wilfully failed to complete; the dissent objected that a $60,000 award would enrich Groves beyond the value of his bargain.",
+   "old": "they are not the court’s damages judgment or facts that supplied its original rationale.",
+   "new": "they are not the court’s damages judgment or facts that supplied its original rationale. The editors ask why the burden was so large and the benefit so slight (underestimated or rising cost, falling Depression land values, or value to Groves above market), and Posner argues that enforcement gave Groves an unintended cushion against the Depression’s effect on land values.\n\nThe notes ask whether wilfulness should change the measure. A later Minnesota decision, H.P. Droher & Sons v. Toushin (1957), distinguished Groves as resting in part on wilful, bad-faith breach; Holmes said the measure of contract damages is generally the same whatever the cause of the breach; and the editors ask whether Wunder’s liability above $47,000 is a penalty for wilfulness and whether a considered refusal to spend $60,000 for a benefit under $13,000 would be wilful."
+  },
+  {
+   "packet": "OP-CT-23",
+   "kind": "node",
+   "reason": "The district court found Coastal 'would have lost more than $37,000 if it had completed performance' (C&M 990); there was no profit to forgo.",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      989,
+      990
+     ]
+    }
+   ],
+   "sources": [],
+   "id": "algernon-blair",
+   "path": "sections.Material Facts",
+   "fullOld": "Blair contracted to build a naval hospital and subcontracted steel erection and associated equipment to Coastal. Coastal supplied labor and its own cranes. Blair refused to pay crane rental, although the trial court found that the subcontract required payment. After approximately twenty-eight percent of the work, Coastal stopped because of that refusal. Blair finished with another subcontractor.\n\nThe trial court calculated approximately $37,000 otherwise due under the subcontract after prior payments, but found that Coastal would have lost more than that amount had it completed the job. Coastal sought the value of the labor and equipment already furnished rather than the profit it would have earned on full contractual performance.",
+   "fullNew": "Blair contracted to build a naval hospital and subcontracted steel erection and associated equipment to Coastal. Coastal supplied labor and its own cranes. Blair refused to pay crane rental, although the trial court found that the subcontract required payment. After approximately twenty-eight percent of the work, Coastal stopped because of that refusal. Blair finished with another subcontractor.\n\nThe trial court calculated approximately $37,000 otherwise due under the subcontract after prior payments, but found that Coastal would have lost more than that amount had it completed the job. Coastal sought the value of the labor and equipment already furnished rather than contract damages, which the loss it would have suffered on completion reduced to nothing.",
+   "old": "rather than the profit it would have earned on full contractual performance.",
+   "new": "rather than contract damages, which the loss it would have suffered on completion reduced to nothing."
+  },
+  {
+   "packet": "OP-CT-23",
+   "kind": "node",
+   "reason": "Teaching gaps: § 373(2), the ceiling split (C&M 992) and § 371 with the Pickwickian critique (C&M 991) were named but not stated.",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      991,
+      992
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 373(1)–(2)"
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 371 (cross-referenced in Note 1, C&M 991; outside the class's assigned Selections)"
+    }
+   ],
+   "sources": [],
+   "id": "algernon-blair",
+   "path": "notes",
+   "fullOld": "The notes identify disagreement over using the contract price as a ceiling. They contrast Restatement (Second) of Contracts § 373 with Restatement (Third) of Restitution and Unjust Enrichment § 38(2)(b), and separately discuss the limitation after full performance. The case’s rule should not erase those qualifications.",
+   "fullNew": "The notes identify disagreement over using the contract price as a ceiling after part performance: Johnson v. Bovee and Restatement (Third) of Restitution and Unjust Enrichment § 38(2)(b) treat the price as a ceiling, while Southern Painting and, as the casebook reads it, Restatement (Second) of Contracts § 373 do not. A party that has fully performed and been refused payment cannot recover more than the price, and § 373(2) denies it restitution when only a definite sum of money remains due; Brady held restitution precluded where the work was 99 percent complete. Section 371 measures restitution either by what it would have cost the recipient to obtain the benefit from someone in the claimant’s position or by the increase in the recipient’s wealth; Algernon Blair used the first, which Note 1 questions with Patterson’s description of enrichment “by each stroke of the hammer” as “Pickwickian.” A restitution claimant must account for benefits it received, here Coastal’s progress payments. The case’s rule should not erase those qualifications.",
+   "old": "The notes identify disagreement over using the contract price as a ceiling. They contrast Restatement (Second) of Contracts § 373 with Restatement (Third) of Restitution and Unjust Enrichment § 38(2)(b), and separately discuss the limitation after full performance.",
+   "new": "The notes identify disagreement over using the contract price as a ceiling after part performance: Johnson v. Bovee and Restatement (Third) of Restitution and Unjust Enrichment § 38(2)(b) treat the price as a ceiling, while Southern Painting and, as the casebook reads it, Restatement (Second) of Contracts § 373 do not. A party that has fully performed and been refused payment cannot recover more than the price, and § 373(2) denies it restitution when only a definite sum of money remains due; Brady held restitution precluded where the work was 99 percent complete. Section 371 measures restitution either by what it would have cost the recipient to obtain the benefit from someone in the claimant’s position or by the increase in the recipient’s wealth; Algernon Blair used the first, which Note 1 questions with Patterson’s description of enrichment “by each stroke of the hammer” as “Pickwickian.” A restitution claimant must account for benefits it received, here Coastal’s progress payments."
+  },
+  {
+   "packet": "OP-CT-23",
+   "kind": "node",
+   "reason": "Teaching gaps: § 347's formula and its value-to-him premise (C&M 956–957), fixed costs (957–958), the alternative-product dispute (967–968) and § 348(1) and (3) had no home; the last three were found by the spot-check.",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      956,
+      957,
+      958,
+      967,
+      968
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 347, comments b–d, Illustration 6; § 348(1), (3), comment d, Illustration 5"
+    }
+   ],
+   "sources": [],
+   "id": "expectation-interest",
+   "path": "notes",
+   "fullOld": "Identify the promised position, the actual position, avoided costs, and other qualifying losses before adding figures. Hawkins compares the promised and actual hand; ordinary pain of the contemplated operation belonged to the performance the patient agreed to undergo. Naval Institute estimates lost hardcover profits rather than automatically transferring the breacher’s gains. Sullivan shows how different remedial interests can share components.\n\nThe early chapters introduce these distinctions. Later cases develop completion cost, lost profits, mitigation, foreseeability, certainty, and agreed remedies. Those limits must be applied before selecting a dollar measure.",
+   "fullNew": "Identify the promised position, the actual position, avoided costs, and other qualifying losses before adding figures. Hawkins compares the promised and actual hand; ordinary pain of the contemplated operation belonged to the performance the patient agreed to undergo. Naval Institute estimates lost hardcover profits rather than automatically transferring the breacher’s gains. Sullivan shows how different remedial interests can share components.\n\nThe early chapters introduce these distinctions. Later cases develop completion cost, lost profits, mitigation, foreseeability, certainty, and agreed remedies. Those limits must be applied before selecting a dollar measure.\n\nSection 347 measures expectation as (a) the loss in value to the injured party of the other side’s performance, plus (b) any other loss, incidental or consequential, less (c) any cost or other loss avoided by not having to perform. Loss in value is the performance’s value to the injured party himself, not to a hypothetical reasonable person or a market (cmt. b). A builder whose owner repudiates when $60,000 more would finish a $100,000 house recovers $40,000, less any progress payments (Illus. 6). When the seller is injured, the hard part is (c), its cost and loss avoided; when the seller breaches, it is (a), the buyer’s loss in value. Fixed costs, such as a factory, must be borne before any goods can be produced, and the casebook asks how they figure in (c) when lost profits are claimed (C&M 957–958, introducing Vitex).\n\nOne court, in Overstreet v. Norden Laboratories (6th Cir.), denied expectation recovery for an ineffective horse vaccine because no effective vaccine was available from anyone, treating the point as causation; a dissenting judge called this an “alternative product” rule. In contrast, the Chatlos Systems v. NCR (3d Cir.) majority accepted the buyer’s evidence of the value of a computer system that would perform as NCR warranted, rejecting NCR’s argument that valuing it far above the price paid was like substituting a Rolls-Royce for a Ford (C&M 967–968).\n\nSection 348 supplies alternatives when loss in value cannot be proved with sufficient certainty. If a breach delays the use of property, damages may rest on its rental value or on interest on its value (§ 348(1)). If a promise is conditioned on a fortuitous event and it is uncertain whether the event would have occurred, damages may rest on the value of the conditional right, such as a one-in-four chance at a $100,000 prize worth $25,000; this applies only to aleatory promises, so a repudiated contractor must still prove it could and would have performed (§ 348(3), cmt. d, Illus. 5). Subsection (2) governs defective or unfinished construction (see completion damages).",
+   "old": "Those limits must be applied before selecting a dollar measure.",
+   "new": "Those limits must be applied before selecting a dollar measure.\n\nSection 347 measures expectation as (a) the loss in value to the injured party of the other side’s performance, plus (b) any other loss, incidental or consequential, less (c) any cost or other loss avoided by not having to perform. Loss in value is the performance’s value to the injured party himself, not to a hypothetical reasonable person or a market (cmt. b). A builder whose owner repudiates when $60,000 more would finish a $100,000 house recovers $40,000, less any progress payments (Illus. 6). When the seller is injured, the hard part is (c), its cost and loss avoided; when the seller breaches, it is (a), the buyer’s loss in value. Fixed costs, such as a factory, must be borne before any goods can be produced, and the casebook asks how they figure in (c) when lost profits are claimed (C&M 957–958, introducing Vitex).\n\nOne court, in Overstreet v. Norden Laboratories (6th Cir.), denied expectation recovery for an ineffective horse vaccine because no effective vaccine was available from anyone, treating the point as causation; a dissenting judge called this an “alternative product” rule. In contrast, the Chatlos Systems v. NCR (3d Cir.) majority accepted the buyer’s evidence of the value of a computer system that would perform as NCR warranted, rejecting NCR’s argument that valuing it far above the price paid was like substituting a Rolls-Royce for a Ford (C&M 967–968).\n\nSection 348 supplies alternatives when loss in value cannot be proved with sufficient certainty. If a breach delays the use of property, damages may rest on its rental value or on interest on its value (§ 348(1)). If a promise is conditioned on a fortuitous event and it is uncertain whether the event would have occurred, damages may rest on the value of the conditional right, such as a one-in-four chance at a $100,000 prize worth $25,000; this applies only to aleatory promises, so a repudiated contractor must still prove it could and would have performed (§ 348(3), cmt. d, Illus. 5). Subsection (2) governs defective or unfinished construction (see completion damages)."
+  },
+  {
+   "packet": "OP-CT-23",
+   "kind": "node",
+   "reason": "Teaching gap: § 349 and L. Albert's burden rule (C&M 988) appeared nowhere; K-30 node c says only 'a proven losing bargain'.",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      988,
+      992
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 349"
+    }
+   ],
+   "sources": [],
+   "id": "reliance-interest",
+   "path": "notes",
+   "fullOld": "Compare the claimant’s position with the position without the induced change, including provable opportunities forgone. D&G Stout concerns a lost opportunity to sell the business, distinct from hoped-for distributorship profits; Sullivan concerns expenses and physical or emotional injury associated with surgery. Hayes asks whether retirement decided before a pension promise was actually induced by it.\n\nPromissory estoppel is a possible basis of liability; reliance is also a possible measure of relief. Connect the change to the assurance. The doctrinal basis alone does not settle the amount or permit recovery twice for the same loss.",
+   "fullNew": "Compare the claimant’s position with the position without the induced change, including provable opportunities forgone. D&G Stout concerns a lost opportunity to sell the business, distinct from hoped-for distributorship profits; Sullivan concerns expenses and physical or emotional injury associated with surgery. Hayes asks whether retirement decided before a pension promise was actually induced by it.\n\nPromissory estoppel is a possible basis of liability; reliance is also a possible measure of relief. Connect the change to the assurance. The doctrinal basis alone does not settle the amount or permit recovery twice for the same loss.\n\nOn a losing contract the injured party may recover expenditures made in preparation for performance or in performance, less any loss that the party in breach proves with reasonable certainty the injured party would have suffered had the contract been performed (§ 349). Learned Hand in L. Albert & Son v. Armstrong Rubber put that burden on the party in breach because by its wrong it made the issue relevant, so reliance recovery stops at what performance would have yielded only when the loss is proved (C&M 988). The Security Stove problem asks about trade-show expenses incurred when the profits from exhibiting could not be shown (C&M 992).",
+   "old": "The doctrinal basis alone does not settle the amount or permit recovery twice for the same loss.",
+   "new": "The doctrinal basis alone does not settle the amount or permit recovery twice for the same loss.\n\nOn a losing contract the injured party may recover expenditures made in preparation for performance or in performance, less any loss that the party in breach proves with reasonable certainty the injured party would have suffered had the contract been performed (§ 349). Learned Hand in L. Albert & Son v. Armstrong Rubber put that burden on the party in breach because by its wrong it made the issue relevant, so reliance recovery stops at what performance would have yielded only when the loss is proved (C&M 988). The Security Stove problem asks about trade-show expenses incurred when the profits from exhibiting could not be shown (C&M 992)."
+  },
+  {
+   "packet": "OP-CT-23",
+   "kind": "node",
+   "reason": "Teaching gap: restitution on a losing contract and § 373 (C&M 988–989, 991–992) had no concept-level statement. The no-deduction rule is Algernon Blair's (C&M 991); § 373's black letter and the lottery question do not state it.",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      988,
+      989,
+      991,
+      992
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 373(1)–(2)"
+    }
+   ],
+   "sources": [],
+   "id": "restitution-interest",
+   "path": "notes",
+   "fullOld": "Identify the benefit, its recipient, and the legal reason for restoring it. In the surgery example, the doctor’s fee benefits the doctor; a hospital payment may be a reliance expense without benefiting that defendant. Algernon Blair later concerns the reasonable value of work and equipment supplied to a contractor. Mobil Oil illustrates restitution following breach despite doubts about the venture’s profitability.\n\nRestitution can accompany a breached agreement or arise independently from unjust enrichment, introduced at pp. 145–146. It does not automatically reimburse every preparation expense or confer the full expected performance value.",
+   "fullNew": "Identify the benefit, its recipient, and the legal reason for restoring it. In the surgery example, the doctor’s fee benefits the doctor; a hospital payment may be a reliance expense without benefiting that defendant. Algernon Blair later concerns the reasonable value of work and equipment supplied to a contractor. Mobil Oil illustrates restitution following breach despite doubts about the venture’s profitability.\n\nRestitution can accompany a breached agreement or arise independently from unjust enrichment, introduced at pp. 145–146. It does not automatically reimburse every preparation expense or confer the full expected performance value.\n\nAfter the other party’s total breach or repudiation, § 373(1) gives the injured party restitution for any benefit conferred by part performance or reliance, and Algernon Blair measured it without deducting the loss the claimant would have suffered on completion, “undiminished by any loss which would have been incurred by complete performance” (C&M 991). The casebook opens the topic with a lottery buyer whose ticket was never delivered and who could “get his money back whether or not he eventually would have won,” asks whether an injured party is therefore generally entitled to restitution under a losing contract, and offers Learned Hand’s reduce-by-proven-loss rule for reliance as a possible solution (C&M 988). The Flour Markets problem asks whether a buyer that prepaid $500,000 of a $1,400,000 price may recover it from a seller that failed to deliver after the market fell to $1,100,000 (citing Bush v. Canfield, C&M 989). A party that has fully performed and is owed only a definite sum of money has no restitution claim (§ 373(2)).",
+   "old": "It does not automatically reimburse every preparation expense or confer the full expected performance value.",
+   "new": "It does not automatically reimburse every preparation expense or confer the full expected performance value.\n\nAfter the other party’s total breach or repudiation, § 373(1) gives the injured party restitution for any benefit conferred by part performance or reliance, and Algernon Blair measured it without deducting the loss the claimant would have suffered on completion, “undiminished by any loss which would have been incurred by complete performance” (C&M 991). The casebook opens the topic with a lottery buyer whose ticket was never delivered and who could “get his money back whether or not he eventually would have won,” asks whether an injured party is therefore generally entitled to restitution under a losing contract, and offers Learned Hand’s reduce-by-proven-loss rule for reliance as a possible solution (C&M 988). The Flour Markets problem asks whether a buyer that prepaid $500,000 of a $1,400,000 price may recover it from a seller that failed to deliver after the market fell to $1,100,000 (citing Bush v. Canfield, C&M 989). A party that has fully performed and is owed only a definite sum of money has no restitution claim (§ 373(2))."
+  },
+  {
+   "packet": "OP-CT-23",
+   "kind": "node",
+   "reason": "Teaching gaps: the Star Paving problem (C&M 968; § 347 cmts. d, f), the three problems after Plante (C&M 972–973) and the casebook's § 348(2) question on Groves and Peevyhouse (C&M 981) had no home; the spot-check added the Paradox problem (C&M 988) and the CISG and UNIDROIT notes (C&M 954).",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      954,
+      967,
+      968,
+      972,
+      973,
+      981,
+      988
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 348(2) and comment c, Illustrations 3–4"
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 347 comments d, f"
+    }
+   ],
+   "sources": [],
+   "id": "reading-notes-23",
+   "path": "notes",
+   "fullOld": "Plante v. Jacobs: This case separates three questions: whether performance is substantial, which defects are compensable, and how each defect should be valued. It links the conditions doctrine in Jacob & Youngs to the competing damages measures in Groves and Peevyhouse.\n\nGroves v. John Wunder Co.: Groves makes the promised physical result central to expectation damages. Peevyhouse later adopts a different treatment of a similarly disproportionate restoration obligation.\n\nPeevyhouse v. Garland Coal & Mining Co.: Peevyhouse connects contractual purpose and bargaining evidence to the measure of damages. Its facts show why a complete remedies analysis must distinguish market value, personal value, and the performance expressly purchased.\n\nUnited States v. Algernon Blair, Inc.: This case separates restitution from both expectation and reliance. It is especially useful when a plaintiff has partly performed a contract that would have lost money.",
+   "fullNew": "Plante v. Jacobs: This case separates three questions: whether performance is substantial, which defects are compensable, and how each defect should be valued. It links the conditions doctrine in Jacob & Youngs to the competing damages measures in Groves and Peevyhouse. The problems that follow ask whether loss in value, cost to remedy or the builder’s savings should control when a defect causes no market loss: a pool built shallower than promised that would cost $180,000 to rebuild (Ruxley), 14 guards supplied instead of 20 for a meeting no protester attended, and defective bird feeders that $600 would repair after the market price fell (UCC § 2-714(1)) (C&M 972–973).\n\nGroves v. John Wunder Co.: Groves makes the promised physical result central to expectation damages. Peevyhouse later adopts a different treatment of a similarly disproportionate restoration obligation.\n\nPeevyhouse v. Garland Coal & Mining Co.: Peevyhouse connects contractual purpose and bargaining evidence to the measure of damages. Its facts show why a complete remedies analysis must distinguish market value, personal value, and the performance expressly purchased. The casebook asks what Restatement § 348(2) would do in both cases (C&M 981): if the owner cannot prove his own loss in value with sufficient certainty, cost is unavailable when clearly disproportionate to the probable loss in value, so cost above $60,000 for land worth $12,160 when graded, or about $29,000 for a $300 increase, would likely yield diminution unless the owner proved the work worth more to him than its market effect. The editors ask whether the Peevyhouses’ loss in value might have been the jury’s $5,000.\n\nUnited States v. Algernon Blair, Inc.: This case separates restitution from both expectation and reliance. It is especially useful when a plaintiff has partly performed a contract that would have lost money.\n\nStar Paving problem (C&M 968): Drennan wrongfully stopped Star when finishing would have cost Star $5,000 on a $15,000 subcontract, and Star at once contracted with the School District to finish the same work for $7,000. Under Restatement § 347 cmt. d, the net profit from a substitute arrangement using the freed resources is subtracted unless the injured party could and would have had both contracts (“lost volume,” cmt. f). Because Star could not have done the same job twice, its $2,000 profit appears to reduce its damages from $10,000 to $8,000, even though builders are generally assumed to have lost volume when they take new jobs (C&M 967), subject to the casebook’s question whether different terms in the second contract would matter.\n\nParadox problem (C&M 988): to justify recovery for breach of a contract on which neither party appears to have relied, a court reasons that the injured party might have passed up a similar alternative contract but need not prove it; then, in calculating damages, it reasons that the injured party lost volume because it would have made both contracts. The problem asks how to reconcile the two assumptions before the losing-contracts material.\n\nInternational notes (C&M 954): CISG article 46(1) lets a buyer require the seller’s performance, but article 28 frees a court from ordering specific performance unless it would do so under its own law for similar sales, which in the United States means UCC § 2-716(1) (Magellan); the casebook asks what is wrong with a remedy that depends on the forum. UNIDROIT Principles article 7.2.2 allows performance of a non-money obligation to be required unless the obligee can reasonably obtain it from another source. Posner traces the civil-law preference for specific performance to canon law, though differences in outcome are said to be small.",
+   "old": "Plante v. Jacobs: This case separates three questions: whether performance is substantial, which defects are compensable, and how each defect should be valued. It links the conditions doctrine in Jacob & Youngs to the competing damages measures in Groves and Peevyhouse.\n\nGroves v. John Wunder Co.: Groves makes the promised physical result central to expectation damages. Peevyhouse later adopts a different treatment of a similarly disproportionate restoration obligation.\n\nPeevyhouse v. Garland Coal & Mining Co.: Peevyhouse connects contractual purpose and bargaining evidence to the measure of damages. Its facts show why a complete remedies analysis must distinguish market value, personal value, and the performance expressly purchased.\n\nUnited States v. Algernon Blair, Inc.: This case separates restitution from both expectation and reliance. It is especially useful when a plaintiff has partly performed a contract that would have lost money.",
+   "new": "Plante v. Jacobs: This case separates three questions: whether performance is substantial, which defects are compensable, and how each defect should be valued. It links the conditions doctrine in Jacob & Youngs to the competing damages measures in Groves and Peevyhouse. The problems that follow ask whether loss in value, cost to remedy or the builder’s savings should control when a defect causes no market loss: a pool built shallower than promised that would cost $180,000 to rebuild (Ruxley), 14 guards supplied instead of 20 for a meeting no protester attended, and defective bird feeders that $600 would repair after the market price fell (UCC § 2-714(1)) (C&M 972–973).\n\nGroves v. John Wunder Co.: Groves makes the promised physical result central to expectation damages. Peevyhouse later adopts a different treatment of a similarly disproportionate restoration obligation.\n\nPeevyhouse v. Garland Coal & Mining Co.: Peevyhouse connects contractual purpose and bargaining evidence to the measure of damages. Its facts show why a complete remedies analysis must distinguish market value, personal value, and the performance expressly purchased. The casebook asks what Restatement § 348(2) would do in both cases (C&M 981): if the owner cannot prove his own loss in value with sufficient certainty, cost is unavailable when clearly disproportionate to the probable loss in value, so cost above $60,000 for land worth $12,160 when graded, or about $29,000 for a $300 increase, would likely yield diminution unless the owner proved the work worth more to him than its market effect. The editors ask whether the Peevyhouses’ loss in value might have been the jury’s $5,000.\n\nUnited States v. Algernon Blair, Inc.: This case separates restitution from both expectation and reliance. It is especially useful when a plaintiff has partly performed a contract that would have lost money.\n\nStar Paving problem (C&M 968): Drennan wrongfully stopped Star when finishing would have cost Star $5,000 on a $15,000 subcontract, and Star at once contracted with the School District to finish the same work for $7,000. Under Restatement § 347 cmt. d, the net profit from a substitute arrangement using the freed resources is subtracted unless the injured party could and would have had both contracts (“lost volume,” cmt. f). Because Star could not have done the same job twice, its $2,000 profit appears to reduce its damages from $10,000 to $8,000, even though builders are generally assumed to have lost volume when they take new jobs (C&M 967), subject to the casebook’s question whether different terms in the second contract would matter.\n\nParadox problem (C&M 988): to justify recovery for breach of a contract on which neither party appears to have relied, a court reasons that the injured party might have passed up a similar alternative contract but need not prove it; then, in calculating damages, it reasons that the injured party lost volume because it would have made both contracts. The problem asks how to reconcile the two assumptions before the losing-contracts material.\n\nInternational notes (C&M 954): CISG article 46(1) lets a buyer require the seller’s performance, but article 28 frees a court from ordering specific performance unless it would do so under its own law for similar sales, which in the United States means UCC § 2-716(1) (Magellan); the casebook asks what is wrong with a remedy that depends on the forum. UNIDROIT Principles article 7.2.2 allows performance of a non-money obligation to be required unless the obligee can reasonably obtain it from another source. Posner traces the civil-law preference for specific performance to canon law, though differences in outcome are said to be small."
+  },
+  {
+   "packet": "OP-CT-23",
+   "kind": "node",
+   "reason": "Peevyhouse contrasts the first Restatement's destruction-of-a-structure test with McCormick's and Jacob & Youngs's 'grossly and unfairly out of proportion to the good to be attained' test, which it calls 'relative economic benefit' (C&M 980).",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      980
+     ]
+    }
+   ],
+   "sources": [],
+   "id": "peevyhouse",
+   "path": "sections.Reasoning",
+   "fullOld": "The majority distinguished Groves by characterizing the main transaction as a mining arrangement rather than a contract whose principal object was grading or construction. It also drew on authorities comparing completion costs with the benefit to be obtained. Although restoration would not require demolishing a completed building, the majority considered the disproportion between expenditure and economic benefit sufficient under its chosen formulation.\n\nThis reasoning makes characterization decisive: calling restoration incidental narrows the protected expectation even though the clause was expressly included. The dissent’s account of bargaining shows the difficulty of equating an improvement’s market value with the owners’ contractual interest. The holding therefore belongs beside the contrary Groves approach and the narrower destructive-repair reasoning in Plante and Jacob & Youngs.",
+   "fullNew": "The majority distinguished Groves by characterizing the main transaction as a mining arrangement rather than a contract whose principal object was grading or construction. It also drew on authorities comparing completion costs with the benefit to be obtained. Although restoration would not require demolishing a completed building, the majority considered the disproportion between expenditure and economic benefit sufficient under its chosen formulation.\n\nThis reasoning makes characterization decisive: calling restoration incidental narrows the protected expectation even though the clause was expressly included. The dissent’s account of bargaining shows the difficulty of equating an improvement’s market value with the owners’ contractual interest. The holding therefore belongs beside the contrary Groves approach and the destructive-repair reasoning in Plante and the first Restatement, and the disproportion test the majority took from McCormick and Jacob & Youngs.",
+   "old": "the narrower destructive-repair reasoning in Plante and Jacob & Youngs.",
+   "new": "the destructive-repair reasoning in Plante and the first Restatement, and the disproportion test the majority took from McCormick and Jacob & Youngs."
+  }
+ ],
+ "structuralAdditions (not registered: new flowchart nodes)": [
+  {
+   "packet": "OP-CT-23",
+   "kind": "set",
+   "reason": "Groves is 'distinctly the opposite' of substantial performance (C&M 975), so an owner's suit entered at node a reached node h, Nelson's restitution for a breaching builder; K-31 had no route for an owner's affirmative claim (Groves, C&M 977–978; Peevyhouse, $300, C&M 981). A full performer owed only the price also had no fitting edge (§ 373(2)).",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      974,
+      975,
+      977,
+      978,
+      980,
+      981
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 373(1)–(2)"
+    }
+   ],
+   "sources": [],
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/30/nodes/9",
+   "old": null,
+   "register": false,
+   "new": {
+    "id": "i",
+    "label": "Award the owner’s damages",
+    "detail": "The owner recovers the loss in value fixed under the test for choosing a measure, plus any incidental or consequential loss, less any cost it avoided (§ 347). Groves reversed a market-value judgment and ordered a new trial at the reasonable cost of the grading Wunder wilfully left undone, first deciding what the grading covenant actually required (C&M 977–978). Peevyhouse reduced the judgment to the $300 diminution in value (C&M 981).",
+    "sources": [
+     "completion-damages",
+     "groves",
+     "peevyhouse"
+    ],
+    "edges": []
+   }
+  },
+  {
+   "packet": "OP-CT-23",
+   "kind": "set",
+   "reason": "Teaching gap: the casebook's Peevyhouse variation (C&M 982), $30,000 award against $8,000 of value, Garland's offer of $19,000 and threat to grade, shows bargaining in the shadow of a cost-of-performance rule.",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      982
+     ]
+    }
+   ],
+   "sources": [],
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/34/nodes/5/sources",
+   "old": [
+    "efficient-breach",
+    "remedies-in-action"
+   ],
+   "new": [
+    "efficient-breach",
+    "remedies-in-action",
+    "peevyhouse"
+   ],
+   "register": false
+  }
+ ]
+}

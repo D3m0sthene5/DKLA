@@ -4292,7 +4292,7 @@
         "Contracts"
       ],
       "takeaway": "A builder who substantially completed a house gets the price minus the cost of fixing defects. For a misplaced wall that did not change the home's value, the measure is the lost value, because tearing it out would be economic waste.",
-      "takeawaySha256": "516256281e0d65ce7d7625df484cfffc4658201d6172faefb8e8cda57542b967",
+      "takeawaySha256": "b94b1100e3b86c51281ca09f42b2d5f071e8172768b0e5845508621ad4013958",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -4303,9 +4303,9 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-NEXT-CM-0146",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0146.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "d49999284b2e5c3c2a6ea16748a2c6d0bf468692b808ba69e6ef9292ec3a00dc",
+        "ruleSha256": "37f5c2d097f1032ed4cfaad3d0a9d947c4e24afb67cbf4b22f23f1b62e2f055d",
         "comparedSections": {
-          "Holding": "b75e33fa902e078b1db8d370f1a60be1764ec5a9023c05636ec5d1d8903ebdc4"
+          "Holding": "96eab7a8b58e4d9b96275e73b26a838fd36f2d5d2aeaa9a6562f500f7db7097d"
         },
         "sectionsReadCompletely": [
           "Holding"
@@ -4324,7 +4324,27 @@
           "https://static.case.law/wis-2d/10/html/0567-01.html"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.comparedSections.Holding"
+        }
+      ]
     },
     {
       "id": "groves",
@@ -4344,7 +4364,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-NEXT-CM-0147",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0147.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "24a3d1e9abfc2aeff6d22d9e0fa24233101cb3c51cf50bf17695c3e6eaab7d01",
+        "ruleSha256": "8895ca7eadd4863c0b9b8af07e1dcbd71746868190b55b5f23f843d897994200",
         "comparedSections": {
           "Holding": "d6f3243973f17d49f84d3813fb87ab958b9668d99829298c923763f93277ada6"
         },
@@ -4377,6 +4397,14 @@
             "effectiveFullBriefSha256": "62fefaca5ed71700887b37c9c56ede3213c585868f5ae7133c23dbaa25bec8b0"
           }
         }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
       ]
     },
     {
@@ -4386,7 +4414,7 @@
         "Contracts"
       ],
       "takeaway": "The coal company failed to restore the farm as promised. Oklahoma's court awarded the small drop in the land's value rather than the much larger restoration cost, because restoration was incidental to the lease's main purpose. That differs from the Minnesota approach in Groves.",
-      "takeawaySha256": "e2ebe6d5f8df40d062045290f475cfd5e187f5848a3b69ca9dad0b8407bbba2c",
+      "takeawaySha256": "fe40f38544845d3fe207ba2ef00428af782020b983fa8e209f5bc40297f284b7",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -4429,6 +4457,14 @@
             "takeawaySha256": "b950f060550d87a8b39c522ae47c6572084d1927a199089e4d82bc821c408893"
           }
         }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        }
       ]
     },
     {
@@ -4438,7 +4474,7 @@
         "Contracts"
       ],
       "takeaway": "A subcontractor driven off the job by the other side's serious breach can ask for the value of the work it did instead of contract damages. That value is not capped by the contract price, even if finishing the job would have lost money.",
-      "takeawaySha256": "e47ee312cc0bb9414e4da8d4bf96561789d95c9dffc119381c6aa22c49b2bfd8",
+      "takeawaySha256": "b868461c4c43cd593c114c0f42d766993d264008d095554d0f3123e3b0fae2de",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -4470,7 +4506,15 @@
           "https://static.case.law/f2d/479/html/0638-01.html"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        }
+      ]
     },
     {
       "id": "rockingham",

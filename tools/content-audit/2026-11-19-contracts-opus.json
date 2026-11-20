@@ -7148,6 +7148,497 @@
       ],
       "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
       "packet": "OP-CT-22"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/30/title",
+      "old": "How much can a contractor recover after breach?",
+      "new": "How much can a contractor or owner recover after a construction breach?",
+      "reason": "Groves is 'distinctly the opposite' of substantial performance (C&M 975), so an owner's suit entered at node a reached node h, Nelson's restitution for a breaching builder; K-31 had no route for an owner's affirmative claim (Groves, C&M 977–978; Peevyhouse, $300, C&M 981). A full performer owed only the price also had no fitting edge (§ 373(2)).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 701-1050.pdf",
+          "printedPages": [
+            974,
+            975,
+            977,
+            978,
+            980,
+            981
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 373(1)–(2)"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-23"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/30/nodes/0/label",
+      "old": "Who breached and what was supplied?",
+      "new": "Who is suing, who breached, and what was supplied?",
+      "reason": "Groves is 'distinctly the opposite' of substantial performance (C&M 975), so an owner's suit entered at node a reached node h, Nelson's restitution for a breaching builder; K-31 had no route for an owner's affirmative claim (Groves, C&M 977–978; Peevyhouse, $300, C&M 981). A full performer owed only the price also had no fitting edge (§ 373(2)).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 701-1050.pdf",
+          "printedPages": [
+            974,
+            975,
+            977,
+            978,
+            980,
+            981
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 373(1)–(2)"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-23"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/30/nodes/0/detail",
+      "old": "Separate a builder’s defective work from an owner’s material breach that stops the builder early. Identify work completed, payments made, costs avoided and any benefit accepted.",
+      "new": "Identify who is suing. A builder whose work is defective or incomplete seeks payment subject to the owner’s damages. An owner suing the builder for defective or unperformed work, as in Groves and Peevyhouse, recovers its own damages. A contractor stopped early by the other side’s material breach may claim expectation or restitution. A contractor that has performed all its duties and is owed only a definite sum of money sues for the price, with no restitution alternative (§ 373(2)). Identify work completed, payments made, costs avoided and any benefit accepted.",
+      "reason": "Groves is 'distinctly the opposite' of substantial performance (C&M 975), so an owner's suit entered at node a reached node h, Nelson's restitution for a breaching builder; K-31 had no route for an owner's affirmative claim (Groves, C&M 977–978; Peevyhouse, $300, C&M 981). A full performer owed only the price also had no fitting edge (§ 373(2)).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 701-1050.pdf",
+          "printedPages": [
+            974,
+            975,
+            977,
+            978,
+            980,
+            981
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 373(1)–(2)"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-23"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/30/nodes/0/edges",
+      "old": [
+        {
+          "label": "Defective or incomplete work",
+          "to": "b"
+        },
+        {
+          "label": "Other side stopped performance",
+          "to": "d"
+        }
+      ],
+      "new": [
+        {
+          "label": "Builder whose work is defective or incomplete seeks payment",
+          "to": "b"
+        },
+        {
+          "label": "Owner sues the builder for defective or unperformed work",
+          "to": "c"
+        },
+        {
+          "label": "Other side stopped performance",
+          "to": "d"
+        },
+        {
+          "label": "Contractor fully performed and is owed only the price",
+          "to": "f"
+        }
+      ],
+      "reason": "Groves is 'distinctly the opposite' of substantial performance (C&M 975), so an owner's suit entered at node a reached node h, Nelson's restitution for a breaching builder; K-31 had no route for an owner's affirmative claim (Groves, C&M 977–978; Peevyhouse, $300, C&M 981). A full performer owed only the price also had no fitting edge (§ 373(2)).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 701-1050.pdf",
+          "printedPages": [
+            974,
+            975,
+            977,
+            978,
+            980,
+            981
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 373(1)–(2)"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-23"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/30/nodes/2/label",
+      "old": "What amount should be deducted for the defect?",
+      "new": "What are the owner’s damages for the defect or omission?",
+      "reason": "Groves is 'distinctly the opposite' of substantial performance (C&M 975), so an owner's suit entered at node a reached node h, Nelson's restitution for a breaching builder; K-31 had no route for an owner's affirmative claim (Groves, C&M 977–978; Peevyhouse, $300, C&M 981). A full performer owed only the price also had no fitting edge (§ 373(2)).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 701-1050.pdf",
+          "printedPages": [
+            974,
+            975,
+            977,
+            978,
+            980,
+            981
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 373(1)–(2)"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-23"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/30/nodes/2/edges",
+      "old": [
+        {
+          "label": "Appropriate deduction quantified",
+          "to": "f"
+        }
+      ],
+      "new": [
+        {
+          "label": "Builder sues for the price: deduct these damages",
+          "to": "f"
+        },
+        {
+          "label": "Owner sues the builder: award these damages",
+          "to": "i"
+        }
+      ],
+      "reason": "Groves is 'distinctly the opposite' of substantial performance (C&M 975), so an owner's suit entered at node a reached node h, Nelson's restitution for a breaching builder; K-31 had no route for an owner's affirmative claim (Groves, C&M 977–978; Peevyhouse, $300, C&M 981). A full performer owed only the price also had no fitting edge (§ 373(2)).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 701-1050.pdf",
+          "printedPages": [
+            974,
+            975,
+            977,
+            978,
+            980,
+            981
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 373(1)–(2)"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-23"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/30/nodes/2/detail",
+      "old": "Use reasonable correction cost where supported. Weigh waste, proportionality and whether the breached undertaking was central. Groves favored restoration cost. Peevyhouse used $300 diminution for restoration it treated as incidental. Plante selected repair costs by defect.",
+      "new": "Start from the loss in value to this owner (§ 347(a)). If that loss is not proved with sufficient certainty, § 348(2) allows damages based on the drop in market price or on the reasonable cost to complete or repair, but cost only if it is not clearly disproportionate to the probable loss in value to the owner. Plante (Wisconsin) allowed repair cost for small defects fixable without unreasonable economic waste, but valued the misplaced wall by diminution, which was zero: moving it ($4,000) would destroy finished work, and it did not affect market price. Groves (Minnesota) gave the reasonable cost of grading wilfully left undone, even above the graded land’s value, treating economic waste as only the wrecking of a completed structure and citing precedent that applies repair cost to remediable defects even after good-faith substantial performance. Peevyhouse (Oklahoma) held that reasonable cost of performance ordinarily governs, but limited the owners to the $300 diminution because both conditions held: the restoration term was merely incidental to the lease’s main purpose, and its economic benefit was grossly disproportionate to its cost.",
+      "reason": "For Plante's wall the $4,000 relocation cost was proved, yet the court allowed nothing: the wall fell 'clearly under the diminished-value rule' and did not affect market price (C&M 970–971). The node also omitted § 348(2)(b)'s 'not clearly disproportionate' limit, Peevyhouse's two conjunctive conditions (C&M 980–981) and Groves's wilfulness and Snider grounds (C&M 975, 977).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 701-1050.pdf",
+          "printedPages": [
+            970,
+            971,
+            974,
+            975,
+            977,
+            980,
+            981
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 348(2) and comment c, Illustrations 3–4"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-23"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/30/nodes/4/detail",
+      "old": "Under Algernon Blair’s rule a nonbreaching contractor may recover reasonable value despite a losing deal. If the work in the illustration was worth $55 to supply at reasonable rates, that measure may be $55, with no duplicate recovery and subject to proof.",
+      "new": "Under Algernon Blair’s rule a nonbreaching contractor that justifiably stopped after part performance may recover reasonable value despite a losing deal. If the work in the illustration was worth $55 to supply at reasonable rates, that measure may be $55, with no duplicate recovery and subject to proof. Restitution is not available to a contractor that has performed all its duties when only a definite sum of money remains due; it recovers the unpaid price, and a full performer cannot recover more than the price (§ 373(2); C&M 992).",
+      "reason": "§ 373(2): 'The injured party has no right to restitution if he has performed all of his duties under the contract and no performance by the other party remains due other than payment of a definite sum of money'; Note 2: a full performer 'cannot recover more than the contract price', and courts divide on a ceiling after part performance (C&M 992).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 701-1050.pdf",
+          "printedPages": [
+            989,
+            991,
+            992
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 373(1)–(2)"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-23"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/30/nodes/7/detail",
+      "old": "Find the value received or reasonable service value under the governing standard and account for payments already made. The contract price can be evidence without necessarily capping recovery.",
+      "new": "Find the value received or reasonable service value under the governing standard and account for payments already made. Algernon Blair treated the contract price as evidence of value but not a ceiling. Courts divide on that point after part performance: Johnson v. Bovee and Restatement (Third) of Restitution and Unjust Enrichment § 38(2)(b) make the price a ceiling, while Southern Painting and, as the casebook reads it, Restatement (Second) § 373 do not (C&M 992).",
+      "reason": "§ 373(2): 'The injured party has no right to restitution if he has performed all of his duties under the contract and no performance by the other party remains due other than payment of a definite sum of money'; Note 2: a full performer 'cannot recover more than the contract price', and courts divide on a ceiling after part performance (C&M 992).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 701-1050.pdf",
+          "printedPages": [
+            989,
+            991,
+            992
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 373(1)–(2)"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-23"
+    },
+    {
+      "target": "takeaway",
+      "id": "plante",
+      "old": "A builder who substantially completed a house gets the price minus the cost of fixing defects. For a misplaced wall that did not change the home's value, the measure is the lost value, because tearing it out would be economic waste.",
+      "new": "A builder who substantially completed a house gets the price minus the owners' damages: the drop in the house's value, or repair cost for small defects fixable without tearing out finished work. The misplaced wall caused no market loss and moving it would be economic waste, so it earned no deduction.",
+      "reason": "Plante states the measure as the diminished-value rule; 'the cost of replacement or repair is not the measure of such damage' and is used for small defects remediable without reconstruction or great sacrifice of finished work (C&M 970–971).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 701-1050.pdf",
+          "printedPages": [
+            970,
+            971
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-23"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CT-NEXT-CM-0146",
+      "field": "Holding",
+      "old": "Denial of the builder's disputed extras was also affirmed.",
+      "new": "The court noted that it had not itself allowed repair-cost items of such magnitude, but viewing the house as a whole and its cost it could not say the trial court erred. Denial of the builder's disputed extras was also affirmed.",
+      "reason": "C&M 971: 'This court has not allowed items of such magnitude under the cost-of-repair rule as the trial court did,' though viewing the house as a whole and its cost it could not say the trial court erred.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 701-1050.pdf",
+          "printedPages": [
+            971
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-23"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CT-NEXT-CM-0147",
+      "field": "rule",
+      "old": "When a contractor deliberately fails to perform a construction obligation, the owner's damages are the reasonable cost of performing the promised work, even if that cost exceeds the value of the completed land; economic waste concerns only destroying a completed or substantially completed structure.",
+      "new": "When a contractor deliberately fails to perform a construction obligation, the owner recovers the reasonable cost of the promised work even if it exceeds the completed land's value; economic waste means only wrecking completed structures, and cited precedent applies cost to remediable defects even after good-faith substantial performance.",
+      "reason": "Groves's second and third grounds do not depend on wilfulness: Snider, 'Even in case of substantial performance in good faith, the resulting defects being remediable', makes cost 'the \"proper\" measure' (C&M 975), and economic waste is 'only that which would come from wrecking a physical structure, completed, or nearly so' (C&M 977).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 701-1050.pdf",
+          "printedPages": [
+            975,
+            977
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-23"
+    },
+    {
+      "file": "tools/v28/case-chronologies.json",
+      "pointer": "/0/steps/109/note",
+      "old": "When a contractor deliberately fails to perform a construction obligation, the owner's damages are the reasonable cost of performing the promised work, even if that cost exceeds the value of the completed land; economic waste concerns only destroying a completed or substantially completed structure.",
+      "new": "When a contractor deliberately fails to perform a construction obligation, the owner recovers the reasonable cost of the promised work even if it exceeds the completed land's value; economic waste means only wrecking completed structures, and cited precedent applies cost to remediable defects even after good-faith substantial performance.",
+      "reason": "Groves's second and third grounds do not depend on wilfulness: Snider, 'Even in case of substantial performance in good faith, the resulting defects being remediable', makes cost 'the \"proper\" measure' (C&M 975), and economic waste is 'only that which would come from wrecking a physical structure, completed, or nearly so' (C&M 977).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 701-1050.pdf",
+          "printedPages": [
+            975,
+            977
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-23"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/groves/5/plain",
+      "old": "Stone called the breach \"willful\" (deliberate) and in \"bad faith\" (dishonest). He set it apart from \"good-faith\" substantial-performance cases, where a builder honestly finishes nearly all the job with small defects.",
+      "new": "Stone called the breach \"willful\" and in \"bad faith\": Wunder deliberately left the promised grading undone, and there was \"nothing of good faith about it.\" He set it apart from \"good-faith\" substantial-performance cases, where a builder honestly finishes nearly all the job with small defects.",
+      "reason": "C&M 975: 'Defendant breached the contract deliberately' and 'There was nothing of good faith about it'; the court made no finding of dishonesty, and the editors ask whether a considered refusal to spend $60,000 would be 'wilful' (C&M 979).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 701-1050.pdf",
+          "printedPages": [
+            974,
+            975,
+            979
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-23"
+    },
+    {
+      "target": "takeaway",
+      "id": "algernon-blair",
+      "old": "A subcontractor driven off the job by the other side's serious breach can ask for the value of the work it did instead of contract damages. That value is not capped by the contract price, even if finishing the job would have lost money.",
+      "new": "A subcontractor that justifiably stopped after the other side's material breach could recover the reasonable value of the work it had supplied, less payments received, with no deduction for the loss that finishing would have caused. The Fourth Circuit also refused to cap that value at the contract price, a point on which courts and Restatements divide.",
+      "reason": "The no-deduction holding and the no-ceiling holding are separate (C&M 991), and Note 2 reports authority both ways on a price ceiling after part performance and says a full performer cannot recover more than the price (C&M 992; § 373(2)).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 701-1050.pdf",
+          "printedPages": [
+            991,
+            992
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-23"
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "remedy-interests",
+      "stepKey": "algernon-blair",
+      "field": "fate",
+      "old": "Restatement (Third) of Restitution § 38 (2011) proposes a contract-price limit. A Restatement does not itself overrule this Fourth Circuit holding.",
+      "new": "Restatement (Third) of Restitution and Unjust Enrichment § 38(2)(b) (2011) states a contract-price ceiling. A Restatement does not itself overrule this Fourth Circuit holding.",
+      "reason": "C&M 992: 'Restatement (Third) of Restitution and Unjust Enrichment § 38(2)(b) states that it is' a ceiling; 'proposes' describes a draft.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 701-1050.pdf",
+          "printedPages": [
+            992
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-23"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/34/nodes/5/detail",
+      "old": "The parties can bargain over the value unlocked by reallocating the machine. A release protecting the original buyer’s $400 while leaving the seller above $300 is possible on the assumed figures before bargaining costs.",
+      "new": "The parties can bargain over the value unlocked by reallocating the machine. A release protecting the original buyer’s $400 while leaving the seller above $300 is possible on the assumed figures before bargaining costs. The casebook runs the same bargain on Peevyhouse: if a court would award $30,000 for grading worth $8,000 to the owners, Garland might offer to split the $22,000 difference, paying $19,000, or threaten to grade if refused, so a cost-of-performance rule can produce a negotiated payment instead of either figure (C&M 982).",
+      "reason": "Teaching gap: the casebook's Peevyhouse variation (C&M 982), $30,000 award against $8,000 of value, Garland's offer of $19,000 and threat to grade, shows bargaining in the shadow of a cost-of-performance rule.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 701-1050.pdf",
+          "printedPages": [
+            982
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-23"
+    },
+    {
+      "target": "takeaway",
+      "id": "peevyhouse",
+      "old": "The coal company failed to restore the farm as promised. Oklahoma's court awarded the small drop in the land's value rather than the much larger restoration cost, because restoration was incidental to the lease's main purpose. That differs from the Minnesota approach in Groves.",
+      "new": "The coal company failed to restore the farm as promised, and Oklahoma's court awarded only the $300 drop in the land's value, not the roughly $29,000 restoration cost, because restoration was incidental to the lease's main purpose and its cost was grossly disproportionate to its benefit. That differs from the Minnesota approach in Groves.",
+      "reason": "Peevyhouse limits damages to diminution only 'where the contract provision breached was merely incidental to the main purpose in view, and where the economic benefit ... is grossly disproportionate to the cost of performance'; otherwise cost is 'ordinarily' the measure (C&M 980–981). No prior correction touched this takeaway.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 701-1050.pdf",
+          "printedPages": [
+            979,
+            980,
+            981
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-23"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CT-NEXT-CM-0146",
+      "field": "rule",
+      "old": "A builder who substantially performs, judged by the essential purpose of the contract, recovers the contract price less damages for defects, measured by cost of repair for defects that can reasonably be corrected and by diminution in value where correction would cause unreasonable economic waste.",
+      "new": "A builder who substantially performs, judged by the essential purpose of the contract, recovers the contract price less damages for defects: diminution in value generally, but reasonable repair cost for small defects correctable without reconstructing substantial work or unreasonable economic waste.",
+      "reason": "Plante: diminished value is 'the correct rule'; 'the cost of replacement or repair is not the measure of such damage', and repair cost is allowed for small defects remediable without reconstructing a substantial part of the building or a great sacrifice of work, applied as 'unreasonable economic waste' (C&M 970–971).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 701-1050.pdf",
+          "printedPages": [
+            970,
+            971
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-23"
+    },
+    {
+      "file": "tools/v28/case-chronologies.json",
+      "pointer": "/0/steps/158/note",
+      "old": "A builder who substantially performs, judged by the essential purpose of the contract, recovers the contract price less damages for defects, measured by cost of repair for defects that can reasonably be corrected and by diminution in value where correction would cause unreasonable economic waste.",
+      "new": "A builder who substantially performs, judged by the essential purpose of the contract, recovers the contract price less damages for defects: diminution in value generally, but reasonable repair cost for small defects correctable without reconstructing substantial work or unreasonable economic waste.",
+      "reason": "Plante: diminished value is 'the correct rule'; 'the cost of replacement or repair is not the measure of such damage', and repair cost is allowed for small defects remediable without reconstructing a substantial part of the building or a great sacrifice of work, applied as 'unreasonable economic waste' (C&M 970–971).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 701-1050.pdf",
+          "printedPages": [
+            970,
+            971
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-23"
     }
   ]
 }
