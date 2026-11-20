@@ -550,7 +550,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CTR-031",
         "sourceLocator": "tools/r19/data/sections.json :: CTR-031.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "281ae4b5561133223a9ca5b77d727f65ebd660db8ff67a970b93df31f2a3c248",
+        "ruleSha256": "3c5f94c841061ecb8aafe5abfac331a60c93fb08851021f5e9cd35e0ac375d11",
         "comparedSections": {
           "Holding": "bf8a0a03fc4ed5ffd1d06c88bd6925f2233e8f9d97d60cebdda17cfb7c049ad4",
           "Material Facts": "abc02871bc8c6270e850638f9bebbfd98eb744787770f78eaf2196a595407459",
@@ -599,6 +599,14 @@
             "freshCompleteOpinionReview": false,
             "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
           }
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
         }
       ]
     },
@@ -1678,7 +1686,7 @@
         "Contracts"
       ],
       "takeaway": "When a seller's form says the deal is conditional on its extra terms, the buyer never agrees, and both sides perform anyway, the contract is made by their conduct. Its terms are only what both forms share, plus the Code's default rules; the seller's extra terms drop out.",
-      "takeawaySha256": "e9b011599544ebdb3f446b860c09b723493824419859d4bd84e23d37f64a9030",
+      "takeawaySha256": "985683b3acf72155f8bc6630976eb620aeb5f6f0b1d57ce4ab5a4ef407602937",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -1708,7 +1716,15 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        }
+      ]
     },
     {
       "id": "bayway",

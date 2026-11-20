@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "reviewedAt": "2026-11-17",
   "dataPath": "tools/r19/data/timelines.json",
-  "timelinesSha256": "0016b2652812e0a7fe91224f517ed99f3d8fc68a78c42b90a0fc06ad9aad2d4f",
+  "timelinesSha256": "544fb97b393607e0ffc14dc0687b28028442cd3f677d7da9ab2894ede3af72f7",
   "baselineGitRevision": "347d2e9759a7b5429f24825c521a967ce2b14eb9",
   "scope": "All timeline memberships and navigation were inventoried against the canonical cases and original assigned-source locations. New lines and selected corrections were compared with original casebook passages and case-specific accounts. Prior complete-opinion limitations remain; this does not certify every proposition or all current law. November 17: all 685 timeline steps screened editorially; targeted primary-source corrections are recorded separately. This is not a complete primary-source audit of every step or brief.",
   "limitations": [
@@ -4266,7 +4266,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CTR-031.md",
         "sourceLocator": "tools/r19/data/sections.json :: CTR-031.rule (effective assembler overlays included)",
         "comparedRule": "Reasonable, foreseeable reliance producing a prejudicial change of position can support an implied subsidiary promise not to revoke an offer, making it irrevocable for a reasonable time even without bargained-for consideration.",
-        "comparedRuleSha256": "281ae4b5561133223a9ca5b77d727f65ebd660db8ff67a970b93df31f2a3c248",
+        "comparedRuleSha256": "3c5f94c841061ecb8aafe5abfac331a60c93fb08851021f5e9cd35e0ac375d11",
         "effectiveFullBriefSha256": "bacdaa50d3e488791a28d0547e8184253c4d2e9083162966bea79661036226c3",
         "inheritedCitation": "Drennan v. Star Paving Co., 51 Cal. 2d 409, 333 P.2d 757 (1958). Supreme Court of California, decided December 31, 1958. Justice Traynor wrote the opinion. The appeal concerned whether reliance made a subcontractor's offer irrevocable before the general contractor communicated acceptance. Full judicial opinion.",
         "inheritedBriefPdfLocator": {
@@ -4311,7 +4311,15 @@
           "freshCompleteOpinionReview": false
         }
       ],
-      "postEditFingerprintNote": "2026-11-17: fingerprints reflect recorded exact corrections, editorial repairs and source links; original review depth unchanged."
+      "postEditFingerprintNote": "2026-11-17: fingerprints reflect recorded exact corrections, editorial repairs and source links; original review depth unchanged.",
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
+        }
+      ]
     },
     {
       "timelineId": "reliance",
@@ -5068,7 +5076,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CTR-031.md",
         "sourceLocator": "tools/r19/data/sections.json :: CTR-031.rule (effective assembler overlays included)",
         "comparedRule": "Reasonable, foreseeable reliance producing a prejudicial change of position can support an implied subsidiary promise not to revoke an offer, making it irrevocable for a reasonable time even without bargained-for consideration.",
-        "comparedRuleSha256": "281ae4b5561133223a9ca5b77d727f65ebd660db8ff67a970b93df31f2a3c248",
+        "comparedRuleSha256": "3c5f94c841061ecb8aafe5abfac331a60c93fb08851021f5e9cd35e0ac375d11",
         "effectiveFullBriefSha256": "bacdaa50d3e488791a28d0547e8184253c4d2e9083162966bea79661036226c3",
         "inheritedCitation": "Drennan v. Star Paving Co., 51 Cal. 2d 409, 333 P.2d 757 (1958). Supreme Court of California, decided December 31, 1958. Justice Traynor wrote the opinion. The appeal concerned whether reliance made a subcontractor's offer irrevocable before the general contractor communicated acceptance. Full judicial opinion.",
         "inheritedBriefPdfLocator": {
@@ -5113,7 +5121,15 @@
           "freshCompleteOpinionReview": false
         }
       ],
-      "postEditFingerprintNote": "2026-11-17: fingerprints reflect recorded exact corrections, editorial repairs and source links; original review depth unchanged."
+      "postEditFingerprintNote": "2026-11-17: fingerprints reflect recorded exact corrections, editorial repairs and source links; original review depth unchanged.",
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
+        }
+      ]
     },
     {
       "timelineId": "firm-offers",
@@ -47415,6 +47431,11 @@
     "originalSourceRegistry": "tools/v28/source-links.json"
   },
   "timelinesRereviews": [
+    {
+      "date": "2026-11-19",
+      "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+      "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review."
+    },
     {
       "date": "2026-11-19",
       "register": "tools/content-audit/2026-11-19-contracts-opus.json",

@@ -1803,6 +1803,12 @@
       "iteration": 0
     },
     {
+      "id": "rest45",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
       "id": "rest71",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
@@ -1888,6 +1894,18 @@
     },
     {
       "id": "ucc204",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "ucc204",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "ucc205",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
@@ -2117,6 +2135,12 @@
     {
       "id": "citoh",
       "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "citoh",
+      "field": "learning.topics.ucc207-conduct",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
     },
@@ -2505,6 +2529,18 @@
       "iteration": 0
     },
     {
+      "id": "option-contract",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "merchant",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
       "id": "merchant",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
@@ -2518,6 +2554,12 @@
     },
     {
       "id": "boilerplate",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "formation-vs-terms",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
@@ -2926,6 +2968,36 @@
     },
     {
       "id": "revocation",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "ucc207-conduct",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "rest87",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "ny51109",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "problem-maine",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "ucc206",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
@@ -3480,8 +3552,8 @@
       "id": "drennan",
       "title": "Drennan v. Star Paving Co.",
       "field": "summary",
-      "text": "Reasonable, foreseeable reliance producing a prejudicial change of position can support an implied subsidiary promise not to revoke an offer, making it irrevocable for a reasonable time even without bargained-for consideration.",
-      "textSha256": "281ae4b5561133223a9ca5b77d727f65ebd660db8ff67a970b93df31f2a3c248",
+      "text": "Reasonable, foreseeable reliance producing a prejudicial change of position can support an implied subsidiary promise not to revoke an offer that does not reserve revocation, keeping it open long enough for a reasonable opportunity to accept after the contemplated award, even without bargained-for consideration.",
+      "textSha256": "3c5f94c841061ecb8aafe5abfac331a60c93fb08851021f5e9cd35e0ac375d11",
       "source": {
         "briefId": "CTR-031",
         "canonicalLocator": "tools/r19/data/sections.json :: CTR-031.rule (effective assembler overlays)",
@@ -4860,8 +4932,8 @@
       "id": "ucc204",
       "title": "UCC § 2-204 — formation in general",
       "field": "notes",
-      "text": "The cases discussing it emphasize the parties’ recognition of a sale and the possibility of formation by conduct. Hill uses the provision in its rolling-formation approach; Klocek likewise recognizes a contract while contesting inclusion of the standard terms. The full statutory text and comments are in the Contracts Selections (PDF page 339), linked above.",
-      "textSha256": "88b788e4b91c4a76ab330281e97dd90ccc52944b6b4e0176825869b2a6b277c0",
+      "text": "The cases discussing it emphasize the parties’ recognition of a sale and the possibility of formation by conduct. Hill uses the provision in its rolling-formation approach; Klocek likewise recognizes a contract while contesting inclusion of the standard terms. Under § 2-204(3) a contract for sale does not fail for indefiniteness although terms are left open, if the parties intended to contract and there is a reasonably certain basis for an appropriate remedy; the comment adds that the more terms left open, the less likely the parties intended to be bound. The full statutory text and comments are in the Contracts Selections (PDF page 339), linked above.",
+      "textSha256": "9534b774bc0dfa8a2588b81edcbfaf906f8bbaa72c0898c13d486f08e644ffd6",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: ucc204",
@@ -4938,8 +5010,8 @@
       "id": "ucc206",
       "title": "UCC § 2-206 — offer and acceptance",
       "field": "notes",
-      "text": "The shipment introduction quotes part of § 2-206(1)(b). The continuation at p. 235 explains how nonconforming shipment can both accept and breach unless sent as an accommodation. The intervening Corinthian opinion at pp. 230–234 is not assigned and has not been briefed here. The full statutory text and comments are in the Contracts Selections (PDF page 341), linked above.",
-      "textSha256": "2c31051a152a4f974e3ad19bad747d2cb6586aca224f0d19113290ae44da61b5",
+      "text": "The shipment introduction quotes part of § 2-206(1)(b). The continuation at p. 235 explains how nonconforming shipment can both accept and breach unless sent as an accommodation. The intervening Corinthian opinion at pp. 230–234 is not assigned and has not been briefed here. Under § 2-206(2), where beginning a requested performance is a reasonable mode of acceptance, an offeror who is not notified of acceptance within a reasonable time may treat the offer as having lapsed; Comment 3 leaves open the common-law possibility that beginning performance temporarily bars revocation. The full statutory text and comments are in the Contracts Selections (PDF page 341), linked above.",
+      "textSha256": "9eedf95f39b27fb157f2df314f24602fd26c8bd62c4f682a260149c72334dce0",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: ucc206",
@@ -7094,8 +7166,8 @@
       "id": "citoh",
       "title": "C. Itoh & Co. (America) Inc. v. Jordan International Co.",
       "field": "takeaway",
-      "text": "When a seller's form says the deal is conditional on its extra terms, the buyer never agrees, and both sides perform anyway, the contract is made by their conduct. Its terms are only what both forms share, plus the Code's default rules; the seller's extra terms drop out.",
-      "textSha256": "e9b011599544ebdb3f446b860c09b723493824419859d4bd84e23d37f64a9030",
+      "text": "When a seller's form expressly makes its acceptance conditional on the buyer's assent to its extra terms, the buyer never assents, and both sides perform anyway, the contract is made by their conduct under § 2-207(3). Its terms are only what both forms share, plus the Code's default rules; the seller's extra terms drop out.",
+      "textSha256": "985683b3acf72155f8bc6630976eb620aeb5f6f0b1d57ce4ab5a4ef407602937",
       "source": {
         "briefId": "CTR-033",
         "canonicalLocator": "tools/r19/data/sections.json :: CTR-033.rule (effective assembler overlays)",
@@ -9598,8 +9670,8 @@
       "id": "option-contract",
       "title": "Option contracts and protected acceptance periods",
       "field": "notes",
-      "text": "The course presents four routes: consideration for holding an offer open, a merchant firm offer, beginning performance under § 45, and qualifying reliance associated with § 87(2), illustrated by Drennan. Each has its own predicates and duration. A stated deadline may establish expiry without preventing earlier revocation.\n\nIdentify why the power to accept is protected and whether it has been exercised. Keep the underlying terms, holding-open obligation, acceptance, and later breach remedies separate. Ordinary death or rejection rules should not automatically be transferred to an option.",
-      "textSha256": "405b9020da8b7c9d5d01cceb230146d385c15cc44112ff8b27f077a9a848e67e",
+      "text": "The course presents several routes: consideration for holding an offer open; a signed writing that recites a purported consideration and proposes an exchange on fair terms within a reasonable time (§ 87(1)); a statute (UCC § 2-205 for a merchant’s signed offer of goods, N.Y. G.O.L. § 5-1109 for other signed offers stating that they are irrevocable); beginning performance under § 45; and qualifying reliance under § 87(2), illustrated by Drennan. An option binds only the offeror during its term, so the holder can speculate on a moving market; the traditional answer is that the offeror is paid for that risk through the option price or a higher contract price (C&M 246, Note 3). Each has its own predicates and duration. A stated deadline may establish expiry without preventing earlier revocation.\n\nIdentify why the power to accept is protected and whether it has been exercised. Keep the underlying terms, holding-open obligation, acceptance, and later breach remedies separate. Ordinary death or rejection rules should not automatically be transferred to an option.",
+      "textSha256": "684742034db5acfc7fc51a74ff74e1d2d25f15c16b9e679af17b23bbd1aa9074",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: option-contract",
@@ -9656,8 +9728,8 @@
       "id": "merchant",
       "title": "Merchant status and the particular UCC provision",
       "field": "notes",
-      "text": "Read § 2-104 with the particular provision: the relevant expertise may concern goods, business practices, or both. Firm offers and the § 2-207 between-merchants rule have distinct requirements. A business buying equipment for its own use is not classified solely by whether it resells that product; Hill also cautions that commercial use of retail software does not itself establish software-merchant status.\n\nArticle 2 can govern a consumer sale even when a merchant-only provision does not. Outside the between-merchants incorporation rule, additional terms instead raise a proposal-and-assent question.",
-      "textSha256": "332eb916f3c26caaea4050569141f5f71b2a7da02011be27cb6c0f6f96494bc4",
+      "text": "Read § 2-104 with the particular provision: the relevant expertise may concern goods, business practices, or both. Firm offers and the § 2-207 between-merchants rule have distinct requirements: § 2-205 asks only whether the offeror is a merchant, while § 2-207(2) asks whether both parties are (§ 2-104(3)). For §§ 2-201(2), 2-205, 2-207 and 2-209, which rest on ordinary business practices, almost every person in business is a merchant, but a lawyer buying fishing tackle for personal use is not (§ 2-104 cmt. 2). A business buying equipment for its own use is not classified solely by whether it resells that product; Hill also cautions that commercial use of retail software does not itself establish software-merchant status.\n\nArticle 2 can govern a consumer sale even when a merchant-only provision does not. Outside the between-merchants incorporation rule, additional terms instead raise a proposal-and-assent question.",
+      "textSha256": "268ee502dcf4947e8c12ba711ec4dd86f789f62a1d61a5b150a874983d912168",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: merchant",
@@ -9970,8 +10042,8 @@
       "id": "formation-vs-terms",
       "title": "Contract formation versus selection of terms",
       "field": "notes",
-      "text": "Under § 2-207(1), an acceptance may form a contract despite nonmatching forms; subsection (2) then addresses additional terms. Where the writings fail but the parties perform, subsection (3) supplies a different route to both formation and terms. Hill and Klocek disagree earlier about whether formation had already occurred when package terms arrived.\n\nLater interpretation materials ask what an existing agreement means and whether other terms supplement it. Identify which question the court decides before generalizing its conclusion about assent or validity.",
-      "textSha256": "56ad3646e373269625efc04b0d7b4995788a69c5112f954b301b6e87dfbb59b5",
+      "text": "Under § 2-207(1), an acceptance may form a contract despite nonmatching forms; subsection (2) then addresses additional terms, and because an additional term enters between merchants when the offeror lets a reasonable time pass after notice without objecting, a contract formed on one date may acquire a term later (C&M 275). Where the writings fail but the parties perform, subsection (3) supplies a different route to both formation and terms. Hill and Klocek disagree earlier about whether formation had already occurred when package terms arrived.\n\nLater interpretation materials ask what an existing agreement means and whether other terms supplement it. Identify which question the court decides before generalizing its conclusion about assent or validity.",
+      "textSha256": "5d62d23d7ee14f8e34b23c5a5eb8a6e6767b126d9f7365ab736212866dfc1565",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: formation-vs-terms",
@@ -10672,8 +10744,8 @@
       "id": "rest45",
       "title": "Restatement § 45 — beginning invited performance",
       "field": "notes",
-      "text": "The chapter quotes the predicate that the offer invite performance and not a promissory acceptance. Beginning protects the opportunity to finish; it is distinct from earning the full reward by completion. The Brooklyn Bridge example and Wormser’s changed view illustrate the point. The full section and comments are in the Contracts Selections, linked above.",
-      "textSha256": "beeb1aa4d98eba8c34f640220a0abdc9b94e844ef3495a3ec550661f3d5275ec",
+      "text": "The chapter quotes the predicate that the offer invite performance and not a promissory acceptance. Beginning protects the opportunity to finish; it is distinct from earning the full reward by completion. The Brooklyn Bridge example and Wormser’s changed view illustrate the point. Under § 45 the offeree is not bound to finish (cmt. e), and preparations are not a beginning, though they may be reliance under § 87(2) (cmt. f). If the offer instead lets the offeree choose between accepting by promise and by performance, the reading § 32 adopts in case of doubt, beginning the invited performance is an acceptance that operates as a promise to finish (§ 62), so both sides are bound. The full section and comments are in the Contracts Selections, linked above.",
+      "textSha256": "6b4c70d4537454cfc2622a3d5cfa783ad7d1654bc07f8129f285af1b80f50b9e",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: rest45",
@@ -10730,8 +10802,8 @@
       "id": "rest87",
       "title": "Restatement § 87 — option recitals and reliance",
       "field": "notes",
-      "text": "At p. 248 the note discusses a signed recital, a fair proposed exchange, and disagreement over unpaid nominal consideration. At p. 258 the notes identify § 87(2) with Drennan’s rationale and ask whether preparations to cross the bridge can qualify. The two subsections address different routes.",
-      "textSha256": "e4c890113c580ceb038e7fcfe7e80fc2a6b3f4c3418f839a8a5028d9b8c90091",
+      "text": "At p. 248 the note discusses a signed recital, a fair proposed exchange, and disagreement over unpaid nominal consideration. At p. 258 the notes identify § 87(2) with Drennan’s rationale and ask whether preparations to cross the bridge can qualify. The two subsections address different routes. Section 87(1) binds an offer as an option if it is in a signed writing that recites a purported consideration and proposes an exchange on fair terms within a reasonable time, or if a statute makes it irrevocable. Section 87(2) binds an offer that the offeror should reasonably expect to induce action or forbearance of a substantial character before acceptance, and that does so, but only to the extent necessary to avoid injustice; Comment e adds that the reliance must be substantial as well as foreseeable.",
+      "textSha256": "5a6eecaa764e781cbe82dfe0b316d76e43af6201f2381ae6bc2a305a85a7cbf3",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: rest87",
@@ -10788,8 +10860,8 @@
       "id": "ucc205",
       "title": "UCC § 2-205 — firm offers",
       "field": "notes",
-      "text": "§ 2-205: an offer by a merchant to buy or sell goods, in a signed writing that by its terms gives assurance it will be held open, is not revocable for lack of consideration during the time stated or, if none, a reasonable time, in no event longer than three months; a firm-offer term on a form supplied by the offeree must be separately signed by the offeror. Full text in the Contracts Selections, linked above. It discusses merchant status and compares New York’s broader signed-writing statute.",
-      "textSha256": "79615c1c6ad6b4910bba2a3cf1ece186811070e307b89415caf67ccbaab33d43",
+      "text": "§ 2-205: an offer by a merchant to buy or sell goods, in a signed writing that by its terms gives assurance it will be held open, is not revocable for lack of consideration during the time stated or, if none, a reasonable time, in no event longer than three months; a firm-offer term on a form supplied by the offeree must be separately signed by the offeror. Full text in the Contracts Selections, linked above. The casebook asks whether a manufacturer buying or selling factory equipment is a merchant for this purpose and compares New York’s broader signed-writing statute (C&M 247). Comment 2: an oral firm offer stays revocable even where trade usage relies on oral offers, because a signed writing is the essence of the section. Comment 3: a writing promising a longer period binds without consideration only for the first three months; an option supported by consideration can last as long as the parties specify.",
+      "textSha256": "13c3889e3ea22aff0ab007642e00524cbf400905eff76c9ed7271ca173a7ca07",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: ucc205",
@@ -10908,8 +10980,8 @@
       "id": "ny51109",
       "title": "N.Y. General Obligations Law § 5-1109 — written irrevocable offers",
       "field": "notes",
-      "text": "The quoted provision excepts offers governed by UCC § 2-205 and otherwise addresses an offer in a writing signed by the offeror or agent that states it is irrevocable for a period or until a time. Absence of consideration for that assurance does not make the offer revocable during the period. A writing stating irrevocability without a period is construed to use a reasonable time. This is the text reproduced by the 2023 casebook, not a current legislative verification.",
-      "textSha256": "efe6ab86daf053c80cefbd53231c5898830d0dec72f477d3cdabbc8429ebc711",
+      "text": "The quoted provision excepts offers governed by UCC § 2-205 and otherwise addresses an offer in a writing signed by the offeror or agent that states it is irrevocable for a period or until a time. Absence of consideration for that assurance does not make the offer revocable during the period. A writing stating irrevocability without a period is construed to use a reasonable time. Because of that opening exception, a merchant’s signed offer to buy or sell goods stays under § 2-205 and its three-month cap; § 5-1109 covers other signed offers, such as a non-merchant’s offer or an offer of services or land, for the stated period with no three-month cap. It would not have saved Drennan’s telephoned bid, which was not a signed writing; the assigned materials do not say whether New York protects reliance on such a bid. This is the text reproduced by the 2023 casebook, not a current legislative verification.",
+      "textSha256": "8b15631c1ac318aecc11c3b1ada1972de67353841e5e4ec81a6a36f9ad8622f2",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: ny51109",
@@ -14808,8 +14880,8 @@
       "id": "problem-maine",
       "title": "The Move to Maine",
       "field": "notes",
-      "text": "Does the language invite a promise or performance? When did the relevant acceptance or option arise? Vary the language to “agree to move” and consider death after preparations but before arrival. The Brackenbury and Davis citations guide comparison rather than provide the answer.",
-      "textSha256": "78f0ced76e95de2e0ced93a3bcb57569e2e06abf1143ebb20c7800cb7404f61d",
+      "text": "Does the language invite a promise or performance? When did the relevant acceptance or option arise? Vary the language to “agree to move.” Then consider death after the Brackenburys sold their home and business and began the journey but before they arrived: was that preparation or the beginning of the invited performance (§ 45 cmt. f)? An offeror’s death ends an ordinary offer (§ 48) but not an option (C&M 259). Restatement § 45 Illustration 6 treats a similar letter, a farm for a daughter who gives up her home and cares for her mother, as creating an option once she begins. The Brackenbury and Davis citations guide comparison rather than provide the answer.",
+      "textSha256": "8dcb75986370c8069c43ec9b50376c3c1e829f172811a00a99829a167a4db7bb",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: problem-maine",
@@ -25914,8 +25986,8 @@
       "id": "ucc207-conduct",
       "title": "Contract formation by conduct under § 2-207(3)",
       "field": "notes",
-      "text": "The subsection then supplies the terms: “those terms on which the writings of the parties agree, together with any supplementary terms incorporated under any other provisions of this Act.” Conflicting terms in the two forms therefore drop out (the knock-out rule) and the Code’s gap-fillers take their place. C. Itoh explains why the unagreed arbitration clause could not return as a supposed gap filler. This route differs from recognizing acceptance under subsection (1) and evaluating additional terms under subsection (2).",
-      "textSha256": "04b2111075e872bdcbcc9c5c3ecb047d821b608405b912a9dcb9dcc31447a823",
+      "text": "The subsection then supplies the terms: “those terms on which the writings of the parties agree, together with any supplementary terms incorporated under any other provisions of this Act.” Every term on which the writings do not agree therefore drops out, whether it conflicts with the other form or appears in only one of them, as C. Itoh’s arbitration clause did, and the Code’s supplementary terms fill the resulting gaps (C&M 275, 282). This follows from the text of subsection (3); it is not the knockout rule, which some courts apply to different terms in a contract formed under subsection (1). C. Itoh explains why the unagreed arbitration clause could not return as a supposed gap filler. This route differs from recognizing acceptance under subsection (1) and evaluating additional terms under subsection (2).",
+      "textSha256": "01948e4b982a5d82f2a498c88bc50aa132ce1d7b1817027263610939770ab8b8",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: ucc207-conduct",
@@ -103230,8 +103302,8 @@
       "id": "firm-offers",
       "title": "Keeping an offer open",
       "field": "now",
-      "text": "An offer can become irrevocable through an option bargain, invited performance, an applicable statute, or protected reliance. Each route has conditions. Model UCC § 2-205 protects a merchant’s signed goods offer without consideration for no more than three months; an assurance on the recipient’s form needs a separate signature.",
-      "textSha256": "655e429a888c05a88d359de2c09ff9bc8ce811f57d7226e7b147995ac145f8b7",
+      "text": "An offer can become irrevocable through an option bargain, invited performance, an applicable statute, or protected reliance. Each route has conditions. Model UCC § 2-205 protects, without consideration, a merchant’s signed goods offer that by its terms assures it will be held open, for no more than three months; an assurance on the recipient’s form needs a separate signature.",
+      "textSha256": "5fc0c96382f1ff29b7db2960391c1178b4e979d309f3860b0bf81797aa42a66e",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json"
       },
@@ -103284,8 +103356,8 @@
       "id": "firm-offers:4",
       "title": "Keeping an offer open",
       "field": "note",
-      "text": "New York: a signed written offer that states it is irrevocable binds for the stated period, or a reasonable time, without consideration.",
-      "textSha256": "162ffda2fa1369f54bb1eecd2baed572547baa900fa43cd90f290093aa979e8c",
+      "text": "New York: except for a merchant’s offer to buy or sell goods, which § 2-205 governs, a signed written offer stating that it is irrevocable cannot be revoked for lack of consideration during the stated period, or a reasonable time if none is stated.",
+      "textSha256": "3895171ee7b99dda80028316a2efbbfc081dff05bf0be2235fae42285aafe83b",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "firm-offers",
@@ -103500,8 +103572,8 @@
       "id": "forms:2",
       "title": "Conflicting forms: formation and contract terms",
       "field": "note",
-      "text": "For sales of goods the Code drops the mirror-image rule: an acceptance can form a contract though it adds or changes terms.",
-      "textSha256": "ed9a42841abffd47e54dce3f080386cc967a73cf1d8cd08fbed72c5107118590",
+      "text": "For sales of goods the Code drops the mirror-image rule: a definite and seasonable expression of acceptance can form a contract though it adds or changes terms, unless acceptance is expressly made conditional on assent to them.",
+      "textSha256": "23e7207a08dd1ac13e204704c0f519ef6b8af5867fcc8dcb99ac85a73b0ff7dc",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "forms",

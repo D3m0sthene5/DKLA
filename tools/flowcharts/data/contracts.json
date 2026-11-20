@@ -196,7 +196,7 @@
       {
         "id": "e",
         "label": "Classify the transaction as a whole",
-        "detail": "Bonebrake asks whether the deal chiefly supplies goods with incidental labor or chiefly supplies services with incidental goods. Contract wording, supplier’s business and relative allocation of price help establish the predominant purpose.",
+        "detail": "Bonebrake asks whether the deal chiefly supplies goods with incidental labor or chiefly supplies services with incidental goods. The assigned note gives the test and two examples, a painting commission (services) and installing a water heater (a sale), but not the factors courts use to apply it.",
         "sources": [
           "note-bonebrake",
           "article2-scope"
@@ -1723,7 +1723,7 @@
       {
         "id": "c",
         "label": "Does a signed-offer statute apply?",
-        "detail": "Section 2-205 requires a merchant’s signed assurance in a sale of goods, with a three-month cap on statutory irrevocability and separate signing for an assurance on a form supplied by the offeree. Compare New York § 5-1109’s requirements for signed written offers.",
+        "detail": "Section 2-205 requires a merchant’s signed assurance in a sale of goods, with a three-month cap on statutory irrevocability and separate signing for an assurance on a form supplied by the offeree. Compare New York § 5-1109, which makes a signed written offer stating that it is irrevocable irrevocable for the stated period, or a reasonable time if none is stated, but does not reach a merchant’s offer to buy or sell goods: § 2-205 governs that offer, so its three-month cap applies even to a longer stated period (cmt. 3). If no statute applies, reliance may still protect the offer.",
         "sources": [
           "ucc205",
           "ny51109",
@@ -1737,13 +1737,17 @@
           {
             "label": "No statutory protection",
             "to": "h"
+          },
+          {
+            "label": "No statute, but foreseeable reliance",
+            "to": "e"
           }
         ]
       },
       {
         "id": "d",
         "label": "Did the offeree start the very act requested?",
-        "detail": "If the offer invites performance alone, beginning it creates a § 45 option. Starting to cross the bridge qualifies on the hypothetical facts. Buying materials that could be used on other work may be preparation.",
+        "detail": "If the offer invites performance alone, beginning it creates a § 45 option. If the offer instead lets the offeree accept by promise or by performance, as § 32 presumes in case of doubt, beginning the invited performance is an acceptance and a promise to finish (§ 62): a contract binding both sides, not an option (see K-14). Starting to cross the bridge qualifies on the hypothetical facts. Buying materials that could be used on other work may be preparation.",
         "sources": [
           "rest45",
           "problem-bridge",
@@ -1763,7 +1767,7 @@
       {
         "id": "e",
         "label": "Was there foreseeable and reasonable reliance?",
-        "detail": "Drennan protected the general contractor that reasonably used a definite bid in its own bid. Baird rejected reliance protection on its approach. Preparations alone can raise the § 87(2) reliance question without starting the requested performance.",
+        "detail": "Drennan protected the general contractor that reasonably used a definite bid in its own bid. Protection fails if the bid expressly or clearly reserved a power to revoke before acceptance, or if the general knew or had reason to know the bid was mistaken. Baird rejected reliance protection on its approach. Under § 87(2) the offeror must reasonably expect reliance of a substantial character before acceptance, the reliance must occur, and the offer binds only to the extent necessary to avoid injustice; preparations can qualify without starting the requested performance.",
         "sources": [
           "rest87",
           "drennan",
@@ -1803,7 +1807,7 @@
       {
         "id": "g",
         "label": "Withdrawal cannot defeat timely acceptance",
-        "detail": "Measure the actual protected period. Drennan gave the general a reasonable opportunity to accept after award. Statutory firm offers and purchased options have their own timing rules.",
+        "detail": "Measure the actual protected period. Drennan gave the general a reasonable opportunity to accept after award; a general who delays acceptance to seek a better price, or reopens bargaining, cannot claim a continuing right to accept the original bid. Statutory firm offers and purchased options have their own timing rules.",
         "sources": [
           "option-contract",
           "drennan",
@@ -1825,7 +1829,7 @@
       {
         "id": "i",
         "label": "Option only, with performance outstanding",
-        "detail": "The protected interval permits completion, while the offeree has yet to earn the promised return.",
+        "detail": "The protected interval permits completion, while the offeree has yet to earn the promised return. Under a § 45 option the offeree is not bound to finish (cmt. e); if the offer also invited a promise, beginning was an acceptance under § 62 and the offeree is bound to complete.",
         "sources": [
           "rest45",
           "problem-bridge"
@@ -2133,7 +2137,7 @@
       {
         "id": "a",
         "label": "Is the transaction governed by Article 2?",
-        "detail": "Use § 2-207 for qualifying sales. Under common law, a response that makes assent contingent on new conditions may instead be a counteroffer. A mere inquiry can leave acceptance intact.",
+        "detail": "Use § 2-207 for qualifying sales. Under the common-law mirror-image rule, a reply that departs from the offer’s terms is a rejection and counteroffer, unless the apparent variation was already implied in the offer or the added language is only precatory. A mere inquiry about other terms is not a counteroffer (Rios).",
         "sources": [
           "article2-scope",
           "mirror-image",
@@ -2153,7 +2157,7 @@
       {
         "id": "b",
         "label": "Do the writings establish an agreement?",
-        "detail": "A definite and seasonable expression of acceptance can form a contract despite variant terms unless expressly conditional on assent to them. Dorton requires a clear demand for assent, beyond a reference to printed terms.",
+        "detail": "A response operates as an acceptance only if it is a definite and seasonable expression of acceptance; one that departs radically from the offer’s dickered terms, such as price or quantity, may not be one (C&M 276, Koehring). Such an expression forms a contract despite additional or different terms unless acceptance is expressly made conditional on assent to them. Dorton requires language that clearly shows the offeree will not proceed without the offeror’s assent; “subject to” its printed terms is not enough.",
         "sources": [
           "ucc207",
           "formation-vs-terms",
@@ -2166,15 +2170,19 @@
             "to": "d"
           },
           {
-            "label": "Expressly conditional or writings fail",
+            "label": "Not a definite acceptance, or expressly conditional on assent",
             "to": "c"
+          },
+          {
+            "label": "One form, arriving after payment",
+            "to": "n"
           }
         ]
       },
       {
         "id": "c",
         "label": "Did the offeror assent or did both sides perform?",
-        "detail": "An assent to a conditional response can form a deal on accepted terms. If the writings fail and the parties nevertheless recognize a contract by conduct, apply § 2-207(3).",
+        "detail": "An assent to a conditional response can form a deal on accepted terms. If the writings fail and the parties nevertheless recognize a contract by conduct, apply § 2-207(3). Taking delivery and paying is not assent to the added terms: that conduct leads to subsection (3), and only express assent leads to the responder’s terms (C. Itoh; Dorton n.2). Roto-Lith’s contrary view was widely criticized and later overturned (C&M 279 n.3).",
         "sources": [
           "citoh",
           "ucc207-conduct"
@@ -2197,7 +2205,7 @@
       {
         "id": "d",
         "label": "Compare offer and response term by term",
-        "detail": "An additional clause concerns a point the offer did not cover. A different clause contradicts an existing provision. Start with all genuinely agreed terms.",
+        "detail": "An additional clause concerns a point the offer, or the prior agreement being confirmed, did not cover. Where both parties’ confirmations contain conflicting clauses, each party is taken to object to the other’s, so neither enters, and the contract consists of the terms originally agreed, the terms on which the confirmations agree, and Code terms (cmt. 6). A different clause contradicts an existing provision. Start with all genuinely agreed terms.",
         "sources": [
           "formation-vs-terms",
           "boilerplate",
@@ -2222,7 +2230,7 @@
       {
         "id": "e",
         "label": "Are both parties merchants?",
-        "detail": "Outside a transaction between merchants, additional terms are proposals that require assent. If both are merchants, apply the exceptions in subsection (2).",
+        "detail": "Outside a transaction between merchants, additional terms are proposals that require assent. If both are merchants, apply the exceptions in subsection (2). “Between merchants” means both parties are chargeable with a merchant’s knowledge or skill (§ 2-104(3)); for § 2-207 almost every person in business qualifies, but not a lawyer buying fishing tackle for personal use (§ 2-104 cmt. 2). Hill observed that buying at a retail store did not make Zeidenberg a software merchant (C&M 296–297).",
         "sources": [
           "additional-terms",
           "merchant",
@@ -2246,7 +2254,7 @@
       {
         "id": "f",
         "label": "Does a subsection (2) exception apply?",
-        "detail": "Check whether the offer expressly limits acceptance, whether the term materially alters the bargain, and whether the offeror objected already or within a reasonable time after notice.",
+        "detail": "Check whether the offer expressly limits acceptance, whether the term materially alters the bargain, and whether the other party objected already or within a reasonable time after notice. The party resisting the term bears the burden of proving the exception (Bayway: material alteration). A materially altering addition still enters if the other party expressly agrees to it (Comment 3; Dorton).",
         "sources": [
           "ucc207",
           "additional-terms",
@@ -2257,6 +2265,10 @@
           {
             "label": "An exception applies",
             "to": "l"
+          },
+          {
+            "label": "Material, but expressly agreed to",
+            "to": "i"
           },
           {
             "label": "No exception",
@@ -2350,6 +2362,26 @@
           "northrop"
         ],
         "edges": []
+      },
+      {
+        "id": "n",
+        "label": "Who offered, the vendor or the buyer?",
+        "detail": "Decide who offered and when the deal was complete (see K-10). Under Hill, the vendor’s terms in the box are part of its offer, the buyer accepts by keeping the goods past the return period, and with only one form § 2-207 is irrelevant. Under Klocek, the buyer offered, the box terms are an acceptance or confirmation proposing additional terms, and § 2-207 applies to the single form.",
+        "sources": [
+          "hill-gateway",
+          "klocek",
+          "rolling-formation"
+        ],
+        "edges": [
+          {
+            "label": "Vendor offered; buyer kept the goods (Hill)",
+            "to": "i"
+          },
+          {
+            "label": "Buyer offered; box terms respond (Klocek)",
+            "to": "d"
+          }
+        ]
       }
     ]
   },
