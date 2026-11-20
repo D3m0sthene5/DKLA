@@ -1,0 +1,483 @@
+{
+ "registered": [
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/26/nodes/6/detail",
+   "old": "Apply waiver, prevention and disproportionate forfeiture where supported. Also ask whether there was an independent promise to produce the event, whose breach may support damages.",
+   "new": "Apply waiver and prevention where supported. A court may excuse a condition to avoid disproportionate forfeiture only if its occurrence was not a material part of the agreed exchange (Restatement § 229); that excuse does not cure a party's own uncured material failure, which may leave only restitution (Nelson). Also ask whether there was an independent promise to produce the event, whose breach may support damages.",
+   "reason": "§ 229 lets a court excuse a condition to avoid disproportionate forfeiture 'unless its occurrence was a material part of the agreed exchange'; without that limit K-27 excused Kingston's security condition and gave Nelson's builder the full price (C&M 824, 830).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      824,
+      830,
+      883,
+      884
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 229"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/26/nodes/4/detail",
+   "old": "Jacob & Youngs treated the use of equivalent pipe as a minor departure in the circumstances. Substantial performance can satisfy a constructive condition while leaving damages for the defect.",
+   "new": "Jacob & Youngs treated an innocent, trivial use of equivalent pipe as substantial performance; a willful transgressor cannot claim the doctrine under Cardozo's opinion. Substantial performance satisfies a constructive condition while leaving damages for the defect; it does not satisfy a condition the parties made express by apt and certain words.",
+   "reason": "Cardozo: 'The willful transgressor must accept the penalty of his transgression' (C&M 850); the node let a builder who swapped pipe deliberately for profit reach 'Substantial'. Substantial performance satisfies a constructive condition only (C&M 851–852).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      849,
+      850,
+      851,
+      852
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/26/nodes/3/edges",
+   "old": [
+    {
+     "label": "Prior performance or tender made",
+     "to": "e"
+    },
+    {
+     "label": "Required first step missing",
+     "to": "g"
+    }
+   ],
+   "new": [
+    {
+     "label": "Performance rendered or tendered, fully or in part",
+     "to": "e"
+    },
+    {
+     "label": "Required first performance not rendered or tendered at all",
+     "to": "g"
+    }
+   ],
+   "reason": "Gill's partial performance went through 'Required first step missing' to no payment, the ruling the court reversed; and where one performance takes time, it comes first (Restatement § 234(2)), so a builder must work before payment is due.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      871,
+      872,
+      873
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 234(2)"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/26/nodes/3/detail",
+   "old": "Consider concurrent exchange versus performance that takes time or must precede the other duty. Kingston required agreed security before conveying the business.",
+   "new": "Consider concurrent exchange versus performance that takes time or must precede the other duty. Kingston required agreed security before conveying the business. Where one party's performance takes time and the other's does not, the performance that takes time comes first (Restatement § 234(2)): a builder must work before the owner's payment is due.",
+   "reason": "Gill's partial performance went through 'Required first step missing' to no payment, the ruling the court reversed; and where one performance takes time, it comes first (Restatement § 234(2)), so a builder must work before payment is due.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      828,
+      829
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 234"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/26/nodes/1/detail",
+   "old": "Test the actual condition. In Luttinger no qualifying loan was available despite diligent efforts, and a proposed subsidy did not satisfy the specified financing term.",
+   "new": "Test the actual condition, and whether it is enforceable: courts in California, Nevada and New York refuse to enforce even a clear pay-if-paid clause as against public policy. In Luttinger no qualifying loan was available despite diligent efforts, and a proposed subsidy did not satisfy the specified financing term.",
+   "reason": "C&M 819 Note 2: California, Nevada and New York courts have invalidated pay-if-paid clauses as against public policy.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      819
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/7/nodes/4/detail",
+   "old": "A nonbreaching party may seek the value conferred when the other side materially breaches before completion. Algernon Blair permits reasonable value for accepted performance despite a losing bargain. Test any valid contract that still governs payment.",
+   "new": "A nonbreaching party may seek the value conferred when the other side materially breaches before completion. A party in breach may also have a claim: Nelson let a negligent builder who had not substantially performed recover the benefit conferred in excess of the owner's damages. Algernon Blair permits reasonable value for accepted performance despite a losing bargain. Test any valid contract that still governs payment.",
+   "reason": "Nelson let a negligent builder who had not substantially performed recover the benefit conferred less the owner's damages ($598.85, C&M 883–884); K-08 node e spoke only of a nonbreaching party, and node h cited Nelson for the contract remedy it denied.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      883,
+      884
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/7/nodes/5/detail",
+   "old": "An award returns the benefit or measures it by reasonable value where appropriate. A claimant’s expenditure alone does not establish the amount of the defendant’s enrichment.",
+   "new": "An award returns the benefit or measures it by reasonable value where appropriate. When the claimant is the party in breach, subtract the other party's damages and the payments already made (Nelson). A claimant’s expenditure alone does not establish the amount of the defendant’s enrichment.",
+   "reason": "Nelson let a negligent builder who had not substantially performed recover the benefit conferred less the owner's damages ($598.85, C&M 883–884); K-08 node e spoke only of a nonbreaching party, and node h cited Nelson for the contract remedy it denied.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      883,
+      884
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "target": "effectiveBrief",
+   "id": "CT-NEXT-CM-0133",
+   "field": "rule",
+   "old": "A building contractor whose defective work falls short",
+   "new": "A building contractor whose negligent, defective work falls short",
+   "reason": "Nelson allowed recovery by a builder whose breach was negligent, under Idaho law, and the casebook notes courts resist such claims more when the breach is willful (C&M 875, 884).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      875,
+      883,
+      884
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "file": "tools/v28/case-chronologies.json",
+   "pointer": "/0/steps/186/note",
+   "old": "A building contractor whose defective work falls short of substantial performance may still recover in quasi-contract the amount by which the benefit conferred on the owner exceeds the owner's damages.",
+   "new": "A building contractor whose negligent, defective work falls short of substantial performance may still recover in quasi-contract the amount by which the benefit conferred on the owner exceeds the owner's damages.",
+   "reason": "Nelson allowed recovery by a builder whose breach was negligent, under Idaho law, and the casebook notes courts resist such claims more when the breach is willful (C&M 875, 884).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      875,
+      884
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "target": "takeaway",
+   "id": "nelson-hazel",
+   "old": "A contractor whose work fell short of substantial performance still cannot be made to hand over the value of the work for free. He recovers the amount by which the benefit to the owner exceeds the owner's damages.",
+   "new": "Under Idaho law, a negligent contractor whose work fell short of substantial performance could still recover the amount by which the benefit to the owner exceeded the owner's damages. Courts resist such claims more when the breach is willful.",
+   "reason": "Nelson allowed recovery by a builder whose breach was negligent, under Idaho law, and the casebook notes courts resist such claims more when the breach is willful (C&M 875, 884).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      875,
+      884
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "file": "tools/r19/data/timelines.json",
+   "timelineId": "remedy-interests",
+   "stepKey": "nelson-hazel",
+   "field": "note",
+   "old": "Restitution for the party in breach: a builder short of substantial performance recovers the benefit conferred less the owner's damages (Idaho).",
+   "new": "Restitution for the party in breach: a negligent builder short of substantial performance recovers the benefit conferred less the owner's damages (Idaho).",
+   "reason": "Nelson allowed recovery by a builder whose breach was negligent, under Idaho law, and the casebook notes courts resist such claims more when the breach is willful (C&M 875, 884).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      875,
+      884
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "file": "tools/cold-call/plain-sentences.json",
+   "pointer": "/sentences/jacob-youngs/14/plain",
+   "old": "Kent was entitled to insist on Reading pipe even just because he preferred it; pipe that worked as well was not what he bargained for.",
+   "new": "In the dissent's view, Kent was entitled to insist on Reading pipe even just because he preferred it, and pipe that worked as well was not what he bargained for. The majority rejected that view for this innocent, trivial deviation.",
+   "reason": "This is McLaughlin's dissent; Cardozo's majority held the innocent, trivial deviation did not forfeit the price (C&M 849–851).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      849,
+      850,
+      851
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "target": "takeaway",
+   "id": "jacob-youngs",
+   "old": "A builder who innocently used a different brand of equally good pipe did not forfeit payment for the house. Trivial departures are compensated in damages, measured by the drop in value when tearing out the work would cost far more than it is worth.",
+   "new": "A builder who innocently used a different brand of equally good pipe did not forfeit payment for the house. A trivial and innocent departure is compensated in damages, measured by the drop in value when replacing the work would cost grossly and unfairly more than it is worth.",
+   "reason": "Cardozo: 'The willful transgressor must accept the penalty of his transgression' (C&M 850); the node let a builder who swapped pipe deliberately for profit reach 'Substantial'. Substantial performance satisfies a constructive condition only (C&M 851–852).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      849,
+      850
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "file": "tools/r19/data/timelines.json",
+   "timelineId": "conditions",
+   "stepKey": null,
+   "field": "guide",
+   "old": "First distinguish a condition from a promise about performance. Then ask whether the agreement is divisible, the condition was waived, or substantial performance applies. Compare those routes with Luttinger’s failed financing condition and Peacock’s ambiguous payment language.",
+   "new": "First distinguish a condition from a promise about performance. Then ask whether the agreement is divisible, the condition was waived, or, for a constructive condition only, substantial performance applies. Compare those routes with Luttinger’s failed financing condition and Peacock’s ambiguous payment language.",
+   "reason": "Substantial performance satisfies a constructive condition; Cardozo reserved, and Oppenheimer applied, the parties' power to make exact performance an express condition by apt and certain words (C&M 851–852).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      851,
+      852
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "file": "tools/r19/data/timelines.json",
+   "timelineId": "conditions",
+   "stepKey": null,
+   "field": "now",
+   "old": "A condition makes a duty depend on an event. Courts may interpret language, recognize waiver or apply substantial-performance rules to prevent disproportionate loss. Those doctrines do not automatically replace an unmistakable express condition. The contract’s language and the governing law matter.",
+   "new": "A condition makes a duty depend on an event. Courts may interpret language, recognize waiver or apply substantial-performance rules to prevent disproportionate loss. Substantial performance does not satisfy an express condition; waiver, prevention or excuse to avoid disproportionate forfeiture may. The contract’s language and the governing law matter.",
+   "reason": "Substantial performance satisfies a constructive condition; Cardozo reserved, and Oppenheimer applied, the parties' power to make exact performance an express condition by apt and certain words (C&M 851–852).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      851,
+      852
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "target": "effectiveBrief",
+   "id": "CT-NEXT-CM-0118",
+   "field": "rule",
+   "old": "when an express condition does not occur on its stated terms the conditional duty does not arise.",
+   "new": "when an express condition does not occur on its stated terms the conditional duty does not arise unless the nonoccurrence is excused.",
+   "reason": "Restatement § 225(1): performance subject to a condition cannot become due unless the condition occurs or its nonoccurrence is excused; the casebook asks about buyers who never tried to obtain financing (C&M 809).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      805,
+      806,
+      809
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 225(1)"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "file": "tools/v28/case-chronologies.json",
+   "pointer": "/0/steps/217/note",
+   "old": "A condition precedent is an event the parties intend to occur before a right to performance arises, and when an express condition does not occur on its stated terms the conditional duty does not arise.",
+   "new": "A condition precedent is an event the parties intend to occur before a right to performance arises, and when an express condition does not occur on its stated terms the conditional duty does not arise unless the nonoccurrence is excused.",
+   "reason": "Restatement § 225(1): performance subject to a condition cannot become due unless the condition occurs or its nonoccurrence is excused; the casebook asks about buyers who never tried to obtain financing (C&M 809).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      809
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "target": "effectiveBrief",
+   "id": "CT-NEXT-CM-0131",
+   "field": "rule",
+   "old": "recover the stipulated price for each item fully performed, but nothing for an item only partly performed.",
+   "new": "recover the stipulated rate for each priced unit delivered as agreed, but nothing under the contract for a unit only partly performed.",
+   "reason": "Gill's contract priced each kind of log per thousand feet driven to the boom; 'item' does not identify the unit that earns payment, and logs actually delivered were paid (C&M 871–873).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      871,
+      872,
+      873
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "file": "tools/v28/case-chronologies.json",
+   "pointer": "/0/steps/39/note",
+   "old": "A contract is severable when the consideration is apportioned among distinct performances, so the performing party may recover the stipulated price for each item fully performed, but nothing for an item only partly performed.",
+   "new": "A contract is severable when the consideration is apportioned among distinct performances, so the performing party may recover the stipulated rate for each priced unit delivered as agreed, but nothing under the contract for a unit only partly performed.",
+   "reason": "Gill's contract priced each kind of log per thousand feet driven to the boom; 'item' does not identify the unit that earns payment, and logs actually delivered were paid (C&M 871–873).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      871,
+      873
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "target": "takeaway",
+   "id": "gill",
+   "old": "When a contract prices each item separately, a party can be paid for each item it fully delivered even though it did not finish the whole job. It gets nothing for items only partly carried out.",
+   "new": "When a contract sets a price for each unit of work, a party can be paid at that rate for every unit it fully delivered even though it did not finish the whole job. It gets no contract payment for a unit only partly carried out, such as a log driven halfway.",
+   "reason": "Gill's contract priced each kind of log per thousand feet driven to the boom; 'item' does not identify the unit that earns payment, and logs actually delivered were paid (C&M 871–873).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      871,
+      873
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  },
+  {
+   "file": "tools/r19/data/timelines.json",
+   "timelineId": "conditions",
+   "stepKey": "mckenna",
+   "field": "note",
+   "old": "Waiver: an owner who kept paying without asking for the architect's certificates cannot invoke their absence against final payment (Pennsylvania).",
+   "new": "Waiver: an owner who kept paying without asking for the architect's certificates cannot invoke their absence against final payment for work honestly and substantially performed (Pennsylvania).",
+   "reason": "McKenna: the owner could not invoke the missing certificates 'to escape final payment for work shown to have been honestly and substantially performed' (C&M 892).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      891,
+      892
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-20"
+  }
+ ],
+ "mapEntryRunTimeEdits (tools/r19/data/r21-audit.json)": [],
+ "structuralAdditions (not registered: new flowchart nodes)": [
+  {
+   "packet": "OP-CT-20",
+   "kind": "set",
+   "reason": "Nelson let a negligent builder who had not substantially performed recover the benefit conferred less the owner's damages ($598.85, C&M 883–884); K-08 node e spoke only of a nonbreaching party, and node h cited Nelson for the contract remedy it denied.",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      883,
+      884
+     ]
+    }
+   ],
+   "sources": [],
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/7/nodes/7/sources",
+   "old": [
+    "nelson-hazel",
+    "completion-damages"
+   ],
+   "new": [
+    "completion-damages"
+   ],
+   "register": false
+  }
+ ]
+}

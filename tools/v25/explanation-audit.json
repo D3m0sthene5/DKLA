@@ -3614,7 +3614,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-NEXT-CM-0118",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0118.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "dec305cf616d7973dd39e509e7e8254ccc9e71470d100033b9a64f29ebe0fa5b",
+        "ruleSha256": "33e1b0606f505bd33aafbd6c865677f4dc43b1063d0c24aa70cef41a6b0234fb",
         "comparedSections": {
           "Holding": "39c412aa02c2f89f4690bfbb2100823170d049d477c3dcd52eeb78c61bfd6e7f"
         },
@@ -3650,6 +3650,14 @@
           "scope": "Current takeaway and rule read against the complete current canonical Holding; relevant Cold Call passages checked for the corrected distinction. Previously recorded source reading remains historical. No fresh complete-opinion review.",
           "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
         }
       ]
     },
@@ -3793,7 +3801,7 @@
         "Contracts"
       ],
       "takeaway": "A builder who innocently used a different brand of equally good pipe did not forfeit payment for the house. Trivial departures are compensated in damages, measured by the drop in value when tearing out the work would cost far more than it is worth.",
-      "takeawaySha256": "e14aa166bc09056f755d308c73202aa3fa2390361e980cac75270b51905f715c",
+      "takeawaySha256": "68b1fe1ced7fcd2bb6a5358830bb6f8e0fb9c436d94246bb77f8ed4d09b5bf55",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -3823,7 +3831,15 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        }
+      ]
     },
     {
       "id": "gill",
@@ -3832,7 +3848,7 @@
         "Contracts"
       ],
       "takeaway": "When a contract prices each item separately, a party can be paid for each item it fully delivered even though it did not finish the whole job. It gets nothing for items only partly carried out.",
-      "takeawaySha256": "f21d89757909db88c325af6f3503da4010fe11a3dab0ac9410954928403f3c43",
+      "takeawaySha256": "be595c853f0b24094f22e942c2a29ba02f39374571b83c657dc32e3b33aae011",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -3843,7 +3859,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-NEXT-CM-0131",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0131.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "698edbd24854839eb334679d2b5bbb93a4d25353c91d93765415f2aac47cc8df",
+        "ruleSha256": "cbb4c860cde3510c3ae97b6063f7ef6cf33e1165c59fd729ce96deb388ba4fb9",
         "comparedSections": {
           "Holding": "bfffdeb55af9a3002e1fb6b90ae5fc6a336859e280007c4b036bfef7fd1d1ad5"
         },
@@ -3862,7 +3878,21 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "nelson-hazel",
@@ -3871,7 +3901,7 @@
         "Contracts"
       ],
       "takeaway": "A contractor whose work fell short of substantial performance still cannot be made to hand over the value of the work for free. He recovers the amount by which the benefit to the owner exceeds the owner's damages.",
-      "takeawaySha256": "d0b650293eb4a1262fd3d887f7ee46f38454705481378097d84094bdf3056dbd",
+      "takeawaySha256": "b3640864acfab8c8d28b01dc91dafe1e0ff2fe22c00fcc5b3a61345c2b9b4e64",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -3882,7 +3912,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-NEXT-CM-0133",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0133.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "8f6184c329d78ed9c391c91cf3cd86fbd9beb8b6da5e3e109dbc555ede6b4509",
+        "ruleSha256": "425ef438a37427f3a8486ea9effa9bc36d7ac039a0e4d1590392ed5b30bded19",
         "comparedSections": {
           "Holding": "b774be5caf54c68e0c26b53e2cdf85b602cdf674057a9a7ac9a80ef87885da8e"
         },
@@ -3906,7 +3936,21 @@
         "date": "2026-10-28",
         "scope": "Owner-requested spelling/grammar hotfix. Wording only; original doctrinal comparison and its limits retained.",
         "reason": "Supply “the amount by which” in the recovery comparison."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "mckenna",

@@ -1012,7 +1012,7 @@
       {
         "id": "e",
         "label": "Did the other party receive part performance?",
-        "detail": "A nonbreaching party may seek the value conferred when the other side materially breaches before completion. Algernon Blair permits reasonable value for accepted performance despite a losing bargain. Test any valid contract that still governs payment.",
+        "detail": "A nonbreaching party may seek the value conferred when the other side materially breaches before completion. A party in breach may also have a claim: Nelson let a negligent builder who had not substantially performed recover the benefit conferred in excess of the owner's damages. Algernon Blair permits reasonable value for accepted performance despite a losing bargain. Test any valid contract that still governs payment.",
         "sources": [
           "nelson-hazel",
           "algernon-blair",
@@ -1032,7 +1032,7 @@
       {
         "id": "f",
         "label": "Restore what the defendant received",
-        "detail": "An award returns the benefit or measures it by reasonable value where appropriate. A claimant’s expenditure alone does not establish the amount of the defendant’s enrichment.",
+        "detail": "An award returns the benefit or measures it by reasonable value where appropriate. When the claimant is the party in breach, subtract the other party's damages and the payments already made (Nelson). A claimant’s expenditure alone does not establish the amount of the defendant’s enrichment.",
         "sources": [
           "quantum-meruit",
           "restitution-interest",
@@ -1055,7 +1055,6 @@
         "label": "Use the contractual payment remedy",
         "detail": "If contractual recovery governs, calculate what performance or breach entitles the party to recover under the agreement.",
         "sources": [
-          "nelson-hazel",
           "completion-damages"
         ],
         "edges": []
@@ -3892,7 +3891,7 @@
       {
         "id": "b",
         "label": "Did the specified event occur?",
-        "detail": "Test the actual condition. In Luttinger no qualifying loan was available despite diligent efforts, and a proposed subsidy did not satisfy the specified financing term.",
+        "detail": "Test the actual condition, and whether it is enforceable: courts in California, Nevada and New York refuse to enforce even a clear pay-if-paid clause as against public policy. In Luttinger no qualifying loan was available despite diligent efforts, and a proposed subsidy did not satisfy the specified financing term.",
         "sources": [
           "express-conditions",
           "luttinger"
@@ -3930,18 +3929,18 @@
       {
         "id": "d",
         "label": "Which performance comes first?",
-        "detail": "Consider concurrent exchange versus performance that takes time or must precede the other duty. Kingston required agreed security before conveying the business.",
+        "detail": "Consider concurrent exchange versus performance that takes time or must precede the other duty. Kingston required agreed security before conveying the business. Where one party's performance takes time and the other's does not, the performance that takes time comes first (Restatement § 234(2)): a builder must work before the owner's payment is due.",
         "sources": [
           "constructive-conditions",
           "kingston"
         ],
         "edges": [
           {
-            "label": "Prior performance or tender made",
+            "label": "Performance rendered or tendered, fully or in part",
             "to": "e"
           },
           {
-            "label": "Required first step missing",
+            "label": "Required first performance not rendered or tendered at all",
             "to": "g"
           }
         ]
@@ -3949,7 +3948,7 @@
       {
         "id": "e",
         "label": "Was the performance substantial?",
-        "detail": "Jacob & Youngs treated the use of equivalent pipe as a minor departure in the circumstances. Substantial performance can satisfy a constructive condition while leaving damages for the defect.",
+        "detail": "Jacob & Youngs treated an innocent, trivial use of equivalent pipe as substantial performance; a willful transgressor cannot claim the doctrine under Cardozo's opinion. Substantial performance satisfies a constructive condition while leaving damages for the defect; it does not satisfy a condition the parties made express by apt and certain words.",
         "sources": [
           "substantial-performance",
           "jacob-youngs"
@@ -3987,7 +3986,7 @@
       {
         "id": "g",
         "label": "Is failed performance or nonoccurrence excused?",
-        "detail": "Apply waiver, prevention and disproportionate forfeiture where supported. Also ask whether there was an independent promise to produce the event, whose breach may support damages.",
+        "detail": "Apply waiver and prevention where supported. A court may excuse a condition to avoid disproportionate forfeiture only if its occurrence was not a material part of the agreed exchange (Restatement § 229); that excuse does not cure a party's own uncured material failure, which may leave only restitution (Nelson). Also ask whether there was an independent promise to produce the event, whose breach may support damages.",
         "sources": [
           "waiver",
           "prevention",
