@@ -1,0 +1,323 @@
+[
+ {
+  "packet": "CROSS-CLASS",
+  "kind": "set",
+  "reason": "Columbia Nitrogen: the trial court excluded course-of-dealing and usage evidence against a writing it held complete; the judgment was vacated. UCC § 2-202(a) lets that evidence explain or supplement even a complete and exclusive writing unless it cannot reasonably be construed as consistent with the express terms or is carefully negated. K-22's entry had no route for it, so such evidence ran a → b → d → e (excluded).",
+  "pinpoints": [
+   {
+    "file": "added-sources/C&M Textbook 351-700.pdf",
+    "printedPages": [
+     596,
+     597,
+     598,
+     599
+    ],
+    "pdfPages": [
+     289,
+     290,
+     291,
+     292
+    ]
+   },
+   {
+    "file": "added-sources/Contracts- Selections.pdf",
+    "provision": "UCC § 2-202(a); § 1-303(e)"
+   }
+  ],
+  "sources": [
+   {
+    "url": "https://www.law.cornell.edu/ucc/2/2-202",
+    "pinpoint": "Model UCC § 2-202(a)"
+   }
+  ],
+  "file": "tools/flowcharts/data/contracts.json",
+  "pointer": "/21/nodes/0/edges",
+  "old": [
+   {
+    "label": "Enforce earlier term",
+    "to": "b"
+   },
+   {
+    "label": "Explain written language",
+    "to": "g"
+   },
+   {
+    "label": "Prove fraud or reform writing",
+    "to": "h"
+   },
+   {
+    "label": "Prove later change",
+    "to": "i"
+   }
+  ],
+  "new": [
+   {
+    "label": "Enforce earlier term",
+    "to": "b"
+   },
+   {
+    "label": "Explain written language",
+    "to": "g"
+   },
+   {
+    "label": "Prove fraud or reform writing",
+    "to": "h"
+   },
+   {
+    "label": "Prove later change",
+    "to": "i"
+   },
+   {
+    "label": "Show course of dealing, usage of trade or course of performance",
+    "to": "j"
+   }
+  ]
+ },
+ {
+  "packet": "CROSS-CLASS",
+  "kind": "set",
+  "reason": "Columbia Nitrogen: the trial court excluded course-of-dealing and usage evidence against a writing it held complete; the judgment was vacated. UCC § 2-202(a) lets that evidence explain or supplement even a complete and exclusive writing unless it cannot reasonably be construed as consistent with the express terms or is carefully negated. K-22's entry had no route for it, so such evidence ran a → b → d → e (excluded).",
+  "pinpoints": [
+   {
+    "file": "added-sources/C&M Textbook 351-700.pdf",
+    "printedPages": [
+     596,
+     597,
+     598,
+     599
+    ],
+    "pdfPages": [
+     289,
+     290,
+     291,
+     292
+    ]
+   },
+   {
+    "file": "added-sources/Contracts- Selections.pdf",
+    "provision": "UCC § 2-202(a); § 1-303(e)"
+   }
+  ],
+  "sources": [],
+  "file": "tools/flowcharts/data/contracts.json",
+  "pointer": "/21/nodes/9",
+  "old": null,
+  "register": false,
+  "new": {
+   "id": "j",
+   "label": "Can the commercial context be read consistently with the writing?",
+   "detail": "UCC § 2-202(a) lets course of performance, course of dealing and usage of trade explain or supplement even a complete and exclusive writing, without a finding of ambiguity. In Columbia Nitrogen the trial court excluded such evidence against a writing it held complete, and the judgment was vacated: the evidence comes in unless it cannot reasonably be construed as consistent with the express terms or the writing carefully negates it.",
+   "sources": [
+    "columbia-nitrogen",
+    "course-dealing",
+    "trade-usage"
+   ],
+   "edges": [
+    {
+     "label": "Reasonably consistent and not carefully negated",
+     "to": "k"
+    },
+    {
+     "label": "Contradicts an express term or carefully negated",
+     "to": "e"
+    }
+   ]
+  }
+ },
+ {
+  "packet": "CROSS-CLASS",
+  "kind": "set",
+  "reason": "Columbia Nitrogen: the trial court excluded course-of-dealing and usage evidence against a writing it held complete; the judgment was vacated. UCC § 2-202(a) lets that evidence explain or supplement even a complete and exclusive writing unless it cannot reasonably be construed as consistent with the express terms or is carefully negated. K-22's entry had no route for it, so such evidence ran a → b → d → e (excluded).",
+  "pinpoints": [
+   {
+    "file": "added-sources/C&M Textbook 351-700.pdf",
+    "printedPages": [
+     596,
+     597,
+     598,
+     599
+    ],
+    "pdfPages": [
+     289,
+     290,
+     291,
+     292
+    ]
+   },
+   {
+    "file": "added-sources/Contracts- Selections.pdf",
+    "provision": "UCC § 2-202(a); § 1-303(e)"
+   }
+  ],
+  "sources": [],
+  "file": "tools/flowcharts/data/contracts.json",
+  "pointer": "/21/nodes/10",
+  "old": null,
+  "register": false,
+  "new": {
+   "id": "k",
+   "label": "Commercial context may explain or supplement the writing",
+   "detail": "Admit the evidence. Where reasonable, the express terms and the course of performance, course of dealing and usage are construed as consistent; if they cannot be, express terms control, then course of performance, course of dealing and usage, in that order (UCC § 1-303(e)). What the evidence shows is for the factfinder; the meaning it supports is tested in “What does the disputed contract term mean?”.",
+   "sources": [
+    "columbia-nitrogen",
+    "trade-usage",
+    "nanakuli"
+   ],
+   "edges": []
+  }
+ },
+ {
+  "packet": "CROSS-CLASS",
+  "kind": "pointer",
+  "reason": "Restatement § 201 (assigned for Class 15) appeared on no case surface; the node where a student applies a contested meaning is its natural home.",
+  "pinpoints": [
+   {
+    "file": "added-sources/Contracts- Selections.pdf",
+    "provision": "Restatement (Second) §§ 20, 201 and comment d"
+   },
+   {
+    "file": "added-sources/C&M Textbook 351-700.pdf",
+    "printedPages": [
+     576,
+     580
+    ],
+    "pdfPages": [
+     269,
+     273
+    ]
+   }
+  ],
+  "sources": [],
+  "file": "tools/flowcharts/data/contracts.json",
+  "pointer": "/22/nodes/5/detail",
+  "old": "Compare actual contract and commercial evidence, including burden of proof.",
+  "new": "Compare actual contract and commercial evidence, including burden of proof. Whose meaning prevails: a meaning both parties attached governs (Restatement § 201(1)); where they attached different meanings, the term carries the meaning of the party who did not know, or had no reason to know, of the other's meaning, if the other knew or had reason to know of the first party's meaning (§ 201(2)); otherwise neither is bound by the other's meaning, and there may be no agreement on the term (§§ 20, 201(3)). Frigaliment resolved its dispute by the plaintiff's burden of proof."
+ },
+ {
+  "packet": "CROSS-CLASS",
+  "kind": "set",
+  "reason": "Class 13 slide 7 lists 'Establish that performance is subject to a condition' among the permitted uses of extrinsic evidence, and Restatement § 217 treats a written agreement as not integrated with respect to an oral condition; K-22 sent that evidence to 'Enforce earlier term' and exclusion.",
+  "pinpoints": [
+   {
+    "file": "added-sources/Class 13_Parol evidence rule - Copy (3).pptx",
+    "slides": [
+     7
+    ]
+   },
+   {
+    "file": "added-sources/Contracts- Selections.pdf",
+    "provision": "Restatement (Second) § 217"
+   }
+  ],
+  "sources": [],
+  "file": "tools/flowcharts/data/contracts.json",
+  "pointer": "/21/nodes/0/edges",
+  "old": [
+   {
+    "label": "Enforce earlier term",
+    "to": "b"
+   },
+   {
+    "label": "Explain written language",
+    "to": "g"
+   },
+   {
+    "label": "Prove fraud or reform writing",
+    "to": "h"
+   },
+   {
+    "label": "Prove later change",
+    "to": "i"
+   },
+   {
+    "label": "Show course of dealing, usage of trade or course of performance",
+    "to": "j"
+   }
+  ],
+  "new": [
+   {
+    "label": "Enforce earlier term",
+    "to": "b"
+   },
+   {
+    "label": "Explain written language",
+    "to": "g"
+   },
+   {
+    "label": "Prove fraud or reform writing",
+    "to": "h"
+   },
+   {
+    "label": "Prove later change",
+    "to": "i"
+   },
+   {
+    "label": "Show course of dealing, usage of trade or course of performance",
+    "to": "j"
+   },
+   {
+    "label": "Show the writing takes effect only on an oral condition",
+    "to": "l"
+   }
+  ]
+ },
+ {
+  "packet": "CROSS-CLASS",
+  "kind": "set",
+  "reason": "Class 13 slide 7 lists 'Establish that performance is subject to a condition' among the permitted uses of extrinsic evidence, and Restatement § 217 treats a written agreement as not integrated with respect to an oral condition; K-22 sent that evidence to 'Enforce earlier term' and exclusion.",
+  "pinpoints": [
+   {
+    "file": "added-sources/Class 13_Parol evidence rule - Copy (3).pptx",
+    "slides": [
+     7
+    ]
+   },
+   {
+    "file": "added-sources/Contracts- Selections.pdf",
+    "provision": "Restatement (Second) § 217"
+   }
+  ],
+  "sources": [],
+  "file": "tools/flowcharts/data/contracts.json",
+  "pointer": "/21/nodes/11",
+  "old": null,
+  "register": false,
+  "new": {
+   "id": "l",
+   "label": "The oral condition may be proved",
+   "detail": "Where the parties agree orally that performance of a written agreement is subject to a stated condition, the agreement is not integrated with respect to that condition (Restatement § 217), and slide 7 of Class 13 lists showing such a condition among the permitted uses of extrinsic evidence. The factfinder decides whether the condition was agreed; a later change goes to “Prove later change” instead.",
+   "sources": [
+    "parol-evidence",
+    "integration"
+   ],
+   "edges": []
+  }
+ },
+ {
+  "packet": "CROSS-CLASS",
+  "kind": "pointer",
+  "reason": "Hurst v. W.J. Lake (Or. 1932) is a pre-Code usage case on the same chart; the Article 2 label kept it, and other non-Code usage disputes, off the usage route.",
+  "pinpoints": [
+   {
+    "file": "added-sources/C&M Textbook 351-700.pdf",
+    "printedPages": [
+     575,
+     576,
+     584,
+     585
+    ],
+    "pdfPages": [
+     268,
+     269,
+     277,
+     278
+    ]
+   }
+  ],
+  "sources": [],
+  "file": "tools/flowcharts/data/contracts.json",
+  "pointer": "/22/nodes/0/edges/2/label",
+  "old": "Article 2 commercial context",
+  "new": "Commercial context: course of dealing or usage of trade"
+ }
+]

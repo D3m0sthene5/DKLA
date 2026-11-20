@@ -3009,6 +3009,14 @@
           {
             "label": "Prove later change",
             "to": "i"
+          },
+          {
+            "label": "Show course of dealing, usage of trade or course of performance",
+            "to": "j"
+          },
+          {
+            "label": "Show the writing takes effect only on an oral condition",
+            "to": "l"
           }
         ]
       },
@@ -3127,6 +3135,47 @@
           "modification"
         ],
         "edges": []
+      },
+      {
+        "id": "j",
+        "label": "Can the commercial context be read consistently with the writing?",
+        "detail": "UCC § 2-202(a) lets course of performance, course of dealing and usage of trade explain or supplement even a complete and exclusive writing, without a finding of ambiguity. In Columbia Nitrogen the trial court excluded such evidence against a writing it held complete, and the judgment was vacated: the evidence comes in unless it cannot reasonably be construed as consistent with the express terms or the writing carefully negates it.",
+        "sources": [
+          "columbia-nitrogen",
+          "course-dealing",
+          "trade-usage"
+        ],
+        "edges": [
+          {
+            "label": "Reasonably consistent and not carefully negated",
+            "to": "k"
+          },
+          {
+            "label": "Contradicts an express term or carefully negated",
+            "to": "e"
+          }
+        ]
+      },
+      {
+        "id": "k",
+        "label": "Commercial context may explain or supplement the writing",
+        "detail": "Admit the evidence. Where reasonable, the express terms and the course of performance, course of dealing and usage are construed as consistent; if they cannot be, express terms control, then course of performance, course of dealing and usage, in that order (UCC § 1-303(e)). What the evidence shows is for the factfinder; the meaning it supports is tested in “What does the disputed contract term mean?”.",
+        "sources": [
+          "columbia-nitrogen",
+          "trade-usage",
+          "nanakuli"
+        ],
+        "edges": []
+      },
+      {
+        "id": "l",
+        "label": "The oral condition may be proved",
+        "detail": "Where the parties agree orally that performance of a written agreement is subject to a stated condition, the agreement is not integrated with respect to that condition (Restatement § 217), and slide 7 of Class 13 lists showing such a condition among the permitted uses of extrinsic evidence. The factfinder decides whether the condition was agreed; a later change goes to “Prove later change” instead.",
+        "sources": [
+          "parol-evidence",
+          "integration"
+        ],
+        "edges": []
       }
     ]
   },
@@ -3153,7 +3202,7 @@
             "to": "c"
           },
           {
-            "label": "Article 2 commercial context",
+            "label": "Commercial context: course of dealing or usage of trade",
             "to": "d"
           }
         ]
@@ -3236,7 +3285,7 @@
       {
         "id": "f",
         "label": "Apply the meaning the evidence supports",
-        "detail": "Compare actual contract and commercial evidence, including burden of proof. Figgie applied a proved exclusive remedy that included refund, which the seller provided.",
+        "detail": "Compare actual contract and commercial evidence, including burden of proof. Whose meaning prevails: a meaning both parties attached governs (Restatement § 201(1)); where they attached different meanings, the term carries the meaning of the party who did not know, or had no reason to know, of the other's meaning, if the other knew or had reason to know of the first party's meaning (§ 201(2)); otherwise neither is bound by the other's meaning, and there may be no agreement on the term (§§ 20, 201(3)). Frigaliment resolved its dispute by the plaintiff's burden of proof. Figgie applied a proved exclusive remedy that included refund, which the seller provided.",
         "sources": [
           "interpretation",
           "figgie",
