@@ -320,7 +320,12 @@ def build():
     # Avoid stale decorative roots/continuation descriptions after integration.
     design=copy.deepcopy(m['courseDesign'])
     for c in design:
-        design[c]['spine']=[s for s in design[c].get('spine',[]) if s.get('from') not in ['civil-region','extension-cjl74v-1','extension-iekfaa-1'] and s.get('to') not in ['civil-region','extension-cjl74v-1','extension-iekfaa-1']]
+        # A tree line's ends are its 'a' and 'b'. This filter read 'from' and 'to', which no line has, so the
+        # three lines that name a retired subject stayed in the dataset and drew nothing (removed with the
+        # owner's approval, 19 November 2026: civil-region to cp-personal-region "grew from";
+        # cp-governing-region to extension-iekfaa-1 "continued"; extension-cjl74v-1 to
+        # lrs-region-judicial-review-of-agency-interpretation "same tools").
+        design[c]['spine']=[s for s in design[c].get('spine',[]) if s.get('a') not in ['civil-region','extension-cjl74v-1','extension-iekfaa-1'] and s.get('b') not in ['civil-region','extension-cjl74v-1','extension-iekfaa-1']]
         for z in design[c].get('zones',[]):
             overlapping=[r for r in regions.values() if course_of(r)==c and r['x']>=z['x'] and r['x']+r['w']<=z['x']+z['w'] and r['y']>=z['y'] and r['y']<z['y']+z['h']]
             if overlapping:z['h']=max(z['h'],max(r['y']+r['h'] for r in overlapping)-z['y']+250)
