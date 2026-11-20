@@ -41,12 +41,20 @@
       round both, and the small type stands on the digits' baseline.
   16. A result's name is cut only when its place would be left under 120 px; the words before a marked
       word are dropped at a word, never inside one, and the earlier ones stay in the page.
+  17. The frame's rules stop at the frame. Every rule in chrome.css that names a v32- class and no id starts
+      inside one of the frame's own containers (the bar, the zoom control, the Library's dialog, an index
+      list), and on Home, a course map, an open subject, a case on each of its tabs, the Library and a
+      search it matches nothing outside them. (Two bare rules, .v32-label and .v32-quiet, once set every
+      row name on an open subject at 6.75 px: the map uses the same two class names on its own text.)
+  18. Study notes, which the old menu's "Choose a course" offered, is a row in the Library's "Yours" with
+      its number of entries; it opens the Study workbench, on a desktop and on a phone.
   14. The composition lint (tools/v32/composition.mjs) finds nothing in the bar, the breadcrumb, the Library
       or the palette through a resize from 1680 px to a phone. (A phone's result rows are two lines by
       design, a title over its place, which the lint reads as a wrapped label: they are not counted.) */
 import assert from 'node:assert/strict';
 import { mkdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { chromium } from '@playwright/test';
 import { BASELINE, QUERIES, ready, rowsFor } from './search-rows.mjs';
 import { conformance } from './conformance.mjs';
@@ -335,6 +343,12 @@ const expectedCounts = (page) =>
       ),
       textbook: say(data.corpus.sourcePageCount, 'page', 'pages'),
       drill: say(window.DKLAStudy.entries().length, 'entry', 'entries'),
+      // what is placed in the Study workbench: the reader's own entries and the cross-course comparisons
+      notes: say(
+        Object.values(mapData().homes).filter((home) => home.region === 'workbench-region').length,
+        'entry',
+        'entries',
+      ),
       pairs: say(window.DKLAStudy.pairs().length, 'pair', 'pairs'),
     };
   });
@@ -364,7 +378,7 @@ const LIBRARY = {
   ],
   Classes: ['sessions', 'lectures', 'textbook'],
   Study: ['drill', 'pairs', 'sheets', 'progress'],
-  Yours: ['add', 'connect', 'path', 'save'],
+  Yours: ['notes', 'add', 'connect', 'path', 'save'],
 };
 // The footer: what is about the atlas itself. (Then the Privacy link.)
 const ABOUT = ['guide', 'help', 'scope', 'patch'];
@@ -1222,6 +1236,12 @@ try {
     pairs: () => document.getElementById('r18Dialog').open && window.DKLAStudy.state().tab === 'pairs',
     sheets: () => document.getElementById('r18Dialog').open && window.DKLAStudy.state().tab === 'sheets',
     progress: () => document.getElementById('r18Dialog').open && window.DKLAStudy.state().tab === 'progress',
+    // Study notes: the Study workbench, open on the map, and named in the path
+    notes: () =>
+      S.scope === 'Study notes' &&
+      S.region === 'workbench-region' &&
+      !!document.querySelector('#geoCanvas [data-card="workbench-region"]') &&
+      /Study notes/.test(document.querySelector('.map-nav')?.textContent || ''),
     add: () =>
       document.getElementById('modal').open &&
       /entry/i.test(document.getElementById('modalTitle').textContent),
@@ -1417,6 +1437,135 @@ try {
     },
   );
 
+  /* ---------- the frame's rules stop at the frame ---------- */
+  // chrome.css names its rows, labels and quiet links with short class names (v32-row, v32-label,
+  // v32-quiet, v32-glyph) that the map and the reader also use. A rule of the frame's must start inside a
+  // container the frame owns, or it lands on their elements.
+  const FRAME = 'header.study-header, .study-zoom, dialog.v32-shell, .v32-index';
+  const frameRules = async () => {
+    const file = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../src/features/v32/chrome.css');
+    const css = (await readFile(file, 'utf8')).replace(/\/\*[\s\S]*?\*\//g, '');
+    const found = [];
+    const walk = (text) => {
+      for (let i = 0; i < text.length; ) {
+        const open = text.indexOf('{', i);
+        if (open < 0) break;
+        const head = text.slice(i, open).trim();
+        let depth = 1,
+          j = open + 1;
+        for (; j < text.length && depth; j++) depth += text[j] === '{' ? 1 : text[j] === '}' ? -1 : 0;
+        if (/^@(media|supports|layer|container)/.test(head)) walk(text.slice(open + 1, j - 1));
+        else if (!head.startsWith('@')) {
+          let part = '',
+            nested = 0;
+          for (const ch of head + ',') {
+            nested += ch === '(' ? 1 : ch === ')' ? -1 : 0;
+            if (ch === ',' && !nested) {
+              if (part.trim()) found.push(part.trim().replace(/\s+/g, ' '));
+              part = '';
+            } else part += ch;
+          }
+        }
+        i = j;
+      }
+    };
+    walk(css);
+    // the ones that could land anywhere: a v32- class and no id
+    return [...new Set(found)].filter((selector) => /\.v32-/.test(selector) && !selector.includes('#'));
+  };
+  await check('the frame’s rules start inside the frame’s own containers', async () => {
+    const rules = await frameRules();
+    assert.ok(rules.length >= 60, `chrome.css was read (${rules.length} rules name a v32- class and no id)`);
+    const loose = rules.filter((selector) => {
+      // html.v32-chrome and html.v32-reading are the whole page: what follows them is what counts
+      const rest = selector.replace(/^html(\.[\w-]+|:not\([^)]*\))*( |$)/, '');
+      return !(
+        rest === '' ||
+        /^:where\((\.study-header|\.study-zoom|\.v32-shell|\.v32-index)(, (\.study-header|\.study-zoom|\.v32-shell|\.v32-index))*\) /.test(
+          rest,
+        ) ||
+        /^(body(\.[\w-]+)? )?(\.study-header|\.study-zoom)\b/.test(rest) ||
+        /^(dialog\.v32-shell|\.v32-index)\b/.test(rest)
+      );
+    });
+    assert.deepEqual(loose, [], 'a rule of the frame’s that could land outside the frame');
+  });
+  await check('no rule of the frame’s lands on the map, the reader or another feature’s screen', async () => {
+    const rules = (await frameRules()).map((selector) =>
+      selector
+        .replace(/::[\w-]+/g, '')
+        .replace(/:(hover|focus-visible|focus-within|focus|active|disabled)\b/g, '')
+        .replace(/:not\(\)/g, ''),
+    );
+    const stray = async (where) =>
+      (
+        await page.evaluate(
+          ({ rules, FRAME }) => {
+            const out = [];
+            for (const selector of rules) {
+              let list;
+              try {
+                list = document.querySelectorAll(selector);
+              } catch {
+                continue;
+              }
+              // (html.v32-chrome is the page itself: the frame's own mark on it)
+              for (const el of list)
+                if (el !== document.documentElement && !el.closest(FRAME)) {
+                  const owner = el.closest('#geoCanvas, #inspector, dialog, #modal');
+                  out.push(
+                    `${selector} lands on <${el.tagName.toLowerCase()} class="${el.getAttribute('class')}"> in ${owner ? owner.id || owner.tagName.toLowerCase() : 'the page'}`,
+                  );
+                  break;
+                }
+            }
+            return out;
+          },
+          { rules, FRAME },
+        )
+      ).map((line) => where + ': ' + line);
+    const found = [];
+    await goHome(page);
+    found.push(...(await stray('Home')));
+    await page.evaluate(() => home('Contracts', false));
+    await settle(page);
+    found.push(...(await stray('a course map')));
+    await page.evaluate(() => goRegion('consideration', false));
+    await page.locator('#geoCanvas .v32-row').first().waitFor();
+    found.push(...(await stray('an open subject')));
+    // the fault this check was written for: the size the map sets on a row's name is the size drawn
+    const sizes = await page.evaluate(() =>
+      [...document.querySelectorAll('#geoCanvas text[font-size]')]
+        .filter(
+          (text) =>
+            Math.abs(
+              parseFloat(getComputedStyle(text).fontSize) - parseFloat(text.getAttribute('font-size')),
+            ) >
+            0.02 * parseFloat(text.getAttribute('font-size')),
+        )
+        .map(
+          (text) =>
+            `${text.getAttribute('class')}: ${getComputedStyle(text).fontSize} for ${text.getAttribute('font-size')}`,
+        ),
+    );
+    assert.deepEqual(sizes.slice(0, 4), [], 'a stylesheet sets the size of the map’s text');
+    await page.evaluate(() => goNode('hamer'));
+    await page.waitForFunction(() => window.DKLAReader?.facets?.().length > 1);
+    for (const facet of await page.evaluate(() => window.DKLAReader.facets().map((f) => f.id))) {
+      await page.evaluate((id) => window.DKLAReader.show(id), facet);
+      found.push(...(await stray('a case, ' + facet)));
+    }
+    await goHome(page);
+    await openLibrary();
+    found.push(...(await stray('the Library')));
+    await page.keyboard.press('Escape');
+    await rowsFor(page, 'hamer');
+    found.push(...(await stray('a search')));
+    await page.evaluate(() => (document.getElementById('search').value = ''));
+    await settle(page);
+    assert.deepEqual(found, []);
+  });
+
   /* ---------- the Guide leaves the page ---------- */
   await check('the Library: Guide opens the guide', async () => {
     await context.route('**/how-to-use.html', (route) =>
@@ -1584,6 +1733,17 @@ try {
         assert.deepEqual(lib.cut, [], 'no name or count is cut');
         assert.match(lib.flowcharts, /^\d+ flowcharts$/, 'the second count steps out before a name is cut');
         await snap(phone.page, 'chrome-10-phone-library');
+        // Study notes: on a phone the Home map cannot name its tile; the Library's row is the way there.
+        await phone.page.locator('#libraryDialog [data-v32-row="notes"]').click();
+        await phone.page.waitForFunction(
+          () =>
+            !document.getElementById('libraryDialog').open &&
+            S.scope === 'Study notes' &&
+            S.region === 'workbench-region' &&
+            !!document.querySelector('#geoCanvas [data-card="workbench-region"]'),
+        );
+        await snap(phone.page, 'chrome-10-phone-study-notes');
+        await phone.page.evaluate(() => home('Atlas'));
         await settle(phone.page);
         // Search: a panel; a result is its title over where it sits.
         await phone.page.locator('button.search-open').click();
@@ -1900,5 +2060,5 @@ if (only.length) {
   process.exit(0);
 }
 console.log(
-  'The frame: a 56 px bar in three groups with the field centred; the breadcrumb on one line at every level, whole or folded, with the field giving it room; Ctrl/Cmd+K and "/"; the palette’s sections, one highlight, Enter and Escape; every Library row opens its view and says what its count counts; the splash on Home only; the cluster still and unlit beside a reader or a dialog; nothing in the bar moves between states; no control under 36 px or without a name; the composition lint finds nothing through a resize; search results unchanged.',
+  'The frame: a 56 px bar in three groups with the field centred; the breadcrumb on one line at every level, whole or folded, with the field giving it room; Ctrl/Cmd+K and "/"; the palette’s sections, one highlight, Enter and Escape; every Library row opens its view and says what its count counts; Study notes has a row there; the frame’s rules stop at the frame; the splash on Home only; the cluster still and unlit beside a reader or a dialog; nothing in the bar moves between states; no control under 36 px or without a name; the composition lint finds nothing through a resize; search results unchanged.',
 );

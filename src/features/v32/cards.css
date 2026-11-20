@@ -417,6 +417,11 @@ html #geoCanvas .authority-map-entrance text.authority-map-heading {
 html #geoCanvas text.authority-document-label {
   fill: var(--v31-muted);
 }
+/* on its cover the Constitution's name under the lettering is in the text colour (the muted colour was
+   6:1 on the green) */
+html #geoCanvas .authority-volume-cover text.authority-document-label {
+  fill: var(--v31-text);
+}
 #geoCanvas .authority-people-mark {
   fill: var(--v31-text);
 }
