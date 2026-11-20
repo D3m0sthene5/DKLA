@@ -679,7 +679,7 @@
       {
         "id": "b",
         "label": "Was the promise bargained for and binding?",
-        "detail": "A requested return given in exchange can make the promise binding, subject to assent, form and defenses. Without that exchange, separate evidence can still support reliance or restitution.",
+        "detail": "A requested return given in exchange can make the promise binding, subject to assent, form and defenses. The return may be a performance rather than a promise: Feinberg’s continued work was not consideration because the resolution did not require it and she promised none. Without that exchange, separate evidence can still support reliance or restitution.",
         "sources": [
           "consideration",
           "rest71",
@@ -691,11 +691,11 @@
             "to": "e"
           },
           {
-            "label": "No bargain, but promise induced action",
+            "label": "No binding bargain, but promise induced action",
             "to": "c"
           },
           {
-            "label": "No bargain, but benefit retained",
+            "label": "No binding bargain, but benefit retained",
             "to": "d"
           }
         ]
@@ -703,7 +703,7 @@
       {
         "id": "c",
         "label": "Did a promise reasonably induce change?",
-        "detail": "Identify a promise and the action or forbearance it foreseeably and actually caused. Ask whether justice requires enforcement. Feinberg retired in response to the pension resolution.",
+        "detail": "Identify a promise, the action or forbearance the promisor should reasonably have expected it to induce, and the action it actually caused. Ask whether injustice can be avoided only by enforcement, not whether enforcement would do justice (Cohen). Feinberg retired in response to the pension resolution.",
         "sources": [
           "rest90",
           "feinberg",
@@ -723,7 +723,7 @@
       {
         "id": "d",
         "label": "Is retention unjust on these facts?",
-        "detail": "Identify benefit to the defendant at the claimant’s expense and why keeping it without payment would be unjust. Mistaken receipt or needed emergency aid differs from deliberately forcing a benefit on an unwilling recipient.",
+        "detail": "Identify benefit to the defendant at the claimant’s expense and why keeping it without payment would be unjust. Mistaken receipt or justified emergency aid differs from an unrequested benefit conferred voluntarily when the claimant could have bargained first: absent circumstances justifying the intervention, that claimant recovers nothing even if the recipient enjoyed the benefit, like Posner’s serenading musicians.",
         "sources": [
           "unjust-enrichment",
           "quantum-meruit",
@@ -753,9 +753,11 @@
       {
         "id": "f",
         "label": "Grant the relief justice requires",
-        "detail": "Compensation may protect the lost opportunity or other induced loss. D&G Stout protected a foregone sale price despite the distributorship’s at-will character.",
+        "detail": "Full enforcement of the promise is often appropriate (Restatement § 90 cmt. d): Ricketts’s $2,000 note and Feinberg’s accrued $200 pension installments were enforced as promised. The remedy may be limited as justice requires: D&G Stout allowed reliance damages for the fall in the price General could get for its business, not future profits, despite the distributorship’s at-will character.",
         "sources": [
           "rest90",
+          "ricketts",
+          "feinberg",
           "at-will-reliance",
           "dg-stout"
         ],
@@ -799,7 +801,7 @@
         ],
         "edges": [
           {
-            "label": "Retirement",
+            "label": "Leaving work (retiring or quitting a job)",
             "to": "b"
           },
           {
@@ -818,19 +820,25 @@
       },
       {
         "id": "b",
-        "label": "Did the promise cause retirement?",
-        "detail": "Feinberg gave up ongoing paid work after the pension resolution. The later illness was beside the inducement inquiry. Hayes tests a retirement already planned before the assurance.",
+        "label": "Did the promise cause the promisee to leave work?",
+        "detail": "Feinberg retired from paid work in reliance on the pension resolution, and Scothorn quit her job on receiving her grandfather’s note. Feinberg’s later illness was not the induced act. Hayes tests a retirement announced before the assurance; there, ask whether the assurance induced some later action or forbearance, such as not seeking other work (Restatement § 90 ill. 4). Injustice is a separate question: Feinberg weighed her age and the near impossibility of finding comparable work.",
         "sources": [
           "feinberg",
-          "problem-hayes"
+          "ricketts",
+          "problem-hayes",
+          "rest90"
         ],
         "edges": [
           {
-            "label": "Retirement induced",
+            "label": "Leaving work induced, and only enforcement avoids injustice",
             "to": "f"
           },
           {
-            "label": "Same retirement already planned",
+            "label": "Would have left anyway, with no other induced change (earlier plan, illness or other cause)",
+            "to": "g"
+          },
+          {
+            "label": "Induced, but no injustice if the promise goes unenforced",
             "to": "g"
           }
         ]
@@ -838,7 +846,7 @@
       {
         "id": "c",
         "label": "What was the lost alternative?",
-        "detail": "D&G Stout declined a priced sale opportunity on the strength of Bacardi’s assurance. On remand the proved injury measured that lost opportunity. The contract’s terminability defeated a claim to future distributorship profits.",
+        "detail": "D&G Stout declined a priced sale opportunity on the strength of Bacardi’s assurance. On remand the proved injury measured that lost opportunity. The contract’s terminability defeated a claim to future distributorship profits. Under Indiana law the reliance was one Bacardi should reasonably have expected, because it knew of the negotiations and reassured Stout anyway; how long reliance stayed reasonable was left for trial.",
         "sources": [
           "at-will-reliance",
           "dg-stout",
@@ -846,11 +854,15 @@
         ],
         "edges": [
           {
-            "label": "Identifiable alternative lost",
+            "label": "Identifiable alternative given up in reliance the promisor should have expected; enforcement needed to avoid injustice",
             "to": "f"
           },
           {
             "label": "Future profits alone",
+            "to": "g"
+          },
+          {
+            "label": "Promisor had no reason to expect the reliance",
             "to": "g"
           }
         ]
@@ -879,7 +891,7 @@
       {
         "id": "e",
         "label": "Did the source disclose because of the assurance?",
-        "detail": "The source provided political information in return for confidentiality. The First Amendment did not bar generally applicable state estoppel law, and Minnesota reinstated the verdict after applying its elements.",
+        "detail": "The source provided political information in return for confidentiality. The First Amendment did not bar generally applicable state estoppel law, and Minnesota reinstated the verdict after applying its own test: a clear and definite promise, reliance the promisor intended and that was to the promisee’s detriment, and enforcement required to prevent an injustice, a legal question for the court.",
         "sources": [
           "cohen-cowles",
           "notes-cohen"
@@ -897,10 +909,11 @@
       },
       {
         "id": "f",
-        "label": "Measure the injury supported by the theory",
-        "detail": "Ask what relief justice requires for the induced change, such as the provable value of a foregone opportunity. A bargained-for memorial pledge can proceed on its separate contract footing.",
+        "label": "Decide the relief justice requires",
+        "detail": "Ask what relief justice requires. Often it is enforcement of the promise as made: Feinberg recovered the accrued $200 monthly installments (Restatement § 90 cmt. d). Sometimes relief is limited to a measure such as the provable value of a foregone opportunity, as in D&G Stout, where future profits were unavailable. A bargained-for memorial pledge can proceed on its separate contract footing.",
         "sources": [
           "rest90",
+          "feinberg",
           "reliance-interest",
           "dg-stout"
         ],
@@ -909,7 +922,7 @@
       {
         "id": "g",
         "label": "No recovery for this asserted reliance",
-        "detail": "Where the act would have occurred anyway, or the claimed loss assumes guaranteed continuation of an at-will arrangement, this measure lacks its necessary causal basis.",
+        "detail": "Where the act would have occurred anyway, or the claimed loss assumes guaranteed continuation of an at-will arrangement, this measure lacks its necessary causal basis. Recovery also fails where the promisor had no reason to expect the reliance, or where enforcement is not required to prevent an injustice (§ 90(1); Cohen, C&M 136).",
         "sources": [
           "reliance",
           "rest90",

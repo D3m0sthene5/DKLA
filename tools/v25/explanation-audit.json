@@ -1097,7 +1097,7 @@
         "Contracts"
       ],
       "takeaway": "A grandfather's gift promise had no price attached, so it was not a bargain. But because he meant his granddaughter to quit her job in reliance on it and she did, his estate could not take the promise back for want of consideration.",
-      "takeawaySha256": "11ba757895e357d5f4c3284352ddb17a45113a70bac559b65d9d34a8c85b76b9",
+      "takeawaySha256": "ab59df8d8ef6f05bde643cf894c5d7045b11e1398588850c50e6e47c6c24f4b5",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -1127,7 +1127,15 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        }
+      ]
     },
     {
       "id": "feinberg",
@@ -1136,7 +1144,7 @@
         "Contracts"
       ],
       "takeaway": "A company's promise of a pension was not paid for by past work or by any promise to keep working. It bound the company anyway, because the employee retired in reliance on it, just as the company should have expected.",
-      "takeawaySha256": "a6d59a49aed932ce4468552dd362b1e764e83adfe3b0548c27cf4987963172d2",
+      "takeawaySha256": "a6cc04ed85d30513aa6569427df2455853ceab3ba9c46d7c91530a6cf3fc5333",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -1149,7 +1157,7 @@
         "sourceLocator": "tools/r19/data/sections.json :: CTR-022.rule and sections.Holding (effective assembler overlays)",
         "ruleSha256": "cedaebfcd25881e3f94f290cb796c128284a5435dca264da98dde1e36909a006",
         "comparedSections": {
-          "Holding": "258ec13a1e1f79767a222b84611a96abc59ae5a72a7c93a352480d3a8de33146"
+          "Holding": "1b27d7e7e5d77489708d3b1d7b6ea31758323073fc13ba433fa518e4cca86963"
         },
         "sectionsReadCompletely": [
           "Holding"
@@ -1166,7 +1174,21 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.comparedSections.Holding"
+        }
+      ]
     },
     {
       "id": "cohen-cowles",
@@ -1175,7 +1197,7 @@
         "Contracts"
       ],
       "takeaway": "A source who was promised confidentiality and then named in print can sue the newspaper for breaking that promise under promissory estoppel. A general law that applies to everyone does not become unconstitutional because a newspaper is the one who broke the promise.",
-      "takeawaySha256": "9e70bdda4208ec134c38ab92c4e0ba04d566c0a38b9e47e806d6395c7de612a6",
+      "takeawaySha256": "cf4fd98e64f659232f40f3262d060498a7f8bb25962e49181b767e13a50f94b4",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -1186,7 +1208,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-CB-0135",
         "sourceLocator": "tools/r19/data/sections.json :: CT-CB-0135.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "41fb172842910856b9e78a4a8522189d9744df34244f104202c18085bd035cff",
+        "ruleSha256": "230d6b1b0bcb7b2ff53320f2af09fae83d0c351835d5d3699808a4887336fdb1",
         "comparedSections": {
           "Holding": "9e53c05255d103c5db745809013f2f9dfd9a5854e79f7d0ec8e630740094f890"
         },
@@ -1210,7 +1232,21 @@
           "https://static.case.law/nw2d/481/case-pdfs/0840-01.pdf"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "dg-stout",
@@ -1219,7 +1255,7 @@
         "Contracts"
       ],
       "takeaway": "A promise to keep an at-will relationship going cannot earn you the future profits you hoped for, because it could end at any time. It can still make the promisor pay for a real opportunity you gave up in reliance on it.",
-      "takeawaySha256": "85df7986eddac3ee227ea023a7a7e852823c5bd48070abad4c9f34dfcaff88ad",
+      "takeawaySha256": "b3cfc04e5b638abe4edd849a6000889c49c98e9aff64541f466b02a153331f01",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -1230,7 +1266,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CTR-024",
         "sourceLocator": "tools/r19/data/sections.json :: CTR-024.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "ab954112a84b81c2836dae1925c72b498cf5fda6d08768418c908661c8315f57",
+        "ruleSha256": "0fcf18b8a2873c84cb612b0c2d79ef57530cd05e47b96b32534d5f9cd4ba9b68",
         "comparedSections": {
           "Holding": "84425b655c9cf8c362914298f5b330dbad89f96a1711999f5d570232f298102e"
         },
@@ -1249,7 +1285,21 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "balfour",

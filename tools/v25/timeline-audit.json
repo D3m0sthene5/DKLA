@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "reviewedAt": "2026-11-17",
   "dataPath": "tools/r19/data/timelines.json",
-  "timelinesSha256": "3cd8e87d9504960fe7004ac4585961aa0100883003360dacb0d51d5e8a106730",
+  "timelinesSha256": "799df621fadb7d7a8873a4b66792ace98092bea51995d978ca123ef6fff42fbb",
   "baselineGitRevision": "347d2e9759a7b5429f24825c521a967ce2b14eb9",
   "scope": "All timeline memberships and navigation were inventoried against the canonical cases and original assigned-source locations. New lines and selected corrections were compared with original casebook passages and case-specific accounts. Prior complete-opinion limitations remain; this does not certify every proposition or all current law. November 17: all 685 timeline steps screened editorially; targeted primary-source corrections are recorded separately. This is not a complete primary-source audit of every step or brief.",
   "limitations": [
@@ -4525,7 +4525,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CTR-024.md",
         "sourceLocator": "tools/r19/data/sections.json :: CTR-024.rule (effective assembler overlays included)",
         "comparedRule": "Under promissory estoppel, a promise of a continuing at-will relationship cannot support recovery of expected future profits, but it can support reliance damages for an existing opportunity the promisee foreseeably surrendered in reliance on it.",
-        "comparedRuleSha256": "ab954112a84b81c2836dae1925c72b498cf5fda6d08768418c908661c8315f57",
+        "comparedRuleSha256": "0fcf18b8a2873c84cb612b0c2d79ef57530cd05e47b96b32534d5f9cd4ba9b68",
         "effectiveFullBriefSha256": "b20b9e4c0b38e3a448987f5ec11b03c93991f712134befaeb1a1ab444cd0b4ab",
         "inheritedCitation": "923 F.2d 566 (7th Cir. 1991). U.S. Court of Appeals for the Seventh Circuit. Cudahy, J., joined by Posner and Flaum, JJ. Argued September 14, 1990; decided January 31, 1991. Later trial decision: 805 F. Supp. 1434 (N.D. Ind. 1992), Miller, J.",
         "inheritedBriefPdfLocator": {
@@ -4563,6 +4563,14 @@
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
         }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
+        }
       ]
     },
     {
@@ -4592,7 +4600,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CT-CB-0135.md",
         "sourceLocator": "tools/r19/data/sections.json :: CT-CB-0135.rule (effective assembler overlays included)",
         "comparedRule": "A promise that is not enforceable as a conventional contract may still be enforced under promissory estoppel when it is clear, induces intended and actual detrimental reliance, and must be enforced to avoid injustice; the First Amendment does not bar applying that generally applicable doctrine to the press.",
-        "comparedRuleSha256": "41fb172842910856b9e78a4a8522189d9744df34244f104202c18085bd035cff",
+        "comparedRuleSha256": "230d6b1b0bcb7b2ff53320f2af09fae83d0c351835d5d3699808a4887336fdb1",
         "effectiveFullBriefSha256": "48209fdda06c3a3e2aaa7f904f92b941a5bc2db4a52a6027ea37732a41421071",
         "inheritedCitation": "457 N.W.2d 199 (Minn. 1990); 501 U.S. 663 (1991); 479 N.W.2d 387 (Minn. 1992)",
         "inheritedBriefPdfLocator": {
@@ -4641,6 +4649,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -47367,6 +47383,11 @@
     "originalSourceRegistry": "tools/v28/source-links.json"
   },
   "timelinesRereviews": [
+    {
+      "date": "2026-11-19",
+      "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+      "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review."
+    },
     {
       "date": "2026-11-19",
       "register": "tools/content-audit/2026-11-19-contracts-opus.json",

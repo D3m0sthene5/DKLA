@@ -1725,6 +1725,12 @@
       "iteration": 0
     },
     {
+      "id": "notes-substitutes",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
       "id": "oglebay",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
@@ -1798,6 +1804,12 @@
     },
     {
       "id": "rest71",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "rest90",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
@@ -2103,6 +2115,18 @@
       "iteration": 0
     },
     {
+      "id": "dg-stout",
+      "field": "learning.topics.reliance-interest",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "dg-stout",
+      "field": "learning.topics.promise-or-prediction",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
       "id": "mattei",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
@@ -2319,6 +2343,12 @@
       "iteration": 0
     },
     {
+      "id": "past-consideration",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
       "id": "illusory-promise",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
@@ -2349,6 +2379,18 @@
       "iteration": 0
     },
     {
+      "id": "promissory-estoppel",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "equitable-estoppel",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
       "id": "equitable-estoppel",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
@@ -2356,6 +2398,18 @@
     },
     {
       "id": "at-will-reliance",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "at-will-reliance",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "unjust-enrichment",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
@@ -2722,6 +2776,36 @@
     },
     {
       "id": "reading-notes-25",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "notes-unrequested-benefit",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "ricketts",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "cohen-cowles",
+      "field": "learning.topics.rest90",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "charitable-pledges",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "notes-rest90-history",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
@@ -5948,8 +6032,8 @@
       "id": "ricketts",
       "title": "Ricketts v. Scothorn",
       "field": "takeaway",
-      "text": "A grandfather's gift promise had no price attached, so it was not a bargain. But because he meant his granddaughter to quit her job in reliance on it and she did, his estate could not take the promise back for want of consideration.",
-      "textSha256": "11ba757895e357d5f4c3284352ddb17a45113a70bac559b65d9d34a8c85b76b9",
+      "text": "A grandfather's gift promise had no price attached, so it was not a bargain. But because he expected his granddaughter to quit her job in reliance on it, as a reasonable and probable result of the gift, and she did, his estate could not refuse payment for want of consideration.",
+      "textSha256": "ab59df8d8ef6f05bde643cf894c5d7045b11e1398588850c50e6e47c6c24f4b5",
       "source": {
         "briefId": "CTR-023",
         "canonicalLocator": "tools/r19/data/sections.json :: CTR-023.rule (effective assembler overlays)",
@@ -5998,8 +6082,8 @@
       "id": "ricketts",
       "title": "Ricketts v. Scothorn",
       "field": "notes",
-      "text": "Court: Supreme Court of Nebraska (1898).",
-      "textSha256": "e21e9dce6b9175d958e77afdf7d1b8ead3ff624a2985477e4d6293e8342582a9",
+      "text": "Court: Supreme Court of Nebraska (1898). Note 1 (C&M 123) varies the facts. Had the grandfather required Katie to quit as the price of the note, her quitting would have been an act bargained for and given in exchange, which is consideration (Restatement First § 75, quoted at C&M 72–73). Without such a request, § 90 asks whether he should reasonably have expected the reliance: a horse bought to ride to work, with nothing said about quitting, raises that question.",
+      "textSha256": "dc40c00d9e222ecdce2f595d3c73a1404045a07153ce8d1aa97118b2e9c36e78",
       "source": {
         "briefId": "CTR-023",
         "canonicalLocator": "tools/r19/data/sections.json :: CTR-023.rule (effective assembler overlays)",
@@ -6022,8 +6106,8 @@
       "id": "feinberg",
       "title": "Feinberg v. Pfeiffer Co.",
       "field": "takeaway",
-      "text": "A company's promise of a pension was not paid for by past work or by any promise to keep working. It bound the company anyway, because the employee retired in reliance on it, just as the company should have expected.",
-      "textSha256": "a6d59a49aed932ce4468552dd362b1e764e83adfe3b0548c27cf4987963172d2",
+      "text": "A company's pension promise was not paid for by her past work, and it neither required further work nor obtained a promise of it. It bound the company anyway, because it should have expected her to retire in reliance on it, she did, and with comparable work out of reach only enforcement could avoid injustice.",
+      "textSha256": "a6cc04ed85d30513aa6569427df2455853ceab3ba9c46d7c91530a6cf3fc5333",
       "source": {
         "briefId": "CTR-022",
         "canonicalLocator": "tools/r19/data/sections.json :: CTR-022.rule (effective assembler overlays)",
@@ -6108,8 +6192,8 @@
       "id": "cohen-cowles",
       "title": "Cohen v. Cowles Media Company",
       "field": "takeaway",
-      "text": "A source who was promised confidentiality and then named in print can sue the newspaper for breaking that promise under promissory estoppel. A general law that applies to everyone does not become unconstitutional because a newspaper is the one who broke the promise.",
-      "textSha256": "9e70bdda4208ec134c38ab92c4e0ba04d566c0a38b9e47e806d6395c7de612a6",
+      "text": "Under Minnesota promissory estoppel, newspapers that promised a source confidentiality to get his documents, then named him, were liable because he disclosed in reliance on the promise and enforcement was needed to prevent an injustice. Applying that general law to the press does not violate the First Amendment.",
+      "textSha256": "cf4fd98e64f659232f40f3262d060498a7f8bb25962e49181b767e13a50f94b4",
       "source": {
         "briefId": "CT-CB-0135",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-CB-0135.rule (effective assembler overlays)",
@@ -6137,8 +6221,8 @@
       "id": "cohen-cowles",
       "title": "Cohen v. Cowles Media Company",
       "field": "summary",
-      "text": "A promise that is not enforceable as a conventional contract may still be enforced under promissory estoppel when it is clear, induces intended and actual detrimental reliance, and must be enforced to avoid injustice; the First Amendment does not bar applying that generally applicable doctrine to the press.",
-      "textSha256": "41fb172842910856b9e78a4a8522189d9744df34244f104202c18085bd035cff",
+      "text": "In Minnesota, a promise unenforceable as a contract binds by promissory estoppel if it is clear and definite, was intended to induce and did induce detrimental reliance, and must be enforced to prevent injustice; the First Amendment permits applying this general doctrine to the press.",
+      "textSha256": "230d6b1b0bcb7b2ff53320f2af09fae83d0c351835d5d3699808a4887336fdb1",
       "source": {
         "briefId": "CT-CB-0135",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-CB-0135.rule (effective assembler overlays)",
@@ -6194,8 +6278,8 @@
       "id": "dg-stout",
       "title": "D & G Stout, Inc. v. Bacardi Imports, Inc.",
       "field": "takeaway",
-      "text": "A promise to keep an at-will relationship going cannot earn you the future profits you hoped for, because it could end at any time. It can still make the promisor pay for a real opportunity you gave up in reliance on it.",
-      "textSha256": "85df7986eddac3ee227ea023a7a7e852823c5bd48070abad4c9f34dfcaff88ad",
+      "text": "A promise to keep an at-will relationship going cannot earn you the future profits you hoped for, because it could end at any time. It can still make the promisor pay for a real opportunity you gave up in reliance on it, if the promisor should have expected that reliance.",
+      "textSha256": "b3cfc04e5b638abe4edd849a6000889c49c98e9aff64541f466b02a153331f01",
       "source": {
         "briefId": "CTR-024",
         "canonicalLocator": "tools/r19/data/sections.json :: CTR-024.rule (effective assembler overlays)",
@@ -6219,8 +6303,8 @@
       "id": "dg-stout",
       "title": "D & G Stout, Inc. v. Bacardi Imports, Inc.",
       "field": "summary",
-      "text": "Under promissory estoppel, a promise of a continuing at-will relationship cannot support recovery of expected future profits, but it can support reliance damages for an existing opportunity the promisee foreseeably surrendered in reliance on it.",
-      "textSha256": "ab954112a84b81c2836dae1925c72b498cf5fda6d08768418c908661c8315f57",
+      "text": "Under Indiana promissory estoppel, a promise to continue an at-will relationship cannot support recovery of expected future profits, but it can support reliance damages for an existing opportunity the promisee gave up in reliance the promisor should reasonably have expected.",
+      "textSha256": "0fcf18b8a2873c84cb612b0c2d79ef57530cd05e47b96b32534d5f9cd4ba9b68",
       "source": {
         "briefId": "CTR-024",
         "canonicalLocator": "tools/r19/data/sections.json :: CTR-024.rule (effective assembler overlays)",
@@ -8032,8 +8116,8 @@
       "id": "past-consideration",
       "title": "Past action and the requirement of exchange",
       "field": "notes",
-      "text": "Feinberg’s earlier service explained gratitude but could not have been induced by the later pension promise. Her additional eighteen months of work were also not demanded as the resolution’s price; retirement required separate promissory-estoppel analysis. The benefactor/naming problem varies timing and separate promises. Mills introduces moral obligation on its opening assigned page, while the remaining opinion lies outside those ranges.\n\nNew York General Obligations Law § 5-1105 supplies a distinct signed-writing route for specified past-consideration promises. Read its requirements in the supplement rather than assuming that mentioning past services always suffices.",
-      "textSha256": "1434706672e412c72b411522f27c1206c7f10fdaa2431820dd33ee0de56f70b1",
+      "text": "Feinberg’s earlier service explained gratitude but could not have been induced by the later pension promise. Her additional eighteen months of work were also not demanded as the resolution’s price; retirement required separate promissory-estoppel analysis. The benefactor/naming problem varies timing and separate promises. Mills introduces moral obligation on its opening assigned page, while the remaining opinion lies outside those ranges.\n\nNew York General Obligations Law § 5-1105 supplies a distinct signed-writing route for specified past-consideration promises. Read its requirements in the supplement rather than assuming that mentioning past services always suffices. Note 2 (C&M 73) asks how Lippman’s lawyer could have drafted the resolution: reciting “in consideration of her many years of long and faithful service” would not by itself make the past service consideration, because it was not sought in exchange for the 1947 promise, while conditioning the pension on a requested future performance, such as staying for a stated period, could supply a bargain, since the court relied on the resolution’s lack of any such condition (C&M 72).",
+      "textSha256": "de75357dea3bf5e6f67cf10b359bf6ad5f773da4b96e4a70836a24ccccbe31bd",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: past-consideration",
@@ -8354,8 +8438,8 @@
       "id": "promissory-estoppel",
       "title": "Promissory estoppel",
       "field": "notes",
-      "text": "Identify the promise, the action it could reasonably be expected to induce, the action actually induced, and why leaving it unenforced would produce injustice. Ricketts concerns leaving work, Feinberg retirement, Cohen confidentiality, and D&G Stout a lost business-sale opportunity. Drennan protects an opportunity to accept a subcontractor’s bid rather than treating reliance as completed acceptance.\n\nThe two Restatement § 90 formulations differ, including the later language allowing relief limited as justice requires. Distinguish enforceability from the amount recovered. D&G Stout does not guarantee indefinite future profits, and case-specific holdings and jurisdictional formulations remain separate.",
-      "textSha256": "311b298bd0539b92bc7cb663486571e0a4afacf81d22161b52034b80685fcfb4",
+      "text": "Identify the promise, the action it could reasonably be expected to induce, the action actually induced, and why leaving it unenforced would produce injustice. Ricketts concerns leaving work, Feinberg retirement, Cohen confidentiality, and D&G Stout a lost business-sale opportunity. Drennan protects an opportunity to accept a subcontractor’s bid rather than treating reliance as completed acceptance.\n\nThe two Restatement § 90 formulations differ, including the later language allowing relief limited as justice requires. Distinguish enforceability from the amount recovered. D&G Stout does not guarantee indefinite future profits, and case-specific holdings and jurisdictional formulations remain separate. Minnesota in Cohen required a clear and definite promise, reliance the promisor intended and that was to the promisee’s detriment, and enforcement required to prevent an injustice; Indiana in D&G Stout quoted Restatement (Second) § 90(1). Section 90 itself asks whether the promisor should reasonably have expected the action and does not mention detriment, though courts often speak of it.",
+      "textSha256": "598013f54c8963c789c22527594b5096e609a3465dd4737ee80e8834c2ef40ed",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: promissory-estoppel",
@@ -8408,8 +8492,8 @@
       "id": "equitable-estoppel",
       "title": "From equitable to promissory estoppel",
       "field": "notes",
-      "text": "Traditional equitable estoppel often concerns representations about existing facts; promissory estoppel concerns future commitments. Ricketts uses the older terminology when a gift promise induces the granddaughter to leave employment, then prevents reliance on the absence of consideration.\n\nThe notes trace protection of reliance through family land improvements, gratuitous bailments, and charity. Modern § 90 makes the future promise explicit. Preserve the court’s historical language without treating those labels alone as a complete account of modern elements.",
-      "textSha256": "48dc136c7148123857e0f7d48fe3e564ffb8a8e4888fbfe2b5fb69ab85b7a421",
+      "text": "Traditional equitable estoppel often concerns representations about existing facts; promissory estoppel concerns future commitments. Ricketts uses the older terminology when a gift promise induces the granddaughter to leave employment, then prevents reliance on the absence of consideration.\n\nThe notes trace protection of reliance through four categories: family promises, promises to convey land on which the promisee moved and made improvements, promises coupled with gratuitous bailments, and charitable subscriptions. Modern § 90 makes the future promise explicit. Preserve the court’s historical language without treating those labels alone as a complete account of modern elements.",
+      "textSha256": "909dcccabde40d2ed9ef0b8ce72b9b11f425e5813900f052a6f4b5fd9b1bb979",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: equitable-estoppel",
@@ -8454,8 +8538,8 @@
       "id": "charitable-pledges",
       "title": "Charitable subscriptions and reliance",
       "field": "notes",
-      "text": "Allegheny College finds an implied undertaking associated with a named memorial fund and is treated as a consideration case despite its important estoppel discussion. The first § 90 formulation required definite and substantial induced conduct. The second adds a provision for charitable subscriptions and marriage settlements without proof that the promise induced action or forbearance. The book’s decisions and questions do not establish uniform state adoption of that exception.",
-      "textSha256": "e669d7a91bf20ac0627aae399e8b2354aca1131737e5bed15c17696546de00d4",
+      "text": "Allegheny College finds an implied undertaking associated with a named memorial fund and is treated as a consideration case despite its important estoppel discussion. The first § 90 formulation required definite and substantial induced conduct. The second adds a provision for charitable subscriptions and marriage settlements without proof that the promise induced action or forbearance. The book’s decisions and questions do not establish uniform state adoption of that exception: the law on charitable subscriptions remains unsettled, King v. Trustees of Boston University (Mass.) still required consideration or reliance, and the same court found no injustice in declining to enforce an oral $25,000 pledge to a synagogue (C&M 129). Courts have also found consideration in an exchange of promises among subscribers, especially when a “bellwether” subscriber pledges on condition that others pledge (C&M 125). The marriage-settlement half of § 90(2) is illustrated by a father’s formal written promise, made in anticipation of his son’s marriage, which the marriage makes binding (§ 90 ill. 18).",
+      "textSha256": "f0549eaf3e6096f612c971374cc245c5949888425780a3b8fd43d08d9273c4fe",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: charitable-pledges",
@@ -8496,8 +8580,8 @@
       "id": "at-will-reliance",
       "title": "At-will relationships and reliance loss",
       "field": "notes",
-      "text": "D&G Stout distinguishes a concrete lost business-sale opportunity from profits hoped for over an indefinite distributorship. Its employment comparison separates moving costs and old wages forgone while preparing to move from new wages expected after the job begins. The appellate ruling permitted the claim to proceed and left reasonable timing and proof for trial; the later trial result is reported separately.\n\nIdentify the specific assurance and opportunity surrendered. Reliance protection does not make an at-will relationship permanent or compensate every disappointment following termination.",
-      "textSha256": "9c26d873ab6c0fdb3f4a3e3ac0bd09fdaa082525acc2f076f2ea26509d631e58",
+      "text": "D&G Stout distinguishes a concrete lost business-sale opportunity from profits hoped for over an indefinite distributorship. Its employment comparison separates moving costs and old wages forgone while preparing to move from new wages expected after the job begins. Restatement § 90 Illustration 8 draws the same line: a dealer promised an at-will franchise recovers the $1,150 spent preparing to do business but not the lost profit on the promised radios. The appellate ruling permitted the claim to proceed and left reasonable timing and proof for trial; the later trial result is reported separately.\n\nIdentify the specific assurance and opportunity surrendered. Reliance protection does not make an at-will relationship permanent or compensate every disappointment following termination.",
+      "textSha256": "180b49ad38cab0a8e6581e0f40776f4a297b500a8e70ea0dbba23b0f959485e7",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: at-will-reliance",
@@ -8542,8 +8626,8 @@
       "id": "unjust-enrichment",
       "title": "Restitution as an independent basis of liability",
       "field": "notes",
-      "text": "Identify who received what benefit, why it was supplied, and why retention would be unjust. The introduction compares mistaken payments, mistakenly performed services, and property improvements with services deliberately forced on an unwilling recipient. Where bargaining is feasible, an officious provider ordinarily cannot make the recipient pay merely by supplying a benefit. Emergency intervention presents a different issue.\n\nThis liability can arise without an enforceable promise. Restitution following breach separately depends on an existing agreement and its termination. Cotnam begins on the last assigned page; its full reasoning is outside the assignment.",
-      "textSha256": "fd771eaf659b513be237b468e6e3de621dbd690423503b492ad8d65dc06673a1",
+      "text": "Identify who received what benefit, why it was supplied, and why retention would be unjust. The introduction compares mistaken payments, mistakenly performed services, and property improvements with an unrequested benefit voluntarily conferred, which earns no restitution, absent circumstances justifying the intervention, even if the recipient welcomed it. Where bargaining is feasible, an officious provider ordinarily cannot make the recipient pay merely by supplying a benefit. Emergency intervention presents a different issue.\n\nThis liability can arise without an enforceable promise. Restitution following breach separately depends on an existing agreement and its termination. Cotnam begins on the last assigned page; its full reasoning is outside the assignment.",
+      "textSha256": "1eb1f60fa6c09a2df7eb850bcb502a2dda6487cc40c0ce75318384fbe6dc099e",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: unjust-enrichment",
@@ -10406,8 +10490,8 @@
       "id": "rest90",
       "title": "Restatement § 90 — first and second formulations",
       "field": "notes",
-      "text": "The first formulation at p. 126 requires action or forbearance of a definite and substantial character on the part of the promisee. The second at p. 128 includes the promisee or a third person, omits that phrase, and states that the remedy may be limited as justice requires. Both include a promise, reasonably expected inducement, actual induced conduct, and the requirement that injustice be avoidable only by enforcement. The second adds a charitable-subscription and marriage-settlement provision dispensing with proof of induced conduct. Both formulations are reproduced in the casebook pages; the full section with comments is in the Contracts Selections, linked above.",
-      "textSha256": "d3ab44bed2477255dd0a7cbd21db24143e49b9d824a79f226aad200d2a7fb8b4",
+      "text": "The first formulation at p. 126 requires action or forbearance of a definite and substantial character on the part of the promisee. The second at p. 128 includes the promisee or a third person, omits that phrase, and states that the remedy may be limited as justice requires. Both include a promise, reasonably expected inducement, actual induced conduct, and the requirement that injustice be avoidable only by enforcement. The second adds a charitable-subscription and marriage-settlement provision dispensing with proof of induced conduct. Both formulations are reproduced in the casebook pages; the full section with comments is in the Contracts Selections, linked above. Comment b: the promisor is affected only by reliance he does or should foresee, and whether enforcement is needed to avoid injustice may depend on the reasonableness of the reliance, its definite and substantial character in relation to the remedy sought, the formality of the promise, and policies such as enforcing bargains and preventing unjust enrichment; reliance need not be substantial for charitable subscriptions but must be for firm offers and guaranties. Comment d: a promise binding under § 90 is a contract, and full-scale enforcement by normal remedies is often appropriate, as in Ricketts and Feinberg, but relief may be limited to restitution or to reliance damages; unless the promisor is unjustly enriched, damages should not put the promisee in a better position than performance would, and for a gift promise consequential damages heavier than performance would rarely be proper. Comment f: a gift promise is ordinarily enforced on reliance only if the promisee’s conduct is foreseeable and reasonable and is a definite and substantial change of position that would not have occurred without the promise. Read together, these comments suggest one answer to the casebook’s question whether the deleted phrase relates to the new remedy sentence (C&M 128): the character of the reliance now bears on how much relief is given.",
+      "textSha256": "367592f8bad0013949a648ac0ddd627c7ead28ed8daf257e43c319f875793ed1",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: rest90",
@@ -15426,8 +15510,8 @@
       "id": "notes-substitutes",
       "title": "Written promises and proposed substitutes",
       "field": "notes",
-      "text": "Pillans & Rose’s discussion of writing is set against Rann v. Hughes. The Uniform Written Obligations Act’s limited enactment and statutory presumptions illustrate the difference between writing as proof and writing as an enforcement basis. Farber and Matheson’s reform proposal, Hillman’s empirical response, and other commentary ask how doctrine works and might change. The Farber–Matheson proposal is a reform argument, not enacted law.",
-      "textSha256": "32040b365a53867c49beddec8ff273640c2dc7a34463f3cd0edb53afea54456b",
+      "text": "Pillans & Rose’s discussion of writing is set against Rann v. Hughes. The Uniform Written Obligations Act’s limited enactment and statutory presumptions illustrate the difference between writing as proof and writing as an enforcement basis. Farber and Matheson’s reform proposal, Hillman’s empirical response, and other commentary ask how doctrine works and might change. The Farber–Matheson proposal is a reform argument, not enacted law. Judge Posner argues that courts should enforce gratuitous promises because doing so makes them more valuable: a reliable promisor could choose to be bound, and the promisee would then discount the promise less (C&M 119–120).",
+      "textSha256": "388e1dd5a07be660d3180244c58aa62209800a4e17ac69157de2fd841d84d365",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: notes-substitutes",
@@ -15468,8 +15552,8 @@
       "id": "notes-rest90-history",
       "title": "Two Restatements, remedies, and the scope of reliance",
       "field": "notes",
-      "text": "The first version’s definite-and-substantial language and Williston’s discussion of enforcing the promise should be compared with the second version’s qualified remedy language. The charitable provision is an additional rule, not simply a finding of ordinary factual reliance. The Gilmore discussion concerns the larger relation between contract and reliance; it does not erase the separate elements in the assigned cases.",
-      "textSha256": "2169f8c6ef6ae84ed59e6e523e2421ef852c2f5e712f48fd00535630ae0043fd",
+      "text": "The first version’s definite-and-substantial language and Williston’s discussion of enforcing the promise should be compared with the second version’s qualified remedy language. The charitable provision is an additional rule, not simply a finding of ordinary factual reliance. The Gilmore discussion concerns the larger relation between contract and reliance; it does not erase the separate elements in the assigned cases. Holmes had objected that letting a promisee make a gratuitous promise binding by acting on it “would cut up the doctrine of consideration by the roots” (C&M 124); Atiyah, answering Gilmore, saw “an increasing reluctance” to enforce promises neither paid for nor relied on (C&M 130).",
+      "textSha256": "f684e0262e1ee28a76122f99eba24a8a8bdc04f6efbe8bcc6c996b7b534a2320",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: notes-rest90-history",
@@ -15602,8 +15686,8 @@
       "id": "notes-unrequested-benefit",
       "title": "Mistake, unsolicited benefits, and emergency intervention",
       "field": "notes",
-      "text": "A mistaken overpayment or mistakenly supplied service differs from a benefit deliberately forced on an unwilling recipient. The unsolicited musicians example explains the concern with bypassing feasible bargaining. Emergency medical services pose a different problem of intervention and price. The action names quasi-contract, quantum meruit, and quantum valebant have histories and sometimes imprecise usage; the basis for recovery should be stated directly.",
-      "textSha256": "d9be439ae1f79984e7a0d0f213b25d1c6a13808eb97adf43fcfab0050ef6ffce",
+      "text": "A mistaken overpayment or mistakenly supplied service differs from an unrequested benefit voluntarily conferred, which ordinarily earns no restitution, whether or not the recipient objected or enjoyed it, unless circumstances justified the intervention. A person who confers such a benefit is often called an officious intermeddler. The unsolicited musicians example explains the concern with bypassing feasible bargaining. Emergency medical services pose a different problem of intervention and price. The action names quasi-contract, quantum meruit, and quantum valebant have histories and sometimes imprecise usage; the basis for recovery should be stated directly.",
+      "textSha256": "77840f68cb33d212e81f0cea557b978ac9a626a56ba1a406332ba2566ed5ba78",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: notes-unrequested-benefit",
@@ -102848,8 +102932,8 @@
       "id": "reliance",
       "title": "Promissory estoppel: promises people rely on",
       "field": "now",
-      "text": "Under the Restatement § 90 approach, a promise can bind when reliance was expected, actually occurred, and enforcement is necessary to avoid injustice. The remedy may be limited. State adoption and other requirements still matter: reliance does not automatically create a final contract, guarantee expected profits, or satisfy a writing requirement.",
-      "textSha256": "84190b10bd1f3e723608a67293f1a864d14ace8b266df674aed9245fb89f5466",
+      "text": "Under the Restatement § 90 approach, a promise can bind when the promisor should reasonably have expected it to induce reliance, reliance actually occurred, and enforcement is necessary to avoid injustice. The remedy may be limited. State adoption and other requirements still matter: reliance does not automatically create a final contract, guarantee expected profits, or satisfy a writing requirement.",
+      "textSha256": "a6a9a7449278d93f842738603933fec8019c213614ea93f62d510485ebaf90a9",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json"
       },
@@ -102888,8 +102972,8 @@
       "id": "reliance:3",
       "title": "Promissory estoppel: promises people rely on",
       "field": "note",
-      "text": "The First Restatement states a route to enforcing promises that induce expected, substantial reliance.",
-      "textSha256": "18409aec419a2f92e34a129d2a38fc4e290285a4fe8bd65a6d10495c2174fb22",
+      "text": "The First Restatement enforces promises that the promisor should reasonably expect to induce definite and substantial reliance, when only enforcement avoids injustice.",
+      "textSha256": "d722db3c361ba72a995f2deebfe220eae0f8330c15556a906ae6472531554d92",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "reliance",
@@ -102916,8 +103000,8 @@
       "id": "reliance:5",
       "title": "Promissory estoppel: promises people rely on",
       "field": "note",
-      "text": "A pension promise binds under § 90 because the employee retired in reliance on it, though her past service was no consideration (Missouri).",
-      "textSha256": "195390f855e38ab4ed626fdb9bb43a044812c8406aaa71e9912a111cbd488957",
+      "text": "A pension promise binds under § 90 because the company should have expected the retirement it induced and only enforcement could avoid injustice, though her past service was no consideration (Missouri).",
+      "textSha256": "a26e23608677ffa6afbc0e3d7019d3937c8a33e08f4751f53e2810714213093b",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "reliance",
@@ -102958,8 +103042,8 @@
       "id": "reliance:8",
       "title": "Promissory estoppel: promises people rely on",
       "field": "note",
-      "text": "Reliance on an at-will assurance earns reliance damages, such as a lost sale price, not the profits the relationship would have brought (Indiana law).",
-      "textSha256": "7073ef5134bba9830892532a042e9744ea5470d60b732039854d4a62f5b71be5",
+      "text": "An at-will supplier’s assurance could support reliance damages for the lost value of a sale opportunity the distributor gave up in reliance the supplier should have expected, though not lost future profits; the case went to trial for proof (Indiana law).",
+      "textSha256": "5701f52d4471e1c078f284b42e35a0c219c0925a04f0df567533710ed5c13174",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "reliance",
