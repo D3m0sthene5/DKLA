@@ -4534,7 +4534,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-NEXT-CM-0151",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0151.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "0b421ee80b1f486dd3dfbf070ffb79045dab802362b5f8287cc6e95c5386e717",
+        "ruleSha256": "5ee663520b585441e4e45adcc32fbeaeec089f75746be346e3a2e64a07bee53a",
         "comparedSections": {
           "Holding": "b9b2b026dbc1f7f9fff4daa2aee12c2f3fd8d61bf5e94fa9af83f5d8e8f8b761"
         },
@@ -4555,7 +4555,15 @@
           "https://static.case.law/f2d/35/html/0301-01.html"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "parker",
@@ -4663,7 +4671,7 @@
         "Contracts"
       ],
       "takeaway": "Unusual losses, like the rise in value of land around a stadium that was never built, are recoverable only if the breaching party could be seen to have taken on that risk when it made the contract. Foreseeing a loss is not the same as agreeing to pay for it.",
-      "takeawaySha256": "8887e05946d556a5c81ca48bb3ae1e98a5d9f3391ec8889b9f72e45fe62cecd2",
+      "takeawaySha256": "56553c3bcd154071656b9ce3f5ed2b300c6067588df67ec38bc4fdeb8654facf",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -4674,7 +4682,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-NEXT-CM-0157",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0157.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "a26723fd77c267e65fb46ccb3dbf21db8c721e34b1f86bb8012f0ac3825ef580",
+        "ruleSha256": "4310a955d2a9d6db7dd4898d66eb9df5060b2b568c2499f4d935da9d25f04d5b",
         "comparedSections": {
           "Holding": "78e6a54bf88925ab97bb3a46859d2e52e8c44ffa08259ac0077adf5e94e9501f"
         },
@@ -4693,7 +4701,21 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "fera",

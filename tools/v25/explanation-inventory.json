@@ -2617,6 +2617,36 @@
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
+    },
+    {
+      "id": "parker",
+      "field": "learning.topics.expectation-interest",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "rockingham",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "mitigation",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "foreseeability-damages",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "certainty-damages",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
     }
   ],
   "records": [
@@ -19601,8 +19631,8 @@
       "id": "rockingham",
       "title": "Rockingham County v. Luten Bridge Co.",
       "field": "summary",
-      "text": "After receiving an absolute repudiation, a contractor may not continue performing and charge the avoidable cost to the repudiating party; recovery is limited to labor, materials and expenses in partial performance before repudiation plus the profit the contract would have produced.",
-      "textSha256": "0b421ee80b1f486dd3dfbf070ffb79045dab802362b5f8287cc6e95c5386e717",
+      "text": "After receiving an absolute repudiation, a contractor may not continue performing and charge the avoidable cost to the repudiating party; it recovers labor, materials and expenses in partial performance before repudiation, the profit the contract would have produced, and any other losses resulting from the breach.",
+      "textSha256": "5ee663520b585441e4e45adcc32fbeaeec089f75746be346e3a2e64a07bee53a",
       "source": {
         "briefId": "CT-NEXT-CM-0151",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0151.rule (effective assembler overlays)",
@@ -19622,8 +19652,8 @@
       "id": "rockingham",
       "title": "Rockingham County v. Luten Bridge Co.",
       "field": "notes",
-      "text": "The editors explain that a failure to mitigate generally limits damages rather than creating independent liability to the breaching party. The notes raise uncertainty about repudiation and contrast a performance-only offer under Restatement § 45; those textbook problems remain questions rather than decided extensions of this holding.",
-      "textSha256": "a48852f8db8b86f92491e69e230b0c742121023dbc9dcd13bb32b602eb3c2911",
+      "text": "The editors explain that a failure to mitigate generally limits damages rather than creating independent liability to the breaching party. The notes ask how a builder unsure whether to stop should proceed, pointing to the demand for adequate assurance (Restatement § 251; UCC § 2-609), and contrast a performance-only offer under Restatement § 45; those textbook problems remain questions rather than decided extensions of this holding.",
+      "textSha256": "cb336c27757558e322da11d89486397e64b5aca52cf91eabb6321b8840ec0cd0",
       "source": {
         "briefId": "CT-NEXT-CM-0151",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0151.rule (effective assembler overlays)",
@@ -19766,8 +19796,8 @@
       "id": "kenford",
       "title": "Kenford Co. v. County of Erie",
       "field": "takeaway",
-      "text": "Unusual losses, like the rise in value of land around a stadium that was never built, are recoverable only if the breaching party could be seen to have taken on that risk when it made the contract. Foreseeing a loss is not the same as agreeing to pay for it.",
-      "textSha256": "8887e05946d556a5c81ca48bb3ae1e98a5d9f3391ec8889b9f72e45fe62cecd2",
+      "text": "In New York, unusual losses, like the rise in value of land around a stadium that was never built, are recoverable only if the breaching party could be seen to have taken on that risk when it contracted; foreseeing a loss is not agreeing to pay for it. Restatement § 351 and UCC § 2-715 require no tacit agreement; they ask what the breaching party had reason to foresee.",
+      "textSha256": "56553c3bcd154071656b9ce3f5ed2b300c6067588df67ec38bc4fdeb8654facf",
       "source": {
         "briefId": "CT-NEXT-CM-0157",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0157.rule (effective assembler overlays)",
@@ -19787,8 +19817,8 @@
       "id": "kenford",
       "title": "Kenford Co. v. County of Erie",
       "field": "summary",
-      "text": "Unusual or extraordinary damages are recoverable only if liability for them was contemplated at or before contract formation as a probable consequence of breach, judged by the contract's nature, purpose and circumstances and the liability the defendant consciously assumed or reasonably led the plaintiff to believe it assumed.",
-      "textSha256": "a26723fd77c267e65fb46ccb3dbf21db8c721e34b1f86bb8012f0ac3825ef580",
+      "text": "In New York, extraordinary damages are recoverable only if liability for them was contemplated at or before formation as a probable consequence of breach, judged by the contract's nature, purpose and circumstances and the liability the defendant consciously assumed or reasonably led the plaintiff to believe it assumed.",
+      "textSha256": "4310a955d2a9d6db7dd4898d66eb9df5060b2b568c2499f4d935da9d25f04d5b",
       "source": {
         "briefId": "CT-NEXT-CM-0157",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0157.rule (effective assembler overlays)",
@@ -22638,8 +22668,8 @@
       "id": "mitigation",
       "title": "Avoidable loss and mitigation",
       "field": "notes",
-      "text": "Rockingham asks why a contractor continued construction after learning that the county repudiated. Parker asks whether a discharged performer had to accept a different proposed role to reduce her damages. Avoidance may require reasonable steps, but not every alternative is sufficiently comparable or reasonable. The breacher’s burden of proving avoidable loss and the factual posture matter.\n\nIdentify when the injured party learned of the breach, what alternatives were actually available, their costs and risks, and whether accepting them would sacrifice a protected interest. Distinguish replacement income that truly substitutes for the lost transaction from income that could have been earned in addition to it. The assigned materials also consider arguments about the breacher’s equal opportunity to prevent loss; they do not state a universally accepted exception.",
-      "textSha256": "93d1b83d5e21f845dd5cc090afeb94f6e240d1b5a211520b86a74eb84c67b51d",
+      "text": "Rockingham asks why a contractor continued construction after learning that the county repudiated. Parker asks whether a discharged performer had to accept a different proposed role to reduce her damages. Avoidance may require reasonable steps, but not every alternative is sufficiently comparable or reasonable. The breacher’s burden of proving avoidable loss and the factual posture matter.\n\nIdentify when the injured party learned of the breach, what alternatives were actually available, their costs and risks, and whether accepting them would sacrifice a protected interest. Distinguish replacement income that truly substitutes for the lost transaction from income that could have been earned in addition to it. The assigned materials also consider arguments about the breacher’s equal opportunity to prevent loss; they do not state a universally accepted exception. In sales, the buyer's market measure applies only to the extent the buyer has not covered (UCC § 2-713 cmt. 5), and the problems ask whether the market measures give a buyer who delays cover, or a seller whose market differential exceeds its lost profit, a windfall (the casebook compares Nobs Chemical with Trans World Metals on the seller). In employment, courts rejected 'constructive service' (Howard v. Daly); Delliponti put the burden on the employer and required proof of actual vacant positions; an offer from the breaching employer may be refused where further association would be offensive or degrading (Voorhees); and the notes ask whether an offer conditioned on surrendering rights under the old contract counts.",
+      "textSha256": "5fe577fe208b389e594feeee7cdf14a3142cbaf4993bdb72b26c3b82bc86f491",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: mitigation",
@@ -22684,8 +22714,8 @@
       "id": "foreseeability-damages",
       "title": "Foreseeability of contract loss",
       "field": "notes",
-      "text": "Hadley distinguishes loss arising ordinarily from breach from loss depending on special circumstances communicated to the other party. Its facts and application require careful reading: the editors identify a discrepancy between the reported trial account and the circumstances the appellate court treated as established. Kenford examines whether the county assumed responsibility for the developer’s anticipated increase in surrounding land value.\n\nAsk which loss is claimed, how it follows from breach, what the defendant knew when agreeing, and whether the governing formulation also requires an undertaking of responsibility. Mere causal connection after the event is insufficient. Do not collapse this concept into foreseeability of reliance under promissory estoppel or foreseeability in tort; the time, purpose, and legal consequences differ.",
-      "textSha256": "6de208852918325a15cefb11184f9b5693de13a515ebc30a27cd88c34c5da9cc",
+      "text": "Hadley distinguishes loss arising ordinarily from breach from loss depending on special circumstances communicated to the other party. Its facts and application require careful reading: the editors identify a discrepancy between the reported trial account and the circumstances the appellate court treated as established. Kenford examines whether the county assumed responsibility for the developer’s anticipated increase in surrounding land value.\n\nAsk which loss is claimed, how it follows from breach, what the defendant knew when agreeing, and whether the governing formulation also requires an undertaking of responsibility. Mere causal connection after the event is insufficient. Do not collapse this concept into foreseeability of reliance under promissory estoppel or foreseeability in tort; the time, purpose, and legal consequences differ. Foreseeability is objective: the Redgrave instruction asked what a reasonable person in the defendant's position knew or should have known when the contract was made, and the Cold Steel problem asks whether knowledge gained when a delivery date is later agreed counts. Under Article 2 buyers recover consequential damages but courts allow sellers only incidental ones (§§ 2-708(1), 2-710, 2-715), and courts have often held loss from a buyer's inability to cover foreseeable only if the seller knew facts making it so. Emotional-distress damages are excluded unless the breach also caused bodily harm or serious emotional disturbance was a particularly likely result (Restatement § 353); the more common approach allows them only for certain kinds of contract, such as funeral contracts (Lamm). A lost item's actual value to its owner is recoverable, but not unusual sentimental value (Mieske).",
+      "textSha256": "fe311dee675443441718096fd25b8d3d61c6d983145e667f941f125ff5b36a92",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: foreseeability-damages",
@@ -22726,8 +22756,8 @@
       "id": "certainty-damages",
       "title": "Proof and reasonable certainty of damages",
       "field": "notes",
-      "text": "Fera concerns projected profits of a new business, supported by testimony that the jury could evaluate. The majority and dissent disagreed about the evidence and the weight of uncertainty. The broader materials distinguish uncertainty about whether loss occurred from difficulty measuring a loss known to have occurred.\n\nIdentify the assumptions behind projections, the available market or operating evidence, causation, and the standard of review. The fact that a business is new is relevant to proof but should not be used as a substitute for examining the evidence under the applicable rule. Naval Institute supplies an earlier example of a supported counterfactual estimate.",
-      "textSha256": "fbded5932a043d09b411ab014302cc7adbe49e15925cf5a0ae2616080c639e0c",
+      "text": "Fera concerns projected profits of a new business, supported by testimony that the jury could evaluate. The majority and dissent disagreed about the evidence and the weight of uncertainty. The broader materials distinguish uncertainty about whether loss occurred from difficulty measuring a loss known to have occurred.\n\nIdentify the assumptions behind projections, the available market or operating evidence, causation, and the standard of review. The fact that a business is new is relevant to proof but should not be used as a substitute for examining the evidence under the applicable rule. Naval Institute supplies an earlier example of a supported counterfactual estimate. Courts divide on a lost chance: Collatz denied a quiz finalist recovery because winning could not be proved, while Chaplin v. Hicks valued the chance (Restatement § 348(3)). American courts have generally denied damages for lost reputation as uncertain or unforeseeable. Expert and statistical proof may establish royalties from a record already selling (Contemporary Mission), though not speculative follow-on tours, and the overwhelming majority of states allow proof of lost good will (AM/PM Franchise).",
+      "textSha256": "740b86194b62056cfe251e2d0b25a55e31d70f779f6277003d6d22cf9cab92a5",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: certainty-damages",
@@ -104492,8 +104522,8 @@
       "id": "damages-limits",
       "title": "Which losses can damages cover?",
       "field": "guide",
-      "text": "Use three separate checks. Hadley and Kenford ask which risks the contract covered; Rockingham and Parker concern losses that might have been avoided; Fera and the first Kenford decision concern proof of lost profits.",
-      "textSha256": "2aa19f1c0f60eaccee8a99c798ba106bf477ed9678e77d48fd42935eb3a878d9",
+      "text": "Use three separate checks. Hadley asks which losses were within both parties' contemplation, when they contracted, as a probable result of breach, and New York's Kenford decisions also ask whether the defendant assumed liability for them; Rockingham and Parker concern losses that might have been avoided; Fera and the first Kenford decision concern proof of lost profits.",
+      "textSha256": "fb4803904cba217f4a8a14a015e50926c561399afd45163455c2acfac7f93f87",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json"
       },
@@ -104530,8 +104560,8 @@
       "id": "damages-limits:2",
       "title": "Which losses can damages cover?",
       "field": "note",
-      "text": "Avoidable loss: after a clear repudiation the other party may not keep performing and charge the cost; recovery is costs to date plus profit.",
-      "textSha256": "78d216a82aff6473088e0df5792325ec57d02def8e8ead38c6e75acf7ea008c6",
+      "text": "Avoidable loss: after a clear repudiation the other party may not keep performing and charge the avoidable cost; recovery is costs to date, expected profit and any other loss the breach caused.",
+      "textSha256": "928bc59c5f40295623a4697e8f831d4e91c4b086d475b377814351d927de189d",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "damages-limits",

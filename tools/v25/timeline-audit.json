@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "reviewedAt": "2026-11-17",
   "dataPath": "tools/r19/data/timelines.json",
-  "timelinesSha256": "13a28667aba2da96993fa96023f0068cb826906bc3daec794f89d58fc8bd916e",
+  "timelinesSha256": "145be1d28a6d8e757958b380b7242416371bd37a660d0efed59cff3bf09a5ac5",
   "baselineGitRevision": "347d2e9759a7b5429f24825c521a967ce2b14eb9",
   "scope": "All timeline memberships and navigation were inventoried against the canonical cases and original assigned-source locations. New lines and selected corrections were compared with original casebook passages and case-specific accounts. Prior complete-opinion limitations remain; this does not certify every proposition or all current law. November 17: all 685 timeline steps screened editorially; targeted primary-source corrections are recorded separately. This is not a complete primary-source audit of every step or brief.",
   "limitations": [
@@ -10563,7 +10563,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CT-NEXT-CM-0151.md",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0151.rule (effective assembler overlays included)",
         "comparedRule": "After receiving an absolute repudiation, a contractor may not continue performing and charge the avoidable cost to the repudiating party; recovery is limited to labor, materials and expenses in partial performance before repudiation plus the profit the contract would have produced.",
-        "comparedRuleSha256": "0b421ee80b1f486dd3dfbf070ffb79045dab802362b5f8287cc6e95c5386e717",
+        "comparedRuleSha256": "5ee663520b585441e4e45adcc32fbeaeec089f75746be346e3a2e64a07bee53a",
         "effectiveFullBriefSha256": "0885478e3142f52adee08fce15dfccc5ed309d6dc9c53125f07cc87c8e540a87",
         "inheritedCitation": "35 F.2d 301 (4th Cir. 1929) | Contracts",
         "inheritedBriefPdfLocator": {
@@ -10595,6 +10595,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -10839,7 +10847,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CT-NEXT-CM-0157.md",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0157.rule (effective assembler overlays included)",
         "comparedRule": "Unusual or extraordinary damages are recoverable only if liability for them was contemplated at or before contract formation as a probable consequence of breach, judged by the contract's nature, purpose and circumstances and the liability the defendant consciously assumed or reasonably led the plaintiff to believe it assumed.",
-        "comparedRuleSha256": "a26723fd77c267e65fb46ccb3dbf21db8c721e34b1f86bb8012f0ac3825ef580",
+        "comparedRuleSha256": "4310a955d2a9d6db7dd4898d66eb9df5060b2b568c2499f4d935da9d25f04d5b",
         "effectiveFullBriefSha256": "73986130f6f94511bd19f458854dca8233cd859aa5fa0c93dac0a26950efa62e",
         "inheritedCitation": "73 N.Y.2d 312, 537 N.E.2d 176 (1989) | Contracts",
         "inheritedBriefPdfLocator": {
@@ -10869,6 +10877,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -47343,6 +47359,11 @@
     "originalSourceRegistry": "tools/v28/source-links.json"
   },
   "timelinesRereviews": [
+    {
+      "date": "2026-11-19",
+      "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+      "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review."
+    },
     {
       "date": "2026-11-19",
       "register": "tools/content-audit/2026-11-19-contracts-opus.json",
