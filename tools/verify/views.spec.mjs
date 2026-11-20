@@ -349,6 +349,12 @@ for (const size of sizes)
       await expect(dialog.locator('[data-study-node="cp-mottley"]')).toBeVisible();
       await expect(dialog.locator('[data-study-node="cp-gibbs"]')).toHaveCount(0);
       await expect(dialog).toContainText('follows the syllabus of October 1, 2026');
+      await page.locator('#civilWeekSelect').selectOption('2');
+      await expect(dialog.getByRole('button', { name: /state jurisdiction statutes/ })).toHaveAttribute(
+        'data-dkla-file',
+        'added-sources/Civ Pro Supplement FULL OCR 26-27.pdf#page=173',
+      );
+      await expect(dialog.locator('[data-study-node="cp-week-2"]')).toBeVisible();
     });
     await sessions('sessions-lrs', 'Legislation and the Regulatory State', 26, async () => {
       await expect(card(8)).toContainText('Class 8');

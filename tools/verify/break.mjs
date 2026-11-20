@@ -1107,6 +1107,16 @@ const breakages = [
         '',
       ),
   ],
+  [
+    'The week 2 statute assignment opens at the wrong supplement page',
+    'src/runtime/civilCode.js',
+    () =>
+      edit(
+        'src/runtime/civilCode.js',
+        'Civ Pro Supplement FULL OCR 26-27.pdf#page=173',
+        'Civ Pro Supplement FULL OCR 26-27.pdf#page=1',
+      ),
+  ],
 ];
 
 const pass = () => {
