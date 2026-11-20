@@ -48,18 +48,18 @@ file does not claim it.
 | OP-CT-18 | Class 18, Unconscionability (C&M 679–706; Supp. 94–101) | **done**: `47ff6221` (21) corrections; see `contracts/WAVE-16-20.md` on the corrections branch | casebook, supplement; no slide deck located (K-18-DECK-01) |
 | OP-CT-19 | Class 19, Public policy (C&M 744–764, 769–780; Supp. 102–107) | **done**: `cb4b0d92` (19) corrections; see `contracts/WAVE-16-20.md` on the corrections branch | casebook, supplement; no slide deck located (K-19-DECK-01) |
 | OP-CT-20 | Class 20, Express and constructive conditions (C&M 805–809, 814–824, 828–832, 846–855, 871–875, 883–893) | **done**: `a3d17e4c` (22) corrections; see `contracts/WAVE-16-20.md` on the corrections branch | casebook; no slide deck located (K-20-DECK-01) |
-| OP-CT-21 | Class 21, Mistake, impracticability and frustration (C&M 1073–1081, 1101–1120, 1132–1136) | **in progress** | casebook; no slide deck located in the checked sources (K-21-DECK-01) |
-| OP-CT-22 | Class 22, Specific relief (C&M 34–43, 929–930, 945–950; Supp. 108–128) | **in progress** | casebook, supplement; no slide deck located (K-22-DECK-01) |
-| OP-CT-23 | Class 23, Cost or value of performance; losing contracts (C&M 954–958, 968–982, 988–992) | **in progress** | casebook, selections; no slide deck located (K-23-DECK-01) |
-| OP-CT-24 | Class 24, Limitations on damages (C&M 992–997, 1009–1021, 1024–1040) | **in progress** | casebook; no slide deck located (K-24-DECK-01) |
-| OP-CT-25 | Class 25, Stipulated remedies (C&M 1043–1064; Supp. 129–138) | **in progress** | casebook, supplement; no deck record |
-| OP-CT-26 | Class 26, Third-party beneficiaries, delegation and assignment (C&M 1163–1178, 1194–1196, 1200–1206, 1215–1216, 1226–1227) | **in progress** | casebook; no deck record |
-| OP-CT-05 | Class 5, Promissory estoppel and restitution (C&M 69–74, 120–130, 135–146; Rest. § 90) | **in progress** | casebook, selections, slides (Class 5 deck, 21 slides) |
-| OP-CT-06 | Class 6, Assent and intent to be legally bound (C&M 169–191; Supp. 2–20; RLCC § 2(a), (c)) | **in progress** | casebook, supplement, selections, slides (16) |
-| OP-CT-07 | Class 7, Offer and acceptance (C&M 191–192, 198–205, 213–225, 227–229, 235–242, 261–263) | **in progress** | casebook, slides (15) |
-| OP-CT-08 | Class 8, Formation under §§ 45, 90 and UCC Article 2 (C&M 246–259, 269–283; UCC §§ 2-204–2-207; N.Y. G.O.L. § 5-1109) | **in progress** | casebook, supplement, selections, slides (30) |
-| OP-CT-09 | Class 9, Battle of the forms; pay now, terms later (C&M 284–304; UCC § 2-207; RLCC § 2(b), (c)) | **in progress** | casebook, selections, slides (9) |
-| OP-CT-10 | Class 10, Definiteness, precontractual liability and preliminary agreements (C&M 190–191, 326–327, 333–370; Supp. 21) | **in progress** | casebook, supplement, slides (21) |
+| OP-CT-21 | Class 21, Mistake, impracticability and frustration (C&M 1073–1081, 1101–1120, 1132–1136) | **done**: `e7037fc5` (40 edits); see `contracts/WAVE-21-26-AND-05-10.md` on the corrections branch | casebook; no slide deck located in the checked sources (K-21-DECK-01) |
+| OP-CT-22 | Class 22, Specific relief (C&M 34–43, 929–930, 945–950; Supp. 108–128) | **done**: `280dac9e` (38 edits); see `contracts/WAVE-21-26-AND-05-10.md` on the corrections branch | casebook, supplement; no slide deck located (K-22-DECK-01) |
+| OP-CT-23 | Class 23, Cost or value of performance; losing contracts (C&M 954–958, 968–982, 988–992) | **done**: `0ef79d15` (31 edits); see `contracts/WAVE-21-26-AND-05-10.md` on the corrections branch | casebook, selections; no slide deck located (K-23-DECK-01) |
+| OP-CT-24 | Class 24, Limitations on damages (C&M 992–997, 1009–1021, 1024–1040) | **done**: `41fb7c84` (36 edits); see `contracts/WAVE-21-26-AND-05-10.md` on the corrections branch | casebook; no slide deck located (K-24-DECK-01) |
+| OP-CT-25 | Class 25, Stipulated remedies (C&M 1043–1064; Supp. 129–138) | **done**: `80cdf52b` (43 edits); see `contracts/WAVE-21-26-AND-05-10.md` on the corrections branch | casebook, supplement; no deck record |
+| OP-CT-26 | Class 26, Third-party beneficiaries, delegation and assignment (C&M 1163–1178, 1194–1196, 1200–1206, 1215–1216, 1226–1227) | **done**: `bdd6f5fd` (25 edits); see `contracts/WAVE-21-26-AND-05-10.md` on the corrections branch | casebook; no deck record |
+| OP-CT-05 | Class 5, Promissory estoppel and restitution (C&M 69–74, 120–130, 135–146; Rest. § 90) | **done**: `99b45077` (75 edits); see `contracts/WAVE-21-26-AND-05-10.md` on the corrections branch | casebook, selections, slides (Class 5 deck, 21 slides) |
+| OP-CT-06 | Class 6, Assent and intent to be legally bound (C&M 169–191; Supp. 2–20; RLCC § 2(a), (c)) | **done**: `338b8c49` (39 edits); see `contracts/WAVE-21-26-AND-05-10.md` on the corrections branch | casebook, supplement, selections, slides (16) |
+| OP-CT-07 | Class 7, Offer and acceptance (C&M 191–192, 198–205, 213–225, 227–229, 235–242, 261–263) | **done**: `db4b32e7` (62 edits); see `contracts/WAVE-21-26-AND-05-10.md` on the corrections branch | casebook, slides (15) |
+| OP-CT-08 | Class 8, Formation under §§ 45, 90 and UCC Article 2 (C&M 246–259, 269–283; UCC §§ 2-204–2-207; N.Y. G.O.L. § 5-1109) | **done**: `71ea1b6f` (46 edits); see `contracts/WAVE-21-26-AND-05-10.md` on the corrections branch | casebook, supplement, selections, slides (30) |
+| OP-CT-09 | Class 9, Battle of the forms; pay now, terms later (C&M 284–304; UCC § 2-207; RLCC § 2(b), (c)) | **done**: `8adb990c` (29 edits); see `contracts/WAVE-21-26-AND-05-10.md` on the corrections branch | casebook, selections, slides (9) |
+| OP-CT-10 | Class 10, Definiteness, precontractual liability and preliminary agreements (C&M 190–191, 326–327, 333–370; Supp. 21) | **done**: `ec534e50` (70 edits); see `contracts/WAVE-21-26-AND-05-10.md` on the corrections branch | casebook, supplement, slides (21) |
 
 Claimed 19 November 2026, 20:30 ET, after checking `STATUS.md`, `v32-wave.md` and Astra's wave branches
 (Contracts assignments 1–4 are Astra's). Classes 5–10 claimed 19 November 2026, 23:40 ET, after re-checking `STATUS.md`, `v32-wave.md`, `pairing.md` and Astra's branches (no Astra activity after 20:24; Astra holds assignments 1–4). This session also holds
@@ -80,3 +80,6 @@ pinpoints, and what is left for Astra).
 
 
 Batch 21–26 claimed 19 November 2026, 21:30 ET, after re-checking `STATUS.md`, `v32-wave.md` and Astra's wave branches (no change since 20:15). Slide coverage for Classes 15–26 stays open: if the decks are located, their lecture-notes records need checking against them.
+
+
+Updated 20 November 2026: Classes 5–10 and 21–26 done on `audit/contracts-opus-2026-11-19` (final records `a12b422c`). `contracts/SYLLABUS-RECONCILIATION.md` there lists all 26 classes; `contracts/CROSS-CLASS.md` items 5–15 are offered to Astra, Fable or the owner and are not yet accepted. Slide coverage for Classes 15–26 stays open: no slide deck was located in the checked sources.
