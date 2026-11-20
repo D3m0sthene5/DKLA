@@ -3677,8 +3677,8 @@
       },
       {
         "id": "b",
-        "label": "Would enforcement give effect to prohibited conduct?",
-        "detail": "Blossom Farm denied recovery where the seller knowingly facilitated food mislabeling. X.L.O. required a record on whether collection would enforce the precise antitrust wrong, beyond mere connection to a conspiracy.",
+        "label": "How is the bargain connected to the wrong?",
+        "detail": "Blossom denied payment to a seller whose knowing course of supply facilitated mislabeling. McConnell and Sirkin denied recovery where the claimant obtained the contract or earned the payment through bribery directly connected to the claim. X.L.O. asked whether the judgment would compel the precise antitrust wrong; a remote link to a conspiracy is not enough.",
         "sources": [
           "blossom-farm",
           "xlo",
@@ -3686,11 +3686,19 @@
         ],
         "edges": [
           {
-            "label": "Enforcement would implement wrongdoing",
+            "label": "Performance is unlawful, or the judgment would compel the precise unlawful conduct",
             "to": "f"
           },
           {
-            "label": "Link too remote or record incomplete",
+            "label": "Claimant obtained the contract or earned the payment through bribery or a similar directly connected wrong",
+            "to": "i"
+          },
+          {
+            "label": "Claimant acted to further the other party's misuse, as by a knowing course of supply",
+            "to": "i"
+          },
+          {
+            "label": "Only knowledge, a remote link, or an incomplete record",
             "to": "g"
           }
         ]
@@ -3769,7 +3777,7 @@
       {
         "id": "e",
         "label": "Does local law permit narrowing?",
-        "detail": "In 2022, Hassler abandoned judicial rewriting of unreasonable noncompetes under Wyoming common law. Apply the rule for the relevant jurisdiction and date. Distinguish severing independent language from drafting a new restraint.",
+        "detail": "In 2022, Hassler abandoned judicial rewriting of unreasonable noncompetes under Wyoming common law. Apply the rule for the relevant jurisdiction and date. Distinguish severing independent language from drafting a new restraint. In Wyoming, deleting the excess counties counts as forbidden blue-penciling, and the restraint fails entirely.",
         "sources": [
           "hassler",
           "severability",
@@ -3777,7 +3785,15 @@
         ],
         "edges": [
           {
-            "label": "Evaluate available remedy",
+            "label": "Narrowing not permitted (Wyoming after Hassler, 2022)",
+            "to": "i"
+          },
+          {
+            "label": "Jurisdiction permits narrowing or partial enforcement (Restatement § 184(2))",
+            "to": "h"
+          },
+          {
+            "label": "Another, separable term is at issue",
             "to": "f"
           }
         ]
@@ -3835,7 +3851,7 @@
       {
         "id": "i",
         "label": "Deny the affected enforcement",
-        "detail": "Refuse enforcement of the term or entire bargain as the policy and connection to the remaining exchange require.",
+        "detail": "Refuse enforcement of the term or entire bargain as the policy and connection to the remaining exchange require. Then ask whether restitution or quantum meruit remains (X.L.O.; Restatement §§ 197–199); parties in equal fault are otherwise left where they are.",
         "sources": [
           "blossom-farm",
           "hassler",

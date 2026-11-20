@@ -3421,7 +3421,7 @@
         "Contracts"
       ],
       "takeaway": "A seller normally gets paid even if the buyer plans to misuse the goods, but not when the seller actively helps the misuse. A supplier that knowingly furthered the cheese maker's improper use of its product could not collect the price.",
-      "takeawaySha256": "fc341bad43b4332145ab5a04437a081d0fd84af07f811a89fb92d289e3042490",
+      "takeawaySha256": "283383e99754a9f35e8256f320ad2e0544ab01b5318b0af89634f276272af8f7",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -3432,7 +3432,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-NEXT-CM-0110",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0110.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "3d55f0187de834ec0bbeb001963f0b1e7ccb309ae64c3831610f4a1f0ab1cc1a",
+        "ruleSha256": "52e85bef2d40648b82cce04f9fba78f85094b193d9177233496854ff71af70fe",
         "comparedSections": {
           "Holding": "821f202de62b047d18142cee765bc2428b3e8004b8745fa6a7a3e7729eb1a774"
         },
@@ -3451,7 +3451,21 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "xlo",
@@ -3471,7 +3485,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-NEXT-CM-0111",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0111.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "a25cdaaa27153ffa0bade9d4541bb381419ee5d41f62e2ebb909cad408a6cb7d",
+        "ruleSha256": "c39525d47a8ffcd228178ca90c8fd905d5e14d45ca46c1ac2e483e5d537140f1",
         "comparedSections": {
           "Holding": "ad928b4a236f33b58b41bd98b1c5c0e0d8ef9dc861cfb5e312fb133af70e13f9"
         },
@@ -3501,6 +3515,14 @@
             "takeawaySha256": "e916e5bd965e71d5be238980449a05e069c57a661199435b0bebcb68fdf4740c"
           }
         }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
       ]
     },
     {
@@ -3510,7 +3532,7 @@
         "Contracts"
       ],
       "takeaway": "In 2022, Wyoming's Supreme Court refused to rewrite an unreasonably broad noncompete to make it enforceable. That case explains the court's historical approach to redrafting. A separate 2025 Wyoming statute governs noncompetes entered on or after July 1, 2025. It bans them subject to specified exceptions, so the earlier case does not supply the whole current rule.",
-      "takeawaySha256": "80f722664bdf9d9ef471cc51b2d6b8dbca105d0d546a5a27e6b9cbcbf54b33c3",
+      "takeawaySha256": "b951d7758f12c6a305c443360a6348dfc4728755f5cdbb4016f92ee068dcf016",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding; independently checked current W.S. § 1-23-108 and complete 2025 enrolled SF0107, §§ 1–3.",
@@ -3524,7 +3546,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-NEXT-CM-0113",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0113.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "07d9d7a05e8814510000106296b0d101c3137e90530be2114c4ed95822edcf27",
+        "ruleSha256": "acc3ee207a900115d505621ff25a670da8e0e8e2d37730928fe37f1cb913e5ab",
         "comparedSections": {
           "Holding": "1ee5c45c0028aade75334a85a21cd8bf0a6577e010d34216f34b95b04251db9a",
           "Material Facts": "371ae6c9b3067f321b7beb0311d34265d05acd88984b05b745fc9ebb681cd835",
@@ -3557,6 +3579,20 @@
             "takeaway": "In 2022, the Wyoming Supreme Court refused to rewrite an unreasonably broad noncompete to save it. That decision is historical guidance on judicial redrafting. Wyoming’s 2025 statute separately governs noncompetes entered on or after July 1, 2025, with a ban and specified exceptions.",
             "takeawaySha256": "89e96b1e7ce5077c0533fbdcfbf3f71ac34573dedd05146fdcad2b481e7f7446"
           }
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
         }
       ]
     },

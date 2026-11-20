@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "reviewedAt": "2026-11-17",
   "dataPath": "tools/r19/data/timelines.json",
-  "timelinesSha256": "d08f05b5ce0d7fca488d9344e9984f4f01726e7e661e72ff50f624aa42ac3eb0",
+  "timelinesSha256": "7c4bebe6d6078b1ad8d689caf6809d4a22c0491714dbada4cc3f8d2407d654bc",
   "baselineGitRevision": "347d2e9759a7b5429f24825c521a967ce2b14eb9",
   "scope": "All timeline memberships and navigation were inventoried against the canonical cases and original assigned-source locations. New lines and selected corrections were compared with original casebook passages and case-specific accounts. Prior complete-opinion limitations remain; this does not certify every proposition or all current law. November 17: all 685 timeline steps screened editorially; targeted primary-source corrections are recorded separately. This is not a complete primary-source audit of every step or brief.",
   "limitations": [
@@ -38534,7 +38534,7 @@
         "briefId": "CT-NEXT-CM-0110",
         "savedBriefPath": "tools/r19/data/briefs/CT-NEXT-CM-0110.md",
         "comparedRule": "A seller who has performed does not ordinarily lose the right to payment merely because the buyer plans an improper use of the goods, but a seller who acts to further that improper use may be denied enforcement on public-policy grounds.",
-        "comparedRuleSha256": "3d55f0187de834ec0bbeb001963f0b1e7ccb309ae64c3831610f4a1f0ab1cc1a",
+        "comparedRuleSha256": "52e85bef2d40648b82cce04f9fba78f85094b193d9177233496854ff71af70fe",
         "effectiveFullBriefSha256": "994837c9ff4a2569d18354d71cc2ddf42bf15dade2dbfc0fd6b1cc2fdfad9865",
         "sourceLocator": {
           "path": "added-sources/C&M Textbook 701-1050.pdf",
@@ -38563,6 +38563,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -38706,7 +38714,7 @@
         "briefId": "CT-NEXT-CM-0111",
         "savedBriefPath": "tools/r19/data/briefs/CT-NEXT-CM-0111.md",
         "comparedRule": "A contract that is lawful on its face is not unenforceable merely because it arose from an antitrust conspiracy; enforcement is refused only if the judgment would itself enforce the precise conduct the antitrust laws prohibit.",
-        "comparedRuleSha256": "a25cdaaa27153ffa0bade9d4541bb381419ee5d41f62e2ebb909cad408a6cb7d",
+        "comparedRuleSha256": "c39525d47a8ffcd228178ca90c8fd905d5e14d45ca46c1ac2e483e5d537140f1",
         "effectiveFullBriefSha256": "ad28418042723e4800a270eb616b6c65f13a68c0d4e3613a222bcce38121bdfa",
         "sourceLocator": {
           "path": "added-sources/C&M Textbook 701-1050.pdf",
@@ -38735,6 +38743,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -38819,7 +38835,7 @@
         "briefId": "CT-NEXT-CM-0113",
         "savedBriefPath": "tools/r19/data/briefs/CT-NEXT-CM-0113.md",
         "comparedRule": "A noncompetition covenant is prima facie invalid and the employer must prove it reasonable; a court will not rewrite an unreasonable covenant into a reasonable one, so a covenant with unreasonable duration or geography is void.",
-        "comparedRuleSha256": "07d9d7a05e8814510000106296b0d101c3137e90530be2114c4ed95822edcf27",
+        "comparedRuleSha256": "acc3ee207a900115d505621ff25a670da8e0e8e2d37730928fe37f1cb913e5ab",
         "effectiveFullBriefSha256": "cdb4c2ac93f23ebad618c2a89bc1ceb5ebd5b94541140caa49a1a1ae96df61cc",
         "sourceLocator": {
           "path": "added-sources/C&M Textbook 701-1050.pdf",
@@ -38848,6 +38864,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -47207,6 +47231,11 @@
     "originalSourceRegistry": "tools/v28/source-links.json"
   },
   "timelinesRereviews": [
+    {
+      "date": "2026-11-19",
+      "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+      "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review."
+    },
     {
       "date": "2026-11-19",
       "register": "tools/content-audit/2026-11-19-contracts-opus.json",
