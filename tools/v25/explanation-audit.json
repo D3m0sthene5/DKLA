@@ -2965,7 +2965,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-NEXT-CM-0106",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0106.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "9c9ba5e1eaf13885c9ddef9c667b30955828bc422b65ca321d92d05c5bd52c8f",
+        "ruleSha256": "3302b657471a2a39b516dbcdc2125c8440748dca7d752fa1554c5359e0a03078",
         "comparedSections": {
           "Holding": "c65a29de5f349c6c8f09a4c53780cad2ce90b81e15435c1f2dfe084c61bc43a3"
         },
@@ -2984,7 +2984,15 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "northwest-ginsberg",
@@ -3081,7 +3089,7 @@
         "Contracts"
       ],
       "takeaway": "Best efforts did not require bankruptcy or substantial losses merely to promote this brand, but pursuing overall profit did not excuse ignoring the promised sales volume. Falstaff breached its brand-specific duty. Ordinary effort and expense cannot be dismissed merely because they reduce profit.",
-      "takeawaySha256": "e6d01971ee6dd0b8088b279f1481cb1bad2d9792aa5297c798dfcb613e9e60f6",
+      "takeawaySha256": "be13e326117f88f09d819f6eea0a4b5494ef67527d7f563f199d45fce9145c7b",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding exempts bankruptcy or substantial losses, not every financial loss.",
@@ -3092,11 +3100,11 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-NEXT-CM-0109",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0109.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "d8ee8325bc8dfefd9081f4957a79059ff6521b1f17b9068b43ef0bb510fefb02",
+        "ruleSha256": "fcff143f44000f3c8af9376b9026480f8632dc5f664e0a19069e55b0f89942e7",
         "comparedSections": {
-          "Holding": "9cf0db85e1e8272b9e34966264df3aa1ba82383125fa0e958e7c4025226c8850",
+          "Holding": "0acf811e1f40c8a439df90a84d6c94531ef71565b6fc13a7dfe86fa2425ca7eb",
           "Material Facts": "e55747db107a4d25c1bb23b6252f5b0eb535bdc840aca7a3ca1dbeb680c41fc3",
-          "Reasoning": "7b1f768aab2bd31a2e82eeddf43378580cf77b9b22617c316e5f83a9d256aa5a"
+          "Reasoning": "d90104c2e27c8fc5730395078e87f9d4d45d2247b8bde0688c1fcf52bf60ab57"
         },
         "sectionsReadCompletely": [
           "Holding",
@@ -3115,7 +3123,33 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.comparedSections.Holding"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.comparedSections.Reasoning"
+        }
+      ]
     },
     {
       "id": "graham",
@@ -4949,7 +4983,7 @@
         "Contracts"
       ],
       "takeaway": "Singapore's court implies a term only when necessary to make the contract work, and declined to imply a general duty of good faith into every contract. An entire-agreement clause shuts out implied terms only if it says so clearly.",
-      "takeawaySha256": "a74d3f8241af4fe9ab89807a96bb00e41b018427b748a2b4f64045df3ff906fd",
+      "takeawaySha256": "d766ebb1abc5ddb1aeaa8bd0b790b6630b7bd74200b4bb52c6944efc4230bcec",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -4960,7 +4994,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-COMP-SUP-0065",
         "sourceLocator": "tools/r19/data/sections.json :: CT-COMP-SUP-0065.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "d752a2663b5f1730b8c41e067ebbb9a4086a1e03fe4c0051e41c7b1628c747c2",
+        "ruleSha256": "35e43eef2d67a968bb2bcb8c7a097e53881f9daf2d016e693e7ebdc7af8f1f18",
         "comparedSections": {
           "Holding": "d5986917d59ff8f66dc78e2a6e436882bc40cd897b20ca2c0ede42ed126af6f7"
         },
@@ -4979,7 +5013,21 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "anderson-binance",

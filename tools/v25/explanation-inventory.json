@@ -2455,6 +2455,18 @@
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
+    },
+    {
+      "id": "bloor",
+      "field": "learning.topics.implied-efforts",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "bloor",
+      "field": "learning.topics.ucc306",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
     }
   ],
   "records": [
@@ -17660,8 +17672,8 @@
       "id": "dalton",
       "title": "Dalton v. Educational Testing Service",
       "field": "summary",
-      "text": "The implied covenant of good faith requires a party to actually exercise discretion it has promised to exercise and to do so neither arbitrarily nor irrationally, but it cannot create obligations inconsistent with the contract's terms.",
-      "textSha256": "9c9ba5e1eaf13885c9ddef9c667b30955828bc422b65ca321d92d05c5bd52c8f",
+      "text": "The implied covenant of good faith requires a party to exercise discretion the contract contemplates, and to do so neither arbitrarily nor irrationally, but it cannot create obligations inconsistent with the contract's terms.",
+      "textSha256": "3302b657471a2a39b516dbcdc2125c8440748dca7d752fa1554c5359e0a03078",
       "source": {
         "briefId": "CT-NEXT-CM-0106",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0106.rule (effective assembler overlays)",
@@ -17825,8 +17837,8 @@
       "id": "bloor",
       "title": "Bloor v. Falstaff Brewing Corp.",
       "field": "takeaway",
-      "text": "Best efforts did not require bankruptcy or substantial losses merely to promote this brand, but pursuing overall profit did not excuse ignoring the promised sales volume. Falstaff breached its brand-specific duty. Ordinary effort and expense cannot be dismissed merely because they reduce profit.",
-      "textSha256": "e6d01971ee6dd0b8088b279f1481cb1bad2d9792aa5297c798dfcb613e9e60f6",
+      "text": "Best efforts did not require Falstaff to spend itself into bankruptcy, but pursuing overall profit did not excuse ignoring the promised Ballantine volume. Once Bloor showed Falstaff simply did not care about that volume, Falstaff had to prove nothing significant could have been done without financial disaster.",
+      "textSha256": "be13e326117f88f09d819f6eea0a4b5494ef67527d7f563f199d45fce9145c7b",
       "source": {
         "briefId": "CT-NEXT-CM-0109",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0109.rule (effective assembler overlays)",
@@ -17846,8 +17858,8 @@
       "id": "bloor",
       "title": "Bloor v. Falstaff Brewing Corp.",
       "field": "summary",
-      "text": "A promise to use best efforts to promote and maintain a high volume of sales does not require the promisor to incur bankruptcy or substantial losses, but it is not discharged by pursuing overall profit while disregarding the promised volume.",
-      "textSha256": "d8ee8325bc8dfefd9081f4957a79059ff6521b1f17b9068b43ef0bb510fefb02",
+      "text": "A promise to use best efforts to promote and maintain a high volume of sales does not require the promisor to spend itself into bankruptcy, but it is not discharged by pursuing overall profit while disregarding the promised volume.",
+      "textSha256": "fcff143f44000f3c8af9376b9026480f8632dc5f664e0a19069e55b0f89942e7",
       "source": {
         "briefId": "CT-NEXT-CM-0109",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0109.rule (effective assembler overlays)",
@@ -20401,8 +20413,8 @@
       "id": "ng-giap",
       "title": "Ng Giap Hon v. Westcomb Securities Pte Ltd and Others",
       "field": "takeaway",
-      "text": "Singapore's court implies a term only when necessary to make the contract work, and declined to imply a general duty of good faith into every contract. An entire-agreement clause shuts out implied terms only if it says so clearly.",
-      "textSha256": "a74d3f8241af4fe9ab89807a96bb00e41b018427b748a2b4f64045df3ff906fd",
+      "text": "Singapore's court implies a term only when necessary to make the contract work, and declined to imply a general duty of good faith as a term implied in law. It held that this entire-agreement clause did not bar implied terms, even though the clause mentioned implied obligations.",
+      "textSha256": "d766ebb1abc5ddb1aeaa8bd0b790b6630b7bd74200b4bb52c6944efc4230bcec",
       "source": {
         "briefId": "CT-COMP-SUP-0065",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-COMP-SUP-0065.rule (effective assembler overlays)",
@@ -20422,8 +20434,8 @@
       "id": "ng-giap",
       "title": "Ng Giap Hon v. Westcomb Securities Pte Ltd and Others",
       "field": "summary",
-      "text": "A term is implied in fact only where necessary, tested by business efficacy and the officious bystander together, and the court declined to imply a general duty of good faith in law; an entire-agreement clause excludes implied terms only by clear language.",
-      "textSha256": "d752a2663b5f1730b8c41e067ebbb9a4086a1e03fe4c0051e41c7b1628c747c2",
+      "text": "A term is implied in fact only where necessary, tested by business efficacy and the officious bystander together, and the court declined to imply a general duty of good faith in law; this entire-agreement clause, though it mentioned implied obligations, did not bar implication.",
+      "textSha256": "35e43eef2d67a968bb2bcb8c7a097e53881f9daf2d016e693e7ebdc7af8f1f18",
       "source": {
         "briefId": "CT-COMP-SUP-0065",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-COMP-SUP-0065.rule (effective assembler overlays)",

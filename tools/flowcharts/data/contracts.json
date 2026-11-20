@@ -3341,7 +3341,7 @@
       {
         "id": "b",
         "label": "Were reasonable steps taken toward the agreed goal?",
-        "detail": "Falstaff emphasized its overall profit while royalty-producing Ballantine sales fell. Best efforts required meaningful exploration of reasonable ways to maintain volume and fair consideration of the promised business, with no duty to bankrupt itself.",
+        "detail": "Falstaff emphasized its overall profit while royalty-producing Ballantine sales fell. Once insolvency was averted, best efforts required Falstaff at least to explore steps not involving substantial losses and to consider Ballantine volume fairly; it need not spend itself into bankruptcy. If the claimant shows the promisor simply did not care about the promised volume, the promisor must prove that nothing significant could have been done without financial disaster.",
         "sources": [
           "bloor",
           "bloor-contract",
@@ -3412,19 +3412,23 @@
         ],
         "edges": [
           {
-            "label": "Duty recognized and breached",
+            "label": "Duty recognized, not preempted, and breached",
             "to": "f"
           },
           {
             "label": "Duty absent or no breach",
             "to": "g"
+          },
+          {
+            "label": "State-imposed duty preempted",
+            "to": "i"
           }
         ]
       },
       {
         "id": "f",
         "label": "Remedy the obligation actually breached",
-        "detail": "Award the promised process or proved contract loss, as appropriate. A missed review does not itself entitle the claimant to the preferred discretionary outcome.",
+        "detail": "Award the promised process or proved contract loss, as appropriate. If the party acting in bad faith is the one enforcing a contract right, that right may be unavailable: on remand in Market Street the tenant was denied specific performance of the option. A missed review does not itself entitle the claimant to the preferred discretionary outcome.",
         "sources": [
           "dalton",
           "bloor",
@@ -3449,6 +3453,16 @@
         "sources": [
           "market-street",
           "proof-and-posture"
+        ],
+        "edges": []
+      },
+      {
+        "id": "i",
+        "label": "State-law good-faith claim displaced",
+        "detail": "Ginsberg: the Airline Deregulation Act preempted a Minnesota covenant claim, because Minnesota did not let parties contract out of the covenant, which made it a state-imposed obligation rather than the parties' own undertaking. Only obligations the airline voluntarily undertook remain enforceable.",
+        "sources": [
+          "northwest-ginsberg",
+          "good-faith"
         ],
         "edges": []
       }

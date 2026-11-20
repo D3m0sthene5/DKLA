@@ -5080,7 +5080,7 @@
     {
       "id": "bloor",
       "sourceSha256": "c7eff81c10c5bcd41c56353ab2d4a12b39f88bd63dde1f5058fc5192a9097f2f",
-      "narrativeSha256": "7dd791a2bc66f40e43c810668830457b78a7212011b414e7ff33d94cb24af68e",
+      "narrativeSha256": "4d14329915402379f3ce1b754b86a52e53df22b4f84275fef3e9166bfea0531d",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
       "verdict": "retained",
@@ -5099,12 +5099,26 @@
       "title": "Bloor v. Falstaff Brewing Corp.",
       "course": "Contracts",
       "briefId": "CT-NEXT-CM-0109",
-      "accountSha256": "2bb7334bfd870515016749c51bb43c7c9afa05eb3ac1156b00d032df4b16c733",
+      "accountSha256": "2c5453752b7f37f1d9cefb83035bda6af5242aaa242477c2c2f6054aea96a4f9",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 833,
-      "wordsAfter": 833
+      "wordsAfter": 833,
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "narrativeSha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "accountSha256"
+        }
+      ]
     },
     {
       "id": "blossom-farm",
