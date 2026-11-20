@@ -302,6 +302,22 @@
 }
 
 /* ---------- shared pieces ---------- */
+/* The reader's labels and rows share three class names with the frame's (chrome.css), whose rules for
+   them used to reach every part of the page. Those rules now stop at the frame's own containers; what
+   the reader had from them is written here, so the reader looks as it did: a label's count stands
+   beside it on the baseline, a row's readout keeps to the right, a row that cannot be pressed is dim. */
+:where(#inspector) .v32-label {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+:where(#inspector) .v32-row-meta {
+  margin-left: auto;
+}
+:where(#inspector) .v32-row:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
 #inspector .v32 .v32-label,
 #inspector .v32-plain .v32-label {
   margin: 0 0 8px;

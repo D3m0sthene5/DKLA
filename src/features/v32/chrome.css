@@ -39,8 +39,8 @@ html.v32-chrome {
 }
 
 /* Icons: 20 px, 1.5 px stroke, the text colour of whatever holds them. */
-.v32-icon,
-.v32-glyph {
+:where(.study-header, .study-zoom, .v32-shell, .v32-index) .v32-icon,
+:where(.study-header, .v32-shell, .v32-index) .v32-glyph {
   flex: none;
   width: var(--v32-icon);
   height: var(--v32-icon);
@@ -51,7 +51,7 @@ html.v32-chrome {
   stroke-linejoin: round;
   pointer-events: none;
 }
-.v32-glyph {
+:where(.study-header, .v32-shell, .v32-index) .v32-glyph {
   width: 16px;
   height: 16px;
 }
@@ -81,13 +81,13 @@ html.v32-chrome .study-header > .sh-launcher,
 html.v32-chrome .study-header > .dkla-privacy-link {
   display: none !important;
 }
-.v32-bar-left,
-.v32-bar-right {
+:where(.study-header) .v32-bar-left,
+:where(.study-header) .v32-bar-right {
   display: flex;
   align-items: center;
   min-width: 0;
 }
-.v32-bar-left {
+:where(.study-header) .v32-bar-left {
   gap: var(--v32-s4);
   overflow: hidden;
   /* room for the focus ring of the first and last control, which the clip would cut */
@@ -98,11 +98,11 @@ html.v32-chrome .study-header > .dkla-privacy-link {
    current level would otherwise be cut): the left group grows by that much and the field starts
    that much later. The field's right edge, and everything right of it, stay where they are. */
 @media (min-width: 851px) {
-  .v32-bar-left {
+  :where(.study-header) .v32-bar-left {
     margin-right: calc(var(--v32-s1) * -1 - var(--v32c-push, 0px));
   }
 }
-.v32-bar-right {
+:where(.study-header) .v32-bar-right {
   justify-self: end;
   gap: var(--v32-s2);
 }
@@ -330,19 +330,19 @@ html.v32-chrome .map-nav #geoBreadcrumb > span {
 
 /* The splash line: Home only, attached to the wordmark the way a title-screen splash is. Its
    yellow is its own; it tilts and pulses with transforms only (splash.css, splash.js). */
-html.v32-chrome .v32-bar-left {
+html.v32-chrome :where(.study-header) .v32-bar-left {
   container: v32-left / inline-size;
 }
 /* It hangs from a point just after the wordmark that takes no room, so its coming and going never
    moves the breadcrumb (they cross for a third of a second when Home is left or reached). */
-.v32-splash-hook {
+:where(.study-header) .v32-splash-hook {
   position: relative;
   flex: none;
   width: 0;
   height: var(--v32-h-control);
   margin-left: calc(var(--v32-s4) * -1);
 }
-html.v32-chrome .v32-splash-hook .dkla-splash {
+html.v32-chrome :where(.study-header) .v32-splash-hook .dkla-splash {
   position: absolute;
   top: 50%;
   left: var(--v32-s4);
@@ -445,7 +445,7 @@ html.v32-chrome .study-header .study-search:focus-within #searchKey {
 }
 
 /* Right: the instrument cluster. Mono, monochrome, one glow (the fuel line and the version). */
-.v32-cluster {
+:where(.study-header) .v32-cluster {
   display: none;
   flex: none;
   align-items: center;
@@ -455,7 +455,7 @@ html.v32-chrome .study-header .study-search:focus-within #searchKey {
 /* The version from 1100 px wide, the clock from 1280, the date from 1720: each joins when the field
    can still be centred beside it and a path still has room. */
 @media (min-width: 1100px) {
-  .v32-cluster {
+  :where(.study-header) .v32-cluster {
     display: flex;
   }
 }
@@ -481,7 +481,7 @@ html.v32-chrome .study-header .study-search:focus-within #searchKey {
    A browser without subgrid keeps the row above: the frame round the time, the version beside it. */
 @supports (grid-template-columns: subgrid) {
   @media (min-width: 1280px) {
-    .v32-cluster {
+    :where(.study-header) .v32-cluster {
       display: grid;
       grid-template-columns: auto auto;
       gap: 0;
@@ -495,14 +495,14 @@ html.v32-chrome .study-header .study-search:focus-within #searchKey {
       grid-template-columns: subgrid;
       gap: 0;
     }
-    .v32-cluster .ny-clock .ny-time {
+    :where(.study-header) .v32-cluster .ny-clock .ny-time {
       grid-column: 1;
     }
-    .v32-cluster .ny-clock .ny-meridiem {
+    :where(.study-header) .v32-cluster .ny-clock .ny-meridiem {
       translate: 0 1px;
     }
     /* the hairline between the time and the version: 12 px of air each side, as at the frame's ends */
-    .v32-cluster .ny-clock::after {
+    :where(.study-header) .v32-cluster .ny-clock::after {
       content: '';
       grid-area: 1 / -2 / 2 / -1;
       justify-self: start;
@@ -521,10 +521,10 @@ html.v32-chrome .study-header .study-search:focus-within #searchKey {
     }
   }
   @media (min-width: 1720px) {
-    .v32-cluster {
+    :where(.study-header) .v32-cluster {
       grid-template-columns: auto auto auto;
     }
-    .v32-cluster .ny-clock .ny-date {
+    :where(.study-header) .v32-cluster .ny-clock .ny-date {
       grid-column: 2;
       margin-left: var(--v32-s3);
     }
@@ -558,13 +558,13 @@ html.v32-reading .study-header .dkla-release {
 
 /* Ask Dottie: her face, then the words. She still hangs by her tail from the bar on Home (ask.css),
    now measured from her button. */
-.v32-ask-face {
+:where(.study-header) .v32-ask-face {
   display: block;
   flex: none;
   width: var(--v32-icon);
   height: var(--v32-icon);
 }
-.v32-ask-face svg {
+:where(.study-header) .v32-ask-face svg {
   display: block;
   width: 100%;
   height: 100%;
@@ -616,7 +616,7 @@ html.v32-chrome .study-header .study-search .search-results {
 }
 /* Section labels: label text, never capitals. A count sits beside it in mono. */
 html.v32-chrome #searchResults .search-label,
-.v32-label {
+:where(.study-header, .v32-shell, .v32-index) .v32-label {
   display: flex;
   align-items: baseline;
   gap: var(--v32-s2);
@@ -650,7 +650,7 @@ html.v32-chrome #searchResults :is(.search-glossary, .r19-search, .search-source
 
 /* A row: a 16 px glyph for what kind of thing it is, the label, and trailing meta. One line, 36 px.
    (The second selector outranks the older rules for buttons in the search list.) */
-.v32-row,
+:where(.study-header, .v32-shell, .v32-index) .v32-row,
 html.v32-chrome #searchResults .v32-row {
   position: relative;
   display: flex;
@@ -671,10 +671,10 @@ html.v32-chrome #searchResults .v32-row {
   white-space: nowrap;
   cursor: pointer;
 }
-.v32-row .v32-glyph {
+:where(.study-header, .v32-shell, .v32-index) .v32-row .v32-glyph {
   color: var(--v31-muted);
 }
-.v32-row-label {
+:where(.study-header, .v32-shell, .v32-index) .v32-row-label {
   flex: 0 1 auto;
   min-width: 0;
   overflow: hidden;
@@ -682,7 +682,7 @@ html.v32-chrome #searchResults .v32-row {
 }
 /* One line for a newcomer, where the name alone would not say. Muted, not faint: a row under the
    pointer or the keyboard is one fill step lighter, and faint text would fall under 4.5:1 there. */
-.v32-row-note {
+:where(.study-header, .v32-shell, .v32-index) .v32-row-note {
   flex: 0 1 auto;
   min-width: 0;
   overflow: hidden;
@@ -692,20 +692,20 @@ html.v32-chrome #searchResults .v32-row {
     sans-serif;
   text-overflow: ellipsis;
 }
-.v32-row-note:empty {
+:where(.study-header, .v32-shell, .v32-index) .v32-row-note:empty {
   display: none;
 }
 /* The leader: the dotted line an index draws from a name to its figure, on the name's baseline. It
    takes whatever room lies between them, so the eye crosses a column without losing its row. Drawn
    only where there is a figure to lead to. */
-.v32-row-lead {
+:where(.study-header, .v32-shell, .v32-index) .v32-row-lead {
   flex: 1 1 var(--v32-s4);
   min-width: var(--v32-s4);
   height: 1px;
   background: linear-gradient(90deg, var(--v32-hair-strong) 1px, transparent 1px) 0 0 / 4px 1px repeat-x;
   translate: 0 4px;
 }
-.v32-row:has(.v32-row-meta:empty) .v32-row-lead {
+:where(.study-header, .v32-shell, .v32-index) .v32-row:has(.v32-row-meta:empty) .v32-row-lead {
   visibility: hidden;
 }
 /* Not in the palette: there the row under the pointer or the keyboard is lit from end to end, which
@@ -714,19 +714,19 @@ html.v32-chrome #searchResults .v32-row-lead {
   display: none;
 }
 /* How much is behind the row, and of what: "115 flowcharts · 975 steps" (rule 8: mono, 13 px, muted). */
-.v32-row-meta {
+:where(.study-header, .v32-shell, .v32-index) .v32-row-meta {
   flex: none;
   margin-left: auto;
   color: var(--v31-muted);
   font: 500 13px/18px var(--v32c-mono);
   font-variant-numeric: tabular-nums;
 }
-.v32-row:disabled {
+:where(.study-header, .v32-shell, .v32-index) .v32-row:disabled {
   opacity: 0.4;
   cursor: default;
 }
 @media (hover: hover) {
-  .v32-row:hover:not(:disabled) {
+  :where(.study-header, .v32-shell, .v32-index) .v32-row:hover:not(:disabled) {
     background: var(--v32-hair);
   }
 }
@@ -921,7 +921,7 @@ html.v32-chrome #searchResults .ask-search small {
 }
 
 /* The footer: the keys, quietly. It stays at the bottom while the list scrolls. */
-.v32-keys {
+:where(.study-header) .v32-keys {
   position: sticky;
   bottom: calc(var(--v32-s2) * -1);
   z-index: 1;
@@ -936,12 +936,12 @@ html.v32-chrome #searchResults .ask-search small {
   font: var(--v31-label);
   font-weight: 400;
 }
-.v32-keys span {
+:where(.study-header) .v32-keys span {
   display: inline-flex;
   align-items: center;
   gap: var(--v32-s1);
 }
-.v32-keys kbd {
+:where(.study-header) .v32-keys kbd {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -954,7 +954,7 @@ html.v32-chrome #searchResults .ask-search small {
   color: var(--v31-muted);
   font: 500 12px/16px var(--v32c-mono);
 }
-.v32-keys kbd svg {
+:where(.study-header) .v32-keys kbd svg {
   width: 12px;
   height: 12px;
   fill: none;
@@ -964,7 +964,7 @@ html.v32-chrome #searchResults .ask-search small {
   stroke-linejoin: round;
 }
 @media (hover: none) {
-  .v32-keys {
+  :where(.study-header) .v32-keys {
     display: none;
   }
 }
@@ -985,14 +985,14 @@ dialog.v32-shell {
   color: var(--v31-text);
   font: var(--v31-ui);
 }
-.v32-shell-head {
+:where(.v32-shell) .v32-shell-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--v32-s4);
   padding: var(--v32-s4) var(--v32-s4) 0 var(--v32-s5);
 }
-.v32-shell-head h2 {
+:where(.v32-shell) .v32-shell-head h2 {
   margin: 0;
   color: var(--v31-text);
   font:
@@ -1002,17 +1002,17 @@ dialog.v32-shell {
 }
 /* A dialog's title may carry one line under it that says what the dialog holds (the Library: what is
    on the map). The close button keeps its place, level with the title. */
-.v32-shell-head:has(.v32-shell-title) {
+:where(.v32-shell) .v32-shell-head:has(.v32-shell-title) {
   align-items: flex-start;
 }
-.v32-shell-title {
+:where(.v32-shell) .v32-shell-title {
   display: flex;
   flex-direction: column;
   gap: var(--v32-s1);
   min-width: 0;
   padding-top: var(--v32-s1);
 }
-.v32-shell-sum {
+:where(.v32-shell) .v32-shell-sum {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -1023,11 +1023,11 @@ dialog.v32-shell {
     400 13px/18px var(--dkla-interface, Inter),
     sans-serif;
 }
-.v32-shell-sum-counts {
+:where(.v32-shell) .v32-shell-sum-counts {
   font: 500 13px/18px var(--v32c-mono);
   font-variant-numeric: tabular-nums;
 }
-.v32-close {
+:where(.v32-shell) .v32-close {
   position: relative;
   display: inline-flex;
   flex: none;
@@ -1042,33 +1042,33 @@ dialog.v32-shell {
   color: var(--v31-muted);
   cursor: pointer;
 }
-.v32-close::after {
+:where(.v32-shell) .v32-close::after {
   content: '';
   position: absolute;
   inset: calc((var(--v32-h-control) - var(--v32-hit)) / 2);
 }
 @media (hover: hover) {
-  .v32-close:hover {
+  :where(.v32-shell) .v32-close:hover {
     background: var(--v32-hair);
     color: var(--v31-text);
   }
 }
-.v32-library {
+:where(.v32-shell) .v32-library {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   column-gap: var(--v32-s7);
   padding: var(--v32-s3) var(--v32-s5) var(--v32-s4);
 }
-.v32-lib-side {
+:where(.v32-shell) .v32-lib-side {
   display: flex;
   flex-direction: column;
   gap: var(--v32-s4);
   min-width: 0;
 }
-.v32-lib-group {
+:where(.v32-shell) .v32-lib-group {
   min-width: 0;
 }
-.v32-lib-group h3 {
+:where(.v32-shell) .v32-lib-group h3 {
   margin: 0;
   padding: var(--v32-s2) 0;
   color: var(--v31-muted);
@@ -1077,14 +1077,14 @@ dialog.v32-shell {
   text-transform: none;
 }
 /* The hover fill reaches 12 px past the glyph on each side; the glyphs stay on the title's edge. */
-.v32-lib-group .v32-row {
+:where(.v32-shell) .v32-lib-group .v32-row {
   width: calc(100% + var(--v32-s3) * 2);
   margin: 0 calc(var(--v32-s3) * -1);
 }
 /* The footer's links are never broken or squeezed: in a window too narrow for them and the atlas's
    name on one line the name steps out (it is the wordmark's tooltip too), and narrower still the
    links take a second line, whole. */
-.v32-lib-foot {
+:where(.v32-shell) .v32-lib-foot {
   grid-column: 1 / -1;
   display: flex;
   flex-wrap: wrap;
@@ -1094,7 +1094,7 @@ dialog.v32-shell {
   padding-top: var(--v32-s2);
   border-top: 1px solid var(--v32-hair);
 }
-.v32-quiet {
+:where(.v32-shell) .v32-quiet {
   position: relative;
   display: inline-flex;
   flex: none;
@@ -1112,22 +1112,22 @@ dialog.v32-shell {
   white-space: nowrap;
   cursor: pointer;
 }
-.v32-quiet + .v32-quiet {
+:where(.v32-shell) .v32-quiet + .v32-quiet {
   margin-left: 0;
 }
 /* A readout on a quiet link ("Patch notes v3.1"). */
-.v32-quiet-meta {
+:where(.v32-shell) .v32-quiet-meta {
   margin-left: var(--v32-s1);
   font: 500 13px/18px var(--v32c-mono);
   font-variant-numeric: tabular-nums;
 }
 @media (hover: hover) {
-  .v32-quiet:hover {
+  :where(.v32-shell) .v32-quiet:hover {
     background: var(--v32-hair);
     color: var(--v31-text);
   }
 }
-.v32-lib-name {
+:where(.v32-shell) .v32-lib-name {
   margin-left: auto;
   color: var(--v31-muted);
   font: var(--v31-label);
@@ -1135,7 +1135,7 @@ dialog.v32-shell {
   white-space: nowrap;
 }
 @media (max-width: 899px) {
-  .v32-lib-name {
+  :where(.v32-shell) .v32-lib-name {
     display: none;
   }
 }
@@ -1147,25 +1147,25 @@ dialog.v32-shell {
     width: calc(100vw - var(--v32-s4));
     max-height: calc(100dvh - var(--v32-s4));
   }
-  .v32-shell-head {
+  :where(.v32-shell) .v32-shell-head {
     padding: var(--v32-s4) var(--v32-s2) 0 var(--v32-s4);
   }
-  .v32-library {
+  :where(.v32-shell) .v32-library {
     grid-template-columns: minmax(0, 1fr);
     row-gap: var(--v32-s4);
     padding: var(--v32-s2) var(--v32-s4) var(--v32-s4);
   }
-  .v32-library .v32-row-label {
+  :where(.v32-shell) .v32-library .v32-row-label {
     flex: none;
   }
-  .v32-library .v32-row:has(.v32-row-meta:not(:empty)) .v32-row-note,
-  .v32-library .v32-row-more {
+  :where(.v32-shell) .v32-library .v32-row:has(.v32-row-meta:not(:empty)) .v32-row-note,
+  :where(.v32-shell) .v32-library .v32-row-more {
     display: none;
   }
 }
 @media (max-width: 340px) {
-  .v32-library .v32-row-meta,
-  .v32-library .v32-row-lead {
+  :where(.v32-shell) .v32-library .v32-row-meta,
+  :where(.v32-shell) .v32-library .v32-row-lead {
     display: none;
   }
 }
@@ -1302,7 +1302,7 @@ html.v32-chrome.v32-save-note.v32-hint-off #saveStatus {
     display: flex;
     gap: var(--v32-s2);
   }
-  html.v32-chrome .v32-bar-left {
+  html.v32-chrome :where(.study-header) .v32-bar-left {
     flex: 1 1 auto;
   }
   html.v32-chrome .study-header > button.search-open {
@@ -1315,7 +1315,7 @@ html.v32-chrome.v32-save-note.v32-hint-off #saveStatus {
     background: transparent;
     color: var(--v31-text);
   }
-  html.v32-chrome .v32-bar-right {
+  html.v32-chrome :where(.study-header) .v32-bar-right {
     order: 3;
   }
   /* Ask Dottie is Dottie herself here, hanging under the bar's right end (ask.css). */
@@ -1330,7 +1330,7 @@ html.v32-chrome.v32-save-note.v32-hint-off #saveStatus {
     background: none;
   }
   html.v32-chrome .study-header .ask-bar::after,
-  html.v32-chrome .v32-ask-face {
+  html.v32-chrome :where(.study-header) .v32-ask-face {
     display: none;
   }
   /* She steps out of the way of a reader, SCOTUS History and the open search list, as before. */

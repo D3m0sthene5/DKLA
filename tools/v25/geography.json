@@ -27024,12 +27024,6 @@
           "kind": "flow"
         },
         {
-          "a": "civil-region",
-          "b": "cp-personal-region",
-          "kind": "depends",
-          "label": "grew from"
-        },
-        {
           "a": "cp-subject-region",
           "b": "cp-governing-region",
           "kind": "depends",
@@ -27062,12 +27056,6 @@
           "b": "cp-summary-region",
           "kind": "flow",
           "label": "to judgment"
-        },
-        {
-          "a": "cp-governing-region",
-          "b": "extension-iekfaa-1",
-          "kind": "flow",
-          "label": "continued"
         }
       ],
       "labels": [
@@ -27169,12 +27157,6 @@
           "b": "lrs-region-removal-and-agency-independence",
           "kind": "contrast",
           "label": "Congress vs President"
-        },
-        {
-          "a": "extension-cjl74v-1",
-          "b": "lrs-region-judicial-review-of-agency-interpretation",
-          "kind": "depends",
-          "label": "same tools"
         },
         {
           "a": "lrs-region-presidential-control",

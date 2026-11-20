@@ -3,6 +3,84 @@
 Written at the end of a session so the next one can pick up cleanly.
 Update or replace this file when the state changes.
 
+## Home and the frame, final round (19 November 2026, branch `v32-home2`, cut from `v32-design`, not merged, not deployed)
+
+The owner's answers Q20, Q23 and Q24 (`/home/claude/decisions-3.2.md`), a fault the join made, and the
+sweep that followed it.
+
+- **An opened subject keeps its course's colour (Q23).** The panel's one hairline and its top-edge light
+  are the course's accent (`.v32-card.is-subject` in `cards.css`; `draw()` puts `--tile` on the card as it
+  does on a tile). The fill stays the panel's: it is read from. The Study workbench and the reading
+  records are not subjects of a course and keep the neutral hairline.
+- **The six books are six works again (Q23).** Each has its own cover tone (`--cover`, set by
+  `data-authority-collection` in `cards.css`: Constitution `#1d3a31`, FRCP `#1c3350`, U.S. Code `#173940`,
+  UCC `#47331b`, Restatement `#432a33`, Consumer Contracts `#322c4f`), its spine, its emblem and a thin
+  edge in its own ink (`--skin`, which `authorities.js` already set). Every cover is darker against the
+  ground than a course's fill (1.39 to 1.51 to 1 against 1.80 to 1.96), so the territories lead. Names
+  are in the text colour, 9.7:1 or better; the Constitution keeps its lettering and its small name moved from the
+  muted colour (6:1 on the green) to the text colour. Nothing in `authorities.js` changed. Tokens for the
+  six covers were not added to `tokens.css`.
+- **Where "Choose a course" and "Browse subjects" went (Q20).** Traced on a desktop and at 390 x 844.
+  "Choose a course" offered the three courses, "Study notes" and the overview. The overview is the
+  wordmark. A course was otherwise reached by zooming: its name on the map had a button's role, pointer
+  and tab stop and did nothing when pressed, in 3.1 as well, so the menu item was the only named way in.
+  The name now opens its course (`activateMap()` and the pointer-down target list in `studyCode.js`).
+  "Study notes" is the subject "Study workbench" (cross-course comparisons; new and unfiled entries; 7
+  entries). On a desktop it is the small tile "Notes" under LRS; on a phone that tile is 22 x 7 px with no
+  name. It has a row again: Library, "Yours", "Study notes · 7 entries" (`chrome.js`), which opens the
+  subject. `home('Study notes')` (the path's "Study notes" step) now opens the same subject; it used to
+  show it as a small card in a corner of an empty map. "Browse subjects" listed the subjects of the view
+  and their groups: every one is a named tile on a course view (also at 390 px) and search finds subjects
+  ("Subject") and groups ("Topic"). It was not restored. Not done: a search for "study notes" does not
+  offer the Study workbench ("workbench" does); the search index is another engineer's.
+- **Three dead tree lines removed from `tools/v25/geography.json` (Q24).** Civil Procedure:
+  `civil-region` to `cp-personal-region` ("grew from") and `cp-governing-region` to `extension-iekfaa-1`
+  ("continued"); LRS: `extension-cjl74v-1` to `lrs-region-judicial-review-of-agency-interpretation`
+  ("same tools"). Each names a subject retired when the map was curated, so `draw()` never drew it and
+  `geography.js` has left it out since v3.2. `tools/v25/geography_build.py` meant to drop them and read
+  `from`/`to` where a line has `a`/`b`; it now reads the right keys, which is why
+  `geography_check.py --check` still finds the file equal to what the builder makes. The file keeps its
+  CRLF line endings (18 lines removed, nothing else). `content-inventory.json` and `data-blocks.json`
+  were re-recorded for this one change (`dklaGeographyData`). Measured before and after on a real build,
+  at 1440 x 900 and 1280 x 800: the map's copy of the design, its regions, its homes, and the drawn
+  markup, line paths and viewBox of Home and the three course views are identical. Left alone, because
+  the approval was for the three lines: two zones still list `extension-iekfaa-1` and
+  `extension-cjl74v-1` among their `regionIds` (ignored when drawn), and the seed graph's own copy of the
+  design in `src/data` (replaced by the dataset's when the page opens). The filter in `geography.js`
+  stays as the guard.
+- **The join's fault: row names at 6.75 px.** `chrome.css` had rules on bare class names (`.v32-label`,
+  `.v32-quiet`, `.v32-row`, `.v32-glyph`, ...) and the map uses the same names on SVG; a stylesheet rule
+  beats the size the painter sets as an attribute, so every row's name on an open subject was 12 map
+  units (6.75 px) and its notes row 13. That is what failed the smoke test's "zoomed subject rows stay
+  on their cards". Neither branch had it alone.
+- **The sweep.** `chrome.css` had 60 selectors that named no id and no container. Found landing
+  outside the frame, over 49 states of the page (Home, a course map, an open subject, three cases on
+  every tab, a concept, a rule, a group, Cold Call, flowcharts, timelines, the Library and what each row
+  opens, the palette, a search); the figures are matches summed over those states: on the map
+  `.v32-glyph` (401), `.v32-row` and `.v32-row .v32-glyph` (384 each), `.v32-label` (384), `.v32-quiet`
+  (74); in the reader `.v32-label` (167), `.v32-row` (113), `.v32-row-label` (113), `.v32-row-meta` (60).
+  Nothing landed in a flowchart, a timeline, Cold Call or any other dialog. All 68 places now start with a
+  `:where(...)` naming the frame's containers (`.study-header`, `.study-zoom`, `.v32-shell`,
+  `.v32-index`), which adds no weight to a selector, so nothing inside the frame changed (pictures of the
+  bar, the Library, the palette, results and the lecture index at 1440, 1280 and 390 px are the same but
+  for a few pixels at a rounded corner). The reader had three things from the leak (a label's count
+  beside it on the baseline, a row's readout kept right, a disabled row dimmed): they are now written in
+  `case.css` under `:where(#inspector)`, and the computed styles of every affected reader element are
+  identical before and after. `case.css` (470 selectors) and `cards.css` (137) have no rule without an
+  id. Shared by design inside the reader and not changed: `flowcharts.js`, `canons.js`, `doctrine-b.js`
+  and others draw into `#inspector` with `v32-step`, `v32-label`, `v32-count`, `v32-entry` and are
+  styled by `case.css`.
+- **A line left on the map.** "5,583 terms · click to browse" was drawn where the dictionary's old tile
+  stood, with nothing under it (beside the Study workbench on a phone). It is not drawn.
+- **Checks.** `tools/v32/check-cards.mjs`: the subject's edge, no stylesheet resizes the map's text, the
+  books, a course's name opens its course, Study notes, and every tree line in the map data names two
+  subjects on the map. `tools/v32/check-chrome.mjs`: the Study notes row (count, destination, on a phone
+  too) and two checks that the frame's rules start inside the frame's containers and land nowhere else.
+  Six breakages in `tools/verify/break.mjs` (block "v3.2 Home, final round"); each was seen to fail its
+  check.
+- **For the owner's PC**: pictures of Home, of an open subject and of Rules & authorities change
+  (`pnpm views:update`).
+
 ## The territories (19 November 2026, branch `v32-home`, merged into `v32-design`, not deployed)
 
 The owner's verdict on the quiet Home: the saturated course territories were easier to tell apart, the

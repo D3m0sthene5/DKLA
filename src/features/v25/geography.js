@@ -446,7 +446,9 @@
       for (const [course, source] of Object.entries(G.courseDesign)) {
         const design = copy(source),
           a = T[course];
-        // v3.2: a tree line that names a subject no longer on the map (three in the dataset) is left out
+        // v3.2: a tree line that names a subject not on the map is left out. The dataset had three (they
+        // named subjects retired when the map was curated) and they have been removed from it with the
+        // owner's approval; this stays as the guard, so such a line can never be drawn to nowhere.
         if (design.spine)
           design.spine = design.spine.filter((sp) => sourceRegion.has(sp.a) && sourceRegion.has(sp.b));
         for (const item of [...(design.zones || []), ...(design.labels || [])]) {

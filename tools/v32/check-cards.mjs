@@ -27,8 +27,17 @@
      that can be followed, "leads to" with an arrowhead; no tree line passes behind a third subject, and
      the trees cross at most twice on Home; the curves of association appear only for the tile under the
      pointer, with the other lines stepped back;
-   - beside the reader a tile that steps back stays solid, so no line shows through its name. */
+   - beside the reader a tile that steps back stays solid, so no line shows through its name;
+   - an opened subject keeps its course's colour on its one edge (the owner's Q23), its fill stays the
+     panel's, and a row's name is the size the map set (13 px at reading zoom): no stylesheet resizes it;
+   - the six books of Rules & authorities are six works: six cover tones, each with its spine and its
+     emblem in its own ink, the Constitution with its lettering, a name 7:1 or better on every cover, and
+     every cover darker than a course's fill, so the territories lead;
+   - a course's name on the map opens that course; "Study notes" opens the Study workbench;
+   - every tree line in the map data (tools/v25/geography.json) names two subjects that are on the map. */
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
 import { chromium } from '@playwright/test';
 
 const address = new URL(process.argv[2]);
@@ -105,6 +114,23 @@ const legible = async (where) => {
   const small = await smallText(9);
   assert.deepEqual(small.slice(0, 6), [], `${where}: no text under 9 px (${small.length} found)`);
 };
+
+/* ---- 0. the map data: no tree line to nowhere ---- */
+{
+  const geography = JSON.parse(
+    await readFile(fileURLToPath(new URL('../v25/geography.json', import.meta.url)), 'utf8'),
+  );
+  const onMap = new Set(geography.regions.map((r) => r.id)),
+    dead = [],
+    lines = Object.entries(geography.courseDesign).flatMap(([course, design]) =>
+      (design.spine || []).map((line) => ({ course, ...line })),
+    );
+  for (const line of lines)
+    if (!onMap.has(line.a) || !onMap.has(line.b)) dead.push(`${line.course}: ${line.a} to ${line.b}`);
+  assert.equal(lines.length, 32, `the map data holds the 32 tree lines the map draws (${lines.length})`);
+  assert.deepEqual(dead, [], 'a tree line in the map data names a subject that is not on the map');
+  report.push(`map data: ${lines.length} tree lines, each between two subjects on the map`);
+}
 
 /* ---- 1. open subjects ---- */
 const subjects = [
@@ -278,11 +304,51 @@ for (const id of subjects) {
       })),
       fits: r.panelH <= r.h + 0.01,
       legacy: canvas.querySelectorAll('.node-card, .r20-mini, .district-hit').length,
+      // the panel's edge and fill, and the course's accent
+      edge: (() => {
+        const cs = getComputedStyle(el.querySelector('.v32-card-bg')),
+          hex = ARM_COLORS[regionCourse(r)],
+          rgbOf = (h) =>
+            `rgb(${parseInt(h.slice(1, 3), 16)}, ${parseInt(h.slice(3, 5), 16)}, ${parseInt(h.slice(5, 7), 16)})`;
+        return {
+          stroke: cs.stroke,
+          strength: Number(cs.strokeOpacity),
+          accent: rgbOf(hex),
+          fill: cs.fill,
+          panel: rgbOf(getComputedStyle(document.documentElement).getPropertyValue('--v31-panel').trim()),
+        };
+      })(),
+      // every piece of the map's text is the size the map set on it
+      resized: [...canvas.querySelectorAll('text[font-size]')]
+        .filter(
+          (t) =>
+            Math.abs(parseFloat(getComputedStyle(t).fontSize) - parseFloat(t.getAttribute('font-size'))) >
+            0.02 * parseFloat(t.getAttribute('font-size')),
+        )
+        .map((t) => `${t.getAttribute('class')} ${getComputedStyle(t).fontSize}`),
+      names: [
+        ...new Set(
+          rows.map(
+            (g) =>
+              Math.round(parseFloat(getComputedStyle(g.querySelector('text.v32-label')).fontSize) * z * 10) /
+              10,
+          ),
+        ),
+      ],
     };
   }, id);
   assert.ok(card, `${id}: the open subject is drawn as a panel`);
   assert.equal(card.panels, 1, `${id}: one panel`);
   assert.ok(card.panelOutline, `${id}: the panel has its hairline`);
+  assert.equal(card.edge.stroke, card.edge.accent, `${id}: the opened subject's edge is its course's colour`);
+  assert.ok(card.edge.strength >= 0.6, `${id}: and it can be seen (${card.edge.strength})`);
+  assert.equal(card.edge.fill, card.edge.panel, `${id}: the panel's fill stays neutral: it is read from`);
+  assert.deepEqual(card.resized.slice(0, 4), [], `${id}: no stylesheet resizes the map's text`);
+  if (card.z >= 0.56)
+    assert.ok(
+      card.names.length === 1 && card.names[0] >= 12.5,
+      `${id}: a row's name is 13 px at reading zoom (${card.names})`,
+    );
   assert.deepEqual(card.boxed, [], `${id}: nothing inside the panel has a border of its own`);
   assert.equal(card.legacy, 0, `${id}: no card, pill or boxed group of the old design is drawn`);
   assert.equal(card.groups, card.expectedGroups, `${id}: every group is drawn`);
@@ -602,9 +668,13 @@ const homeView = await page.evaluate(() => {
     ground: getComputedStyle(canvas).backgroundImage,
     books: [
       ...new Set(
-        [...canvas.querySelectorAll('.authority-volume-cover .authority-cover-bg')].map(
-          (e) => getComputedStyle(e).stroke,
-        ),
+        // (each book's edge is in its own ink since the owner's Q23; what they share is its weight)
+        [...canvas.querySelectorAll('.authority-volume-cover .authority-cover-bg')].map((e) => {
+          const cs = getComputedStyle(e);
+          return (
+            (parseFloat(cs.strokeWidth) * canvas.getScreenCTM().a).toFixed(1) + ' px at ' + cs.strokeOpacity
+          );
+        }),
       ),
     ],
     covers: canvas.querySelectorAll('.authority-volume-cover').length,
@@ -628,7 +698,7 @@ assert.match(
 assert.equal(homeView.curves, 0, `Home: at rest no curve of association is drawn (${homeView.curves})`);
 assert.ok(homeView.tree >= 25, `Home: at rest the three course trees are drawn (${homeView.tree} lines)`);
 assert.equal(homeView.covers, 6, 'Home: six books');
-assert.equal(homeView.books.length, 1, 'Home: the six books share one outline');
+assert.deepEqual(homeView.books, ['1.0 px at 0.45'], 'Home: the six books share one weight of outline');
 await legible('Home');
 // The territories (rule 15): three coloured regions, and their trees drawn to be followed.
 const territory = await page.evaluate(() => {
@@ -774,6 +844,92 @@ assert.deepEqual(territory.startText, ['1', '1', '1'], 'Home: with its number');
 report.push(
   `Home: ${territory.lines} tree lines, ${territory.crossings.length} crossings, none behind a subject; fills ${territory.fills.flat().join(' ')}`,
 );
+// The six books (the owner's Q23): six recognisable works, and the territories still lead.
+const books = await page.evaluate(() => {
+  const canvas = document.getElementById('geoCanvas'),
+    lum = (rgb) => {
+      const [r, g, b] = rgb
+        .match(/[\d.]+/g)
+        .slice(0, 3)
+        .map((v) => {
+          const c = Number(v) / 255;
+          return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+        });
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    },
+    ratio = (a, b) => (Math.max(lum(a), lum(b)) + 0.05) / (Math.min(lum(a), lum(b)) + 0.05),
+    hex = (h) =>
+      `rgb(${parseInt(h.slice(1, 3), 16)}, ${parseInt(h.slice(3, 5), 16)}, ${parseInt(h.slice(5, 7), 16)})`,
+    ground = hex(getComputedStyle(document.documentElement).getPropertyValue('--v31-ground').trim()),
+    raised = hex(getComputedStyle(document.documentElement).getPropertyValue('--v31-raised').trim());
+  return {
+    raised,
+    tiles: Object.values(TILE_FILL).map((f) => ratio(hex(f), ground)),
+    covers: [...canvas.querySelectorAll('.authority-map-entrance .authority-volume-cover')].map((g) => {
+      const bg = getComputedStyle(g.querySelector('.authority-cover-bg')),
+        spine = getComputedStyle(g.querySelector('.authority-cover-bg + path')),
+        emblem = g.querySelector('.authority-identity path'),
+        name = g.querySelector('text.authority-volume-title, text.authority-document-label');
+      return {
+        id: g.dataset.authorityCollection,
+        fill: bg.fill,
+        solid: Number(bg.fillOpacity) === 1,
+        spine: spine.stroke,
+        emblem: emblem ? getComputedStyle(emblem).stroke : null,
+        lettering: !!g.querySelector('.authority-people-mark, .authority-people-fallback'),
+        name: name ? ratio(getComputedStyle(name).fill, bg.fill) : 0,
+        off: ratio(bg.fill, ground),
+      };
+    }),
+  };
+});
+assert.equal(books.covers.length, 6, 'Home: six books');
+assert.equal(new Set(books.covers.map((b) => b.fill)).size, 6, 'Home: each book has its own cover tone');
+assert.equal(new Set(books.covers.map((b) => b.spine)).size, 6, 'Home: and its own spine');
+for (const b of books.covers) {
+  assert.ok(b.solid && b.fill !== books.raised, `Home: ${b.id} has a cover of its own (${b.fill})`);
+  assert.ok(b.name >= 7, `Home: ${b.id}'s name is 7:1 or better on its cover (${b.name.toFixed(2)})`);
+  if (b.id === 'constitution') assert.ok(b.lettering, 'Home: the Constitution keeps its lettering');
+  else assert.equal(b.emblem, b.spine, `Home: ${b.id}'s emblem is in the ink of its spine`);
+  assert.ok(
+    b.off < Math.min(...books.tiles),
+    `Home: ${b.id}'s cover is darker than a course's fill, so the territories lead (${b.off.toFixed(2)} against ${Math.min(...books.tiles).toFixed(2)})`,
+  );
+}
+report.push(`Home: six books, covers ${books.covers.map((b) => b.fill).join(' ')}`);
+// A course's name on the map is a button: pressing it opens that course (Q20).
+for (const course of ['Contracts', 'Civil Procedure', 'Legislation and the Regulatory State']) {
+  await go(() => home('Atlas', false));
+  const at = await page.evaluate((course) => {
+    const t = document.querySelector(`#geoCanvas text.course-label[data-study-scope="${course}"]`),
+      b = t.getBoundingClientRect();
+    return { x: b.left + b.width / 2, y: b.top + b.height / 2 };
+  }, course);
+  await page.mouse.click(at.x, at.y);
+  await page.waitForFunction((course) => S.scope === course, course);
+  await rest();
+}
+// "Study notes" is one subject: its view is that subject, open.
+await go(() => home('Study notes', false));
+const studyNotes = await page.evaluate(() => ({
+  scope: S.scope,
+  region: S.region,
+  card: !!document.querySelector('#geoCanvas [data-card="workbench-region"] .v32-card-bg'),
+  groups: [...document.querySelectorAll('#geoCanvas .v32-group text.v32-head')].map((t) => t.textContent),
+  // the dictionary's old line ("N terms · click to browse") is not left on the map with nothing under it
+  orphan: [...document.querySelectorAll('#geoCanvas text')].filter((t) =>
+    /click to browse/.test(t.textContent),
+  ).length,
+}));
+assert.deepEqual(
+  [studyNotes.scope, studyNotes.region, studyNotes.card],
+  ['Study notes', 'workbench-region', true],
+  'Study notes opens the Study workbench',
+);
+assert.ok(studyNotes.groups.length >= 2, `and shows its groups (${studyNotes.groups})`);
+assert.equal(studyNotes.orphan, 0, 'no line of the dictionary is left on the map with nothing to press');
+report.push(`Study notes: the Study workbench, open (${studyNotes.groups.join(', ')})`);
+await go(() => home('Atlas', false));
 // a tile under the pointer shows its own links, and only those
 const over = await page.evaluate(() => {
   const g = document.querySelector('#geoCanvas .v32-tile[data-tile="consideration"] .v32-tile-hit'),

@@ -998,6 +998,9 @@ function setScopeFor(n) {
         : 'Study notes';
 }
 function home(scope = 'Contracts', animate = true, save = true) {
+  // "Study notes" is one subject, not a course: its view is that subject, open (it used to be the same
+  // subject as a small card in a corner of an empty map).
+  if (scope === 'Study notes' && regionFor('workbench-region')) return goRegion('workbench-region', animate);
   if (save) remember();
   S.scope = scope;
   S.region = null;
@@ -2671,9 +2674,11 @@ function draw() {
         counts = cardCounts('r:' + r.id),
         readout = countText(counts);
       // The panel: one fill step above the map, one hairline, light from above. It is also what a press on
-      // an empty part of the subject lands on.
+      // an empty part of the subject lands on. A subject of a course keeps its course's colour on that one
+      // edge as its tile had it (rule 15: the colour does not drop when a tile opens); its fill stays the
+      // panel's, because it is read from.
       parts.push(
-        `<g class="map-region v32-card${S.region === r.id ? ' is-open' : ''}" opacity="${dim.toFixed(3)}" data-card="${E(r.id)}">${[
+        `<g class="map-region v32-card${r.step && isCourse ? ' is-subject' : ''}${S.region === r.id ? ' is-open' : ''}" opacity="${dim.toFixed(3)}" data-card="${E(r.id)}" style="--tile:${acc}">${[
           [14, 5, 0.07],
           [7, 2, 0.11],
           [2.5, 0, 0.16],
@@ -2918,24 +2923,9 @@ function draw() {
         clickable: true,
         attrs: `data-map-region="${E(r.id)}" role="button" tabindex="0"`,
       });
-    if (!near) continue;
-    if (r.special === 'glossary') {
-      const cnt = window.DKLA?.glossaryCount?.() || 0;
-      if (pw >= 200 && cnt)
-        putLabel({
-          key: 'rk:' + r.id,
-          pri: 3,
-          x: r.x + 40,
-          y: ty0 + (titleRows.length - 1) * tfs * 1.23 + tfs * 1.55,
-          fs: 11 / z,
-          text: `${cnt.toLocaleString()} terms · click to browse`,
-          fill: tint,
-          weight: 500,
-          width: r.w - 100,
-          lines: 1,
-          op: dim,
-        });
-    }
+    // (The dictionary's old tile said "N terms · click to browse" under its name. The tile has been the
+    // dictionary control in Rules & authorities since v2.5 and is taken off the map; its line was left
+    // behind with nothing under it to press, beside the Study workbench on a phone. It is not drawn.)
   }
   // Stars: the galaxy at the floor and the entries in flight through the band; once the map is in place only selected or connected entries keep a star.
   R11.starIndex = [];
@@ -4043,6 +4033,10 @@ function activateMap(t) {
     if (t.dataset.mapNotes) openGroupNotes();
   } else if (t.dataset.mapRegion) goRegion(t.dataset.mapRegion);
   else if (t.dataset.mapEdge) goEdge(t.dataset.mapEdge, false);
+  // A course's name on the map is a button (it has the role, the pointer and a place in the tab order) and
+  // did nothing when pressed: the old menu's "Choose a course" was the only named way to a course view.
+  // With that menu item gone (the owner's Q20) the name does what it says.
+  else if (t.dataset.studyScope) home(t.dataset.studyScope);
 }
 svg.addEventListener('keydown', (e) => {
   const t = e.target.closest('[role=button]');
@@ -4084,7 +4078,7 @@ function onMapPointerDown(e) {
   CAM.pinch = null;
   CAM.snapAt = 0;
   const t = e.target.closest?.(
-    '[data-map-node],[data-map-district],[data-map-region],[data-map-edge],[data-map-jump]',
+    '[data-map-node],[data-map-district],[data-map-region],[data-map-edge],[data-map-jump],[data-study-scope]',
   );
   S.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY, trail: [[e.timeStamp, e.clientX, e.clientY]] });
   S.drag = {

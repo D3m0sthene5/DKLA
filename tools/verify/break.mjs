@@ -1582,6 +1582,58 @@ const breakages = [
         '  fill: none;\n  stroke-opacity: 0.2;\n  stroke-linecap: round;',
       ),
   ],
+  // ---- v3.2 Home, final round (v32-home2): the owner's Q20, Q23 and Q24, and the frame's scope ----
+  [
+    'an opened subject loses its course colour: a neutral panel again',
+    'src/runtime/studyCode.js',
+    () => edit('src/runtime/studyCode.js', "v32-card${r.step && isCourse ? ' is-subject' : ''}", 'v32-card'),
+  ],
+  [
+    'the six books lose their covers: one grey tone again',
+    'src/features/v32/cards.css',
+    () =>
+      edit(
+        'src/features/v32/cards.css',
+        '  fill: var(--cover, var(--v31-raised));',
+        '  fill: var(--v31-raised);',
+      ),
+  ],
+  [
+    'a course name on the map does nothing when pressed',
+    'src/runtime/studyCode.js',
+    () =>
+      edit('src/runtime/studyCode.js', '  else if (t.dataset.studyScope) home(t.dataset.studyScope);', ''),
+  ],
+  [
+    'a tree line to a subject that is not on the map is back in the map data',
+    'tools/v25/geography.json',
+    () =>
+      edit(
+        'tools/v25/geography.json',
+        '"a": "cp-class-region",\r\n          "b": "cp-summary-region",',
+        '"a": "civil-region",\r\n          "b": "cp-summary-region",',
+      ),
+  ],
+  [
+    'a rule of the frame goes back to a bare class and resizes the row names on the map',
+    'src/features/v32/chrome.css',
+    () =>
+      edit(
+        'src/features/v32/chrome.css',
+        ':where(.study-header, .v32-shell, .v32-index) .v32-label {',
+        '.v32-label {',
+      ),
+  ],
+  [
+    'the Library row for Study notes opens something else',
+    'src/features/v32/chrome.js',
+    () =>
+      edit(
+        'src/features/v32/chrome.js',
+        'attrs: \'data-study-region="workbench-region"\',',
+        'attrs: \'data-study-region="consideration"\',',
+      ),
+  ],
   [
     'the course view offers its list of sessions twice, over a tile',
     'src/features/v32/cards.css',

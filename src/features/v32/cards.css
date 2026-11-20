@@ -58,6 +58,16 @@ html #geoCanvas text.v32-mono {
   stroke: var(--v32-hair-strong);
   cursor: pointer;
 }
+/* An opened subject keeps its course's colour on its edge: the panel's one hairline is the course's
+   accent, as its tile's was (the owner's Q23). The fill stays the panel's: it is read from. */
+#geoCanvas .v32-card.is-subject > .v32-card-bg:not(:focus-visible) {
+  stroke: var(--tile);
+  stroke-opacity: 0.72;
+}
+#geoCanvas .v32-card.is-subject > .v32-card-light {
+  stroke: var(--tile);
+  stroke-opacity: 0.5;
+}
 /* Elevation without a filter: light on the top edge, a flat shade below. */
 #geoCanvas .v32-card-light {
   fill: none;
@@ -331,14 +341,34 @@ html #geoCanvas .r19-tile.v32-control .v32-num {
   display: none;
 }
 
-/* ---- Rules & authorities on Home: one hairline container, six books in one manner ---- */
-/* A book's colour is its spine (an identity mark) and a faint tint of the same colour; every book has the
-   same hairline. The frame is a panel like any other. */
+/* ---- Rules & authorities on Home: one hairline container, six works ---- */
+/* Each book is a work to come back to, known by its own cover (the owner's Q23): a cover tone at the
+   book's own hue, its spine and its emblem in its own ink. The tones are darker and greyer than a
+   course's fill, so the three territories still lead; a book's name stays in the text colour (11:1 or
+   better on every cover). One hairline each, in the book's ink. The frame is a panel like any other. */
 #geoCanvas .authority-map-entrance > rect {
   fill: var(--v31-panel);
   fill-opacity: 1;
   stroke: var(--v32-hair-strong);
   stroke-opacity: 1;
+}
+#geoCanvas [data-authority-collection='constitution'] {
+  --cover: #1d3a31;
+}
+#geoCanvas [data-authority-collection='frcp'] {
+  --cover: #1c3350;
+}
+#geoCanvas [data-authority-collection='uscode'] {
+  --cover: #173940;
+}
+#geoCanvas [data-authority-collection='ucc'] {
+  --cover: #47331b;
+}
+#geoCanvas [data-authority-collection='restatement'] {
+  --cover: #432a33;
+}
+#geoCanvas [data-authority-collection='consumer'] {
+  --cover: #322c4f;
 }
 #geoCanvas .authority-map-tile > .authority-cover-bg {
   fill: var(--v31-raised);
@@ -346,8 +376,14 @@ html #geoCanvas .r19-tile.v32-control .v32-num {
   stroke: var(--v32-hair-strong);
   stroke-opacity: 1;
 }
+#geoCanvas .authority-volume-cover > .authority-cover-bg {
+  fill: var(--cover, var(--v31-raised));
+  stroke: var(--skin, #8597a6);
+  stroke-opacity: 0.45;
+}
 #geoCanvas .authority-map-tile.is-selected > .authority-cover-bg {
   stroke: var(--v31-here);
+  stroke-opacity: 1;
 }
 #geoCanvas .authority-map-tile > .authority-cover-bg + path {
   stroke: var(--skin, #8597a6);
@@ -365,6 +401,11 @@ html #geoCanvas .r19-tile.v32-control .v32-num {
   stroke-width: 1.25px;
   vector-effect: non-scaling-stroke;
 }
+/* a book's emblem is in the book's ink */
+#geoCanvas .authority-volume-cover .authority-identity path {
+  stroke: var(--skin, #8597a6);
+  stroke-opacity: 0.9;
+}
 html #geoCanvas text.authority-volume-title,
 html #geoCanvas text.authority-preview-label {
   fill: var(--v31-text);
@@ -375,6 +416,11 @@ html #geoCanvas .authority-map-entrance text.authority-map-heading {
 }
 html #geoCanvas text.authority-document-label {
   fill: var(--v31-muted);
+}
+/* on its cover the Constitution's name under the lettering is in the text colour (the muted colour was
+   6:1 on the green) */
+html #geoCanvas .authority-volume-cover text.authority-document-label {
+  fill: var(--v31-text);
 }
 #geoCanvas .authority-people-mark {
   fill: var(--v31-text);
