@@ -14,6 +14,7 @@ class's lecture-note topics. Prints field paths so a correction can name its tar
 """
 import importlib.util
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -26,8 +27,11 @@ def read(path):
 
 
 def one_file(folder, stem):
-    hits = sorted((ROOT / folder).glob(f"*-{stem}-*.json")) or sorted((ROOT / folder).glob(f"{stem}-*.json"))
-    return json.loads(hits[0].read_text(encoding="utf-8")) if hits else None
+    # Record files are named <5-digit position>-<id>-<10-hex hash>.json; match the id exactly, because one
+    # id can be a substring of another (pacific-gas, lrs-n-pacific-gas-policy).
+    pattern = re.compile(r"\d{5}-" + re.escape(stem) + r"-[0-9a-f]{10}\.json")
+    hits = sorted(p for p in (ROOT / folder).iterdir() if pattern.fullmatch(p.name))
+    return json.loads(hits[0].read_text(encoding="utf-8")) if len(hits) == 1 else None
 
 
 def cites(obj, cid):
