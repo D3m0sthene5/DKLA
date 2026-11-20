@@ -240,17 +240,27 @@
     ]
       .filter(Boolean)
       .join(' \n ');
-  // Words that open a party's name and are not a name a case goes by.
+  // Words that open a party's name and are not a name a case goes by: governments and offices, and
+  // the adjectives that open the names of agencies and companies ("Federal", "Environmental").
   const COMMON =
-    /^(United States|United|State|States|People|Commonwealth|City|County|Town|Board|Department|National|American|International|In re|Ex parte|The)$/;
+    /^(United States|United|State|States|People|Commonwealth|City|County|Town|Board|Department|National|American|International|In re|Ex parte|The|Federal|Environmental|General|Securities|Public|Central|First|Second|New|North|South|East|West|Northern|Southern|Eastern|Western|Pacific|Atlantic|Bank|Company|Association|Commission|Insurance|Industrial|Consolidated|Standard|Universal|Mutual|Union|Great|Royal|Republic|Office|Director|Secretary|Commissioner|Administrator|Attorney|Government|Panel|Rule)$/;
+  // The name the timeline's own prose calls a case by: the opening words of one of its parties, where
+  // the prose uses them as a name and not as the start of that party's full name. Only a caption has
+  // such a name (an event or a statute is called what it is called).
   function calledBy(item, text) {
+    if (item.first.length < 2) return '';
     let best = '';
     for (const party of item.first) {
       const own = words(party);
       for (let k = Math.min(3, own.length - 1); k >= 1; k--) {
         const run = own.slice(0, k).map(bare).join(' ');
         if (run.length < 4 || !/^[A-Z]/.test(run) || COMMON.test(run)) continue;
-        if (new RegExp('(^|[^\\w])' + reEsc(run) + '([^\\w]|$)').test(text)) {
+        const next = bare(own[k] || '');
+        const used = [
+          ...text.matchAll(new RegExp('(^|[^\\w])' + reEsc(run) + "(?=[^\\w]|$)\\s*([\\w.&’'-]*)", 'g')),
+        ];
+        // (Used on its own at least once: not only as the opening of the party's whole name.)
+        if (used.some((m) => !next || bare(m[2] || '') !== next)) {
           if (!best) best = run;
           break;
         }
@@ -1940,6 +1950,8 @@
         before: key(model.items[b.i]),
         years: b.years,
       })),
+      // (Every name the chart shortens, with the whole name: for a reader, and for the checks.)
+      short: model.items.filter((item) => item.short).map((item) => [key(item), item.full, item.short]),
     };
   }
   window.DKLADoctrineB = {
