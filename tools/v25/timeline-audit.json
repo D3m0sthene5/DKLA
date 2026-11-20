@@ -7272,7 +7272,7 @@
         "kind": "Saved atlas provision or assigned comparative account comparison",
         "nodeId": "ucc2302",
         "sourceLocator": "tools/r19/data/provisions.json :: ucc2302; rules22.json or baseline seed node",
-        "savedAccountSha256": "aab7e25b269e03ad898f78100c63ac3e72b6480d6b68a0f4144f165055988cef",
+        "savedAccountSha256": "22866538d4894bc56358fb350d4cc1965b75a4c23ace3b5b874bd9bc35f3a7be",
         "inheritedSource": "Contracts- Selections.pdf, PDF page 347",
         "scope": "Saved text/account was consulted. This does not certify a model text’s enactment in any jurisdiction or all current foreign law."
       },
@@ -7282,6 +7282,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "savedAccountSha256"
         }
       ]
     },

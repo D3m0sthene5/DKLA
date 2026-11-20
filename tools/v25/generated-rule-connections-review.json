@@ -1547,9 +1547,23 @@
     "guardedEdges": 4,
     "originalReviewSnapshotsRetained": true,
     "canonicalCatalogueSha256": {
-      "tools/r19/data/rlcc.json": "81e5eb8b711a12607e668a838c77e7c7fefdeee4b482feca372240dac24dc4ee",
-      "tools/r19/data/rules22.json": "11d9fc25248cb369631d9c5706d460a8ac0fbf8e54b576cddb65896c855230d1"
+      "tools/r19/data/rlcc.json": "5d4b672b271b7b083e79fa2770e15d3b5afd296903f5dd9515836b71ea19d4d3",
+      "tools/r19/data/rules22.json": "1cdbeb2b70a506c44a25733c05228da0adfb2b2f214d5c84efcb866e4c24db32"
     },
-    "canonicalCatalogueFingerprintFormat": "SHA-256 of UTF-8 source text after universal newline normalization (CRLF and CR become LF)."
+    "canonicalCatalogueFingerprintFormat": "SHA-256 of UTF-8 source text after universal newline normalization (CRLF and CR become LF).",
+    "catalogueRereviews": [
+      {
+        "date": "2026-11-19",
+        "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+        "basis": "Edition labels (2024 Official Text and the 2019 Tentative Draft in the Selections) added to titles and notes; no rule id, edge or connection changed.",
+        "path": "tools/r19/data/rlcc.json"
+      },
+      {
+        "date": "2026-11-19",
+        "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+        "basis": "Edition labels (2024 Official Text and the 2019 Tentative Draft in the Selections) added to titles and notes; no rule id, edge or connection changed.",
+        "path": "tools/r19/data/rules22.json"
+      }
+    ]
   }
 }

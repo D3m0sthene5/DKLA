@@ -83,6 +83,7 @@ POINTER_FILES = {
     "tools/canons/data/lectures.json",
     "tools/cold-call/glossary-terms.json",
     "tools/r19/data/rlcc.json",
+    "tools/r19/data/rules22.json",
 }
 
 
