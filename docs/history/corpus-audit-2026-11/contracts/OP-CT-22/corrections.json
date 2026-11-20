@@ -1,0 +1,1086 @@
+{
+ "registered": [
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/33/nodes/0/edges",
+   "old": [
+    {
+     "label": "Goods or property",
+     "to": "b"
+    },
+    {
+     "label": "Business restriction",
+     "to": "c"
+    },
+    {
+     "label": "Personal services",
+     "to": "d"
+    },
+    {
+     "label": "French comparison",
+     "to": "h"
+    }
+   ],
+   "new": [
+    {
+     "label": "Goods or property",
+     "to": "b"
+    },
+    {
+     "label": "Business restriction",
+     "to": "c"
+    },
+    {
+     "label": "Personal services",
+     "to": "d"
+    },
+    {
+     "label": "Construction or other ongoing work",
+     "to": "j"
+    },
+    {
+     "label": "French comparison",
+     "to": "h"
+    }
+   ],
+   "reason": "Floyd v. Watson: the agreement 'includes a provision for conveyance of land, and therefore specific performance is proper'; Bliss refused to order 300 more workers onto a steel-mill site as imprecise and impracticable to enforce (C&M 946–947). K-34 had no branch for construction, so a building contract could reach only 'Personal services' and a refusal.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      946,
+      947
+     ],
+     "pdfPages": [
+      289,
+      290
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 366"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/33/nodes/0/detail",
+   "old": "Identify the promised subject and available substitutes. Check whether loss can reasonably be measured and whether the proposed order is equitable and workable.",
+   "new": "Identify the promised subject and available substitutes. Check whether loss can reasonably be measured and whether the proposed order is equitable and workable. Restatement § 360 makes three circumstances significant: the difficulty of proving damages with reasonable certainty, the difficulty of buying a suitable substitute with the damages, and the likelihood that a damages award could not be collected. Relief is discretionary and may issue against a party threatening breach (§ 357). Courts may also order performance because the agreement clearly provides for it, as merger agreements now often do (Snow Phipps, C&M 945).",
+   "reason": "§ 360 lists three significant circumstances, including (c) 'the likelihood that an award of damages could not be collected', which no Atlas surface stated; § 357(1) allows relief against a party 'threatening to commit a breach'; Snow Phipps note 1 (C&M 945) adds contracted-for relief.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      945
+     ],
+     "pdfPages": [
+      288
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) §§ 357–367"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/33/nodes/1/detail",
+   "old": "Klein denied specific performance where replacement aircraft and money were adequate. Morris ordered delivery of a horse trained by the claimant. Compare individual attachment, market availability, and assured supply.",
+   "new": "Klein denied specific performance where replacement aircraft and money were adequate. Morris ordered delivery of a horse trained by the claimant. Compare individual attachment, market availability, and assured supply. A contract to sell land is traditionally specifically enforced, because land is treated as so distinctive that damages are categorically inadequate; heirlooms are another traditional category, and output and requirements contracts with a particular source reflect a modern trend (C&M 930; UCC § 2-716 cmt. 2). Also ask whether a damages award could actually be collected (§ 360(c)).",
+   "reason": "C&M 930: contracts to sell land are specifically enforced because English tradition viewed land as so distinctive that damages were 'categorically inadequate'; output and requirements contracts reflect a modern trend (also UCC § 2-716 cmt. 2). § 360(c) makes uncollectable damages significant. Node b covered none of these, so a repudiated land sale with similar lots for sale reached 'Seek an available monetary remedy'.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      930
+     ],
+     "pdfPages": [
+      273
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 360; UCC § 2-716 comment 2"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/33/nodes/1/edges",
+   "old": [
+    {
+     "label": "Substitutes and damages adequate",
+     "to": "g"
+    },
+    {
+     "label": "Special value or unavailable substitutes",
+     "to": "f"
+    }
+   ],
+   "new": [
+    {
+     "label": "Substitutes and damages adequate",
+     "to": "g"
+    },
+    {
+     "label": "Land, special value, no adequate substitute, or damages uncollectable",
+     "to": "i"
+    }
+   ],
+   "reason": "C&M 930: contracts to sell land are specifically enforced because English tradition viewed land as so distinctive that damages were 'categorically inadequate'; output and requirements contracts reflect a modern trend (also UCC § 2-716 cmt. 2). § 360(c) makes uncollectable damages significant. Node b covered none of these, so a repudiated land sale with similar lots for sale reached 'Seek an available monetary remedy'. Restatement § 364(1): relief 'will be refused' if it would be unfair because of mistake, unfair practices, unreasonable hardship or a grossly inadequate exchange; § 362 requires terms certain enough for an order; § 366 bars disproportionate supervision; Bliss refused relief for 'the imprecision of the contract provision' (C&M 947). K-34 sent every inadequate-damages path straight to 'Fashion the specific relief'.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      930
+     ],
+     "pdfPages": [
+      273
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 360; UCC § 2-716 comment 2"
+    },
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      947
+     ],
+     "pdfPages": [
+      290
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) §§ 357–367"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/33/nodes/2/label",
+   "old": "Is prospective loss unusually hard to quantify?",
+   "new": "Do the costs of a damages remedy outweigh the costs of an injunction?",
+   "reason": "Walgreen: the weighing of costs and benefits is the procedure a judge should use 'with the understanding that if the balance is even the injunction should be withheld' (C&M 949). Node c gave no instruction for an even balance, and its question asked only whether loss was hard to measure.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      948,
+      949,
+      950
+     ],
+     "pdfPages": [
+      291,
+      292,
+      293
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/33/nodes/2/detail",
+   "old": "The pharmacy exclusivity dispute implicated future competitive losses. Compare measuring the injury with supervising an injunction and with bargaining after an order issues.",
+   "new": "The pharmacy exclusivity dispute implicated future competitive losses. Compare the cost and inaccuracy of measuring the injury with an injunction's costs: continuing supervision, effects on third parties, and bargaining between the only seller and only buyer of a release. The plaintiff must show damages inadequate, and if the balance is even the injunction is withheld (Walgreen, C&M 949).",
+   "reason": "Walgreen: the weighing of costs and benefits is the procedure a judge should use 'with the understanding that if the balance is even the injunction should be withheld' (C&M 949). Node c gave no instruction for an even balance, and its question asked only whether loss was hard to measure.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      948,
+      949,
+      950
+     ],
+     "pdfPages": [
+      291,
+      292,
+      293
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/33/nodes/2/edges",
+   "old": [
+    {
+     "label": "Equitable balance favors order",
+     "to": "f"
+    },
+    {
+     "label": "Money relief adequate",
+     "to": "g"
+    }
+   ],
+   "new": [
+    {
+     "label": "Costs of damages outweigh the injunction's costs",
+     "to": "i"
+    },
+    {
+     "label": "Money relief adequate, or the balance is even",
+     "to": "g"
+    }
+   ],
+   "reason": "Walgreen: the weighing of costs and benefits is the procedure a judge should use 'with the understanding that if the balance is even the injunction should be withheld' (C&M 949). Node c gave no instruction for an even balance, and its question asked only whether loss was hard to measure. Restatement § 364(1): relief 'will be refused' if it would be unfair because of mistake, unfair practices, unreasonable hardship or a grossly inadequate exchange; § 362 requires terms certain enough for an order; § 366 bars disproportionate supervision; Bliss refused relief for 'the imprecision of the contract provision' (C&M 947). K-34 sent every inadequate-damages path straight to 'Fashion the specific relief'.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      948,
+      949,
+      950
+     ],
+     "pdfPages": [
+      291,
+      292,
+      293
+     ]
+    },
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      947
+     ],
+     "pdfPages": [
+      290
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) §§ 357–367"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/33/nodes/4/edges",
+   "old": [
+    {
+     "label": "Equitable order available",
+     "to": "f"
+    },
+    {
+     "label": "Impermissible restraint",
+     "to": "g"
+    }
+   ],
+   "new": [
+    {
+     "label": "Equitable order available",
+     "to": "i"
+    },
+    {
+     "label": "Impermissible restraint",
+     "to": "g"
+    }
+   ],
+   "reason": "Restatement § 364(1): relief 'will be refused' if it would be unfair because of mistake, unfair practices, unreasonable hardship or a grossly inadequate exchange; § 362 requires terms certain enough for an order; § 366 bars disproportionate supervision; Bliss refused relief for 'the imprecision of the contract provision' (C&M 947). K-34 sent every inadequate-damages path straight to 'Fashion the specific relief'.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      947
+     ],
+     "pdfPages": [
+      290
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) §§ 357–367"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/33/nodes/5/detail",
+   "old": "Define the performance or restraint, then test feasibility and equitable constraints. The order should address the injury that makes damages inadequate.",
+   "new": "Define the performance or restraint, then test feasibility and equitable constraints. The order should address the injury that makes damages inadequate. Because an order seldom produces performance within the time the contract requires, damages for the delay usually accompany it (Snow Phipps, C&M 946; § 358(3)).",
+   "reason": "Snow Phipps: 'an order of specific performance seldom results in performance within the time the contract requires', so 'damages for the delay will usually be appropriate' (C&M 946); § 358(3) allows damages in the same proceeding.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      946
+     ],
+     "pdfPages": [
+      289
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 358(3)"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/33/nodes/7/detail",
+   "old": "The assigned comparison addresses execution in kind and substitute performance subject to impossibility and manifest disproportion. Use its conditions rather than importing the common-law adequacy threshold.",
+   "new": "French law gives the creditor performance in kind without the common-law adequacy threshold, whether or not the goods are unique, unless performance is impossible, would compel personal services (involuntary servitude, as with an artist commissioned to paint a picture), or would cost a debtor acting in good faith manifestly more than its interest to the creditor (art. 1221, 2018 text). Article 1222 separately lets the creditor, after notice, have the obligation performed by another within a reasonable time and at a reasonable cost, at the debtor's expense.",
+   "reason": "Rowan lists three situations in which French specific enforcement is unavailable: impossibility, involuntary servitude (an artist's commissioned picture, Civ. 14 March 1900) and manifest disproportion (supp. 118); the 2018 text of art. 1221 limits the last to a debtor 'acting in good faith' (supp. 114, 120); art. 1222 limits substitute performance by reasonable time and reasonable cost (supp. 123).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/FA26 Contracts Supplement.pdf",
+     "pages": [
+      114,
+      117,
+      118,
+      120,
+      123
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "target": "effectiveBrief",
+   "id": "CT-NEXT-CM-0142",
+   "field": "rule",
+   "old": "in the particular case.",
+   "new": "in the particular case; if the balance is even, the injunction is withheld.",
+   "reason": "Walgreen's decision procedure includes the tie rule: 'if the balance is even the injunction should be withheld' (C&M 949).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      948,
+      949,
+      950
+     ],
+     "pdfPages": [
+      291,
+      292,
+      293
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "file": "tools/v28/case-chronologies.json",
+   "pointer": "/0/steps/396/note",
+   "old": "A permanent injunction against breach of contract is proper when the plaintiff shows that damages are an inadequate remedy, which the court decides by comparing the costs and benefits of damages and injunctive relief in the particular case.",
+   "new": "A permanent injunction against breach of contract is proper when the plaintiff shows that damages are an inadequate remedy, which the court decides by comparing the costs and benefits of damages and injunctive relief in the particular case; if the balance is even, the injunction is withheld.",
+   "reason": "Walgreen's decision procedure includes the tie rule: 'if the balance is even the injunction should be withheld' (C&M 949).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      948,
+      949,
+      950
+     ],
+     "pdfPages": [
+      291,
+      292,
+      293
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "file": "tools/r19/data/timelines.json",
+   "timelineId": "specific-relief",
+   "stepKey": "walgreen",
+   "field": "note",
+   "old": "Posner: an injunction against breach of an exclusivity covenant is proper when damages are inadequate, judged by the costs and benefits of each remedy.",
+   "new": "Posner: an injunction against breach of an exclusivity covenant is proper when damages are inadequate, judged by the costs and benefits of each remedy; an even balance means no injunction.",
+   "reason": "Walgreen's decision procedure includes the tie rule: 'if the balance is even the injunction should be withheld' (C&M 949).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      948,
+      949,
+      950
+     ],
+     "pdfPages": [
+      291,
+      292,
+      293
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "target": "takeaway",
+   "id": "walgreen",
+   "old": "A court may enforce a shopping-centre exclusivity clause with an injunction rather than damages when damages would be hard to measure. The choice turns on weighing the costs and benefits of each remedy in the particular case.",
+   "new": "A court may enforce a shopping-center exclusivity clause with an injunction when measuring damages would be costly and uncertain and those costs outweigh the injunction's own costs. The choice weighs the costs and benefits of each remedy in the particular case; if the balance is even, the injunction is withheld.",
+   "reason": "Hard-to-measure damages are necessary but not sufficient: Posner weighs them against supervision, third-party and bilateral-monopoly costs and withholds the injunction on an even balance (C&M 949–950). The Atlas spells 'shopping-center' elsewhere.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      948,
+      949,
+      950
+     ],
+     "pdfPages": [
+      291,
+      292,
+      293
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "target": "effectiveBrief",
+   "id": "CT-NEXT-CM-0142",
+   "field": "Material Facts",
+   "old": "The entrances would be only a few hundred feet apart.",
+   "new": "Its entrance would be within a couple of hundred feet of Walgreen's.",
+   "reason": "The casebook's bracket: Phar-Mor's 'entrance was to be within a couple of hundred feet of Walgreen's' (C&M 948).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      948
+     ],
+     "pdfPages": [
+      291
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "file": "tools/cold-call/narratives/walgreen.json",
+   "pointer": "/sections/0/paragraphs/1",
+   "old": "In 1990 the largest tenant became insolvent and threatened closure. Sara Creek proposed buying it out and replacing it with Phar-Mor, a deep discount store occupying 100,000 square feet. Its 12,000-square-foot pharmacy would match Walgreen’s size, with the stores’ entrances only a few hundred feet apart.",
+   "new": "In 1990 the largest tenant became insolvent and threatened closure. Sara Creek proposed buying it out and replacing it with Phar-Mor, a deep discount store occupying 100,000 square feet. Its 12,000-square-foot pharmacy would match Walgreen’s size, with its entrance within a couple of hundred feet of Walgreen’s.",
+   "reason": "The casebook's bracket: Phar-Mor's 'entrance was to be within a couple of hundred feet of Walgreen's' (C&M 948).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      948
+     ],
+     "pdfPages": [
+      291
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "target": "effectiveBrief",
+   "id": "CT-SUP-0108",
+   "field": "Material Facts",
+   "old": "referring to a satisfactory factory inspection and a definitive contract",
+   "new": "stating that the offer was subject to a factory inspection satisfactory to the purchaser and to a definitive contract",
+   "reason": "The telex 'said the offer was subject to a factory inspection satisfactory to the purchaser, and a definitive contract' (supp. 109). 'Referring to' turned two stated conditions, the basis of PepsiCo's no-contract argument, into mentions.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/FA26 Contracts Supplement.pdf",
+     "pages": [
+      109,
+      110,
+      111
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "file": "tools/cold-call/narratives/klein-pepsico.json",
+   "pointer": "/sections/0/paragraphs/1",
+   "old": "Klein’s pilot and mechanic inspected the plane in New York, and Klein inspected it in Arkansas on March 29, 1986, with Janas and PepsiCo vice president Rashid present. Klein gave Janas a deposit of $200,000 and authorized a $4.4 million offer. Janas transmitted it by telex March 31 to PepsiCo’s broker, Welsch, referring to satisfactory factory inspection and a definitive contract.",
+   "new": "Klein’s pilot and mechanic inspected the plane in New York, and Klein inspected it in Arkansas on March 29, 1986, with Janas and PepsiCo vice president Rashid present. Klein gave Janas a deposit of $200,000 and authorized a $4.4 million offer. Janas transmitted it by telex March 31 to PepsiCo’s broker, Welsch, stating that the offer was subject to a factory inspection satisfactory to the purchaser and to a definitive contract.",
+   "reason": "The telex 'said the offer was subject to a factory inspection satisfactory to the purchaser, and a definitive contract' (supp. 109). 'Referring to' turned two stated conditions, the basis of PepsiCo's no-contract argument, into mentions.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/FA26 Contracts Supplement.pdf",
+     "pages": [
+      109,
+      110,
+      111
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "file": "tools/cold-call/plain-sentences.json",
+   "pointer": "/sentences/klein-pepsico/0/sentence",
+   "old": "Janas transmitted it by telex March 31 to PepsiCo’s broker, Welsch, referring to satisfactory factory inspection and a definitive contract.",
+   "new": "Janas transmitted it by telex March 31 to PepsiCo’s broker, Welsch, stating that the offer was subject to a factory inspection satisfactory to the purchaser and to a definitive contract.",
+   "reason": "The telex 'said the offer was subject to a factory inspection satisfactory to the purchaser, and a definitive contract' (supp. 109). 'Referring to' turned two stated conditions, the basis of PepsiCo's no-contract argument, into mentions.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/FA26 Contracts Supplement.pdf",
+     "pages": [
+      109,
+      110,
+      111
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "file": "tools/cold-call/plain-sentences.json",
+   "pointer": "/sentences/klein-pepsico/0/plain",
+   "old": "On March 31 Janas sent it by \"telex\" (a printed wire message) to Welsch, PepsiCo's \"broker\" or sales agent. The message referred to a satisfactory factory inspection and a \"definitive contract,\" a final written agreement.",
+   "new": "On March 31 Janas sent it by \"telex\" (a printed wire message) to Welsch, PepsiCo's \"broker\" or sales agent. The message said the offer was \"subject to\" a factory inspection satisfactory to the buyer and to a \"definitive contract,\" a final written agreement.",
+   "reason": "The telex 'said the offer was subject to a factory inspection satisfactory to the purchaser, and a definitive contract' (supp. 109). 'Referring to' turned two stated conditions, the basis of PepsiCo's no-contract argument, into mentions.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/FA26 Contracts Supplement.pdf",
+     "pages": [
+      109,
+      110,
+      111
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "file": "tools/cold-call/plain-sentences.json",
+   "pointer": "/sentences/klein-pepsico/7/plain",
+   "old": "The district court found that PepsiCo's agreement to repair the engine satisfied the inspection condition. Alternatively, PepsiCo's refusal to \"tender,\" or offer delivery of, the jet excused that condition.",
+   "new": "The district court found that PepsiCo's agreement to repair the engine satisfied the inspection condition. As an alternative ground, it ruled that PepsiCo's refusal to \"tender,\" or offer delivery of, the jet excused that condition.",
+   "reason": "The excuse was the district court's alternative ruling; the Fourth Circuit rested on the repair finding, which 'resolves this issue' (supp. 111).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/FA26 Contracts Supplement.pdf",
+     "pages": [
+      111
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "target": "takeaway",
+   "id": "cosby",
+   "old": "The Pennsylvania Supreme Court held that this prosecutor’s unconditional decision intentionally induced Cosby’s reasonable, detrimental surrender of Fifth Amendment protection in civil depositions. Due process required enforcement on that record. Four Justices barred prosecution on these particular charges; the decision does not enforce every prosecutorial assurance.",
+   "new": "Pennsylvania's Supreme Court held that when a prosecutor makes an unconditional promise not to prosecute and the defendant relies on it to the detriment of his right not to testify, due process requires that the promise be enforced, with promissory-estoppel elements informing that inquiry. A unilateral charging decision is not per se enforceable like a bargained-for exchange, so not every prosecutorial assurance binds.",
+   "reason": "The takeaway had three sentences and omitted the doctrine the class assigns; the vote and remedy are outside the assigned excerpt, which ends at supp. 128, so the new text states only the excerpt's holding (supp. 127) and its limit (supp. 128).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/FA26 Contracts Supplement.pdf",
+     "pages": [
+      127,
+      128
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "file": "tools/cold-call/plain-sentences.json",
+   "pointer": "/sentences/cosby/10/plain",
+   "old": "An \"unconsummated\" offer, one not yet accepted or acted on, ordinarily need not be honored. But \"detrimental reliance\" (giving up something important because of it) can change the constitutional consequences.",
+   "new": "An \"unconsummated\" offer, one never carried through to a completed agreement, ordinarily need not be honored. But \"detrimental reliance\" (giving up something important because of it) can change the constitutional consequences.",
+   "reason": "Defining the offer as one not 'acted on' excluded the reliance cases the next clause says can change the result; the excerpt contrasts 'fully consummated plea agreements' with unilateral discretion (supp. 128).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/FA26 Contracts Supplement.pdf",
+     "pages": [
+      128
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "file": "tools/r19/data/timelines.json",
+   "timelineId": "specific-relief",
+   "stepKey": null,
+   "field": "now",
+   "old": "Specific performance and injunctions depend on the adequacy of damages and equitable judgment. Model UCC § 2-716 permits specific performance for unique goods or other proper circumstances. A higher replacement price alone does not make money inadequate. Orders involving personal services raise separate limits.",
+   "new": "Specific performance and injunctions depend on the adequacy of damages and equitable judgment. Model UCC § 2-716 permits specific performance for unique goods or other proper circumstances. A higher replacement price alone does not make money inadequate. Orders involving personal services raise separate limits, and courts refuse orders whose terms are too uncertain, whose enforcement would be unfair, or whose supervision would cost more than it gains (Restatement §§ 362, 364, 366).",
+   "reason": "Restatement § 364(1): relief 'will be refused' if it would be unfair because of mistake, unfair practices, unreasonable hardship or a grossly inadequate exchange; § 362 requires terms certain enough for an order; § 366 bars disproportionate supervision; Bliss refused relief for 'the imprecision of the contract provision' (C&M 947). K-34 sent every inadequate-damages path straight to 'Fashion the specific relief'.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      947
+     ],
+     "pdfPages": [
+      290
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) §§ 357–367"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  },
+  {
+   "file": "tools/canons/data/lectures.json",
+   "pointer": "/43/topics/4/body",
+   "old": "The worked diagrams send the machine to buyer C under three arrangements. Expectation damages leave the original buyer with $400 and the seller with $500. With specific performance and costless resale or renegotiation at the stated prices, the original buyer receives $600 in surplus and the seller receives $300. The possibility of transfer and the distribution of gains are distinct questions.",
+   "new": "The worked diagrams send the machine to buyer C under three arrangements. Expectation damages leave the original buyer with $400 and the seller with $500. With specific performance and costless resale or renegotiation at the stated prices, the original buyer receives $600 in surplus and the seller receives $300. The possibility of transfer and the distribution of gains are distinct questions. Legal qualification: if the parties renegotiate instead of reselling, any release payment from $400 to $600 leaves both at least as well off as performance, and where it lands depends on bargaining (C&M 35–36; compare Walgreen's bargaining range, C&M 949).",
+   "reason": "On the casebook's figures the buyer's surplus from performance is $400 and the seller gains $900 by selling to the second buyer instead of $300 (C&M 35–36), so the release price is set by bargaining within $400–$600, as in Walgreen's bargaining range (C&M 949).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1-350.pdf",
+     "printedPages": [
+      35,
+      36
+     ],
+     "pdfPages": [
+      81,
+      82
+     ]
+    },
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      949
+     ],
+     "pdfPages": [
+      292
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-22"
+  }
+ ],
+ "mapEntryRunTimeEdits (tools/r19/data/r21-audit.json)": [
+  {
+   "packet": "OP-CT-22",
+   "kind": "node",
+   "reason": "The casebook's bracket: Phar-Mor's 'entrance was to be within a couple of hundred feet of Walgreen's' (C&M 948).",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      948
+     ],
+     "pdfPages": [
+      291
+     ]
+    }
+   ],
+   "sources": [],
+   "id": "walgreen",
+   "path": "sections.Material Facts",
+   "fullOld": "Sara Creek feared losing its anchor tenant and proposed to buy out that tenant and install Phar-Mor, a deep-discount store with a pharmacy. Its entrance would be within a few hundred feet of Walgreen’s. About ten years remained on Walgreen’s lease.\n\nSara Creek’s experts maintained that Walgreen’s competitive losses could be estimated. Walgreen’s witnesses stressed uncertainty about future sales, costs, and goodwill. The dispute concerned how to enforce the exclusivity promise, rather than whether a competing pharmacy might generate more total commercial value.",
+   "fullNew": "Sara Creek feared losing its anchor tenant and proposed to buy out that tenant and install Phar-Mor, a deep-discount store with a pharmacy. Its entrance would be within a couple of hundred feet of Walgreen’s. About ten years remained on Walgreen’s lease.\n\nSara Creek’s experts maintained that Walgreen’s competitive losses could be estimated. Walgreen’s witnesses stressed uncertainty about future sales, costs, and goodwill. The dispute concerned how to enforce the exclusivity promise, rather than whether a competing pharmacy might generate more total commercial value.",
+   "old": "Its entrance would be within a few hundred feet of Walgreen’s.",
+   "new": "Its entrance would be within a couple of hundred feet of Walgreen’s."
+  },
+  {
+   "packet": "OP-CT-22",
+   "kind": "node",
+   "reason": "The telex 'said the offer was subject to a factory inspection satisfactory to the purchaser, and a definitive contract' (supp. 109). 'Referring to' turned two stated conditions, the basis of PepsiCo's no-contract argument, into mentions.",
+   "pinpoints": [
+    {
+     "file": "added-sources/FA26 Contracts Supplement.pdf",
+     "pages": [
+      109,
+      110,
+      111
+     ]
+    }
+   ],
+   "sources": [],
+   "id": "klein-pepsico",
+   "path": "sections.Material Facts",
+   "fullOld": "After inspections and negotiations, Universal accepted PepsiCo’s $4.6 million price by telex, planning a resale to Klein for $4.75 million. Earlier messages referred to a satisfactory inspection and definitive contract. Subsequent conduct included payment of a deposit, preparation and transmission of a bill of sale, review of the sales document, and an inspection at the manufacturer’s facility. Engine-blade cracks were discovered, and the district court found that PepsiCo agreed to pay for repairs. PepsiCo then withdrew the aircraft after its chairman, Donald Kendall, asked that it be withdrawn from the market.\n\nThe record did not show the absence of substitutes. Twenty-one G-IIs were on the market, including three roughly comparable planes; Universal later acquired two and offered them to Klein, who also bid on alternatives. Klein declined another G-II because prices had risen and ultimately chose a G-III. His interest was also characterized as obtaining an aircraft for resale profit.",
+   "fullNew": "After inspections and negotiations, Universal accepted PepsiCo’s $4.6 million price by telex, planning a resale to Klein for $4.75 million. The earlier offer telex had been made subject to a factory inspection satisfactory to the purchaser and to a definitive contract. Subsequent conduct included payment of a deposit, preparation and transmission of a bill of sale, review of the sales document, and an inspection at the manufacturer’s facility. Engine-blade cracks were discovered, and the district court found that PepsiCo agreed to pay for repairs. PepsiCo then withdrew the aircraft after its chairman, Donald Kendall, asked that it be withdrawn from the market.\n\nThe record did not show the absence of substitutes. Twenty-one G-IIs were on the market, including three roughly comparable planes; Universal later acquired two and offered them to Klein, who also bid on alternatives. Klein declined another G-II because prices had risen and ultimately chose a G-III. His interest was also characterized as obtaining an aircraft for resale profit.",
+   "old": "Earlier messages referred to a satisfactory inspection and definitive contract.",
+   "new": "The earlier offer telex had been made subject to a factory inspection satisfactory to the purchaser and to a definitive contract."
+  },
+  {
+   "packet": "OP-CT-22",
+   "kind": "node",
+   "reason": "Teaching gap: UCC § 2-716 cmt. 2 ('inability to cover is strong evidence of \"other proper circumstances\"') and § 2-716(3) replevin had no home; Klein testified he did not buy another G-II because prices had risen (supp. 111–112).",
+   "pinpoints": [
+    {
+     "file": "added-sources/FA26 Contracts Supplement.pdf",
+     "pages": [
+      111,
+      112
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "UCC § 2-716 and Official Comments 2–3"
+    }
+   ],
+   "sources": [],
+   "id": "klein-pepsico",
+   "path": "learning.topics.ucc",
+   "fullOld": "Applies the state-enacted version of § 2-716.",
+   "fullNew": "Applies the state-enacted version of § 2-716. Comment 2 treats inability to cover as strong evidence of 'other proper circumstances'; Klein could have covered but chose not to because prices rose, which did not qualify. Section 2-716(3) separately gives replevin of identified goods when cover is unavailable after reasonable effort.",
+   "old": "Applies the state-enacted version of § 2-716.",
+   "new": "Applies the state-enacted version of § 2-716. Comment 2 treats inability to cover as strong evidence of 'other proper circumstances'; Klein could have covered but chose not to because prices rose, which did not qualify. Section 2-716(3) separately gives replevin of identified goods when cover is unavailable after reasonable effort."
+  },
+  {
+   "packet": "OP-CT-22",
+   "kind": "node",
+   "reason": "The excerpt names promissory estoppel and sets out its Crouse v. Cyclops elements (supp. 128); it never mentions equitable estoppel, and it accepts that Castor's decision was a 'unilateral exercise of prosecutorial discretion', not a bargain (supp. 127).",
+   "pinpoints": [
+    {
+     "file": "added-sources/FA26 Contracts Supplement.pdf",
+     "pages": [
+      127,
+      128
+     ]
+    }
+   ],
+   "sources": [],
+   "id": "cosby",
+   "path": "learning.topics.equitable-estoppel",
+   "fullOld": "The court's fundamental-fairness rationale is an estoppel against the government, closer to equitable estoppel than to bargain contract.",
+   "fullNew": "Contrast, not the ground used: the excerpt invokes promissory estoppel by name, not equitable estoppel. It accepts that Castor's decision was a unilateral exercise of discretion, not a bargain, and uses promissory estoppel's elements (expected inducement, actual reliance, injustice) to inform the due-process inquiry.",
+   "old": "The court's fundamental-fairness rationale is an estoppel against the government, closer to equitable estoppel than to bargain contract.",
+   "new": "Contrast, not the ground used: the excerpt invokes promissory estoppel by name, not equitable estoppel. It accepts that Castor's decision was a unilateral exercise of discretion, not a bargain, and uses promissory estoppel's elements (expected inducement, actual reliance, injustice) to inform the due-process inquiry."
+  },
+  {
+   "packet": "OP-CT-22",
+   "kind": "node",
+   "reason": "Holding: 'when a prosecutor makes an unconditional promise of non-prosecution, and when the defendant relies upon that guarantee to the detriment of his constitutional right not to testify' the promise must be enforced; discretion 'is not per se enforceable' (supp. 127–128).",
+   "pinpoints": [
+    {
+     "file": "added-sources/FA26 Contracts Supplement.pdf",
+     "pages": [
+      127,
+      128
+     ]
+    }
+   ],
+   "sources": [],
+   "id": "cosby",
+   "path": "learning.topics.reliance",
+   "fullOld": "The enforceability of the non-prosecution assurance rested entirely on Cosby's detrimental reliance in surrendering his Fifth Amendment privilege.",
+   "fullNew": "The stated rule needs two things together: an unconditional promise of non-prosecution, and the defendant's reliance on it to the detriment of his right not to testify. Such an exercise of discretion is not per se enforceable.",
+   "old": "The enforceability of the non-prosecution assurance rested entirely on Cosby's detrimental reliance in surrendering his Fifth Amendment privilege.",
+   "new": "The stated rule needs two things together: an unconditional promise of non-prosecution, and the defendant's reliance on it to the detriment of his right not to testify. Such an exercise of discretion is not per se enforceable."
+  },
+  {
+   "packet": "OP-CT-22",
+   "kind": "node",
+   "reason": "The press release reads 'District Attorney Castor cautions all parties to this matter that he will reconsider this decision should the need arise' (supp. 126); the Atlas sentence adopted one reading of it as fact.",
+   "pinpoints": [
+    {
+     "file": "added-sources/FA26 Contracts Supplement.pdf",
+     "pages": [
+      126,
+      127
+     ]
+    }
+   ],
+   "sources": [],
+   "id": "cosby",
+   "path": "sections.Material Facts",
+   "fullOld": "The earlier district attorney concluded that a criminal conviction was unlikely on the evidence then available and sought to facilitate a civil action. According to his later testimony, he communicated a decision not to prosecute so that Cosby could no longer invoke the Fifth Amendment in civil discovery. Cosby’s lawyers understood the decision that way. Cosby then gave four civil depositions without asserting that privilege, and the civil action settled for $3.38 million. The records were later unsealed, and a subsequent prosecution used the changed circumstances.\n\nThe announcement and surrounding statements must be read carefully. The reproduced press release includes a statement about reconsidering a decision in the context of public discussion. The assigned excerpt quotes the former prosecutor’s account of an unconditional nonprosecution decision, while also accepting the trial court’s finding that there was no formal immunity contract. Those are distinct evidentiary and legal points.",
+   "fullNew": "The earlier district attorney concluded that a criminal conviction was unlikely on the evidence then available and sought to facilitate a civil action. According to his later testimony, he communicated a decision not to prosecute so that Cosby could no longer invoke the Fifth Amendment in civil discovery. Cosby’s lawyers understood the decision that way. Cosby then gave four civil depositions without asserting that privilege, and the civil action settled for $3.38 million. The records were later unsealed, and a subsequent prosecution used the changed circumstances.\n\nThe announcement and surrounding statements must be read carefully. The reproduced press release says that Castor \"will reconsider this decision should the need arise.\" Whether that sentence reserved charging discretion matters because the stated rule applies only to an unconditional promise. The assigned excerpt quotes the former prosecutor’s account of an unconditional nonprosecution decision, while also accepting the trial court’s finding that there was no formal immunity contract. Those are distinct evidentiary and legal points.",
+   "old": "The reproduced press release includes a statement about reconsidering a decision in the context of public discussion.",
+   "new": "The reproduced press release says that Castor \"will reconsider this decision should the need arise.\" Whether that sentence reserved charging discretion matters because the stated rule applies only to an unconditional promise."
+  },
+  {
+   "packet": "OP-CT-22",
+   "kind": "node",
+   "reason": "Supp. 127: the records were unsealed in 2015, and the Commonwealth charged three counts of aggravated indecent assault.",
+   "pinpoints": [
+    {
+     "file": "added-sources/FA26 Contracts Supplement.pdf",
+     "pages": [
+      127
+     ]
+    }
+   ],
+   "sources": [],
+   "id": "cosby",
+   "path": "sections.Material Facts",
+   "fullOld": "The earlier district attorney concluded that a criminal conviction was unlikely on the evidence then available and sought to facilitate a civil action. According to his later testimony, he communicated a decision not to prosecute so that Cosby could no longer invoke the Fifth Amendment in civil discovery. Cosby’s lawyers understood the decision that way. Cosby then gave four civil depositions without asserting that privilege, and the civil action settled for $3.38 million. The records were later unsealed, and a subsequent prosecution used the changed circumstances.\n\nThe announcement and surrounding statements must be read carefully. The reproduced press release says that Castor \"will reconsider this decision should the need arise.\" Whether that sentence reserved charging discretion matters because the stated rule applies only to an unconditional promise. The assigned excerpt quotes the former prosecutor’s account of an unconditional nonprosecution decision, while also accepting the trial court’s finding that there was no formal immunity contract. Those are distinct evidentiary and legal points.",
+   "fullNew": "The earlier district attorney concluded that a criminal conviction was unlikely on the evidence then available and sought to facilitate a civil action. According to his later testimony, he communicated a decision not to prosecute so that Cosby could no longer invoke the Fifth Amendment in civil discovery. Cosby’s lawyers understood the decision that way. Cosby then gave four civil depositions without asserting that privilege, and the civil action settled for $3.38 million. After the records were unsealed in 2015, the Commonwealth, nearly a decade after Castor's decision, charged Cosby with three counts of aggravated indecent assault.\n\nThe announcement and surrounding statements must be read carefully. The reproduced press release says that Castor \"will reconsider this decision should the need arise.\" Whether that sentence reserved charging discretion matters because the stated rule applies only to an unconditional promise. The assigned excerpt quotes the former prosecutor’s account of an unconditional nonprosecution decision, while also accepting the trial court’s finding that there was no formal immunity contract. Those are distinct evidentiary and legal points.",
+   "old": "The records were later unsealed, and a subsequent prosecution used the changed circumstances.",
+   "new": "After the records were unsealed in 2015, the Commonwealth, nearly a decade after Castor's decision, charged Cosby with three counts of aggravated indecent assault."
+  },
+  {
+   "packet": "OP-CT-22",
+   "kind": "node",
+   "reason": "Teaching gap: C&M 929 (compensation is 'the principal aim of relief, specific and substitutional'; the law-equity adequacy compromise) and § 357(1)–(2) had no home on a class-22 surface.",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      929
+     ],
+     "pdfPages": [
+      272
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 357"
+    }
+   ],
+   "sources": [],
+   "id": "specific-performance",
+   "path": "notes",
+   "fullOld": "The assigned cases ask whether damages adequately protect the claimant and whether the requested order can be administered. Morris concerns a horse the claimant personally trained; Klein concerns an aircraft with available substitutes; Walgreen concerns difficult-to-measure competitive injury from violating a lease restriction. The notes compare attachment to a pet and a cannery’s inability to obtain enough tomatoes in time. Uniqueness matters through difficulty of substitution, not merely a category label.\n\nSpecific relief depends on the transaction and equitable considerations. An enforceable contract does not automatically entitle its claimant to it. Personal services raise distinct concerns: restraining competing performance differs from affirmatively compelling service.",
+   "fullNew": "The assigned cases ask whether damages adequately protect the claimant and whether the requested order can be administered. Morris concerns a horse the claimant personally trained; Klein concerns an aircraft with available substitutes; Walgreen concerns difficult-to-measure competitive injury from violating a lease restriction. The notes compare attachment to a pet and a cannery’s inability to obtain enough tomatoes in time. Uniqueness matters through difficulty of substitution, not merely a category label.\n\nSpecific relief depends on the transaction and equitable considerations. An enforceable contract does not automatically entitle its claimant to it. Personal services raise distinct concerns: restraining competing performance differs from affirmatively compelling service.\n\nAmerican law presumes money relief, and specific relief also aims primarily to compensate, not to compel; equity's adequacy test grew out of its jurisdictional compromise with the common-law courts (C&M 929). Specific performance orders the promised act; an injunction forbids conduct that breaks the contract. Restatement § 357(2) allows an injunction where the duty is one of forbearance, or where the duty is to act and specific performance would be denied only for reasons inapplicable to an injunction. Either may issue against a party threatening breach (§ 357).",
+   "old": "restraining competing performance differs from affirmatively compelling service.",
+   "new": "restraining competing performance differs from affirmatively compelling service.\n\nAmerican law presumes money relief, and specific relief also aims primarily to compensate, not to compel; equity's adequacy test grew out of its jurisdictional compromise with the common-law courts (C&M 929). Specific performance orders the promised act; an injunction forbids conduct that breaks the contract. Restatement § 357(2) allows an injunction where the duty is one of forbearance, or where the duty is to act and specific performance would be denied only for reasons inapplicable to an injunction. Either may issue against a party threatening breach (§ 357)."
+  },
+  {
+   "packet": "OP-CT-22",
+   "kind": "node",
+   "reason": "The sentence told class-22 students that pp. 36–43 were not yet assigned; class 22 assigns them (C&M 36–43: reliance investment, Coase, Kansas v. Nebraska, opportunistic breach), and no Atlas surface taught them.",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1-350.pdf",
+     "printedPages": [
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43
+     ],
+     "pdfPages": [
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89
+     ]
+    }
+   ],
+   "sources": [],
+   "id": "efficient-breach",
+   "path": "notes",
+   "fullOld": "In the machine example, a seller’s cost is $300, the price $600, and the original buyer’s value $1,000. A second buyer willing to pay $1,200 changes the allocation question. Paying the original buyer’s $400 expectation can leave the seller better off while protecting that buyer’s modeled value. These are stipulated values in an example, not measured welfare in real litigation. Distinguish a gain with actual compensation from potential compensation, and account for the institutional costs discussed in Remedies in Action. The later pages of this economic discussion are not assigned until a later unit.",
+   "fullNew": "In the machine example, a seller’s cost is $300, the price $600, and the original buyer’s value $1,000. A second buyer willing to pay $1,200 changes the allocation question. Paying the original buyer’s $400 expectation can leave the seller better off while protecting that buyer’s modeled value. These are stipulated values in an example, not measured welfare in real litigation. Distinguish a gain with actual compensation from potential compensation, and account for the institutional costs discussed in Remedies in Action. Class 22 assigns the rest of the note (C&M 36–43). Strong remedies, such as specific performance or damages that fully cover reliance investments, can lead promisees to overinvest in reliance, and weak ones to underinvest (C&M 37–38). The Coase Theorem holds that when bargaining costs are zero or small and entitlements are well defined, parties will bargain to an efficient allocation under any remedy; because transaction costs are always present, the choice of remedy still matters (C&M 41). In Kansas v. Nebraska the Justices agreed to deny an injunction, and the Court approved $1.8 million in partial disgorgement on top of $3.7 million in compensation for a breach the Special Master found knowing but not deliberate (C&M 39–42). Restatement (Third) of Restitution § 39 allows restitution for an 'opportunistic breach' that profits the promisor where damages give inadequate protection, which the editors distinguish from efficient breach (C&M 43).",
+   "old": "The later pages of this economic discussion are not assigned until a later unit.",
+   "new": "Class 22 assigns the rest of the note (C&M 36–43). Strong remedies, such as specific performance or damages that fully cover reliance investments, can lead promisees to overinvest in reliance, and weak ones to underinvest (C&M 37–38). The Coase Theorem holds that when bargaining costs are zero or small and entitlements are well defined, parties will bargain to an efficient allocation under any remedy; because transaction costs are always present, the choice of remedy still matters (C&M 41). In Kansas v. Nebraska the Justices agreed to deny an injunction, and the Court approved $1.8 million in partial disgorgement on top of $3.7 million in compensation for a breach the Special Master found knowing but not deliberate (C&M 39–42). Restatement (Third) of Restitution § 39 allows restitution for an 'opportunistic breach' that profits the promisor where damages give inadequate protection, which the editors distinguish from efficient breach (C&M 43)."
+  },
+  {
+   "packet": "OP-CT-22",
+   "kind": "node",
+   "reason": "Teaching gap: Rowan's points that uniqueness is irrelevant and mitigation absent (supp. 117), the délai de grâce (supp. 115–116) and the astreinte's punitive character (supp. 121) had no home.",
+   "pinpoints": [
+    {
+     "file": "added-sources/FA26 Contracts Supplement.pdf",
+     "pages": [
+      114,
+      115,
+      116,
+      117,
+      121
+     ]
+    },
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      929
+     ],
+     "pdfPages": [
+      272
+     ]
+    }
+   ],
+   "sources": [],
+   "id": "french-specific-performance",
+   "path": "notes",
+   "fullOld": "The reading places the revised Civil Code provisions in the context of earlier French law and distinguishes performance in kind from monetary compensation. It examines Article 1221, including the significance of good faith and the comparison between the cost to the debtor and the creditor’s interest. It also discusses Article 1222’s route for arranging performance by another and the coercive payment mechanism known as an astreinte.\n\nThese mechanisms serve different functions. A coercive payment intended to induce compliance is not simply the same measure as damages for loss. Compare the source’s institutional and remedial assumptions with Klein and Walgreen, and preserve its distinctions between versions of the legislation. The excerpt is comparative analysis; it does not change the domestic governing law of those cases.",
+   "fullNew": "The reading places the revised Civil Code provisions in the context of earlier French law and distinguishes performance in kind from monetary compensation. It examines Article 1221, including the significance of good faith and the comparison between the cost to the debtor and the creditor’s interest. It also discusses Article 1222’s route for arranging performance by another and the coercive payment mechanism known as an astreinte.\n\nThese mechanisms serve different functions. A coercive payment intended to induce compliance is not simply the same measure as damages for loss. Compare the source’s institutional and remedial assumptions with Klein and Walgreen, and preserve its distinctions between versions of the legislation. The excerpt is comparative analysis; it does not change the domestic governing law of those cases.\n\nSpecific enforcement is the central French remedy: for goods it does not matter whether they are unique, and there is no duty to mitigate (supp. 117). A creditor may claim the price itself, subject to a court's power to defer payment for up to two years (the délai de grâce). The astreinte, a mounting periodic penalty supporting an order to act, is 'unequivocally punitive' (supp. 121), whereas the editors describe American specific relief as primarily compensatory (C&M 929).",
+   "old": "The excerpt is comparative analysis; it does not change the domestic governing law of those cases.",
+   "new": "The excerpt is comparative analysis; it does not change the domestic governing law of those cases.\n\nSpecific enforcement is the central French remedy: for goods it does not matter whether they are unique, and there is no duty to mitigate (supp. 117). A creditor may claim the price itself, subject to a court's power to defer payment for up to two years (the délai de grâce). The astreinte, a mounting periodic penalty supporting an order to act, is 'unequivocally punitive' (supp. 121), whereas the editors describe American specific relief as primarily compensatory (C&M 929)."
+  },
+  {
+   "packet": "OP-CT-22",
+   "kind": "node",
+   "reason": "Teaching gaps: the Snow Phipps notes (contracted-for relief, delay damages, De Rivafinoli, Floyd, Bliss, arbitral awards, C&M 945–947) and Cosby's holding that the promise 'be enforced' (supp. 127) had no class-22 home.",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      945,
+      946,
+      947
+     ],
+     "pdfPages": [
+      288,
+      289,
+      290
+     ]
+    },
+    {
+     "file": "added-sources/FA26 Contracts Supplement.pdf",
+     "pages": [
+      127
+     ]
+    }
+   ],
+   "sources": [],
+   "id": "reading-notes-22",
+   "path": "notes",
+   "fullOld": "Klein v. PepsiCo, Inc.: Klein demonstrates why formation, breach, and remedy require separate analysis. It also contrasts with Walgreen’s difficult-to-measure long-term injury and Morris’s individually valued horse.\n\nWalgreen Co. v. Sara Creek Property Co.: Walgreen explains the adequacy inquiry through the practical costs of measuring loss, enforcing an order, and negotiating a release. Economic reasoning can support specific relief as well as damages.\n\nCommonwealth v. Cosby: This assigned remedies reading reaches back to reliance and promise enforcement. It illustrates why a course-wide concept index must cross the syllabus’s unit boundaries.",
+   "fullNew": "Klein v. PepsiCo, Inc.: Klein demonstrates why formation, breach, and remedy require separate analysis. It also contrasts with Walgreen’s difficult-to-measure long-term injury and Morris’s individually valued horse.\n\nWalgreen Co. v. Sara Creek Property Co.: Walgreen explains the adequacy inquiry through the practical costs of measuring loss, enforcing an order, and negotiating a release. Economic reasoning can support specific relief as well as damages.\n\nCommonwealth v. Cosby: This assigned remedies reading reaches back to reliance and promise enforcement. It illustrates why a course-wide concept index must cross the syllabus’s unit boundaries. Its holding is itself a form of specific relief: the court required that the promise 'be enforced' rather than compensating its breach (supp. 127).\n\nNotes after Snow Phipps (C&M 945–947): courts may order performance because the agreement clearly provides for it; damages for delay usually accompany an order; equity would not order an opera singer to perform (De Rivafinoli) or a contractor to staff a second shift (Bliss), but construction on the defendant's land tied to a conveyance is more readily ordered (Floyd v. Watson). An arbitrator may award specific performance a court would refuse; New York enforced such an award in Grayson-Robinson Stores (C&M 947).",
+   "old": "It illustrates why a course-wide concept index must cross the syllabus’s unit boundaries.",
+   "new": "It illustrates why a course-wide concept index must cross the syllabus’s unit boundaries. Its holding is itself a form of specific relief: the court required that the promise 'be enforced' rather than compensating its breach (supp. 127).\n\nNotes after Snow Phipps (C&M 945–947): courts may order performance because the agreement clearly provides for it; damages for delay usually accompany an order; equity would not order an opera singer to perform (De Rivafinoli) or a contractor to staff a second shift (Bliss), but construction on the defendant's land tied to a conveyance is more readily ordered (Floyd v. Watson). An arbitrator may award specific performance a court would refuse; New York enforced such an award in Grayson-Robinson Stores (C&M 947)."
+  }
+ ],
+ "structuralAdditions (not registered: new flowchart nodes)": [
+  {
+   "packet": "OP-CT-22",
+   "kind": "set",
+   "reason": "Restatement § 364(1): relief 'will be refused' if it would be unfair because of mistake, unfair practices, unreasonable hardship or a grossly inadequate exchange; § 362 requires terms certain enough for an order; § 366 bars disproportionate supervision; Bliss refused relief for 'the imprecision of the contract provision' (C&M 947). K-34 sent every inadequate-damages path straight to 'Fashion the specific relief'.",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      947
+     ],
+     "pdfPages": [
+      290
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) §§ 357–367"
+    }
+   ],
+   "sources": [],
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/33/nodes/8",
+   "old": null,
+   "register": false,
+   "new": {
+    "id": "i",
+    "label": "Does an equitable bar defeat the order?",
+    "detail": "Even where damages are inadequate, a court will not order performance if the terms are not certain enough to frame an order (§ 362; Bliss refused relief partly for 'the imprecision of the contract provision', C&M 947). Relief will be refused as unfair if the contract was induced by mistake or unfair practices, if it would cause unreasonable hardship or loss to the party in breach or to third persons, or if the exchange is grossly inadequate or the terms otherwise unfair (§ 364(1)). Nor will a court order a performance whose enforcement or supervision burdens are disproportionate to the advantages of enforcement and the harm of denial (§ 366). Public policy (§ 365) and an unsecured, unperformed agreed exchange (§ 363) can also bar relief.",
+    "sources": [
+     "specific-performance"
+    ],
+    "edges": [
+     {
+      "label": "No bar shown",
+      "to": "f"
+     },
+     {
+      "label": "Terms too uncertain, relief unfair, or supervision disproportionate",
+      "to": "g"
+     }
+    ]
+   }
+  },
+  {
+   "packet": "OP-CT-22",
+   "kind": "set",
+   "reason": "Floyd v. Watson: the agreement 'includes a provision for conveyance of land, and therefore specific performance is proper'; Bliss refused to order 300 more workers onto a steel-mill site as imprecise and impracticable to enforce (C&M 946–947). K-34 had no branch for construction, so a building contract could reach only 'Personal services' and a refusal.",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 701-1050.pdf",
+     "printedPages": [
+      946,
+      947
+     ],
+     "pdfPages": [
+      289,
+      290
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 366"
+    }
+   ],
+   "sources": [],
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/33/nodes/9",
+   "old": null,
+   "register": false,
+   "new": {
+    "id": "j",
+    "label": "Can the court frame and supervise an order for the work?",
+    "detail": "Courts have shown increased willingness to order performance of construction contracts, mostly where the construction is on the defendant's land with a conveyance to follow (Floyd v. Watson, C&M 946). Bliss refused to order a contractor to put 300 more workers on a steel-mill modernization: the provision was imprecise, and keeping a set number of workers on the site was impracticable, if not impossible, to enforce; damages remained available (C&M 947). Section 366 states the general limit.",
+    "sources": [
+     "specific-performance",
+     "reading-notes-22"
+    ],
+    "edges": [
+     {
+      "label": "Order can be framed and supervised, or the work is tied to a conveyance of land",
+      "to": "i"
+     },
+     {
+      "label": "Imprecise or impractical to enforce",
+      "to": "g"
+     }
+    ]
+   }
+  }
+ ]
+}

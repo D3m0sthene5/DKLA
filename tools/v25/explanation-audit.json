@@ -4237,7 +4237,7 @@
         "Contracts"
       ],
       "takeaway": "A court may enforce a shopping-centre exclusivity clause with an injunction rather than damages when damages would be hard to measure. The choice turns on weighing the costs and benefits of each remedy in the particular case.",
-      "takeawaySha256": "4ff2c0b82d3e0883f9fdb33fc62523fb73698c21c9d90befd0fa780fd7d15dd9",
+      "takeawaySha256": "5259f185a9300ab092d25c25c78932ebc98ce821d7c4e8a1b19586a1e2551d99",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -4248,7 +4248,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-NEXT-CM-0142",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0142.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "963731a49a761aa2f79a75ff19a53588d30004366a67cebc694b8c5240474536",
+        "ruleSha256": "a0308b205c4ae380f4ce16c089af8ff780f7bc4a6d85f45240a335a67789a7c3",
         "comparedSections": {
           "Holding": "012b80e18c252ceca6ffbed7db7d1c6143be8df409245a875d644a612adea620"
         },
@@ -4269,7 +4269,21 @@
           "https://openjurist.org/966/f2d/273/walgreen-company-v-sara-creek-property-company-bv"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "plante",
@@ -5358,7 +5372,7 @@
         "Contracts"
       ],
       "takeaway": "The Pennsylvania Supreme Court held that this prosecutor’s unconditional decision intentionally induced Cosby’s reasonable, detrimental surrender of Fifth Amendment protection in civil depositions. Due process required enforcement on that record. Four Justices barred prosecution on these particular charges; the decision does not enforce every prosecutorial assurance.",
-      "takeawaySha256": "d7c44140f31503dd27a046a28f8d0f982b56ff568406c34538e964c102801e76",
+      "takeawaySha256": "a9fffe6ffbb249e696d8ab4cc422a2f2ea114b54b42e7ceece238108cd61259f",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding specifies particular record, reasonable detrimental reliance and four-Justice remedy.",
@@ -5392,7 +5406,15 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        }
+      ]
     },
     {
       "id": "shoe",

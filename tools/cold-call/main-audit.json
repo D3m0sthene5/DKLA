@@ -6421,7 +6421,7 @@
     {
       "id": "klein-pepsico",
       "sourceSha256": "3cee53b8940b3f055167ea2969d38fbcecaca8137cf29184d232443b987136be",
-      "narrativeSha256": "ce6d438b213a2dc724aeadf03f2dc85eddf7e9e746cfd54f450422b0237123a2",
+      "narrativeSha256": "93302341fc5e26d0b602912d57aa7cece195606b5156b449ff22658870e2bd6b",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
       "verdict": "revised",
@@ -6443,12 +6443,26 @@
       "title": "Klein v. PepsiCo, Inc.",
       "course": "Contracts",
       "briefId": "CT-SUP-0108",
-      "accountSha256": "10480e7391ba706e5a9dcbb3d41e1663f100d2fa663930ab4525682fd0977ad9",
+      "accountSha256": "30e7a751d8ca24fdc773ab32fbd7adfdf76d5eae1b75ea6188019c51b39343c4",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 3,
       "wordsBefore": 865,
-      "wordsAfter": 868
+      "wordsAfter": 868,
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "narrativeSha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "accountSha256"
+        }
+      ]
     },
     {
       "id": "klocek",
@@ -8017,7 +8031,7 @@
     {
       "id": "walgreen",
       "sourceSha256": "4a206e16ec45a5b9c8df8b4f299b40a832c15c8df43baa446f901604d8298e18",
-      "narrativeSha256": "76e685105ac9efe6132a61827a694328cbc6de2665b01ccd6d4bfb9872f1e122",
+      "narrativeSha256": "7580d75672ff07e96bb3177c88164d91324d75ed70f3c4efa116480551794b28",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
       "verdict": "retained",
@@ -8036,12 +8050,26 @@
       "title": "Walgreen Co. v. Sara Creek Property Co.",
       "course": "Contracts",
       "briefId": "CT-NEXT-CM-0142",
-      "accountSha256": "507ebfe9f0c180f797ef2263a5328b19ad8693f52f0358b32fd827f6257ad94a",
+      "accountSha256": "bab1780e0cd21105d49179c7c502457e6e501a9d875dcc797a6c0654470a4b1b",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 768,
-      "wordsAfter": 768
+      "wordsAfter": 768,
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "narrativeSha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "accountSha256"
+        }
+      ]
     },
     {
       "id": "wassermans",

@@ -4922,7 +4922,7 @@
       {
         "id": "a",
         "label": "Would damages adequately protect the promised interest?",
-        "detail": "Identify the promised subject and available substitutes. Check whether loss can reasonably be measured and whether the proposed order is equitable and workable.",
+        "detail": "Identify the promised subject and available substitutes. Check whether loss can reasonably be measured and whether the proposed order is equitable and workable. Restatement § 360 makes three circumstances significant: the difficulty of proving damages with reasonable certainty, the difficulty of buying a suitable substitute with the damages, and the likelihood that a damages award could not be collected. Relief is discretionary and may issue against a party threatening breach (§ 357). Courts may also order performance because the agreement clearly provides for it, as merger agreements now often do (Snow Phipps, C&M 945).",
         "sources": [
           "specific-performance",
           "reading-notes-22"
@@ -4941,6 +4941,10 @@
             "to": "d"
           },
           {
+            "label": "Construction or other ongoing work",
+            "to": "j"
+          },
+          {
             "label": "French comparison",
             "to": "h"
           }
@@ -4949,7 +4953,7 @@
       {
         "id": "b",
         "label": "Can the claimant obtain a genuine substitute?",
-        "detail": "Klein denied specific performance where replacement aircraft and money were adequate. Morris ordered delivery of a horse trained by the claimant. Compare individual attachment, market availability, and assured supply.",
+        "detail": "Klein denied specific performance where replacement aircraft and money were adequate. Morris ordered delivery of a horse trained by the claimant. Compare individual attachment, market availability, and assured supply. A contract to sell land is traditionally specifically enforced, because land is treated as so distinctive that damages are categorically inadequate; heirlooms are another traditional category, and output and requirements contracts with a particular source reflect a modern trend (C&M 930; UCC § 2-716 cmt. 2). Also ask whether a damages award could actually be collected (§ 360(c)).",
         "sources": [
           "klein-pepsico",
           "morris-sparrow",
@@ -4962,26 +4966,26 @@
             "to": "g"
           },
           {
-            "label": "Special value or unavailable substitutes",
-            "to": "f"
+            "label": "Land, special value, no adequate substitute, or damages uncollectable",
+            "to": "i"
           }
         ]
       },
       {
         "id": "c",
-        "label": "Is prospective loss unusually hard to quantify?",
-        "detail": "The pharmacy exclusivity dispute implicated future competitive losses. Compare measuring the injury with supervising an injunction and with bargaining after an order issues.",
+        "label": "Do the costs of a damages remedy outweigh the costs of an injunction?",
+        "detail": "The pharmacy exclusivity dispute implicated future competitive losses. Compare the cost and inaccuracy of measuring the injury with an injunction's costs: continuing supervision, effects on third parties, and bargaining between the only seller and only buyer of a release. The plaintiff must show damages inadequate, and if the balance is even the injunction is withheld (Walgreen, C&M 949).",
         "sources": [
           "walgreen",
           "specific-performance"
         ],
         "edges": [
           {
-            "label": "Equitable balance favors order",
-            "to": "f"
+            "label": "Costs of damages outweigh the injunction's costs",
+            "to": "i"
           },
           {
-            "label": "Money relief adequate",
+            "label": "Money relief adequate, or the balance is even",
             "to": "g"
           }
         ]
@@ -5017,7 +5021,7 @@
         "edges": [
           {
             "label": "Equitable order available",
-            "to": "f"
+            "to": "i"
           },
           {
             "label": "Impermissible restraint",
@@ -5028,7 +5032,7 @@
       {
         "id": "f",
         "label": "Fashion the specific relief the facts support",
-        "detail": "Define the performance or restraint, then test feasibility and equitable constraints. The order should address the injury that makes damages inadequate.",
+        "detail": "Define the performance or restraint, then test feasibility and equitable constraints. The order should address the injury that makes damages inadequate. Because an order seldom produces performance within the time the contract requires, damages for the delay usually accompany it (Snow Phipps, C&M 946; § 358(3)).",
         "sources": [
           "specific-performance",
           "morris-sparrow",
@@ -5050,11 +5054,48 @@
       {
         "id": "h",
         "label": "Apply the distinct French framework",
-        "detail": "The assigned comparison addresses execution in kind and substitute performance subject to impossibility and manifest disproportion. Use its conditions rather than importing the common-law adequacy threshold.",
+        "detail": "French law gives the creditor performance in kind without the common-law adequacy threshold, whether or not the goods are unique, unless performance is impossible, would compel personal services (involuntary servitude, as with an artist commissioned to paint a picture), or would cost a debtor acting in good faith manifestly more than its interest to the creditor (art. 1221, 2018 text). Article 1222 separately lets the creditor, after notice, have the obligation performed by another within a reasonable time and at a reasonable cost, at the debtor's expense.",
         "sources": [
           "french-specific-performance"
         ],
         "edges": []
+      },
+      {
+        "id": "i",
+        "label": "Does an equitable bar defeat the order?",
+        "detail": "Even where damages are inadequate, a court will not order performance if the terms are not certain enough to frame an order (§ 362; Bliss refused relief partly for 'the imprecision of the contract provision', C&M 947). Relief will be refused as unfair if the contract was induced by mistake or unfair practices, if it would cause unreasonable hardship or loss to the party in breach or to third persons, or if the exchange is grossly inadequate or the terms otherwise unfair (§ 364(1)). Nor will a court order a performance whose enforcement or supervision burdens are disproportionate to the advantages of enforcement and the harm of denial (§ 366). Public policy (§ 365) and an unsecured, unperformed agreed exchange (§ 363) can also bar relief.",
+        "sources": [
+          "specific-performance"
+        ],
+        "edges": [
+          {
+            "label": "No bar shown",
+            "to": "f"
+          },
+          {
+            "label": "Terms too uncertain, relief unfair, or supervision disproportionate",
+            "to": "g"
+          }
+        ]
+      },
+      {
+        "id": "j",
+        "label": "Can the court frame and supervise an order for the work?",
+        "detail": "Courts have shown increased willingness to order performance of construction contracts, mostly where the construction is on the defendant's land with a conveyance to follow (Floyd v. Watson, C&M 946). Bliss refused to order a contractor to put 300 more workers on a steel-mill modernization: the provision was imprecise, and keeping a set number of workers on the site was impracticable, if not impossible, to enforce; damages remained available (C&M 947). Section 366 states the general limit.",
+        "sources": [
+          "specific-performance",
+          "reading-notes-22"
+        ],
+        "edges": [
+          {
+            "label": "Order can be framed and supervised, or the work is tied to a conveyance of land",
+            "to": "i"
+          },
+          {
+            "label": "Imprecise or impractical to enforce",
+            "to": "g"
+          }
+        ]
       }
     ]
   },

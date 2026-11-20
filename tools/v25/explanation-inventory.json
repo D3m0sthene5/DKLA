@@ -2241,6 +2241,12 @@
       "iteration": 0
     },
     {
+      "id": "specific-performance",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
       "id": "consideration",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
@@ -2536,6 +2542,36 @@
     },
     {
       "id": "risk-allocation",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "klein-pepsico",
+      "field": "learning.topics.ucc",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "cosby",
+      "field": "learning.topics.equitable-estoppel",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "cosby",
+      "field": "learning.topics.reliance",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "efficient-breach",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "reading-notes-22",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
@@ -7422,8 +7458,8 @@
       "id": "specific-performance",
       "title": "Specific performance and adequacy of damages",
       "field": "notes",
-      "text": "The assigned cases ask whether damages adequately protect the claimant and whether the requested order can be administered. Morris concerns a horse the claimant personally trained; Klein concerns an aircraft with available substitutes; Walgreen concerns difficult-to-measure competitive injury from violating a lease restriction. The notes compare attachment to a pet and a cannery’s inability to obtain enough tomatoes in time. Uniqueness matters through difficulty of substitution, not merely a category label.\n\nSpecific relief depends on the transaction and equitable considerations. An enforceable contract does not automatically entitle its claimant to it. Personal services raise distinct concerns: restraining competing performance differs from affirmatively compelling service.",
-      "textSha256": "7b7e01bb61056b7200e58ffff9d71d20c163757b2cd8a9a192af9d44f5231caf",
+      "text": "The assigned cases ask whether damages adequately protect the claimant and whether the requested order can be administered. Morris concerns a horse the claimant personally trained; Klein concerns an aircraft with available substitutes; Walgreen concerns difficult-to-measure competitive injury from violating a lease restriction. The notes compare attachment to a pet and a cannery’s inability to obtain enough tomatoes in time. Uniqueness matters through difficulty of substitution, not merely a category label.\n\nSpecific relief depends on the transaction and equitable considerations. An enforceable contract does not automatically entitle its claimant to it. Personal services raise distinct concerns: restraining competing performance differs from affirmatively compelling service.\n\nAmerican law presumes money relief, and specific relief also aims primarily to compensate, not to compel; equity's adequacy test grew out of its jurisdictional compromise with the common-law courts (C&M 929). Specific performance orders the promised act; an injunction forbids conduct that breaks the contract. Restatement § 357(2) allows an injunction where the duty is one of forbearance, or where the duty is to act and specific performance would be denied only for reasons inapplicable to an injunction. Either may issue against a party threatening breach (§ 357).",
+      "textSha256": "01c0eab7f40991c939632c88660839f07a940927993008145f543f684ee4468d",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: specific-performance",
@@ -7548,8 +7584,8 @@
       "id": "efficient-breach",
       "title": "Economic analysis of breach and remedies",
       "field": "notes",
-      "text": "In the machine example, a seller’s cost is $300, the price $600, and the original buyer’s value $1,000. A second buyer willing to pay $1,200 changes the allocation question. Paying the original buyer’s $400 expectation can leave the seller better off while protecting that buyer’s modeled value. These are stipulated values in an example, not measured welfare in real litigation. Distinguish a gain with actual compensation from potential compensation, and account for the institutional costs discussed in Remedies in Action. The later pages of this economic discussion are not assigned until a later unit.",
-      "textSha256": "ef4d0b7f8658edcfec369ff66c1f92aab3aa0f362f6f127fcb0f7a2bd8eec7f4",
+      "text": "In the machine example, a seller’s cost is $300, the price $600, and the original buyer’s value $1,000. A second buyer willing to pay $1,200 changes the allocation question. Paying the original buyer’s $400 expectation can leave the seller better off while protecting that buyer’s modeled value. These are stipulated values in an example, not measured welfare in real litigation. Distinguish a gain with actual compensation from potential compensation, and account for the institutional costs discussed in Remedies in Action. Class 22 assigns the rest of the note (C&M 36–43). Strong remedies, such as specific performance or damages that fully cover reliance investments, can lead promisees to overinvest in reliance, and weak ones to underinvest (C&M 37–38). The Coase Theorem holds that when bargaining costs are zero or small and entitlements are well defined, parties will bargain to an efficient allocation under any remedy; because transaction costs are always present, the choice of remedy still matters (C&M 41). In Kansas v. Nebraska the Justices agreed to deny an injunction, and the Court approved $1.8 million in partial disgorgement on top of $3.7 million in compensation for a breach the Special Master found knowing but not deliberate (C&M 39–42). Restatement (Third) of Restitution § 39 allows restitution for an 'opportunistic breach' that profits the promisor where damages give inadequate protection, which the editors distinguish from efficient breach (C&M 43).",
+      "textSha256": "d7dd140cc2b8d84f5bf28bdbe7320d5f4380572c83dc950b9974a3a5d71e7b90",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: efficient-breach",
@@ -19201,8 +19237,8 @@
       "id": "walgreen",
       "title": "Walgreen Co. v. Sara Creek Property Co.",
       "field": "takeaway",
-      "text": "A court may enforce a shopping-centre exclusivity clause with an injunction rather than damages when damages would be hard to measure. The choice turns on weighing the costs and benefits of each remedy in the particular case.",
-      "textSha256": "4ff2c0b82d3e0883f9fdb33fc62523fb73698c21c9d90befd0fa780fd7d15dd9",
+      "text": "A court may enforce a shopping-center exclusivity clause with an injunction when measuring damages would be costly and uncertain and those costs outweigh the injunction's own costs. The choice weighs the costs and benefits of each remedy in the particular case; if the balance is even, the injunction is withheld.",
+      "textSha256": "5259f185a9300ab092d25c25c78932ebc98ce821d7c4e8a1b19586a1e2551d99",
       "source": {
         "briefId": "CT-NEXT-CM-0142",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0142.rule (effective assembler overlays)",
@@ -19222,8 +19258,8 @@
       "id": "walgreen",
       "title": "Walgreen Co. v. Sara Creek Property Co.",
       "field": "summary",
-      "text": "A permanent injunction against breach of contract is proper when the plaintiff shows that damages are an inadequate remedy, which the court decides by comparing the costs and benefits of damages and injunctive relief in the particular case.",
-      "textSha256": "963731a49a761aa2f79a75ff19a53588d30004366a67cebc694b8c5240474536",
+      "text": "A permanent injunction against breach of contract is proper when the plaintiff shows that damages are an inadequate remedy, which the court decides by comparing the costs and benefits of damages and injunctive relief in the particular case; if the balance is even, the injunction is withheld.",
+      "textSha256": "a0308b205c4ae380f4ce16c089af8ff780f7bc4a6d85f45240a335a67789a7c3",
       "source": {
         "briefId": "CT-NEXT-CM-0142",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0142.rule (effective assembler overlays)",
@@ -20650,8 +20686,8 @@
       "id": "cosby",
       "title": "Commonwealth v. Cosby",
       "field": "takeaway",
-      "text": "The Pennsylvania Supreme Court held that this prosecutor’s unconditional decision intentionally induced Cosby’s reasonable, detrimental surrender of Fifth Amendment protection in civil depositions. Due process required enforcement on that record. Four Justices barred prosecution on these particular charges; the decision does not enforce every prosecutorial assurance.",
-      "textSha256": "d7c44140f31503dd27a046a28f8d0f982b56ff568406c34538e964c102801e76",
+      "text": "Pennsylvania's Supreme Court held that when a prosecutor makes an unconditional promise not to prosecute and the defendant relies on it to the detriment of his right not to testify, due process requires that the promise be enforced, with promissory-estoppel elements informing that inquiry. A unilateral charging decision is not per se enforceable like a bargained-for exchange, so not every prosecutorial assurance binds.",
+      "textSha256": "a9fffe6ffbb249e696d8ab4cc422a2f2ea114b54b42e7ceece238108cd61259f",
       "source": {
         "briefId": "CT-COMPLETE-FA26-COSBY",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-COMPLETE-FA26-COSBY.rule (effective assembler overlays)",
@@ -25060,8 +25096,8 @@
       "id": "reading-notes-22",
       "title": "Specific relief: editorial notes and questions",
       "field": "notes",
-      "text": "Klein v. PepsiCo, Inc.: Klein demonstrates why formation, breach, and remedy require separate analysis. It also contrasts with Walgreen’s difficult-to-measure long-term injury and Morris’s individually valued horse.\n\nWalgreen Co. v. Sara Creek Property Co.: Walgreen explains the adequacy inquiry through the practical costs of measuring loss, enforcing an order, and negotiating a release. Economic reasoning can support specific relief as well as damages.\n\nCommonwealth v. Cosby: This assigned remedies reading reaches back to reliance and promise enforcement. It illustrates why a course-wide concept index must cross the syllabus’s unit boundaries.",
-      "textSha256": "4f749afe7ec3e9b38e70fdee1ba7efb4c033536baedd8d69bdf5fac53260675d",
+      "text": "Klein v. PepsiCo, Inc.: Klein demonstrates why formation, breach, and remedy require separate analysis. It also contrasts with Walgreen’s difficult-to-measure long-term injury and Morris’s individually valued horse.\n\nWalgreen Co. v. Sara Creek Property Co.: Walgreen explains the adequacy inquiry through the practical costs of measuring loss, enforcing an order, and negotiating a release. Economic reasoning can support specific relief as well as damages.\n\nCommonwealth v. Cosby: This assigned remedies reading reaches back to reliance and promise enforcement. It illustrates why a course-wide concept index must cross the syllabus’s unit boundaries. Its holding is itself a form of specific relief: the court required that the promise 'be enforced' rather than compensating its breach (supp. 127).\n\nNotes after Snow Phipps (C&M 945–947): courts may order performance because the agreement clearly provides for it; damages for delay usually accompany an order; equity would not order an opera singer to perform (De Rivafinoli) or a contractor to staff a second shift (Bliss), but construction on the defendant's land tied to a conveyance is more readily ordered (Floyd v. Watson). An arbitrator may award specific performance a court would refuse; New York enforced such an award in Grayson-Robinson Stores (C&M 947).",
+      "textSha256": "429adcf7ad04595a5950ea61e76c9d64fef0953684c3db7827531c322fb9ab86",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: reading-notes-22",
@@ -104656,8 +104692,8 @@
       "id": "specific-relief",
       "title": "Ordering performance or stopping a breach",
       "field": "now",
-      "text": "Specific performance and injunctions depend on the adequacy of damages and equitable judgment. Model UCC § 2-716 permits specific performance for unique goods or other proper circumstances. A higher replacement price alone does not make money inadequate. Orders involving personal services raise separate limits.",
-      "textSha256": "dc566e17d4b7a3452b9006ed35daee017d19a28411b0068ac2194a8ca4fa67ec",
+      "text": "Specific performance and injunctions depend on the adequacy of damages and equitable judgment. Model UCC § 2-716 permits specific performance for unique goods or other proper circumstances. A higher replacement price alone does not make money inadequate. Orders involving personal services raise separate limits, and courts refuse orders whose terms are too uncertain, whose enforcement would be unfair, or whose supervision would cost more than it gains (Restatement §§ 362, 364, 366).",
+      "textSha256": "a95c33000556d49b73e0f07fc8b464be188b1732ffc6a39afd6640239b51e11d",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json"
       },
@@ -104724,8 +104760,8 @@
       "id": "specific-relief:5",
       "title": "Ordering performance or stopping a breach",
       "field": "note",
-      "text": "Posner: an injunction against breach of an exclusivity covenant is proper when damages are inadequate, judged by the costs and benefits of each remedy.",
-      "textSha256": "53f9978d923d0844ea28820b351432dfca4f2b782cf24a3a59ec0d50c9a988d7",
+      "text": "Posner: an injunction against breach of an exclusivity covenant is proper when damages are inadequate, judged by the costs and benefits of each remedy; an even balance means no injunction.",
+      "textSha256": "dcd130ae45540cd368d902c16572073348aeba152401fedea04756830b0b0e3a",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "specific-relief",
