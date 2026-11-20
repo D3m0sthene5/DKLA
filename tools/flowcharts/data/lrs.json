@@ -21,6 +21,10 @@
           {
             "label": "Control of an existing program",
             "to": "execute"
+          },
+          {
+            "label": "Budget resolution with reconciliation instructions",
+            "to": "budget"
           }
         ]
       },
@@ -142,6 +146,55 @@
         "sources": [
           "lrs-s-chadha",
           "lrs-s-article-i-vesting"
+        ],
+        "edges": []
+      },
+      {
+        "id": "budget",
+        "label": "Did Congress adopt a budget resolution with reconciliation instructions?",
+        "detail": "Class 2, slides 11–12. The concurrent resolution is an internal congressional decision. It can direct committees to propose changes to spending, revenue or the debt limit. It receives no presidential signature and changes no statute by itself.",
+        "sources": [
+          "lrs-k-lawmaking",
+          "lrs-k-congress"
+        ],
+        "links": [
+          {
+            "label": "CRS, The Reconciliation Process: Frequently Asked Questions",
+            "url": "https://www.congress.gov/crs_external_products/R/PDF/R48444/R48444.3.pdf"
+          }
+        ],
+        "edges": [
+          {
+            "label": "Instructed committees produce a reconciliation bill",
+            "to": "reconcile"
+          },
+          {
+            "label": "Resolution alone; no implementing bill",
+            "to": "budgetend"
+          }
+        ]
+      },
+      {
+        "id": "reconcile",
+        "label": "Consider the committees’ proposed statutory changes",
+        "detail": "When multiple committees respond, the Budget Committee packages their proposals. The statutory limit on Senate debate permits a vote without cloture. The Byrd rule restricts extraneous provisions. Each chamber must agree to identical bill text before presentment.",
+        "sources": [
+          "lrs-k-lawmaking",
+          "lrs-s-article-i-vesting"
+        ],
+        "edges": [
+          {
+            "label": "Determine whether the chambers agreed",
+            "to": "chambers"
+          }
+        ]
+      },
+      {
+        "id": "budgetend",
+        "label": "Congress set budget terms; existing statutes still govern",
+        "detail": "A budget resolution alone grants no new spending authority and does not amend spending, revenue or debt-limit law. Those changes require legislation.",
+        "sources": [
+          "lrs-k-congress"
         ],
         "edges": []
       }
@@ -5992,8 +6045,8 @@
             "to": "private"
           },
           {
-            "label": "Case for intervention is weak",
-            "to": "weigh"
+            "label": "No public problem or objective is shown",
+            "to": "noaction"
           }
         ]
       },
@@ -6017,8 +6070,8 @@
       },
       {
         "id": "weigh",
-        "label": "Do the benefits of a public response outweigh its costs?",
-        "detail": "Slides 26–28 distinguish arguments for intervention from explanations of how it gets adopted. Compare costs imposed on others, information gaps, diffuse public benefits and future harm with compliance costs, who pays, innovation and unintended effects.",
+        "label": "What justifies public regulation, and who would bear its burdens?",
+        "detail": "Slides 26–28 ask whether regulation is justified. Count costs imposed on downstream communities, information gaps and public benefits. Also consider equality, duties to future generations and values independent of price. Weigh the burdens, who pays, effects on entry or innovation, and the fairness of the procedure. The political reasons a measure might pass answer a different question.",
         "sources": [
           "lrs-framework"
         ],
@@ -6028,7 +6081,7 @@
             "to": "legislature"
           },
           {
-            "label": "Benefits or fairness case is insufficient",
+            "label": "The case for a public response is insufficient",
             "to": "noaction"
           }
         ]
