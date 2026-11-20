@@ -40,15 +40,15 @@ file does not claim it.
 |---|---|---|---|
 | OP-CT-11 | Class 11, Contract modifications (C&M 470–484, 487–492; Supp. 9; Rest. §§ 89, 175, 176; UCC § 2-209; RLCC § 3; N.Y. G.O.L. § 5-1103) | **done**: `cce8e4b8` (28 corrections), records re-pinned `05fa132a`; [handoff](contracts/OP-CT-11/handoff.md) on the corrections branch | casebook, supplement, selections, slides |
 | OP-CT-12 | Class 12, Fraud and misrepresentation (C&M 508–526; Supp. 22–36) | **done**: `e282ac9b` (15 corrections); [handoff](contracts/OP-CT-12/handoff.md) on the corrections branch | casebook, supplement, slides |
-| OP-CT-13 | Class 13, Parol evidence rule (C&M 527–530, 535–547; Supp. 37–45) | **in progress** | casebook, supplement, slides |
-| OP-CT-14 | Class 14, Plain meaning and extrinsic evidence (C&M 548–569, 574–575; Supp. 46–52) | queued | casebook, supplement, slides |
-| OP-CT-15 | Class 15, Extrinsic evidence of past dealings (C&M 575–599) | queued | casebook, selections; deck K-15-DECK-01 absent from `added-sources/` |
+| OP-CT-13 | Class 13, Parol evidence rule (C&M 527–530, 535–547; Supp. 37–45) | **done**: `4f5c9c47` (22 corrections); [handoff](contracts/OP-CT-13/handoff.md) on the corrections branch | casebook, supplement, slides |
+| OP-CT-14 | Class 14, Plain meaning and extrinsic evidence (C&M 548–569, 574–575; Supp. 46–52) | **done**: `96ebee23` (15 corrections); [handoff](contracts/OP-CT-14/handoff.md) on the corrections branch | casebook, supplement, slides |
+| OP-CT-15 | Class 15, Extrinsic evidence of past dealings (C&M 575–599) | **done**: `b767c567` (11 corrections); [handoff](contracts/OP-CT-15/handoff.md) on the corrections branch; slides missing | casebook, selections; deck K-15-DECK-01 absent from `added-sources/` |
 
-After OP-CT-15 this session continues with Classes 16 to 26, then 1 to 10, claiming each
-here before starting. Astra may assign any Contracts session not marked in progress or done,
+Next for this session, when the owner resumes it: Classes 16 to 26, then 2 to 10, each claimed
+here before starting (Class 1 belongs to Astra's K-A reader). None is claimed now. Astra may assign any Contracts session not marked in progress or done,
 and may move a queued session to another worker by editing its row.
 
-Corrections branch `audit/contracts-opus-2026-11-19` passes `pnpm verify` (76 of 76) at `05fa132a`.
+Corrections branch `audit/contracts-opus-2026-11-19` passes `pnpm verify` (76 of 76) at `41d6d02e` (91 corrections across Classes 11–15).
 It also extends `tools/content-audit/check.py` (`a5bbc289`) so that registered edits to Cold Call,
 flowchart and lecture files are checked, and adds the read-only `tools/content-audit/session_surfaces.py`.
 
