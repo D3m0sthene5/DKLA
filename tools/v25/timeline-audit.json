@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "reviewedAt": "2026-11-17",
   "dataPath": "tools/r19/data/timelines.json",
-  "timelinesSha256": "d3075142e0da4a71fd0561ba9b7e6186b1351a7413a46f962567cbfc6a3c87af",
+  "timelinesSha256": "615701f0ab77817e8dad34a8341b10d326176e8d347ea8e9aa5bb7c063e77d65",
   "baselineGitRevision": "347d2e9759a7b5429f24825c521a967ce2b14eb9",
   "scope": "All timeline memberships and navigation were inventoried against the canonical cases and original assigned-source locations. New lines and selected corrections were compared with original casebook passages and case-specific accounts. Prior complete-opinion limitations remain; this does not certify every proposition or all current law. November 17: all 685 timeline steps screened editorially; targeted primary-source corrections are recorded separately. This is not a complete primary-source audit of every step or brief.",
   "limitations": [
@@ -47012,6 +47012,62 @@
       "after": {
         "effect": "Applied Chevron to agency authority"
       }
+    },
+    {
+      "timelineId": "removal",
+      "step": 3,
+      "key": "lrs-s-humphrey",
+      "fields": [
+        "effect"
+      ],
+      "before": {
+        "effect": "Historically permits FTC removal protection"
+      },
+      "after": {
+        "effect": "Upheld for-cause removal protection for FTC commissioners"
+      }
+    },
+    {
+      "timelineId": "guidance",
+      "step": 5,
+      "key": "lrs-n-paralyzed-veterans",
+      "fields": [
+        "effect"
+      ],
+      "before": {
+        "effect": "Historically requires procedure for changed interpretations"
+      },
+      "after": {
+        "effect": "D.C. Circuit said a changed definitive interpretation needs notice and comment"
+      }
+    },
+    {
+      "timelineId": "institutional-justiciability",
+      "step": 5,
+      "key": "LRS-CLOSURE-055",
+      "fields": [
+        "effect"
+      ],
+      "before": {
+        "effect": "Historically recognizes one chamber’s spending injury"
+      },
+      "after": {
+        "effect": "Recognized the House’s own appropriations injury"
+      }
+    },
+    {
+      "timelineId": "interpretive-corrections",
+      "step": 2,
+      "key": "LRS-CLOSURE-062",
+      "fields": [
+        "effect"
+      ],
+      "before": {
+        "effect": "Historically excludes women from this jury statute"
+      },
+      "after": {
+        "effect": "Massachusetts’s Supreme Judicial Court read the voter-based jury statute, G.L. c. 234, § 1, to cover only men"
+      }
     }
   ],
   "followupRuleAccountComparisons": [
@@ -47141,5 +47197,120 @@
     "basis": "Each `basis` and each `beside.text` is made of verbatim sentences of the named Atlas source (a brief; for King v. Burwell's `beside`, the entry's stored connections; for UCC § 2-207, the step's own note; for Kisor's second sentence and the damages comparison, the timeline's own summary and guide), checked by script when written. Headings and the names of lines are editorial; the forms and damages line names are words of each timeline's stored guide or summary. This records where the Atlas's own accounts place each entry; it is not a fresh primary-source review, and the 2026-11-17 review above did not cover these fields.",
     "usedBy": "src/features/v32/doctrine-b.js (the Doctrine view's chart)",
     "effectLines": "2026-11-19, on the owner's instruction: the six effect lines of the deference timeline that opened \"Historically ...\" are stored in the past tense (\"Accepted the agency's statutory classification\"). Each original wording is kept on its step as `effectOriginal`. Each was read against its step's note for meaning; only the tense of the verb and the word \"Historically\" changed."
+  },
+  "displayFields": {
+    "addedAt": "2026-11-19",
+    "what": "Round three of the Doctrine view. (1) Four effect lines that opened \"Historically ...\" are replaced by labels reviewed one at a time (removal/lrs-s-humphrey, guidance/lrs-n-paralyzed-veterans, institutional-justiciability/LRS-CLOSURE-055, interpretive-corrections/LRS-CLOSURE-062); each original is kept on its step as `effectOriginal` and the changes are the last four of substantiveChanges. (2) `ruleLabel` on deference/lrs-i-chevron and pleading/cp-conley: the sentence shown on the rule's band, which is the first sentence of the step's stored note without its opening word \"Historically,\"; the note itself is unchanged. (3) `apart` on nine steps stored as comparisons from another jurisdiction or legal regime: `name` says in words what the dashed line the entry stands on represents, `concerns` (one step, the CISG) gives the instrument's full name, `basis` is a verbatim sentence of the named Atlas source and `source` names it. No other existing field of any step or timeline was changed.",
+    "basis": "Every supporting sentence was checked verbatim by script against its named source when written (an Atlas brief, an entry's stored summary or notes, a Cold Call account, or this file's own note, context or summary). Names of lines are editorial. This records what the Atlas's own accounts say; it is not a fresh primary-source review, and the 2026-11-17 review did not cover these fields. Open questions the sources do not settle are listed by record id in the hand-off packet timeline-labels-open.",
+    "labels": [
+      {
+        "timelineId": "removal",
+        "key": "lrs-s-humphrey",
+        "effect": "Upheld for-cause removal protection for FTC commissioners",
+        "effectOriginal": "Historically permits FTC removal protection",
+        "actor": "The Supreme Court (the stored note says \"the Court\"; the brief: Justice Sutherland for the Court, 1935).",
+        "scope": "For-cause removal protection for FTC commissioners: the brief limits the holding to \"an officer of the character involved\" and says the Court \"expressly reserved\" intermediate officers.",
+        "laterTreatment": "Stored: later development \"Overruled by Trump v. Slaughter (2026)\"; the Slaughter entry of the same timeline; the brief's note quoting Slaughter."
+      },
+      {
+        "timelineId": "guidance",
+        "key": "lrs-n-paralyzed-veterans",
+        "effect": "D.C. Circuit said a changed definitive interpretation needs notice and comment",
+        "effectOriginal": "Historically requires procedure for changed interpretations",
+        "actor": "A D.C. Circuit panel (Judge Silberman); the stored note says only \"The court\", so the label names it.",
+        "scope": "A statement about changing a definitive interpretation of a regulation; the panel did not apply it against the manual (\"that proposition did not invalidate the manual here\"), so \"requires\" overstated the result and the label says \"said\".",
+        "laterTreatment": "Stored: later development \"Its rule on revising interpretations was abrogated by Perez (2015)\"; the Perez entry of the same timeline; the brief (\"Perez v. Mortgage Bankers Association later rejected the interpretation-change doctrine\")."
+      },
+      {
+        "timelineId": "institutional-justiciability",
+        "key": "LRS-CLOSURE-055",
+        "effect": "Recognized the House’s own appropriations injury",
+        "effectOriginal": "Historically recognizes one chamber’s spending injury",
+        "actor": "A D.C. Circuit panel (Senior Judge Sentelle); the stored note already opens \"The D.C. Circuit\", so the label does not repeat it.",
+        "scope": "Standing of the House of Representatives to claim injury to its own appropriations power (the constitutional claims); the APA claims stayed dismissed. Decided on a motion to dismiss, on assumed allegations.",
+        "laterTreatment": "Stored: later development \"The 2020 judgment was later vacated; ...\"; the brief gives the Supreme Court's order of October 12, 2021."
+      },
+      {
+        "timelineId": "interpretive-corrections",
+        "key": "LRS-CLOSURE-062",
+        "effect": "Massachusetts’s Supreme Judicial Court read the voter-based jury statute, G.L. c. 234, § 1, to cover only men",
+        "effectOriginal": "Historically excludes women from this jury statute",
+        "actor": "The Massachusetts Supreme Judicial Court (Chief Justice Rugg), 1931; the stored note says only \"The court\", so the label names it.",
+        "scope": "Massachusetts General Laws chapter 234, § 1, which made a person qualified to vote liable for jury service; read to cover only men, so women stayed off jury lists after they gained the vote.",
+        "laterTreatment": "None stored. The entry has no later-development line and the brief \"does not certify its subsequent treatment\". The label is in the past tense because the decision is dated 1931; it makes no claim that the rule changed."
+      }
+    ],
+    "ruleLabels": [
+      {
+        "timelineId": "deference",
+        "key": "lrs-i-chevron",
+        "ruleLabel": "Clear statutory text controlled; otherwise a permissible agency interpretation received deference.",
+        "noteFirstSentence": "Historically, clear statutory text controlled; otherwise a permissible agency interpretation received deference."
+      },
+      {
+        "timelineId": "pleading",
+        "key": "cp-conley",
+        "ruleLabel": "Conley allowed dismissal only when no possible supporting facts could entitle the plaintiff to relief.",
+        "noteFirstSentence": "Historically, Conley allowed dismissal only when no possible supporting facts could entitle the plaintiff to relief."
+      }
+    ],
+    "apart": [
+      {
+        "timelineId": "good-faith",
+        "key": "ng-giap",
+        "name": "Singapore law",
+        "source": "Atlas entry for Ng Giap Hon v. Westcomb Securities (summary)"
+      },
+      {
+        "timelineId": "incomplete-bargains",
+        "key": "french-negotiations",
+        "name": "French law",
+        "source": "This timeline’s summary"
+      },
+      {
+        "timelineId": "interpretation",
+        "key": "www-associates",
+        "name": "New York law",
+        "source": "This entry’s stored context"
+      },
+      {
+        "timelineId": "interpretation",
+        "key": "teevee-toons",
+        "name": "CISG",
+        "concerns": "United Nations Convention on Contracts for the International Sale of Goods",
+        "source": "Atlas Cold Call account of TeeVee Toons, Inc. v. Gerhard Schubert GmbH"
+      },
+      {
+        "timelineId": "remedy-interests",
+        "key": "CT-ADDITIONAL-CM-B3-113",
+        "name": "Colorado law",
+        "source": "This entry’s stored note"
+      },
+      {
+        "timelineId": "liquidated-damages",
+        "key": "swiss-2024",
+        "name": "Swiss law",
+        "source": "This timeline’s summary"
+      },
+      {
+        "timelineId": "pleading",
+        "key": "cp-gillispie",
+        "name": "North Carolina code pleading",
+        "source": "Atlas entry for Gillispie v. Goodyear Service Stores (notes)"
+      },
+      {
+        "timelineId": "venue",
+        "key": "cp-reasor",
+        "name": "Arkansas law",
+        "source": "Atlas entry for Reasor-Hill Corp. v. Harrison (notes)"
+      },
+      {
+        "timelineId": "protected-interests",
+        "key": "lrs-o-weston",
+        "name": "Colorado Court of Appeals",
+        "source": "Atlas brief of Weston v. Cassata"
+      }
+    ],
+    "usedBy": "src/features/v32/doctrine-b.js (the Doctrine view's chart); tools/v32/check-doctrine.mjs checks that no display label begins \"Historically\" and that every comparison line is named."
   }
 }

@@ -1,7 +1,7 @@
 {
   "reviewedAt": "2026-11-19",
   "baseline": "75db269d",
-  "scope": "Six display labels of the deference timeline restated in the past tense on the owner's instruction. No other stored text changed; the placement fields added the same day (lines, bears, term, effectOriginal) are new fields and are recorded in tools/v25/timeline-audit.json.",
+  "scope": "Ten display labels restated on the owner's instruction: six of the deference timeline put in the past tense (first six edits), and four more, each reviewed against its Atlas source for actor, scope and later treatment (owner's decision on question 15; last four edits). No other stored text changed; the fields added the same day (lines, bears, term, effectOriginal, ruleLabel, apart) are new fields and are recorded in tools/v25/timeline-audit.json.",
   "edits": [
     {
       "timelineId": "deference",
@@ -97,6 +97,162 @@
         }
       ],
       "reviewDepth": "Wording only: read against the step's stored note for meaning; the verb's tense changed and \"Historically\" was removed. No fresh opinion review.",
+      "file": "tools/r19/data/timelines.json"
+    },
+    {
+      "timelineId": "removal",
+      "stepKey": "lrs-s-humphrey",
+      "field": "effect",
+      "old": "Historically permits FTC removal protection",
+      "new": "Upheld for-cause removal protection for FTC commissioners",
+      "reason": "Owner's decision of 19 November 2026 (question 15): the blanket \"Historically\" wording rule is replaced by display labels reviewed one at a time against the entry's Atlas source for actor, scope and later treatment. The earlier wording is kept on the step as effectOriginal.",
+      "sources": [
+        {
+          "url": "https://dannykind.wiki/added-sources/lrs-september%20%281%29.pdf#page=114",
+          "label": "Assigned source: lrs-september (1).pdf · PDF p. 114 (existing locator, not freshly reread)"
+        }
+      ],
+      "reviewDepth": "Read against the step's stored note and later-development line and the Atlas brief LRS-CB-0184 for actor, scope and later treatment; supporting sentences checked verbatim by script. No fresh opinion review.",
+      "reviewed": {
+        "actor": "The Supreme Court (the stored note says \"the Court\"; the brief: Justice Sutherland for the Court, 1935).",
+        "scope": "For-cause removal protection for FTC commissioners: the brief limits the holding to \"an officer of the character involved\" and says the Court \"expressly reserved\" intermediate officers.",
+        "laterTreatment": "Stored: later development \"Overruled by Trump v. Slaughter (2026)\"; the Slaughter entry of the same timeline; the brief's note quoting Slaughter.",
+        "supportingSentences": [
+          {
+            "source": "Atlas brief LRS-CB-0184",
+            "text": "The restriction was constitutional for an officer of the character involved."
+          },
+          {
+            "source": "the step's stored note",
+            "text": "In 1935, the Court allowed Congress to protect FTC commissioners from removal except for cause"
+          },
+          {
+            "source": "the step's stored fate",
+            "text": "Overruled by Trump v. Slaughter (2026)"
+          }
+        ]
+      },
+      "file": "tools/r19/data/timelines.json"
+    },
+    {
+      "timelineId": "guidance",
+      "stepKey": "lrs-n-paralyzed-veterans",
+      "field": "effect",
+      "old": "Historically requires procedure for changed interpretations",
+      "new": "D.C. Circuit said a changed definitive interpretation needs notice and comment",
+      "reason": "Owner's decision of 19 November 2026 (question 15): the blanket \"Historically\" wording rule is replaced by display labels reviewed one at a time against the entry's Atlas source for actor, scope and later treatment. The earlier wording is kept on the step as effectOriginal.",
+      "sources": [
+        {
+          "url": "https://dannykind.wiki/added-sources/LRS-november-1-165%20%281%29.pdf#page=76",
+          "label": "Assigned source: LRS-november-1-165 (1).pdf · PDF p. 76 (existing locator, not freshly reread)"
+        }
+      ],
+      "reviewDepth": "Read against the step's stored note and later-development line and the Atlas brief LRS-ATLAS-N-PARALYZED-VETERANS for actor, scope and later treatment; supporting sentences checked verbatim by script. No fresh opinion review.",
+      "reviewed": {
+        "actor": "A D.C. Circuit panel (Judge Silberman); the stored note says only \"The court\", so the label names it.",
+        "scope": "A statement about changing a definitive interpretation of a regulation; the panel did not apply it against the manual (\"that proposition did not invalidate the manual here\"), so \"requires\" overstated the result and the label says \"said\".",
+        "laterTreatment": "Stored: later development \"Its rule on revising interpretations was abrogated by Perez (2015)\"; the Perez entry of the same timeline; the brief (\"Perez v. Mortgage Bankers Association later rejected the interpretation-change doctrine\").",
+        "supportingSentences": [
+          {
+            "source": "Atlas brief LRS-ATLAS-N-PARALYZED-VETERANS",
+            "text": "The panel stated that an agency could not fundamentally revise a definitive interpretation of a substantive regulation without notice and comment."
+          },
+          {
+            "source": "Atlas brief LRS-ATLAS-N-PARALYZED-VETERANS",
+            "text": "But that proposition did not invalidate the manual here because the owners failed to establish a prior authoritative DOJ interpretation to the contrary."
+          },
+          {
+            "source": "the step's stored note",
+            "text": "announced an extra procedure for substantially changing a definitive interpretation"
+          },
+          {
+            "source": "the step's stored fate",
+            "text": "Its rule on revising interpretations was abrogated by Perez (2015)"
+          }
+        ]
+      },
+      "file": "tools/r19/data/timelines.json"
+    },
+    {
+      "timelineId": "institutional-justiciability",
+      "stepKey": "LRS-CLOSURE-055",
+      "field": "effect",
+      "old": "Historically recognizes one chamber’s spending injury",
+      "new": "Recognized the House’s own appropriations injury",
+      "reason": "Owner's decision of 19 November 2026 (question 15): the blanket \"Historically\" wording rule is replaced by display labels reviewed one at a time against the entry's Atlas source for actor, scope and later treatment. The earlier wording is kept on the step as effectOriginal.",
+      "sources": [
+        {
+          "url": "https://dannykind.wiki/added-sources/lrs-november-165-end%20%281%29.pdf#page=125",
+          "label": "Assigned source: lrs-november-165-end (1).pdf · PDF p. 125 (existing locator, not freshly reread)"
+        }
+      ],
+      "reviewDepth": "Read against the step's stored note and later-development line and the Atlas brief LRS-CLOSURE-055 for actor, scope and later treatment; supporting sentences checked verbatim by script. No fresh opinion review.",
+      "reviewed": {
+        "actor": "A D.C. Circuit panel (Senior Judge Sentelle); the stored note already opens \"The D.C. Circuit\", so the label does not repeat it.",
+        "scope": "Standing of the House of Representatives to claim injury to its own appropriations power (the constitutional claims); the APA claims stayed dismissed. Decided on a motion to dismiss, on assumed allegations.",
+        "laterTreatment": "Stored: later development \"The 2020 judgment was later vacated; ...\"; the brief gives the Supreme Court's order of October 12, 2021.",
+        "supportingSentences": [
+          {
+            "source": "Atlas brief LRS-CLOSURE-055",
+            "text": "The holding concerned the House’s concrete constitutional prerogative, not a general entitlement to litigate every executive disagreement with Congress."
+          },
+          {
+            "source": "Atlas brief LRS-CLOSURE-055",
+            "text": "the Supreme Court granted certiorari, **vacated the judgment**, and remanded to the D.C. Circuit **with instructions to dismiss the case as moot**"
+          },
+          {
+            "source": "the step's stored note",
+            "text": "The D.C. Circuit distinguished a chamber’s own appropriations power from an ordinary objection that the Executive violated a statute."
+          },
+          {
+            "source": "the step's stored fate",
+            "text": "The 2020 judgment was later vacated"
+          }
+        ]
+      },
+      "file": "tools/r19/data/timelines.json"
+    },
+    {
+      "timelineId": "interpretive-corrections",
+      "stepKey": "LRS-CLOSURE-062",
+      "field": "effect",
+      "old": "Historically excludes women from this jury statute",
+      "new": "Massachusetts’s Supreme Judicial Court read the voter-based jury statute, G.L. c. 234, § 1, to cover only men",
+      "reason": "Owner's decision of 19 November 2026 (question 15): the blanket \"Historically\" wording rule is replaced by display labels reviewed one at a time against the entry's Atlas source for actor, scope and later treatment. The earlier wording is kept on the step as effectOriginal.",
+      "sources": [
+        {
+          "url": "https://dannykind.wiki/added-sources/Complete%20Parrillo-Shane%20Supplement%20on%20Legislation.pdf#page=41",
+          "label": "Assigned source: Complete Parrillo-Shane Supplement on Legislation.pdf · PDF p. 41 (existing locator, not freshly reread)"
+        }
+      ],
+      "reviewDepth": "Read against the step's stored note and later-development line and the Atlas brief LRS-CLOSURE-062 for actor, scope and later treatment; supporting sentences checked verbatim by script. No fresh opinion review.",
+      "reviewed": {
+        "actor": "The Massachusetts Supreme Judicial Court (Chief Justice Rugg), 1931; the stored note says only \"The court\", so the label names it.",
+        "scope": "Massachusetts General Laws chapter 234, § 1, which made a person qualified to vote liable for jury service; read to cover only men, so women stayed off jury lists after they gained the vote.",
+        "laterTreatment": "None stored. The entry has no later-development line and the brief \"does not certify its subsequent treatment\". The label is in the past tense because the decision is dated 1931; it makes no claim that the rule changed.",
+        "supportingSentences": [
+          {
+            "source": "Atlas brief LRS-CLOSURE-062",
+            "text": "General Laws chapter 234, § 1 made a person qualified to vote for representatives to the General Court liable for jury service, subject to exceptions not material here."
+          },
+          {
+            "source": "Atlas brief LRS-CLOSURE-062",
+            "text": "In its view, the voter-based jury statute and its predecessors had always referred to men because the state constitution then confined voting to men."
+          },
+          {
+            "source": "Atlas brief LRS-CLOSURE-062",
+            "text": "The court thus held women ineligible under the existing statutes and approved preparation of all-male jury lists."
+          },
+          {
+            "source": "Atlas brief LRS-CLOSURE-062",
+            "text": "The Supreme Judicial Court addressed whether state law required otherwise-qualified women to be included on jury lists"
+          },
+          {
+            "source": "the step's stored note",
+            "text": "The court read the jury-service statute in its historical setting and declined to extend it to women when they later gained voting rights."
+          }
+        ]
+      },
       "file": "tools/r19/data/timelines.json"
     }
   ]
