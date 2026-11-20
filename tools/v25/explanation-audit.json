@@ -2498,7 +2498,7 @@
         "Contracts"
       ],
       "takeaway": "If both sides agreed to a term and it was left out of the writing by mistake, a court can rewrite the document to match the real deal. One party later denying the term does not prevent that when its own conduct proves the mistake.",
-      "takeawaySha256": "9eb98a7a0ae74bc0c9428be0c95a3718a81d2615ff36fe32ea39ff2e2b901a91",
+      "takeawaySha256": "35cd24fcf69b279aa744408316b2020acbc58018394545bfc3f39c014416adac",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -2530,7 +2530,15 @@
           "https://static.case.law/pa/425/cases/0430-01.json."
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        }
+      ]
     },
     {
       "id": "pacific-gas",
@@ -4793,7 +4801,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-SUP-0037",
         "sourceLocator": "tools/r19/data/sections.json :: CT-SUP-0037.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "ea9e881e9ba3fd3dc64fe7d631cdcaa43c08bed16e5d296de28974894c69d875",
+        "ruleSha256": "f5f96b67c74d3b1c46444a7a917e18495a9e796dce734514c5a782a509ee4088",
         "comparedSections": {
           "Holding": "39abd7336ea07b32d57a3e166a6cae26f449ef46ca4bde3dd10296ead9673454"
         },
@@ -4814,7 +4822,15 @@
           "https://static.case.law/pa/281/html/0320-01.html."
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "teevee-toons",
@@ -4823,7 +4839,7 @@
         "Contracts"
       ],
       "takeaway": "Under the international sales convention there is no parol evidence rule, so a merger clause excludes earlier oral understandings only if both parties actually meant it to. Evidence of the negotiations had to be considered.",
-      "takeawaySha256": "c5c58b56ad090c4f814b29b35e780f9acac3efe154bdd0a31e1aeac2be8fbe27",
+      "takeawaySha256": "6393549c27a689d4eb51bfa881c974c82866ecc05a58e9a233767b1b6cdf2f7c",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -4856,7 +4872,15 @@
           "https://www.casemine.com/judgement/us/5914b4edadd7b0493476f730,"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        }
+      ]
     },
     {
       "id": "ng-giap",

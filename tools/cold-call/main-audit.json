@@ -6713,7 +6713,7 @@
     {
       "id": "masterson",
       "sourceSha256": "380cb60e72fa0007e76ce8ced0ab5914f4dede8f57b99b305a1732d618bbd293",
-      "narrativeSha256": "0b97ee38a1bd9621f6de3d8795acab17cf98ca3f9523f19e8b1cca9412b0a203",
+      "narrativeSha256": "8b516eed44889670260bbee802bddb94729384b67f052e3e4306db42b3030d8b",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
       "verdict": "revised",
@@ -6734,12 +6734,26 @@
       "title": "Masterson v. Sine",
       "course": "Contracts",
       "briefId": "CT-CB-0536",
-      "accountSha256": "dcbde4a5d97f958ff12f8d6b1f33c38891a0d555810b897b1f789473050ecb0d",
+      "accountSha256": "27fda2e360a693495dd0bbd0191562b38ada42b7530e1c5e69a319337e3c9d37",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
       "wordsBefore": 888,
-      "wordsAfter": 893
+      "wordsAfter": 893,
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "narrativeSha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "accountSha256"
+        }
+      ]
     },
     {
       "id": "mattei",
