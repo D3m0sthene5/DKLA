@@ -142,7 +142,8 @@ assert.deepEqual(layout.rail, [
 ]);
 assert.equal(layout.dots, 6, 'all six timeline entries on the axis');
 assert.equal(layout.here, 1, 'this case marked on the axis');
-assert.match(layout.chartMeta, /K-16 · steps 3, 8 of 13/);
+// K-16 gained node n (one form arriving after payment; OP-CT-08), so it has 14 steps.
+assert.match(layout.chartMeta, /K-16 · steps 3, 8 of 14/);
 assert.ok(
   !layout.fonts.some((f) => /Georgia|apple-system|system-ui/i.test(f)),
   `reader fonts: ${layout.fonts}`,
