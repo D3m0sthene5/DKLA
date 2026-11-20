@@ -1748,7 +1748,7 @@
         "comparedSections": {
           "Holding": "2f81f88f4789edbc20205715e48864820eebec9fb77383f67f51c29e7e1be528",
           "Material Facts": "4f4ee7c106e2f4cf415090d28c9be3f177ab70c56793377fd445ce1169e4f266",
-          "Reasoning": "66066d77da889a1012bbc144ca033c11139ebed7f399117f0029c8f95b51c082"
+          "Reasoning": "40bafd877d6f4b443f2d0202d0b78cd053c2af3e3186a9a38c37602dc3824b03"
         },
         "sectionsReadCompletely": [
           "Holding",
@@ -1781,6 +1781,14 @@
             "takeawaySha256": "7048e130332cdf88f9afa9516df84bffe8d6afca44e13bd465ff101ffbf5688f"
           }
         }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.comparedSections.Reasoning"
+        }
       ]
     },
     {
@@ -1805,7 +1813,7 @@
         "comparedSections": {
           "Holding": "39cec1367b4dac5c3ac80ca105ff334b2f7f58e6a52293819189703ae4879f7d",
           "Material Facts": "926430b3d122b0345ba3c6f5f85328111d108bcf9933f1c97a03fbc00375300f",
-          "Reasoning": "f862334eee891c0a820d78919c13a833b5782dbf9a8abb03201c12076a1261e9"
+          "Reasoning": "3b98b50ef3869adfc7e22be1e99b1c45a1ae1d3de1bbefe24553f04c2c577a19"
         },
         "sectionsReadCompletely": [
           "Holding",
@@ -1836,6 +1844,14 @@
             "takeaway": "The Seventh Circuit predicted that Illinois would use the knockout rule: conflicting terms in an offer and a nonconditional acceptance cancel out, and Code defaults fill the gap. It applied that approach to the competing warranty terms; this was a prediction of state law.",
             "takeawaySha256": "fb4f50b8d416bbda02e74fa7262de0ad3b99b55f4c1dcd2ef142783202f1e231"
           }
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.comparedSections.Reasoning"
         }
       ]
     },

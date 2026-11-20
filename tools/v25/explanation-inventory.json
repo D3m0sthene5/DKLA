@@ -1839,6 +1839,12 @@
       "iteration": 0
     },
     {
+      "id": "rolling-formation",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
       "id": "silence",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
@@ -2998,6 +3004,30 @@
     },
     {
       "id": "ucc206",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "note-howard",
+      "field": "summary",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "hill-gateway",
+      "field": "learning.topics.notice",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "problem-misplaced",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "note-union-carbide",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
@@ -10336,8 +10366,8 @@
       "id": "rolling-formation",
       "title": "Pay now, terms later and rolling formation",
       "field": "notes",
-      "text": "Hill treats retention beyond a review-and-return period as acceptance of the vendor’s package offer and puts its one-form transaction outside § 2-207. Klocek rejects a textual two-form prerequisite and assumes on its record that the consumer offered and the vendor accepted earlier, making later terms proposals requiring agreement.\n\nThe cases differ in governing law, procedural posture, notice, offeror identity, and formation timing as well as the return period. That period is relevant, but it does not resolve every later-terms transaction.",
-      "textSha256": "7f839293731e89443fcde9c006f32efed29ec663aac32cd85ac6b6badb19b146",
+      "text": "Hill treats retention beyond a review-and-return period as acceptance of the vendor’s package offer and puts its one-form transaction outside § 2-207. Klocek rejects a textual two-form prerequisite and assumes on its record that the consumer offered and the vendor accepted earlier, making later terms proposals requiring agreement.\n\nThe cases differ in governing law, procedural posture, notice, offeror identity, and formation timing as well as the return period. That period is relevant, but it does not resolve every later-terms transaction. Hill Note 2 asks whether, if the contract forms only after 30 days, Gateway could refuse to ship at the agreed price after charging the card without breaching, and whether that squares with § 2-207's policy favoring formation; the slides list the same uncertainty as a cost of Easterbrook's approach. Applied to these cases, RLCC § 2(b)(1) asks whether, before buying, the consumer was told that terms would follow, could be reviewed and would be adopted unless the consumer terminated: Hill found only that the Hills knew some important terms would come, and Klocek found no evidence that Gateway disclosed the five-day period as a condition of sale. The Restatement says most courts do not require all the (b)(1) notices and adopts the stricter minority rule; the 2024 text makes the business prove all three conditions.",
+      "textSha256": "e4e2a69b83dea2ba8a8a07ea597b4caf69e44f2a5958016c0658208071cf443d",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: rolling-formation",
@@ -13268,8 +13298,8 @@
       "id": "note-union-carbide",
       "title": "Union Carbide Corp. v. Oscar Mayer Foods Corp.",
       "field": "notes",
-      "text": "The seller directed orders through an out-of-city address to avoid a tax. After authorities assessed approximately $88,000 in back taxes, it invoked a printed indemnity against the buyer. The reported judgment excluded the clause as material. Posner’s discussion treats hardship as a consequence rather than an independent criterion. Bayway quotes that skepticism but leaves the independent-ground issue undecided in its own case.",
-      "textSha256": "a7a8491cec5652d646efb39faa4a2ab3db8a23c4512417e75f61e962ea06e2e1",
+      "text": "The seller directed orders through an out-of-city address to avoid a tax. After authorities assessed approximately $88,000 in back taxes, it invoked a printed indemnity against the buyer. The reported judgment excluded the clause as material. Posner’s discussion treats hardship as a consequence rather than an independent criterion. Bayway quotes that skepticism but leaves the independent-ground issue undecided in its own case. Posner called a sequence of four documents governing a single sale \"a prototypical situation for the application of UCC § 2-207\"; compare Hill's view that one form makes § 2-207 irrelevant and Klocek's view that the section reaches a single acceptance or written confirmation.",
+      "textSha256": "958452f9189307517d405f70dfc2e0a414d806e98abceee426cf66c7815a0857",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: note-union-carbide",
@@ -13499,8 +13529,8 @@
       "id": "note-howard",
       "title": "Howard v. Ferrellgas Partners — later textbook report",
       "field": "summary",
-      "text": "The notes report a later conclusion that Kansas adopted rolling contract formation.",
-      "textSha256": "65bc632b4669308baa41983081154fe25f9e266edb97094114aaeb6e0c32ca4f",
+      "text": "The notes quote then-Judge Gorsuch (10th Cir. 2014) concluding that Kansas is among the states that reject the rolling theory of contract formation.",
+      "textSha256": "23e630a4c41b525e83a66ef133976e3d86c28e93606668c0248d9d80e5f88885",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: note-howard",
@@ -15090,8 +15120,8 @@
       "id": "problem-misplaced",
       "title": "Misplaced Strategies — Commerce & Industry v. Bayer",
       "field": "notes",
-      "text": "Which formation route applies? Does arbitration appear among the terms on which the writings agree? Explain how a party’s drafting strategy can prevent inclusion of a term that party later wishes to enforce. The casebook gives the dispute and asks for the result.",
-      "textSha256": "8f5e2dad082aca0a6b5758e1fd34fe46c032c6374e4c9efec799fe18fb520e6e",
+      "text": "Which formation route applies? Does arbitration appear among the terms on which the writings agree? Explain how a party’s drafting strategy can prevent inclusion of a term that party later wishes to enforce. The casebook gives the dispute and asks for the result. Worked from the statute alone: the seller's expressly conditional form keeps the writings from forming a contract, so shipment and receipt form a § 2-207(3) contract whose terms are those on which the writings agree plus Code terms; arbitration appears only in the buyer's form, so it is not a term, and the seller's own conditional clause keeps out the clause it now wants.",
+      "textSha256": "25a0592978ca813fdc50c0b28708fee395fc44f4e79f955bd7403646ddef0e8d",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: problem-misplaced",
@@ -71939,8 +71969,8 @@
       "id": "contracts-r3-0281",
       "title": "develops pay now, terms later and rolling formation",
       "field": "explanation",
-      "text": "The notes report a later conclusion that Kansas adopted rolling contract formation.",
-      "textSha256": "65bc632b4669308baa41983081154fe25f9e266edb97094114aaeb6e0c32ca4f",
+      "text": "The notes quote then-Judge Gorsuch (10th Cir. 2014) concluding that Kansas is among the states that reject the rolling theory of contract formation.",
+      "textSha256": "23e630a4c41b525e83a66ef133976e3d86c28e93606668c0248d9d80e5f88885",
       "source": {
         "source": "note-howard",
         "target": "rolling-formation"

@@ -1250,7 +1250,7 @@
       {
         "id": "c",
         "label": "Who offered, and when was the deal complete?",
-        "detail": "Compare the competing approaches to a boxed computer. Under Hill, the vendor proposed the conditions and instructed the buyer how to accept. Under Klocek, the consumer offered and shipment completed the deal.",
+        "detail": "Compare the competing approaches to a boxed computer. Under Hill, the vendor proposed the conditions and instructed the buyer how to accept. Under Klocek, the court assumed on its record that the consumer offered and that Gateway accepted by completing the sale in person, agreeing to ship, or shipping.",
         "sources": [
           "rolling-formation",
           "hill-gateway",
@@ -1263,7 +1263,7 @@
             "to": "d"
           },
           {
-            "label": "Buyer’s offer accepted by shipment",
+            "label": "Buyer’s offer accepted at the sale or by shipment",
             "to": "e"
           }
         ]
@@ -1271,7 +1271,7 @@
       {
         "id": "d",
         "label": "Could the buyer reject the proposed deal?",
-        "detail": "Hill treated retention beyond the disclosed 30-day return period as assent. Check when the buyer obtained the terms and whether the invited return option was available.",
+        "detail": "Hill treated retention beyond the disclosed 30-day return period as assent. Check when the buyer obtained the terms and whether the invited return option was available. Hill left open the buyer first alerted on opening the box and deterred by return shipping cost. Under RLCC § 2(b), later terms are adopted only if, before buying, the consumer was told they would follow, could be reviewed and would be adopted unless the consumer terminated, then had a reasonable chance to review them and to terminate without unreasonable cost; the 2024 text makes the business prove this.",
         "sources": [
           "hill-gateway",
           "note-brower"
@@ -1290,7 +1290,7 @@
       {
         "id": "e",
         "label": "Did the consumer assent to the extra term?",
-        "detail": "Klocek treated in-box terms as proposals under § 2-207, including in a one-form sale. A consumer’s five days of retention did not expressly accept the arbitration addition.",
+        "detail": "Klocek treated in-box terms as proposals under § 2-207, including in a one-form sale. A consumer’s five days of retention did not expressly accept the arbitration addition. The court said a vendor could instead tell the buyer at the time of sale the complete terms or that it will propose additional terms as a condition of sale; Gateway offered no evidence that it had done either.",
         "sources": [
           "klocek",
           "additional-terms"
@@ -2421,7 +2421,7 @@
         ],
         "edges": [
           {
-            "label": "No statutory obstacle",
+            "label": "No limit or objection; materiality contested on the evidence",
             "to": "d"
           },
           {
@@ -2429,7 +2429,7 @@
             "to": "g"
           },
           {
-            "label": "Possible material alteration",
+            "label": "Arbitration, warranty or other clause that may be material per se",
             "to": "e"
           }
         ]
@@ -2460,21 +2460,26 @@
       },
       {
         "id": "d",
-        "label": "Did trade usage remove the surprise?",
-        "detail": "Bayway’s excise-tax clause was customary in the trade. On that record the resisting merchant failed to establish surprise or unavoidable hardship, so it entered the deal. Proof can differ for a payment clause or an unfamiliar forum.",
+        "label": "Did the resisting merchant prove material alteration?",
+        "detail": "The party opposing the clause bears the burden of proving material alteration (Bayway). Its own surprise is not enough: it must show that a reasonable merchant would not be presumed to consent, using evidence such as prior course of dealing, the number of confirmations exchanged, industry custom and the clause's conspicuousness. OMT offered no such evidence, which ordinarily ends the inquiry; Bayway's proof that buyers customarily pay the excise tax confirmed the result. Bayway left open whether hardship alone can suffice, and Union Carbide treats hardship as a consequence, not a criterion. A materially altering clause still enters if the other party expressly agreed to it (Comment 3).",
         "sources": [
           "bayway",
           "trade-practice-terms",
-          "material-alteration"
+          "material-alteration",
+          "note-union-carbide"
         ],
         "edges": [
           {
-            "label": "No material alteration proven",
+            "label": "Burden not carried",
             "to": "h"
           },
           {
-            "label": "Surprise or hardship proven",
+            "label": "Objective surprise proven, or hardship where the court accepts it as a ground",
             "to": "g"
+          },
+          {
+            "label": "Material, but expressly agreed to",
+            "to": "h"
           }
         ]
       },
@@ -2494,6 +2499,10 @@
           },
           {
             "label": "No material alteration and other conditions met",
+            "to": "h"
+          },
+          {
+            "label": "Material, but expressly agreed to",
             "to": "h"
           }
         ]
@@ -2522,7 +2531,7 @@
       {
         "id": "h",
         "label": "Apply the incorporated term",
-        "detail": "The new clause enters under subsection (2) when merchants are involved and no exclusion applies. Its effect still depends on scope and any independent defense.",
+        "detail": "The new clause enters under subsection (2) when merchants are involved and no exclusion applies, or when the other party expressly agreed to it. Its effect still depends on scope and any independent defense.",
         "sources": [
           "bayway",
           "additional-terms"
