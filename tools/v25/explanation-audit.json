@@ -392,7 +392,7 @@
         "Contracts"
       ],
       "takeaway": "Under federal admiralty law, the unnegotiated cruise-ticket forum clause could bind the passengers if reasonable and fundamentally fair. Lack of bargaining alone did not defeat it; the Court did not approve every ticket term or every forum clause.",
-      "takeawaySha256": "4ddc38aa8bba555d3efd4e2ecb3b3565eede195825e05e74691b7223e5ac5f24",
+      "takeawaySha256": "aedb413d99d5242d4700d0b090e846fa1c38b13f517ab727bb1ea88620b53a17",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding identifies the federal admiralty setting and reserves other terms.",
@@ -403,7 +403,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-SUP-0076-CARNIVAL",
         "sourceLocator": "tools/r19/data/sections.json :: CT-SUP-0076-CARNIVAL.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "bf1b37a8466ed92f8aa4633eb5c92d65d804e6285a2854893227036dfc9d9e6f",
+        "ruleSha256": "b231c99a57e3c3b964db745770a96f3f68eda09d578b0ed11fa05cb91facab65",
         "comparedSections": {
           "Holding": "a37a8cf0c0ce91313495eb973d5bdcb1585b7dc4c1fcdd40edff3f72ee47ac55"
         },
@@ -422,7 +422,21 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "lucy",
@@ -3158,7 +3172,7 @@
         "Contracts"
       ],
       "takeaway": "A take-it-or-leave-it contract is still enforceable, but its terms must fit the weaker party's reasonable expectations and not be oppressive. An arbitration clause that let the other side's own union judge the dispute failed that test.",
-      "takeawaySha256": "2f4759a358805b77a7bdc59474d4dd2e6627a57ec881751643cb9f1d399991d4",
+      "takeawaySha256": "87256ebed13776b882e5a9720760c462b759d439c1befd4516ede2c84b9b3d71",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -3169,7 +3183,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-NEXT-CM-0101",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0101.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "dae0677491fc9e029d6277a57be86bd0dcacf03459550527a56a5ac1a0bac8d7",
+        "ruleSha256": "a6b0b26a1cb732f4b0adb325ccc5c6759274ec0a497b6bc1772a0989b92f33b4",
         "comparedSections": {
           "Holding": "31d38f7ef589511e71ed2da04f4a2a02c9877b98ca59079316730b0a46d28530"
         },
@@ -3197,6 +3211,20 @@
           "previous": {
             "effectiveFullBriefSha256": "838c7d975d55534b8f823f33ec9032c2c57f4c6713db7e258b87765c263ceb27"
           }
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
         }
       ]
     },

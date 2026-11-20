@@ -3514,13 +3514,17 @@
           {
             "label": "Unfair formation and substance",
             "to": "e"
+          },
+          {
+            "label": "Forum clause in a passage contract under federal admiralty law",
+            "to": "j"
           }
         ]
       },
       {
         "id": "c",
         "label": "Does governing law protect reasonable expectations here?",
-        "detail": "Graham could be an adherent despite commercial sophistication. Arbitration was expected in the concert industry, but the other party’s union as decisionmaker was subject to a separate fairness challenge.",
+        "detail": "Graham could be an adherent despite commercial sophistication. Arbitration was within Graham's reasonable expectations because he had signed thousands of such forms, but the other party’s union as sole decisionmaker was subject to a separate unconscionability challenge.",
         "sources": [
           "graham",
           "adhesion"
@@ -3621,6 +3625,25 @@
           "unconscionability"
         ],
         "edges": []
+      },
+      {
+        "id": "j",
+        "label": "Apply the admiralty forum-clause standard",
+        "detail": "Carnival: a reasonable forum clause in a non-negotiated passage ticket is not unenforceable merely for lack of bargaining. Where notice is conceded it is enforced, subject to judicial scrutiny for fundamental fairness: a bad-faith choice of forum meant to discourage legitimate claims, fraud or overreaching.",
+        "sources": [
+          "carnival",
+          "adhesion"
+        ],
+        "edges": [
+          {
+            "label": "Fundamental unfairness shown",
+            "to": "g"
+          },
+          {
+            "label": "Clause reasonable and fair",
+            "to": "i"
+          }
+        ]
       }
     ]
   },
