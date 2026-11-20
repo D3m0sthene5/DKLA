@@ -4,7 +4,7 @@
   "title": "Rucho v. Common Cause",
   "course": "Legislation and the Regulatory State",
   "citation": "139 S. Ct. 2484 (2019)",
-  "revision": 1,
+  "revision": 2,
   "origin": "narrative",
   "lead": "Two maps designed to entrench opposing parties reach the Supreme Court, which divides over whether federal courts have a constitutional standard for measuring excessive partisanship.",
   "actors": [
@@ -31,7 +31,7 @@
     "The Supreme Court vacated both judgments and ordered dismissal for lack of jurisdiction."
   ],
   "limits": "The 2019 decision does not approve the maps’ fairness or bar racial-gerrymandering and population-equality claims. Election results, pending proposals, and state reforms are historical observations, not claims about subsequent events.",
-  "briefSha256": "452792e4841e06ec85ebd5af5c802b034dad052c7c80f13c6002e27a30c4bec2",
+  "briefSha256": "36db73f790b596777332382c1af1528e6cd882baa567ef22504b0533f377e8fe",
   "sources": [
     {
       "id": "brief",
@@ -45,7 +45,8 @@
     "chronology": true,
     "antecedents": true,
     "proceduralStages": true,
-    "sourceQualifications": true
+    "sourceQualifications": true,
+    "targetedCheck": "2026-11-19: checked the sequence and allocation of the dissent’s proposed burdens against the assigned excerpt p. 13 and Kagan dissent slip p. 16."
   },
   "sections": [
     {
@@ -147,7 +148,7 @@
       "title": "Kagan sees manageable proof of extreme entrenchment",
       "cue": "How did her baseline avoid demanding proportional representation?",
       "paragraphs": [
-        "Justice Kagan, joined by Ginsburg, Breyer, and Sotomayor, viewed packing and cracking as identifiable injuries to equal participation and association based on party affiliation, compounded by the danger of incumbents insulating themselves from voters. She agreed that judges should neither choose ideal seat allocations nor forbid every political influence. Her proposed framework required predominant entrenchment intent, substantial vote dilution, and no legitimate nonpartisan explanation.",
+        "Justice Kagan, joined by Ginsburg, Breyer, and Sotomayor, viewed packing and cracking as identifiable injuries to equal participation and association based on party affiliation, compounded by the danger of incumbents insulating themselves from voters. She agreed that judges should neither choose ideal seat allocations nor forbid every political influence. Under her proposed test, once the challengers proved a predominant intent to entrench the favored party and substantial vote dilution, the State had to supply a legitimate nonpartisan justification for the map.",
         "The baseline was what the state would have done with its actual geography, voter distribution, and nonpartisan priorities. It accepted urban concentration instead of correcting it. Different state criteria respected state choices and avoided judicial preferences. Kagan contrasted evenly spread Massachusetts Republicans with regionally concentrated Maryland Republicans to explain why similar statewide support need not yield similar seats without manipulation.",
         "For North Carolina, one expert generated 3,000 maps using the state’s criteria except partisan advantage and the official mapmaker’s election-data composite. Every alternative yielded at least one additional Democratic seat; 77 percent yielded three or four more. Another generated 24,518 maps under broader criteria, over 99 percent yielding at least one additional Democratic seat. Kagan used these distributions to identify an extreme departure, not to require adoption of a median plan. Maryland’s extraordinary population transfers, registration shifts, and repeated effects supplied more direct evidence.",
         "She rejected the charge of speculation: the detailed data enabling modern gerrymanders could expose them. Courts routinely assess intent and substantial effects without a universal percentage, could identify extreme cases, and could refine limits through adjudication. Proving entrenchment indirectly would itself be demanding once mapmakers ceased openly stating the goal.",
