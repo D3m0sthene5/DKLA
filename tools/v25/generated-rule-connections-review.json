@@ -233,10 +233,18 @@
     {
       "nodeId": "nanakuli",
       "briefId": "CT-CB-0585",
-      "ruleSha256": "a4c99e7281bc71bfa0ee2906bcbc95a7406034b6d2314796b2bb409d5e7cee15",
+      "ruleSha256": "d874a9729a22a748d8d8a5ed80e4bc8fe347b8b016120ad0f06318119e24a442",
       "holdingSha256": "403b56e6d3174d03b3c35f40c70215fae48ce10e59adde491e23e8ff0ab201ac",
       "locator": "tools/r19/data/sections.json :: CT-CB-0585 (effective canonical overlays)",
-      "readScope": "Complete canonical Holding and rule reread; inherited saved account, not a new complete-opinion audit."
+      "readScope": "Complete canonical Holding and rule reread; inherited saved account, not a new complete-opinion audit.",
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "ruleSha256"
+        }
+      ]
     },
     {
       "nodeId": "morris-sparrow",
