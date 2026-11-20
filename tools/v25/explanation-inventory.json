@@ -1845,6 +1845,12 @@
       "iteration": 0
     },
     {
+      "id": "silence",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
       "id": "stipulated-remedies",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
@@ -2475,6 +2481,18 @@
       "iteration": 0
     },
     {
+      "id": "acceptance-notice",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "acceptance-notice",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
       "id": "performance-preparation",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
@@ -2842,6 +2860,72 @@
     },
     {
       "id": "problem-social",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "note-carlill",
+      "field": "summary",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "note-carlill",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "note-carlill",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "note-bishop",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "contracts-class-07",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "problem-awesome",
+      "field": "summary",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "problem-yaro",
+      "field": "summary",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "mailbox",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "mailbox",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "advertisements",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "revocation",
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
@@ -6542,8 +6626,8 @@
       "id": "contracts-class-07",
       "title": "Assignment 07 · Offer and acceptance",
       "field": "notes",
-      "text": "Lefkowitz v. Great Minneapolis Surplus Store: A definite advertisement identifying the item, price, time, and first person entitled to buy could be accepted by the requested conduct; an unannounced restriction could not then be added.\n\nWucherpfennig v. Dooley: A statement of readiness to proceed, coupled with unresolved questions about the price, did not unequivocally accept the land-sale offer.\n\nInternational Filter Co. v. Conroe Gin, Ice & Light Co.: The purchaser’s order specified executive approval as sufficient acceptance. The seller’s approval created the contract without a separate notification requirement.\n\nWhite v. Corlies & Tifft: Uncommunicated preparations using materials equally suitable for other jobs did not accept an offer inviting an agreement to complete the work.",
-      "textSha256": "714bb83de1ed7552662fffef03ead7f71069b7e0e9869bfeaad3bad8924cc668",
+      "text": "Lefkowitz v. Great Minneapolis Surplus Store: A definite advertisement identifying the item, price, time, and first person entitled to buy could be accepted by the requested conduct; an unannounced restriction could not then be added.\n\nWucherpfennig v. Dooley: A statement of readiness to proceed, coupled with unresolved questions about the price, did not unequivocally accept the land-sale offer.\n\nInternational Filter Co. v. Conroe Gin, Ice & Light Co.: The purchaser’s order specified executive approval as sufficient acceptance. The seller’s approval created the contract without a separate notification requirement.\n\nWhite v. Corlies & Tifft: Uncommunicated preparations using materials equally suitable for other jobs did not accept the merchants' offer, whichever way its opening phrase “Upon an agreement” is read (C&M 224).",
+      "textSha256": "e510e524d342a54ee19103ea7ece45fc9f0fc563745c53d81a8efba2f78f16fc",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: contracts-class-07",
@@ -6681,8 +6765,8 @@
       "id": "wucherpfennig",
       "title": "Wucherpfennig v. Dooley",
       "field": "summary",
-      "text": "An acceptance must be absolute, unequivocal and unconditional and must express an intention to form the contract by that response; a reply that shows readiness to proceed but leaves a material term open is not an acceptance.",
-      "textSha256": "2c85e2af2ea4bdcc14928bdc7391dd00bcec6a5518155942fb5ebf892c8c7cd4",
+      "text": "An acceptance must be absolute, unequivocal and unconditional and must express an intention to form the contract by that response; a reply that announces readiness to proceed but asks what amount the offeror expects to receive is negotiation toward a future agreement, not acceptance.",
+      "textSha256": "e34cb0b9e7cbc05dd3172ee27187ea5534971956989239dcf4876161eb833f0b",
       "source": {
         "briefId": "CTR-028",
         "canonicalLocator": "tools/r19/data/sections.json :: CTR-028.rule (effective assembler overlays)",
@@ -6755,8 +6839,8 @@
       "id": "international-filter",
       "title": "International Filter Co. v. Conroe Gin, Ice & Light Co.",
       "field": "summary",
-      "text": "An offeror may dispense with notice of acceptance by authorizing a particular act as sufficient acceptance; the offeree then completes the contract by performing that specified act, without separately communicating it.",
-      "textSha256": "a60697ce8553d1c043574eeab780cc43fc761569c139e5f8916bf7569e90e530",
+      "text": "An offeror may dispense with notice of acceptance, and does so when the offer's terms show notice is unnecessary (compare § 56); an order stating that it 'becomes a contract when' approved by the seller's executive officer at Chicago is accepted by that approval without separate notice.",
+      "textSha256": "86b3ffb973b1832698e9734056afe94259a2146bf7d658049f49280096485be2",
       "source": {
         "briefId": "CTR-029",
         "canonicalLocator": "tools/r19/data/sections.json :: CTR-029.rule (effective assembler overlays)",
@@ -6804,8 +6888,8 @@
       "id": "white-corlies",
       "title": "White v. Corlies & Tifft",
       "field": "takeaway",
-      "text": "Deciding privately to accept an offer, and buying materials you could use for any job, does not tell the other party anything. Acceptance between people who are apart has to be an outward act sent their way.",
-      "textSha256": "1615b0885ce492d993b8a5eaa5abae9b8a0ff29b23bb3e40f12f9c0f9e9db076",
+      "text": "Deciding privately to accept an offer, and buying materials you could use for any job, does not tell the other party anything. Unless the offer dispenses with notice, acceptance between people who are apart has to be an outward act sent their way.",
+      "textSha256": "9c87048a034608559037cf99c797563986e03051cb4faec6b82823538cd87f5b",
       "source": {
         "briefId": "CTR-030",
         "canonicalLocator": "tools/r19/data/sections.json :: CTR-030.rule (effective assembler overlays)",
@@ -6829,8 +6913,8 @@
       "id": "white-corlies",
       "title": "White v. Corlies & Tifft",
       "field": "summary",
-      "text": "Acceptance of an offer made between parties who are apart requires an appropriate outward act placed in a proper course of communication to the offeror; a private intention to accept, shown only by general preparations, is not enough.",
-      "textSha256": "4c3abf192656ff72a4686f5d9eb462d7cdf8aa16576e92af742f3748dc5be293",
+      "text": "Unless the offer dispenses with notice, acceptance of an offer made between parties who are apart requires an appropriate outward act placed in a proper course of communication to the offeror; a private intention to accept, shown only by general preparations, is not enough.",
+      "textSha256": "521f8005131d8f43afa2aa64ed07f53eb3df2cb966023d423dc325660c53d97a",
       "source": {
         "briefId": "CTR-030",
         "canonicalLocator": "tools/r19/data/sections.json :: CTR-030.rule (effective assembler overlays)",
@@ -8976,8 +9060,8 @@
       "id": "advertisements",
       "title": "Advertisements, quotations, catalogs, and offers",
       "field": "notes",
-      "text": "Lefkowitz specifies an item, a price, and a first-come mechanism that leaves nothing open. The Moulton note asks how an unbounded quantity affects a quotation’s apparent commitment. The coin-allocation problem tests whether receipt or confirmation of an order is acceptance. Geismar illustrates that a consumer statute may supply relief even if ordinary offer-and-acceptance analysis supplies no contract.",
-      "textSha256": "7a06b03dd9b37ce05d43b36632dce250eb2b7eb910d665dd42165a338d6166e7",
+      "text": "The general rule treats an advertisement as an invitation by the seller to make an offer to purchase. The casebook asks how a seller bound by every acceptance could meet demand exceeding supply, and reports that French law treats such a proposal as an offer conditioned, for each offeree, on no quicker offeree having already accepted (C&M 199–200). Lefkowitz specifies an item, a price, and a first-come mechanism that leaves nothing open. The Moulton note asks how an unbounded quantity affects a quotation’s apparent commitment. The coin-allocation problem tests whether receipt or confirmation of an order is acceptance. Geismar illustrates that a consumer statute may supply relief even if ordinary offer-and-acceptance analysis supplies no contract.",
+      "textSha256": "cdf19dfe38bd2449c8121d6b7659e46135e599fa54f3f966376f21307bcf2b65",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: advertisements",
@@ -9156,8 +9240,8 @@
       "id": "acceptance-notice",
       "title": "Acceptance and notification",
       "field": "notes",
-      "text": "An offer seeking a promise ordinarily requires an appropriate communication unless it dispenses with notice. International Filter makes executive approval the accepting act without further notice, although its later letter would have sufficed. White requires a manifestation placed in a reasonable course of communication.\n\nFor performance-only offers, distinguish completing the act from notifying the offeror. Carlill dispenses with advance notice; Bishop requires notice where the offeror would not promptly learn of the act. Keep acceptance, notification, and their effective times separate.",
-      "textSha256": "659a88bdb72fb88950f5c6be991f07dd9b25bae2ec6b34b60321f18e7751e4e6",
+      "text": "An offer seeking a promise ordinarily requires an appropriate communication unless it dispenses with notice. Section 56 requires notice of an acceptance by promise 'except as stated in § 69 or where the offer manifests a contrary intention.' International Filter's order said it became a contract when approved by an executive officer at Chicago, so the approval accepted without further notice, although the later letter would have sufficed; the casebook asks how the case fits § 56 (C&M 221, 227). White requires a manifestation placed in a reasonable course of communication.\n\nFor performance-only offers, distinguish completing the act from notifying the offeror. In Carlill, performing the condition was a sufficient acceptance without notification; Bishop requires notice where the offeror would not promptly learn of the act. Keep acceptance, notification, and their effective times separate.",
+      "textSha256": "b33001d7a36ccc1486569d3494f8b5840e36d3700d74fbe5ae0cbf73650c68fa",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: acceptance-notice",
@@ -9264,8 +9348,8 @@
       "id": "silence",
       "title": "Silence, course of dealing, and unsolicited goods",
       "field": "notes",
-      "text": "An offeror ordinarily cannot impose acceptance by declaring that failure to reject counts as assent. Hobbs examines retained eel skins after similar transactions; American Bronze examines a longstanding ordering-and-production practice. These differ from unsolicited goods and from a negative-option subscription already authorized by the recipient.\n\nSilence about additional goods-contract terms can have a statutory effect distinct from accepting an offer. Under Klocek’s formation account and record, retention did not establish express agreement to the newly supplied consumer terms.",
-      "textSha256": "ba062c0877a9bb0dfb3f6385dfef086f71e2b6cefb87d4988632dd9590a6b0ca",
+      "text": "An offeror ordinarily cannot impose acceptance by declaring that failure to reject counts as assent (C&M 235); the rule protects the offeree. Restatement § 69(1) lists the only cases in which silence and inaction accept: the offeree takes offered services with a reasonable chance to reject them and reason to know pay is expected; the offeror has said silence may signify assent and the offeree, staying silent, intends to accept; or previous dealings make it reasonable for the offeree to give notice if it does not intend to accept. An offeree who acts inconsistently with the offeror's ownership of offered property is bound on the offered terms unless they are manifestly unreasonable (§ 69(2)); a recipient who merely shelves unsolicited goods incurs no liability, and statutes such as N.Y. Gen. Bus. L. § 396 treat them as a gift (C&M 236). Hobbs examines retained eel skins after similar transactions; American Bronze examines a longstanding ordering-and-production practice. These differ from unsolicited goods and from a negative-option subscription already authorized by the recipient.\n\nSilence about additional goods-contract terms can have a statutory effect distinct from accepting an offer. Under Klocek’s formation account and record, retention did not establish express agreement to the newly supplied consumer terms.",
+      "textSha256": "3a610cfcd42a0131869106d17e99188a853ac899057bbd7ba4bcde3a56eecbba",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: silence",
@@ -9464,8 +9548,8 @@
       "id": "revocation",
       "title": "Revocation: communication and public offers",
       "field": "notes",
-      "text": "Hoover’s words could communicate unwillingness without the technical word “revoke.” For public rewards, equivalent publicity can serve where personal communication to every reader is infeasible. The notes ask whether removal of a posted notice achieves that purpose and whether the underlying offer was continuing. A stated period and an enforceable promise to hold open are different inquiries; the firm-offer and option provisions address the latter.",
-      "textSha256": "e10b57281af699096ccd49604aa44066e0eacaa2ce7c6248e2a943d5b1061a98",
+      "text": "Hoover’s words could communicate unwillingness without the technical word “revoke.” For public rewards, equivalent publicity can serve where personal communication to every reader is infeasible. The notes ask whether removal of a posted notice achieves that purpose and whether the underlying offer was continuing. A stated period and an enforceable promise to hold open are different inquiries; the firm-offer and option provisions address the latter. The common law makes an ordinary offer freely revocable; a number of civil-law countries make it irrevocable for a reasonable time unless the offeror expresses a different intention, which lets the offeree speculate in the meantime (C&M 241). The common law instead gives the offeree a dependable basis through the rule that a revocation received after an acceptance has been properly dispatched comes too late (§ 63 cmt. a, C&M 262).",
+      "textSha256": "b0b1a08d53fbff27b9b235d5b2e286eeba97162d9b2f459a5b26e76f44dbf326",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: revocation",
@@ -9714,8 +9798,8 @@
       "id": "mailbox",
       "title": "Mailbox rule and overtaking communications",
       "field": "notes",
-      "text": "The book traces the rule to Adams v. Lindsell and explains the dependable basis it gives the offeree. A medium not invited by the offer can change the result. Dispatch can also end the offeree’s power to reject, producing the problem of a rejection arriving before a previously mailed acceptance. The commentary raises estoppel where the offeror relies on the earlier-arriving rejection. The opening of U.S. Life v. Wilson is assigned, but its complete reasoning on the payment mechanism is not.",
-      "textSha256": "dc665b68dd1c30e662bbf092c8903b488938370eadcdb777d9d1645c48e38f3c",
+      "text": "The book traces the rule to Adams v. Lindsell and explains the dependable basis it gives the offeree. A medium not invited by the offer can change the result: such an acceptance ordinarily takes effect only on receipt, unless § 67 treats it as operative on dispatch because it arrived when a properly sent one normally would (C&M 262). Dispatch can also end the offeree’s power to reject, producing the problem of a rejection arriving before a previously mailed acceptance. The commentary raises estoppel where the offeror relies on the earlier-arriving rejection. An acceptance under an option contract is not operative until the offeror receives it (§ 63(b)). An acceptance that arrives after the power to accept has ended does not form the contract, but it may operate as a new offer to the original offeror, whose silence accepts it only as § 69 allows (§ 70); the casebook asks whether a tardy acceptance is a counter-offer (C&M 240). The opening of U.S. Life v. Wilson is assigned, but its complete reasoning on the payment mechanism is not.",
+      "textSha256": "8ba6035c0ec429d30402211562389455f2191fe094faaa4700b8f17def1da6d6",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: mailbox",
@@ -12167,8 +12251,8 @@
       "id": "note-carlill",
       "title": "Carlill v. Carbolic Smoke Ball Co.",
       "field": "summary",
-      "text": "The reward advertisement invited performance without advance notification of acceptance.",
-      "textSha256": "ef502e9ceeeb810a0fbba6cf7bb17a54a3d98ef83e61dbf8cc006d99471d9264",
+      "text": "The reward advertisement invited performance; performing the condition was a sufficient acceptance without notification.",
+      "textSha256": "f0ee32cacf432dc4f62e7921f5ef2042a00082cff2d60475632ad6bff321d3ea",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: note-carlill",
@@ -12188,8 +12272,8 @@
       "id": "note-carlill",
       "title": "Carlill v. Carbolic Smoke Ball Co.",
       "field": "notes",
-      "text": "The company promised £100 after specified use if illness followed and pointed to a £1,000 bank deposit as evidence of seriousness. Carlill used the product, became ill, and recovered. The court inferred from the transaction that notice in advance was dispensed with. The notes distinguish the requested use from illness as a condition of the obligation to pay.",
-      "textSha256": "982e8728b209326d5a990cb79cfb4b05676aa1bd154857a7d25d38f1cca4079d",
+      "text": "The company promised £100 after specified use if illness followed and pointed to a £1,000 bank deposit as evidence of seriousness. After using the smoke ball as directed, Carlill caught influenza and was awarded £100. Bowen, L.J., inferred from the transaction that the offeree need not notify acceptance before performing and that, once the condition is performed, notification is dispensed with: performance itself is a sufficient acceptance. The notes distinguish the requested use from illness as a condition of the obligation to pay.",
+      "textSha256": "178ee3614a8d7bd091c1a65e7c1e0d3cccba522ed486cb146dd1c605d8b5ce30",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: note-carlill",
@@ -12230,8 +12314,8 @@
       "id": "note-bishop",
       "title": "Bishop v. Eaton — notice from afar",
       "field": "notes",
-      "text": "Eaton, in Nova Scotia, promised to stand behind help to his brother in Illinois. Bishop provided a guarantee, ultimately paid, and sought recovery. The court concluded both that notice was called for in the circumstances and that it had been given. Contrast Carlill’s inferred waiver of advance notice.",
-      "textSha256": "74880495c54b243795222b58608633d969d26bd2bf87e92b7af98579b1cec0e1",
+      "text": "Eaton, in Nova Scotia, promised to stand behind help to his brother in Illinois. Bishop provided a guarantee, ultimately paid, and sought recovery. The court concluded both that notice was called for in the circumstances and that it had been given. Contrast Carlill, where performing the condition was itself a sufficient acceptance without notification.",
+      "textSha256": "e5c417347c6cf75ab1328db424fc0d788fc3c3d8eb6f073bcad211a88c5f4915",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: note-bishop",
@@ -14409,8 +14493,8 @@
       "id": "problem-awesome",
       "title": "“Awesome” — electronic assent and quantity",
       "field": "summary",
-      "text": "An electronic exchange concerning leads moves from an expected daily quantity to much higher quantities and an asserted absence of a limit.",
-      "textSha256": "ebe8ebe4e234f9528a90baf4e0013b2d85a226f71a749263ed64686ddbff2dd1",
+      "text": "An instant-message exchange is offered to show that a referral contract paying $45 a lead, subject to a limit of 200 leads a day, was modified to remove the limit; the question is which message was the offer and whether “awesome!” accepted it.",
+      "textSha256": "b43a2175e4d663320a5c7e5d713e745d0b1ee8c583ae0b8b25d09ec710c9ad1d",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: problem-awesome",
@@ -14577,8 +14661,8 @@
       "id": "problem-yaro",
       "title": "A settlement countdown — Yaro",
       "field": "summary",
-      "text": "A settlement offer with a short time limit is followed by a recess and an attempted acceptance after additional proceedings.",
-      "textSha256": "78f90569cde3f210d571f489e00d486faf087c475fda8f346c72cd5cc7888cfb",
+      "text": "During a ten-minute trial recess, defense counsel offers a settlement and says “You've got to get back to me” while looking at the clock; the claimant's acceptance comes seventy minutes later, after closing arguments.",
+      "textSha256": "921d0aebb8eeeee4b41e73837b03f2d14d94a14ab8455da8c727463e3203e4fb",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: problem-yaro",
@@ -103268,8 +103352,8 @@
       "id": "acceptance",
       "title": "Offer and acceptance: communicating agreement",
       "field": "now",
-      "text": "Assent depends on outward words and conduct in context. An offer invites commitment; acceptance makes that commitment in an allowed manner. Goods offers generally permit any reasonable method unless the offer clearly indicates otherwise. Whether performance needs separate notice depends on the offer and whether the offeror would learn of it.",
-      "textSha256": "8d530d6074d169a1f140f351eec9e57dae82aa0537e1a518af656edeb5692a68",
+      "text": "Assent depends on outward words and conduct in context. An offer invites commitment; acceptance makes that commitment in an allowed manner. Unless the language or circumstances indicate otherwise, an offer invites acceptance in any manner and by any medium reasonable in the circumstances (Restatement § 30(2)); for goods, UCC § 2-206(1) requires the contrary indication to be unambiguous. Whether performance needs separate notice depends on the offer and whether the offeror would learn of it.",
+      "textSha256": "3a450a393923043bf4cc7a1afa8b7612394440133068790c9790f37d1e20e7c9",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json"
       },
@@ -103280,8 +103364,8 @@
       "id": "acceptance:1",
       "title": "Offer and acceptance: communicating agreement",
       "field": "note",
-      "text": "Acceptance needs an outward act put in the course of communication to the offeror; private preparations to perform are not enough (New York).",
-      "textSha256": "adcee82a16b3d6bb438e8708ff04b26aa227290b579f3b7960aede20dac1b73c",
+      "text": "Unless the offer dispenses with notice, acceptance needs an outward act put in the course of communication to the offeror; private preparations to perform are not enough (New York).",
+      "textSha256": "a158f5b704ad29fc550721d1ae520fb51b920d5ba9223b0401ddb2d32eecf0fd",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "acceptance",
@@ -103308,8 +103392,8 @@
       "id": "acceptance:3",
       "title": "Offer and acceptance: communicating agreement",
       "field": "note",
-      "text": "The offeror controls the manner: an order that makes home-office approval the acceptance needs no separate notice of that approval (Texas).",
-      "textSha256": "a7dbdc8986f741a047303ff76b111e83b7c84fc042fd51138d25337ce62bb0eb",
+      "text": "The offeror controls the manner: an order stating that it 'becomes a contract when' approved at the home office was accepted by that approval, because its terms dispensed with separate notice (Texas). The casebook asks how this fits § 56, which otherwise requires notice of an acceptance by promise.",
+      "textSha256": "acc84bbc76dbc8f0ccb743b7eba526fce6c5f0267b70041edced36ab245574cf",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "acceptance",
@@ -103322,8 +103406,8 @@
       "id": "acceptance:4",
       "title": "Offer and acceptance: communicating agreement",
       "field": "note",
-      "text": "Unless the offer clearly says otherwise, acceptance may be made in any reasonable manner, including a prompt promise to ship or prompt shipment.",
-      "textSha256": "5f531f4a913e2d697825934aaaad3d1d657536c6672c63acb411d7b45309d268",
+      "text": "Unless the language or circumstances unambiguously indicate otherwise, acceptance may be made in any reasonable manner, including, for an order for prompt or current shipment, a prompt promise to ship or prompt shipment.",
+      "textSha256": "fb537df4303dd805368585d4aa7e3a5238fd576c9be57199c1389971b98861b8",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "acceptance",

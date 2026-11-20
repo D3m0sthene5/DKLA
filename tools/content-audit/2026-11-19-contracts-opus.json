@@ -11609,6 +11609,1164 @@
       ],
       "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
       "packet": "OP-CT-06"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/11/nodes/2/edges",
+      "old": [
+        {
+          "label": "Only ordinary dispatch/receipt events",
+          "to": "g"
+        },
+        {
+          "label": "Rejection sent before acceptance",
+          "to": "e"
+        },
+        {
+          "label": "Acceptance sent first but rejection arrives first",
+          "to": "f"
+        }
+      ],
+      "new": [
+        {
+          "label": "Invited medium; only ordinary dispatch and receipt events",
+          "to": "g"
+        },
+        {
+          "label": "Rejection sent before acceptance",
+          "to": "e"
+        },
+        {
+          "label": "Acceptance sent first but rejection arrives first",
+          "to": "f"
+        },
+        {
+          "label": "Acceptance sent by a medium or manner the offer did not invite",
+          "to": "j"
+        }
+      ],
+      "reason": "C&M 262: § 63 applies only to an acceptance 'made in a manner and by a medium invited by [the] offer'; it 'would not, therefore, ordinarily apply to acceptance by mail of an offer made by telegram, and such an acceptance would be effective only on receipt.' § 67 treats a seasonable one as operative on dispatch if it arrives in normal time. Node c asked the medium question but every edge assumed an invited medium, so a mailed acceptance overtaken by a telegraphed revocation reached 'Agreement'.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            262
+          ],
+          "pdfPages": [
+            307
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) §§ 30(2), 40, 42, 63, 65, 67"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/11/nodes/1/detail",
+      "old": "Check stated or reasonable lapse, death or incapacity, rejection, counteroffer, and receipt of direct or reliable indirect revocation. A conversation may expire on ending and an old reward may lapse even without a stated date.",
+      "new": "Check stated or reasonable lapse, death or incapacity, rejection, counteroffer, and receipt of direct or reliable indirect revocation. A conversation may expire on ending and an old reward may lapse even without a stated date. For an offer made by newspaper advertisement or other general notification to the public, a notice of termination given publicity equal to the offer's ends the power of acceptance even for a reader who missed it, if no better means of notice is reasonably available (§ 46; C&M 241).",
+      "reason": "C&M 241: for offers 'addressed to the general public', the offeror who gives a notice of revocation publicity equal to the offer is not 'bound by the acceptance of an offeree who missed the notice of revocation, in spite of the requirement that a revocation be communicated' (§ 46). Node b tested only 'receipt', so a Lefkowitz reader who missed an equally prominent withdrawal reached 'Agreement'.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            241,
+            242
+          ],
+          "pdfPages": [
+            286,
+            287
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 46"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/13/nodes/1/label",
+      "old": "Was a clear commitment communicated?",
+      "new": "Did the response commit to the offered terms in the invited way?",
+      "reason": "Wucherpfennig turned on the letter's words, 'ready to proceed' with a request for the amount Elizabeth expected, which were 'hardly the words of an unequivocal, unconditional acceptance' (C&M 216); the offer fixed the price at $200 an acre (C&M 215). § 61: an acceptance requesting a change 'is not thereby invalidated unless the acceptance is made to depend on an assent to the changed or added terms.' § 56 excuses notice of a promise 'where the offer manifests a contrary intention'. The node's 'price and valuation requests' and 'communicated' sent an unconditional acceptance with a question, and International Filter entered as an offer seeking a promise (C&M 221 Note 4), to 'Acceptance not established'.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            215,
+            216,
+            219,
+            220,
+            221
+          ],
+          "pdfPages": [
+            260,
+            261,
+            264,
+            265,
+            266
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) §§ 59, 61"
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) §§ 56, 60"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/13/nodes/1/detail",
+      "old": "Read the response as a whole. In Wucherpfennig stated readiness and financing accompanied unsettled price and valuation requests, so the exchange remained negotiation.",
+      "new": "Read the response as a whole. In Wucherpfennig the letter reported financing and readiness to proceed but asked what amount Elizabeth expected to receive, so the court read it as negotiation toward a future agreement, not an unequivocal acceptance. A reply that accepts unequivocally while asking a question or requesting a change still accepts unless it is made to depend on assent to the change (§ 61); a reply so conditioned is a counteroffer (§ 59). An acceptance by promise must be communicated unless the offer manifests a contrary intention (§ 56): International Filter's order made the Chicago officer's approval enough without separate notice.",
+      "reason": "Wucherpfennig turned on the letter's words, 'ready to proceed' with a request for the amount Elizabeth expected, which were 'hardly the words of an unequivocal, unconditional acceptance' (C&M 216); the offer fixed the price at $200 an acre (C&M 215). § 61: an acceptance requesting a change 'is not thereby invalidated unless the acceptance is made to depend on an assent to the changed or added terms.' § 56 excuses notice of a promise 'where the offer manifests a contrary intention'. The node's 'price and valuation requests' and 'communicated' sent an unconditional acceptance with a question, and International Filter entered as an offer seeking a promise (C&M 221 Note 4), to 'Acceptance not established'.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            215,
+            216,
+            219,
+            220,
+            221
+          ],
+          "pdfPages": [
+            260,
+            261,
+            264,
+            265,
+            266
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) §§ 59, 61"
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) §§ 56, 60"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/13/nodes/5/label",
+      "old": "Did the offer dispense with separate notice?",
+      "new": "Is notice of acceptance required, and was it given or excused?",
+      "reason": "International Filter: the offeror dispenses with notification 'if the form of th[e offer] ... shows that this was not to be required', found in the order's terms that it 'becomes a contract when' approved at Chicago (C&M 219–220); the editors ask how that fits § 56 (C&M 221 Note 4, 227). Carlill: 'performance of the condition is a sufficient acceptance without notification' (C&M 228), not a waiver of advance notice only. § 54(2): missing notice discharges the offeror's duty; it does not undo the acceptance (slides 7, 13). The node sent every lack of notice to 'Acceptance not established', so an offeror who learned of the performance in time escaped.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            219,
+            220,
+            221,
+            227,
+            228,
+            229
+          ],
+          "pdfPages": [
+            264,
+            265,
+            266,
+            272,
+            273,
+            274
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 54(1)–(2); UCC § 2-206(2)"
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) §§ 56, 60"
+        },
+        {
+          "file": "added-sources/Class 7_Offer and Acceptance - Copy (2).pptx",
+          "slides": [
+            7,
+            11,
+            13,
+            15
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/13/nodes/5/detail",
+      "old": "The Chicago officer’s O.K. was the prescribed act in International Filter. Carlill invited completed performance without advance notice. Where the offeror may not promptly learn of performance, test whether reasonable notice is required.",
+      "new": "An acceptance by promise must be communicated unless the offer manifests a contrary intention (§ 56). International Filter's order said it 'becomes a contract when' approved by an executive officer at the Chicago office, so the officer's O.K. accepted without separate notice (C&M 219–220); the casebook asks how that result fits the notice rule (C&M 221, 227), and the court found the answer in the offer's own terms. For an offer inviting performance, the performance is the acceptance and needs no notification unless the offer requests it (§ 54(1)); in Carlill, performing the condition was a sufficient acceptance without notification (C&M 228). If the offeree has reason to know the offeror cannot learn of the performance promptly and with certainty, the offeror's duty is discharged unless the offeree uses reasonable diligence to notify, the offeror learns of it within a reasonable time, or the offer says notice is not required (§ 54(2); Bishop v. Eaton, C&M 229).",
+      "reason": "International Filter: the offeror dispenses with notification 'if the form of th[e offer] ... shows that this was not to be required', found in the order's terms that it 'becomes a contract when' approved at Chicago (C&M 219–220); the editors ask how that fits § 56 (C&M 221 Note 4, 227). Carlill: 'performance of the condition is a sufficient acceptance without notification' (C&M 228), not a waiver of advance notice only. § 54(2): missing notice discharges the offeror's duty; it does not undo the acceptance (slides 7, 13). The node sent every lack of notice to 'Acceptance not established', so an offeror who learned of the performance in time escaped.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            219,
+            220,
+            221,
+            227,
+            228,
+            229
+          ],
+          "pdfPages": [
+            264,
+            265,
+            266,
+            272,
+            273,
+            274
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 54(1)–(2); UCC § 2-206(2)"
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) §§ 56, 60"
+        },
+        {
+          "file": "added-sources/Class 7_Offer and Acceptance - Copy (2).pptx",
+          "slides": [
+            7,
+            11,
+            13,
+            15
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/13/nodes/5/edges",
+      "old": [
+        {
+          "label": "Notice sufficient, excused or unnecessary",
+          "to": "g"
+        },
+        {
+          "label": "Required notice lacking",
+          "to": "h"
+        }
+      ],
+      "new": [
+        {
+          "label": "Notice sufficient, excused or unnecessary",
+          "to": "g"
+        },
+        {
+          "label": "Acceptance by promise not communicated as required",
+          "to": "h"
+        },
+        {
+          "label": "Performance accepted, but § 54(2) notice lacking and the offeror did not learn of it in time",
+          "to": "i"
+        }
+      ],
+      "reason": "International Filter: the offeror dispenses with notification 'if the form of th[e offer] ... shows that this was not to be required', found in the order's terms that it 'becomes a contract when' approved at Chicago (C&M 219–220); the editors ask how that fits § 56 (C&M 221 Note 4, 227). Carlill: 'performance of the condition is a sufficient acceptance without notification' (C&M 228), not a waiver of advance notice only. § 54(2): missing notice discharges the offeror's duty; it does not undo the acceptance (slides 7, 13). The node sent every lack of notice to 'Acceptance not established', so an offeror who learned of the performance in time escaped.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            219,
+            220,
+            221,
+            227,
+            228,
+            229
+          ],
+          "pdfPages": [
+            264,
+            265,
+            266,
+            272,
+            273,
+            274
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 54(1)–(2); UCC § 2-206(2)"
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) §§ 56, 60"
+        },
+        {
+          "file": "added-sources/Class 7_Offer and Acceptance - Copy (2).pptx",
+          "slides": [
+            7,
+            11,
+            13,
+            15
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/13/nodes/4/detail",
+      "old": "Eel-skin shipments repeatedly accepted in Hobbs and the settled order-and-production practice in American Bronze made conduct and silence probative. Unsolicited goods ordinarily do not impose acceptance by inaction.",
+      "new": "Eel-skin shipments repeatedly accepted in Hobbs and the settled order-and-production practice in American Bronze made conduct and silence probative. Unsolicited goods ordinarily do not impose acceptance by inaction. Silence accepts only in the cases § 69(1) lists: the offeree takes offered services with a reasonable chance to reject them and reason to know they were offered for pay; the offeror has said silence may signify assent and the offeree, staying silent, intends to accept; or previous dealings make it reasonable for the offeree to give notice of non-acceptance. An offeror cannot use such a statement to hold an offeree who merely fails to reject (C&M 235). An offeree who acts inconsistently with the offeror's ownership of offered property is bound on the offered terms unless they are manifestly unreasonable (§ 69(2)), though statutes can make unsolicited goods a gift (C&M 236).",
+      "reason": "§ 69(1) lists the cases in which silence accepts ('in the following cases only'), including (b) an offeror's statement that silence may signify assent where the offeree, silent, intends to accept; § 69(2) binds an offeree who uses offered property. The casebook rule that an offeror who appends 'Unless I hear from you' cannot hold an offeree who fails to reject protects the offeree (C&M 235); a recipient who shelves unsolicited goods incurs no liability, and N.Y. Gen. Bus. L. § 396 makes them a gift (C&M 236).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            235,
+            236
+          ],
+          "pdfPages": [
+            280,
+            281
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 69(1)–(2)"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/flowcharts/data/contracts.json",
+      "pointer": "/10/nodes/2/detail",
+      "old": "Lefkowitz specified item, price, time and first customer, so the shop could not add an unstated rule after tender. A fanciful display or ordinary broad promotion may communicate no corresponding commitment.",
+      "new": "Lefkowitz specified item, price, time and first customer, so the shop could not add an unstated rule after tender. A fanciful display or ordinary broad promotion may communicate no corresponding commitment. Leonard's commercial was not an offer because it reserved the details to a separate catalog, did not say what a potential offeree had to do to accept, and lacked limiting words such as 'first come, first served' (C&M 203). Ask also what the addressee knew: the casebook asks whether Lefkowitz, told on his first visit that the store sold these bargains only to women, could still recover under the second advertisement (C&M 203; § 24).",
+      "reason": "Teaching gaps: Leonard: the commercial 'specifically reserved the details of the offer to a separate writing, the Catalog', made no mention of the steps a potential offeree had to take, and lacked 'words of limitation such as \"first come, first served\"' (C&M 203). Note 1 asks whether, given the house rule he was told of on the first visit, Lefkowitz could recover under the second advertisement (C&M 203). The node named neither.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            202,
+            203
+          ],
+          "pdfPages": [
+            247,
+            248
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 24"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-029",
+      "field": "rule",
+      "old": "An offeror may dispense with notice of acceptance by authorizing a particular act as sufficient acceptance; the offeree then completes the contract by performing that specified act, without separately communicating it.",
+      "new": "An offeror may dispense with notice of acceptance, and does so when the offer's terms show notice is unnecessary (compare § 56); an order stating that it 'becomes a contract when' approved by the seller's executive officer at Chicago is accepted by that approval without separate notice.",
+      "reason": "The court held the offeror may dispense with notification and 'does dispense with it \"if the form of th[e offer] ... shows that this was not to be required\"'; it found that showing in the order's terms that it 'becomes a contract when' approved by an executive officer at Chicago (C&M 219–220). The editors treat the result as needing reconciliation with § 56's notice rule for acceptance by promise (C&M 221 Note 4, 227). Stated as 'authorizing a particular act', the rule let an approval clause with no dispensing terms bind the buyer without notice.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            219,
+            220,
+            221,
+            227
+          ],
+          "pdfPages": [
+            264,
+            265,
+            266,
+            272
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) §§ 56, 60"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/v28/case-chronologies.json",
+      "pointer": "/0/steps/87/note",
+      "old": "An offeror may dispense with notice of acceptance by authorizing a particular act as sufficient acceptance; the offeree then completes the contract by performing that specified act, without separately communicating it.",
+      "new": "An offeror may dispense with notice of acceptance, and does so when the offer's terms show notice is unnecessary (compare § 56); an order stating that it 'becomes a contract when' approved by the seller's executive officer at Chicago is accepted by that approval without separate notice.",
+      "reason": "The court held the offeror may dispense with notification and 'does dispense with it \"if the form of th[e offer] ... shows that this was not to be required\"'; it found that showing in the order's terms that it 'becomes a contract when' approved by an executive officer at Chicago (C&M 219–220). The editors treat the result as needing reconciliation with § 56's notice rule for acceptance by promise (C&M 221 Note 4, 227). Stated as 'authorizing a particular act', the rule let an approval clause with no dispensing terms bind the buyer without notice.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            219,
+            220,
+            221,
+            227
+          ],
+          "pdfPages": [
+            264,
+            265,
+            266,
+            272
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) §§ 56, 60"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-029",
+      "field": "Reasoning",
+      "old": "the offeror may dispense with it by authorizing a particular act as sufficient acceptance.",
+      "new": "the offeror may dispense with it, and does so if the form of the offer shows that notice was not to be required; this offer stated a particular act, approval by the executive officer at Chicago, as sufficient acceptance.",
+      "reason": "The court held the offeror may dispense with notification and 'does dispense with it \"if the form of th[e offer] ... shows that this was not to be required\"'; it found that showing in the order's terms that it 'becomes a contract when' approved by an executive officer at Chicago (C&M 219–220). The editors treat the result as needing reconciliation with § 56's notice rule for acceptance by promise (C&M 221 Note 4, 227). Stated as 'authorizing a particular act', the rule let an approval clause with no dispensing terms bind the buyer without notice.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            219,
+            220,
+            221,
+            227
+          ],
+          "pdfPages": [
+            264,
+            265,
+            266,
+            272
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) §§ 56, 60"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/cold-call/narratives/international-filter.json",
+      "pointer": "/sections/4/paragraphs/2",
+      "old": "Nor did waiving notice make an entirely unexpressed intention enough. Engel had made the observable written endorsement that the offer selected. The distinction matters when comparing White, where a builder’s general preparations did not express acceptance of the proposed job: the offer and circumstances must make the offeree’s actual conduct sufficient assent.",
+      "new": "Nor did waiving notice make an entirely unexpressed intention enough. Engel had made the written endorsement that the offer selected. The distinction matters when comparing White, where a builder’s general preparations did not express acceptance of the proposed job: the offer and circumstances must make the offeree’s actual conduct sufficient assent.",
+      "reason": "The opinion does not mention White; the casebook asks whether International Filter can be reconciled with the notice rule White states (C&M 227). Engel's O.K. was written in Chicago and Conroe Gin could not observe it, which is why notice was argued (C&M 218–220).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            218,
+            219,
+            220
+          ],
+          "pdfPages": [
+            263,
+            264,
+            265
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "acceptance",
+      "stepKey": "international-filter",
+      "field": "note",
+      "old": "The offeror controls the manner: an order that makes home-office approval the acceptance needs no separate notice of that approval (Texas).",
+      "new": "The offeror controls the manner: an order stating that it 'becomes a contract when' approved at the home office was accepted by that approval, because its terms dispensed with separate notice (Texas). The casebook asks how this fits § 56, which otherwise requires notice of an acceptance by promise.",
+      "reason": "The court held the offeror may dispense with notification and 'does dispense with it \"if the form of th[e offer] ... shows that this was not to be required\"'; it found that showing in the order's terms that it 'becomes a contract when' approved by an executive officer at Chicago (C&M 219–220). The editors treat the result as needing reconciliation with § 56's notice rule for acceptance by promise (C&M 221 Note 4, 227). Stated as 'authorizing a particular act', the rule let an approval clause with no dispensing terms bind the buyer without notice.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            219,
+            220,
+            221,
+            227
+          ],
+          "pdfPages": [
+            264,
+            265,
+            266,
+            272
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) §§ 56, 60"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-030",
+      "field": "rule",
+      "old": "Acceptance of an offer made between parties who are apart requires",
+      "new": "Unless the offer dispenses with notice, acceptance of an offer made between parties who are apart requires",
+      "reason": "The casebook introduces White's rule for an offer proposing a 'bilateral' contract and adds that notice is 'less obvious' when the offer invites performance (C&M 227–228); Carlill's performance and International Filter's Chicago O.K. were never sent to the offeror yet accepted because the offer dispensed with notice (C&M 219–220, 228; §§ 54(1), 56).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            223,
+            224,
+            227,
+            228,
+            219,
+            220
+          ],
+          "pdfPages": [
+            268,
+            269,
+            272,
+            273,
+            264,
+            265
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) §§ 54(1), 56"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/v28/case-chronologies.json",
+      "pointer": "/0/steps/23/note",
+      "old": "Acceptance of an offer made between parties who are apart requires an appropriate outward act placed in a proper course of communication to the offeror; a private intention to accept, shown only by general preparations, is not enough.",
+      "new": "Unless the offer dispenses with notice, acceptance of an offer made between parties who are apart requires an appropriate outward act placed in a proper course of communication to the offeror; a private intention to accept, shown only by general preparations, is not enough.",
+      "reason": "The casebook introduces White's rule for an offer proposing a 'bilateral' contract and adds that notice is 'less obvious' when the offer invites performance (C&M 227–228); Carlill's performance and International Filter's Chicago O.K. were never sent to the offeror yet accepted because the offer dispensed with notice (C&M 219–220, 228; §§ 54(1), 56).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            223,
+            224,
+            227,
+            228,
+            219,
+            220
+          ],
+          "pdfPages": [
+            268,
+            269,
+            272,
+            273,
+            264,
+            265
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) §§ 54(1), 56"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "acceptance",
+      "stepKey": "white-corlies",
+      "field": "note",
+      "old": "Acceptance needs an outward act put in the course of communication to the offeror; private preparations to perform are not enough (New York).",
+      "new": "Unless the offer dispenses with notice, acceptance needs an outward act put in the course of communication to the offeror; private preparations to perform are not enough (New York).",
+      "reason": "The casebook introduces White's rule for an offer proposing a 'bilateral' contract and adds that notice is 'less obvious' when the offer invites performance (C&M 227–228); Carlill's performance and International Filter's Chicago O.K. were never sent to the offeror yet accepted because the offer dispensed with notice (C&M 219–220, 228; §§ 54(1), 56).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            223,
+            224,
+            227,
+            228,
+            219,
+            220
+          ],
+          "pdfPages": [
+            268,
+            269,
+            272,
+            273,
+            264,
+            265
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) §§ 54(1), 56"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "target": "takeaway",
+      "id": "white-corlies",
+      "old": "Deciding privately to accept an offer, and buying materials you could use for any job, does not tell the other party anything. Acceptance between people who are apart has to be an outward act sent their way.",
+      "new": "Deciding privately to accept an offer, and buying materials you could use for any job, does not tell the other party anything. Unless the offer dispenses with notice, acceptance between people who are apart has to be an outward act sent their way.",
+      "reason": "The casebook introduces White's rule for an offer proposing a 'bilateral' contract and adds that notice is 'less obvious' when the offer invites performance (C&M 227–228); Carlill's performance and International Filter's Chicago O.K. were never sent to the offeror yet accepted because the offer dispensed with notice (C&M 219–220, 228; §§ 54(1), 56).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            223,
+            224,
+            227,
+            228,
+            219,
+            220
+          ],
+          "pdfPages": [
+            268,
+            269,
+            272,
+            273,
+            264,
+            265
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) §§ 54(1), 56"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-030",
+      "field": "Procedural History",
+      "old": "did not have to return to the merchants and state that he had begun,",
+      "new": "did not have to go to the merchants to give notice of assent before commencing the work,",
+      "reason": "The charge asked whether it was White's 'duty to go down to [Dey St.] (meaning to give notice of assent), before commencing the work' (C&M 223): notice of assent before starting, not a report afterwards that he had begun, which would be the § 54 question the court did not address.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            223
+          ],
+          "pdfPages": [
+            268
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/cold-call/narratives/white-corlies.json",
+      "pointer": "/sections/2/paragraphs/0",
+      "old": "The trial judge instructed that White did not need to return to the merchants and say he had begun; he could act on their note and commence the job. The merchants excepted to that instruction. The jury found for White, and the General Term of the First Judicial District affirmed.",
+      "new": "The trial judge instructed that White did not need to go to the merchants to give notice of assent before commencing the work; he could act on their note and commence the job. The merchants excepted to that instruction. The jury found for White, and the General Term of the First Judicial District affirmed.",
+      "reason": "The charge asked whether it was White's 'duty to go down to [Dey St.] (meaning to give notice of assent), before commencing the work' (C&M 223): notice of assent before starting, not a report afterwards that he had begun, which would be the § 54 question the court did not address.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            223
+          ],
+          "pdfPages": [
+            268
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-030",
+      "field": "Reasoning",
+      "old": "apparently meant the September 29 note.",
+      "new": "apparently meant the September 29 note. The casebook also asks whether White's estimate could itself have been an offer ('Might \"I estimate ...\" constitute an offer just as well as \"we quote you Mason fruit jars\"?'); if so, the question would be whether the September 29 note, which added a two-week completion term the estimate lacked, accepted it or proposed new terms (C&M 223–224).",
+      "reason": "Teaching gap: C&M 224 Note 1's first question, whether White's estimate was an offer, had no home; the estimate named no completion time (C&M 223 n.).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            223,
+            224
+          ],
+          "pdfPages": [
+            268,
+            269
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-027",
+      "field": "Reasoning",
+      "old": ", and Lefkowitz's prior awareness of the asserted women-only rule did not insert that restriction into the second published advertisement.",
+      "new": ". The court affirmed despite Lefkowitz's knowledge, from the first visit, of the asserted women-only rule, without separately discussing it; the casebook asks whether that knowledge should change the result (C&M 203).",
+      "reason": "The opinion disposes of the house rule only by saying 'The advertisement contained no such restriction' and that conditions cannot be imposed after acceptance (C&M 202); it does not discuss the store's point that on the second visit 'plaintiff knew defendant's house rule' (C&M 201). Note 1 asks whether, considering that fact, the reader agrees that Lefkowitz could recover under the second advertisement (C&M 203).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            201,
+            202,
+            203
+          ],
+          "pdfPages": [
+            246,
+            247,
+            248
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/cold-call/narratives/lefkowitz.json",
+      "pointer": "/sections/3/paragraphs/3",
+      "old": "Lefkowitz’s knowledge that the store previously asserted the women-only rule did not persuade the court to add it to the second published offer. The sequence of advertisement, compliance, and attempted restriction resolved the contract claim.",
+      "new": "The court affirmed despite Lefkowitz’s knowledge that the store had asserted the women-only rule on his first visit, without separately discussing that knowledge; the casebook asks whether it should matter. The sequence of advertisement, compliance, and attempted restriction resolved the contract claim.",
+      "reason": "The opinion disposes of the house rule only by saying 'The advertisement contained no such restriction' and that conditions cannot be imposed after acceptance (C&M 202); it does not discuss the store's point that on the second visit 'plaintiff knew defendant's house rule' (C&M 201). Note 1 asks whether, considering that fact, the reader agrees that Lefkowitz could recover under the second advertisement (C&M 203).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            201,
+            202,
+            203
+          ],
+          "pdfPages": [
+            246,
+            247,
+            248
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-027",
+      "field": "Reasoning",
+      "old": "though the court did not rest its holding on that point.",
+      "new": "though the opinion does not discuss that concern, which the casebook raises (C&M 200).",
+      "reason": "The over-demand objection is the editors': 'what would be a store's position if the demand for its advertised wares exceeded its supply?' (C&M 200). The opinion rests on Williston's 'performance was promised in positive terms' test and the 'clear, definite, and explicit' standard and does not discuss stock (C&M 202).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            200,
+            202
+          ],
+          "pdfPages": [
+            245,
+            247
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-027",
+      "field": "Reasoning",
+      "old": "less the dollar he would have paid.",
+      "new": "less the dollar he would have paid. The casebook asks what aspect of an offer the first advertisement lacked (C&M 203); the opinion itself rests the coat ruling only on the speculative and uncertain value of coats 'Worth to $100.00' (C&M 201).",
+      "reason": "Teaching gap: C&M 203 Note 1 asks 'What aspect of an offer was missing from the store's first ad?'; the opinion disallowed the coat claim because 'the value of these articles was speculative and uncertain' (C&M 201).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            201,
+            203
+          ],
+          "pdfPages": [
+            246,
+            248
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-028",
+      "field": "rule",
+      "old": "a reply that shows readiness to proceed but leaves a material term open is not an acceptance.",
+      "new": "a reply that announces readiness to proceed but asks what amount the offeror expects to receive is negotiation toward a future agreement, not acceptance.",
+      "reason": "The offer fixed '$200 an acre, provided it is a cash deal & handled promptly' (C&M 215); the court read the request for the amount Elizabeth expected as 'negotiations with a view toward reaching an agreement in the future' (C&M 216). 'Leaves a material term open' invites treating any request for a computed total as non-acceptance, contrary to § 61.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            215,
+            216
+          ],
+          "pdfPages": [
+            260,
+            261
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) §§ 59, 61"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/v28/case-chronologies.json",
+      "pointer": "/0/steps/309/note",
+      "old": "An acceptance must be absolute, unequivocal and unconditional and must express an intention to form the contract by that response; a reply that shows readiness to proceed but leaves a material term open is not an acceptance.",
+      "new": "An acceptance must be absolute, unequivocal and unconditional and must express an intention to form the contract by that response; a reply that announces readiness to proceed but asks what amount the offeror expects to receive is negotiation toward a future agreement, not acceptance.",
+      "reason": "The offer fixed '$200 an acre, provided it is a cash deal & handled promptly' (C&M 215); the court read the request for the amount Elizabeth expected as 'negotiations with a view toward reaching an agreement in the future' (C&M 216). 'Leaves a material term open' invites treating any request for a computed total as non-acceptance, contrary to § 61.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            215,
+            216
+          ],
+          "pdfPages": [
+            260,
+            261
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) §§ 59, 61"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/cold-call/narratives/international-filter.json",
+      "pointer": "/sections/4/paragraphs/1",
+      "old": "The letter thanked Conroe Gin for the specific order, described the planned shipment, and requested a sample necessary to perform. A reasonable recipient would understand that International Filter had approved the order. The court further observed that reliance on such a letter might prevent the company from later denying approval. That observation was hypothetical; the reported facts did not establish actual reliance by Conroe Gin.",
+      "new": "The letter thanked Conroe Gin for the specific order, described the planned shipment, and requested a sample necessary to perform. A reasonable recipient would understand that International Filter had approved the order. The court further observed that if Conroe Gin had changed its position in reliance on the letter as notice of approval, International Filter would plainly have been estopped to deny the letter's sufficiency. That observation was hypothetical; the reported facts did not establish actual reliance by Conroe Gin.",
+      "reason": "C&M 220: if Conroe Gin 'had acted to change its position upon it as a notification of that fact, it must be plain that the filter company would have been estopped to deny its sufficiency.' The estoppel concerns the letter's sufficiency as notice, and the court stated it as plain.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            220
+          ],
+          "pdfPages": [
+            265
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/international-filter/6/sentence",
+      "old": "The court further observed that reliance on such a letter might prevent the company from later denying approval.",
+      "new": "The court further observed that if Conroe Gin had changed its position in reliance on the letter as notice of approval, International Filter would plainly have been estopped to deny the letter's sufficiency.",
+      "reason": "C&M 220: if Conroe Gin 'had acted to change its position upon it as a notification of that fact, it must be plain that the filter company would have been estopped to deny its sufficiency.' The estoppel concerns the letter's sufficiency as notice, and the court stated it as plain.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            220
+          ],
+          "pdfPages": [
+            265
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/cold-call/plain-sentences.json",
+      "pointer": "/sentences/international-filter/6/plain",
+      "old": "If the buyer had acted on the letter, the company might be barred from later saying it never approved; but this was only a side comment.",
+      "new": "If the buyer had changed its position by relying on the letter as notice, the company would plainly have been “estopped” (barred) from denying that the letter was enough notice; the buyer had not done so, so this was a side comment.",
+      "reason": "C&M 220: if Conroe Gin 'had acted to change its position upon it as a notification of that fact, it must be plain that the filter company would have been estopped to deny its sufficiency.' The estoppel concerns the letter's sufficiency as notice, and the court stated it as plain.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            220
+          ],
+          "pdfPages": [
+            265
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-029",
+      "field": "Reasoning",
+      "old": "would understand it to communicate approval.",
+      "new": "would understand it to communicate approval. The casebook links home-office approval clauses to the risk that traveling salespeople will write changes on the seller's standard form: such a clause limits their authority to make contracts (C&M 221, Note 3).",
+      "reason": "Teaching gap: C&M 221 Note 3 asks what the risk of salespersons' written changes suggests 'about the purpose behind home-office approval clauses' and says such a clause 'enables parties to limit the authority of certain employees' to make contracts.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            221
+          ],
+          "pdfPages": [
+            266
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "acceptance",
+      "stepKey": null,
+      "field": "now",
+      "old": "Assent depends on outward words and conduct in context. An offer invites commitment; acceptance makes that commitment in an allowed manner. Goods offers generally permit any reasonable method unless the offer clearly indicates otherwise. Whether performance needs separate notice depends on the offer and whether the offeror would learn of it.",
+      "new": "Assent depends on outward words and conduct in context. An offer invites commitment; acceptance makes that commitment in an allowed manner. Unless the language or circumstances indicate otherwise, an offer invites acceptance in any manner and by any medium reasonable in the circumstances (Restatement § 30(2)); for goods, UCC § 2-206(1) requires the contrary indication to be unambiguous. Whether performance needs separate notice depends on the offer and whether the offeror would learn of it.",
+      "reason": "§ 30(2) states the any-reasonable-manner default for every offer, 'Unless otherwise indicated by the language or the circumstances'; § 2-206(1) adds for goods 'Unless otherwise unambiguously indicated by the language or circumstances'. The 2026-11-17 text limited the default to goods offers and to what the offer 'says'.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            229
+          ],
+          "pdfPages": [
+            274
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 30(2); UCC § 2-206(1)"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "acceptance",
+      "stepKey": "ucc206",
+      "field": "note",
+      "old": "Unless the offer clearly says otherwise, acceptance may be made in any reasonable manner, including a prompt promise to ship or prompt shipment.",
+      "new": "Unless the language or circumstances unambiguously indicate otherwise, acceptance may be made in any reasonable manner, including, for an order for prompt or current shipment, a prompt promise to ship or prompt shipment.",
+      "reason": "§ 30(2) states the any-reasonable-manner default for every offer, 'Unless otherwise indicated by the language or the circumstances'; § 2-206(1) adds for goods 'Unless otherwise unambiguously indicated by the language or circumstances'. The 2026-11-17 text limited the default to goods offers and to what the offer 'says'.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            229
+          ],
+          "pdfPages": [
+            274
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) § 30(2); UCC § 2-206(1)"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/canons/data/lectures.json",
+      "pointer": "/28/topics/2/body",
+      "old": "An acceptance is a manifestation of assent to the offer's terms; the offeror is “master of the offer” and may define what qualifies. Acceptance must be on the same terms and unconditional, may be by promise or by performance, and silence ordinarily is not acceptance. It is effective on dispatch by reasonable means (except for options), and notification of acceptance by promise is ordinarily required.",
+      "new": "An acceptance is a manifestation of assent to the offer's terms; the offeror is “master of the offer” and may define what qualifies. Acceptance must be on the same terms and unconditional, may be by promise or by performance, and silence ordinarily is not acceptance. It is effective on dispatch by reasonable means (except for options), and notification of acceptance by promise is ordinarily required. Legal qualification: under Restatement § 63, an acceptance takes effect on dispatch only if it is made in a manner and by a medium the offer invites and the offer does not provide otherwise; an acceptance by an uninvited medium ordinarily takes effect only on receipt (C&M 262; § 67), one under an option only on receipt (§ 63(b)), and rejections and revocations take effect on receipt (§§ 40, 42). Silence accepts only in the cases § 69 lists; a reply that accepts while merely requesting a change still accepts unless it is made to depend on the change (§ 61); and notice of an acceptance by promise is not needed where the offer manifests a contrary intention (§ 56).",
+      "reason": "Slide 6 is recorded accurately, but its shorthand drops the conditions of the dispatch rule (§ 63 and C&M 262), the § 69 limits on silence, § 61, and § 56's exception.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/Class 7_Offer and Acceptance - Copy (2).pptx",
+          "slides": [
+            6
+          ]
+        },
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            235,
+            262
+          ],
+          "pdfPages": [
+            280,
+            307
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) §§ 40, 42, 56, 61, 63, 67, 69"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/canons/data/lectures.json",
+      "pointer": "/28/topics/4/body",
+      "old": "The power of acceptance ends by lapse (after a reasonable time if the offer sets no period), revocation, rejection or counter-offer, or the offeror's death or supervening incapacity. The slide notes that the last three may not terminate the power to accept an irrevocable offer.",
+      "new": "The power of acceptance ends by lapse (after a reasonable time if the offer sets no period), revocation, rejection or counter-offer, or the offeror's death or supervening incapacity. The slide notes that the last three may not terminate the power to accept an irrevocable offer. Legal qualification: Restatement § 48 also ends the power when the offeree dies or loses capacity, and under § 37 rejection, counter-offer, revocation and the offeror's death or incapacity do not end the power under an option contract unless the requirements for discharging a contractual duty are met.",
+      "reason": "Slide 8 lists only the offeror's death; § 48 covers offeror or offeree, and § 37 states the option rule the slide's 'may not terminate' summarizes.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/Class 7_Offer and Acceptance - Copy (2).pptx",
+          "slides": [
+            8
+          ]
+        },
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            238,
+            261
+          ],
+          "pdfPages": [
+            283,
+            306
+          ]
+        },
+        {
+          "file": "added-sources/Contracts- Selections.pdf",
+          "provision": "Restatement (Second) §§ 37, 48"
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/canons/data/lectures.json",
+      "pointer": "/28/topics/7/body",
+      "old": "The proposal became “a contract when accepted by the purchaser and approved by an executive officer of the International Filter company” and was “submitted for prompt acceptance”. The slide asks who the offeror was, what constituted acceptance and why that form, whether notification was required and provided, and whether the letter alone would qualify as acceptance.",
+      "new": "The proposal became “a contract when accepted by the purchaser and approved by an executive officer of the International Filter company” and was “submitted for prompt acceptance”. The slide asks who the offeror was, what constituted acceptance and why that form, whether notification was required and provided, and whether the letter alone would qualify as acceptance. Legal qualification: the clause required approval by an executive officer of International Filter at its office in Chicago, words the slide's quotation omits; the court held that the contract formed there on approval, and that requiring notice at Conroe would change both the place and the time of formation (C&M 218–220).",
+      "reason": "Slide 11's ellipsis drops 'at its office in Chicago', which the court treated as decisive: reading in notice 'would change both the locus and time' of the meeting of minds (C&M 220).",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/Class 7_Offer and Acceptance - Copy (2).pptx",
+          "slides": [
+            11
+          ]
+        },
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            218,
+            219,
+            220
+          ],
+          "pdfPages": [
+            263,
+            264,
+            265
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
+    },
+    {
+      "file": "tools/canons/data/lectures.json",
+      "pointer": "/28/topics/8/body",
+      "old": "The slide lists the sequence (specifications, estimate, changed specifications, signed revised estimate, note, beginning of performance, countermand) and quotes the note: “Upon an agreement to finish the fitting up of offices 57 Broadway in two weeks from date, you can begin at once.” It asks what the offer was, what sort of acceptance was sought, and whether the offeror dispensed with notification.",
+      "new": "The slide lists the sequence (specifications, estimate, changed specifications, signed revised estimate, note, beginning of performance, countermand) and quotes the note: “Upon an agreement to finish the fitting up of offices 57 Broadway in two weeks from date, you can begin at once.” It asks what the offer was, what sort of acceptance was sought, and whether the offeror dispensed with notification. Legal qualification: the slide's “revised estimate (signed)” is shorthand; the merchants changed their specifications and White signed his assent to them under his original estimate, and the court found no agreement before the September 29 note, which it treated as the offer (C&M 222–223). The casebook spells the defendants' name Tifft.",
+      "reason": "C&M 222: the defendants 'made a change in their specifications, and sent a copy ... to the plaintiff for his assent under his estimate, which he assented to by signing the same'; C&M 223 found no agreement before the note. The slide spells the name 'Tift'.",
+      "sources": [],
+      "pinpoints": [
+        {
+          "file": "added-sources/Class 7_Offer and Acceptance - Copy (2).pptx",
+          "slides": [
+            12
+          ]
+        },
+        {
+          "file": "added-sources/C&M Textbook 1-350.pdf",
+          "printedPages": [
+            222,
+            223
+          ],
+          "pdfPages": [
+            267,
+            268
+          ]
+        }
+      ],
+      "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+      "packet": "OP-CT-07"
     }
   ]
 }

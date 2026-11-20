@@ -1453,7 +1453,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CTR-028",
         "sourceLocator": "tools/r19/data/sections.json :: CTR-028.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "2c85e2af2ea4bdcc14928bdc7391dd00bcec6a5518155942fb5ebf892c8c7cd4",
+        "ruleSha256": "e34cb0b9e7cbc05dd3172ee27187ea5534971956989239dcf4876161eb833f0b",
         "comparedSections": {
           "Holding": "26c53a3f5b502c65c1b92f6b7161bcbf21906abbe7d489e9552bf9eb763be1c9"
         },
@@ -1496,6 +1496,14 @@
             "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
           }
         }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
       ]
     },
     {
@@ -1516,7 +1524,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CTR-029",
         "sourceLocator": "tools/r19/data/sections.json :: CTR-029.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "a60697ce8553d1c043574eeab780cc43fc761569c139e5f8916bf7569e90e530",
+        "ruleSha256": "86b3ffb973b1832698e9734056afe94259a2146bf7d658049f49280096485be2",
         "comparedSections": {
           "Holding": "fbf536bb335b137ca606e0d10bb44e5b1a7bc2f5840dbbd16f9aea329445e729"
         },
@@ -1535,7 +1543,15 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "white-corlies",
@@ -1544,7 +1560,7 @@
         "Contracts"
       ],
       "takeaway": "Deciding privately to accept an offer, and buying materials you could use for any job, does not tell the other party anything. Acceptance between people who are apart has to be an outward act sent their way.",
-      "takeawaySha256": "1615b0885ce492d993b8a5eaa5abae9b8a0ff29b23bb3e40f12f9c0f9e9db076",
+      "takeawaySha256": "9c87048a034608559037cf99c797563986e03051cb4faec6b82823538cd87f5b",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -1555,7 +1571,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CTR-030",
         "sourceLocator": "tools/r19/data/sections.json :: CTR-030.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "4c3abf192656ff72a4686f5d9eb462d7cdf8aa16576e92af742f3748dc5be293",
+        "ruleSha256": "521f8005131d8f43afa2aa64ed07f53eb3df2cb966023d423dc325660c53d97a",
         "comparedSections": {
           "Holding": "5d524067392e8cc9f3790a257881ae5314f4102f1ae80833e6ce65e12fde4115"
         },
@@ -1574,7 +1590,21 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "dorton",

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "reviewedAt": "2026-11-17",
   "dataPath": "tools/r19/data/timelines.json",
-  "timelinesSha256": "0cfdc744f455284b693a677143ebcf910c01d331cf4f7d0c4f47fbcd2792987a",
+  "timelinesSha256": "0016b2652812e0a7fe91224f517ed99f3d8fc68a78c42b90a0fc06ad9aad2d4f",
   "baselineGitRevision": "347d2e9759a7b5429f24825c521a967ce2b14eb9",
   "scope": "All timeline memberships and navigation were inventoried against the canonical cases and original assigned-source locations. New lines and selected corrections were compared with original casebook passages and case-specific accounts. Prior complete-opinion limitations remain; this does not certify every proposition or all current law. November 17: all 685 timeline steps screened editorially; targeted primary-source corrections are recorded separately. This is not a complete primary-source audit of every step or brief.",
   "limitations": [
@@ -5183,7 +5183,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CTR-030.md",
         "sourceLocator": "tools/r19/data/sections.json :: CTR-030.rule (effective assembler overlays included)",
         "comparedRule": "Acceptance of an offer made between parties who are apart requires an appropriate outward act placed in a proper course of communication to the offeror; a private intention to accept, shown only by general preparations, is not enough.",
-        "comparedRuleSha256": "4c3abf192656ff72a4686f5d9eb462d7cdf8aa16576e92af742f3748dc5be293",
+        "comparedRuleSha256": "521f8005131d8f43afa2aa64ed07f53eb3df2cb966023d423dc325660c53d97a",
         "effectiveFullBriefSha256": "531bf34e8e0acac6ccf0b1be92923508178260010992a5d95c94e89c6cb920cb",
         "inheritedCitation": "46 N.Y. 467 (N.Y. 1871), Folger, J., decided November 20, 1871 | Contracts",
         "inheritedBriefPdfLocator": {
@@ -5220,6 +5220,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -5305,7 +5313,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CTR-029.md",
         "sourceLocator": "tools/r19/data/sections.json :: CTR-029.rule (effective assembler overlays included)",
         "comparedRule": "An offeror may dispense with notice of acceptance by authorizing a particular act as sufficient acceptance; the offeree then completes the contract by performing that specified act, without separately communicating it.",
-        "comparedRuleSha256": "a60697ce8553d1c043574eeab780cc43fc761569c139e5f8916bf7569e90e530",
+        "comparedRuleSha256": "86b3ffb973b1832698e9734056afe94259a2146bf7d658049f49280096485be2",
         "effectiveFullBriefSha256": "f5687960bac9b74346c8a56848e4ab94a48410f9f9b630cbd0a0a301b587978d",
         "inheritedCitation": "277 S.W. 631 (Tex. Comm’n App. 1925), judgment adopted by the Supreme Court of Texas, December 10, 1925 | Contracts",
         "inheritedBriefPdfLocator": {
@@ -5342,6 +5350,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -5540,7 +5556,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CTR-028.md",
         "sourceLocator": "tools/r19/data/sections.json :: CTR-028.rule (effective assembler overlays included)",
         "comparedRule": "An acceptance must be absolute, unequivocal and unconditional and must express an intention to form the contract by that response; a reply that shows readiness to proceed but leaves a material term open is not an acceptance.",
-        "comparedRuleSha256": "2c85e2af2ea4bdcc14928bdc7391dd00bcec6a5518155942fb5ebf892c8c7cd4",
+        "comparedRuleSha256": "e34cb0b9e7cbc05dd3172ee27187ea5534971956989239dcf4876161eb833f0b",
         "effectiveFullBriefSha256": "09155dfab591062ff3619bb9b2c6499567a7e820b84b4d809dd3be2fae15f4e7",
         "inheritedCitation": "351 N.W.2d 443 (1984). Supreme Court of North Dakota. Sand, J. Decided July 11, 1984. The North Dakota Supreme Court held that Donald Wucherpfennig failed to accept Elizabeth Dooley's offer to sell her interest in inherited farmland before she revoked it. The response sent through the estate's attorney expressed readiness to proceed and sought further information, but it did not communicate a definite present commitment to buy on the offered terms. The court affirmed dismissal of Donald's claim for specific performance, the remedy that would have required Elizabeth to convey her interest. Donald was the plaintiff and appellant; Elizabeth, his sister, was the defendant and appellee. Their sister Louise Grettum and persons claiming interests in the land were also named defendants, although the disputed sale concerned Elizabeth's share. 351 N.W.2d at 443-45.",
         "inheritedBriefPdfLocator": {
@@ -5578,6 +5594,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -47391,6 +47415,11 @@
     "originalSourceRegistry": "tools/v28/source-links.json"
   },
   "timelinesRereviews": [
+    {
+      "date": "2026-11-19",
+      "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+      "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review."
+    },
     {
       "date": "2026-11-19",
       "register": "tools/content-audit/2026-11-19-contracts-opus.json",
