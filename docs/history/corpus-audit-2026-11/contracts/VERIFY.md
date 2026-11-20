@@ -9,6 +9,7 @@ Playwright's Chromium build 1243 standing in for the expected 1248, which the wo
 | `e282ac9b` | OP-CT-11 and OP-CT-12 corrections | 72 of 76: the four review records below failed, as designed, because the text they pinned had changed |
 | `05fa132a` | the four records re-pinned | 76 of 76 passed |
 | `4f5c9c47` | OP-CT-13 corrections and their re-pinned records | 76 of 76 passed |
+| `96ebee23` | OP-CT-14 corrections and their re-pinned records | 76 of 76 passed |
 
 The four records pin hashes of text that earlier passes reviewed: `tools/v25/timeline-audit.json`
 (the timeline file and the compared rule lines of five steps), `tools/v25/explanation-audit.json`
