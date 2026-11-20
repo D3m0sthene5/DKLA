@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "reviewedAt": "2026-11-17",
   "dataPath": "tools/r19/data/timelines.json",
-  "timelinesSha256": "09f1bf2abc69e163b4fd6aa1842c51dd711da977975232ffc84519b344db2eaa",
+  "timelinesSha256": "c656ee9a4ce1323caf55ca1f1b903ff3636ae65359cf2289cbe1c01066d675ad",
   "baselineGitRevision": "347d2e9759a7b5429f24825c521a967ce2b14eb9",
   "scope": "All timeline memberships and navigation were inventoried against the canonical cases and original assigned-source locations. New lines and selected corrections were compared with original casebook passages and case-specific accounts. Prior complete-opinion limitations remain; this does not certify every proposition or all current law. November 17: all 685 timeline steps screened editorially; targeted primary-source corrections are recorded separately. This is not a complete primary-source audit of every step or brief.",
   "limitations": [
@@ -7045,7 +7045,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CTR-035.md",
         "sourceLocator": "tools/r19/data/sections.json :: CTR-035.rule (effective assembler overlays included)",
         "comparedRule": "Parties to an existing contract may, in a single transaction, voluntarily rescind the old arrangement in whole or in part and substitute a fair new one, so an owner's voluntary surrender of his right to the original price is effective.",
-        "comparedRuleSha256": "169f2997a2098a00bea59c36614e80136c211599fcf826007451601c06e32e9b",
+        "comparedRuleSha256": "ffb61e2e6d16e9295d7c801d287d30cce0bf881186d01bc2f6c19a95e1e3a279",
         "effectiveFullBriefSha256": "0815f2421fa9e2d87648779a7ed9b32f8a827df082ee275f67ba1a575360a28f",
         "inheritedCitation": "Robert G. Watkins & Son, Inc. v. James A. Carrig, 91 N.H. 459, 21 A.2d 591 (1941), decided July 15, 1941. Supreme Court of New Hampshire; Chief Justice Allen wrote the opinion. Assigned excerpt: C&M pp. 477–480. This brief uses that excerpt and the full judicial opinion. The case enforces a voluntary adjustment of an existing excavation contract even though the contractor was already obligated to remove the rock.",
         "inheritedBriefPdfLocator": {
@@ -7076,6 +7076,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -7148,7 +7156,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CTR-036.md",
         "sourceLocator": "tools/r19/data/sections.json :: CTR-036.rule (effective assembler overlays included)",
         "comparedRule": "A contract modification is voidable for economic duress when a party threatens to withhold goods owed under a contract, and the threatened party cannot obtain them from another source in time and an ordinary action for breach would be inadequate.",
-        "comparedRuleSha256": "0fa533eaafca003cd73dbe572d21e21b3a48d9637d76d6792e503022587e3f96",
+        "comparedRuleSha256": "12acfe9dc5c85bac4bc76b51cfb17c1e719f892fdab96d4168fa823185b99ba6",
         "effectiveFullBriefSha256": "0b27e95c9ac09ea17e817e2bf6f1ffb06bdd32b85e029fea3e46a4650fe27238",
         "inheritedCitation": "Austin Instrument, Inc. v. Loral Corp., 29 N.Y.2d 124, 272 N.E.2d 533, 324 N.Y.S.2d 22 (1971), argued May 12 and decided July 6, 1971. Court of Appeals of New York. Chief Judge Fuld wrote for a four-judge majority; Judge Bergan dissented with two judges. Assigned excerpt: C&M pp. 487–492. The official full opinion supplies the precise disposition and complete separate opinion. The case concerns recovery of coerced price increases.",
         "inheritedBriefPdfLocator": {
@@ -7188,6 +7196,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -8742,7 +8758,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CTR-037.md",
         "sourceLocator": "tools/r19/data/sections.json :: CTR-037.rule (effective assembler overlays included)",
         "comparedRule": "In an arm's-length sale of real estate, a seller's bare nondisclosure of a known hidden defect creates no liability absent a false statement, half-truth, active concealment, or a relationship imposing a duty to speak.",
-        "comparedRuleSha256": "99eff071676f539ec5d08db1da11b057a72ad010a50d3eea346acb1ce306ebd6",
+        "comparedRuleSha256": "1657937daf2759a99100ce674168f546b7f9466cf160e09b1c2d12569487f38c",
         "effectiveFullBriefSha256": "5ad7969141f73937ec8a92f3dac36a561e0fb171687df7d721ef3caacdb794f1",
         "inheritedCitation": "Swinton v. Whitinsville Savings Bank, 311 Mass. 677, 42 N.E.2d 808 (1942). Massachusetts Supreme Judicial Court; Justice Qua. Assigned excerpt: CB 510-511; notes, 511-512. Swinton was the purchaser and tort plaintiff. The bank was the seller and defendant.",
         "inheritedBriefPdfLocator": {
@@ -8774,6 +8790,14 @@
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
         }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
+        }
       ]
     },
     {
@@ -8803,7 +8827,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CTR-040.md",
         "sourceLocator": "tools/r19/data/sections.json :: CTR-040.rule (effective assembler overlays included)",
         "comparedRule": "Statements framed as opinions may be actionable misrepresentations where the speaker has superior knowledge, a relationship of trust exists, the parties are unequally able to evaluate the subject, or a device makes the opinion misleading.",
-        "comparedRuleSha256": "a574166396145e3fd43e813b8bec91553febada90e2f053d19f7525e47cb206e",
+        "comparedRuleSha256": "d81ce71c40cda51ebd677aac3595bb4928371e9330249837e9067ad61bd4d76b",
         "effectiveFullBriefSha256": "4d015842287421ea6f23b4303f732d54150252c4163994f924e9acc13d17ee81",
         "inheritedCitation": "Vokes v. Arthur Murray, Inc.",
         "inheritedBriefPdfLocator": {
@@ -8833,6 +8857,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -38068,7 +38100,7 @@
         "briefId": "CTR-036",
         "savedBriefPath": "tools/r19/data/briefs/CTR-036.md",
         "comparedRule": "A contract modification is voidable for economic duress when a party threatens to withhold goods owed under a contract, and the threatened party cannot obtain them from another source in time and an ordinary action for breach would be inadequate.",
-        "comparedRuleSha256": "0fa533eaafca003cd73dbe572d21e21b3a48d9637d76d6792e503022587e3f96",
+        "comparedRuleSha256": "12acfe9dc5c85bac4bc76b51cfb17c1e719f892fdab96d4168fa823185b99ba6",
         "effectiveFullBriefSha256": "0b27e95c9ac09ea17e817e2bf6f1ffb06bdd32b85e029fea3e46a4650fe27238",
         "sourceLocator": {
           "path": "added-sources/C&M Textbook 351-700.pdf",
@@ -38107,6 +38139,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -47045,5 +47085,12 @@
     "allMapCasesHaveDoctrinalMembership": true,
     "courseChronologies": "tools/v28/case-chronologies.json",
     "originalSourceRegistry": "tools/v28/source-links.json"
-  }
+  },
+  "timelinesRereviews": [
+    {
+      "date": "2026-11-19",
+      "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+      "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review."
+    }
+  ]
 }

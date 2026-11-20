@@ -2437,6 +2437,12 @@
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
+    },
+    {
+      "id": "swinton",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
     }
   ],
   "records": [
@@ -16734,8 +16740,8 @@
       "id": "watkins",
       "title": "Watkins & Son v. Carrig",
       "field": "takeaway",
-      "text": "The parties to a contract can tear up the old price and agree a fairer new one in a single conversation. An owner who voluntarily agreed to pay more when the digging hit rock was held to the new rate.",
-      "textSha256": "0d0186d2ee007610725bdb1521ee61d6096779590f81c9f59f85a49307548a02",
+      "text": "Under New Hampshire law, the parties to a contract could give up the old price and agree a fair new one in a single transaction when unexpected difficulties made performance burdensome. An owner who voluntarily agreed to pay a fair special rate when the digging unexpectedly hit solid rock was held to the new rate.",
+      "textSha256": "c00a5c820846b44b6e36cd9b1db8013d84f993aeb2e33ef53d7d8fa796e29261",
       "source": {
         "briefId": "CTR-035",
         "canonicalLocator": "tools/r19/data/sections.json :: CTR-035.rule (effective assembler overlays)",
@@ -16755,8 +16761,8 @@
       "id": "watkins",
       "title": "Watkins & Son v. Carrig",
       "field": "summary",
-      "text": "Parties to an existing contract may, in a single transaction, voluntarily rescind the old arrangement in whole or in part and substitute a fair new one, so an owner's voluntary surrender of his right to the original price is effective.",
-      "textSha256": "169f2997a2098a00bea59c36614e80136c211599fcf826007451601c06e32e9b",
+      "text": "Under New Hampshire law, when later-learned facts make performance unexpectedly burdensome, parties may, in a single transaction, voluntarily rescind the old arrangement in whole or in part and substitute a fair new one, so an owner's voluntary surrender of his right to the original price is effective.",
+      "textSha256": "ffb61e2e6d16e9295d7c801d287d30cce0bf881186d01bc2f6c19a95e1e3a279",
       "source": {
         "briefId": "CTR-035",
         "canonicalLocator": "tools/r19/data/sections.json :: CTR-035.rule (effective assembler overlays)",
@@ -16796,8 +16802,8 @@
       "id": "austin",
       "title": "Austin Instrument, Inc. v. Loral Corporation",
       "field": "summary",
-      "text": "A contract modification is voidable for economic duress when a party threatens to withhold goods owed under a contract, and the threatened party cannot obtain them from another source in time and an ordinary action for breach would be inadequate.",
-      "textSha256": "0fa533eaafca003cd73dbe572d21e21b3a48d9637d76d6792e503022587e3f96",
+      "text": "A contract modification is voidable for economic duress when a wrongful threat precluding free will, such as withholding owed goods unless a further demand is met, forces agreement, the threatened party cannot obtain the goods elsewhere in time, and an ordinary action for breach would be inadequate.",
+      "textSha256": "12acfe9dc5c85bac4bc76b51cfb17c1e719f892fdab96d4168fa823185b99ba6",
       "source": {
         "briefId": "CTR-036",
         "canonicalLocator": "tools/r19/data/sections.json :: CTR-036.rule (effective assembler overlays)",
@@ -16837,8 +16843,8 @@
       "id": "swinton",
       "title": "Swinton v. Whitinsville Savings Bank",
       "field": "takeaway",
-      "text": "Under the Massachusetts rule applied in 1942, merely staying silent about termites did not support this tort claim. There had to be a misleading statement, concealment, or duty to disclose. Other jurisdictions and later statutes may require disclosure. This decision is not a universal current rule allowing sellers to hide home defects.",
-      "textSha256": "16806e790154ae942d1a1aff7e766089869afd4c0547e308a5604aeb81ddcd06",
+      "text": "Under the Massachusetts rule applied in 1942, merely staying silent about termites did not support this tort claim. There had to be a misleading statement, active concealment that prevented the buyer from learning the facts, or a duty to disclose. Other jurisdictions and later statutes may require disclosure. This decision is not a universal current rule allowing sellers to hide home defects.",
+      "textSha256": "9758b2d87fe0532ef6a2b60542877a6ea8569c6e55a0cefc1cf311aa5b60b54e",
       "source": {
         "briefId": "CTR-037",
         "canonicalLocator": "tools/r19/data/sections.json :: CTR-037.rule (effective assembler overlays)",
@@ -16858,8 +16864,8 @@
       "id": "swinton",
       "title": "Swinton v. Whitinsville Savings Bank",
       "field": "summary",
-      "text": "In an arm's-length sale of real estate, a seller's bare nondisclosure of a known hidden defect creates no liability absent a false statement, half-truth, active concealment, or a relationship imposing a duty to speak.",
-      "textSha256": "99eff071676f539ec5d08db1da11b057a72ad010a50d3eea346acb1ce306ebd6",
+      "text": "Under Swinton's 1942 Massachusetts rule, a seller's bare nondisclosure of a known hidden defect in an arm's-length real-estate sale did not support a tort action absent a false statement, half-truth, conduct preventing discovery, a fiduciary relation or one of confidence or dependence, or another peculiar duty to speak.",
+      "textSha256": "1657937daf2759a99100ce674168f546b7f9466cf160e09b1c2d12569487f38c",
       "source": {
         "briefId": "CTR-037",
         "canonicalLocator": "tools/r19/data/sections.json :: CTR-037.rule (effective assembler overlays)",
@@ -16879,8 +16885,8 @@
       "id": "swinton",
       "title": "Swinton v. Whitinsville Savings Bank",
       "field": "notes",
-      "text": "The sale took place on September 12, 1938 and the infestation was discovered on August 30, 1940; the decision (311 Mass. 677, 42 N.E.2d 808) is the standard statement of caveat emptor: absent a false statement, a fiduciary relationship or a special duty to speak, a seller's silence about a known, non-obvious defect in an arm's-length sale is not actionable.",
-      "textSha256": "0fe0316f969818bc6767d37d5ad7c2299e666b80434391341e6e488132f661c5",
+      "text": "The declaration alleged a sale on or about September 12, 1938 and discovery of the infestation about August 30, 1940. The decision (311 Mass. 677, 42 N.E.2d 808) states the Massachusetts rule of 1942: absent a false statement, a half-truth, conduct preventing the buyer from acquiring information, a fiduciary relation or one of confidence or dependence, or another peculiar duty to speak, a seller's bare silence about a known, non-obvious defect in an arm's-length sale did not support the buyer's tort action. Other courts and statutes require disclosure.",
+      "textSha256": "6dcf4f98b9e1220748fec4709c913c563dd319279a2f5a4741ff0ca005568f45",
       "source": {
         "briefId": "CTR-037",
         "canonicalLocator": "tools/r19/data/sections.json :: CTR-037.rule (effective assembler overlays)",
@@ -16940,8 +16946,8 @@
       "id": "speakers-sport",
       "title": "Speakers of Sport v. ProServ",
       "field": "takeaway",
-      "text": "Telling an athlete you will get him millions in endorsements is sales talk, not a promise, when third parties decide whether to sign him. Competing for a client who can leave at any time is allowed unless you use fraud or other unlawful means.",
-      "textSha256": "1483a233ee822fb66a7f6d17a6130ac14be18c80c11e318e6666001f5a4682fc",
+      "text": "Telling an athlete you will get him millions in endorsements was sales talk: a reasonable athlete would hear hope that the agent would try, not a guarantee, though a party can bind itself to a result others control. Competing for a client who can leave at any time is allowed unless you use fraud or other unlawful means.",
+      "textSha256": "c08271ee5c8423c88dc22218e6e108345c8763f98d50c3eb3c3a0818e526f597",
       "source": {
         "briefId": "CTR-039",
         "canonicalLocator": "tools/r19/data/sections.json :: CTR-039.rule (effective assembler overlays)",
@@ -17002,8 +17008,8 @@
       "id": "vokes",
       "title": "Vokes v. Arthur Murray, Inc.",
       "field": "summary",
-      "text": "Statements framed as opinions may be actionable misrepresentations where the speaker has superior knowledge, a relationship of trust exists, the parties are unequally able to evaluate the subject, or a device makes the opinion misleading.",
-      "textSha256": "a574166396145e3fd43e813b8bec91553febada90e2f053d19f7525e47cb206e",
+      "text": "Statements framed as opinions may be actionable misrepresentations where the speaker has superior knowledge, a fiduciary or other relationship of trust exists, the parties do not deal at arm's length, the parties are unequally able to evaluate the subject, or a device makes the opinion misleading.",
+      "textSha256": "d81ce71c40cda51ebd677aac3595bb4928371e9330249837e9067ad61bd4d76b",
       "source": {
         "briefId": "CTR-040",
         "canonicalLocator": "tools/r19/data/sections.json :: CTR-040.rule (effective assembler overlays)",
@@ -103362,8 +103368,8 @@
       "id": "modification",
       "title": "Changing a contract: consideration and pressure",
       "field": "now",
-      "text": "A services modification may encounter the pre-existing-duty rule. Model UCC § 2-209 removes consideration as a requirement for a goods modification, while good faith still matters. New York’s signed-writing statute and the Restatement’s fair-modification approach offer distinct routes. None makes coercion irrelevant.",
-      "textSha256": "87ed771537b6ae195f022d9ceb52d3145bd520864d95921fd1aff86eba475214",
+      "text": "A services modification may encounter the pre-existing-duty rule. Model UCC § 2-209 removes consideration as a requirement for a goods modification, but the modification must meet the Code’s test of good faith. New York’s statute for a writing signed by the party against whom the change is enforced and the Restatement’s fair-modification approach offer distinct routes. None makes coercion irrelevant.",
+      "textSha256": "7153cbc80437efb02aef31c76491779839420f65cbc85ace1ebbb4cf57ca758e",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json"
       },
@@ -103388,8 +103394,8 @@
       "id": "modification:2",
       "title": "Changing a contract: consideration and pressure",
       "field": "note",
-      "text": "New York: a signed written agreement to modify or discharge a contract does not fail for lack of consideration.",
-      "textSha256": "bcab45b6c66ea0e14529139ab2138a0a21a609bbf3c914cd6734ee1d9478ed74",
+      "text": "New York: a written agreement to modify or discharge a contract, signed by the party against whom it is to be enforced or by that party's agent, does not fail for lack of consideration.",
+      "textSha256": "907c599e30830fe8f8e5b0a5afdc4ec6585c359f03c8c7638ec2cd876036f6ad",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "modification",
@@ -103402,8 +103408,8 @@
       "id": "modification:3",
       "title": "Changing a contract: consideration and pressure",
       "field": "note",
-      "text": "Parties may rescind and replace a deal in one transaction; an owner who freely gives up the old price after unforeseen rock is bound (New Hampshire).",
-      "textSha256": "ffdbe3af94af935a462fe3319da20250af9aec2ba95ed3f0d58baae5778c91c7",
+      "text": "Parties may rescind and replace a deal in one transaction; an owner who freely gives up the old price after unforeseen rock and promises a fair special rate is bound to it (New Hampshire).",
+      "textSha256": "2196d4577f46907ef53d872c2155cfed8fe5071ae2bd15bf1ffd3ad6ee120c04",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "modification",
@@ -103946,8 +103952,8 @@
       "id": "misrepresentation:6",
       "title": "Misleading statements, silence and disclosures",
       "field": "note",
-      "text": "Aspirational sales talk is puffery, not fraud, and Illinois promissory fraud needs a scheme to defraud beyond one broken promise.",
-      "textSha256": "57f5ed026157aac9cd6c0e9acce09ca75ccc31e9695b1bcdbb698fcecb833c63",
+      "text": "Aspirational sales talk is puffery, not fraud, and Illinois promissory fraud needs a scheme to defraud evidenced by more than the allegedly fraudulent promise itself.",
+      "textSha256": "603afb77f27659bd8c1b7f9a7fe31c22a7d86c65fd79cdffa1cd6c49ecc1d3a0",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "misrepresentation",

@@ -2071,7 +2071,7 @@
         "Contracts"
       ],
       "takeaway": "The parties to a contract can tear up the old price and agree a fairer new one in a single conversation. An owner who voluntarily agreed to pay more when the digging hit rock was held to the new rate.",
-      "takeawaySha256": "0d0186d2ee007610725bdb1521ee61d6096779590f81c9f59f85a49307548a02",
+      "takeawaySha256": "c00a5c820846b44b6e36cd9b1db8013d84f993aeb2e33ef53d7d8fa796e29261",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -2082,7 +2082,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CTR-035",
         "sourceLocator": "tools/r19/data/sections.json :: CTR-035.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "169f2997a2098a00bea59c36614e80136c211599fcf826007451601c06e32e9b",
+        "ruleSha256": "ffb61e2e6d16e9295d7c801d287d30cce0bf881186d01bc2f6c19a95e1e3a279",
         "comparedSections": {
           "Holding": "31b888ba249667b84d7b0057165475b7a6a993081b48c7c183e806f1d5ac8a01"
         },
@@ -2128,6 +2128,20 @@
             "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
           }
         }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
       ]
     },
     {
@@ -2148,7 +2162,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CTR-036",
         "sourceLocator": "tools/r19/data/sections.json :: CTR-036.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "0fa533eaafca003cd73dbe572d21e21b3a48d9637d76d6792e503022587e3f96",
+        "ruleSha256": "12acfe9dc5c85bac4bc76b51cfb17c1e719f892fdab96d4168fa823185b99ba6",
         "comparedSections": {
           "Holding": "2c19eb4336beba0b59bdf83ca423b1cad0dcee40a3220f6957991f4d40016811"
         },
@@ -2179,6 +2193,14 @@
             "effectiveFullBriefSha256": "293f010d98d9455ac512f5b05b006a20088bdd88ff1dd006d98de20a7a0e25aa"
           }
         }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
       ]
     },
     {
@@ -2188,7 +2210,7 @@
         "Contracts"
       ],
       "takeaway": "Under the Massachusetts rule applied in 1942, merely staying silent about termites did not support this tort claim. There had to be a misleading statement, concealment, or duty to disclose. Other jurisdictions and later statutes may require disclosure. This decision is not a universal current rule allowing sellers to hide home defects.",
-      "takeawaySha256": "16806e790154ae942d1a1aff7e766089869afd4c0547e308a5604aeb81ddcd06",
+      "takeawaySha256": "9758b2d87fe0532ef6a2b60542877a6ea8569c6e55a0cefc1cf311aa5b60b54e",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding identifies Massachusetts and the pleaded tort action; current broad statement omitted both.",
@@ -2199,7 +2221,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CTR-037",
         "sourceLocator": "tools/r19/data/sections.json :: CTR-037.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "99eff071676f539ec5d08db1da11b057a72ad010a50d3eea346acb1ce306ebd6",
+        "ruleSha256": "1657937daf2759a99100ce674168f546b7f9466cf160e09b1c2d12569487f38c",
         "comparedSections": {
           "Holding": "5e0707d47eccd4be0218fb5de9bfc0e551c08713d92d5f176052efcf0e89e3b3"
         },
@@ -2253,6 +2275,20 @@
             "freshCompleteOpinionReview": false,
             "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
           }
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
         }
       ]
     },
@@ -2327,7 +2363,7 @@
         "Contracts"
       ],
       "takeaway": "Telling an athlete you will get him millions in endorsements is sales talk, not a promise, when third parties decide whether to sign him. Competing for a client who can leave at any time is allowed unless you use fraud or other unlawful means.",
-      "takeawaySha256": "1483a233ee822fb66a7f6d17a6130ac14be18c80c11e318e6666001f5a4682fc",
+      "takeawaySha256": "c08271ee5c8423c88dc22218e6e108345c8763f98d50c3eb3c3a0818e526f597",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -2357,7 +2393,15 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        }
+      ]
     },
     {
       "id": "vokes",
@@ -2377,7 +2421,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CTR-040",
         "sourceLocator": "tools/r19/data/sections.json :: CTR-040.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "a574166396145e3fd43e813b8bec91553febada90e2f053d19f7525e47cb206e",
+        "ruleSha256": "d81ce71c40cda51ebd677aac3595bb4928371e9330249837e9067ad61bd4d76b",
         "comparedSections": {
           "Holding": "403b750aef198c6a4dc8db13a727cdb7520f7a057e64e0209b5b3d92100c0370"
         },
@@ -2396,7 +2440,15 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "masterson",
