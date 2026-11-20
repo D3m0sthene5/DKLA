@@ -396,6 +396,9 @@ html:root body #inspector .v32db-tag.v32db-flip .v32db-tag-caption {
 html:root body #inspector .v32db-plate[data-v32db-roomy] .v32db-tag:not(.v32db-big, .v32db-small) {
   max-width: 460px;
 }
+html:root body #inspector .v32db-plate[data-v32db-roomy] .v32db-tag.v32db-big:not(.v32db-is-here) {
+  max-width: 520px;
+}
 html:root body #inspector .v32db-plate[data-v32db-roomy] .v32db-tag.v32db-small > .v32db-tag-top {
   max-width: 440px;
 }
@@ -491,6 +494,13 @@ html:root body #inspector .v32db-tag.v32db-small.v32db-two {
   flex-direction: column;
   align-items: flex-start;
   max-width: 300px;
+}
+/* (Words under the name: the label is as wide as its name may be, so the name is never the part cut.) */
+html:root body #inspector .v32db-plate[data-v32db-roomy] .v32db-tag.v32db-small.v32db-two {
+  max-width: 460px;
+}
+html:root body #inspector .v32db .v32db-plate .v32db-fate-own.v32db-fate-own::before {
+  content: none;
 }
 html:root body #inspector .v32db-tag.v32db-small.v32db-two > .v32db-tag-fx {
   max-width: 250px;
