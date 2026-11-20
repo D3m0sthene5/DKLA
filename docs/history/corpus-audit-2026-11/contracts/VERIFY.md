@@ -26,3 +26,12 @@ The regenerated `tools/v25/explanation-inventory.json` came from its own `--writ
 Visual pictures (`views.spec.mjs`) were unchanged; no picture was re-recorded. The text changes were not
 inspected by eye in a browser, but the browser checks that open Cold Call, flowcharts, timelines and
 case pages passed.
+
+## Classes 21–26 and 5–10 (20 November 2026)
+
+- `80cdf52b` (Batch 1 tip): `pnpm verify` 76 of 76.
+- `d7c65eab` (Batch 2 tip): 74 of 76. "Practice filter records" failed because five problem entries corrected in Classes 7–9 changed their reviewed fingerprints; "v3.1 case page" failed because it expected K-16 to have 13 steps, and Class 8 added a fourteenth. Both fixed in `a4172843`.
+- `a12b422c` (final tip, after the cross-chart edits `4970bbea` and the records): `pnpm verify` 76 of 76, all checks passed.
+- Before each class commit: the correction-register integrity check, `runtime_edits_check.py` (no edit from this campaign is skipped in the browser; 8 older ones are, see CROSS-CLASS item 12), the flowchart data check, the timeline, geography, Cold Call, explanation-inventory, practice-filter, authorities and generated-rule-connection checks, and the content and data-block pins.
+
+Not verified: the deployed site (nothing was deployed; the deploy branch was not touched); text changes read by eye in a browser; statements that rest on full opinions outside the assigned excerpts.
