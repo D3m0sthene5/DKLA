@@ -1,6 +1,9 @@
 # DKLA corpus audit · restart here
 Branch `audit/corpus-2026-11-19`. Baseline `c3191d28`, fetched handoff `ffc50f10`. Coordinator owns integration, this page and both coverage denominators. Owner authorizes sourced content on audit branches. Fable owns design and release.
 
+**Active v3.2 production wave.** See the [three-course wave record](v32-wave.md) for current ownership, integrations, source boundaries, and independent review.
+
+
 | Packet | Owner and state | Evidence / next action |
 |---|---|---|
 | OP-01 | Opus submitted at `ffc50f10`; coordinator accepted option 2 | [Report](opus-01.md) · [reply to Opus](opus-01-disposition.md). Check real chronology and saved graphs. Acknowledgment outstanding. |
