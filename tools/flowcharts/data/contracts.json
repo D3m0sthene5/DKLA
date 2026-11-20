@@ -587,7 +587,7 @@
       {
         "id": "d",
         "label": "Are these actual good-faith needs or output?",
-        "detail": "Section 2-306 measures quantities by genuine requirements or output, with a disproportionality limit tied to estimates or comparable prior levels. Structural Polymer upheld the obligation despite initial zero requirements and a bounded quality and matching-price mechanism.",
+        "detail": "Section 2-306 measures quantity by genuine requirements or output. Compare the quantity with a stated estimate or, absent one, with normal or comparable prior levels. In Structural Polymer, SP’s good-faith promise to buy its covered needs bound it even assuming it initially needed no fiber. Diverting actual needs later could breach that promise.",
         "sources": [
           "requirements-output",
           "ucc306",
@@ -595,7 +595,7 @@
         ],
         "edges": [
           {
-            "label": "Good-faith measure",
+            "label": "Binding quantity measure; test performance",
             "to": "f"
           },
           {
