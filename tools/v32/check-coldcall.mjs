@@ -1110,7 +1110,19 @@ try {
           if (!(await p.locator(CARD).count())) await p.keyboard.press('Enter');
         }
         await p.locator(CARD).waitFor({ state: 'visible', timeout: 3000 });
-        await sleep(350);
+        // The card fades in. On a busy machine that can take longer than a fixed pause allows, so wait for
+        // the fade to end (three seconds at most) and then hold the card to being whole.
+        await p
+          .waitForFunction(
+            (sel) => {
+              const c = document.querySelector(sel);
+              return c && getComputedStyle(c).opacity === '1' && !c.getAnimations().length;
+            },
+            CARD,
+            { timeout: 3000 },
+          )
+          .catch(() => {});
+        await sleep(120);
         const card = await p.evaluate((sel) => {
           const c = document.querySelector(sel),
             r = c.getBoundingClientRect();
