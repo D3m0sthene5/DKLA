@@ -4812,7 +4812,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-NEXT-CM-0180",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0180.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "d05fa9823c849e652c4be85abb6dd7295259ed46648cb3f88d2c2b3b315ee17b",
+        "ruleSha256": "ff9e067ae5069fe09c943e4fdcb01b143fd178d6b39f668e856c6751e620ccff",
         "comparedSections": {
           "Holding": "f3989f4ebe828ed3eced1de6eb3ac153b922715d78f8ef0634127b9e4054b620"
         },
@@ -4842,6 +4842,14 @@
             "takeawaySha256": "21b0448b19005d4ff9dd2d532dd2a377ea909725e498c68edaf4ecf83a9b19ad"
           }
         }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
       ]
     },
     {
@@ -4851,7 +4859,7 @@
         "Contracts"
       ],
       "takeaway": "A niece could enforce her uncle's promise to his dying wife to leave the niece money. A promise made for a close family member's direct benefit is enforceable by her even though no one owed her a debt.",
-      "takeawaySha256": "aa407b207cc5b30e87621c3dcedaeaa3dddbc1076b4999e806a51361bd9e7d5e",
+      "takeawaySha256": "7153bebeda98f36cee53d38e0e0ee80654262709d40fdafaa25210c0d150ff3f",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -4862,9 +4870,9 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-NEXT-CM-0181",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0181.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "379b19d6d7289f0b25fd94512b84e69e53a0986c7783419d4ab16826ce76856e",
+        "ruleSha256": "4dcde1768e9e2d840b4c213d54ae72d711c9026181b1769c0496764e3fedcb46",
         "comparedSections": {
-          "Holding": "4b13111e1d3c0e5dbff2cea57ab93468fdf4ae823c69f44b01aebb0e14e28aed"
+          "Holding": "e234e62c9340df75c49114295ce117f1bcad9195cdf44c56407f10dd02ba3dc1"
         },
         "sectionsReadCompletely": [
           "Holding"
@@ -4881,7 +4889,27 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.comparedSections.Holding"
+        }
+      ]
     },
     {
       "id": "sisney-state",
@@ -4901,7 +4929,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-NEXT-CM-0184",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0184.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "d59b7739eaf0ac873bfba37306b7f841fad85172a7f4cde0d3029218a98db314",
+        "ruleSha256": "2b9ecc45d8fc448041cb59b950e04fd27c5a4d06bd440d6088a0536c23bfc1c8",
         "comparedSections": {
           "Holding": "7cbfa975f06b62274ec11257f70732b58132549caa89b79ff752b1e3f6d3edc1"
         },
@@ -4920,7 +4948,15 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "sisney-reisch",
@@ -4929,7 +4965,7 @@
         "Contracts"
       ],
       "takeaway": "The South Dakota court let Sisney's contract claim continue past dismissal. He plausibly alleged that the State's agreement was meant to benefit inmates, and the agreement could waive immunity for the State's contractual duties. He still had to prove breach. The ruling did not say that every government contract waives immunity.",
-      "takeawaySha256": "070abafd468c92e92ddc61a0370a4291c4260aeea4ef5ebca5f926c3d06ce349",
+      "takeawaySha256": "698c3c7ed6e5edb2b07c34e5438306adeb818255484f69ea74bd48f427a6e794",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding distinguishes South Dakota contract doctrine and pleading sufficiency from a universal sovereign-immunity rule.",
@@ -4969,6 +5005,14 @@
             "takeaway": "The South Dakota court allowed Sisney’s contract claim to survive dismissal: the State’s agreement could waive immunity for its contractual obligations, and he plausibly alleged an intended benefit for inmates. That did not prove breach or establish that every government contract waives immunity.",
             "takeawaySha256": "1e564bea7a537bf16858fc7ea41a35eacd128401134f2e875b6d14aa2c05ff11"
           }
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
         }
       ]
     },

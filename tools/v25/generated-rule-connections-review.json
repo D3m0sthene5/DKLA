@@ -191,18 +191,40 @@
     {
       "nodeId": "lawrence-fox",
       "briefId": "CT-NEXT-CM-0180",
-      "ruleSha256": "d05fa9823c849e652c4be85abb6dd7295259ed46648cb3f88d2c2b3b315ee17b",
+      "ruleSha256": "ff9e067ae5069fe09c943e4fdcb01b143fd178d6b39f668e856c6751e620ccff",
       "holdingSha256": "f3989f4ebe828ed3eced1de6eb3ac153b922715d78f8ef0634127b9e4054b620",
       "locator": "tools/r19/data/sections.json :: CT-NEXT-CM-0180 (effective canonical overlays)",
-      "readScope": "Complete canonical Holding and rule reread; inherited saved account, not a new complete-opinion audit."
+      "readScope": "Complete canonical Holding and rule reread; inherited saved account, not a new complete-opinion audit.",
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "ruleSha256"
+        }
+      ]
     },
     {
       "nodeId": "seaver",
       "briefId": "CT-NEXT-CM-0181",
-      "ruleSha256": "379b19d6d7289f0b25fd94512b84e69e53a0986c7783419d4ab16826ce76856e",
-      "holdingSha256": "4b13111e1d3c0e5dbff2cea57ab93468fdf4ae823c69f44b01aebb0e14e28aed",
+      "ruleSha256": "4dcde1768e9e2d840b4c213d54ae72d711c9026181b1769c0496764e3fedcb46",
+      "holdingSha256": "e234e62c9340df75c49114295ce117f1bcad9195cdf44c56407f10dd02ba3dc1",
       "locator": "tools/r19/data/sections.json :: CT-NEXT-CM-0181 (effective canonical overlays)",
-      "readScope": "Complete canonical Holding and rule reread; inherited saved account, not a new complete-opinion audit."
+      "readScope": "Complete canonical Holding and rule reread; inherited saved account, not a new complete-opinion audit.",
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "ruleSha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "holdingSha256"
+        }
+      ]
     },
     {
       "nodeId": "alaska-packers",

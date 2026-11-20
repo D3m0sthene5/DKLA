@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "reviewedAt": "2026-11-17",
   "dataPath": "tools/r19/data/timelines.json",
-  "timelinesSha256": "e221fb38263dd709775bea3efb787b0a9373f405b43e26b9a6cdf911cfdd0eb9",
+  "timelinesSha256": "d207e52a08cf4f3d67d64a29334ab6fa6348bc90babe2256202106096e9a1ea0",
   "baselineGitRevision": "347d2e9759a7b5429f24825c521a967ce2b14eb9",
   "scope": "All timeline memberships and navigation were inventoried against the canonical cases and original assigned-source locations. New lines and selected corrections were compared with original casebook passages and case-specific accounts. Prior complete-opinion limitations remain; this does not certify every proposition or all current law. November 17: all 685 timeline steps screened editorially; targeted primary-source corrections are recorded separately. This is not a complete primary-source audit of every step or brief.",
   "limitations": [
@@ -11811,7 +11811,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CT-NEXT-CM-0180.md",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0180.rule (effective assembler overlays included)",
         "comparedRule": "A third person for whose benefit a promise is made, on valuable consideration moving from the promisee, may sue the promisor to enforce it, even though the third person was not a party to the agreement and furnished no consideration.",
-        "comparedRuleSha256": "d05fa9823c849e652c4be85abb6dd7295259ed46648cb3f88d2c2b3b315ee17b",
+        "comparedRuleSha256": "ff9e067ae5069fe09c943e4fdcb01b143fd178d6b39f668e856c6751e620ccff",
         "effectiveFullBriefSha256": "2c6115a6c256006132b6135884b07fdbef85da0a1d0f0f9ec50f53295c7f4984",
         "inheritedCitation": "20 N.Y. 268 (N.Y. 1859) | Contracts",
         "inheritedBriefPdfLocator": {
@@ -11842,6 +11842,14 @@
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
         }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
+        }
       ]
     },
     {
@@ -11871,7 +11879,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CT-NEXT-CM-0181.md",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0181.rule (effective assembler overlays included)",
         "comparedRule": "A beneficiary may enforce a promise made on valid consideration for her direct benefit when the promisee's relationship to her falls within the principle of the close-family beneficiary cases; degree of kinship is not an absolute limit, and no pecuniary debt to her is required.",
-        "comparedRuleSha256": "379b19d6d7289f0b25fd94512b84e69e53a0986c7783419d4ab16826ce76856e",
+        "comparedRuleSha256": "4dcde1768e9e2d840b4c213d54ae72d711c9026181b1769c0496764e3fedcb46",
         "effectiveFullBriefSha256": "0e8a953920cc45d1141e5506d4fa0ffa99c8801bdb44673344f624a9faabd2a8",
         "inheritedCitation": "224 N.Y. 233, 120 N.E. 639 (N.Y. October 1, 1918) | Contracts",
         "inheritedBriefPdfLocator": {
@@ -11901,6 +11909,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -12032,7 +12048,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CT-NEXT-CM-0184.md",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0184.rule (effective assembler overlays included)",
         "comparedRule": "A third person may enforce a contract only if the contracting parties clearly manifested at formation an intent to benefit that person; for government contracts there is a presumption against private beneficiary rights unless plain contractual language indicates an intended private enforcement right.",
-        "comparedRuleSha256": "d59b7739eaf0ac873bfba37306b7f841fad85172a7f4cde0d3029218a98db314",
+        "comparedRuleSha256": "2b9ecc45d8fc448041cb59b950e04fd27c5a4d06bd440d6088a0536c23bfc1c8",
         "effectiveFullBriefSha256": "6070eb51ccea6aae0c4eeb5ea56464178a8a5f6c04a625358f8f214938ffd4bf",
         "inheritedCitation": "2008 S.D. 71, 754 N.W.2d 639 (S.D. July 23, 2008) | Contracts",
         "inheritedBriefPdfLocator": {
@@ -12062,6 +12078,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -47255,6 +47279,11 @@
     "originalSourceRegistry": "tools/v28/source-links.json"
   },
   "timelinesRereviews": [
+    {
+      "date": "2026-11-19",
+      "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+      "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review."
+    },
     {
       "date": "2026-11-19",
       "register": "tools/content-audit/2026-11-19-contracts-opus.json",

@@ -2467,6 +2467,24 @@
       "field": "learning.topics.ucc306",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
+    },
+    {
+      "id": "delegation",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "assignment",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "third-party-beneficiaries",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
     }
   ],
   "records": [
@@ -20000,8 +20018,8 @@
       "id": "lawrence-fox",
       "title": "Lawrence v. Fox",
       "field": "summary",
-      "text": "A third person for whose benefit a promise is made, on valuable consideration moving from the promisee, may sue the promisor to enforce it, even though the third person was not a party to the agreement and furnished no consideration.",
-      "textSha256": "d05fa9823c849e652c4be85abb6dd7295259ed46648cb3f88d2c2b3b315ee17b",
+      "text": "A creditor of the promisee, for whose benefit the promisor promised on consideration moving from the promisee to pay the promisee's debt, may sue the promisor although not a party and although he furnished no consideration; only four of the six affirming judges endorsed the general principle.",
+      "textSha256": "ff9e067ae5069fe09c943e4fdcb01b143fd178d6b39f668e856c6751e620ccff",
       "source": {
         "briefId": "CT-NEXT-CM-0180",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0180.rule (effective assembler overlays)",
@@ -20041,8 +20059,8 @@
       "id": "seaver",
       "title": "Seaver v. Ransom",
       "field": "takeaway",
-      "text": "A niece could enforce her uncle's promise to his dying wife to leave the niece money. A promise made for a close family member's direct benefit is enforceable by her even though no one owed her a debt.",
-      "textSha256": "aa407b207cc5b30e87621c3dcedaeaa3dddbc1076b4999e806a51361bd9e7d5e",
+      "text": "A niece could enforce her uncle's promise to his dying wife, given in exchange for the wife's signing her will, to provide for the niece in his own will. The court let this donee beneficiary recover without any debt owed to her, reasoning that the wife had in substance given her the promise, so kinship did not control.",
+      "textSha256": "7153bebeda98f36cee53d38e0e0ee80654262709d40fdafaa25210c0d150ff3f",
       "source": {
         "briefId": "CT-NEXT-CM-0181",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0181.rule (effective assembler overlays)",
@@ -20062,8 +20080,8 @@
       "id": "seaver",
       "title": "Seaver v. Ransom",
       "field": "summary",
-      "text": "A beneficiary may enforce a promise made on valid consideration for her direct benefit when the promisee's relationship to her falls within the principle of the close-family beneficiary cases; degree of kinship is not an absolute limit, and no pecuniary debt to her is required.",
-      "textSha256": "379b19d6d7289f0b25fd94512b84e69e53a0986c7783419d4ab16826ce76856e",
+      "text": "A donee beneficiary may enforce a promise made to the promisee on valid consideration for her sole benefit; no debt owed to her and no close kinship is required, because the promisee in substance gave her the promise and she alone is damaged by its breach.",
+      "textSha256": "4dcde1768e9e2d840b4c213d54ae72d711c9026181b1769c0496764e3fedcb46",
       "source": {
         "briefId": "CT-NEXT-CM-0181",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0181.rule (effective assembler overlays)",
@@ -20124,8 +20142,8 @@
       "id": "sisney-state",
       "title": "Sisney v. State",
       "field": "summary",
-      "text": "A third person may enforce a contract only if the contracting parties clearly manifested at formation an intent to benefit that person; for government contracts there is a presumption against private beneficiary rights unless plain contractual language indicates an intended private enforcement right.",
-      "textSha256": "d59b7739eaf0ac873bfba37306b7f841fad85172a7f4cde0d3029218a98db314",
+      "text": "Under South Dakota's statute, a third person may enforce a contract only if the contracting parties clearly manifested at formation an intent to benefit that person; for government contracts there is a presumption against private beneficiary rights unless plain contractual language indicates an intended private enforcement right.",
+      "textSha256": "2b9ecc45d8fc448041cb59b950e04fd27c5a4d06bd440d6088a0536c23bfc1c8",
       "source": {
         "briefId": "CT-NEXT-CM-0184",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0184.rule (effective assembler overlays)",
@@ -20165,8 +20183,8 @@
       "id": "sisney-reisch",
       "title": "Sisney v. Reisch",
       "field": "takeaway",
-      "text": "The South Dakota court let Sisney's contract claim continue past dismissal. He plausibly alleged that the State's agreement was meant to benefit inmates, and the agreement could waive immunity for the State's contractual duties. He still had to prove breach. The ruling did not say that every government contract waives immunity.",
-      "textSha256": "070abafd468c92e92ddc61a0370a4291c4260aeea4ef5ebca5f926c3d06ce349",
+      "text": "The South Dakota court let Sisney's contract claim go forward because the settlement expressly promised a kosher diet to all Jewish inmates who requested it, a class he alleged he belonged to. The ruling came at the pleading stage and held the suit not barred by sovereign immunity; breach remained unproved, and no general immunity waiver was announced.",
+      "textSha256": "698c3c7ed6e5edb2b07c34e5438306adeb818255484f69ea74bd48f427a6e794",
       "source": {
         "briefId": "CT-NEXT-CM-0185",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0185.rule (effective assembler overlays)",
@@ -22668,8 +22686,8 @@
       "id": "third-party-beneficiaries",
       "title": "Rights of intended third-party beneficiaries",
       "field": "notes",
-      "text": "Lawrence concerns a promise to pay another person’s debt. Seaver concerns a promise to provide for someone in a will. Those cases explore why the person benefited may sue despite not making the bargain. The two Sisney cases involve distinct arrangements and different evidence about an intention to create enforceable rights. A contract serving the public or benefiting an identifiable group does not automatically give every member a private contract action.\n\nIdentify the promisor, promisee, proposed beneficiary, precise performance promised, and evidence of intended enforceability. The beneficiary’s interest must be tied to that contract. Questions about vesting and later modification arise only after identifying a right capable of vesting.",
-      "textSha256": "12c8edb0b862fb55570b4895de37f5c47fd7bffa82bd2e0f46247e491d9cdca2",
+      "text": "Lawrence concerns a promise to pay another person’s debt. Seaver concerns a promise to provide for someone in a will. Those cases explore why the person benefited may sue despite not making the bargain. The two Sisney cases involve distinct arrangements and different evidence about an intention to create enforceable rights. A contract serving the public or benefiting an identifiable group does not automatically give every member a private contract action.\n\nIdentify the promisor, promisee, proposed beneficiary, precise performance promised, and evidence of intended enforceability. The beneficiary’s interest must be tied to that contract. Under § 302 a beneficiary is intended only if recognizing a right is appropriate to effectuate the parties' intention and either performance will satisfy the promisee's obligation to pay the beneficiary money (a creditor beneficiary) or the promisee intends to give the beneficiary the benefit (a donee beneficiary); everyone else is incidental and acquires no right (§ 315). The promisor may raise defenses arising from the contract itself against the beneficiary, but not claims from unrelated dealings with the promisee (§ 309; C&M 1196). Questions about vesting and later modification arise only after identifying a right capable of vesting.",
+      "textSha256": "c843a36581598938e012c0cbb665749777efea56e59f7b967448be27767ae4f9",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: third-party-beneficiaries",
@@ -22760,8 +22778,8 @@
       "id": "delegation",
       "title": "Delegating performance of a duty",
       "field": "notes",
-      "text": "Identify who originally owed the duty, what performance was promised, and whether the obligee has an important interest in that particular person’s performance. Personal skill, trust, contractual restrictions, and the governing law may matter. A transfer of performance responsibilities does not automatically prove that the original party was discharged; that is a separate question about the agreement and any substitution accepted by the obligee.\n\nThe assigned pages introduce delegation. Their scope should not be mistaken for a complete treatment of all exceptions or of every later case in the chapter.",
-      "textSha256": "324b51a2503cd293aa173dfc668f134f8f242d15d0e815ac311badf2d84a6d30",
+      "text": "Identify who originally owed the duty, what performance was promised, and whether the obligee has an important interest in that particular person’s performance. Personal skill, trust, contractual restrictions, and the governing law may matter. Delegation does not discharge the delegating party: unless the obligee agrees otherwise, the original obligor remains liable even if the delegate has promised to perform (§ 318(3); UCC § 2-210(1)), and the obligee's agreement to a substitution produces a novation. A money debt is the standard delegable duty; a performance that depends on who performs is not, so an airport could refuse a substitute singer for Pavarotti though not a substitute tenant's rent (Metropolitan Airports Comm'n, C&M 1216).\n\nThe assigned pages introduce delegation. Their scope should not be mistaken for a complete treatment of all exceptions or of every later case in the chapter.",
+      "textSha256": "479f30d4ce54bee10792b74b6f9581cb23bb54bef21306a439f8596616faeef5",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: delegation",
@@ -22806,8 +22824,8 @@
       "id": "assignment",
       "title": "Assigning contractual rights",
       "field": "notes",
-      "text": "Hamer begins with a claimant who acquired the nephew’s right through intermediate assignments. Masterson later raises the significance of an alleged restriction on transfer of an option. These examples show why identifying the original parties is not enough: a later claimant may hold a right acquired from one of them.\n\nDistinguish assignment of a right from delegation of a duty. Also ask about any restriction on transfer, the nature of the right, notice, and defenses under the governing law. The final assignment includes only introductory pages on this subject.",
-      "textSha256": "f2bd2e9c471b43674144046d0c32e5fb7e0bb5bc4e7986db353f29f8a3b1de51",
+      "text": "Hamer begins with a claimant who acquired the nephew’s right through intermediate assignments. Masterson later raises the significance of an alleged restriction on transfer of an option. These examples show why identifying the original parties is not enough: a later claimant may hold a right acquired from one of them.\n\nDistinguish assignment of a right from delegation of a duty. A right is assignable unless substitution would materially change or burden the obligor's duty, a statute or public policy forbids it, or the contract validly precludes it (§ 317(2)). Unless circumstances show otherwise, a ban on assigning 'the contract' bars only delegation of the assignor's duties, and a ban on assigning rights gives the obligor damages but leaves the assignment effective (§ 322; UCC § 2-210(2), (4)). An assignment of 'the contract' also delegates the assignor's unperformed duties (§ 328). Also ask about notice and defenses. The final assignment includes only introductory pages on this subject.",
+      "textSha256": "95d864987b7a9220d81f5c3e78bae4b84852796f421b3c042d17bb83363d1a0b",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: assignment",
@@ -104784,8 +104802,8 @@
       "id": "third-party:2",
       "title": "Enforcing a promise made for someone else",
       "field": "note",
-      "text": "Donee beneficiaries: a niece may enforce a promise made to her dying aunt for her benefit; closeness of kinship is not a strict limit (New York).",
-      "textSha256": "427628c9d8ee1864c277608a1ab72d32661366e63141d4217464d8990a252f83",
+      "text": "Donee beneficiaries: a niece may enforce a promise made to her dying aunt for her benefit; recovery rests on the promise having in substance been given to her, not on kinship (New York).",
+      "textSha256": "857ef9b98370508ad9c7184db56070bdbddfb306d83b59c639d504692d67e2a7",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "third-party",
@@ -104840,8 +104858,8 @@
       "id": "third-party:6",
       "title": "Enforcing a promise made for someone else",
       "field": "note",
-      "text": "The same day: a settlement that expressly covers every Jewish inmate who asks for kosher meals is enforceable by a member of that class.",
-      "textSha256": "90de08aea71fa0d27a0fe322c081e980cd4814453b132be5cd2c0e4ee3d53f1d",
+      "text": "The same day: a member of the class of Jewish inmates who request kosher meals states a claim to enforce a settlement that expressly promises that class a kosher diet.",
+      "textSha256": "9a784ac1acefe877ddc76ef3b947ed711d69ee18f1403e73c8e298e52c4acf09",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "third-party",
