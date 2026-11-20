@@ -675,6 +675,30 @@ try {
   for (const chart of graphSizes) {
     await wide.page.goto(routeFor('#flowchart=' + chart.id), { waitUntil: 'commit' });
     await expect(courseDialog(wide.page).locator('#flowchartsTitle')).toHaveText(chart.title);
+    // At Fit nothing is cut short: no region's name and no label ends in an ellipsis, and every
+    // word set on the overview is inside it.
+    const cut = await wide.page.evaluate(() => {
+      const dialog = document.querySelector('dialog#dklaFlowcharts');
+      dialog.querySelector('[data-flowcharts-view="map"]').click();
+      dialog.querySelector('[data-flowcharts-zoom="fit"]').click();
+      const overview = dialog.querySelector('.fc-ov');
+      const view = overview?.getBoundingClientRect();
+      const faults = [...(overview?.querySelectorAll('.fc-ov-title, .fc-ov-label') || [])]
+        .filter((el) => {
+          const at = el.getBoundingClientRect();
+          return (
+            el.scrollWidth > el.clientWidth + 1 ||
+            at.left < view.left - 1 ||
+            at.right > view.right + 1 ||
+            at.top < view.top - 1 ||
+            at.bottom > view.bottom + 1
+          );
+        })
+        .map((el) => el.textContent);
+      dialog.querySelector('[data-flowcharts-zoom="reset"]').click();
+      return faults;
+    });
+    assert.deepEqual(cut, [], `${chart.id}: at Fit no name or label is cut short or outside the view`);
     const drawn = await wide.page.evaluate(reach);
     assert.equal(drawn.cells, chart.nodes, chart.id + ' steps on the whole map');
     assert.equal(drawn.answers, chart.arrows, chart.id + ' answers');

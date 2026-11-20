@@ -1168,8 +1168,10 @@
          named by the answer that most often leads into it (a chart whose routes meet only at its
          endings has no such region: those endings stand between the regions that reach them);
        - words go to the first question, the major join, any other step where three routes or two
-         regions meet, every outcome (in full), and the step the reader is on. Every other step is
-         a mark, its number in its shape, and gives its name when pointed at, focused or pressed;
+         regions meet, every outcome (in full), and the step the reader is on; on a chart of a
+         dozen steps or fewer, to every step they can be set beside clear of everything else.
+         Every other step is a mark, its number in its shape, and gives its name when pointed at,
+         focused or pressed;
        - a step where routes meet is ringed.
      Selecting a mark or a region goes into the detailed map there (look). */
   function composeOverview(W, H) {
@@ -1213,8 +1215,20 @@
     const wide = (c) => (major && c >= col(major.id) ? 1.8 : 1);
     const run = [0];
     for (let c = 0; c < last; c++) run.push(run[c] + wide(c));
-    const step = Math.min(120, (W - padL - padR) / run[last]);
-    const x = (id) => padL + run[col(id)] * step;
+    // (And it starts far enough right that an outcome inside an earlier region has room for its
+    // words before it: found in three passes, since that room narrows every column.)
+    let step = 0,
+      push = 0;
+    for (let pass = 0; pass < 3; pass++) {
+      step = Math.min(120, (W - padL - padR - push) / run[last]);
+      const edge = major ? padL + run[col(major.id)] * step - 34 : Infinity;
+      const wanted = Math.max(
+        0,
+        ...before.filter((node) => !node.edges.length).map((node) => padL + run[col(node.id)] * step + 214),
+      );
+      push = major ? Math.max(0, wanted - edge) : 0;
+    }
+    const x = (id) => padL + run[col(id)] * step + (tail.has(id) ? push : 0);
     const weight = (node) => (node.edges.length ? 1 : 1.75); // an outcome has its words beside it
     const heaviest = (list) => {
       const sums = new Map();
@@ -1303,6 +1317,26 @@
       id: node.id,
     }));
     const tailEdge = major ? x(major.id) - 34 : Infinity;
+    // Where the lines will run (the curves drawn below, sampled), so that words are set clear of them.
+    const tracks = nodes.flatMap((node) =>
+      node.edges
+        .filter((edge) => x(edge.to) > x(node.id) + 1)
+        .map((edge) => {
+          const x1 = x(node.id) + 12,
+            y1 = y.get(node.id),
+            x2 = x(edge.to) - 14,
+            y2 = y.get(edge.to),
+            bend = (x2 - x1) / 2;
+          return Array.from({ length: 17 }, (unused, i) => {
+            const t = i / 16,
+              u = 1 - t;
+            return {
+              x: u * u * u * x1 + 3 * u * u * t * (x1 + bend) + 3 * u * t * t * (x2 - bend) + t * t * t * x2,
+              y: u * u * u * y1 + 3 * u * u * t * y1 + 3 * u * t * t * y2 + t * t * t * y2,
+            };
+          });
+        }),
+    );
     const labels = [];
     const say = (node, kind, width, size, lineHeight, sides, must) => {
       const lines = Math.min(4, Math.ceil((node.label.length * size * 0.54) / width));
@@ -1319,15 +1353,18 @@
       const taken = (spot) => {
         const box = { l: spot.l, r: spot.l + width, t: spot.t, b: spot.t + tall };
         const hit = (other) => box.l < other.r && box.r > other.l && box.t < other.b && box.b > other.t;
+        const crossed = (track) =>
+          track.some((at) => at.x > box.l - 2 && at.x < box.r + 2 && at.y > box.t - 1 && at.y < box.b + 1);
         return (
-          (box.l < 4 || box.r > W - 4 || box.t < 4 || box.b > H - 4 ? 8 : 0) +
-          (lane(node.id) !== 'T' && box.r > tailEdge - 6 ? 8 : 0) +
-          boxes.filter((mark) => mark.id !== node.id && hit(mark)).length +
-          2 * labels.filter((one) => hit(one.box)).length
+          (box.l < 4 || box.r > W - 4 || box.t < 4 || box.b > H - 4 ? 32 : 0) +
+          (lane(node.id) !== 'T' && box.r > tailEdge - 6 ? 32 : 0) +
+          4 * boxes.filter((mark) => mark.id !== node.id && hit(mark)).length +
+          8 * labels.filter((one) => hit(one.box)).length +
+          tracks.filter(crossed).length
         );
       };
       const least = Math.min(...sides.map((name) => taken(spots[name])));
-      if (least && !must) return;
+      if (least > 1 && !must) return;
       const side = sides.find((name) => taken(spots[name]) === least);
       const spot = spots[side];
       labels.push({
@@ -1350,6 +1387,11 @@
       if (node.id === here) say(node, 'here', 160, 12.5, 16, ['above', 'below', 'right', 'left'], true);
       else if (meets && from.length > 1) say(node, 'join', 160, 12, 15, ['above', 'below', 'right']);
     }
+    // A small chart (a dozen steps or fewer) has room for more: every other step gets its words
+    // too, wherever they stand clear of everything else.
+    if (nodes.length <= 12)
+      for (const node of nodes)
+        if (!labels.some((one) => one.id === node.id)) say(node, 'step', 150, 12, 15, ['above', 'below']);
     // An answer of the first question that has no region of its own (it leads straight to a step
     // other answers reach too): its words on its line, where there is room for them.
     const asides = fork.edges
@@ -1378,7 +1420,7 @@
       const l = Math.min(...one.list.map((node) => x(node.id))) - 30;
       // As wide as its steps and their words, and at least as wide as its own name; never into the
       // last region.
-      const named = l + title.length * 6.8 + 30;
+      const named = l + title.length * 7.7 + 36;
       const right = Math.min(
         Math.max(
           named,

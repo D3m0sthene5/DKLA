@@ -1565,17 +1565,16 @@
   outline: 2px solid var(--v31-link);
   outline-offset: 1px;
 }
+/* (A region is made at least as wide as its name: the name is never cut.) */
 .fc-ov-title {
   position: absolute;
   left: 14px;
   right: 10px;
   top: 7px;
-  overflow: hidden;
   font:
     600 13px/18px var(--dkla-interface, Inter),
     sans-serif;
   white-space: nowrap;
-  text-overflow: ellipsis;
   color: var(--v31-link);
 }
 .fc-ov-lines {
@@ -1728,6 +1727,11 @@
 }
 .fc-ov-here {
   color: var(--v31-here);
+}
+.fc-ov-label.fc-ov-step {
+  font-size: 12px;
+  line-height: 15px;
+  color: var(--v31-muted);
 }
 .fc-ov-label.fc-ov-answer {
   font-size: 12px;
