@@ -46,6 +46,12 @@ trade".
 | 7 | **CP-14 (§ 1367) does not say the anchor is judged on the operative pleading** (Royal Canin). | Astra (Civil Procedure) | Route table and expected behavior in `../opus-02.md`. | Not yet |
 | 8 | **Mattei slide guide: "Slide 6 shows drafting that does".** | Astra (Class 4, `audit/wave32-contracts`) | Qualified wording in `../opus-k04-disposition.md`. | Not yet |
 | 9 | **Timeline placement and turn labels.** Frigaliment sits after the 1952 UCC step marked "sharpens", though it applied pre-Code New York law. Bollinger is marked "widens", though Gianni had already recognized the mistake route. | Fable, with the timeline redesign | `OP-CT-15/handoff.md`, `OP-CT-13/handoff.md`. | Not yet |
+| 10 | **K-30 (remedies) misroutes in five classes.** Renner's reliance costs route to an award (21); a claimant with a proved loss reaches nominal relief, and Kansas v. Nebraska's partial disgorgement is missing (22); a full performer gets uncapped restitution against § 373(2), and the losing-contract burden is missing (23); avoidable post-repudiation costs are not tested and there is no reliance step (24). | Astra (K-30 is changed on `audit/v32-three-course-wave`) | Facts entered, path, result shown and source-supported result for each: `OP-CT-21/k30-for-astra.md`, `OP-CT-22/`, `OP-CT-23/`, `OP-CT-24/` on this branch. | Not yet |
+| 11 | **"Rules & authorities" links, Classes 5–10 and 21–26.** Restatement § 21 again shows on Lawrence, Seaver, Renner, Krell, Peevyhouse, Dorton and Itoh; assigned sections (§§ 152–154, 261, 265, 272, 302–311, 344–349, 356; UCC §§ 2-205, 2-614, 2-615, 2-718; N.Y. § 5-1109) reach no case or lack an entry. | Astra (builder) | Each class's `sources.md` lists the exact links; the explicit-only patch in item 5 removes the uncited ones. | Not yet |
+| 12 | **Eight older map-entry corrections never reach readers.** `runtime_edits_check.py` shows them skipped in the browser: `contracts-class-10` and `-11` source labels, `notes-intro`, `contracts-class-22` (Cosby note), and four `lrs-*` summaries. All come from the base commit `5448be07`, before this audit. | Owner or Fable | Re-chain each from the live text as in `6b0e30fa`; the check exits non-zero until they apply. | Not yet |
+| 13 | **Howard (Kansas "rejects" rolling formation, C&M 303) is still reversed in three course-index `reason` strings** under `src/data/seedData/courseIndex-cc64ba0f71/topics-f013aa4b8d/` and in `src/data/textbookUpdate/` copies. The map entry and edge are corrected at run time (CT-09). | Fable (src/data is off limits to this audit) | Replace "adopted" with "rejected" in those copies. | Not yet |
+| 14 | **Parker v. Twentieth Century-Fox**: the takeaway has three sentences and says "different and inferior" (the majority's test is "different or inferior"); ≈ 2.0 and 4.0 were left for the primary-review team. | Redesign team (Parker primary review) | `OP-CT-24/sources.md`, item 2. | Not yet |
+| 15 | **Case-page test count.** `tools/v31/check-case.mjs` hard-coded K-16 at 13 steps; it now expects 14 after OP-CT-08 added node n. | Fable | `a4172843`. | Not yet |
 
 ## Still with this session (open)
 
@@ -58,9 +64,9 @@ Classes 16–20 add their own open items; see `WAVE-16-20.md`. Routing errors fo
   peculiar-knowledge exception Psenicska applied (OP-CT-12).
 - K-23 node e omits § 1-303(f) (course of performance as waiver or modification); node g has no
   burden-of-proof outcome (OP-CT-15).
-- Lecture notes that faithfully report a slide's shorthand where the shorthand drops a statutory condition:
-  RLCC § 3 "reject or terminate" (Class 11, slide 15). Annotating a slide summary is an owner decision.
+- Closed: slide notes whose shorthand drops a condition now keep the classroom wording and add a separate
+  "Legal qualification" (Classes 11 and 13 in `3408a4f1`; RLCC § 3 in `c08c647d`; Classes 5–10 in their commits).
 - Hall and Elliot map entry and the Class 14 hub (OP-CT-14). Glossary: the Wex contra proferentem entries say
   "always" (C&M 567: last resort). Watkins: "Burque, C.J." needs checking against the full opinion.
-- **Source gaps:** no slide deck was located in the checked sources for Classes 15–20 (slide coverage stays open). Their lecture-notes records
+- **Source gaps:** no slide deck was located in the checked sources for Classes 15–26 (slide coverage stays open). Their lecture-notes records
   were checked only against the casebook and selections.
