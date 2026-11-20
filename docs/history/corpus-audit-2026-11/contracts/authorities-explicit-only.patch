@@ -1,0 +1,24 @@
+diff --git a/tools/v25/authorities_build.py b/tools/v25/authorities_build.py
+index 6550d798..8e95c44c 100644
+--- a/tools/v25/authorities_build.py
++++ b/tools/v25/authorities_build.py
+@@ -460,7 +460,9 @@ def link_entries(entries):
+             if a in rule_ids and b in by_id and by_id[b].get('kind')=='Case': matched.add(b)
+             elif b in rule_ids and a in by_id and by_id[a].get('kind')=='Case': matched.add(a)
+         e['links']=[dict(id=i,title=by_id[i]['title'],kind=by_id[i]['kind'],basis='Explicit citation in atlas entry' if i in direct else 'Case connected to cited atlas rule or concept') for i in sorted(matched,key=lambda i:(by_id[i].get('kind')!='Case',by_id[i]['title'],i))]
+-        for i in matched: reverse.setdefault(i,[]).append(e['id'])
++        # The case-page box is headed "Authorities cited": only explicit citations go there.
++        for i in matched:
++            if i in direct or by_id[i].get('kind')!='Case': reverse.setdefault(i,[]).append(e['id'])
+         links+=len(matched)
+     return reverse,links
+ 
+@@ -565,7 +567,7 @@ def check(d=None):
+     for e in entries:
+         assert e['lines'] and all(len(l)>1 and l[1].strip() for l in e['lines']),e['id']
+         assert all(l['id'] in known for l in e['links']),e['id']
+-        for l in e['links']: assert e['id'] in d['byNode'][l['id']]
++        for l in e['links']: assert l['kind']!='Case' or not l['basis'].startswith('Explicit') or e['id'] in d['byNode'][l['id']]
+         assert e['source'].get('url') or e['source'].get('file'),e['id']
+         assert sha(json.dumps(e['lines'],ensure_ascii=False).encode())==e['textSha256'],e['id']
+     for n in [74,75,76,84]: assert by['frcp-'+str(n)]['status']=='abrogated'
