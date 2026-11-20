@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "reviewedAt": "2026-11-17",
   "dataPath": "tools/r19/data/timelines.json",
-  "timelinesSha256": "d207e52a08cf4f3d67d64a29334ab6fa6348bc90babe2256202106096e9a1ea0",
+  "timelinesSha256": "e0056e21fa2de8c5522dee3b8d006960662840586c94e684c21dfd630340e896",
   "baselineGitRevision": "347d2e9759a7b5429f24825c521a967ce2b14eb9",
   "scope": "All timeline memberships and navigation were inventoried against the canonical cases and original assigned-source locations. New lines and selected corrections were compared with original casebook passages and case-specific accounts. Prior complete-opinion limitations remain; this does not certify every proposition or all current law. November 17: all 685 timeline steps screened editorially; targeted primary-source corrections are recorded separately. This is not a complete primary-source audit of every step or brief.",
   "limitations": [
@@ -9781,7 +9781,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CT-NEXT-CM-0165.md",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0165.rule (effective assembler overlays included)",
         "comparedRule": "A party who makes a positive, express promise must perform it despite unforeseen hindrance or hardship unless performance is prevented by an act of God, the law or the other party; difficulty short of absolute impossibility is no excuse.",
-        "comparedRuleSha256": "841ff486e720cb0fec8edf92857e8110a6cb368fe93eedfb929a2125de62fcc5",
+        "comparedRuleSha256": "6bdfcdbbdd7ca2429011b074fb5e18a816148c5552614fd3f5ca41a92d30c1f3",
         "effectiveFullBriefSha256": "e853f4603414836a40b380fc65dc595bfe7c6d16048078655e0686abd8e5ea6d",
         "inheritedCitation": "Stees v. Leonard",
         "inheritedBriefPdfLocator": {
@@ -9811,6 +9811,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -10088,7 +10096,7 @@
         "savedBriefPath": "tools/r19/data/briefs/CT-NEXT-CM-0166.md",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0166.rule (effective assembler overlays included)",
         "comparedRule": "A contract is voidable for mutual mistake about a basic assumption material enough to upset the exchange, but absent fraud or misrepresentation the rescinding party recovers only restitution of benefits conferred, not consequential damages for reliance expenditures.",
-        "comparedRuleSha256": "5e46ff352cf5c7eeb05777faf91e019353c688937846fca0373652cc03fe5584",
+        "comparedRuleSha256": "a5cb1d35d70f755aefa9dcf18e5ebb2673271b9b66f842d64ebcf59835f0d539",
         "effectiveFullBriefSha256": "883e1ba660f1d798ca537341f081b1ad7269cd0c505862c7a9506d35cad061b3",
         "inheritedCitation": "150 Ariz. 94, 722 P.2d 262 (Ariz. June 25, 1986) | Contracts",
         "inheritedBriefPdfLocator": {
@@ -10118,6 +10126,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -37523,7 +37539,7 @@
         "briefId": "CT-NEXT-CM-0166",
         "savedBriefPath": "tools/r19/data/briefs/CT-NEXT-CM-0166.md",
         "comparedRule": "A contract is voidable for mutual mistake about a basic assumption material enough to upset the exchange, but absent fraud or misrepresentation the rescinding party recovers only restitution of benefits conferred, not consequential damages for reliance expenditures.",
-        "comparedRuleSha256": "5e46ff352cf5c7eeb05777faf91e019353c688937846fca0373652cc03fe5584",
+        "comparedRuleSha256": "a5cb1d35d70f755aefa9dcf18e5ebb2673271b9b66f842d64ebcf59835f0d539",
         "effectiveFullBriefSha256": "883e1ba660f1d798ca537341f081b1ad7269cd0c505862c7a9506d35cad061b3",
         "sourceLocator": {
           "path": "added-sources/C&M Textbook 1051-1313.pdf",
@@ -37552,6 +37568,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -40086,7 +40110,7 @@
         "briefId": "CT-NEXT-CM-0166",
         "savedBriefPath": "tools/r19/data/briefs/CT-NEXT-CM-0166.md",
         "comparedRule": "A contract is voidable for mutual mistake about a basic assumption material enough to upset the exchange, but absent fraud or misrepresentation the rescinding party recovers only restitution of benefits conferred, not consequential damages for reliance expenditures.",
-        "comparedRuleSha256": "5e46ff352cf5c7eeb05777faf91e019353c688937846fca0373652cc03fe5584",
+        "comparedRuleSha256": "a5cb1d35d70f755aefa9dcf18e5ebb2673271b9b66f842d64ebcf59835f0d539",
         "effectiveFullBriefSha256": "883e1ba660f1d798ca537341f081b1ad7269cd0c505862c7a9506d35cad061b3",
         "sourceLocator": {
           "path": "added-sources/C&M Textbook 1051-1313.pdf",
@@ -40115,6 +40139,14 @@
           "register": "tools/content-audit/2026-11-17-timeline-redesign.json",
           "scope": "Readability review of every doctrine timeline and step, with targeted primary-source corrections; no comprehensive all-claims legal certification.",
           "freshCompleteOpinionReview": false
+        }
+      ],
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "comparedRuleSha256"
         }
       ]
     },
@@ -47287,6 +47319,11 @@
     "originalSourceRegistry": "tools/v28/source-links.json"
   },
   "timelinesRereviews": [
+    {
+      "date": "2026-11-19",
+      "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+      "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review."
+    },
     {
       "date": "2026-11-19",
       "register": "tools/content-audit/2026-11-19-contracts-opus.json",

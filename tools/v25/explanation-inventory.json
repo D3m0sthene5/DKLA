@@ -2485,6 +2485,60 @@
       "field": "notes",
       "source": "tools/r19/data/r21-audit.json",
       "iteration": 0
+    },
+    {
+      "id": "stees",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "transatlantic",
+      "field": "learning.topics.frustration",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "transatlantic",
+      "field": "learning.topics.quantum-meruit",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "taylor-caldwell",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "taylor-caldwell",
+      "field": "learning.topics.frustration",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "mistake",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "impracticability",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "frustration",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
+    },
+    {
+      "id": "risk-allocation",
+      "field": "notes",
+      "source": "tools/r19/data/r21-audit.json",
+      "iteration": 0
     }
   ],
   "records": [
@@ -18900,8 +18954,8 @@
       "id": "stees",
       "title": "Stees v. Leonard",
       "field": "summary",
-      "text": "A party who makes a positive, express promise must perform it despite unforeseen hindrance or hardship unless performance is prevented by an act of God, the law or the other party; difficulty short of absolute impossibility is no excuse.",
-      "textSha256": "841ff486e720cb0fec8edf92857e8110a6cb368fe93eedfb929a2125de62fcc5",
+      "text": "Minnesota's 1874 rule: one who expressly promises a possible act must perform despite hardship or unforeseen hindrance unless prevented by an act of God, the law or the other party, and difficulty short of absolute impossibility is no excuse. Restatement § 261 later recognized discharge for impracticability.",
+      "textSha256": "6bdfcdbbdd7ca2429011b074fb5e18a816148c5552614fd3f5ca41a92d30c1f3",
       "source": {
         "briefId": "CT-NEXT-CM-0165",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0165.rule (effective assembler overlays)",
@@ -18921,8 +18975,8 @@
       "id": "stees",
       "title": "Stees v. Leonard",
       "field": "notes",
-      "text": "The editors contrast United States v. Spearin and distinguish a specification requiring a result from a detailed design that may imply a warranty of adequacy. That later contrast qualifies the use of Stees as a general construction-risk rule.",
-      "textSha256": "3064c10097f3c5a2d024599da4231fd7994f304774da18336c565d145df38824",
+      "text": "The editors contrast United States v. Spearin and distinguish a specification requiring a result from a detailed design that may imply a warranty of adequacy. That later contrast qualifies the use of Stees as a general construction-risk rule. Note 3 adds that a builder whose nearly finished building is destroyed by lightning without his fault must ordinarily rebuild (C&M 1077–1078), and Note 1 observes that the owners sought their payments, loss of use and damage to an adjacent house, not their expectation interest (C&M 1075, 1077).",
+      "textSha256": "be05688167e6fa32634c26a5d2aef745773d6749ac44386038719a6283f8dbae",
       "source": {
         "briefId": "CT-NEXT-CM-0165",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0165.rule (effective assembler overlays)",
@@ -18962,8 +19016,8 @@
       "id": "renner",
       "title": "Renner v. Kehl",
       "field": "summary",
-      "text": "A contract is voidable for mutual mistake about a basic assumption material enough to upset the exchange, but absent fraud or misrepresentation the rescinding party recovers only restitution of benefits conferred, not consequential damages for reliance expenditures.",
-      "textSha256": "5e46ff352cf5c7eeb05777faf91e019353c688937846fca0373652cc03fe5584",
+      "text": "In Arizona, a contract is voidable for mutual mistake about a basic assumption that materially upsets the exchange, but absent fraud or misrepresentation the rescinding party recovers only restitution of benefits conferred, not consequential damages for reliance expenditures; Restatement § 158(2) lets courts protect reliance to avoid injustice.",
+      "textSha256": "a5cb1d35d70f755aefa9dcf18e5ebb2673271b9b66f842d64ebcf59835f0d539",
       "source": {
         "briefId": "CT-NEXT-CM-0166",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0166.rule (effective assembler overlays)",
@@ -18982,8 +19036,8 @@
       "id": "taylor-caldwell",
       "title": "Taylor v. Caldwell",
       "field": "takeaway",
-      "text": "The parties’ bargain depended on this music hall’s continued existence, which the owners had not guaranteed. Its faultless destruction excused the promised concert performance, and the promoters could not recover their preparation losses. An express allocation of the destruction risk could produce a different result.",
-      "textSha256": "c14cb18745717d45b79ac55492bd58533f96f54f0130a10ecc3e12e0771bf441",
+      "text": "The parties’ bargain depended on this music hall’s continued existence, which the owners had not guaranteed, so its faultless destruction excused both sides: the promoters from paying and the owners from supplying the hall. The promoters could not recover their preparation losses as damages, and an express allocation of the destruction risk could produce a different result.",
+      "textSha256": "1320e50be9df4513d919c2119f6fa478d5b5986a8e7e36f58067195b7cef0524",
       "source": {
         "briefId": "CT-NEXT-CM-0169",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0169.rule (effective assembler overlays)",
@@ -19024,8 +19078,8 @@
       "id": "taylor-caldwell",
       "title": "Taylor v. Caldwell",
       "field": "notes",
-      "text": "The agreement was made on May 27, 1861 for the Surrey Gardens and Music Hall on June 17, July 15, August 5 and August 19; the hall burned on June 11, 1861; Blackburn J.'s opinion (3 B. & S. 826, 122 Eng. Rep. 309) reads an implied condition that the parties are excused when performance becomes impossible through the perishing of the thing without fault of either side, the origin of the common-law impossibility/frustration doctrine.",
-      "textSha256": "4c371aa12c4a46058c9587e4b281b648cde4c63ffad61c5106da2f258713164d",
+      "text": "The agreement was made on May 27, 1861 for the Surrey Gardens and Music Hall on June 17, July 15, August 5 and August 19; the hall burned on June 11, 1861; Blackburn J.'s opinion (3 B. & S. 826, 122 Eng. Rep. 309) reads an implied condition that the parties are excused when performance becomes impossible through the perishing of the thing without fault of either side, the leading early departure from the absolute-contract rule, whose principle Krell later extended to frustration of purpose.",
+      "textSha256": "f76c1146415267175a070e3aa2d67bdeed311a0a9034e736a71a7fffc52b6683",
       "source": {
         "briefId": "CT-NEXT-CM-0169",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0169.rule (effective assembler overlays)",
@@ -19044,8 +19098,8 @@
       "id": "transatlantic",
       "title": "Transatlantic Financing Corp. v. United States",
       "field": "takeaway",
-      "text": "Closing Suez made the planned voyage more expensive, but sailing around Africa remained commercially practicable on this record. The shipper could not shift the extra cost to its customer. Impracticability examines the contingency, allocation of risk and severity of the burden; expense alone did not suffice here.",
-      "textSha256": "e109e9e11aabe769406e7bd5cc22eb811e87514e637df0fd9ae470b4b63165fc",
+      "text": "Closing Suez made the planned voyage more expensive, but sailing around Africa remained commercially practicable on this record, so the carrier could not shift the extra cost to the government that chartered its ship. Impracticability examines the contingency, allocation of risk and severity of the burden; expense alone did not suffice here.",
+      "textSha256": "831bb17970e65654cbbce80cbd2ea63f9fcc691935bdf0b5a76d919b05a42d3e",
       "source": {
         "briefId": "CT-NEXT-CM-0170",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0170.rule (effective assembler overlays)",
@@ -19106,8 +19160,8 @@
       "id": "krell",
       "title": "Krell v. Henry",
       "field": "takeaway",
-      "text": "The cancelled coronation procession defeated the shared foundation of this room-rental agreement: both parties understood that viewing it was the rental’s purpose. The court excused the unpaid balance. A disappointed personal motive alone is different; the event must be fundamental to the bargain and its risk must not have been allocated otherwise.",
-      "textSha256": "067a980403da20d42a8504767836dd5a0739132d98e1d2041ee915e1b52dbeec",
+      "text": "The coronation processions' failure to take place on the proclaimed days along the proclaimed route defeated the shared foundation of this license to use rooms for viewing them, so the court excused the unpaid balance. A disappointed personal motive alone is different; the event must be fundamental to the bargain and its risk must not have been allocated otherwise.",
+      "textSha256": "ce0511668b4d951e54e8c4ffb703bcbed4bd9cac6392908581546a3d2dd7dde0",
       "source": {
         "briefId": "CT-NEXT-CM-0174",
         "canonicalLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0174.rule (effective assembler overlays)",
@@ -22226,8 +22280,8 @@
       "id": "mistake",
       "title": "Mistake about the bargain’s basic assumptions",
       "field": "notes",
-      "text": "Renner involved land and water conditions essential to the parties’ intended agricultural use. The court treated the mistaken basic assumption as grounds for rescission and then addressed restitution separately. Stees illustrates a different treatment of an undertaking to achieve a construction result despite unexpected difficulty.\n\nAsk what fact was mistaken, whether the mistake was shared, whether it materially affected the exchange, and whether the contract or governing rule allocated the risk. A mistaken prediction about later profitability is not automatically the same as a mistake about an existing basic fact. The remedy also requires care: unwinding the exchange and compensating every expenditure are not identical.",
-      "textSha256": "2f0e29278bb1dda328e9e31cb7d7e1188d5ba0eb3280661e26f76f901c439bdd",
+      "text": "Renner involved land and water conditions essential to the parties’ intended agricultural use. The court treated the mistaken basic assumption as grounds for rescission and then addressed restitution separately. Stees illustrates a different treatment of an undertaking to achieve a construction result despite unexpected difficulty.\n\nAsk what fact was mistaken, whether the mistake was shared, whether it materially affected the exchange, and whether the contract or governing rule allocated the risk. A mistaken prediction about later profitability is not automatically the same as a mistake about an existing basic fact. The remedy also requires care: unwinding the exchange and compensating every expenditure are not identical. If only one party was mistaken, that party may avoid only by meeting every § 152 requirement, not bearing the risk under § 154, and showing that enforcement would be unconscionable or that the other party had reason to know of the mistake or his fault caused it (§ 153 and cmt. b). Erroneous construction bids are the usual case (Elsinore v. Kastorff, C&M 1081); a bidder's misjudgment of the labor required is a risk the court allocates to the bidder (§ 154 illus. 6). The parol evidence rule does not bar prior agreements or negotiations offered to show that the parties were mistaken (§ 152 cmt. a; Stees Note 4, C&M 1078).",
+      "textSha256": "66d298b332e0bf082e78031dfebea1ce9a90bedf29ed3d2f6035fdfac20773dc",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: mistake",
@@ -22276,8 +22330,8 @@
       "id": "risk-allocation",
       "title": "Allocation of contractual risk",
       "field": "notes",
-      "text": "Allocation may be expressed through conditions, warranties, fixed prices, or force-majeure clauses. It may also follow from the undertaking interpreted in context and the governing legal rules. Stees, Taylor, Transatlantic, and Krell illustrate different relationships among the promised result, the disrupted circumstances, and the claimed excuse.\n\nForeseeability is relevant, but asking whether an event could have been imagined does not finish the inquiry. A party may know a risk exists without clearly assuming every consequence; conversely, an unconditional undertaking may place a risk on that party. Explain the language, commercial purpose, alternatives, and burden rather than using “risk” as an unexplained label.",
-      "textSha256": "b7a7278a7ebe920f06a405df586a0f4211b36c87c76edba91f09ffeeb2d580b7",
+      "text": "Allocation may be expressed through conditions, warranties, fixed prices, or force-majeure clauses. It may also follow from the undertaking interpreted in context and the governing legal rules. Stees, Taylor, Transatlantic, and Krell illustrate different relationships among the promised result, the disrupted circumstances, and the claimed excuse.\n\nForeseeability is relevant, but asking whether an event could have been imagined does not finish the inquiry. A party may know a risk exists without clearly assuming every consequence; conversely, an unconditional undertaking may place a risk on that party. Explain the language, commercial purpose, alternatives, and burden rather than using “risk” as an unexplained label. Foreseeability is 'at best but one fact to be considered' (Wolf Trap, C&M 1115). An event foreshadowed at contracting may be among the dickered risks (UCC § 2-615 cmt. 8): a settlement signed the day schools closed for COVID-19 was not excused by the pandemic's later financial effects (Belk, C&M 1115). A seller that promotes a 'revolutionary' system bears the risk that the breakthrough cannot be built (Wegematic, C&M 1113). The superior-risk-bearer analysis asks which party could better estimate, insure against or spread the loss, avert the event or mitigate it (C&M 1116–1117).",
+      "textSha256": "6e3aa0661800d238c69448ce8acfe413c06e84e21c3573d53ba401a649fd91de",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: risk-allocation",
@@ -22326,8 +22380,8 @@
       "id": "impracticability",
       "title": "Impossibility and impracticability",
       "field": "notes",
-      "text": "Taylor concerns destruction of the specific music hall essential to the performances. Transatlantic concerns closure of the Suez Canal when the ship could still complete the voyage by a longer route. That contrast makes the promised performance and available alternatives central. Increased cost or difficulty does not automatically establish an excuse.\n\nIdentify the event, its effect on the actual undertaking, the assumption on which the parties contracted, the allocation of risk, and any fault or contractual clause affecting the analysis. The casebook also discusses more recent disruptions as applications to test; their treatment depends on the particular contract. Keep impossibility of the performance distinct from a decline in the value the recipient expects to obtain.",
-      "textSha256": "a969599735841c5dcbf61825360a2836e6f99b9e5f95365986b5504b1c4dce64",
+      "text": "Taylor concerns destruction of the specific music hall essential to the performances. Transatlantic concerns closure of the Suez Canal when the ship could still complete the voyage by a longer route. That contrast makes the promised performance and available alternatives central. Increased cost or difficulty does not automatically establish an excuse.\n\nIdentify the event, its effect on the actual undertaking, the assumption on which the parties contracted, the allocation of risk, and any fault or contractual clause affecting the analysis. The casebook also discusses more recent disruptions as applications to test; their treatment depends on the particular contract. Keep impossibility of the performance distinct from a decline in the value the recipient expects to obtain. In a sale of goods, UCC § 2-613 avoids the contract when goods identified at formation suffer a total casualty without fault before risk of loss passes; § 2-614(1) requires a commercially reasonable substitute manner of delivery to be tendered and accepted; and § 2-615 excuses a seller for a contingency whose non-occurrence was a basic assumption, if the seller allocates partial capacity fairly and notifies the buyer seasonably. Increased cost alone does not excuse (cmt. 4), and a failed source excuses only a seller who took all due measures to assure it would not fail (cmt. 5, citing Canadian Industrial Alcohol). An impracticability that is only temporary suspends the duty while it lasts and discharges it only if later performance would be materially more burdensome (§ 269); Gene Autry's interruption of his studio contract for wartime service was not a breach (C&M 1131–1132).",
+      "textSha256": "e7a7cf4eb9ca62f522c591a6cdec1671b34cd66dfacdf53397a6e2563a47db19",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: impracticability",
@@ -22368,8 +22422,8 @@
       "id": "frustration",
       "title": "Frustration of contractual purpose",
       "field": "notes",
-      "text": "In Krell, rooms could still be supplied, but cancellation of the coronation procession defeated the shared purpose for which the particular daytime use had been arranged. The court considered the transaction’s setting and the parties’ understanding rather than requiring an express sentence naming that purpose.\n\nA party’s private hope or ordinary loss of profit does not necessarily define the bargain’s principal purpose. Determine whether the purpose was sufficiently shared or known, whether the disruption was fundamental, and whether the party claiming excuse bore the risk. Distinguish frustration from impossibility: the former asks what performance would now achieve, while the latter asks whether the undertaking can be performed.",
-      "textSha256": "4fa9749337e4f0403d1e2a9766608e28625089f42e8cb216fd0dc3d672d4b038",
+      "text": "In Krell, rooms could still be supplied, but cancellation of the coronation procession defeated the shared purpose for which the particular daytime use had been arranged. The court considered the transaction’s setting and the parties’ understanding rather than requiring an express sentence naming that purpose.\n\nA party’s private hope or ordinary loss of profit does not necessarily define the bargain’s principal purpose. Determine whether the purpose was sufficiently shared or known, whether the disruption was fundamental, and whether the party claiming excuse bore the risk. Distinguish frustration from impossibility: the former asks what performance would now achieve, while the latter asks whether the undertaking can be performed. Frustration 'is not a form of impossibility': performance remains possible, but its expected value to the party seeking excuse has been destroyed (Lloyd v. Murphy, quoted at C&M 1135). Krell's Derby Day dictum marks the limit: a cab hired at an enhanced price for the race is not discharged if the race is cancelled, because any other cab would have done as well (C&M 1134). The problems at C&M 1136 test that line with lodging booked at more than double the usual rate for a homecoming cancelled after a tornado, and with a nearly finished wedding dress after the intended spouse's fatal accident; relief for part performance follows § 272.",
+      "textSha256": "b044a0b5014ea281b1016ad86a606e9118bf41ebeb7c59a33d09f050f1b7c319",
       "source": {
         "briefId": null,
         "canonicalLocator": "DKLA-r18.html :: seedData.nodes :: frustration",
@@ -104210,8 +104264,8 @@
       "id": "excuse:4",
       "title": "Failed assumptions: later events and initial mistakes",
       "field": "note",
-      "text": "Frustration of purpose: when the shared foundation of the deal fails, the parties are discharged though performance is still possible.",
-      "textSha256": "3b887d78ced1995cb228c0ea90b636a091f44bee11fe7c25bcd04f2f1e423bcf",
+      "text": "Frustration of purpose: when an event the parties could not reasonably have contemplated destroys the shared foundation of the deal, the parties are discharged though performance is still possible.",
+      "textSha256": "26292c60ae01de527c414cf0f2b78d4fbe6e83c6e2868984bc0665017b143bc3",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "excuse",
@@ -104252,8 +104306,8 @@
       "id": "excuse:7",
       "title": "Failed assumptions: later events and initial mistakes",
       "field": "note",
-      "text": "Arizona rescinds for a mutual mistake about a basic assumption (Restatement (Second) § 152) but limits the buyer to restitution, not reliance costs.",
-      "textSha256": "adb5366788cb3601c9219587fd3c9d91e56e66e55dee5291b625e325242fca1c",
+      "text": "Arizona rescinds for a mutual mistake about a basic assumption (Restatement (Second) § 152) but limits the buyers to restitution: the down payment and the value their work added to the land, less its fair rental value, not every reliance expense.",
+      "textSha256": "60fe82dade4b4dd0e93a8d39696b53355fdb615109b8e555fcd14c9b0857899a",
       "source": {
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "excuse",

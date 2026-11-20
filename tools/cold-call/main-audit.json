@@ -7246,7 +7246,7 @@
     {
       "id": "renner",
       "sourceSha256": "883e1ba660f1d798ca537341f081b1ad7269cd0c505862c7a9506d35cad061b3",
-      "narrativeSha256": "3344ca2ec2c0c33019c43264cca25d946607727cdd9a0e9b187bcf78baed254f",
+      "narrativeSha256": "c0c16cc0675c936fe96b1b39a20f5aecea14f64bdd9bd5fcc0d3eed40e8d7347",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
       "verdict": "retained",
@@ -7265,12 +7265,26 @@
       "title": "Renner v. Kehl",
       "course": "Contracts",
       "briefId": "CT-NEXT-CM-0166",
-      "accountSha256": "ad08c207ab0b63d7fc49a36faf48c21072a5c2c1ca561a1d8f2f055cfd7e1f43",
+      "accountSha256": "b003eb96e039f7d4659a54271cbbebe421a918a16bca4b67ae4df917c98678dd",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 650,
-      "wordsAfter": 650
+      "wordsAfter": 650,
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "narrativeSha256"
+        },
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "accountSha256"
+        }
+      ]
     },
     {
       "id": "ricketts",

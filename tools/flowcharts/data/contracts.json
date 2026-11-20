@@ -4229,8 +4229,8 @@
       },
       {
         "id": "b",
-        "label": "Did a shared basic assumption materially fail?",
-        "detail": "Renner concerned water already unavailable in the necessary quantity for jojoba cultivation. Test basic assumption, material effect and whether the party seeking relief assumed the risk.",
+        "label": "Did a basic assumption materially fail, for both parties or for one?",
+        "detail": "Renner concerned water already unavailable in the necessary quantity for jojoba cultivation. Test basic assumption, material effect and whether the party seeking relief bears the risk (§ 154). Material effect means an imbalance so severe that the party cannot fairly be required to perform, ordinarily because the exchange is both less desirable to him and more advantageous to the other party (§ 152 cmt. c). If only one party was mistaken, that party may avoid only if those requirements are met and, in addition, enforcement would be unconscionable or the other party had reason to know of the mistake or his fault caused it (§ 153); erroneous construction bids are the usual case (Elsinore, C&M 1081). A fact existing at formation that made performance impracticable, or substantially frustrated the principal purpose, may instead excuse under § 266.",
         "sources": [
           "mistake",
           "renner",
@@ -4242,7 +4242,15 @@
             "to": "d"
           },
           {
-            "label": "No material shared mistake",
+            "label": "One party's mistake meeting § 153(a) or (b)",
+            "to": "d"
+          },
+          {
+            "label": "Existing fact made performance impracticable or frustrated the purpose (§ 266)",
+            "to": "i"
+          },
+          {
+            "label": "No qualifying mistake or existing impediment",
             "to": "h"
           }
         ]
@@ -4274,7 +4282,7 @@
       {
         "id": "d",
         "label": "Who carries this risk?",
-        "detail": "Read actual assumption of risk, contractual clauses, and the allocation implied by the deal and law. Stees construed the building promise strictly despite quicksand. For force majeure, apply trigger, causation, notice, mitigation and relief specified by the language.",
+        "detail": "Read actual assumption of risk, contractual clauses, and the allocation implied by the deal and law. For mistake, a party bears the risk when the agreement allocates it, when he knew at formation that his knowledge was limited and treated it as sufficient (conscious ignorance), or when the court allocates it as reasonable (§ 154); courts generally allocate to a seller of farm land the risk that it holds valuable minerals (C&M 1081 Note 2) and to a builder the cost of draining subsoil (§ 154 illus. 5). Stees construed the building promise strictly despite quicksand; where the owner supplied a design specification prescribing design, materials and methods, courts treat it as impliedly warranting their adequacy (Spearin, C&M 1077 Note 2). For force majeure, apply trigger, causation, notice, mitigation and relief specified by the language: general words after a list may be confined to similar events (ejusdem generis), a clause covering an event may not cover its economic aftermath, and an express exclusion such as a duty to pay rent regardless controls (C&M 1117–1119).",
         "sources": [
           "risk-allocation",
           "force-majeure",
@@ -4295,7 +4303,7 @@
       {
         "id": "e",
         "label": "Is the promised performance truly impracticable?",
-        "detail": "Taylor’s particular music hall burned without fault. Transatlantic’s Cape route still allowed performance at greater cost. Check fault, available alternatives, foreseeability as evidence of allocation, basic assumption and contractual risk.",
+        "detail": "Taylor’s particular music hall burned without fault. That excuse applies when a specific existing thing that performance requires is destroyed: a contractor repairing an existing building that burns is discharged (§ 261 illus. 6; § 263), but a builder whose own unfinished building is destroyed without his fault must ordinarily rebuild (Stees Note 3, C&M 1077–1078). Transatlantic’s Cape route still allowed performance at greater cost. Check fault, available alternatives, foreseeability as evidence of allocation, basic assumption and contractual risk. Under § 261 the event must occur without the party's fault, which includes negligence and breach; market shifts and a party's financial inability are ordinarily not events whose non-occurrence was a basic assumption; and impracticability means extreme and unreasonable difficulty, expense, injury or loss despite reasonable efforts, more than 'impracticality' (cmts. b, d).",
         "sources": [
           "impracticability",
           "taylor-caldwell",
@@ -4307,7 +4315,7 @@
             "to": "g"
           },
           {
-            "label": "Reasonable alternative or assumed risk",
+            "label": "Party at fault, reasonable alternative, or assumed risk",
             "to": "h"
           }
         ]
@@ -4315,7 +4323,7 @@
       {
         "id": "f",
         "label": "Was the principal purpose substantially frustrated?",
-        "detail": "The canceled coronation procession was the shared foundation for the particular rooms in Krell. Check severity, shared understanding, fault and who bore the risk. Ordinary disappointment or reduced profits will seldom suffice.",
+        "detail": "In Krell the processions' taking place on the proclaimed days, along the proclaimed route past the rooms, was the foundation of the license to use them, as both parties regarded it (C&M 1134). Check severity, shared understanding, fault and who bore the risk. Knowing the other party's purpose is not enough: the object must be so completely the basis of the contract that, as both understand, without it the transaction would make little sense, and a less profitable transaction or even a loss does not suffice (§ 265 cmt. a). In Krell's Derby Day dictum, a cab hired at an enhanced price to go to the race is not discharged when the race is cancelled, because the cab 'had no special qualification for this particular occasion' (C&M 1134).",
         "sources": [
           "frustration",
           "krell",
@@ -4327,7 +4335,7 @@
             "to": "g"
           },
           {
-            "label": "Purpose remains or risk allocated",
+            "label": "Purpose survives, was not the shared foundation, or risk allocated",
             "to": "h"
           }
         ]
@@ -4335,7 +4343,7 @@
       {
         "id": "g",
         "label": "Match relief to the doctrine",
-        "detail": "Mistake can justify avoidance and restoration. A later event may discharge or suspend remaining duties, depending on doctrine or clause. Renner restored payment and net value conferred, rather than every development expense.",
+        "detail": "Mistake can justify avoidance and restoration (§§ 158, 376). A later event may discharge or suspend remaining duties, depending on doctrine or clause; a temporary impediment suspends the duty and discharges it only if later performance would be materially more burdensome (§ 269). After discharge, either party may claim restitution for benefits conferred by part performance or reliance (§§ 272(1), 377), and a court may protect reliance where those rules will not avoid injustice (§§ 158(2), 272(2)). Renner, applying Arizona law, restored payment and net value conferred, rather than every development expense. Taylor's promoters could not recover preparation expenses as damages for breach (C&M 1105), and Transatlantic said that a carrier whose contract was a nullity would claim quantum meruit for the entire voyage, not only the extra cost on top of the collected price (C&M 1112).",
         "sources": [
           "renner",
           "taylor-caldwell",
@@ -4354,6 +4362,26 @@
           "risk-allocation"
         ],
         "edges": []
+      },
+      {
+        "id": "i",
+        "label": "Does a fact existing at formation excuse under § 266?",
+        "detail": "Where, when the contract is made, a party's performance is impracticable, or his principal purpose is substantially frustrated, without his fault because of a fact of which he has no reason to know and whose non-existence is a basic assumption, no duty to render that performance arises, unless the language or circumstances indicate the contrary (§ 266). The 'no reason to know' requirement is stricter than mistake, where a party's fault in failing to discover the facts bars avoidance only if it amounts to a failure to act in good faith and in accordance with reasonable standards of fair dealing (§ 157). The casebook's example is gravel on the land that could be removed only at prohibitive cost (Mineral Park, C&M 1100–1101), and a buyer whose dredge proves unfit for a purpose both parties assumed may have § 266(2) relief though the mistake is not material (§ 152 cmt. c, illus. 9).",
+        "sources": [
+          "impracticability",
+          "mistake",
+          "frustration"
+        ],
+        "edges": [
+          {
+            "label": "No duty arose (§ 266)",
+            "to": "g"
+          },
+          {
+            "label": "Reason to know, fault, or risk assumed",
+            "to": "h"
+          }
+        ]
       }
     ]
   },

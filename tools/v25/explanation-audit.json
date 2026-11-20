@@ -4009,7 +4009,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-NEXT-CM-0165",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0165.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "841ff486e720cb0fec8edf92857e8110a6cb368fe93eedfb929a2125de62fcc5",
+        "ruleSha256": "6bdfcdbbdd7ca2429011b074fb5e18a816148c5552614fd3f5ca41a92d30c1f3",
         "comparedSections": {
           "Holding": "8dce48583f3c47e04394983b19834ec6aa33db27f1150c3086c9f42c40237e2d"
         },
@@ -4028,7 +4028,15 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "renner",
@@ -4048,7 +4056,7 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-NEXT-CM-0166",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0166.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "5e46ff352cf5c7eeb05777faf91e019353c688937846fca0373652cc03fe5584",
+        "ruleSha256": "a5cb1d35d70f755aefa9dcf18e5ebb2673271b9b66f842d64ebcf59835f0d539",
         "comparedSections": {
           "Holding": "9f3b1d2909ae7e6393d521d45260d7e537dea2c34dc73f14baf096e7445763b3",
           "Material Facts": "2c13a25992079205294c47eadfd555868353fc42010217af9a6349f8e955e1aa",
@@ -4071,7 +4079,15 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "basis.ruleSha256"
+        }
+      ]
     },
     {
       "id": "taylor-caldwell",
@@ -4080,7 +4096,7 @@
         "Contracts"
       ],
       "takeaway": "The parties’ bargain depended on this music hall’s continued existence, which the owners had not guaranteed. Its faultless destruction excused the promised concert performance, and the promoters could not recover their preparation losses. An express allocation of the destruction risk could produce a different result.",
-      "takeawaySha256": "c14cb18745717d45b79ac55492bd58533f96f54f0130a10ecc3e12e0771bf441",
+      "takeawaySha256": "1320e50be9df4513d919c2119f6fa478d5b5986a8e7e36f58067195b7cef0524",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Canonical Rule qualifies the rule where continued existence is not warranted; Holding denies preparation damages.",
@@ -4110,7 +4126,15 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        }
+      ]
     },
     {
       "id": "transatlantic",
@@ -4119,7 +4143,7 @@
         "Contracts"
       ],
       "takeaway": "Closing Suez made the planned voyage more expensive, but sailing around Africa remained commercially practicable on this record. The shipper could not shift the extra cost to its customer. Impracticability examines the contingency, allocation of risk and severity of the burden; expense alone did not suffice here.",
-      "takeawaySha256": "e109e9e11aabe769406e7bd5cc22eb811e87514e637df0fd9ae470b4b63165fc",
+      "takeawaySha256": "831bb17970e65654cbbce80cbd2ea63f9fcc691935bdf0b5a76d919b05a42d3e",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding is a record-specific practicability decision, not a categorical denial of excuse for every extreme cost increase.",
@@ -4149,7 +4173,15 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        }
+      ]
     },
     {
       "id": "krell",
@@ -4158,7 +4190,7 @@
         "Contracts"
       ],
       "takeaway": "The cancelled coronation procession defeated the shared foundation of this room-rental agreement: both parties understood that viewing it was the rental’s purpose. The court excused the unpaid balance. A disappointed personal motive alone is different; the event must be fundamental to the bargain and its risk must not have been allocated otherwise.",
-      "takeawaySha256": "067a980403da20d42a8504767836dd5a0739132d98e1d2041ee915e1b52dbeec",
+      "takeawaySha256": "ce0511668b4d951e54e8c4ffb703bcbed4bd9cac6392908581546a3d2dd7dde0",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding and canonical rule require a shared contractual foundation rather than any frustrated personal purpose.",
@@ -4188,7 +4220,15 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "rereviews": [
+        {
+          "date": "2026-11-19",
+          "register": "tools/content-audit/2026-11-19-contracts-opus.json",
+          "basis": "Text corrected in the Contracts source-first audit against the assigned C&M pages, supplement, selections and slides; the hash is re-recorded for the corrected text. Not a new full-opinion review.",
+          "field": "takeawaySha256"
+        }
+      ]
     },
     {
       "id": "walgreen",

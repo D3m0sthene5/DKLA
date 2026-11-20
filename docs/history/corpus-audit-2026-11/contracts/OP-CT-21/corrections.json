@@ -1,0 +1,1225 @@
+{
+ "registered": [
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/28/nodes/1/label",
+   "old": "Did a shared basic assumption materially fail?",
+   "new": "Did a basic assumption materially fail, for both parties or for one?",
+   "reason": "§ 153 makes a contract voidable by the one mistaken party who meets the § 152 elements, does not bear the risk, and shows unconscionability or that the other party 'had reason to know of the mistake or his fault caused the mistake'; erroneous bids are the usual case (C&M 1081). Node b sent every one-sided mistake to 'obligation remains', and had no route for existing impracticability (§ 266).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1081,
+      1100,
+      1101
+     ],
+     "pdfPages": [
+      73,
+      92,
+      93
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 153 and comments b, c"
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 152 comments a, c and illustration 9"
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 266"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/28/nodes/1/detail",
+   "old": "Renner concerned water already unavailable in the necessary quantity for jojoba cultivation. Test basic assumption, material effect and whether the party seeking relief assumed the risk.",
+   "new": "Renner concerned water already unavailable in the necessary quantity for jojoba cultivation. Test basic assumption, material effect and whether the party seeking relief bears the risk (§ 154). Material effect means an imbalance so severe that the party cannot fairly be required to perform, ordinarily because the exchange is both less desirable to him and more advantageous to the other party (§ 152 cmt. c). If only one party was mistaken, that party may avoid only if those requirements are met and, in addition, enforcement would be unconscionable or the other party had reason to know of the mistake or his fault caused it (§ 153); erroneous construction bids are the usual case (Elsinore, C&M 1081). A fact existing at formation that made performance impracticable, or substantially frustrated the principal purpose, may instead excuse under § 266.",
+   "reason": "§ 153 makes a contract voidable by the one mistaken party who meets the § 152 elements, does not bear the risk, and shows unconscionability or that the other party 'had reason to know of the mistake or his fault caused the mistake'; erroneous bids are the usual case (C&M 1081). Node b sent every one-sided mistake to 'obligation remains', and had no route for existing impracticability (§ 266).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1081,
+      1100,
+      1101
+     ],
+     "pdfPages": [
+      73,
+      92,
+      93
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 153 and comments b, c"
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 152 comments a, c and illustration 9"
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 266"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/28/nodes/1/edges",
+   "old": [
+    {
+     "label": "Material mutual mistake",
+     "to": "d"
+    },
+    {
+     "label": "No material shared mistake",
+     "to": "h"
+    }
+   ],
+   "new": [
+    {
+     "label": "Material mutual mistake",
+     "to": "d"
+    },
+    {
+     "label": "One party's mistake meeting § 153(a) or (b)",
+     "to": "d"
+    },
+    {
+     "label": "Existing fact made performance impracticable or frustrated the purpose (§ 266)",
+     "to": "i"
+    },
+    {
+     "label": "No qualifying mistake or existing impediment",
+     "to": "h"
+    }
+   ],
+   "reason": "§ 153 makes a contract voidable by the one mistaken party who meets the § 152 elements, does not bear the risk, and shows unconscionability or that the other party 'had reason to know of the mistake or his fault caused the mistake'; erroneous bids are the usual case (C&M 1081). Node b sent every one-sided mistake to 'obligation remains', and had no route for existing impracticability (§ 266).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1081,
+      1100,
+      1101
+     ],
+     "pdfPages": [
+      73,
+      92,
+      93
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 153 and comments b, c"
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 152 comments a, c and illustration 9"
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 266"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/28/nodes/3/detail",
+   "old": "Read actual assumption of risk, contractual clauses, and the allocation implied by the deal and law. Stees construed the building promise strictly despite quicksand. For force majeure, apply trigger, causation, notice, mitigation and relief specified by the language.",
+   "new": "Read actual assumption of risk, contractual clauses, and the allocation implied by the deal and law. For mistake, a party bears the risk when the agreement allocates it, when he knew at formation that his knowledge was limited and treated it as sufficient (conscious ignorance), or when the court allocates it as reasonable (§ 154); courts generally allocate to a seller of farm land the risk that it holds valuable minerals (C&M 1081 Note 2) and to a builder the cost of draining subsoil (§ 154 illus. 5). Stees construed the building promise strictly despite quicksand; where the owner supplied a design specification prescribing design, materials and methods, courts treat it as impliedly warranting their adequacy (Spearin, C&M 1077 Note 2). For force majeure, apply trigger, causation, notice, mitigation and relief specified by the language: general words after a list may be confined to similar events (ejusdem generis), a clause covering an event may not cover its economic aftermath, and an express exclusion such as a duty to pay rent regardless controls (C&M 1117–1119).",
+   "reason": "§ 154 allocates the risk by agreement, by conscious ignorance ('aware ... that he has only limited knowledge ... but treats his limited knowledge as sufficient'), or by the court; Stees Note 2 says a design specification 'impliedly warrants their adequacy' (C&M 1077); the force-majeure notes turn on ejusdem generis, economic aftermath and a rent proviso (C&M 1117–1119). Node d named none of these.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1077,
+      1081,
+      1117,
+      1118,
+      1119
+     ],
+     "pdfPages": [
+      69,
+      73,
+      109,
+      110,
+      111
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 154 and comments a, c, d; illustrations 5, 6"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/28/nodes/4/detail",
+   "old": "Taylor’s particular music hall burned without fault. Transatlantic’s Cape route still allowed performance at greater cost. Check fault, available alternatives, foreseeability as evidence of allocation, basic assumption and contractual risk.",
+   "new": "Taylor’s particular music hall burned without fault. That excuse applies when a specific existing thing that performance requires is destroyed: a contractor repairing an existing building that burns is discharged (§ 261 illus. 6; § 263), but a builder whose own unfinished building is destroyed without his fault must ordinarily rebuild (Stees Note 3, C&M 1077–1078). Transatlantic’s Cape route still allowed performance at greater cost. Check fault, available alternatives, foreseeability as evidence of allocation, basic assumption and contractual risk. Under § 261 the event must occur without the party's fault, which includes negligence and breach; market shifts and a party's financial inability are ordinarily not events whose non-occurrence was a basic assumption; and impracticability means extreme and unreasonable difficulty, expense, injury or loss despite reasonable efforts, more than 'impracticality' (cmts. b, d).",
+   "reason": "Stees Note 3: a builder whose nearly finished building burns after lightning 'would have been accountable for breach, it seems, if he did not begin to build again' (C&M 1077–1078); § 261 illus. 6 discharges a contractor repairing an existing elevator that burns. Node e's only destruction example (Taylor) sent the builder to discharge, and no edge named fault, which § 261 cmt. d says includes negligence.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1077,
+      1078,
+      1103,
+      1105
+     ],
+     "pdfPages": [
+      69,
+      70,
+      95,
+      97
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 261 comments b, d and illustration 6; § 263"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/28/nodes/4/edges",
+   "old": [
+    {
+     "label": "Excuse established",
+     "to": "g"
+    },
+    {
+     "label": "Reasonable alternative or assumed risk",
+     "to": "h"
+    }
+   ],
+   "new": [
+    {
+     "label": "Excuse established",
+     "to": "g"
+    },
+    {
+     "label": "Party at fault, reasonable alternative, or assumed risk",
+     "to": "h"
+    }
+   ],
+   "reason": "Stees Note 3: a builder whose nearly finished building burns after lightning 'would have been accountable for breach, it seems, if he did not begin to build again' (C&M 1077–1078); § 261 illus. 6 discharges a contractor repairing an existing elevator that burns. Node e's only destruction example (Taylor) sent the builder to discharge, and no edge named fault, which § 261 cmt. d says includes negligence.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1077,
+      1078,
+      1103,
+      1105
+     ],
+     "pdfPages": [
+      69,
+      70,
+      95,
+      97
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 261 comments b, d and illustration 6; § 263"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/28/nodes/5/detail",
+   "old": "The canceled coronation procession was the shared foundation for the particular rooms in Krell. Check severity, shared understanding, fault and who bore the risk. Ordinary disappointment or reduced profits will seldom suffice.",
+   "new": "In Krell the processions' taking place on the proclaimed days, along the proclaimed route past the rooms, was the foundation of the license to use them, as both parties regarded it (C&M 1134). Check severity, shared understanding, fault and who bore the risk. Knowing the other party's purpose is not enough: the object must be so completely the basis of the contract that, as both understand, without it the transaction would make little sense, and a less profitable transaction or even a loss does not suffice (§ 265 cmt. a). In Krell's Derby Day dictum, a cab hired at an enhanced price to go to the race is not discharged when the race is cancelled, because the cab 'had no special qualification for this particular occasion' (C&M 1134).",
+   "reason": "Vaughan Williams L.J.: 'the taking place of those processions on the days proclaimed along the proclaimed route, which passed 56A, Pall Mall' was the foundation, while the Derby Day cab 'had no special qualification for this particular occasion' (C&M 1134); § 265 cmt. a: a loss 'is not enough'. Node f let a known purpose reach discharge, so the cab hirer was discharged, and said reduced profit will 'seldom' suffice.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1133,
+      1134
+     ],
+     "pdfPages": [
+      127,
+      128
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 265 and comment a"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/28/nodes/5/edges",
+   "old": [
+    {
+     "label": "Frustration established",
+     "to": "g"
+    },
+    {
+     "label": "Purpose remains or risk allocated",
+     "to": "h"
+    }
+   ],
+   "new": [
+    {
+     "label": "Frustration established",
+     "to": "g"
+    },
+    {
+     "label": "Purpose survives, was not the shared foundation, or risk allocated",
+     "to": "h"
+    }
+   ],
+   "reason": "Vaughan Williams L.J.: 'the taking place of those processions on the days proclaimed along the proclaimed route, which passed 56A, Pall Mall' was the foundation, while the Derby Day cab 'had no special qualification for this particular occasion' (C&M 1134); § 265 cmt. a: a loss 'is not enough'. Node f let a known purpose reach discharge, so the cab hirer was discharged, and said reduced profit will 'seldom' suffice.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1133,
+      1134
+     ],
+     "pdfPages": [
+      127,
+      128
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 265 and comment a"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/28/nodes/6/detail",
+   "old": "Mistake can justify avoidance and restoration. A later event may discharge or suspend remaining duties, depending on doctrine or clause. Renner restored payment and net value conferred, rather than every development expense.",
+   "new": "Mistake can justify avoidance and restoration (§§ 158, 376). A later event may discharge or suspend remaining duties, depending on doctrine or clause; a temporary impediment suspends the duty and discharges it only if later performance would be materially more burdensome (§ 269). After discharge, either party may claim restitution for benefits conferred by part performance or reliance (§§ 272(1), 377), and a court may protect reliance where those rules will not avoid injustice (§§ 158(2), 272(2)). Renner, applying Arizona law, restored payment and net value conferred, rather than every development expense. Taylor's promoters could not recover preparation expenses as damages for breach (C&M 1105), and Transatlantic said that a carrier whose contract was a nullity would claim quantum meruit for the entire voyage, not only the extra cost on top of the collected price (C&M 1112).",
+   "reason": "§ 272(1) and § 377 give restitution for benefits conferred by part performance or reliance after discharge, and §§ 158(2), 272(2) let a court protect reliance only where those rules 'will not avoid injustice'; Transatlantic: the claim 'should have been quantum meruit for the entire trip, rather than only for the extra expense' (C&M 1112). Node g gave no rule for relief after discharge.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1079,
+      1080,
+      1105,
+      1112,
+      1131,
+      1132
+     ],
+     "pdfPages": [
+      71,
+      72,
+      97,
+      104,
+      125,
+      126
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) §§ 158, 272, 376, 377"
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 269"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "target": "effectiveBrief",
+   "id": "CT-NEXT-CM-0165",
+   "field": "rule",
+   "old": "A party who makes a positive, express promise must perform it despite unforeseen hindrance or hardship unless performance is prevented by an act of God, the law or the other party; difficulty short of absolute impossibility is no excuse.",
+   "new": "Minnesota's 1874 rule: one who expressly promises a possible act must perform despite hardship or unforeseen hindrance unless prevented by an act of God, the law or the other party, and difficulty short of absolute impossibility is no excuse. Restatement § 261 later recognized discharge for impracticability.",
+   "reason": "Young, J.'s 1874 formulation ('No hardship, no unforeseen hindrance, no difficulty short of absolute impossibility, will excuse him', C&M 1075) was stated as present law; Transatlantic says the doctrine 'has gradually been freed from the earlier ... strictures' and § 261 cmt. d discharges 'even though the event has not made performance absolutely impossible' (C&M 1108–1109).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1075,
+      1108,
+      1109
+     ],
+     "pdfPages": [
+      67,
+      100,
+      101
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 261 comment d"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "file": "tools/v28/case-chronologies.json",
+   "pointer": "/0/steps/25/note",
+   "old": "A party who makes a positive, express promise must perform it despite unforeseen hindrance or hardship unless performance is prevented by an act of God, the law or the other party; difficulty short of absolute impossibility is no excuse.",
+   "new": "Minnesota's 1874 rule: one who expressly promises a possible act must perform despite hardship or unforeseen hindrance unless prevented by an act of God, the law or the other party, and difficulty short of absolute impossibility is no excuse. Restatement § 261 later recognized discharge for impracticability.",
+   "reason": "Young, J.'s 1874 formulation ('No hardship, no unforeseen hindrance, no difficulty short of absolute impossibility, will excuse him', C&M 1075) was stated as present law; Transatlantic says the doctrine 'has gradually been freed from the earlier ... strictures' and § 261 cmt. d discharges 'even though the event has not made performance absolutely impossible' (C&M 1108–1109).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1075,
+      1108,
+      1109
+     ],
+     "pdfPages": [
+      67,
+      100,
+      101
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 261 comment d"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "target": "effectiveBrief",
+   "id": "CT-NEXT-CM-0166",
+   "field": "rule",
+   "old": "A contract is voidable for mutual mistake about a basic assumption material enough to upset the exchange, but absent fraud or misrepresentation the rescinding party recovers only restitution of benefits conferred, not consequential damages for reliance expenditures.",
+   "new": "In Arizona, a contract is voidable for mutual mistake about a basic assumption that materially upsets the exchange, but absent fraud or misrepresentation the rescinding party recovers only restitution of benefits conferred, not consequential damages for reliance expenditures; Restatement § 158(2) lets courts protect reliance to avoid injustice.",
+   "reason": "The no-reliance rule is Arizona's: 'absent proof of breach for fraud or misrepresentation a party who rescinds a contract may not recover consequential damages' (C&M 1079); the assigned Restatement lets a court protect 'the parties' reliance interest' where restitution 'will not avoid injustice' (§ 158(2)).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1078,
+      1079,
+      1080
+     ],
+     "pdfPages": [
+      70,
+      71,
+      72
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 158(2)"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "file": "tools/v28/case-chronologies.json",
+   "pointer": "/0/steps/336/note",
+   "old": "A contract is voidable for mutual mistake about a basic assumption material enough to upset the exchange, but absent fraud or misrepresentation the rescinding party recovers only restitution of benefits conferred, not consequential damages for reliance expenditures.",
+   "new": "In Arizona, a contract is voidable for mutual mistake about a basic assumption that materially upsets the exchange, but absent fraud or misrepresentation the rescinding party recovers only restitution of benefits conferred, not consequential damages for reliance expenditures; Restatement § 158(2) lets courts protect reliance to avoid injustice.",
+   "reason": "The no-reliance rule is Arizona's: 'absent proof of breach for fraud or misrepresentation a party who rescinds a contract may not recover consequential damages' (C&M 1079); the assigned Restatement lets a court protect 'the parties' reliance interest' where restitution 'will not avoid injustice' (§ 158(2)).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1078,
+      1079,
+      1080
+     ],
+     "pdfPages": [
+      70,
+      71,
+      72
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 158(2)"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "file": "tools/r19/data/timelines.json",
+   "timelineId": "excuse",
+   "stepKey": "renner",
+   "field": "note",
+   "old": "Arizona rescinds for a mutual mistake about a basic assumption (Restatement (Second) § 152) but limits the buyer to restitution, not reliance costs.",
+   "new": "Arizona rescinds for a mutual mistake about a basic assumption (Restatement (Second) § 152) but limits the buyers to restitution: the down payment and the value their work added to the land, less its fair rental value, not every reliance expense.",
+   "reason": "Renner awarded the down payment plus enhancement of the land's value, less fair rental value (C&M 1080–1081); development spending counted to the extent it enhanced the land.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1080,
+      1081
+     ],
+     "pdfPages": [
+      72,
+      73
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "file": "tools/cold-call/plain-sentences.json",
+   "pointer": "/sentences/renner/3/plain",
+   "old": "Its second footnote stressed that the buyers' failure to investigate thoroughly did not by itself defeat \"rescission.\" The contract had not put that risk on them, and the shared \"mistake\" concerned a material \"basic assumption.\"",
+   "new": "Its second footnote stressed that the parties' failure to investigate the water supply thoroughly before signing did not by itself defeat \"rescission\" when the risk of the mistake had not been allocated among them and the shared \"mistake\" concerned a material \"basic assumption.\" A party bears that risk if the agreement assigns it, if he knowingly treats limited knowledge as sufficient, or if a court reasonably assigns it to him (§ 154).",
+   "reason": "Footnote 2: failure to investigate 'prior to signing the contract does not preclude rescission where the risk of mistake was not allocated among the parties' (C&M 1079). The plain sentence turned that condition into a finding that 'the contract' had not put the risk on the buyers, omitting conscious ignorance and court allocation (§ 154(b)–(c)).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1079
+     ],
+     "pdfPages": [
+      71
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 154 and comments a, c, d; illustrations 5, 6"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "file": "tools/cold-call/narratives/renner.json",
+   "pointer": "/sections/2/paragraphs/1",
+   "old": "The court did not treat the buyers’ unsuccessful drilling as proof that they consciously assumed all groundwater risk. Its second footnote emphasized that failure to investigate thoroughly did not itself defeat rescission when the risk had not been allocated and the shared mistake concerned a material basic assumption. The sellers’ missing record also constrained their attempt to overturn the factual premise.",
+   "new": "The investigation that mattered was the one before signing; the buyers drilled their five test wells only after the contract and conveyance. Its second footnote emphasized that failure to investigate thoroughly did not itself defeat rescission when the risk had not been allocated and the shared mistake concerned a material basic assumption. The sellers’ missing record also constrained their attempt to overturn the factual premise.",
+   "reason": "The opinion never treats the drilling as bearing on assumed risk; the wells came after the down payment and conveyance (C&M 1078), and footnote 2 speaks of investigation 'prior to signing' (C&M 1079; § 154(b): 'at the time the contract is made').",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1078,
+      1079
+     ],
+     "pdfPages": [
+      70,
+      71
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 154 and comments a, c, d; illustrations 5, 6"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "target": "takeaway",
+   "id": "transatlantic",
+   "old": "Closing Suez made the planned voyage more expensive, but sailing around Africa remained commercially practicable on this record. The shipper could not shift the extra cost to its customer. Impracticability examines the contingency, allocation of risk and severity of the burden; expense alone did not suffice here.",
+   "new": "Closing Suez made the planned voyage more expensive, but sailing around Africa remained commercially practicable on this record, so the carrier could not shift the extra cost to the government that chartered its ship. Impracticability examines the contingency, allocation of risk and severity of the burden; expense alone did not suffice here.",
+   "reason": "Transatlantic was the 'operator of the SS CHRISTOS' and the United States chartered it to carry its wheat (C&M 1107); the takeaway called the losing carrier 'the shipper'.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1107,
+      1112
+     ],
+     "pdfPages": [
+      99,
+      104
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "target": "takeaway",
+   "id": "taylor-caldwell",
+   "old": "The parties’ bargain depended on this music hall’s continued existence, which the owners had not guaranteed. Its faultless destruction excused the promised concert performance, and the promoters could not recover their preparation losses. An express allocation of the destruction risk could produce a different result.",
+   "new": "The parties’ bargain depended on this music hall’s continued existence, which the owners had not guaranteed, so its faultless destruction excused both sides: the promoters from paying and the owners from supplying the hall. The promoters could not recover their preparation losses as damages, and an express allocation of the destruction risk could produce a different result.",
+   "reason": "Blackburn J.: 'both parties are excused, the plaintiffs from taking the gardens and paying the money, the defendants from performing their promise to give the use of the Hall' (C&M 1105); no one promised a 'concert performance'.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1105
+     ],
+     "pdfPages": [
+      97
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "target": "takeaway",
+   "id": "krell",
+   "old": "The cancelled coronation procession defeated the shared foundation of this room-rental agreement: both parties understood that viewing it was the rental’s purpose. The court excused the unpaid balance. A disappointed personal motive alone is different; the event must be fundamental to the bargain and its risk must not have been allocated otherwise.",
+   "new": "The coronation processions' failure to take place on the proclaimed days along the proclaimed route defeated the shared foundation of this license to use rooms for viewing them, so the court excused the unpaid balance. A disappointed personal motive alone is different; the event must be fundamental to the bargain and its risk must not have been allocated otherwise.",
+   "reason": "The foundation was 'the taking place of those processions on the days proclaimed along the proclaimed route, which passed 56A, Pall Mall', and the arrangement was 'a license to use rooms for a particular purpose', not a letting (C&M 1134). 'The procession happening' fails on processions held on a shorter route not including Pall Mall (C&M 1133 n.P).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1133,
+      1134
+     ],
+     "pdfPages": [
+      127,
+      128
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "file": "tools/cold-call/plain-sentences.json",
+   "pointer": "/sentences/krell/7/plain",
+   "old": "The contract was implicitly conditioned on the procession happening. This is different from reading an unstated promise into a contract, as in the Moorcock case.",
+   "new": "The contract was implicitly conditioned on its foundation, the processions taking place on the proclaimed days along the proclaimed route past the rooms, and was limited when that foundation disappeared. This is different from reading an unstated promise into a contract, as in the Moorcock case.",
+   "reason": "The foundation was 'the taking place of those processions on the days proclaimed along the proclaimed route, which passed 56A, Pall Mall', and the arrangement was 'a license to use rooms for a particular purpose', not a letting (C&M 1134). 'The procession happening' fails on processions held on a shorter route not including Pall Mall (C&M 1133 n.P).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1133,
+      1134
+     ],
+     "pdfPages": [
+      127,
+      128
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "file": "tools/cold-call/plain-sentences.json",
+   "pointer": "/sentences/krell/8/plain",
+   "old": "A suitable cab hired to go to the races could still provide the ride if the race were cancelled. Watching the race would usually be the passenger's own purpose, not the foundation of that transport \"bargain,\" so the fare would still be owed.",
+   "new": "A suitable cab hired to go to the races could still provide the ride if the race were cancelled. Watching the race would usually be the passenger's own purpose, not the foundation of that transport \"bargain,\" so, in the court's dictum, the fare would still be owed.",
+   "reason": "The cab is a hypothetical the court offered ('if a cabman was engaged ...'), and the casebook asks whether the student is 'prepared to dispute the court's dictum' (C&M 1134, 1136).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1134,
+      1136
+     ],
+     "pdfPages": [
+      128,
+      130
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "file": "tools/cold-call/plain-sentences.json",
+   "pointer": "/sentences/krell/1/plain",
+   "old": "The trial judge, \"Darling J.\" (Justice Darling), rejected Krell’s \"claim\" for the unpaid rent and allowed Henry's \"counterclaim\" to get back the £25 he had paid.",
+   "new": "The trial judge, \"Darling J.\" (Justice Darling), rejected Krell’s \"claim\" for the unpaid £50 balance and allowed Henry's \"counterclaim\" to get back the £25 he had paid.",
+   "reason": "The court held the arrangement 'not a demise of the rooms or even an agreement to let and take the rooms' but a license; the claim was for the £50 balance (C&M 1133–1134).",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1133,
+      1134
+     ],
+     "pdfPages": [
+      127,
+      128
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "file": "tools/r19/data/timelines.json",
+   "timelineId": "excuse",
+   "stepKey": "krell",
+   "field": "note",
+   "old": "Frustration of purpose: when the shared foundation of the deal fails, the parties are discharged though performance is still possible.",
+   "new": "Frustration of purpose: when an event the parties could not reasonably have contemplated destroys the shared foundation of the deal, the parties are discharged though performance is still possible.",
+   "reason": "Vaughan Williams L.J. limited discharge to an event that could not 'reasonably be supposed to have been in the contemplation of the contracting parties, when the contract was made' (C&M 1134); the brief and chronology keep that condition, the step did not.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1134
+     ],
+     "pdfPages": [
+      128
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 265 and comment a"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "file": "tools/canons/data/lectures.json",
+   "pointer": "/42/topics/0/body",
+   "old": "The Peerless hypothetical tests whether materially different meanings prevent assent under § 20. Mistake under §§ 152–154 instead concerns a basic assumption about existing facts. Determine whether the error was mutual or unilateral and, for unilateral mistake, test unconscionability or the other party’s knowledge or fault.",
+   "new": "The Peerless hypothetical tests whether materially different meanings prevent assent under § 20. Mistake under §§ 152–154 instead concerns a basic assumption about existing facts. Determine whether the error was mutual or unilateral and, for unilateral mistake, test unconscionability or the other party’s knowledge or fault. Legal qualification: under § 153 the mistaken party must also meet the § 152 requirements and not bear the risk under § 154, and clause (b) is met when the other party had reason to know of the mistake or his fault caused it.",
+   "reason": "§ 153(b) reads 'had reason to know of the mistake or his fault caused the mistake', and cmt. b requires the § 152 elements first; no slide deck was located, so the classroom wording stays.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 153 and comments b, c"
+    },
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1081
+     ],
+     "pdfPages": [
+      73
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "file": "tools/canons/data/lectures.json",
+   "pointer": "/42/topics/2/body",
+   "old": "The parties shared a material mistake about water availability for jojoba cultivation. Rescission opens an accounting for each side’s transfers or benefits. The buyers’ expenditures on the land matter to restitution to the extent they benefited the sellers. This accounting differs from awarding the profit of the hoped-for venture.",
+   "new": "The parties shared a material mistake about water availability for jojoba cultivation. Rescission opens an accounting for each side’s transfers or benefits. The buyers’ expenditures on the land matter to restitution to the extent they benefited the sellers. This accounting differs from awarding the profit of the hoped-for venture. Legal qualification: under Arizona law Renner also refused the buyers their development (reliance) costs as consequential damages absent fraud or misrepresentation, and charged them the fair rental value of their occupancy.",
+   "reason": "Renner refused the $229,649.84 'consequential damages' and charged fair rental value (C&M 1079–1080); no slide deck was located, so the classroom wording stays.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1079,
+      1080,
+      1081
+     ],
+     "pdfPages": [
+      71,
+      72,
+      73
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "file": "tools/cold-call/glossary-terms.json",
+   "pointer": "/terms/1758/gloss",
+   "old": "An error about a basic fact of a deal made by only one side. It rarely undoes a contract unless the other side knew of or caused it, or enforcement would be grossly unfair.",
+   "new": "An error about a basic fact of a deal made by only one side. It undoes the contract only if the mistaken party meets the mutual-mistake requirements, does not bear the risk, and shows that enforcement would be unconscionable or that the other side had reason to know of the mistake or caused it by fault (Restatement § 153).",
+   "reason": "The gloss required that the other side 'knew of' the mistake; § 153(b) requires only 'reason to know', and cmt. b adds the § 152 elements.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 153 and comments b, c"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "file": "tools/cold-call/glossary-terms.json",
+   "pointer": "/terms/717/gloss",
+   "old": "A contract excuse: an unexpected event destroys the deal's main purpose, known to both sides, so duties end though performance remains possible. In English law, frustration also covers impossibility.",
+   "new": "A contract excuse: after formation, an unexpected event without the party's fault substantially frustrates a principal purpose that both sides understood as the basis of the deal, so remaining duties end though performance remains possible (Restatement § 265). Knowledge of the purpose alone is not enough. In English law, frustration also covers impossibility.",
+   "reason": "'Known to both sides' is not enough: the Derby Day cab hirer's purpose is known yet he is not discharged (C&M 1134), and § 265 cmt. a requires that 'as both parties understand, without it the transaction would make little sense'.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1134
+     ],
+     "pdfPages": [
+      128
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 265 and comment a"
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  },
+  {
+   "file": "tools/cold-call/glossary-terms.json",
+   "pointer": "/terms/798/gloss",
+   "old": "A defense excusing contract performance when an unexpected event, not the party's fault, makes performing far more difficult or costly than anyone assumed.",
+   "new": "A defense discharging a duty when an event after formation, not the party's fault and whose non-occurrence was a basic assumption, makes performance impracticable through extreme and unreasonable difficulty, expense, injury or loss (Restatement § 261). Increased cost alone is ordinarily not enough.",
+   "reason": "'Far more difficult or costly than anyone assumed' omits the basic-assumption element and suggests cost alone suffices; § 261 cmt. d: 'impracticability' means more than 'impracticality', and UCC § 2-615 cmt. 4: 'Increased cost alone does not excuse performance'.",
+   "sources": [],
+   "pinpoints": [
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 261 comment d; UCC § 2-615 Official Comment 4"
+    },
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1107
+     ],
+     "pdfPages": [
+      99
+     ]
+    }
+   ],
+   "reviewDepth": "Relevant assigned casebook, supplement, selections and slide passages checked by two workers and the lead; not a full-opinion or subsequent-treatment certification.",
+   "packet": "OP-CT-21"
+  }
+ ],
+ "mapEntryRunTimeEdits (tools/r19/data/r21-audit.json)": [
+  {
+   "packet": "OP-CT-21",
+   "kind": "node",
+   "reason": "Teaching gap: Stees Notes 1 and 3 (C&M 1077–1078) had no home on the case entry.",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1075,
+      1077,
+      1078
+     ],
+     "pdfPages": [
+      67,
+      69,
+      70
+     ]
+    }
+   ],
+   "sources": [],
+   "id": "stees",
+   "path": "notes",
+   "fullOld": "The editors contrast United States v. Spearin and distinguish a specification requiring a result from a detailed design that may imply a warranty of adequacy. That later contrast qualifies the use of Stees as a general construction-risk rule.",
+   "fullNew": "The editors contrast United States v. Spearin and distinguish a specification requiring a result from a detailed design that may imply a warranty of adequacy. That later contrast qualifies the use of Stees as a general construction-risk rule. Note 3 adds that a builder whose nearly finished building is destroyed by lightning without his fault must ordinarily rebuild (C&M 1077–1078), and Note 1 observes that the owners sought their payments, loss of use and damage to an adjacent house, not their expectation interest (C&M 1075, 1077).",
+   "old": "That later contrast qualifies the use of Stees as a general construction-risk rule.",
+   "new": "That later contrast qualifies the use of Stees as a general construction-risk rule. Note 3 adds that a builder whose nearly finished building is destroyed by lightning without his fault must ordinarily rebuild (C&M 1077–1078), and Note 1 observes that the owners sought their payments, loss of use and damage to an adjacent house, not their expectation interest (C&M 1075, 1077)."
+  },
+  {
+   "packet": "OP-CT-21",
+   "kind": "node",
+   "reason": "The court applied § 152: the mistake 'ha[d] such a material effect on the agreed exchange of performances as to upset the very bases of the contract' (C&M 1079); 'defeated the shared purpose' is the frustration test (§ 265).",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1079
+     ],
+     "pdfPages": [
+      71
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 152 comments a, c and illustration 9"
+    }
+   ],
+   "sources": [],
+   "id": "renner",
+   "path": "sections.Reasoning",
+   "fullOld": "The existence of usable water was a basic assumption underlying the entire exchange, rather than a disappointed hope about profitability. Its absence materially defeated the shared purpose. The sellers had not provided the trial record needed to overturn the factual findings, and inadequate investigation did not itself bar rescission where the risk had not been allocated and the mistake met the stated requirements.\n\nThe remedy followed unjust enrichment rather than compensation for breach. Both sides had acted without the fault assumed in a fraud or breach claim. Making the sellers repay all drilling and development costs would transfer the entire risk of the failed project to them, even where those expenditures added no value. Conversely, letting them retain an actual increase in property value would unjustly enrich them. Return of the interest, the down payment, enhancement value, and occupancy value therefore required separate accounting.",
+   "fullNew": "The existence of usable water was a basic assumption underlying the entire exchange, rather than a disappointed hope about profitability. Its absence had such a material effect on the agreed exchange of performances as to upset the very basis of the contract. The sellers had not provided the trial record needed to overturn the factual findings, and inadequate investigation did not itself bar rescission where the risk had not been allocated and the mistake met the stated requirements.\n\nThe remedy followed unjust enrichment rather than compensation for breach. Both sides had acted without the fault assumed in a fraud or breach claim. Making the sellers repay all drilling and development costs would transfer the entire risk of the failed project to them, even where those expenditures added no value. Conversely, letting them retain an actual increase in property value would unjustly enrich them. Return of the interest, the down payment, enhancement value, and occupancy value therefore required separate accounting.",
+   "old": "Its absence materially defeated the shared purpose.",
+   "new": "Its absence had such a material effect on the agreed exchange of performances as to upset the very basis of the contract."
+  },
+  {
+   "packet": "OP-CT-21",
+   "kind": "node",
+   "reason": "The opinion does not discuss frustration of purpose; the casebook separates impracticability (cost of performance) from frustration ('the value or purpose of performance', C&M 1073–1074), and § 265 cmt. a: frustration involves 'no impediment to performance by either party'. Applying 'impracticability' as an element of frustration would lose Krell.",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1073,
+      1074,
+      1109,
+      1135
+     ],
+     "pdfPages": [
+      65,
+      66,
+      101,
+      129
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 265 and comment a"
+    }
+   ],
+   "sources": [],
+   "id": "transatlantic",
+   "path": "learning.topics.frustration",
+   "fullOld": "The three-part test (unexpected event, unallocated risk, impracticability) is the same framework courts apply to frustration-of-purpose claims arising from the Suez closure.",
+   "fullNew": "Transatlantic is an impracticability case about the cost of performance and does not apply frustration of purpose, which asks instead whether a later event substantially frustrated a party's principal purpose while performance remained possible (§ 265; C&M 1073–1074, 1135).",
+   "old": "The three-part test (unexpected event, unallocated risk, impracticability) is the same framework courts apply to frustration-of-purpose claims arising from the Suez closure.",
+   "new": "Transatlantic is an impracticability case about the cost of performance and does not apply frustration of purpose, which asks instead whether a later event substantially frustrated a party's principal purpose while performance remained possible (§ 265; C&M 1073–1074, 1135)."
+  },
+  {
+   "packet": "OP-CT-21",
+   "kind": "node",
+   "reason": "The holding is that performance was not impracticable; the remedy point follows 'Even if we agreed with appellant, its theory of relief seems untenable' and says the claim 'should have been quantum meruit for the entire trip' (C&M 1112).",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1112,
+      1113
+     ],
+     "pdfPages": [
+      104,
+      105
+     ]
+    }
+   ],
+   "sources": [],
+   "id": "transatlantic",
+   "path": "learning.topics.quantum-meruit",
+   "fullOld": "Transatlantic sued in quantum meruit for the added expense of the Cape route, and Wright J. rejected that theory because a party cannot keep the contract price and also recover the extra cost as if the contract were discharged.",
+   "fullNew": "Transatlantic sued in quantum meruit for the added expense of the Cape route. The court held performance practicable and added, as an alternative ground, that if the contract had been a nullity the claim should have been quantum meruit for the entire voyage, not the extra expense on top of the collected contract price.",
+   "old": "Transatlantic sued in quantum meruit for the added expense of the Cape route, and Wright J. rejected that theory because a party cannot keep the contract price and also recover the extra cost as if the contract were discharged.",
+   "new": "Transatlantic sued in quantum meruit for the added expense of the Cape route. The court held performance practicable and added, as an alternative ground, that if the contract had been a nullity the claim should have been quantum meruit for the entire voyage, not the extra expense on top of the collected contract price."
+  },
+  {
+   "packet": "OP-CT-21",
+   "kind": "node",
+   "reason": "The casebook calls Taylor 'an early departure from the absolute rule' (C&M 1102); Blackburn J. relied on English law 'as early as The Book of Assizes' (C&M 1105), and Krell calls the principle one 'adopted and acted on in many English decisions and notably' in Taylor (C&M 1133).",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1102,
+      1104,
+      1105,
+      1133
+     ],
+     "pdfPages": [
+      94,
+      96,
+      97,
+      127
+     ]
+    }
+   ],
+   "sources": [],
+   "id": "taylor-caldwell",
+   "path": "notes",
+   "fullOld": "The agreement was made on May 27, 1861 for the Surrey Gardens and Music Hall on June 17, July 15, August 5 and August 19; the hall burned on June 11, 1861; Blackburn J.'s opinion (3 B. & S. 826, 122 Eng. Rep. 309) reads an implied condition that the parties are excused when performance becomes impossible through the perishing of the thing without fault of either side, the origin of the common-law impossibility/frustration doctrine.",
+   "fullNew": "The agreement was made on May 27, 1861 for the Surrey Gardens and Music Hall on June 17, July 15, August 5 and August 19; the hall burned on June 11, 1861; Blackburn J.'s opinion (3 B. & S. 826, 122 Eng. Rep. 309) reads an implied condition that the parties are excused when performance becomes impossible through the perishing of the thing without fault of either side, the leading early departure from the absolute-contract rule, whose principle Krell later extended to frustration of purpose.",
+   "old": "the origin of the common-law impossibility/frustration doctrine",
+   "new": "the leading early departure from the absolute-contract rule, whose principle Krell later extended to frustration of purpose"
+  },
+  {
+   "packet": "OP-CT-21",
+   "kind": "node",
+   "reason": "The casebook calls Taylor 'an early departure from the absolute rule' (C&M 1102); Blackburn J. relied on English law 'as early as The Book of Assizes' (C&M 1105), and Krell calls the principle one 'adopted and acted on in many English decisions and notably' in Taylor (C&M 1133).",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1102,
+      1104,
+      1105,
+      1133
+     ],
+     "pdfPages": [
+      94,
+      96,
+      97,
+      127
+     ]
+    }
+   ],
+   "sources": [],
+   "id": "taylor-caldwell",
+   "path": "learning.topics.frustration",
+   "fullOld": "Taylor v. Caldwell is the source of the English impossibility/frustration doctrine that Krell v. Henry later extended to frustration of purpose.",
+   "fullNew": "Krell v. Henry extended the principle that Taylor v. Caldwell applied to a destroyed thing, which English decisions had adopted from Roman law, to the failure of a state of things both parties assumed as the contract's foundation.",
+   "old": "Taylor v. Caldwell is the source of the English impossibility/frustration doctrine that Krell v. Henry later extended to frustration of purpose.",
+   "new": "Krell v. Henry extended the principle that Taylor v. Caldwell applied to a destroyed thing, which English decisions had adopted from Roman law, to the failure of a state of things both parties assumed as the contract's foundation."
+  },
+  {
+   "packet": "OP-CT-21",
+   "kind": "node",
+   "reason": "Teaching gap: unilateral mistake (§ 153) had no concept home, and Stees Note 4's parol-evidence point (§ 152 cmt. a) was untaught.",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1078,
+      1081
+     ],
+     "pdfPages": [
+      70,
+      73
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 153 and comments b, c"
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 152 comment a; § 154 illustration 6"
+    }
+   ],
+   "sources": [],
+   "id": "mistake",
+   "path": "notes",
+   "fullOld": "Renner involved land and water conditions essential to the parties’ intended agricultural use. The court treated the mistaken basic assumption as grounds for rescission and then addressed restitution separately. Stees illustrates a different treatment of an undertaking to achieve a construction result despite unexpected difficulty.\n\nAsk what fact was mistaken, whether the mistake was shared, whether it materially affected the exchange, and whether the contract or governing rule allocated the risk. A mistaken prediction about later profitability is not automatically the same as a mistake about an existing basic fact. The remedy also requires care: unwinding the exchange and compensating every expenditure are not identical.",
+   "fullNew": "Renner involved land and water conditions essential to the parties’ intended agricultural use. The court treated the mistaken basic assumption as grounds for rescission and then addressed restitution separately. Stees illustrates a different treatment of an undertaking to achieve a construction result despite unexpected difficulty.\n\nAsk what fact was mistaken, whether the mistake was shared, whether it materially affected the exchange, and whether the contract or governing rule allocated the risk. A mistaken prediction about later profitability is not automatically the same as a mistake about an existing basic fact. The remedy also requires care: unwinding the exchange and compensating every expenditure are not identical. If only one party was mistaken, that party may avoid only by meeting every § 152 requirement, not bearing the risk under § 154, and showing that enforcement would be unconscionable or that the other party had reason to know of the mistake or his fault caused it (§ 153 and cmt. b). Erroneous construction bids are the usual case (Elsinore v. Kastorff, C&M 1081); a bidder's misjudgment of the labor required is a risk the court allocates to the bidder (§ 154 illus. 6). The parol evidence rule does not bar prior agreements or negotiations offered to show that the parties were mistaken (§ 152 cmt. a; Stees Note 4, C&M 1078).",
+   "old": "unwinding the exchange and compensating every expenditure are not identical.",
+   "new": "unwinding the exchange and compensating every expenditure are not identical. If only one party was mistaken, that party may avoid only by meeting every § 152 requirement, not bearing the risk under § 154, and showing that enforcement would be unconscionable or that the other party had reason to know of the mistake or his fault caused it (§ 153 and cmt. b). Erroneous construction bids are the usual case (Elsinore v. Kastorff, C&M 1081); a bidder's misjudgment of the labor required is a risk the court allocates to the bidder (§ 154 illus. 6). The parol evidence rule does not bar prior agreements or negotiations offered to show that the parties were mistaken (§ 152 cmt. a; Stees Note 4, C&M 1078)."
+  },
+  {
+   "packet": "OP-CT-21",
+   "kind": "node",
+   "reason": "Teaching gap: the casebook's Article 2 note (C&M 1107) and the temporary-impracticability note (C&M 1131–1132) had no home.",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1107,
+      1131,
+      1132
+     ],
+     "pdfPages": [
+      99,
+      125,
+      126
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "UCC §§ 2-613, 2-614(1), 2-615 and Official Comments 4, 5; Restatement (Second) § 269"
+    }
+   ],
+   "sources": [],
+   "id": "impracticability",
+   "path": "notes",
+   "fullOld": "Taylor concerns destruction of the specific music hall essential to the performances. Transatlantic concerns closure of the Suez Canal when the ship could still complete the voyage by a longer route. That contrast makes the promised performance and available alternatives central. Increased cost or difficulty does not automatically establish an excuse.\n\nIdentify the event, its effect on the actual undertaking, the assumption on which the parties contracted, the allocation of risk, and any fault or contractual clause affecting the analysis. The casebook also discusses more recent disruptions as applications to test; their treatment depends on the particular contract. Keep impossibility of the performance distinct from a decline in the value the recipient expects to obtain.",
+   "fullNew": "Taylor concerns destruction of the specific music hall essential to the performances. Transatlantic concerns closure of the Suez Canal when the ship could still complete the voyage by a longer route. That contrast makes the promised performance and available alternatives central. Increased cost or difficulty does not automatically establish an excuse.\n\nIdentify the event, its effect on the actual undertaking, the assumption on which the parties contracted, the allocation of risk, and any fault or contractual clause affecting the analysis. The casebook also discusses more recent disruptions as applications to test; their treatment depends on the particular contract. Keep impossibility of the performance distinct from a decline in the value the recipient expects to obtain. In a sale of goods, UCC § 2-613 avoids the contract when goods identified at formation suffer a total casualty without fault before risk of loss passes; § 2-614(1) requires a commercially reasonable substitute manner of delivery to be tendered and accepted; and § 2-615 excuses a seller for a contingency whose non-occurrence was a basic assumption, if the seller allocates partial capacity fairly and notifies the buyer seasonably. Increased cost alone does not excuse (cmt. 4), and a failed source excuses only a seller who took all due measures to assure it would not fail (cmt. 5, citing Canadian Industrial Alcohol). An impracticability that is only temporary suspends the duty while it lasts and discharges it only if later performance would be materially more burdensome (§ 269); Gene Autry's interruption of his studio contract for wartime service was not a breach (C&M 1131–1132).",
+   "old": "Keep impossibility of the performance distinct from a decline in the value the recipient expects to obtain.",
+   "new": "Keep impossibility of the performance distinct from a decline in the value the recipient expects to obtain. In a sale of goods, UCC § 2-613 avoids the contract when goods identified at formation suffer a total casualty without fault before risk of loss passes; § 2-614(1) requires a commercially reasonable substitute manner of delivery to be tendered and accepted; and § 2-615 excuses a seller for a contingency whose non-occurrence was a basic assumption, if the seller allocates partial capacity fairly and notifies the buyer seasonably. Increased cost alone does not excuse (cmt. 4), and a failed source excuses only a seller who took all due measures to assure it would not fail (cmt. 5, citing Canadian Industrial Alcohol). An impracticability that is only temporary suspends the duty while it lasts and discharges it only if later performance would be materially more burdensome (§ 269); Gene Autry's interruption of his studio contract for wartime service was not a breach (C&M 1131–1132)."
+  },
+  {
+   "packet": "OP-CT-21",
+   "kind": "node",
+   "reason": "Teaching gap: the Lloyd definition, the cab dictum as a limit, and the two Krell problems (C&M 1134–1136) had no concept home.",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1134,
+      1135,
+      1136
+     ],
+     "pdfPages": [
+      128,
+      129,
+      130
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 265 and comment a"
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 272"
+    }
+   ],
+   "sources": [],
+   "id": "frustration",
+   "path": "notes",
+   "fullOld": "In Krell, rooms could still be supplied, but cancellation of the coronation procession defeated the shared purpose for which the particular daytime use had been arranged. The court considered the transaction’s setting and the parties’ understanding rather than requiring an express sentence naming that purpose.\n\nA party’s private hope or ordinary loss of profit does not necessarily define the bargain’s principal purpose. Determine whether the purpose was sufficiently shared or known, whether the disruption was fundamental, and whether the party claiming excuse bore the risk. Distinguish frustration from impossibility: the former asks what performance would now achieve, while the latter asks whether the undertaking can be performed.",
+   "fullNew": "In Krell, rooms could still be supplied, but cancellation of the coronation procession defeated the shared purpose for which the particular daytime use had been arranged. The court considered the transaction’s setting and the parties’ understanding rather than requiring an express sentence naming that purpose.\n\nA party’s private hope or ordinary loss of profit does not necessarily define the bargain’s principal purpose. Determine whether the purpose was sufficiently shared or known, whether the disruption was fundamental, and whether the party claiming excuse bore the risk. Distinguish frustration from impossibility: the former asks what performance would now achieve, while the latter asks whether the undertaking can be performed. Frustration 'is not a form of impossibility': performance remains possible, but its expected value to the party seeking excuse has been destroyed (Lloyd v. Murphy, quoted at C&M 1135). Krell's Derby Day dictum marks the limit: a cab hired at an enhanced price for the race is not discharged if the race is cancelled, because any other cab would have done as well (C&M 1134). The problems at C&M 1136 test that line with lodging booked at more than double the usual rate for a homecoming cancelled after a tornado, and with a nearly finished wedding dress after the intended spouse's fatal accident; relief for part performance follows § 272.",
+   "old": "while the latter asks whether the undertaking can be performed.",
+   "new": "while the latter asks whether the undertaking can be performed. Frustration 'is not a form of impossibility': performance remains possible, but its expected value to the party seeking excuse has been destroyed (Lloyd v. Murphy, quoted at C&M 1135). Krell's Derby Day dictum marks the limit: a cab hired at an enhanced price for the race is not discharged if the race is cancelled, because any other cab would have done as well (C&M 1134). The problems at C&M 1136 test that line with lodging booked at more than double the usual rate for a homecoming cancelled after a tornado, and with a nearly finished wedding dress after the intended spouse's fatal accident; relief for part performance follows § 272."
+  },
+  {
+   "packet": "OP-CT-21",
+   "kind": "node",
+   "reason": "Teaching gap: Wolf Trap, Belk, Wegematic and the superior-risk-bearer analysis (C&M 1113–1117) had no home.",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1113,
+      1114,
+      1115,
+      1116,
+      1117
+     ],
+     "pdfPages": [
+      105,
+      106,
+      107,
+      108,
+      109
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "UCC § 2-615 Official Comment 8"
+    }
+   ],
+   "sources": [],
+   "id": "risk-allocation",
+   "path": "notes",
+   "fullOld": "Allocation may be expressed through conditions, warranties, fixed prices, or force-majeure clauses. It may also follow from the undertaking interpreted in context and the governing legal rules. Stees, Taylor, Transatlantic, and Krell illustrate different relationships among the promised result, the disrupted circumstances, and the claimed excuse.\n\nForeseeability is relevant, but asking whether an event could have been imagined does not finish the inquiry. A party may know a risk exists without clearly assuming every consequence; conversely, an unconditional undertaking may place a risk on that party. Explain the language, commercial purpose, alternatives, and burden rather than using “risk” as an unexplained label.",
+   "fullNew": "Allocation may be expressed through conditions, warranties, fixed prices, or force-majeure clauses. It may also follow from the undertaking interpreted in context and the governing legal rules. Stees, Taylor, Transatlantic, and Krell illustrate different relationships among the promised result, the disrupted circumstances, and the claimed excuse.\n\nForeseeability is relevant, but asking whether an event could have been imagined does not finish the inquiry. A party may know a risk exists without clearly assuming every consequence; conversely, an unconditional undertaking may place a risk on that party. Explain the language, commercial purpose, alternatives, and burden rather than using “risk” as an unexplained label. Foreseeability is 'at best but one fact to be considered' (Wolf Trap, C&M 1115). An event foreshadowed at contracting may be among the dickered risks (UCC § 2-615 cmt. 8): a settlement signed the day schools closed for COVID-19 was not excused by the pandemic's later financial effects (Belk, C&M 1115). A seller that promotes a 'revolutionary' system bears the risk that the breakthrough cannot be built (Wegematic, C&M 1113). The superior-risk-bearer analysis asks which party could better estimate, insure against or spread the loss, avert the event or mitigate it (C&M 1116–1117).",
+   "old": "rather than using “risk” as an unexplained label.",
+   "new": "rather than using “risk” as an unexplained label. Foreseeability is 'at best but one fact to be considered' (Wolf Trap, C&M 1115). An event foreshadowed at contracting may be among the dickered risks (UCC § 2-615 cmt. 8): a settlement signed the day schools closed for COVID-19 was not excused by the pandemic's later financial effects (Belk, C&M 1115). A seller that promotes a 'revolutionary' system bears the risk that the breakthrough cannot be built (Wegematic, C&M 1113). The superior-risk-bearer analysis asks which party could better estimate, insure against or spread the loss, avert the event or mitigate it (C&M 1116–1117)."
+  },
+  {
+   "packet": "OP-CT-21",
+   "kind": "node",
+   "reason": "Teaching gap: the force-majeure cases at C&M 1117–1119 were taught only as a general checklist.",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1117,
+      1118,
+      1119
+     ],
+     "pdfPages": [
+      109,
+      110,
+      111
+     ]
+    }
+   ],
+   "sources": [],
+   "id": "force-majeure",
+   "path": "notes",
+   "fullOld": "Identify the listed events, any general catchall, the required effect on performance, notice requirements, mitigation duties, and the stated consequence. A clause may permit delay, suspension, or termination rather than erase all obligations. Causation matters: occurrence of an event does not by itself show that the event prevented the performance in dispute.\n\nThe syllabus calls for a force-majeure clause alongside the excuse cases. The casebook’s discussion supplies the conceptual setting. The force majeure clause the syllabus lists for assignment 21 was distributed in class and is not among the supplied files.",
+   "fullNew": "Identify the listed events, any general catchall, the required effect on performance, notice requirements, mitigation duties, and the stated consequence. A clause may permit delay, suspension, or termination rather than erase all obligations. Causation matters: occurrence of an event does not by itself show that the event prevented the performance in dispute. In the casebook's examples, a clause naming terrorism did not cover a cancellation the court attributed to the economic downturn after September 11 (OWBR, C&M 1117–1118); general words after a list may be confined to events like those listed (ejusdem generis, Kama Rippa, C&M 1118); and a clause excusing delay but providing that it shall not relieve the tenant of rent placed COVID-19 closure risk on the tenant (1600 Walnut v. Cole Haan), while a similar clause without that proviso excused rent (BP Prucenter v. Saks) (C&M 1119).\n\nThe syllabus calls for a force-majeure clause alongside the excuse cases. The casebook’s discussion supplies the conceptual setting. The force majeure clause the syllabus lists for assignment 21 was distributed in class and is not among the supplied files.",
+   "old": "occurrence of an event does not by itself show that the event prevented the performance in dispute.",
+   "new": "occurrence of an event does not by itself show that the event prevented the performance in dispute. In the casebook's examples, a clause naming terrorism did not cover a cancellation the court attributed to the economic downturn after September 11 (OWBR, C&M 1117–1118); general words after a list may be confined to events like those listed (ejusdem generis, Kama Rippa, C&M 1118); and a clause excusing delay but providing that it shall not relieve the tenant of rent placed COVID-19 closure risk on the tenant (1600 Walnut v. Cole Haan), while a similar clause without that proviso excused rent (BP Prucenter v. Saks) (C&M 1119)."
+  }
+ ],
+ "structuralAdditions (not registered: new flowchart nodes)": [
+  {
+   "packet": "OP-CT-21",
+   "kind": "set",
+   "reason": "§ 153 makes a contract voidable by the one mistaken party who meets the § 152 elements, does not bear the risk, and shows unconscionability or that the other party 'had reason to know of the mistake or his fault caused the mistake'; erroneous bids are the usual case (C&M 1081). Node b sent every one-sided mistake to 'obligation remains', and had no route for existing impracticability (§ 266).",
+   "pinpoints": [
+    {
+     "file": "added-sources/C&M Textbook 1051-1313.pdf",
+     "printedPages": [
+      1100,
+      1101
+     ],
+     "pdfPages": [
+      92,
+      93
+     ]
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 266"
+    },
+    {
+     "file": "added-sources/Contracts- Selections.pdf",
+     "provision": "Restatement (Second) § 152 comments a, c and illustration 9"
+    }
+   ],
+   "sources": [],
+   "file": "tools/flowcharts/data/contracts.json",
+   "pointer": "/28/nodes/8",
+   "old": null,
+   "register": false,
+   "new": {
+    "id": "i",
+    "label": "Does a fact existing at formation excuse under § 266?",
+    "detail": "Where, when the contract is made, a party's performance is impracticable, or his principal purpose is substantially frustrated, without his fault because of a fact of which he has no reason to know and whose non-existence is a basic assumption, no duty to render that performance arises, unless the language or circumstances indicate the contrary (§ 266). The 'no reason to know' requirement is stricter than mistake, where a party's fault in failing to discover the facts bars avoidance only if it amounts to a failure to act in good faith and in accordance with reasonable standards of fair dealing (§ 157). The casebook's example is gravel on the land that could be removed only at prohibitive cost (Mineral Park, C&M 1100–1101), and a buyer whose dredge proves unfit for a purpose both parties assumed may have § 266(2) relief though the mistake is not material (§ 152 cmt. c, illus. 9).",
+    "sources": [
+     "impracticability",
+     "mistake",
+     "frustration"
+    ],
+    "edges": [
+     {
+      "label": "No duty arose (§ 266)",
+      "to": "g"
+     },
+     {
+      "label": "Reason to know, fault, or risk assumed",
+      "to": "h"
+     }
+    ]
+   }
+  }
+ ]
+}
