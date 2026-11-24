@@ -741,93 +741,6 @@
   color: var(--v31-faint) !important;
 }
 
-/* ---------- 8. The flowchart window: every step listed beside the walkthrough (paintStep) ---------- */
-#dklaFlowcharts .fc-board:not(.fc-board-map) .fc-trail {
-  max-height: max(360px, calc(100dvh - 290px));
-  overflow-y: auto;
-  padding: 18px 12px 18px 14px;
-  scrollbar-width: thin;
-}
-#dklaFlowcharts .fc-trail-label {
-  padding: 0 8px;
-}
-#dklaFlowcharts .fc-trail ol {
-  gap: 0;
-}
-#dklaFlowcharts .fc-trail li > button {
-  border: 0;
-  background: none;
-  min-height: 0;
-}
-#dklaFlowcharts .fc-trail li > button:hover {
-  background: var(--v31-panel);
-}
-#dklaFlowcharts .fc-trail li > button,
-#dklaFlowcharts .fc-trail li[aria-current] {
-  display: grid;
-  grid-template-columns: 24px minmax(0, 1fr);
-  column-gap: 10px;
-  row-gap: 1px;
-  padding: 6px 8px;
-  border-radius: 8px;
-}
-#dklaFlowcharts .fc-trail-n {
-  grid-row: 1 / span 2;
-  width: 24px;
-  height: 24px;
-  box-sizing: border-box;
-  display: grid;
-  place-items: center;
-  border: 1.5px solid var(--v31-line-strong);
-  border-radius: 50%;
-  font:
-    600 12px/1 var(--dkla-interface, Inter),
-    sans-serif;
-  font-variant-numeric: tabular-nums;
-  color: var(--v31-faint);
-}
-#dklaFlowcharts .fc-trail .fc-end .fc-trail-n {
-  border-radius: 7px;
-}
-#dklaFlowcharts .fc-trail .fc-on-path .fc-trail-n {
-  border-color: var(--v31-link);
-  color: var(--v31-link);
-}
-#dklaFlowcharts .fc-trail li[aria-current] .fc-trail-n {
-  border-color: var(--v31-here);
-  background: var(--v31-here);
-  color: var(--v31-on-link);
-}
-#dklaFlowcharts .fc-trail-q {
-  grid-column: 2;
-  align-self: center;
-  font:
-    400 14px/20px var(--dkla-interface, Inter),
-    sans-serif;
-  color: var(--v31-muted);
-}
-#dklaFlowcharts .fc-trail .fc-on-path .fc-trail-q {
-  color: var(--v31-text);
-}
-#dklaFlowcharts .fc-trail-q small {
-  margin-left: 4px;
-  font:
-    600 12px/16px var(--dkla-interface, Inter),
-    sans-serif;
-  color: var(--v31-faint);
-  white-space: nowrap;
-}
-#dklaFlowcharts .fc-trail-a {
-  grid-column: 2;
-  font:
-    600 12px/17px var(--dkla-interface, Inter),
-    sans-serif;
-  color: var(--v31-link);
-}
-#dklaFlowcharts .fc-trail-a::before {
-  content: '→ ';
-}
-
 /* the key to the rail's marks */
 #inspector .mk-tl .mk-tl-key,
 #r21Timelines .mk-tl-key {
@@ -937,8 +850,6 @@
 #r21Timelines .r19-tabs button {
   font-weight: 500 !important;
 }
-#dklaFlowcharts .fc-map-node .fc-node-heading,
-#dklaFlowcharts .fc-map-node .fc-node-heading *,
 #dklaFlowcharts .fc-side h4,
 #dklaFlowcharts #flowchartDetail h4 {
   font-size: 14px !important;
@@ -947,8 +858,6 @@
 }
 /* labels */
 #dklaFlowcharts .fc-kicker,
-#dklaFlowcharts .fc-map-node .fc-number,
-#dklaFlowcharts .fc-node-type,
 #dklaFlowcharts .fc-map-help,
 #dklaFlowcharts .fc-count,
 #dklaFlowcharts .fc-card small,
@@ -960,8 +869,7 @@
   font-size: 12px !important;
   line-height: 16px !important;
 }
-#dklaFlowcharts .fc-kicker,
-#dklaFlowcharts .fc-map-node .fc-number {
+#dklaFlowcharts .fc-kicker {
   font-weight: 600 !important;
 }
 /* the same two strays on an entry's page */
@@ -970,4 +878,69 @@
 }
 #inspector .case-count {
   font-family: var(--dkla-interface, Inter), sans-serif;
+}
+
+/* ---------- 10. The flowchart window's path column (owner's answers, 24 November 2026) ----------
+   "Your path" starts where the reader arrived. One route from the chart's start to that step is
+   shown on request, set apart from the path. */
+#dklaFlowcharts details.fc-trail-route {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--v31-line);
+}
+#dklaFlowcharts details.fc-trail-route > summary {
+  cursor: pointer;
+  padding: 4px 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--v31-link);
+}
+#dklaFlowcharts details.fc-trail-route > summary:hover {
+  color: var(--v31-link-hover);
+}
+#dklaFlowcharts details.fc-trail-route > ol {
+  margin-top: 6px;
+  opacity: 0.85;
+}
+#dklaFlowcharts .fc-trail-n,
+#dklaFlowcharts .fc-trail-a,
+#dklaFlowcharts .fc-trail-next,
+#dklaFlowcharts .fc-trail-label {
+  font-size: 12px !important;
+  line-height: 16px !important;
+}
+#dklaFlowcharts .fc-trail-q {
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
+
+/* The saved flowchart window was written against three 3.2 tokens; on 3.1 they are set here, on the
+   3.1 scale. Its three off-scale text sizes are brought onto the scale. */
+#dklaFlowcharts {
+  --v32-ui-small: 500 14px/20px var(--dkla-interface, Inter), sans-serif;
+  --v32-hair: var(--v31-line);
+  --v32-hover: var(--v31-raised);
+}
+#dklaFlowcharts .fc-number b {
+  font-weight: 600 !important;
+}
+#dklaFlowcharts .fc-came-chose {
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
+/* (On a phone a fork's outcomes and their cases are fitted to one screen at their own size.) */
+@media (min-width: 761px) {
+  #dklaFlowcharts .fc-art-name {
+    font-size: 14px !important;
+    line-height: 20px !important;
+  }
+}
+/* On a phone the windows' titles are 22 px, so a long title leaves the screen to the chart. */
+@media (max-width: 760px) {
+  #r21Timelines #r21Title h2,
+  #dklaFlowcharts #flowchartsTitle,
+  #dklaFlowcharts .fc-heading h2 {
+    font-size: 22px !important;
+    line-height: 28px !important;
+  }
 }

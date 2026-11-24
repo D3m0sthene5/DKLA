@@ -269,8 +269,15 @@ try {
   await reloaded;
   await booted(older);
   assert.equal(await older.evaluate(() => R18.build), real.build);
+  // (Wait for the toast to be on screen with these words: its text is set a moment before it is shown,
+  // and read in between it counted as empty.)
   await older.waitForFunction(
-    () => /Updated to/.test(document.getElementById('toast')?.textContent || ''),
+    () => {
+      const toast = document.getElementById('toast');
+      return (
+        toast && getComputedStyle(toast).display !== 'none' && /Updated to/.test(toast.textContent || '')
+      );
+    },
     null,
     {
       timeout: 10000,

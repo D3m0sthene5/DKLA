@@ -166,8 +166,12 @@ await page.locator('dialog#dklaFlowcharts[open]').waitFor();
 await page
   .locator('#flowchartDetail h3', { hasText: 'Did the offeror assent or did both sides perform?' })
   .waitFor();
-assert.equal(await page.locator('.fc-trail li').count(), 13, 'every step of the chart is listed');
-assert.equal(await page.locator('.fc-trail li.fc-on-path').count(), 3, 'steps 1, 2 and 3 in the path');
+assert.equal(await page.locator('.fc-trail > ol > li').count(), 1, 'the path starts at the step arrived at');
+assert.equal(
+  await page.locator('.fc-trail details.fc-trail-route li').count(),
+  2,
+  'steps 1 and 2 are one route to it, shown on request',
+);
 assert.equal(await page.locator('#flowchartDetail .fc-own').count(), 1, 'the branch Itoh takes is marked');
 assert.match(await page.locator('.fc-side .fc-sources').innerText(), /Case\s*C\. Itoh/);
 await page.locator('.fc-back-entry').click();

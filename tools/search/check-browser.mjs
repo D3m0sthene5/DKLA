@@ -67,6 +67,15 @@ async function type(page, text) {
     { timeout: 10_000 },
   );
   await page.locator('#searchResults [data-search-key]').first().waitFor({ timeout: 10_000 });
+  // The first search on a page fetches the dictionary block, and the list is drawn again 80 ms after it
+  // arrives (about a second later). A row measured across that redraw is no longer in the page, so wait
+  // for the block and its redraw before reading the list (the same wait as tools/verify/search_why.mjs).
+  await page.waitForFunction(
+    () => !window.DKLAData || !DKLAData.isLazy('dklaGlossary') || DKLAData.loaded('dklaGlossary'),
+    null,
+    { timeout: 10_000 },
+  );
+  await page.waitForTimeout(250);
   await page.evaluate(() => new Promise((resolve) => requestAnimationFrame(() => resolve())));
 }
 async function desktopSearch(page, text) {

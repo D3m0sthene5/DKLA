@@ -14,8 +14,9 @@
      decides opened with their explanation; a step on the path opens the chart at that step;
    - the full timeline shows the same sentence without a click and at least three entries on the
      first screen (3.1 showed two), and ends at "Now";
-   - the flowchart window lists every step of the chart beside the walkthrough, marks the steps
-     walked, and opens any step from the list.
+   - the flowchart window opened from a step says "1st on your path · chart step 2", shows one route
+     to it only on request, and its map at Fit is an overview with every step marked and its parts
+     named.
    A long timeline (Personal jurisdiction, 16 entries, on International Shoe's page) shows all 16.
    Type (owner, 24 November 2026: fonts "inconsistent across the main DKLA and the timelines and
    flowcharts"): in the timeline window (one timeline, the list) and the flowchart window (walkthrough,
@@ -224,42 +225,66 @@ try {
   await page.keyboard.press('Escape');
   await page.locator('#r21Timelines[open]').waitFor({ state: 'detached' });
 
-  // ---- a step on the card opens the chart there; the window lists every step ----
+  // ---- a step on the card opens the chart there (owner's answers, 24 November 2026: Q4, Q6, Q9) ----
   await chart.locator('.mk-fc-q', { hasText: 'Do the writings establish an agreement?' }).click();
-  await page.locator('dialog#dklaFlowcharts[open]').waitFor();
+  const fcw = page.locator('dialog#dklaFlowcharts[open]');
+  await fcw.waitFor();
   await page.locator('#flowchartDetail h3', { hasText: 'Do the writings establish an agreement?' }).waitFor();
-  const list = page.locator('#dklaFlowcharts .fc-trail li');
-  await expect13(list);
-  assert.equal(
-    await page.locator('#dklaFlowcharts .fc-trail li.fc-on-path').count(),
-    2,
-    'steps 1 and 2 walked',
+  // The path starts where the reader arrived; the step says its place on the path and its chart number.
+  const label = fcw.locator('.fc-step-label');
+  assert.match(await label.innerText(), /^1st on your path · chart step 2\b/);
+  assert.doesNotMatch(await label.innerText(), / of 13/, 'a branching chart is not a 13-step assignment');
+  assert.equal(await fcw.locator('.fc-trail > ol > li').count(), 1, 'the path holds the step arrived at');
+  assert.equal(await fcw.locator('.fc-walk-controls [data-flowcharts-back]').isDisabled(), true);
+  // One route to it is shown on request.
+  const route = fcw.locator('details.fc-trail-route');
+  assert.equal(await route.evaluate((box) => box.open), false);
+  await route.locator('summary').click();
+  assert.match(await route.locator('li').innerText(), /chart step 1[\s\S]*Article 2/);
+  // An answer is the 2nd place on the path, and Back then retraces it.
+  await fcw.locator('.fc-choices button').first().click();
+  await page.waitForFunction(() =>
+    /^2nd on your path/.test(document.querySelector('.fc-step-label')?.textContent),
   );
-  assert.match(
-    await page.locator('#dklaFlowcharts .fc-trail li.fc-on-path').first().innerText(),
-    /Article 2/,
-    'a walked step carries the answer taken',
-  );
-  await list.filter({ hasText: 'Are both parties merchants?' }).locator('button').click();
-  await page.locator('#flowchartDetail h3', { hasText: 'Are both parties merchants?' }).waitFor();
-  await expect13(list);
-  const column = await page.locator('#dklaFlowcharts .fc-trail').evaluate((el) => {
-    const now = el.querySelector('[aria-current="step"]').getBoundingClientRect(),
-      box = el.getBoundingClientRect();
+  assert.equal(await fcw.locator('.fc-trail > ol > li').count(), 2);
+  assert.equal(await fcw.locator('.fc-walk-controls [data-flowcharts-back]').isDisabled(), false);
+  await typeIsOneSystem('#dklaFlowcharts', 'flowchart walkthrough');
+  // The map at Fit is an overview of the whole chart: every step has a mark, parts and outcomes are
+  // named in words of at least 12 px, and a mark opens its step at reading size.
+  await fcw.locator('[data-flowcharts-view="map"]').click();
+  await fcw.locator('[data-flowcharts-zoom="fit"]').click();
+  await fcw.locator('.fc-ov .fc-ov-mark').first().waitFor();
+  const overview = await fcw.locator('.fc-ov').evaluate((ov) => {
+    const frame = ov.closest('.fc-map-scroll').getBoundingClientRect();
+    const words = [...ov.querySelectorAll('.fc-ov-label, .fc-ov-title')].filter(
+      (el) => el.getBoundingClientRect().width,
+    );
     return {
-      inView: now.top >= box.top - 1 && now.bottom <= box.bottom + 1,
-      fits: box.bottom <= innerHeight,
-      size: parseFloat(getComputedStyle(el.querySelector('.fc-trail-q')).fontSize),
+      marks: ov.querySelectorAll('.fc-ov-mark').length,
+      regions: [...ov.querySelectorAll('.fc-ov-title')].map((el) => el.textContent.trim()),
+      smallest: Math.min(...words.map((el) => parseFloat(getComputedStyle(el).fontSize))),
+      named: words.length,
+      inside: [...ov.querySelectorAll('.fc-ov-mark')].every((mark) => {
+        const box = mark.getBoundingClientRect();
+        return box.left >= frame.left - 1 && box.right <= frame.right + 1 && box.bottom <= innerHeight;
+      }),
     };
   });
-  assert.ok(column.inView, 'the step being read is in sight in the list');
-  assert.ok(column.size >= 14, 'the list is readable');
-  await typeIsOneSystem('#dklaFlowcharts', 'flowchart walkthrough');
-  await page.locator('#dklaFlowcharts [data-flowcharts-view="map"]').click();
-  await page.locator('#dklaFlowcharts .fc-map:not([hidden]) .fc-map-node').first().waitFor();
+  assert.equal(overview.marks, 13, 'every step of K-16 has a mark in the overview');
+  assert.ok(overview.regions.includes('Article 2'), `the chart's parts are named: ${overview.regions}`);
+  assert.ok(
+    overview.named >= 6 && overview.smallest >= 12,
+    `words in the overview are readable: ${overview.smallest}px`,
+  );
+  assert.ok(overview.inside, 'the whole chart is on screen at Fit');
+  await typeIsOneSystem('#dklaFlowcharts', 'flowchart overview');
+  await fcw.locator('.fc-ov .fc-ov-mark').nth(4).click();
+  await page.waitForFunction(
+    () => document.querySelector('#dklaFlowcharts .fc-zoom-value')?.textContent === '100%',
+  );
   await typeIsOneSystem('#dklaFlowcharts', 'flowchart map');
-  await page.locator('#dklaFlowcharts [data-flowcharts-library]').click();
-  await page.locator('#dklaFlowcharts .fc-card').first().waitFor();
+  await fcw.locator('[data-flowcharts-library]').click();
+  await fcw.locator('.fc-card').first().waitFor();
   await typeIsOneSystem('#dklaFlowcharts', 'flowchart library');
   await page.keyboard.press('Escape');
 
@@ -274,11 +299,8 @@ try {
 
   assert.deepEqual(errors, []);
   console.log(
-    'PASS timeline card (every entry, connection sentence, gaps, Now, key), flowchart card (full path and answers), full timeline (3+ entries a screen), chart window (all steps listed), 16-entry timeline, one set of type in both windows',
+    'PASS timeline card (every entry, connection sentence, gaps, Now, key), flowchart card (full path and answers), full timeline (3+ entries a screen), chart window (path, route on request, overview at Fit), 16-entry timeline, one set of type in both windows',
   );
 } finally {
   await browser.close();
-}
-async function expect13(list) {
-  assert.equal(await list.count(), 13, 'all 13 steps of K-16 are listed');
 }

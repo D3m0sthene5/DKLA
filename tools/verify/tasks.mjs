@@ -168,6 +168,28 @@ export const tasks = [
     node('tools/makeover/check-resize.mjs', '{page}'),
     SERVER,
   ),
+  // Flowchart map (saved from the 3.2 work, owner's answers of 24 November 2026): lines to different steps keep
+  // 16 px apart on all 115 charts; at Fit the chart is an overview whose words are clear of lines and of each other.
+  // (Each lays out all 115 charts and keeps a processor busy for minutes: on a small machine it runs by itself,
+  // so steps with short time limits are not starved beside it.)
+  {
+    ...step(
+      'browser',
+      'flowchart lines can be followed',
+      node('tools/flowcharts/check-wires.mjs', '{page}'),
+      SERVER,
+    ),
+    weight: Math.min(2, CORES),
+  },
+  {
+    ...step(
+      'browser',
+      'flowchart overview at Fit',
+      node('tools/flowcharts/check-overview.mjs', '{page}'),
+      SERVER,
+    ),
+    weight: Math.min(2, CORES),
+  },
   // Makeover on 3.1: the doctrine timeline and the flowchart steps read as one line each (every entry, full answers).
   step(
     'browser',

@@ -403,13 +403,78 @@ const breakages = [
       ),
   ],
   [
-    'makeover: the flowchart window lists only the steps already walked again',
+    'flowchart whole map: wires arrive beside the step they lead to, not on it',
     'src/features/flowcharts/flowcharts.js',
     () =>
       edit(
         'src/features/flowcharts/flowcharts.js',
-        'steps</p><ol>${[...byId.values()]',
-        'steps</p><ol>${[...byId.values()].filter((at) => walked.has(at.id))',
+        'points.push([route.tx, to.y - (meets ? 12 : 3)]);',
+        'points.push([route.tx + 300, to.y - (meets ? 12 : 3)]);',
+      ),
+  ],
+  [
+    'flowchart: coming back from a cited case forgets the path that was walked',
+    'src/features/flowcharts/flowcharts.js',
+    () => edit('src/features/flowcharts/flowcharts.js', ' && active.opened !== opened)', ')'),
+  ],
+  [
+    'flowchart whole map: lines to different steps run 10 px apart again',
+    'src/features/flowcharts/flowcharts.js',
+    () => edit('src/features/flowcharts/flowcharts.js', 'const apart = 16;', 'const apart = 10;'),
+  ],
+  [
+    'flowchart whole map: the fork does not come back as it was left',
+    'src/features/flowcharts/flowcharts.js',
+    () =>
+      edit(
+        'src/features/flowcharts/flowcharts.js',
+        'active.trail.push({ id: edge.to, label: edge.label, edge: index, place });',
+        'active.trail.push({ id: edge.to, label: edge.label, edge: index });',
+      ),
+  ],
+  [
+    'flowchart whole map: an answer selected at a small size leaves its step too small to read',
+    'src/features/flowcharts/flowcharts.js',
+    () =>
+      edit(
+        'src/features/flowcharts/flowcharts.js',
+        'currentZoom(graph) < 0.9)))',
+        'currentZoom(graph) < 0)))',
+      ),
+  ],
+  [
+    'flowchart walkthrough: a step with one way forward offers a choice of one',
+    'src/features/flowcharts/flowcharts.js',
+    () =>
+      edit(
+        'src/features/flowcharts/flowcharts.js',
+        "node.edges.length > 1 ? 'Choose what happened' : 'Then'",
+        "node.edges.length > 1 ? 'Choose what happened' : 'Choose what happened'",
+      ),
+  ],
+  [
+    'flowchart overview: a skip is drawn straight through the steps it passes',
+    'src/features/flowcharts/flowcharts.js',
+    () => edit('src/features/flowcharts/flowcharts.js', 'enters(pts, line.from, line.to) * 10 +', '0 * 10 +'),
+  ],
+  [
+    'flowchart overview: words are set without regard to each other',
+    'src/features/flowcharts/flowcharts.js',
+    () =>
+      edit(
+        'src/features/flowcharts/flowcharts.js',
+        '16 * labels.filter((one) => hit(box)(one.box)).length +',
+        '0 * labels.filter((one) => hit(box)(one.box)).length +',
+      ),
+  ],
+  [
+    'flowchart walkthrough: a step is "of 23" again, and Back walks a route the reader never took',
+    'src/features/flowcharts/flowcharts.js',
+    () =>
+      edit(
+        'src/features/flowcharts/flowcharts.js',
+        "${trail.length - 1 <= lead ? ' disabled' : ''}",
+        "${trail.length < 2 ? ' disabled' : ''}",
       ),
   ],
   [
