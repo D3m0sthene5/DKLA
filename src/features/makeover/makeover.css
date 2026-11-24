@@ -63,3 +63,87 @@
     font-size: 13px;
   }
 }
+
+/* ---------- 4. The reading panel's edge is a handle (resize.js) ----------
+   A 12 px strip over the panel's left border. At rest it shows a short grip; under the pointer, on
+   keyboard focus and while dragging it shows a line the height of the panel. */
+#readerResize {
+  display: none;
+}
+@media (min-width: 1024px) {
+  body.has-reader #readerResize {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: calc(var(--reader) - 6px);
+    width: 12px;
+    z-index: 8;
+    cursor: col-resize;
+    touch-action: none;
+    outline: none;
+  }
+  #readerResize::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 5px;
+    width: 2px;
+    background: #e9c58f;
+    opacity: 0;
+    transition: opacity 0.14s ease;
+  }
+  #readerResize span {
+    position: absolute;
+    top: 50%;
+    left: 3px;
+    width: 6px;
+    height: 44px;
+    margin-top: -22px;
+    border-radius: 3px;
+    background: #4a5968;
+    transition: background-color 0.14s ease;
+  }
+  #readerResize:hover::before,
+  #readerResize:focus-visible::before,
+  body.reader-resizing #readerResize::before {
+    opacity: 0.9;
+  }
+  #readerResize:hover span,
+  #readerResize:focus-visible span,
+  body.reader-resizing #readerResize span {
+    background: #e9c58f;
+  }
+  /* while dragging: nothing selects, nothing animates, and the cursor holds everywhere */
+  body.reader-resizing,
+  body.reader-resizing * {
+    cursor: col-resize !important;
+    user-select: none !important;
+  }
+  body.reader-resizing #inspector,
+  body.reader-resizing .map-nav {
+    transition: none !important;
+  }
+
+  /* A narrow panel on a wide window: the case page takes the layout 3.1 gives a narrow window
+     (reading.css, max-width 1023px), so the text is not squeezed beside the rail. */
+  #inspector.reader-narrow .reader-body.v31-case {
+    padding: 24px 28px 80px;
+  }
+  #inspector.reader-narrow .reader-body.v31-case > .v31-rail {
+    display: none;
+  }
+  #inspector.reader-narrow .v31-case > .r6-connections {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  #inspector.reader-narrow .reader-body:not(.v31-case) {
+    padding: 28px 28px 80px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #readerResize::before,
+  #readerResize span {
+    transition: none;
+  }
+}

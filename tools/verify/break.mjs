@@ -331,6 +331,17 @@ const breakages = [
       ),
   ],
   [
+    'makeover: the reading panel forgets its width on reload',
+    'src/features/makeover/resize.js',
+    () => edit('src/features/makeover/resize.js', 'let chosen = saved();', 'let chosen = null;'),
+  ],
+  [
+    'makeover: the map strip the panel uncovers stays blank',
+    'src/features/makeover/resize.js',
+    () =>
+      edit('src/features/makeover/resize.js', "if (typeof schedule === 'function') schedule();", 'void 0;'),
+  ],
+  [
     'makeover: a map label stored with an ellipsis is shown cut short again',
     'src/runtime/studyCode.js',
     () =>
