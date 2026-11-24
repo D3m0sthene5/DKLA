@@ -33,6 +33,11 @@ const page = await context.newPage();
 page.setDefaultTimeout(20_000);
 const errors = [];
 page.on('pageerror', (error) => errors.push(error.message));
+// The map's tidy-up step catches its own errors and logs them, and the steps after the failure are
+// then skipped on every draw, so a logged map error is a failure here.
+page.on('console', (message) => {
+  if (message.type() === 'error' && /DKLA r20 map/.test(message.text())) errors.push(message.text().split('\n')[0]);
+});
 await page.goto(address.href, { waitUntil: 'domcontentloaded', timeout: 90_000 });
 await page.locator('html.dkla-boot-ready').waitFor({ timeout: 90_000 });
 await page.waitForFunction(() => window.LegalAtlas?.ready);

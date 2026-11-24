@@ -417,6 +417,31 @@
       if (shown < 8.2) t.style.opacity = shown < 7.4 ? 0 : ((shown - 7.4) / 0.8).toFixed(2);
     }
     for (const list of byDistrict.values()) twoLineNames(list, z);
+    for (const list of byDistrict.values()) readableFloor(list, z);
+  }
+
+  /* ---------- 2c-ii. no name is drawn too small to read, and no row is left blank ----------
+     A name that still does not fit (its group had no room for a second line) was shrunk until it did,
+     and below 7.4 px it was not drawn at all, which left a row card with an icon and no name. Under
+     9 px the name is now set one step below the row size and ends in an ellipsis; the whole name is
+     the row's tooltip and the first thing on the page it opens. */
+  function readableFloor(list, z) {
+    for (const e of list) {
+      if (e.t.dataset.r20Lines) continue;
+      const shown = parseFloat(e.t.getAttribute('font-size')) * z;
+      if (!(shown < 9) || !(e.room > 0)) continue;
+      const label = (e.n && (typeof displayName === 'function' ? displayName(e.n) : e.n.title)) || '',
+        wt = e.t.getAttribute('font-weight') || 400,
+        size = e.fs * 0.88;
+      if (!label || typeof ellipsize !== 'function') continue;
+      e.t.textContent = ellipsize(label, e.room, size, wt, 'map-label');
+      e.t.setAttribute('font-size', size);
+      e.t.style.opacity = '';
+      const tip = document.createElementNS('http://www.w3.org/2000/svg', 'title');
+      tip.textContent = (e.n && e.n.title) || label;
+      e.t.appendChild(tip);
+      e.t.dataset.r20Cut = '1';
+    }
   }
 
   /* ---------- 2c-i. a long name takes a second line instead of shrinking ----------
@@ -514,6 +539,95 @@
       moved += p.extra;
     }
     for (const m of more) m.setAttribute('y', parseFloat(m.getAttribute('y')) + moved);
+  }
+
+  /* ---------- 2d. small cards keep their icon and their whole name ----------
+     Below a certain size the icon layer left cards bare, and a long name could shrink to nothing. A small
+     card now carries a small icon, and its name is set slightly smaller or condensed to stay on the card. */
+  function smallCards() {
+    if (!svg) return;
+    const z = S.z,
+      I = iconData();
+    for (const card of svg.querySelectorAll('.node-card[data-map-node]')) {
+      if (card.querySelector(':scope > g[transform]') || card.dataset.r20) continue;
+      const id = card.dataset.mapNode,
+        c = homeFor(id),
+        t = card.querySelector('text');
+      if (!c || !t) continue;
+      if (c.w * z < 70 || c.h * z < 13) continue;
+      card.dataset.r20 = '1';
+      const n = nodesById.get(id),
+        region = regionFor(c.region),
+        acc = region ? regionAccent(region) : '#93a7b7';
+      const rec = I.records && I.records[id],
+        path =
+          (I.paths &&
+            I.paths[
+              (rec && rec.motif) ||
+                (n && n.kind === 'Case' ? 'case' : n && n.kind === 'Rule' ? 'rule' : 'concept')
+            ]) ||
+          '';
+      const size = Math.min(c.h * 0.6, 15 / z),
+        ix = c.x + 9 / z + (n && n.kind === 'Case' ? 3 / z : 0),
+        tx = ix + size + 5 / z,
+        room = c.x + c.w - 6 / z - tx;
+      if (path)
+        card.insertAdjacentHTML(
+          'beforeend',
+          `<g transform="translate(${ix},${c.y + (c.h - size) / 2}) scale(${size / 24})" fill="none" stroke="${acc}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none" style="color:${acc}">${path}</g>`,
+        );
+      // the name, whole: one line if it fits, otherwise two; a slightly smaller size before any squeeze
+      const label = (n && (typeof displayName === 'function' ? displayName(n) : n.title)) || t.textContent,
+        wt = t.getAttribute('font-weight') || 500;
+      const two = c.h * z >= 25,
+        words = String(label).split(/\s+/);
+      let px = Math.min(12, c.h * z * (two ? 0.36 : 0.58)),
+        rows = [label];
+      const wide = (row, p) => measure(row, p / z, wt, 'node-card');
+      if (wide(label, px) > room && two && words.length > 1) {
+        let best = null;
+        for (let i = 1; i < words.length; i++) {
+          const r = [words.slice(0, i).join(' '), words.slice(i).join(' ')],
+            m = Math.max(wide(r[0], px), wide(r[1], px));
+          if (!best || m < best.m) best = { r, m };
+        }
+        rows = best.r;
+      }
+      const longest = Math.max(...rows.map((r) => wide(r, px)));
+      if (longest > room) px *= 0.88;
+      const fs = px / z,
+        cy = c.y + c.h / 2,
+        y0 = rows.length === 1 ? cy + fs * 0.35 : cy - fs * 0.22;
+      t.setAttribute('font-size', fs);
+      t.setAttribute('x', tx);
+      t.removeAttribute('textLength');
+      t.textContent = '';
+      const spans = rows.map((row, i) => {
+        const sp = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+        sp.setAttribute('x', tx);
+        sp.setAttribute('y', y0 + i * fs * 1.16);
+        sp.textContent = row;
+        t.appendChild(sp);
+        return sp;
+      });
+      // A row still too wide makes the whole name smaller to fit; letters are never stretched or
+      // squeezed (a fixed textLength distorts the glyphs at other zoom levels).
+      let longestDrawn = 0;
+      if (room > 0) for (const sp of spans) sp.setAttribute('data-fit', room);
+      for (const sp of spans)
+        try {
+          longestDrawn = Math.max(longestDrawn, sp.getComputedTextLength());
+        } catch {
+          /* not laid out */
+        }
+      if (longestDrawn > room && room > 0) {
+        const fit = (fs * room) / longestDrawn,
+          top = rows.length === 1 ? cy + fit * 0.35 : cy - fit * 0.22;
+        t.setAttribute('font-size', fit);
+        spans.forEach((sp, i) => sp.setAttribute('y', top + i * fit * 1.16));
+      }
+      t.style.opacity = px < 7.4 ? 0 : px < 8.2 ? ((px - 7.4) / 0.8).toFixed(2) : '';
+    }
   }
 
   // run after every other layer has painted (the r18 hook runs last; the tiles are painted in it)
