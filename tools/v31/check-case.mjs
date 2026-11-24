@@ -93,8 +93,8 @@ const layout = await page.evaluate(() => {
     looseNotes: [...body.querySelectorAll(':scope > h3')].filter((h) => /^Notes$/.test(h.textContent.trim()))
       .length,
     rail: [...body.querySelectorAll('.v31-rail [data-v31-place]')].map((b) => b.textContent),
-    dots: body.querySelectorAll('.v31-tl .v31-dot').length,
-    here: body.querySelectorAll('.v31-tl .v31-dot.v31-here').length,
+    dots: body.querySelectorAll('.v31-tl li.mk-tl-row:not(.mk-tl-now)').length,
+    here: body.querySelectorAll('.v31-tl li.mk-tl-row.mk-here[aria-current="step"]').length,
     chartMeta: body.querySelector('.v31-chart .v31-meta')?.textContent,
     fonts: [
       ...new Set(
@@ -140,8 +140,8 @@ assert.deepEqual(layout.rail, [
   'Sources',
   'Study',
 ]);
-assert.equal(layout.dots, 6, 'all six timeline entries on the axis');
-assert.equal(layout.here, 1, 'this case marked on the axis');
+assert.equal(layout.dots, 6, 'all six timeline entries on the rail');
+assert.equal(layout.here, 1, 'this case marked on the rail');
 assert.match(layout.chartMeta, /K-16 · steps 3, 8 of 13/);
 assert.ok(
   !layout.fonts.some((f) => /Georgia|apple-system|system-ui/i.test(f)),
@@ -166,7 +166,8 @@ await page.locator('dialog#dklaFlowcharts[open]').waitFor();
 await page
   .locator('#flowchartDetail h3', { hasText: 'Did the offeror assent or did both sides perform?' })
   .waitFor();
-assert.equal(await page.locator('.fc-trail li').count(), 3, 'steps 1, 2 and 3 in the path');
+assert.equal(await page.locator('.fc-trail li').count(), 13, 'every step of the chart is listed');
+assert.equal(await page.locator('.fc-trail li.fc-on-path').count(), 3, 'steps 1, 2 and 3 in the path');
 assert.equal(await page.locator('#flowchartDetail .fc-own').count(), 1, 'the branch Itoh takes is marked');
 assert.match(await page.locator('.fc-side .fc-sources').innerText(), /Case\s*C\. Itoh/);
 await page.locator('.fc-back-entry').click();

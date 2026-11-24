@@ -63,9 +63,9 @@ try {
       .evaluate((el) => getComputedStyle(el, '::before').width);
     assert.equal(rail, '2px', 'milestones have a continuous rail');
     await page.screenshot({ path: `work/timelines/reader-${viewport.width}.png` });
-    await page.locator('.r31-guide > summary').press('Enter');
-    await expect(page.locator('.r31-guide > p')).toBeVisible();
-    await page.locator('.r31-guide > summary').press('Enter');
+    // Makeover on 3.1: the sentence on how the entries connect is in the open, not folded away.
+    await expect(page.locator('.r31-guide > p')).toBeInViewport();
+    assert.equal(await page.locator('.r31-guide summary').count(), 0);
     await page.locator('[data-r31-sequence]').click();
     await expect(page.locator('.r31-sequence-head')).toBeInViewport();
     await page.screenshot({ path: `work/timelines/entries-${viewport.width}.png` });
@@ -100,11 +100,14 @@ try {
     });
     const preview = page.locator('#inspector .dkla-timeline[data-r21="consideration"]');
     await preview.waitFor();
-    // v3.1 preview: an axis of every entry, then this entry and its neighbours.
-    await expect(preview.locator('.v31-axis .v31-dot.v31-here')).toHaveCount(1);
+    // Makeover on 3.1: the preview is the whole line of authority, one row per entry, ending at "Now".
+    const stored = await page.evaluate(() => DKLATimelines.list().find((t) => t.id === 'consideration'));
     const sequence = preview.locator('.v31-tl-rows');
     await expect(sequence.locator('.v31-tl-step').first()).toBeVisible();
-    await expect(sequence.locator('li')).toHaveCount(3);
+    await expect(sequence.locator('li.mk-tl-row:not(.mk-tl-now)')).toHaveCount(stored.steps.length);
+    await expect(sequence.locator('li.mk-tl-now')).toContainText(stored.now);
+    await expect(preview.locator('.mk-tl-guide')).toHaveText(stored.guide);
+    await expect(sequence.locator('[aria-current="step"]')).toHaveCount(1);
     await expect(sequence.locator('[aria-current="step"]')).toContainText('Hamer');
     assert.equal(await sequence.evaluate((e) => e.scrollWidth > e.clientWidth + 1), false);
     await preview.locator('[data-r21-open]').click();

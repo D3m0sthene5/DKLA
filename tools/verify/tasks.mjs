@@ -168,6 +168,13 @@ export const tasks = [
     node('tools/makeover/check-resize.mjs', '{page}'),
     SERVER,
   ),
+  // Makeover on 3.1: the doctrine timeline and the flowchart steps read as one line each (every entry, full answers).
+  step(
+    'browser',
+    'makeover: timeline and flowchart steps',
+    node('tools/makeover/check-lines.mjs', '{page}'),
+    SERVER,
+  ),
   step('browser', 'Ask Dottie trotting opossums', node('tools/ask/trot-browser.mjs', '{page}'), SERVER),
   // The fuel gauge round the clock: lit share, direction, colours, label, refresh after an answer.
   step(

@@ -147,3 +147,827 @@
     transition: none;
   }
 }
+
+/* ---------- 5. The doctrine timeline on an entry's page (timelines.js panelHTML) ----------
+   One row per entry on a rail, read top to bottom, ending at "Now". Sizes and colours are the 3.1
+   tokens: 14 px interface text, 12 px labels, blue for what opens, the movement colours with their
+   shape and word. Columns: year, rail, entry, how it moved the rule. */
+#inspector .mk-tl .mk-tl-guide {
+  margin: 0;
+  font:
+    400 16px/26px var(--dkla-interface, Inter),
+    sans-serif !important;
+  color: var(--v31-soft);
+  max-width: 68ch;
+}
+.mk-tl .mk-tl-rows {
+  margin: 2px 0 0;
+}
+.mk-tl .mk-tl-rows > li,
+.mk-tl .mk-tl-rows > li:last-child {
+  position: relative;
+  border: 0;
+}
+/* the rail: one line through the middle of the rail column, row after row */
+.mk-tl .mk-tl-rows > li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 79px;
+  width: 2px;
+  background: var(--v31-line-strong);
+}
+.mk-tl .mk-tl-rows > li:first-child::before {
+  top: 18px;
+}
+.mk-tl .mk-tl-rows > li.mk-tl-now::before {
+  bottom: auto;
+  height: 18px;
+}
+.mk-tl .v31-tl-step {
+  grid-template-columns: 58px 16px minmax(0, 1fr);
+  column-gap: 14px;
+  align-items: start;
+  padding: 7px 0;
+  position: relative;
+}
+.mk-tl .mk-open > .v31-tl-step {
+  padding: 11px 0 12px;
+}
+.mk-tl .v31-tl-year {
+  text-align: right;
+}
+.mk-tl .mk-tl-row:not(.mk-open) .v31-tl-year small {
+  display: none;
+}
+/* The mark on the rail is the shape for how the entry moved the rule; the words beside it say the
+   same thing in the same colour, so the label drops its own copy of the symbol. Diamond: a starting
+   point or a rule's text. Triangle up: widens. Triangle down: narrows. Cross: overrules. Dot:
+   applies, clarifies or reaffirms. Ring: another jurisdiction, or a divided court. */
+.mk-tl-node {
+  --c: var(--v31-steady);
+  --mk-under: var(--v31-ground);
+  position: relative;
+  justify-self: center;
+  width: 16px;
+  height: 16px;
+  margin-top: 3px;
+  border-radius: 50%;
+  background: var(--mk-under);
+}
+.mk-tl-node::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: var(--c);
+}
+.mk-tl-node.v31-fam-base {
+  --c: var(--v31-base);
+}
+.mk-tl-node.v31-fam-base::before {
+  inset: 2.5px;
+  border-radius: 0;
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+.mk-tl-node.v31-fam-wide {
+  --c: var(--v31-wide);
+}
+.mk-tl-node.v31-fam-wide::before {
+  inset: 2px 2px 3px;
+  border-radius: 0;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+.mk-tl-node.v31-fam-narrow,
+.mk-tl-node.v31-fam-over {
+  --c: var(--v31-narrow);
+}
+.mk-tl-node.v31-fam-narrow::before {
+  inset: 3px 2px 2px;
+  border-radius: 0;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+.mk-tl-node.v31-fam-over::before {
+  inset: 2.5px;
+  border-radius: 0;
+  clip-path: polygon(
+    20% 0,
+    50% 30%,
+    80% 0,
+    100% 20%,
+    70% 50%,
+    100% 80%,
+    80% 100%,
+    50% 70%,
+    20% 100%,
+    0 80%,
+    30% 50%,
+    0 20%
+  );
+}
+.mk-tl-node.v31-fam-aside {
+  --c: var(--v31-aside);
+}
+.mk-tl-node.v31-fam-aside::before {
+  inset: 3px;
+  background: var(--mk-under);
+  box-shadow: inset 0 0 0 2px var(--c);
+}
+.mk-tl-node.mk-now::before {
+  inset: 2px;
+  border-radius: 3px;
+  background: var(--mk-under);
+  box-shadow: inset 0 0 0 2px var(--v31-text);
+}
+.mk-tl .mk-here .mk-tl-node,
+#r21Timelines .v31-here > .mk-tl-node {
+  --mk-under: var(--v31-here-bg);
+  box-shadow: 0 0 0 2px var(--v31-here);
+}
+.mk-tl .v31-tl-turn::before,
+#r21Timelines .mk-tl-full .r21-turn[class*='v31-fam-']::before {
+  content: none;
+}
+.mk-tl .mk-tl-now > .v31-tl-step {
+  background: none;
+  box-shadow: none;
+}
+.mk-tl .mk-tl-now .v31-tl-year {
+  color: var(--v31-text);
+}
+.mk-tl .mk-tl-now .v31-tl-note {
+  color: var(--v31-body);
+  max-width: 62ch;
+}
+.mk-tl .v31-tl-main strong {
+  font:
+    600 16px/22px var(--dkla-interface, Inter),
+    sans-serif;
+}
+/* this entry: the tint runs the width of the card's text, behind the rail */
+.mk-tl .mk-here > .v31-tl-step {
+  background: none;
+  box-shadow: none;
+}
+.mk-tl .mk-here::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 2px;
+  background: var(--v31-here-bg);
+  /* The tint reaches 14 px past the text on both sides without widening the list. */
+  box-shadow:
+    -14px 0 0 var(--v31-here-bg),
+    14px 0 0 var(--v31-here-bg);
+  z-index: 0;
+}
+.mk-tl .mk-here::before {
+  z-index: 1;
+}
+.mk-tl .mk-here > .v31-tl-step {
+  z-index: 2;
+}
+.mk-tl .v31-tl-main .r25-authority-kind {
+  font: var(--v31-label);
+  color: var(--v31-faint);
+}
+.mk-tl-fate {
+  font:
+    400 14px/20px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-muted);
+}
+.mk-tl-fate b {
+  font-weight: 600;
+  color: var(--v31-narrow);
+  margin-right: 4px;
+}
+.mk-tl .v31-tl-turn {
+  font:
+    600 14px/20px var(--dkla-interface, Inter),
+    sans-serif;
+}
+.mk-tl .v31-tl-turn .r25-authority-kind {
+  display: inline;
+  margin-left: 8px;
+  font-weight: 400;
+}
+/* a long gap between entries */
+.mk-tl .mk-tl-rows > li.mk-tl-gap {
+  height: 26px;
+}
+.mk-tl .mk-tl-rows > li.mk-tl-gap::before {
+  background: repeating-linear-gradient(to bottom, var(--v31-line-strong) 0 3px, transparent 3px 7px);
+}
+.mk-tl .mk-tl-gap span {
+  position: absolute;
+  left: 102px;
+  top: 4px;
+  font: var(--v31-label);
+  color: var(--v31-faint);
+}
+.mk-tl button.v31-tl-step:hover .mk-tl-node {
+  box-shadow: 0 0 0 2px var(--v31-link);
+}
+@media (max-width: 760px) {
+  .mk-tl .v31-tl-step {
+    grid-template-columns: 44px 14px minmax(0, 1fr);
+    column-gap: 10px;
+  }
+  .mk-tl .mk-tl-rows > li::before {
+    left: 60px;
+  }
+  .mk-tl .mk-tl-gap span {
+    left: 78px;
+  }
+}
+#inspector.reader-narrow .mk-tl .v31-tl-step {
+  grid-template-columns: 44px 14px minmax(0, 1fr);
+  column-gap: 10px;
+}
+#inspector.reader-narrow .mk-tl .mk-tl-rows > li::before {
+  left: 60px;
+}
+#inspector.reader-narrow .mk-tl .mk-tl-gap span {
+  left: 78px;
+}
+
+/* ---------- 6. The full timeline window (timelines.js detailHTML, stepHTML) ----------
+   The same line of authority as on the page, with every note. 3.1 drew each entry at headline size,
+   two to a screen; here an entry is a name, how it moved the rule, and its note, about five to a
+   screen. The sentence on how the entries connect is in the open, and the rail ends at "Now". */
+#r21Timelines .r31-kicker {
+  margin: 0 0 4px;
+  font: var(--v31-label);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--v31-muted);
+}
+#r21Timelines .r21-q {
+  margin: 0 0 10px;
+  font-size: 19px;
+  line-height: 26px;
+  font-weight: 600;
+  max-width: 44em;
+}
+#r21Timelines .r31-guide {
+  max-width: 70ch;
+}
+#r21Timelines .r31-guide > p {
+  margin: 0;
+  font:
+    400 16px/26px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-soft);
+}
+#r21Timelines .r31-orientation {
+  margin-bottom: 22px;
+}
+#r21Timelines .r31-sequence-head h3 {
+  margin: 0 0 12px;
+  font:
+    600 14px/20px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-muted);
+}
+#r21Timelines .mk-tl-full > li {
+  --gutter: 84px;
+  grid-template-columns: var(--gutter) minmax(0, 1fr);
+  gap: 30px;
+  padding: 10px 14px 16px 0;
+}
+#r21Timelines .mk-tl-full > li::before {
+  left: calc(var(--gutter) + 14px);
+  top: 0;
+  bottom: 0;
+  display: block;
+}
+#r21Timelines .mk-tl-full > li:first-child::before {
+  top: 20px;
+}
+#r21Timelines .mk-tl-full > li::after {
+  content: none;
+}
+#r21Timelines .mk-tl-full > li > .mk-tl-node {
+  --mk-under: var(--v31-panel);
+  position: absolute;
+  left: calc(var(--gutter) + 7px);
+  top: 13px;
+  margin: 0;
+}
+#r21Timelines .mk-tl-full > li.v31-here {
+  border-radius: 8px;
+}
+#r21Timelines .mk-tl-full .r21-y {
+  padding-right: 0;
+  font-size: 14px !important;
+  line-height: 24px;
+}
+#r21Timelines .mk-tl-full .r21-y time {
+  gap: 0;
+  text-align: right;
+  align-items: flex-end;
+}
+#r21Timelines .mk-tl-full .r21-y time small {
+  font: var(--v31-label);
+  color: var(--v31-faint);
+}
+#r21Timelines .mk-tl-full .r31-entry-heading {
+  display: block;
+}
+#r21Timelines .mk-tl-full .r21-name {
+  display: inline;
+  margin: 0;
+  font:
+    600 16px/24px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-link);
+}
+#r21Timelines .mk-tl-full b.r21-name {
+  color: var(--v31-text);
+}
+#r21Timelines .mk-tl-full button.r21-name:hover {
+  color: var(--v31-link-hover);
+}
+#r21Timelines .mk-tl-full .r21-name > span {
+  display: none;
+}
+#r21Timelines .mk-tl-full .mk-tl-moved {
+  display: block;
+  margin-top: 1px;
+}
+#r21Timelines .mk-tl-full .mk-tl-moved .r21-turn {
+  display: inline;
+  font:
+    600 14px/20px var(--dkla-interface, Inter),
+    sans-serif;
+}
+#r21Timelines .mk-tl-full .mk-tl-moved .r25-authority-kind {
+  display: inline;
+  margin-left: 8px;
+  font: var(--v31-label);
+  color: var(--v31-faint);
+}
+#r21Timelines .mk-tl-full .r31-core {
+  margin: 5px 0 0;
+  font-size: 16px;
+  line-height: 25px;
+  color: var(--v31-body);
+  max-width: 70ch;
+}
+#r21Timelines .mk-tl-full .r31-later {
+  margin-top: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font:
+    400 14px/21px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-muted);
+  max-width: 70ch;
+}
+#r21Timelines .mk-tl-full .r31-later > strong {
+  display: inline;
+  margin: 0 6px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--v31-narrow);
+}
+#r21Timelines .mk-tl-full .r31-later .r21-fate {
+  display: inline;
+}
+#r21Timelines .mk-tl-full .r31-evidence {
+  margin: 2px 0 0;
+}
+#r21Timelines .mk-tl-full .r31-evidence > summary {
+  min-height: 0;
+  padding: 6px 0 0;
+  font:
+    400 14px/20px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-link);
+}
+/* "Now" closes the rail */
+#r21Timelines .mk-tl-end {
+  --gutter: 84px;
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--gutter) minmax(0, 1fr);
+  column-gap: 30px;
+  margin: 0;
+  padding: 10px 14px 6px 0;
+  border: 0;
+  background: none;
+}
+#r21Timelines .mk-tl-end::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--gutter) + 14px);
+  top: 0;
+  height: 20px;
+  width: 2px;
+  background: var(--v31-line-strong);
+}
+#r21Timelines .mk-tl-end > h3 {
+  margin: 0;
+  text-align: right;
+  font:
+    600 14px/26px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-text);
+}
+#r21Timelines .mk-tl-end > .mk-tl-node {
+  --mk-under: var(--v31-panel);
+  position: absolute;
+  left: calc(var(--gutter) + 7px);
+  top: 13px;
+  margin: 0;
+}
+#r21Timelines .mk-tl-end > .r25-timeline-synthesis {
+  grid-column: 2;
+  margin: 0;
+  font:
+    400 16px/26px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-text);
+  max-width: 66ch;
+}
+@media (max-width: 760px) {
+  #r21Timelines .mk-tl-full > li,
+  #r21Timelines .mk-tl-end {
+    --gutter: 46px;
+    gap: 26px;
+    column-gap: 26px;
+  }
+}
+
+/* ---------- 7. Flowchart steps on an entry's page (flowcharts.js chartStepsHTML) ----------
+   The path through the chart, read downward: numbered questions on a rail, the answer taken between
+   them, and the steps this entry decides opened in place. A circle is a question; a square is an
+   outcome. */
+#inspector .mk-fc .mk-fc-route {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.mk-fc-route > li {
+  position: relative;
+  padding: 0 0 0 40px;
+}
+.mk-fc-route > li::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--v31-line-strong);
+}
+.mk-fc-route > li:first-child::before {
+  top: 14px;
+}
+.mk-fc-route > li:last-child::before {
+  bottom: auto;
+  height: 14px;
+}
+.mk-fc-route.mk-fc-loose > li::before {
+  content: none;
+}
+#inspector .mk-fc .mk-fc-q {
+  all: unset;
+  display: block;
+  padding: 5px 0;
+  cursor: pointer;
+  font:
+    600 16px/24px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-link);
+}
+#inspector .mk-fc .mk-fc-q:hover .mk-fc-label {
+  color: var(--v31-link-hover);
+}
+#inspector .mk-fc .mk-fc-q:focus-visible {
+  outline: 2px solid var(--v31-link);
+  outline-offset: 2px;
+}
+.mk-fc-n {
+  position: absolute;
+  left: 0;
+  top: 3px;
+  width: 26px;
+  height: 26px;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid var(--v31-line-strong);
+  border-radius: 50%;
+  background: var(--v31-ground);
+  font:
+    600 12px/1 var(--dkla-interface, Inter),
+    sans-serif;
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-soft);
+}
+.mk-end > .mk-fc-q .mk-fc-n {
+  border-radius: 7px;
+}
+.mk-own > .mk-fc-q .mk-fc-n {
+  border-color: var(--v31-here);
+  background: var(--v31-here-bg);
+  color: var(--v31-here);
+}
+.mk-fc-tag {
+  margin-left: 8px;
+  font:
+    600 12px/16px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-faint);
+  white-space: nowrap;
+}
+.mk-fc-tag.mk-fc-here {
+  color: var(--v31-here);
+}
+#inspector .mk-fc .mk-own > .mk-fc-q {
+  color: var(--v31-text);
+}
+#inspector .mk-fc .mk-fc-detail {
+  margin: 0 0 4px;
+  font:
+    400 16px/26px var(--dkla-interface, Inter),
+    sans-serif !important;
+  color: var(--v31-body) !important;
+  max-width: 64ch;
+}
+#inspector .mk-fc .mk-fc-others {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 14px;
+  margin: 0 0 6px;
+  font:
+    400 14px/21px var(--dkla-interface, Inter),
+    sans-serif !important;
+  color: var(--v31-faint) !important;
+}
+#inspector .mk-fc .mk-fc-others a {
+  color: var(--v31-link);
+  text-decoration: none;
+}
+#inspector .mk-fc .mk-fc-others a:hover {
+  color: var(--v31-link-hover);
+  text-decoration: underline;
+}
+/* the answer that leads to the next step */
+#inspector .mk-fc .mk-fc-route > li.mk-fc-answer {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font:
+    500 14px/20px var(--dkla-interface, Inter),
+    sans-serif !important;
+  color: var(--v31-muted) !important;
+}
+.mk-fc-route > li.mk-fc-answer > span::before {
+  content: '';
+  position: absolute;
+  left: 13px;
+  top: 13px;
+  width: 16px;
+  height: 0;
+  border-top: 2px solid var(--v31-line-strong);
+}
+#inspector .mk-fc .mk-fc-apart {
+  margin: 6px 0 -8px;
+  font: var(--v31-label) !important;
+  color: var(--v31-faint) !important;
+}
+
+/* ---------- 8. The flowchart window: every step listed beside the walkthrough (paintStep) ---------- */
+#dklaFlowcharts .fc-board:not(.fc-board-map) .fc-trail {
+  max-height: max(360px, calc(100dvh - 290px));
+  overflow-y: auto;
+  padding: 18px 12px 18px 14px;
+  scrollbar-width: thin;
+}
+#dklaFlowcharts .fc-trail-label {
+  padding: 0 8px;
+}
+#dklaFlowcharts .fc-trail ol {
+  gap: 0;
+}
+#dklaFlowcharts .fc-trail li > button {
+  border: 0;
+  background: none;
+  min-height: 0;
+}
+#dklaFlowcharts .fc-trail li > button:hover {
+  background: var(--v31-panel);
+}
+#dklaFlowcharts .fc-trail li > button,
+#dklaFlowcharts .fc-trail li[aria-current] {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  column-gap: 10px;
+  row-gap: 1px;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+#dklaFlowcharts .fc-trail-n {
+  grid-row: 1 / span 2;
+  width: 24px;
+  height: 24px;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid var(--v31-line-strong);
+  border-radius: 50%;
+  font:
+    600 12px/1 var(--dkla-interface, Inter),
+    sans-serif;
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-faint);
+}
+#dklaFlowcharts .fc-trail .fc-end .fc-trail-n {
+  border-radius: 7px;
+}
+#dklaFlowcharts .fc-trail .fc-on-path .fc-trail-n {
+  border-color: var(--v31-link);
+  color: var(--v31-link);
+}
+#dklaFlowcharts .fc-trail li[aria-current] .fc-trail-n {
+  border-color: var(--v31-here);
+  background: var(--v31-here);
+  color: var(--v31-on-link);
+}
+#dklaFlowcharts .fc-trail-q {
+  grid-column: 2;
+  align-self: center;
+  font:
+    400 14px/20px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-muted);
+}
+#dklaFlowcharts .fc-trail .fc-on-path .fc-trail-q {
+  color: var(--v31-text);
+}
+#dklaFlowcharts .fc-trail-q small {
+  margin-left: 4px;
+  font:
+    600 12px/16px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-faint);
+  white-space: nowrap;
+}
+#dklaFlowcharts .fc-trail-a {
+  grid-column: 2;
+  font:
+    600 12px/17px var(--dkla-interface, Inter),
+    sans-serif;
+  color: var(--v31-link);
+}
+#dklaFlowcharts .fc-trail-a::before {
+  content: '→ ';
+}
+
+/* the key to the rail's marks */
+#inspector .mk-tl .mk-tl-key,
+#r21Timelines .mk-tl-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  margin: 0;
+  font: var(--v31-label) !important;
+  color: var(--v31-faint) !important;
+}
+#inspector .mk-tl .mk-tl-key {
+  padding-top: 12px;
+  border-top: 1px solid var(--v31-line);
+}
+#r21Timelines .mk-tl-key {
+  margin: -4px 0 12px;
+}
+.mk-tl-key > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+.mk-tl-key .mk-tl-node {
+  margin: 0;
+  background: none;
+}
+#r21Timelines .mk-tl-key .mk-tl-node {
+  --mk-under: var(--v31-panel);
+}
+
+/* ---------- 9. One set of type in the timeline and flowchart windows ----------
+   Owner, 24 November 2026: the fonts were "inconsistent across the main DKLA and the timelines and
+   flowcharts". Two causes. (a) Many rules in these windows named plain "Inter", which is not the
+   bundled face ("DKLA Inter"): on a computer without Inter installed that text fell back to the
+   system font, beside text in the bundled face. (b) Sizes and weights off the 3.1 scale (12.2, 13.6,
+   17.6, 25, 31 px; weights 640 to 800). Everything here now uses the bundled faces and the five 3.1
+   text styles: title (display face 30 px), heading 19, body 16, interface 14, label 12; weights 400,
+   500 and 600. */
+#r21Timelines,
+#r21Timelines *,
+#dklaFlowcharts,
+#dklaFlowcharts * {
+  font-family: var(--dkla-interface, Inter), sans-serif !important;
+}
+#r21Timelines #r21Title h2,
+#dklaFlowcharts #flowchartsTitle,
+#dklaFlowcharts .fc-heading h2 {
+  font-family: var(--dkla-display, 'Exo 2'), sans-serif !important;
+  font-size: 30px !important;
+  line-height: 36px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+}
+/* headings: the step being read, a course in the library */
+#dklaFlowcharts #flowchartDetail h3,
+#dklaFlowcharts .fc-results h3 {
+  font-size: 19px !important;
+  line-height: 26px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+}
+/* body */
+#dklaFlowcharts .fc-explanation,
+#r21Timelines .r28-timeline-scope {
+  font-size: 16px !important;
+  line-height: 26px !important;
+  font-weight: 400 !important;
+}
+#dklaFlowcharts .fc-choices button > span:first-child,
+#dklaFlowcharts .fc-card strong,
+#r21Timelines .r21-card strong {
+  font-size: 16px !important;
+  line-height: 24px !important;
+  font-weight: 600 !important;
+}
+/* interface */
+#dklaFlowcharts .fc-toolbar a,
+#dklaFlowcharts .fc-toolbar button,
+#dklaFlowcharts .fc-walk-controls button,
+#dklaFlowcharts .fc-tabs button,
+#dklaFlowcharts .fc-library-controls button,
+#dklaFlowcharts .fc-search,
+#dklaFlowcharts .fc-search input,
+#dklaFlowcharts .fc-selected-branch,
+#dklaFlowcharts .fc-destination,
+#dklaFlowcharts .fc-zoom-value,
+#r21Timelines .r31-toolbar button,
+#r21Timelines .r31-end button,
+#r21Timelines .r19-tabs button,
+#r21Timelines .r21-card > span,
+#r21Timelines .r31-search,
+#r21Timelines .r31-search input,
+#r21Timelines .r31-chronology-link span,
+#r21Timelines .r31-evidence > p,
+#r21Timelines .r28-step-source {
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
+#dklaFlowcharts .fc-toolbar a,
+#dklaFlowcharts .fc-toolbar button,
+#dklaFlowcharts .fc-walk-controls button,
+#dklaFlowcharts .fc-tabs button,
+#dklaFlowcharts .fc-library-controls button,
+#r21Timelines .r31-toolbar button,
+#r21Timelines .r31-end button,
+#r21Timelines .r19-tabs button {
+  font-weight: 500 !important;
+}
+#dklaFlowcharts .fc-map-node .fc-node-heading,
+#dklaFlowcharts .fc-map-node .fc-node-heading *,
+#dklaFlowcharts .fc-side h4,
+#dklaFlowcharts #flowchartDetail h4 {
+  font-size: 14px !important;
+  line-height: 20px !important;
+  font-weight: 600 !important;
+}
+/* labels */
+#dklaFlowcharts .fc-kicker,
+#dklaFlowcharts .fc-map-node .fc-number,
+#dklaFlowcharts .fc-node-type,
+#dklaFlowcharts .fc-map-help,
+#dklaFlowcharts .fc-count,
+#dklaFlowcharts .fc-card small,
+#r21Timelines .r31-toolbar > span,
+#r21Timelines .r21-card small,
+#r21Timelines .r31-chronology-link small,
+#r21Timelines .r31-result-count,
+#r21Timelines .r31-end {
+  font-size: 12px !important;
+  line-height: 16px !important;
+}
+#dklaFlowcharts .fc-kicker,
+#dklaFlowcharts .fc-map-node .fc-number {
+  font-weight: 600 !important;
+}
+/* the same two strays on an entry's page */
+#inspector .r21-all.v31-open {
+  font: var(--v31-ui) !important;
+}
+#inspector .case-count {
+  font-family: var(--dkla-interface, Inter), sans-serif;
+}

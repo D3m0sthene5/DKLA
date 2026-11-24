@@ -352,6 +352,67 @@ const breakages = [
       ),
   ],
   [
+    "makeover: the timeline opens every entry's note again and no longer reads as one line",
+    'src/features/r19/timelines.js',
+    () =>
+      edit(
+        'src/features/r19/timelines.js',
+        'const withNote = (i) => (index < 0 ? i < 3 : Math.abs(i - index) <= 1);',
+        'const withNote = () => true;',
+      ),
+  ],
+  [
+    'makeover: the sentence on how the timeline entries connect is left off the page again',
+    'src/features/r19/timelines.js',
+    () =>
+      edit(
+        'src/features/r19/timelines.js',
+        '${t.guide ? `<p class="mk-tl-guide">${esc(t.guide)}</p>` : \'\'}',
+        '',
+      ),
+  ],
+  [
+    'makeover: the full timeline draws two entries to a screen again',
+    'src/features/makeover/makeover.css',
+    () =>
+      append('src/features/makeover/makeover.css', '#r21Timelines .mk-tl-full > li{padding-bottom:140px}'),
+  ],
+  [
+    'makeover: the flowchart card cuts the answers between steps to a few letters again',
+    'src/features/makeover/makeover.css',
+    () =>
+      append(
+        'src/features/makeover/makeover.css',
+        '#inspector .mk-fc .mk-fc-route > li.mk-fc-answer{max-width:130px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}',
+      ),
+  ],
+  [
+    'makeover: the flowchart card drops the start of the path again',
+    'src/features/flowcharts/flowcharts.js',
+    () =>
+      edit('src/features/flowcharts/flowcharts.js', 'const route = path\n', 'const route = path.slice(-2)\n'),
+  ],
+  [
+    'makeover: the timeline and flowchart windows fall back to the system font and off-scale sizes again',
+    'src/features/makeover/makeover.css',
+    () =>
+      edit(
+        'src/features/makeover/makeover.css',
+        '#r21Timelines,\n#r21Timelines *,\n#dklaFlowcharts,\n#dklaFlowcharts * {',
+        '.mk-unused {',
+      ),
+  ],
+  [
+    'makeover: the flowchart window lists only the steps already walked again',
+    'src/features/flowcharts/flowcharts.js',
+    () =>
+      edit(
+        'src/features/flowcharts/flowcharts.js',
+        'steps</p><ol>${[...byId.values()]',
+        'steps</p><ol>${[...byId.values()].filter((at) => walked.has(at.id))',
+      ),
+  ],
+  [
     'v3.1 case page: flowchart steps open the chart at its start instead of the step',
     'src/features/flowcharts/flowcharts.js',
     () =>

@@ -442,7 +442,7 @@
       <p class="fc-explanation">${esc(node.detail)}</p>
       ${
         node.edges.length
-          ? `<p class="fc-choose">Choose what happened</p><ol class="fc-choices">${node.edges
+          ? `<p class="fc-choose">Your answer</p><ol class="fc-choices">${node.edges
               .map((edge, index) => {
                 const next = byId.get(edge.to);
                 const own = active.from && next.sources.includes(active.from);
@@ -457,20 +457,32 @@
     const side = dialog.querySelector('.fc-side');
     if (side)
       side.innerHTML = `${sourcesHTML(node)}${relatedHTML(node.related)}${relatedHTML(active.chart.related)}`;
+    /* Makeover on 3.1: this column listed only the steps already walked, so the rest of the chart
+       could be seen only on the map. It now lists every step in the chart. The steps walked carry
+       the answer taken; any step opens from here. */
     const path = dialog.querySelector('.fc-trail');
     if (path) {
-      const endings = node.edges.map((edge) => byId.get(edge.to));
-      path.innerHTML = `<p class="fc-trail-label">Your path · step ${trail.length}</p><ol>${trail
-        .map((step, i) => {
-          const at = byId.get(step.id);
-          const taken = trail[i + 1]?.label;
-          return i === trail.length - 1
-            ? `<li aria-current="step"><span class="fc-trail-n">${at.number} · now</span><span class="fc-trail-q">${esc(at.label)}</span></li>`
-            : `<li><button type="button" data-fc-trail="${i}"><span class="fc-trail-n">${at.number}</span><span class="fc-trail-q">${esc(at.label)}</span>${taken ? `<span class="fc-trail-a">→ ${esc(taken)}</span>` : ''}</button></li>`;
+      const walked = new Map(trail.map((step, i) => [step.id, i]));
+      path.innerHTML = `<p class="fc-trail-label">All ${byId.size} steps</p><ol>${[...byId.values()]
+        .map((at) => {
+          const i = walked.get(at.id);
+          const taken = i === undefined ? '' : trail[i + 1]?.label;
+          const cites = active.from && at.sources.includes(active.from);
+          const cls = [
+            i === undefined ? '' : 'fc-on-path',
+            at.edges.length ? '' : 'fc-end',
+            cites ? 'fc-cites' : '',
+          ]
+            .filter(Boolean)
+            .join(' ');
+          const inner = `<span class="fc-trail-n">${at.number}</span><span class="fc-trail-q">${esc(at.label)}${at.edges.length ? '' : ' <small>Outcome</small>'}</span>${taken ? `<span class="fc-trail-a">${esc(taken)}</span>` : ''}`;
+          return at.id === node.id
+            ? `<li class="${cls}" aria-current="step">${inner}</li>`
+            : `<li class="${cls}"><button type="button" ${i === undefined ? `data-flowchart-node="${esc(at.id)}"` : `data-fc-trail="${i}"`}>${inner}</button></li>`;
         })
-        .join(
-          '',
-        )}</ol>${endings.length ? `<p class="fc-trail-next">Then ${endings.length === 1 ? 'step' : 'one of steps'} ${endings.map((n) => n.number).join(', ')}</p>` : ''}`;
+        .join('')}</ol>`;
+      // the column scrolls on its own; keep the step being read in sight
+      path.querySelector('[aria-current]')?.scrollIntoView({ block: 'nearest' });
     }
     dialog.querySelector('[data-flowcharts-back]').disabled = trail.length < 2;
     dialog.querySelector('[data-flowcharts-reset]').disabled =
@@ -692,29 +704,44 @@
       reading.insertAdjacentHTML('beforeend', chartStepsHTML(id));
     return result;
   };
-  // The case page's "Flowchart steps" card: for each chart, the path from its start to the steps
-  // this entry decides, then those steps in full, and a link that opens the chart at that step.
+  /* The case page's "Flowchart steps" card. Makeover on 3.1 (owner, 24 November 2026: "difficult to
+     read and difficult to navigate"): 3.1 drew the path as a row of boxes that kept the last four
+     steps and cut the answers between them to a few letters. The path is now read downward, like the
+     timeline beside it: every question from the chart's start, the answer taken to reach the next
+     one written in full, and each step this entry decides opened with its explanation and the other
+     answers that step allows. Every line is the chart's own record and opens the chart at that step. */
   function chartStepsHTML(id) {
     const all = stepsCiting(id);
     const card = ({ chart, number, cited, path }, index) => {
       const decided = new Set(cited.map((node) => node.id));
       const byId = new Map(chart.nodes.map((node) => [node.id, node]));
-      const shown = path.length > 4 ? path.slice(-4) : path;
-      const route = shown
+      const onPath = new Set(path.map((step) => step.id));
+      // An entry that decides most of a chart: the heading already lists its steps, so the steps are
+      // not each tagged, and only those on the path are opened.
+      const many = cited.length > 3;
+      const stepHTML = (node, next) => {
+        const own = decided.has(node.id);
+        const others = own ? node.edges.filter((edge) => edge.to !== next) : [];
+        return `<li class="mk-fc-step${own ? ' mk-own' : ''}${node.edges.length ? '' : ' mk-end'}"><a class="mk-fc-q" href="${stepURL(chart.id, node.id, id)}" data-flowchart-id="${esc(chart.id)}"><span class="mk-fc-n">${number.get(node.id)}</span><span class="mk-fc-label">${esc(node.label)}</span>${node.edges.length ? '' : '<span class="mk-fc-tag">Outcome</span>'}${own && !many ? '<span class="mk-fc-tag mk-fc-here">This entry</span>' : ''}</a>${own && (!many || onPath.has(node.id)) ? `<p class="mk-fc-detail">${esc(node.detail)}</p>` : ''}${
+          others.length && (!many || onPath.has(node.id))
+            ? `<p class="mk-fc-others"><span>${next ? 'Other answers' : 'Answers'}</span>${others.map((edge) => `<a href="${stepURL(chart.id, edge.to, id)}" data-flowchart-id="${esc(chart.id)}">${esc(edge.label)} → ${number.get(edge.to)}</a>`).join('')}</p>`
+            : ''
+        }</li>`;
+      };
+      const route = path
         .map((step, i) => {
-          const node = byId.get(step.id);
-          const own = decided.has(step.id);
-          const branch =
-            i > 0 ? `<span class="v31-route-edge"><span>${esc(step.label || '')}</span></span>` : '';
-          return `${branch}<a class="v31-route-step${own ? ' v31-own' : ''}" href="${stepURL(chart.id, step.id, id)}" data-flowchart-id="${esc(chart.id)}"><b>${own ? `Step ${number.get(step.id)} · this entry` : `Step ${number.get(step.id)}`}</b>${esc(node.label)}</a>`;
+          const answer =
+            i > 0 && step.label ? `<li class="mk-fc-answer"><span>${esc(step.label)}</span></li>` : '';
+          return answer + stepHTML(byId.get(step.id), path[i + 1]?.id);
         })
         .join('');
+      const apart = cited.filter((node) => !onPath.has(node.id));
       const first = cited.reduce((a, b) => (number.get(b.id) < number.get(a.id) ? b : a), cited[0]);
-      return `<article class="v31-chart${index > 1 ? ' v31-chart-more' : ''}">
+      return `<article class="v31-chart mk-fc${index > 1 ? ' v31-chart-more' : ''}">
         <div class="v31-card-head"><div><p class="v31-meta">Flowchart ${esc(chart.id)} · ${cited.length === 1 ? 'step' : 'steps'} ${cited.map((n) => number.get(n.id)).join(', ')} of ${chart.nodes.length}</p><h3>${esc(chart.title)}</h3></div>
         <a class="v31-open" href="${stepURL(chart.id, first.id, id)}" data-flowchart-id="${esc(chart.id)}">Open at step ${number.get(first.id)} →</a></div>
-        <div class="v31-route${path.length > shown.length ? ' v31-route-cut' : ''}">${route}</div>
-        <dl class="v31-steps">${cited.map((node) => `<dt>Step ${number.get(node.id)}</dt><dd><strong>${esc(node.label)}</strong> ${esc(node.detail)}</dd>`).join('')}</dl>
+        <ol class="mk-fc-route">${route}</ol>
+        ${apart.length ? `<p class="mk-fc-apart">On another branch of this chart</p><ol class="mk-fc-route mk-fc-loose">${apart.map((node) => stepHTML(node)).join('')}</ol>` : ''}
       </article>`;
     };
     return `<section class="v31-chart-steps" aria-label="Flowchart steps">${all.map(card).join('')}${all.length > 2 ? `<button type="button" class="v31-more" data-v31-more-charts>Show ${all.length - 2} more flowchart${all.length === 3 ? '' : 's'}</button>` : ''}</section>`;
