@@ -1,0 +1,73 @@
+/* Makeover on 3.1 (November 2026). Look and small layout fixes only: no screen loses anything it had,
+   and no click goes anywhere new. This sheet loads last. Each block says what it changes and why.
+   First proof: the path Home > Contracts > Offer > a group > a concept, on a desktop window. */
+
+@media (min-width: 761px) {
+  /* ---------- 1. The trail stays on one line ----------
+     With a page open the map is 360 px wide, and a four-step trail wrapped into a box 74 px tall with
+     a separator left hanging at the end of its first line. The trail is now one line: with a page
+     open it shows the Back arrow and where you are (the page's own top strip names the parent, and
+     Back or closing the page reaches the steps above). With no page open every step shows, as before. */
+  .map-nav #geoBreadcrumb {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    min-width: 0;
+  }
+  .map-nav #geoBreadcrumb button {
+    white-space: nowrap;
+  }
+  body.has-reader .map-nav #geoBreadcrumb > :not(:last-child) {
+    display: none;
+  }
+  body.has-reader .map-nav #geoBreadcrumb button:last-of-type {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 262px;
+  }
+
+  /* ---------- 2. "Explore the questions" rows read at reading size ----------
+     Each row's one-line answer was 12 px grey under a 14 px title, the smallest text on the page for
+     the thing most worth reading. Title 16 px, answer 14 px, and the row answers the pointer. */
+  #inspector .study-entry-link {
+    padding: 14px 12px 15px;
+    margin: 0 -12px;
+    width: calc(100% + 24px);
+    border-bottom-color: #2b3743;
+    transition: background-color 0.14s ease;
+  }
+  #inspector .study-entry-link strong {
+    font-size: 16px;
+    line-height: 1.35;
+    font-weight: 600;
+    color: #e8edf2;
+  }
+  #inspector .study-entry-link p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    color: #b4c2cf !important;
+    margin: 6px 0 0 !important;
+    max-width: 68ch;
+  }
+  #inspector .study-entry-link:hover {
+    background: #1a2530;
+  }
+  #inspector .study-entry-link:hover strong {
+    color: #f3dcb6;
+  }
+  #inspector .study-entry-link:focus-visible {
+    outline: 2px solid #e9c58f;
+    outline-offset: -2px;
+  }
+
+  /* ---------- 3. Chips are one size up on a desktop ----------
+     12 px was chosen so three chips fit a phone row; a desktop page has the room for 13 px. */
+  #inspector .dkla-file-chips button,
+  #inspector .source-strip a,
+  #inspector .source-strip button,
+  #inspector .reader-body .dkla-term-chips button {
+    font-size: 13px;
+  }
+  #inspector .reader-top > span {
+    font-size: 13px;
+  }
+}

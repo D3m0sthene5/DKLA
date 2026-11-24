@@ -160,6 +160,8 @@ export const tasks = [
   ),
   // v3.1: the case page's order, rail, timeline axis, flowchart steps and dictionary examples.
   step('browser', 'v3.1 case page', node('tools/v31/check-case.mjs', '{page}'), SERVER),
+  // Makeover on 3.1: the Offer path at the owner's window size (two-line names, no empty group, one-line trail).
+  step('browser', 'makeover: the Offer path', node('tools/makeover/check-path.mjs', '{page}'), SERVER),
   step('browser', 'Ask Dottie trotting opossums', node('tools/ask/trot-browser.mjs', '{page}'), SERVER),
   // The fuel gauge round the clock: lit share, direction, colours, label, refresh after an answer.
   step(

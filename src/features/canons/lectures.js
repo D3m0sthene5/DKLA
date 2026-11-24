@@ -107,7 +107,7 @@
 
   function relatedHTML(records) {
     if (!records?.length) return '';
-    return `<details class="lecture-related"><summary>Lecture context · ${records.length} notes</summary>
+    return `<details class="lecture-related"><summary>Lecture context · ${records.length} ${records.length === 1 ? 'note' : 'notes'}</summary>
       ${records
         .map(
           ({ deck, item, offset }) =>

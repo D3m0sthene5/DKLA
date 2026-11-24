@@ -291,6 +291,41 @@ const breakages = [
       ),
   ],
   [
+    'makeover: long entry names shrink again instead of taking a second line',
+    'src/features/r19/r20.js',
+    () =>
+      edit(
+        'src/features/r19/r20.js',
+        'for (const list of byDistrict.values()) twoLineNames(list, z);',
+        'void byDistrict;',
+      ),
+  ],
+  [
+    'makeover: a short group draws an empty box again',
+    'src/runtime/studyCode.js',
+    () =>
+      edit(
+        'src/runtime/studyCode.js',
+        'if (rowFloor - yy2 < 0 && tightFloor - tight >= 0) {',
+        'if (false) {',
+      ),
+  ],
+  [
+    'makeover: the trail wraps to two lines again with a page open',
+    'src/features/makeover/makeover.css',
+    () =>
+      edit(
+        'src/features/makeover/makeover.css',
+        'body.has-reader .map-nav #geoBreadcrumb > :not(:last-child) {\n    display: none;',
+        'body.has-reader .map-nav #geoBreadcrumb > :not(:last-child) {\n    display: inline;',
+      ),
+  ],
+  [
+    'makeover: a map label stored with an ellipsis is shown cut short again',
+    'src/runtime/studyCode.js',
+    () => edit('src/runtime/studyCode.js', "if (label && /…\\s*$/.test(label) && n.title", 'if (false && n.title'),
+  ],
+  [
     'v3.1 case page: flowchart steps open the chart at its start instead of the step',
     'src/features/flowcharts/flowcharts.js',
     () =>

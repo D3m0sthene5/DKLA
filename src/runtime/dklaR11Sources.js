@@ -473,6 +473,13 @@
   }
   // ---- the reading panel: every file the entry cites gets a chip beside the rule line, so the source is one tap away
   const insp = $('inspector');
+  // A source file's name as a chip: words apart (the files are named with underscores), and a long
+  // name ends at a whole word with an ellipsis instead of being cut mid-word at 34 characters.
+  function fileLabel(stem) {
+    const words = stem.replace(/_+/g, ' ').replace(/\s+/g, ' ').trim();
+    if (words.length <= 34) return words;
+    return words.slice(0, 34).replace(/\s+\S*$/, '') + '…';
+  }
   function fileChips() {
     if (!insp || insp.hidden) return;
     const head =
@@ -498,7 +505,7 @@
                 : 'Contracts Selections') + (mm ? ' p. ' + mm[1] : '')
           : /opinions\//.test(href)
             ? 'Full opinion'
-            : name.replace(/\.(pdf|txt|html|docx)$/i, '').slice(0, 34);
+            : fileLabel(name.replace(/\.(pdf|txt|html|docx)$/i, ''));
         return `<button type="button" data-dkla-file="${E(href)}" title="${E(a.childNodes[0]?.textContent?.trim() || name)}">${E(short)} <span aria-hidden="true">↗</span></button>`;
       })
       .join('');

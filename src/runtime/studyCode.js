@@ -154,9 +154,13 @@ function ensureMap() {
   }
 }
 function displayName(n) {
-  return n.kind === 'Case'
-    ? n.shortTitle || n.title
-    : geoPlacement(n.id).displayLabel || n.shortTitle || n.title;
+  if (n.kind === 'Case') return n.shortTitle || n.title;
+  const label = geoPlacement(n.id).displayLabel;
+  // A few stored map labels are the entry's title cut short with an ellipsis. Where the title begins
+  // with exactly what the label kept, the whole title is used and the drawing decides how to fit it.
+  if (label && /…\s*$/.test(label) && n.title && n.title.startsWith(label.replace(/…\s*$/, '').trimEnd()))
+    return n.title;
+  return label || n.shortTitle || n.title;
 }
 function roleLabel(n) {
   const role = geoPlacement(n.id).role;
@@ -1892,9 +1896,22 @@ function draw() {
               op: dIn.o * dim,
             });
           let yy2 = qy + (dqRows.length ? (dqRows.length * 17 + 15) / z : 2 / z);
+          // A short group (too short to show its question) left a 14 px gap under its title, found no
+          // room for even one row, and drew an empty box. When the usual gap leaves no room and a
+          // tighter one does, the first row starts 4 px under the title's descenders instead.
+          let rowFloor = d.y + d.h - 14 / z;
+          if (!dqRows.length && tRows.length) {
+            // the row card ends 5.6 px under its baseline; 9 px leaves it a little air above the edge
+            const tight = tY + (tRows.length - 1) * tfs2 * 1.23 + tfs2 * 0.3 + 18 / z,
+              tightFloor = d.y + d.h - 9 / z;
+            if (rowFloor - yy2 < 0 && tightFloor - tight >= 0) {
+              yy2 = tight;
+              rowFloor = tightFloor;
+            }
+          }
           const ns = R18.districtRows(id, d),
             pitch = 22 / z,
-            max = Math.max(0, Math.floor((d.y + d.h - 14 / z - yy2) / pitch) + 1),
+            max = Math.max(0, Math.floor((rowFloor - yy2) / pitch) + 1),
             cut = ns.length > max ? Math.max(1, max - 1) : ns.length;
           for (const n of ns.slice(0, max >= 1 ? cut : 0)) {
             putLabel({

@@ -331,7 +331,8 @@
     const z = S.z,
       rows = svg.querySelectorAll('text[data-map-jump]');
     if (!rows.length) return;
-    const I = iconData();
+    const I = iconData(),
+      byDistrict = new Map();
     for (const t of rows) {
       if (t.dataset.r20) continue;
       const id = t.getAttribute('data-map-jump'),
@@ -400,9 +401,13 @@
       }
       const room = x0 + w - fs * 0.5 - tx;
       if (room > 0) t.setAttribute('data-fit', room);
+      const k = 0.88;
+      // every row of a group is kept, in order, so a long name can take a second line (below)
+      const entry = { t, g, d, n, fs, room, top, ch, tx, base, len, long: len * k > room && room > 0 };
+      if (!byDistrict.has(d.id)) byDistrict.set(d.id, []);
+      byDistrict.get(d.id).push(entry);
       if (len > room && room > 0) {
         // one smaller step only, so a view never mixes a dozen type sizes
-        const k = 0.88;
         t.setAttribute('font-size', fs * k);
         // still too long: smaller again, to fit (never stretched or squeezed letters)
         if (len * k > room) t.setAttribute('font-size', (fs * room) / len);
@@ -411,95 +416,104 @@
       const shown = parseFloat(t.getAttribute('font-size')) * z;
       if (shown < 8.2) t.style.opacity = shown < 7.4 ? 0 : ((shown - 7.4) / 0.8).toFixed(2);
     }
+    for (const list of byDistrict.values()) twoLineNames(list, z);
   }
 
-  /* ---------- 2d. small cards keep their icon and their whole name ----------
-     Below a certain size the icon layer left cards bare, and a long name could shrink to nothing. A small
-     card now carries a small icon, and its name is set slightly smaller or condensed to stay on the card. */
-  function smallCards() {
-    if (!svg) return;
-    const z = S.z,
-      I = iconData();
-    for (const card of svg.querySelectorAll('.node-card[data-map-node]')) {
-      if (card.querySelector(':scope > g[transform]') || card.dataset.r20) continue;
-      const id = card.dataset.mapNode,
-        c = homeFor(id),
-        t = card.querySelector('text');
-      if (!c || !t) continue;
-      if (c.w * z < 70 || c.h * z < 13) continue;
-      card.dataset.r20 = '1';
-      const n = nodesById.get(id),
-        region = regionFor(c.region),
-        acc = region ? regionAccent(region) : '#93a7b7';
-      const rec = I.records && I.records[id],
-        path =
-          (I.paths &&
-            I.paths[
-              (rec && rec.motif) ||
-                (n && n.kind === 'Case' ? 'case' : n && n.kind === 'Rule' ? 'rule' : 'concept')
-            ]) ||
-          '';
-      const size = Math.min(c.h * 0.6, 15 / z),
-        ix = c.x + 9 / z + (n && n.kind === 'Case' ? 3 / z : 0),
-        tx = ix + size + 5 / z,
-        room = c.x + c.w - 6 / z - tx;
-      if (path)
-        card.insertAdjacentHTML(
-          'beforeend',
-          `<g transform="translate(${ix},${c.y + (c.h - size) / 2}) scale(${size / 24})" fill="none" stroke="${acc}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none" style="color:${acc}">${path}</g>`,
-        );
-      // the name, whole: one line if it fits, otherwise two; a slightly smaller size before any squeeze
-      const label = (n && (typeof displayName === 'function' ? displayName(n) : n.title)) || t.textContent,
-        wt = t.getAttribute('font-weight') || 500;
-      const two = c.h * z >= 25,
-        words = String(label).split(/\s+/);
-      let px = Math.min(12, c.h * z * (two ? 0.36 : 0.58)),
-        rows = [label];
-      const wide = (row, p) => measure(row, p / z, wt, 'node-card');
-      if (wide(label, px) > room && two && words.length > 1) {
-        let best = null;
-        for (let i = 1; i < words.length; i++) {
-          const r = [words.slice(0, i).join(' '), words.slice(i).join(' ')],
-            m = Math.max(wide(r[0], px), wide(r[1], px));
-          if (!best || m < best.m) best = { r, m };
-        }
-        rows = best.r;
+  /* ---------- 2c-i. a long name takes a second line instead of shrinking ----------
+     A name that did not fit its row was set smaller and smaller until it did, so one group could show
+     names at 12, 10 and 8 px, and the longest were cut. Where the group has room below its last row, a
+     long name now keeps the row size and breaks onto a second line; the rows under it move down by one
+     line. A group with no room keeps the old fitting. Nothing is added or removed, and the full name is
+     shown wherever it fits in two lines. */
+  function twoLineNames(list, z) {
+    if (!list.some((e) => e.long)) return;
+    list.sort((a, b) => a.base - b.base);
+    const d = list[0].d,
+      fs = list[0].fs;
+    // the lowest thing drawn in the group: its last row, or the "+ N more" line under it
+    let low = Math.max(...list.map((e) => e.top + e.ch));
+    const more = [...svg.querySelectorAll('text[data-map-district="' + d.id + '"]')].filter((t) =>
+      /^\+ \d+ more$/.test(t.textContent.trim()),
+    );
+    for (const m of more) low = Math.max(low, parseFloat(m.getAttribute('y')) + fs * 0.4);
+    let spare = d.y + d.h - 6 / z - low;
+    const NS = 'http://www.w3.org/2000/svg';
+    // Where a name breaks: after its dash or colon if it has one ("Restatement § 45 —" / "beginning
+    // invited performance"), after "v." in a case name, otherwise the most even break that does not
+    // leave a small word hanging at the end of the first line.
+    const HANG = /^(a|an|the|of|and|or|to|in|for|on|by|with)$/i;
+    const split = (label, size, wt, room) => {
+      const words = String(label).split(/\s+/),
+        w = (t) => measure(t, size, wt, 'map-label');
+      let best = null;
+      for (let i = 1; i < words.length; i++) {
+        const r = [words.slice(0, i).join(' '), words.slice(i).join(' ')],
+          a = w(r[0]),
+          b = w(r[1]);
+        if (a > room || b > room) continue;
+        const last = words[i - 1];
+        if (/^§+$/.test(last)) continue; // a section sign stays with its number
+        let cost = Math.abs(a - b) / room;
+        if (/^[—–]$/.test(last) || /[:;]$/.test(last) || last === 'v.') cost -= 2;
+        else if (HANG.test(last)) cost += 1;
+        if (!best || cost < best.cost) best = { r, cost };
       }
-      const longest = Math.max(...rows.map((r) => wide(r, px)));
-      if (longest > room) px *= 0.88;
-      const fs = px / z,
-        cy = c.y + c.h / 2,
-        y0 = rows.length === 1 ? cy + fs * 0.35 : cy - fs * 0.22;
-      t.setAttribute('font-size', fs);
-      t.setAttribute('x', tx);
-      t.removeAttribute('textLength');
-      t.textContent = '';
-      const spans = rows.map((row, i) => {
-        const sp = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
-        sp.setAttribute('x', tx);
-        sp.setAttribute('y', y0 + i * fs * 1.16);
-        sp.textContent = row;
-        t.appendChild(sp);
-        return sp;
-      });
-      // A row still too wide makes the whole name smaller to fit; letters are never stretched or
-      // squeezed (a fixed textLength distorts the glyphs at other zoom levels).
-      let longestDrawn = 0;
-      if (room > 0) for (const sp of spans) sp.setAttribute('data-fit', room);
-      for (const sp of spans)
-        try {
-          longestDrawn = Math.max(longestDrawn, sp.getComputedTextLength());
-        } catch {
-          /* not laid out */
+      return best ? best.r : null;
+    };
+    // what each long name would need, and the worst-fitting names first when room is short
+    const plans = [];
+    for (const e of list) {
+      if (!e.long) continue;
+      const label = (e.n && (typeof displayName === 'function' ? displayName(e.n) : e.n.title)) || '',
+        wt = e.t.getAttribute('font-weight') || 400;
+      for (const size of [fs, fs * 0.88]) {
+        const rows = split(label, size, wt, e.room);
+        if (rows) {
+          plans.push({ e, rows, size, extra: size * 1.2 });
+          break;
         }
-      if (longestDrawn > room && room > 0) {
-        const fit = (fs * room) / longestDrawn,
-          top = rows.length === 1 ? cy + fit * 0.35 : cy - fit * 0.22;
-        t.setAttribute('font-size', fit);
-        spans.forEach((sp, i) => sp.setAttribute('y', top + i * fit * 1.16));
       }
-      t.style.opacity = px < 7.4 ? 0 : px < 8.2 ? ((px - 7.4) / 0.8).toFixed(2) : '';
     }
+    plans.sort((a, b) => b.e.len / b.e.room - a.e.len / a.e.room);
+    const take = new Map();
+    for (const p of plans)
+      if (spare >= p.extra) {
+        take.set(p.e, p);
+        spare -= p.extra;
+      }
+    if (!take.size) return;
+    let moved = 0;
+    for (const e of list) {
+      if (moved) {
+        e.t.setAttribute('y', parseFloat(e.t.getAttribute('y')) + moved);
+        e.g.setAttribute('transform', `translate(0,${moved})`);
+      }
+      const p = take.get(e);
+      if (!p) continue;
+      const y0 = parseFloat(e.t.getAttribute('y'));
+      e.t.setAttribute('font-size', p.size);
+      e.t.style.opacity = '';
+      e.t.removeAttribute('data-fit');
+      e.t.textContent = '';
+      p.rows.forEach((row, i) => {
+        const sp = document.createElementNS(NS, 'tspan');
+        sp.setAttribute('x', e.tx);
+        sp.setAttribute('y', y0 + i * p.extra);
+        sp.setAttribute('data-fit', e.room);
+        sp.textContent = row;
+        e.t.appendChild(sp);
+      });
+      const rect = e.g.querySelector('rect');
+      if (rect) rect.setAttribute('height', e.ch + p.extra);
+      // the icon and the case mark sit in the middle of the taller card
+      for (const el of e.g.querySelectorAll(':scope > g[transform], :scope > path')) {
+        const old = el.getAttribute('transform') || '';
+        el.setAttribute('transform', `translate(0,${p.extra / 2}) ${old}`.trim());
+      }
+      e.t.dataset.r20Lines = '2';
+      moved += p.extra;
+    }
+    for (const m of more) m.setAttribute('y', parseFloat(m.getAttribute('y')) + moved);
   }
 
   // run after every other layer has painted (the r18 hook runs last; the tiles are painted in it)
