@@ -311,19 +311,24 @@ const breakages = [
       ),
   ],
   [
-    'makeover: the trail wraps to two lines again with a page open',
+    "makeover: a separator hangs at the end of the trail's first line again",
     'src/features/makeover/makeover.css',
     () =>
       edit(
         'src/features/makeover/makeover.css',
-        'body.has-reader .map-nav #geoBreadcrumb > :not(:last-child) {\n    display: none;',
-        'body.has-reader .map-nav #geoBreadcrumb > :not(:last-child) {\n    display: inline;',
+        '> span:nth-last-child(2) {\n    display: none;',
+        '> span:nth-last-child(2) {\n    display: inline;',
       ),
   ],
   [
     'makeover: a map label stored with an ellipsis is shown cut short again',
     'src/runtime/studyCode.js',
-    () => edit('src/runtime/studyCode.js', "if (label && /…\\s*$/.test(label) && n.title", 'if (false && n.title'),
+    () =>
+      edit(
+        'src/runtime/studyCode.js',
+        'if (label && /…\\s*$/.test(label) && n.title',
+        'if (false && n.title',
+      ),
   ],
   [
     'v3.1 case page: flowchart steps open the chart at its start instead of the step',

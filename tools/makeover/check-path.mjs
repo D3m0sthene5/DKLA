@@ -11,7 +11,7 @@
    - a section sign is never the last thing on a line, and no name ends in an ellipsis where the
      entry's whole title fits on two lines (N.Y. General Obligations Law § 5-1109).
    With the group's page open:
-   - the trail is one line (it wrapped to a 74 px box) and shows the place in full;
+   - the trail keeps every step, puts the place on its own line, and leaves no separator hanging;
    - each "Explore the questions" row has a 16 px title and a 14 px answer.
    On the concept "Termination of the power of acceptance":
    - "Lecture context" counts "1 note", and the source chip shows whole words. */
@@ -36,7 +36,8 @@ page.on('pageerror', (error) => errors.push(error.message));
 // The map's tidy-up step catches its own errors and logs them, and the steps after the failure are
 // then skipped on every draw, so a logged map error is a failure here.
 page.on('console', (message) => {
-  if (message.type() === 'error' && /DKLA r20 map/.test(message.text())) errors.push(message.text().split('\n')[0]);
+  if (message.type() === 'error' && /DKLA r20 map/.test(message.text()))
+    errors.push(message.text().split('\n')[0]);
 });
 await page.goto(address.href, { waitUntil: 'domcontentloaded', timeout: 90_000 });
 await page.locator('html.dkla-boot-ready').waitFor({ timeout: 90_000 });
@@ -94,7 +95,8 @@ for (const g of offer.groups) {
 const drawn = rows.filter((r) => !r.hidden);
 assert.ok(
   drawn.every((r) => r.size >= 8.5),
-  'a name is drawn under 8.5 px: ' + JSON.stringify(drawn.filter((r) => r.size < 8.5).map((r) => [r.text, r.size])),
+  'a name is drawn under 8.5 px: ' +
+    JSON.stringify(drawn.filter((r) => r.size < 8.5).map((r) => [r.text, r.size])),
 );
 const two = rows.filter((r) => r.lines.length === 2);
 assert.ok(two.length >= 4, `long names take a second line (found ${two.length} two-line names)`);
@@ -119,27 +121,40 @@ await page.evaluate(() => goDistrict('offer-duration', false));
 await page.locator('#inspector .study-entry-link').first().waitFor();
 await page.waitForTimeout(600);
 const group = await page.evaluate(() => {
-  const nav = document.querySelector('.map-nav').getBoundingClientRect(),
-    last = document.querySelector('#geoBreadcrumb button:last-of-type'),
-    row = document.querySelector('#inspector .study-entry-link');
+  const crumb = document.querySelector('#geoBreadcrumb'),
+    steps = [...crumb.querySelectorAll('button')],
+    seps = [...crumb.querySelectorAll('span')],
+    last = steps.at(-1),
+    row = document.querySelector('#inspector .study-entry-link'),
+    top = (el) => Math.round(el.getBoundingClientRect().top);
   return {
-    navHeight: nav.height,
-    place: last.textContent,
+    steps: steps.map((b) => b.textContent),
+    allShown: steps.every((b) => b.getBoundingClientRect().width > 0),
+    lastAlone: steps.slice(0, -1).every((b) => top(b) < top(last)),
+    othersOneLine: new Set(steps.slice(0, -1).map(top)).size === 1,
+    hanging: seps.at(-1).getBoundingClientRect().width > 0,
     placeCut: last.scrollWidth > last.clientWidth + 1,
     titlePx: parseFloat(getComputedStyle(row.querySelector('strong')).fontSize),
     answerPx: parseFloat(getComputedStyle(row.querySelector('p')).fontSize),
     rows: document.querySelectorAll('#inspector .study-entry-link').length,
   };
 });
-assert.ok(group.navHeight <= 54, `the trail is one line with a page open (it is ${group.navHeight} px tall)`);
-assert.equal(group.place, 'Lapse, revocation & other endings');
+assert.deepEqual(group.steps, ['Atlas', 'Contracts', 'Offer', 'Lapse, revocation & other endings']);
+assert.ok(group.allShown, 'every step of the trail is still shown with a page open');
+assert.ok(
+  group.lastAlone && group.othersOneLine,
+  'the place is on its own line under the steps that lead to it',
+);
+assert.ok(!group.hanging, 'a separator hangs at the end of the first line of the trail');
 assert.ok(!group.placeCut, 'the place in the trail is cut short');
 assert.equal(group.titlePx, 16, 'question titles are 16 px');
 assert.equal(group.answerPx, 14, 'question answers are 14 px');
 assert.ok(group.rows >= 4, 'the group lists its questions');
 
 // ---- the concept
-await page.locator('#inspector .study-entry-link', { hasText: 'Termination of the power of acceptance' }).click();
+await page
+  .locator('#inspector .study-entry-link', { hasText: 'Termination of the power of acceptance' })
+  .click();
 await page.locator('#inspector details.lecture-related summary').waitFor();
 const concept = await page.evaluate(() => ({
   lecture: document.querySelector('#inspector details.lecture-related summary').textContent.trim(),
@@ -155,5 +170,5 @@ assert.ok(
 assert.deepEqual(errors, [], 'page errors');
 await browser.close();
 console.log(
-  `makeover path: ${rows.length} entry names on Offer, ${two.length} on two lines, smallest ${Math.min(...drawn.map((r) => r.size))} px; trail ${group.navHeight} px; ok`,
+  `makeover path: ${rows.length} entry names on Offer, ${two.length} on two lines, smallest ${Math.min(...drawn.map((r) => r.size))} px; trail steps ${group.steps.length}; ok`,
 );
