@@ -321,6 +321,16 @@ const breakages = [
       ),
   ],
   [
+    'makeover: a name that does not fit shrinks to nothing and leaves a blank row again',
+    'src/features/r19/r20.js',
+    () =>
+      edit(
+        'src/features/r19/r20.js',
+        'for (const list of byDistrict.values()) readableFloor(list, z);',
+        'void readableFloor;',
+      ),
+  ],
+  [
     'makeover: a map label stored with an ellipsis is shown cut short again',
     'src/runtime/studyCode.js',
     () =>

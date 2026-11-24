@@ -10,6 +10,8 @@
    - no name runs past its row, no row runs past the bottom of its group, and rows do not overlap;
    - a section sign is never the last thing on a line, and no name ends in an ellipsis where the
      entry's whole title fits on two lines (N.Y. General Obligations Law § 5-1109).
+   On Delegation and statutory authority (thirteen short groups): at least twelve groups show an
+   entry, and no row is blank or under 9 px.
    With the group's page open:
    - the trail keeps every step, puts the place on its own line, and leaves no separator hanging;
    - each "Explore the questions" row has a 16 px title and a 14 px answer.
@@ -115,6 +117,35 @@ assert.ok(
   rows.filter((r) => r.lines.length === 1 && r.size >= 11.9).length >= 6,
   'short names keep the 12 px row size',
 );
+
+// ---- a subject of short groups: Delegation and statutory authority showed eleven empty groups of
+// thirteen, and row cards with an icon and no name
+await page.evaluate(() => goRegion('lrs-region-delegation-and-statutory-authority', false));
+await page.waitForTimeout(1200);
+const delegation = await page.evaluate(() => {
+  const z = S.z,
+    region = regionFor('lrs-region-delegation-and-statutory-authority');
+  const mine = [...document.querySelectorAll('text[data-map-jump]')].filter(
+    (t) => homeFor(t.getAttribute('data-map-jump'))?.region === region.id,
+  );
+  return {
+    groups: region.districtIds.length,
+    shown: new Set(mine.map((t) => homeFor(t.getAttribute('data-map-jump')).district)).size,
+    blank: mine
+      .filter(
+        (t) =>
+          t.style.opacity === '0' ||
+          t.style.visibility === 'hidden' ||
+          parseFloat(t.getAttribute('font-size')) * z < 9,
+      )
+      .map((t) => t.getAttribute('data-map-jump')),
+  };
+});
+assert.ok(
+  delegation.shown >= 12,
+  `Delegation and statutory authority shows an entry in ${delegation.shown} of ${delegation.groups} groups`,
+);
+assert.deepEqual(delegation.blank, [], 'a row is blank or its name is under 9 px');
 
 // ---- the group's page: the trail and the list
 await page.evaluate(() => goDistrict('offer-duration', false));
