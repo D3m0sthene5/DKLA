@@ -1,6 +1,6 @@
 /* Atlas search says where each result matched, and the opened entry can show it.
 
-     node tools/verify/search_why.mjs http://127.0.0.1:8766/DKLA-v3.1.html [--shots DIR]
+     node tools/verify/search_why.mjs http://127.0.0.1:8766/DKLA-v3.2.html [--shots DIR]
 
    On a desktop and a phone page: the index holds only text a reader can see (no
    JSON keys, ids, addresses or build tags); "redundant, imperti" lists Garcia

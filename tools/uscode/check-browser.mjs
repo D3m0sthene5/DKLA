@@ -1,6 +1,6 @@
 /* The whole United States Code in Rules & authorities, in a real browser.
 
-     node tools/uscode/check-browser.mjs http://127.0.0.1:8766/DKLA-v3.1.html [--shots DIR]
+     node tools/uscode/check-browser.mjs http://127.0.0.1:8766/DKLA-v3.2.html [--shots DIR]
 
    - All 54 titles are listed under "All 54 titles", and every title's file loads, verifies and
      builds (Title 53 is reserved and holds no sections).

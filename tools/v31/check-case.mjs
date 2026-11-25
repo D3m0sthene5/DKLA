@@ -1,6 +1,6 @@
 /* v3.1 case page, in a real browser (owner-approved design audit, 18 November 2026).
 
-     node tools/v31/check-case.mjs http://127.0.0.1:8766/DKLA-v3.1.html
+     node tools/v31/check-case.mjs http://127.0.0.1:8766/DKLA-v3.2.html
 
    C. Itoh v. Jordan, the case in the audit:
    - the reading area is wider than the old 560 px panel and leaves a strip of map;

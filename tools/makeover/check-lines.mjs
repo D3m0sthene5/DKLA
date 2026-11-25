@@ -1,7 +1,7 @@
 /* Makeover on 3.1: the doctrine timeline and the flowchart steps (owner, 24 November 2026: "difficult
    to read and difficult to navigate").
 
-     node tools/makeover/check-lines.mjs http://127.0.0.1:8766/DKLA-v3.1.html
+     node tools/makeover/check-lines.mjs http://127.0.0.1:8766/DKLA-v3.2.html
 
    At 1512 x 789, on C. Itoh's page:
    - the timeline card shows the stored sentence on how the entries connect, then every entry as one
@@ -237,7 +237,7 @@ try {
   assert.equal(await fcw.locator('.fc-trail > ol > li').count(), 1, 'the path holds the step arrived at');
   assert.equal(await fcw.locator('.fc-walk-controls [data-flowcharts-back]').isDisabled(), true);
   // One route to it is shown on request.
-  const route = fcw.locator('details.fc-trail-route');
+  const route = fcw.locator('.fc-trail details.fc-trail-route');
   assert.equal(await route.evaluate((box) => box.open), false);
   await route.locator('summary').click();
   assert.match(await route.locator('li').innerText(), /chart step 1[\s\S]*Article 2/);
@@ -283,10 +283,82 @@ try {
     () => document.querySelector('#dklaFlowcharts .fc-zoom-value')?.textContent === '100%',
   );
   await typeIsOneSystem('#dklaFlowcharts', 'flowchart map');
+  // Leaving for a case from a drawing's card and coming back: the keyboard is on that drawing again.
+  const drawing = fcw.locator('.fc-map [data-fc-art]').filter({ visible: true }).first();
+  await drawing.click();
+  const pressed = await drawing.getAttribute('aria-label');
+  await fcw.locator('.fc-art-item a[data-flowchart-source]').filter({ visible: true }).first().click();
+  await page.locator('dialog#dklaFlowcharts[open]').waitFor({ state: 'detached' });
+  await page.goBack();
+  await fcw.waitFor();
+  await page.waitForFunction(() => document.activeElement?.matches?.('[data-fc-art]'));
+  assert.equal(
+    await page.evaluate(() => document.activeElement.getAttribute('aria-label')),
+    pressed,
+    'the drawing that was pressed has the keyboard again',
+  );
   await fcw.locator('[data-flowcharts-library]').click();
   await fcw.locator('.fc-card').first().waitFor();
   await typeIsOneSystem('#dklaFlowcharts', 'flowchart library');
   await page.keyboard.press('Escape');
+
+  // ---- the timeline window's controls match the flowchart window's; the older windows use the bundled faces ----
+  const control = (selector) =>
+    page.evaluate((selector) => {
+      const cs = getComputedStyle(document.querySelector(selector));
+      return [cs.borderTopColor, cs.backgroundColor, cs.borderRadius, cs.color].join(' | ');
+    }, selector);
+  await page.evaluate(() => (location.hash = 'flowcharts'));
+  await page.locator('#dklaFlowcharts .fc-tabs button').first().waitFor();
+  const chartTab = await control('#dklaFlowcharts .fc-tabs button[aria-pressed="true"]');
+  const chartClose = await control('#dklaFlowcharts .fc-close');
+  await page.keyboard.press('Escape');
+  await page.evaluate(() => DKLATimelines.open());
+  await page.locator('#r21Timelines .r19-tabs button').first().waitFor();
+  assert.equal(
+    await control('#r21Timelines .r19-tabs button[aria-pressed="true"]'),
+    chartTab,
+    'the same tabs',
+  );
+  assert.equal(await control('#r21Timelines .r19-close'), chartClose, 'the same close button');
+  await page.keyboard.press('Escape');
+  await page.locator('#r21Timelines[open]').waitFor({ state: 'detached' });
+  const faces = (selector) =>
+    page.evaluate((selector) => {
+      const root = document.querySelector(selector);
+      const off = new Set();
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+      for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+        const el = node.parentElement;
+        if (!node.textContent.trim() || !el.getClientRects().length || el.closest('kbd, code, pre, samp'))
+          continue;
+        const face = getComputedStyle(el).fontFamily.split(',')[0].replace(/['"]/g, '').trim();
+        if (!/^DKLA /.test(face)) off.add(`${face}: ${node.textContent.trim().slice(0, 24)}`);
+      }
+      return [...off];
+    }, selector);
+  for (const [label, selector] of [
+    ['Choose a course', '#modal'],
+    ['Reference sheets', '#r18Dialog'],
+  ]) {
+    await page.locator('#moreBtn').click();
+    await page.locator('#moreMenu button, #moreMenu a').filter({ hasText: label }).first().click();
+    await page.locator(`${selector} h2`).first().waitFor();
+    assert.deepEqual(await faces(selector), [], `${label}: every word is in a bundled face`);
+    await page.keyboard.press('Escape');
+    await page.waitForTimeout(200);
+  }
+
+  // ---- labels say what a court held, in the past tense (the ten labels reviewed on 24 November 2026) ----
+  await page.evaluate(() => (location.hash = 'node=lrs-i-loper-bright'));
+  const deference = page.locator('#inspector .dkla-timeline.mk-tl[data-r21="deference"]');
+  await deference.waitFor();
+  const moved = await deference.locator('.v31-tl-turn').allInnerTexts();
+  assert.ok(
+    moved.some((text) => text.startsWith('Required Chevron deference')),
+    moved.join(' / '),
+  );
+  assert.ok(!moved.some((text) => /^Historically/.test(text)), 'no label opens with "Historically"');
 
   // ---- a long timeline shows every entry ----
   await page.evaluate(() => (location.hash = 'node=shoe'));
@@ -299,7 +371,7 @@ try {
 
   assert.deepEqual(errors, []);
   console.log(
-    'PASS timeline card (every entry, connection sentence, gaps, Now, key), flowchart card (full path and answers), full timeline (3+ entries a screen), chart window (path, route on request, overview at Fit), 16-entry timeline, one set of type in both windows',
+    'PASS timeline card (every entry, connection sentence, gaps, Now, key), flowchart card (full path and answers), full timeline (3+ entries a screen), chart window (path, route on request, overview at Fit), 16-entry timeline, one set of type in both windows and the older ones, matching controls, past-tense labels',
   );
 } finally {
   await browser.close();

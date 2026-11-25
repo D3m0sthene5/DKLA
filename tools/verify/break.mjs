@@ -468,6 +468,45 @@ const breakages = [
       ),
   ],
   [
+    'makeover: the course, study and textbook windows fall back to the system and monospace fonts again',
+    'src/features/makeover/makeover.css',
+    () =>
+      edit(
+        'src/features/makeover/makeover.css',
+        '#modal,\n#modal *:not(kbd, code, pre, samp),',
+        '.mk-unused-a,',
+      ),
+  ],
+  [
+    'makeover: the timeline window keeps its own green tabs beside the flowchart window',
+    'src/features/makeover/makeover.css',
+    () =>
+      edit(
+        'src/features/makeover/makeover.css',
+        "#r21Timelines .r19-tabs button[aria-pressed='true'] {",
+        ".mk-unused-b[aria-pressed='true'] {",
+      ),
+  ],
+  [
+    'flowchart: back from a case, the keyboard is not put back on the drawing that was pressed',
+    'src/features/flowcharts/flowcharts.js',
+    () =>
+      edit(
+        'src/features/flowcharts/flowcharts.js',
+        "(left.art >= 0 ? drawings[left.art]?.querySelector('[data-fc-art]') : links[0])?.focus({",
+        '(null)?.focus({',
+      ),
+  ],
+  [
+    'flowchart on a phone: the route to a step opened from a case is not offered',
+    'src/features/makeover/makeover.css',
+    () =>
+      append(
+        'src/features/makeover/makeover.css',
+        '#dklaFlowcharts .fc-detail-route{display:none!important}',
+      ),
+  ],
+  [
     'flowchart walkthrough: a step is "of 23" again, and Back walks a route the reader never took',
     'src/features/flowcharts/flowcharts.js',
     () =>

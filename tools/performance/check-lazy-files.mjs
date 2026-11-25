@@ -2,7 +2,7 @@
 
      node tools/performance/check-lazy-files.mjs
 
-   Reads work/build/DKLA-v3.1.html (the portable atlas, which the data guard and content pins check) and
+   Reads work/build/DKLA-v3.2.html (the portable atlas, which the data guard and content pins check) and
    dist/ (what the site serves). For every block in the hosted page's dklaDataManifest:
    - the list is tools/performance/lazy-blocks.json, in its order;
    - the hosted element is the portable element's tag plus data-dkla-lazy, with an empty body;

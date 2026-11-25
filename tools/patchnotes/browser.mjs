@@ -1,7 +1,7 @@
 /* Patch notes (src/features/patchnotes): the last item of the ☰ menu opens a dialog listing every version
    from v3.0 back to v9, newest first; choosing a version shows its notes; Escape closes it.
 
-     node tools/patchnotes/browser.mjs http://127.0.0.1:8766/DKLA-v3.1.html */
+     node tools/patchnotes/browser.mjs http://127.0.0.1:8766/DKLA-v3.2.html */
 import assert from 'node:assert/strict';
 import { chromium } from '@playwright/test';
 
@@ -52,9 +52,9 @@ try {
   const dialog = page.locator('#patchNotesDialog[open]');
   await dialog.waitFor();
   const names = await page.locator('#patchNotesDialog [data-pn] b').allTextContents();
-  assert.equal(names[0], 'v3.1', 'newest first');
+  assert.equal(names[0], 'v3.2', 'newest first');
   assert.equal(names[names.length - 1], 'v9', 'back to the oldest surviving record');
-  assert.match(await page.locator('#patchNotesDialog .pn-page').innerText(), /The Reading Room Update/);
+  assert.match(await page.locator('#patchNotesDialog .pn-page').innerText(), /The Line of Authority Update/);
   await page.locator('#patchNotesDialog [data-pn]', { hasText: 'v19' }).first().click();
   const v19 = await page.locator('#patchNotesDialog .pn-page').innerText();
   assert.match(v19, /v19\.19/, 'point releases are listed under their version');
@@ -66,7 +66,7 @@ try {
   await page.locator('#patchNotesDialog[open]').waitFor({ state: 'detached' });
   assert.deepEqual(errors, []);
   console.log(
-    `Menu: four columns that fit the window. Patch notes: ${names.length} versions, v3.1 to v9, closes with Escape.`,
+    `Menu: four columns that fit the window. Patch notes: ${names.length} versions, v3.2 to v9, closes with Escape.`,
   );
 } finally {
   await browser.close();

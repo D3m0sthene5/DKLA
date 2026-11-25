@@ -1,6 +1,6 @@
 /* Sources, archives and search when their data blocks arrive after start-up, in a real browser.
 
-     node tools/performance/check-lazy-b.mjs http://127.0.0.1:8766/DKLA-v3.1.html
+     node tools/performance/check-lazy-b.mjs http://127.0.0.1:8766/DKLA-v3.2.html
 
    The hosted page may move large data blocks into files fetched on first use (window.DKLAData,
    src/features/performance/data-loader.js). This check does not need that loader: it serves the page with the

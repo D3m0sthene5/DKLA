@@ -1,7 +1,7 @@
 /* Makeover on 3.1, first proof: the path Home > Contracts > Offer > a group > a concept, in a real
    browser at the owner's window size (1512 x 789).
 
-     node tools/makeover/check-path.mjs http://127.0.0.1:8766/DKLA-v3.1.html
+     node tools/makeover/check-path.mjs http://127.0.0.1:8766/DKLA-v3.2.html
 
    On the Offer subject:
    - every group shows at least one entry (the short "Was there an offer?" group drew an empty box);

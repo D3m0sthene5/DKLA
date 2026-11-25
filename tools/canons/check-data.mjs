@@ -12,9 +12,9 @@ const block = (text, id) => {
   return JSON.parse(text.slice(text.indexOf('>', start) + 1, text.indexOf('</script>', start)));
 };
 const entries = JSON.parse(read('tools/canons/data/index.json'));
-const hosted = read('dist/DKLA-v3.1.html');
+const hosted = read('dist/DKLA-v3.2.html');
 assert.deepEqual(block(hosted, 'dklaCanonsData'), entries);
-assert.deepEqual(block(read('work/build/DKLA-v3.1.html'), 'dklaCanonsData'), entries);
+assert.deepEqual(block(read('work/build/DKLA-v3.2.html'), 'dklaCanonsData'), entries);
 const seed = new Set(block(hosted, 'seedData').nodes.map(({ id }) => id));
 const briefs = new Set(block(hosted, 'dklaR19Data').entries.map(([id]) => id));
 const ids = new Set();
@@ -41,7 +41,7 @@ console.log(entries.length + ' source-checked canons in the hosted and portable 
 
 const decks = JSON.parse(read('tools/canons/data/lectures.json'));
 assert.deepEqual(block(hosted, 'dklaLecturesData'), decks);
-assert.deepEqual(block(read('work/build/DKLA-v3.1.html'), 'dklaLecturesData'), decks);
+assert.deepEqual(block(read('work/build/DKLA-v3.2.html'), 'dklaLecturesData'), decks);
 const charts = new Set(block(hosted, 'dklaFlowchartsData').map(({ id }) => id));
 const ask = JSON.parse(
   gunzipSync(readFileSync(new URL('../../work/build/ask-corpus.json.gz', import.meta.url))),

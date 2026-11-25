@@ -1,7 +1,7 @@
 /* Lazy data blocks in a real browser (v3.1): the hosted page fetches its split blocks, verifies them,
    keeps them for offline use and never accepts altered bytes.
 
-     node tools/performance/check-lazy.mjs http://127.0.0.1:8781/DKLA-v3.1.html
+     node tools/performance/check-lazy.mjs http://127.0.0.1:8781/DKLA-v3.2.html
 
    Needs `pnpm build` (it compares with work/build, the portable atlas) and the preview server.
    1. The split is in the page as served: each listed block is empty and marked, the manifest and the
@@ -24,7 +24,7 @@ import { fileURLToPath } from 'node:url';
 import { chromium } from '@playwright/test';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const address = new URL(process.argv[2] || 'http://127.0.0.1:8781/DKLA-v3.1.html');
+const address = new URL(process.argv[2] || 'http://127.0.0.1:8781/DKLA-v3.2.html');
 assert.ok(['127.0.0.1', 'localhost'].includes(address.hostname), 'local preview only');
 const release = JSON.parse(fs.readFileSync(path.join(root, 'work/build/version.json'), 'utf8'));
 const portable = fs.readFileSync(path.join(root, 'work/build', release.file), 'utf8');

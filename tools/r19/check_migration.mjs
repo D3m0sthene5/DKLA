@@ -1,11 +1,11 @@
 /* The move from v2.9 to this release on a visitor's device, in a real browser, when the release renames
-   the atlas file (v3.1 serves DKLA-v3.1.html; v2.9 served DKLA-v2.9.html).
+   the atlas file (v3.2 serves DKLA-v3.2.html; v2.9 served DKLA-v2.9.html).
 
      node tools/r19/check_migration.mjs [--port 8779] [--same-name] [--disk]
 
    Before the release: the v2.9 offline worker, the v2.9 site-root page and the v2.9 page's update code
    (tools/r19/fixtures/v2.9, from commit 598d58fd). After it: this build's dist/ (run `pnpm build`
-   first). If dist/ still holds DKLA-v2.9.html, it is served as DKLA-v3.1.html, with index.html, sw.js
+   first). If dist/ still holds DKLA-v2.9.html, it is served as DKLA-v3.2.html, with index.html, sw.js
    and version.json naming that file and the old name redirecting to it; nothing in the repository
    changes. --same-name serves it under its own name instead.
 
@@ -52,7 +52,7 @@ const built = JSON.parse(fs.readFileSync(path.join(dist, 'version.json'), 'utf8'
 const OLD = { version: 'v2.9', build: 'v2.9-a77ee9d823', file: 'DKLA-v2.9.html' }; // the live v2.9 build
 const NEW = {
   ...built,
-  file: sameName || built.file !== OLD.file ? built.file : 'DKLA-v3.1.html',
+  file: sameName || built.file !== OLD.file ? built.file : 'DKLA-v3.2.html',
 };
 assert.notEqual(NEW.build, OLD.build);
 const PREVIOUS = { ...NEW, build: NEW.build.replace(/-[0-9a-f]+$/, '-feedface00') };

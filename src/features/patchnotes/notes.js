@@ -3,6 +3,37 @@
 window.DKLAPatchNotes = {
   'versions': [
     {
+      'v': 'v3.2',
+      'name': 'The Line of Authority Update',
+      'date': '2026-11-24',
+      'blurb':
+        'Doctrine timelines and flowcharts rebuilt so a whole line of cases, or a whole chart, reads at a glance.',
+      'notes': {
+        'New': [
+          'Doctrine timelines read as one line of authority: every entry is named on a rail with its year, how it moved the rule and what later happened to it. The case you are reading is highlighted, long gaps are marked, and the line ends at “Now”, where the law stands.',
+          'The sentence on how a timeline’s entries connect sits at the top of the timeline, on the case page and in the full view.',
+          'Flowchart steps on a case page read downward: every question from the chart’s start, the answer taken written in full, and the steps the case decides opened with their explanation and the other answers.',
+          'The flowchart map at Fit is an overview of the whole chart: its parts and outcomes are named, you can see where routes rejoin, and selecting a mark opens that step at reading size.',
+          'On the map each answer names where it leads by step number and title, and an outcome with one way in sits beside its answer with the cases that support it.',
+          'A case drawing on a flowchart opens a card with the case’s name, the step’s sentence about it, and Open case.',
+          'Coming back from a case returns you to the chart where you left it: the same step, view, zoom and scroll.',
+          'Opened from a case, a flowchart starts your path at that step; “Show one route to this step” shows a way there from the chart’s start.',
+          'On phones the flowchart map is one column, with joins written in words.',
+          'Drag the left edge of a page to make it wider or narrower; double-click the edge to reset it.',
+        ],
+        'Changed': [
+          'Subject maps show more entries: long names take two lines, groups no longer show blank rows, and the smallest names are drawn larger.',
+          'A flowchart step says its place on your path and its chart number (“2nd on your path · chart step 14”).',
+          'One set of fonts and text sizes in the timeline and flowchart windows and in the study, course and textbook windows, matching the rest of the Atlas.',
+          'The timeline window’s tabs, cards and close button match the flowchart window’s.',
+          'Ten timeline labels are in the past tense and say what the court held. House v. Mnuchin and Commonwealth v. Welosky now say what happened afterward.',
+        ],
+        'Removed': [
+          'The strip of unnamed dots above a case’s timeline, and the row of boxes that cut flowchart answers short.',
+        ],
+      },
+    },
+    {
       'v': 'v3.1',
       'name': 'The Reading Room Update',
       'date': '2026-11-18',

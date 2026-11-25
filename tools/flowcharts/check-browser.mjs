@@ -256,18 +256,19 @@ async function trip(page, hash, tap) {
     '1st on your path · chart step 20 · now',
   );
   await expect(dialog.locator('.fc-walk-controls [data-flowcharts-back]')).toBeDisabled();
-  const route = dialog.locator('details.fc-trail-route');
+  // (Beside the walkthrough where there is a path column; under the step on a narrow window.)
+  const route = dialog.locator(
+    (await dialog.locator('.fc-trail').isVisible())
+      ? '.fc-trail details.fc-trail-route'
+      : '.fc-detail-route details',
+  );
   await expect(route.locator('summary')).toHaveText('Show one route to this step');
+  await expect(route.locator('summary')).toBeVisible();
   assert.equal(await route.evaluate((box) => box.open), false, 'the route is shown on request');
-  if (await dialog.locator('.fc-trail').isVisible()) {
-    await route.locator('summary').click();
-    await expect(route.locator('li .fc-trail-n').last()).toHaveText('chart step 19');
-    // A step taken from the route becomes the start of the reader's own path; an answer is the 2nd.
-    await act(route.locator('li button').last());
-  } else {
-    // (A phone has no path column: the step before is reached by its own address.)
-    await page.goto(routeFor('#flowchart=LRS-15&step=balance'));
-  }
+  await act(route.locator('summary'));
+  await expect(route.locator('li .fc-trail-n').last()).toHaveText('chart step 19');
+  // A step taken from the route becomes the start of the reader's own path; an answer is the 2nd.
+  await act(route.locator('li button').last());
   await expect(dialog.locator('.fc-step-label')).toHaveText(/^1st on your path · chart step 19/);
   await act(branch(page, 'mathews'));
   await expect(dialog.locator('.fc-step-label')).toHaveText(/^2nd on your path · chart step 22/);

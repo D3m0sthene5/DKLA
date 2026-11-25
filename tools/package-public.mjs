@@ -31,7 +31,7 @@ async function each(items, limit, work) {
   return results;
 }
 const generated = new Set([
-  'DKLA-v3.1.html',
+  'DKLA-v3.2.html',
   'index.html',
   'sw.js',
   'version.json',
@@ -84,7 +84,7 @@ await fs.mkdir(output, { recursive: true });
 // canonical work/build portable HTML remain untouched.
 // The briefs and the data blocks listed in tools/performance/lazy-blocks.json become content-hashed files
 // the hosted page fetches on demand (tools/performance/package.mjs hostedRelease).
-const hostedPath = 'DKLA-v3.1.html';
+const hostedPath = 'DKLA-v3.2.html';
 const split = hostedRelease(await fs.readFile(path.join(root, 'work/build', hostedPath), 'utf8'), {
   lazy: JSON.parse(await fs.readFile(path.join(root, 'tools/performance/lazy-blocks.json'), 'utf8')).blocks,
   loader: await fs.readFile(path.join(root, 'src/features/performance/data-loader.js'), 'utf8'),

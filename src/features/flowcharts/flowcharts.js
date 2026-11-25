@@ -1300,6 +1300,7 @@
         <button type="button" data-flowcharts-back${trail.length - 1 <= lead ? ' disabled' : ''}>← ${trail.length - 1 > lead ? `Back to step ${byId.get(trail.at(-2).id).number}` : 'Previous step'}</button>
         <button type="button" data-flowcharts-reset${trail.length < 2 && node.id === active.chart.entry ? ' disabled' : ''}>Start over</button>
       </div>
+      <div class="fc-detail-route"></div>
       <div class="fc-detail-sources">${sourcesHTML(node)}${relatedHTML(node.related)}${relatedHTML(active.chart.related)}</div>`;
     const side = dialog.querySelector('.fc-side');
     if (side)
@@ -1331,9 +1332,13 @@
         ? `<details class="fc-trail-route"${active.routeOpen ? ' open' : ''}><summary>Show one route to ${trail.length - lead === 1 ? 'this step' : `chart step ${byId.get(trail[lead].id).number}`}</summary><ol>${rows.slice(0, lead).join('')}</ol></details>`
         : '';
       path.innerHTML = `<p class="fc-trail-label">Your path</p><ol>${rows.slice(lead).join('')}</ol>${next}${route}`;
-      path.querySelector('details')?.addEventListener('toggle', (event) => {
-        active.routeOpen = event.target.open;
-      });
+      // (A narrow window has no path column: there the same route is offered under the step.)
+      const slot = detail.querySelector('.fc-detail-route');
+      if (slot) slot.innerHTML = route;
+      for (const box of dialog.querySelectorAll('details.fc-trail-route'))
+        box.addEventListener('toggle', (event) => {
+          active.routeOpen = event.target.open;
+        });
     }
     // (An answer the reader chose is "You chose"; the last answer of a route a link arrived by is not.)
     const arrived = current.label
@@ -2140,6 +2145,16 @@
       body.scrollTop = left.top;
       const scroll = dialog.querySelector('.fc-map-scroll');
       if (scroll && left.map) [scroll.scrollLeft, scroll.scrollTop] = left.map;
+      // The keyboard goes back to the drawing whose card was open, or to the source link pressed.
+      const drawings = [...dialog.querySelectorAll('.fc-art-item')].filter(
+        (one) => one.getClientRects().length,
+      );
+      const links = [...dialog.querySelectorAll('a[data-flowchart-source]')].filter(
+        (one) => one.getClientRects().length && one.getAttribute('href') === left.href,
+      );
+      (left.art >= 0 ? drawings[left.art]?.querySelector('[data-fc-art]') : links[0])?.focus({
+        preventScroll: true,
+      });
     }
     if (active) active.left = null;
   }
@@ -2268,11 +2283,22 @@
       if (!active || !source) return;
       cameFrom = source.getAttribute('href');
       const scroll = dialog.querySelector('.fc-map-scroll');
+      // (Which link was pressed, and from which drawing's card, so the keyboard is put back there:
+      // owner's answers, 24 November 2026, Q8.)
+      const item = source.closest('.fc-art-item');
+      const cell = source.closest('[data-fc-cell], [data-fc-line]');
       active.left = {
         opened: active.opened,
         step: active.trail.at(-1).id,
         top: body.scrollTop,
         map: active.view === 'map' && scroll ? [scroll.scrollLeft, scroll.scrollTop] : null,
+        href: cameFrom,
+        art: item
+          ? [...dialog.querySelectorAll('.fc-art-item')]
+              .filter((one) => one.getClientRects().length)
+              .indexOf(item)
+          : -1,
+        cell: cell ? cell.dataset.fcCell || cell.dataset.fcLine : '',
       };
     },
     true,

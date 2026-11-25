@@ -23,7 +23,7 @@ const port = await new Promise((resolve, reject) => {
   });
 });
 const base = `http://127.0.0.1:${port}`,
-  page = base + '/DKLA-v3.1.html',
+  page = base + '/DKLA-v3.2.html',
   server = spawn(process.execPath, ['tools/preview.mjs', '--no-build', '--port', String(port)], {
     cwd: root,
     stdio: 'ignore',

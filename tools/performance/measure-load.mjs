@@ -1,6 +1,6 @@
 /* How heavy and how fast a fresh visit to the hosted atlas is.
 
-     node tools/performance/measure-load.mjs http://127.0.0.1:8781/DKLA-v3.1.html [--runs 2] [--no-proxy]
+     node tools/performance/measure-load.mjs http://127.0.0.1:8781/DKLA-v3.2.html [--runs 2] [--no-proxy]
                                               [--only throttled|unthrottled] [--latency 40] [--json out.json]
 
    Reports:
@@ -30,7 +30,7 @@ const flag = (name, fallback) => {
   const at = argv.indexOf(name);
   return at < 0 ? fallback : argv[at + 1];
 };
-const target = new URL(argv.find((a) => /^https?:/.test(a)) || 'http://127.0.0.1:8781/DKLA-v3.1.html');
+const target = new URL(argv.find((a) => /^https?:/.test(a)) || 'http://127.0.0.1:8781/DKLA-v3.2.html');
 const runs = Number(flag('--runs', 1));
 const latency = Number(flag('--latency', 40));
 const only = flag('--only', '');

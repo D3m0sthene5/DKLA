@@ -1,6 +1,6 @@
 /* Makeover on 3.1: the reading panel's edge can be dragged (src/features/makeover/resize.js).
 
-     node tools/makeover/check-resize.mjs http://127.0.0.1:8766/DKLA-v3.1.html
+     node tools/makeover/check-resize.mjs http://127.0.0.1:8766/DKLA-v3.2.html
 
    At 1512 x 789, with the group "Lapse, revocation & other endings" open:
    - a handle sits on the panel's left edge, the full height of the panel;

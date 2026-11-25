@@ -1,6 +1,6 @@
 /* Cold Call, the dictionary and SCOTUS History when their data arrives late (v3.1 lazy data).
 
-     node tools/performance/check-lazy-a.mjs http://127.0.0.1:8766/DKLA-v3.1.html
+     node tools/performance/check-lazy-a.mjs http://127.0.0.1:8766/DKLA-v3.2.html
 
    The hosted page may leave large data blocks empty and fetch them on demand through window.DKLAData
    (src/features/performance/data-loader.js; the contract is in its header). This check serves the page

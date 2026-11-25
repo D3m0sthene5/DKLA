@@ -1,6 +1,6 @@
 /* Atlas search on phones and across every kind of material, in a real browser (v3.1).
 
-     node tools/search/check-browser.mjs http://127.0.0.1:8766/DKLA-v3.1.html [--shots DIR]
+     node tools/search/check-browser.mjs http://127.0.0.1:8766/DKLA-v3.2.html [--shots DIR]
 
    At 390 px: the top bar has a labelled Search button (the box itself was 0 px wide there); tapping it opens a
    full-width panel with the keyboard in the box; "LRS Class 22" lists the LRS Class 22 lecture first (the
@@ -22,9 +22,11 @@ const shotsAt = process.argv.indexOf('--shots'),
   shots = shotsAt > 0 ? process.argv[shotsAt + 1] : null;
 if (shots) await mkdir(shots, { recursive: true });
 // The top-bar box measured before the phone change (18 November 2026): box and input, left edge and width.
+// v3.2: the version label beside the wordmark is 9 to 10 px wider ("v3.2" for "v3.1"), so the box starts that
+// much further right; its widths are as they were.
 const DESKTOP = {
-  1440: { box: [436, 430], input: [472, 351] },
-  1024: { box: [288, 410], input: [325, 331] },
+  1440: { box: [445, 430], input: [481, 351] },
+  1024: { box: [298, 410], input: [334, 331] },
 };
 
 const browser = await chromium.launch();

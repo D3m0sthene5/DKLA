@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "reviewedAt": "2026-11-17",
   "dataPath": "tools/r19/data/timelines.json",
-  "timelinesSha256": "09f1bf2abc69e163b4fd6aa1842c51dd711da977975232ffc84519b344db2eaa",
+  "timelinesSha256": "11ce4a8a10d9eefd0f58c83e681638f2ed75fbabd6d4e9a582d43ab70cba5aec",
   "baselineGitRevision": "347d2e9759a7b5429f24825c521a967ce2b14eb9",
   "scope": "All timeline memberships and navigation were inventoried against the canonical cases and original assigned-source locations. New lines and selected corrections were compared with original casebook passages and case-specific accounts. Prior complete-opinion limitations remain; this does not certify every proposition or all current law. November 17: all 685 timeline steps screened editorially; targeted primary-source corrections are recorded separately. This is not a complete primary-source audit of every step or brief.",
   "limitations": [
@@ -46927,6 +46927,152 @@
       },
       "after": {
         "note": "A buyer of goods may obtain specific performance for unique goods or other proper circumstances. Inability to obtain substitutes can support relief beyond a uniqueness label; damages’ adequacy and equitable discretion still matter."
+      }
+    },
+    {
+      "timelineId": "removal",
+      "step": 3,
+      "key": "lrs-s-humphrey",
+      "fields": [
+        "effect"
+      ],
+      "before": {
+        "effect": "Historically permits FTC removal protection"
+      },
+      "after": {
+        "effect": "Upheld for-cause removal protection for FTC commissioners"
+      }
+    },
+    {
+      "timelineId": "deference",
+      "step": 1,
+      "key": "lrs-i-gray-powell",
+      "fields": [
+        "effect"
+      ],
+      "before": {
+        "effect": "Historically accepts the agency’s statutory classification"
+      },
+      "after": {
+        "effect": "Accepted the agency’s statutory classification"
+      }
+    },
+    {
+      "timelineId": "deference",
+      "step": 2,
+      "key": "lrs-i-hearst",
+      "fields": [
+        "effect"
+      ],
+      "before": {
+        "effect": "Historically accepts the Board’s employee classification"
+      },
+      "after": {
+        "effect": "Accepted the Board’s employee classification"
+      }
+    },
+    {
+      "timelineId": "deference",
+      "step": 4,
+      "key": "lrs-i-chevron",
+      "fields": [
+        "effect"
+      ],
+      "before": {
+        "effect": "Historically requires Chevron deference"
+      },
+      "after": {
+        "effect": "Required Chevron deference"
+      }
+    },
+    {
+      "timelineId": "deference",
+      "step": 5,
+      "key": "lrs-i-mead-note",
+      "fields": [
+        "effect"
+      ],
+      "before": {
+        "effect": "Historically limits which acts receive Chevron deference"
+      },
+      "after": {
+        "effect": "Limited which acts received Chevron deference"
+      }
+    },
+    {
+      "timelineId": "deference",
+      "step": 6,
+      "key": "lrs-i-brand-x",
+      "fields": [
+        "effect"
+      ],
+      "before": {
+        "effect": "Historically lets an agency displace some judicial readings"
+      },
+      "after": {
+        "effect": "Let an agency displace some judicial readings"
+      }
+    },
+    {
+      "timelineId": "deference",
+      "step": 7,
+      "key": "LRS-CLOSURE-031",
+      "fields": [
+        "effect"
+      ],
+      "before": {
+        "effect": "Historically applies Chevron to agency authority"
+      },
+      "after": {
+        "effect": "Applied Chevron to agency authority"
+      }
+    },
+    {
+      "timelineId": "guidance",
+      "step": 5,
+      "key": "lrs-n-paralyzed-veterans",
+      "fields": [
+        "effect"
+      ],
+      "before": {
+        "effect": "Historically requires procedure for changed interpretations"
+      },
+      "after": {
+        "effect": "Required notice and comment for a significant change to an agency’s prior interpretation of its regulation"
+      }
+    },
+    {
+      "timelineId": "institutional-justiciability",
+      "step": 5,
+      "key": "LRS-CLOSURE-055",
+      "fields": [
+        "effect",
+        "fate"
+      ],
+      "before": {
+        "effect": "Historically recognizes one chamber’s spending injury",
+        "fate": "The 2020 judgment was later vacated; read the assigned account as historical institutional-standing analysis."
+      },
+      "after": {
+        "effect": "Recognized the House’s standing to challenge spending it alleged Congress had not authorized",
+        "fate": "Vacated for mootness: in 2021 the Supreme Court vacated the judgment and directed dismissal as moot"
+      }
+    },
+    {
+      "timelineId": "interpretive-corrections",
+      "step": 2,
+      "key": "LRS-CLOSURE-062",
+      "fields": [
+        "effect",
+        "fate"
+      ],
+      "before": {
+        "effect": "Historically excludes women from this jury statute",
+        "fate": null
+      },
+      "after": {
+        "effect": "Read the Massachusetts jury statute then in force to exclude women",
+        "fate": "Massachusetts made women eligible for jury service in 1950"
       }
     }
   ],

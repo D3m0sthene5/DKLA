@@ -4,7 +4,7 @@
    when something covers the top bar (Study, a dialog), never over a
    tile or a control, and still under reduced motion.
 
-     node tools/splash/browser.mjs http://127.0.0.1:8766/DKLA-v3.1.html */
+     node tools/splash/browser.mjs http://127.0.0.1:8766/DKLA-v3.2.html */
 import assert from 'node:assert/strict';
 import { chromium, expect } from '@playwright/test';
 

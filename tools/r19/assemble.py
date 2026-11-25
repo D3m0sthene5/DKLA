@@ -22,10 +22,10 @@ DATA = PARTS / "data"
 sys.path.insert(0, str(ROOT / "tools"))
 from source import read_source, source_hash
 BUILD = Path(os.environ.get("DKLA_ASSEMBLY_DIR", ROOT / "work/build"))
-TARGET = BUILD / "DKLA-v3.1.html"
+TARGET = BUILD / "DKLA-v3.2.html"
 EXPECTED_R18 = "bffd3d4469836a19eaafbd2e29eff443b08b87d496147c887f5d2589d3cb45c1"
-VERSION = "v3.1"
-LABEL = "v3.1"
+VERSION = "v3.2"
+LABEL = "v3.2"
 
 def unique_config_object(pairs):
     """Reject ambiguous configuration, never apply this to inherited legal data."""
@@ -45,6 +45,11 @@ VREF = re.compile(r"(?<![\w/#.-])r(\d{1,2}(?:\.\d+)?[a-z]?)(?![\w-]|\.(?:js|css|
 def vform_log(entries: list[dict]) -> list[dict]:
     return [dict(e, v=VREF.sub(r"v\1", e["v"]), text=VREF.sub(r"v\1", e["text"])) for e in entries]
 
+
+CHANGELOG_V32 = {
+    "v": "v3.2", "date": "2026-11-24",
+    "text": "Doctrine timelines read as one line of authority: every entry named on a rail with its year, how it moved the rule and what later happened to it, the case being read highlighted, long gaps marked, the sentence on how the entries connect at the top, and the line ending at Now, where the law stands. Flowchart steps on a case page read downward with every answer written in full. The flowchart map at Fit is an overview of the whole chart with its parts and outcomes named; on the map each answer names the step it leads to, an outcome with one way in sits beside its answer with its cases, a case drawing opens a card, and coming back from a case returns to the chart as it was left. Opened from a case, a chart starts the path at that step and shows one route to it on request. The edge of a page can be dragged to resize it. Subject maps show more entries, with long names on two lines. One set of fonts and text sizes across the timeline, flowchart, study, course and textbook windows. Ten timeline labels are in the past tense, and two say what happened afterward."
+}
 
 CHANGELOG_V31 = {
     "v": "v3.1", "date": "2026-11-18",
@@ -435,7 +440,7 @@ def build_data() -> tuple[dict, dict]:
     for cid, edits in revised.items():
         if cid in sections:
             sections[cid]["rev"] = sections[cid].get("rev", "") + ".plain28-" + digest(json.dumps(edits, sort_keys=True).encode())[:10]
-    return dict(chronologies=json.loads((ROOT / "tools/v28/case-chronologies.json").read_text(encoding="utf-8")), sourceLinks=json.loads((ROOT / "tools/v28/source-links.json").read_text(encoding="utf-8")), pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=vform_log([CHANGELOG_V31, CHANGELOG_V30, CHANGELOG_V29, CHANGELOG_V28, CHANGELOG_V27, CHANGELOG_V26, CHANGELOG_V25_AUTHORITY_DESIGN, CHANGELOG_V25_READING, CHANGELOG_V24_NARRATIVE, CHANGELOG_V24_AUDIT, CHANGELOG_V25, CHANGELOG_V24, CHANGELOG_V23, CHANGELOG_V221, CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG])), full
+    return dict(chronologies=json.loads((ROOT / "tools/v28/case-chronologies.json").read_text(encoding="utf-8")), sourceLinks=json.loads((ROOT / "tools/v28/source-links.json").read_text(encoding="utf-8")), pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=vform_log([CHANGELOG_V32, CHANGELOG_V31, CHANGELOG_V30, CHANGELOG_V29, CHANGELOG_V28, CHANGELOG_V27, CHANGELOG_V26, CHANGELOG_V25_AUTHORITY_DESIGN, CHANGELOG_V25_READING, CHANGELOG_V24_NARRATIVE, CHANGELOG_V24_AUDIT, CHANGELOG_V25, CHANGELOG_V24, CHANGELOG_V23, CHANGELOG_V221, CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG])), full
 
 
 def tiles(graph: dict) -> dict:

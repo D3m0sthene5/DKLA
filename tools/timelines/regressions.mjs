@@ -2,7 +2,7 @@
 import http from 'node:http';
 import fs from 'node:fs/promises';
 import { spawn } from 'node:child_process';
-const html = await fs.readFile('dist/DKLA-v3.1.html', 'utf8');
+const html = await fs.readFile('dist/DKLA-v3.2.html', 'utf8');
 const source = process.argv[2] || 'http://127.0.0.1:8877';
 const mutations = [
   ['missing introduction', 'esc(t.guide)', "''", /orientation is visible/],
@@ -17,7 +17,7 @@ for (const [name, from, to, expected] of mutations) {
   if (!html.includes(from)) throw Error('Missing mutation target: ' + name);
   const mutated = html.replace(from, to);
   const server = http.createServer((req, res) => {
-    if (req.url.split('?')[0] === '/DKLA-v3.1.html') {
+    if (req.url.split('?')[0] === '/DKLA-v3.2.html') {
       res.writeHead(200, {
         'Content-Type': 'text/html; charset=utf-8',
         'Content-Length': Buffer.byteLength(mutated),
@@ -35,7 +35,7 @@ for (const [name, from, to, expected] of mutations) {
     });
   });
   await new Promise((r) => server.listen(0, '127.0.0.1', r));
-  const url = `http://127.0.0.1:${server.address().port}/DKLA-v3.1.html`;
+  const url = `http://127.0.0.1:${server.address().port}/DKLA-v3.2.html`;
   const result = await new Promise((resolve) => {
     const child = spawn(process.execPath, ['tools/timelines/browser.mjs', url]);
     let output = '';

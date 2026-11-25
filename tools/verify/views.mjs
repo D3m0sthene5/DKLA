@@ -55,7 +55,7 @@ try {
         stdio: 'inherit',
         env: {
           ...process.env,
-          DKLA_VIEWS_URL: base + '/DKLA-v3.1.html',
+          DKLA_VIEWS_URL: base + '/DKLA-v3.2.html',
           ...(update ? { DKLA_VIEWS_RECORD: '1' } : {}),
         },
       },

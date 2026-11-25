@@ -137,7 +137,7 @@ export const tasks = [
     node('tools/flowcharts/check-data.mjs'),
     PACKAGED,
   ),
-  step('public', 'hosted page parses', node('tools/source/check_html.cjs', 'dist/DKLA-v3.1.html'), PACKAGED),
+  step('public', 'hosted page parses', node('tools/source/check_html.cjs', 'dist/DKLA-v3.2.html'), PACKAGED),
   // v3.1: each lazy data file in dist/ hashes to its manifest entry and is the portable block, byte for byte.
   step(
     'public',

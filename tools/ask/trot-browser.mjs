@@ -1,6 +1,6 @@
 /* The Ask Dottie thinking spinner's trotting opossums, in a real browser (v3.1).
 
-     node tools/ask/trot-browser.mjs http://127.0.0.1:8766/DKLA-v3.1.html
+     node tools/ask/trot-browser.mjs http://127.0.0.1:8766/DKLA-v3.2.html
 
    Each of the three opossums is drawn in 8 frames (dottie.js TROT; gait spec: a running trot,
    diagonal pairs, flight in frames 4 and 8, 90 ms a frame). With motion, exactly one frame of each

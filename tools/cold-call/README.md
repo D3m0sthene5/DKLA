@@ -97,7 +97,7 @@ pnpm build                                        # refuses bad shape or an unkn
 node tools/cold-call/check_reader.cjs             # lists every sentence not found in its paragraph
 python tools/verify/data_guard.py --update        # records the new dklaColdCallPlain block
 python tools/verify/content.py --update           # records the new tools/cold-call/*.json
-node tools/cold-call/glossary_browser.cjs http://127.0.0.1:8766/DKLA-v3.1.html   # needs the Erie licensee entry
+node tools/cold-call/glossary_browser.cjs http://127.0.0.1:8766/DKLA-v3.2.html   # needs the Erie licensee entry
 ```
 
 ## Content and sources

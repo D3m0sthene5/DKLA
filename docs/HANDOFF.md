@@ -1,11 +1,57 @@
-# Where the work stands (12 November 2026)
+# Where the work stands (24 November 2026)
 
 Written at the end of a session so the next one can pick up cleanly.
 Update or replace this file when the state changes.
 
-## Latest (18 November 2026, v3.1)
+## Latest (24 November 2026, v3.2)
 
 Read this first; the sections below it are older.
+
+- **v3.2, "The Line of Authority Update"** (served file `DKLA-v3.2.html`; `DKLA-v3.1.html` and every
+  older address redirect). 3.1 is the baseline: this release is 3.1 with a makeover of the parts the
+  owner named, one at a time, each shown to him on a private preview first. What changed:
+  - **Where the styles live**: `src/features/makeover/makeover.css` (last stylesheet; numbered
+    sections) and `src/features/makeover/resize.js`. Later rules there override the older files.
+  - **Subject maps** (`r20.js` `twoLineNames`, `readableFloor`; `studyCode.js` `displayName` and the
+    district rows): long names on two lines, no blank rows, a 9 px floor with the full title in a
+    tooltip.
+  - **Reading panel**: its left edge is a drag handle (`#readerResize`, width kept in
+    `localStorage` `dkla.readerWidth.v1`); under 860 px the page drops its rail.
+  - **Timeline on an entry's page** (`timelines.js` `panelHTML`): one rail of every entry (year, a
+    mark whose shape is the kind of move, name, how it moved the rule, later development), the
+    entry's neighbours with notes, breaks of 20 years or more, the stored `guide` sentence at the
+    top, the stored `now` statement at the end, and a key. The full window (`detailHTML`,
+    `stepHTML`) is the same rail with every note.
+  - **Flowcharts**: the case-page card (`chartStepsHTML`) is the path read downward. The window is
+    the one built on the shelved `v32-comp-b` branch, merged onto 3.1: map arrangement with paired
+    outcomes, an overview at Fit (`composeOverview`), case drawings with a card, the place kept
+    when leaving for a case and coming back, a one-column map on phones. Changed from that code:
+    "2nd on your path · chart step 14"; a chart opened from an entry starts the path there and
+    offers "Show one route to this step"; Back is off until the reader has moved.
+  - **Type**: both windows, the small-form windows (`#modal`), the study windows (`#r18Dialog`,
+    `#r19Dialog`) and the textbook window's headings use the bundled faces and the five 3.1 text
+    styles. Rules that named plain `Inter` fell back to the system font where Inter is not
+    installed; name `var(--dkla-interface)` instead.
+  - **Timeline data** (`tools/r19/data/timelines.json`, ledger
+    `tools/content-audit/2026-11-24-display-labels.json`): ten labels in the past tense, each
+    original kept on its step as `effectOriginal`; House v. Mnuchin's later-development line
+    restated and Commonwealth v. Welosky's added, on the owner's formulations of 24 November 2026.
+  - **Checks**: `tools/makeover/check-path.mjs`, `check-resize.mjs`, `check-lines.mjs`;
+    `tools/flowcharts/check-wires.mjs` and `check-overview.mjs` (each runs by itself on a small
+    machine). On a 2-core machine the full pass has timing failures in unrelated steps when steps
+    run side by side; `node tools/verify/run.mjs --serial` is the reliable run there.
+  - **Not done, known**: on three charts a line still passes behind a label in the overview; the
+    owner's "tightened" arrangement B (less empty height, wider case names) is as saved; the
+    recorded view pictures (`tools/verify/views/`, Windows and Mac only) still show 3.1 and need
+    `pnpm views:update` on those machines; the 115-chart library and the timeline list are long
+    lists; the authorities map's rule codes are in Consolas and the textbook page text in Georgia.
+  - **Saved, not used**: the rest of the 3.2 redesign (page shell, Home, Library, Cold Call answers,
+    the Doctrine plate) is on branches `v32-design`, `v32-comp-b`, `v32-time`, `v32-coldcall`,
+    `v32-home2`; the owner rejected the joined build on 19 November and chose 3.1 as the baseline.
+    His answers to the audit questions (24 November) say which pieces he wants; Q1 to Q11 and Q15
+    are in this release, the others are not started.
+
+## Earlier (18 November 2026, v3.1)
 
 - **v3.1, "The Reading Room Update"** (served file `DKLA-v3.1.html`; `DKLA-v3.0.html` and every
   older address redirect). Built from the owner-approved design audit (Design canvas "DKLA design
