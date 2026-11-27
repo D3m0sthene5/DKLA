@@ -3812,3 +3812,85 @@ test('a follow-up that stands alone is looked up alone and keeps an Atlas-cited 
   assert.equal(standsAlone('When was it decided?'), false);
   assert.equal(standsAlone('What did the court say about damages?'), false);
 });
+
+test('owner, 27 November 2026: "do not use the internet" is obeyed, and the Atlas finds Anderson v. Binance', async () => {
+  const { atlasOnly, withoutAtlasOnly } = await import('../../lib/ask/web.js');
+  const question =
+    'what case in the DKLA is most relevant to Unilateral Modification Clauses. do not use the internet';
+  // The instruction is recognised and is not looked up as the topic.
+  assert.equal(atlasOnly(question), true);
+  assert.equal(
+    withoutAtlasOnly(question),
+    'what case in the DKLA is most relevant to Unilateral Modification Clauses.',
+  );
+  for (const said of [
+    "Don't search the web: what is consideration?",
+    'explain Erie without using the internet',
+    'what is promissory estoppel? Atlas only',
+    'just use the DKLA, what is the mailbox rule',
+    'no web search please, define res judicata',
+  ])
+    assert.equal(atlasOnly(said), true, said);
+  // Descriptions and questions about the web are not instructions.
+  for (const said of [
+    'what is the mailbox rule',
+    'can a court exercise jurisdiction over a seller with no online presence',
+    'a firm without online sales',
+    'Explain personal jurisdiction over online sellers',
+    'what does the internet say about Erie',
+  ])
+    assert.equal(atlasOnly(said), false, said);
+
+  // Retrieval: the brief that discusses a unilateral modification clause ranks first, ahead of
+  // dictionary entries for "unilateral" and "modification".
+  const lookup = withoutAtlasOnly(question);
+  assert.equal(retrieve(lookup)[0].id, 'anderson-binance');
+  assert.ok(!retrieve(lookup).some(({ title }) => /internet/i.test(title)));
+  // Without the instruction, a question about what the Atlas holds still asks the Atlas first.
+  const { sources, signals } = retrieve.explain(lookup);
+  assert.equal(route(lookup, sources, { signals, lookup }).research, false);
+
+  // The handler: one Atlas answer told the web is off limits, no web tool, even when the model
+  // would have wanted research; the answer cites the Atlas.
+  const { json, requests } = await askWithFetch(
+    (request, input) => {
+      assert.ok(!request.tools, 'no web search may run');
+      assert.equal(input.search, 'atlas-only');
+      assert.doesNotMatch(input.question, /internet/i);
+      const n = excerptNumber(input, /^Anderson v\. Binance$/);
+      assert.ok(n, 'Anderson v. Binance is among the excerpts');
+      return atlasReply({
+        asks: 'the Atlas case most relevant to unilateral modification clauses',
+        answers: 'part',
+        needsWeb: true,
+        paragraphs: [
+          {
+            text: 'Anderson v. Binance: the implied covenant restricted a unilateral modification clause silent about accrued claims.',
+            citations: [n],
+          },
+        ],
+      });
+    },
+    { question },
+  );
+  assert.equal(requests.length, 1);
+  assert.equal(json.search, 'not-needed');
+  assert.equal(json.sources[0].id, 'anderson-binance');
+  assert.equal(json.paragraphs.length, 1);
+
+  // Nothing usable in the Atlas: the honest empty answer, still without a search.
+  const empty = await askWithFetch(
+    (request) => {
+      assert.ok(!request.tools, 'no web search may run');
+      return atlasReply({ asks: 'x', answers: 'none', needsWeb: true, paragraphs: [] });
+    },
+    { question },
+  );
+  assert.equal(empty.requests.length, 1);
+  assert.deepEqual(empty.json, {
+    paragraphs: [],
+    sources: [],
+    search: 'not-needed',
+    reason: 'not-enough-evidence',
+  });
+});

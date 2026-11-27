@@ -6,11 +6,13 @@ import { findAnswer, storable, storeAnswer } from '../lib/ask/library.js';
 import { asksAboutLecture, corpusDigest, indexCorpus, parseIndex } from '../lib/ask/retrieve.js';
 import {
   answerWithSearch,
+  atlasOnly,
   AtlasOnlyResearch,
   explainRequest,
   NoResearchAnswer,
   route,
   standsAlone,
+  withoutAtlasOnly,
 } from '../lib/ask/web.js';
 
 const corpus = new URL('../work/build/ask-corpus.json.gz', import.meta.url);
@@ -204,7 +206,11 @@ export function makeAskHandler(
       const apiKey = process.env.DKLA_OPENAI_API_KEY?.trim();
       if (!apiKey) return send(res, 503, { error: 'not-configured' });
 
-      const query = question.trim();
+      // The asker's instruction not to use the web ("do not use the internet", "Atlas only"):
+      // the question is answered from the Atlas alone and never researched, and the instruction
+      // is not looked up as part of the topic (lib/ask/web.js atlasOnly).
+      const offline = atlasOnly(question);
+      const query = offline ? withoutAtlasOnly(question) : question.trim();
       // A follow-up that points back ("when was it decided?") is looked up together with the question
       // before it, after a full stop, so its first word is not read as a name in mid-sentence ("… efficient
       // breach How do you …" made "How" a name outside the Atlas). One that stands alone is looked up alone.
@@ -256,9 +262,10 @@ export function makeAskHandler(
       // is not clearly reusable (library.js storable: the asker's own circumstances, a class
       // session, the present). The lookup comes before any call to OpenAI, so a question asked
       // before costs nothing.
+      const asked = question.trim();
       const shelf = earlier?.length || !path.stable || !storable(query) ? null : (node ?? '');
       if (shelf !== null && !fresh) {
-        const kept = await quietly(() => library.find(query, shelf));
+        const kept = await quietly(() => library.find(asked, shelf));
         if (gone.signal.aborted) return stop();
         if (kept)
           return reply.send(200, {
@@ -283,7 +290,7 @@ export function makeAskHandler(
           answer.search !== 'unavailable'
         )
           await quietly(() =>
-            library.store(query, shelf, {
+            library.store(asked, shelf, {
               paragraphs: answer.paragraphs,
               sources: answer.sources,
               search: answer.search,
@@ -295,7 +302,7 @@ export function makeAskHandler(
         );
       };
 
-      reply.progress({ step: 'atlas', entries: atlas.length, research: path.research });
+      reply.progress({ step: 'atlas', entries: atlas.length, research: path.research && !offline });
       // Time budget (vercel.json allows 45 s). Loading the corpus on a cold start takes about 0.3 s with
       // the prebuilt index. Then one shared 32 s deadline (26 s until 12 November 2026, when research
       // timed out on live questions):
@@ -325,6 +332,20 @@ export function makeAskHandler(
           subjects: path.subjects,
           parts: path.parts,
         });
+      // Atlas only, at the asker's word: one Atlas answer, told that the web is off limits
+      // (search 'atlas-only', lib/ask/answer.js), and no research whatever it says.
+      if (offline) {
+        if (!atlas.length) return reply.send(200, emptyAnswer(search));
+        try {
+          const output = await atlasAnswer('atlas-only');
+          reply.progress({ step: 'checking' });
+          return answered({ ...citeAnswer(output, atlas), search });
+        } catch (error) {
+          if (failed(error) || error instanceof InvalidCitations)
+            return gone.signal.aborted ? stop() : reply.send(200, emptyAnswer(search));
+          throw error;
+        }
+      }
       let draft;
       // The search ran and found nothing usable (as opposed to failing).
       let empty = false;
