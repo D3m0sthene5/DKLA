@@ -3865,7 +3865,8 @@ test('owner, 27 November 2026: "do not use the internet" is obeyed, and the Atla
         needsWeb: true,
         paragraphs: [
           {
-            text: 'Anderson v. Binance: the implied covenant restricted a unilateral modification clause silent about accrued claims.',
+            // The model's natural wording: not a hedge when the question asks for the most relevant case.
+            text: 'The most relevant case in the Atlas is Anderson v. Binance: the implied covenant restricted a unilateral modification clause silent about accrued claims.',
             citations: [n],
           },
         ],
@@ -3887,6 +3888,11 @@ test('owner, 27 November 2026: "do not use the internet" is obeyed, and the Atla
     { question },
   );
   assert.equal(empty.requests.length, 1);
+  // "The most relevant case is" still marks a substitute when the question did not ask for one.
+  assert.equal(
+    substitute('The most relevant case is Gustafson v. Alloyd.', 'what statute narrowed securities suits'),
+    true,
+  );
   assert.deepEqual(empty.json, {
     paragraphs: [],
     sources: [],
